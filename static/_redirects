@@ -1,12 +1,12 @@
 # Cloudflare Pages _redirects
 # Format: <source> <target> <status>
 
-# Trailing slash normalization for SEO
-/docs/* /docs/:splat 200
-/blog/* /blog/:splat 200
+# Handle /zh-Hans/* URLs — Docusaurus 默认语言产物在根目录，不做重复前缀
+/zh-Hans/*  /:splat  200
 
-# Locale redirect (default to zh-Hans for international users)
-/ /zh-Hans/ 302
+# Trailing slash normalization for SEO
+/docs/*  /docs/:splat  200
+/blog/*  /blog/:splat  200
 
 # SPA fallback for client-side routing
-/* /index.html 200
+/*  /index.html  200
