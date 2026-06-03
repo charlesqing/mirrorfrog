@@ -1,0 +1,125 @@
+---
+title: '燧原科技 云燧 T20/T21 - 燧原科技 Enflame'
+description: '燧原科技（Enflame）专注云端 AI 芯片，已自研四代架构、五款芯片。云燧 T20/T21 为训练推理产品，覆盖芯片、加速卡、智算集群及软件平台完整体系。2026 年 1 月获科创板 IPO 受理。'
+sidebar_label: '燧原科技 云燧 T20/T21'
+keywords:
+  - '燧原科技'
+  - '云燧'
+  - 'T20'
+  - 'T21'
+  - 'Enflame'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 燧原科技 云燧 T20/T21
+
+**厂商**: 燧原科技 Enflame
+
+**分类**: ASIC 专用加速卡
+
+**架构**: 燧原 DTU
+
+## 简介
+
+燧原科技（Enflame）专注云端 AI 芯片，已自研四代架构、五款芯片。云燧 T20/T21 为训练推理产品，覆盖芯片、加速卡、智算集群及软件平台完整体系。2026 年 1 月获科创板 IPO 受理。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| T21 | 128 TFLOPS (FP16) / 256 (INT8） | 32GB HBM2E (1.6 TB/s) | OAM | 300W | 7nm |
+| T20 | 134.4 TFLOPS (FP16) / 268.8 (INT8) | 32GB HBM2E (1.6 TB/s) | PCIe 4.0 | 300W | 7nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.enflame-tech.com/)
+## 驱动下载
+
+### Linux
+
+- [云燧驱动（Linux）](https://www.enflame-tech.com/driver)
+- [TopsRider SDK](https://www.enflame-tech.com/sdk)
+
+
+## 相关文档
+
+- [燧原开发者中心](https://developer.enflame-tech.com/)
+- [TopsRider 编程指南](https://www.enflame-tech.com/sdk)
+- [云燧 T20 产品文档](https://www.enflame-tech.com/t20)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| SDK 2.0 | 2024 | 训练+推理双场景 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| T21 | 训练/推理 | 接近 A100 水平 (官方数据) |
+| T20 | 推理 | INT8 优化 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| T21 | 需询价 | 企业客户 |
+| T20 | 需询价 | 已量产 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 安装燧原驱动和 SDK
+sudo rpm -ivh enflame-driver-*.rpm
+```
+
+## 代码示例
+
+### Python (燧原 Enflame)
+
+```python
+import torch
+# 燧原 GPU 提供 CUDA 兼容后端
+assert torch.cuda.is_available()
+```
+
+## 架构特色
+
+- **DTU 架构**: 燧原自研 AI 加速架构，面向训练和推理一体化设计
+- **完整软件栈**: 深度学习编译器 + 运行时 + 算子库
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ⚠️ 兼容 | CUDA 兼容后端 |
+| 通用 AI | ⚠️ | 生态发展中 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [寒武纪 思元 590](/asic/cambricon-mlu) — 寒武纪 Cambricon（ASIC 专用加速卡）
+- [昆仑芯 2代 / 3代](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（NPU 神经网络处理器）
+- [海光信息 深算 DCU](/asic/hygon-dcu) — 海光（ASIC 专用加速卡）
+- [清微智能 可重构 RPU](/asic/tsingmicro-rpu) — 清微（ASIC 专用加速卡）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+

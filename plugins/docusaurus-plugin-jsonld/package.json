@@ -1,0 +1,9 @@
+{
+  "name": "docusaurus-plugin-jsonld",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0"
+  }
+}

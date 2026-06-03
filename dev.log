@@ -1,0 +1,2536 @@
+
+> ai-compute-cards@0.0.0 start
+> docusaurus start
+
+[INFO] Starting the development server...
+[SUCCESS] Docusaurus website is running at: http://localhost:3000/
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[WARNING] Docusaurus found blog posts without truncation markers:
+- "blog/2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+
+We recommend using truncation markers (`<!-- truncate -->` or `{/* truncate */}`) in blog posts to create shorter previews on blog paginated lists.
+Tip: turn this security off with the `onUntruncatedBlogPosts: 'ignore'` blog plugin option.
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m6 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m6 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m6 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-25-apple-silicon-ai-comeback-m3-ultra-192gb-local-llm.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 491
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m8 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-25-apple-silicon-ai-comeback-m3-ultra-192gb-local-llm.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 491
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m8 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-25-apple-silicon-ai-comeback-m3-ultra-192gb-local-llm.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 491
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 504
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m10 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-25-apple-silicon-ai-comeback-m3-ultra-192gb-local-llm.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 491
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 504
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m10 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-25-apple-silicon-ai-comeback-m3-ultra-192gb-local-llm.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 491
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 504
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m10 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 504
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m8 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 504
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m8 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m8 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-25-hbm-market-sk-hynix-samsung-micron-2026.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 443
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m8 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m6 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 536
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m6 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m6 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-30-ai-cluster-power-crisis-1mw-nuclear-smr-green-ai.md"
+        │ Cause: Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)
+        │ Details:
+        │ {
+        │   "column": 2,
+        │   "file": "",
+        │   "message": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "line": 11,
+        │   "name": "11:2",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 18,
+        │     "line": 11,
+        │     "column": 2,
+        │     "offset": 431
+        │   },
+        │   "reason": "Unexpected character `!` (U+0021) before name, expected a character that can start a name, such as a letter, `$`, or `_` (note: to create a comment in MDX, use `{/* text */}`)",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m6 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 40,
+        │   "file": "",
+        │   "message": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 40,
+        │   "name": "40:40",
+        │   "place": {
+        │     "_bufferIndex": 3,
+        │     "_index": 0,
+        │     "line": 40,
+        │     "column": 40,
+        │     "offset": 1361
+        │   },
+        │   "reason": "Unexpected character `4` (U+0034) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 38,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 200,
+        │   "name": "200:38",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 200,
+        │     "column": 38,
+        │     "offset": 5286
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 38,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 200,
+        │   "name": "200:38",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 200,
+        │     "column": 38,
+        │     "offset": 5286
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 37,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 202,
+        │   "name": "202:37",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 202,
+        │     "column": 37,
+        │     "offset": 5382
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-04-30-inference-optimization-paged-attention-flash-attention-speculative-decoding.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 37,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 202,
+        │   "name": "202:37",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 202,
+        │     "column": 37,
+        │     "offset": 5382
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+
+--------------------------
+
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m4 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 23,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 23,
+        │   "name": "23:23",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 23,
+        │     "column": 23,
+        │     "offset": 851
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 19,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 24,
+        │   "name": "24:19",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 24,
+        │     "column": 19,
+        │     "offset": 895
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 19,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 24,
+        │   "name": "24:19",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 24,
+        │     "column": 19,
+        │     "offset": 895
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 24,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 25,
+        │   "name": "25:24",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 25,
+        │     "column": 24,
+        │     "offset": 943
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`
+        │ Details:
+        │ {
+        │   "column": 24,
+        │   "file": "",
+        │   "message": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "line": 25,
+        │   "name": "25:24",
+        │   "place": {
+        │     "_bufferIndex": 1,
+        │     "_index": 0,
+        │     "line": 25,
+        │     "column": 24,
+        │     "offset": 943
+        │   },
+        │   "reason": "Unexpected character `1` (U+0031) before name, expected a character that can start a name, such as a letter, `$`, or `_`",
+        │   "ruleId": "unexpected-character",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-character-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag
+        │ Details:
+        │ {
+        │   "column": 38,
+        │   "file": "",
+        │   "message": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "line": 39,
+        │   "name": "39:38",
+        │   "place": {
+        │     "_bufferIndex": -1,
+        │     "_index": 1,
+        │     "line": 39,
+        │     "column": 38,
+        │     "offset": 1541
+        │   },
+        │   "reason": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "ruleId": "unexpected-eof",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-end-of-file-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag
+        │ Details:
+        │ {
+        │   "column": 38,
+        │   "file": "",
+        │   "message": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "line": 39,
+        │   "name": "39:38",
+        │   "place": {
+        │     "_bufferIndex": -1,
+        │     "_index": 1,
+        │     "line": 39,
+        │     "column": 38,
+        │     "offset": 1541
+        │   },
+        │   "reason": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "ruleId": "unexpected-eof",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-end-of-file-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag
+        │ Details:
+        │ {
+        │   "column": 38,
+        │   "file": "",
+        │   "message": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "line": 39,
+        │   "name": "39:38",
+        │   "place": {
+        │     "_bufferIndex": -1,
+        │     "_index": 1,
+        │     "line": 39,
+        │     "column": 38,
+        │     "offset": 1541
+        │   },
+        │   "reason": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "ruleId": "unexpected-eof",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-end-of-file-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+╰─▶   × Error: MDX compilation failed for file "D:\ai\mirrorfrog\ai-compute-cards\blog\2026-05-28-ai-startup-survival-2026-tenstorrent-sambanova-graphcore.md"
+        │ Cause: Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag
+        │ Details:
+        │ {
+        │   "column": 38,
+        │   "file": "",
+        │   "message": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "line": 39,
+        │   "name": "39:38",
+        │   "place": {
+        │     "_bufferIndex": -1,
+        │     "_index": 1,
+        │     "line": 39,
+        │     "column": 38,
+        │     "offset": 1541
+        │   },
+        │   "reason": "Unexpected end of file in name, expected a name character such as letters, digits, `$`, or `_`; whitespace before attributes; or the end of the tag",
+        │   "ruleId": "unexpected-eof",
+        │   "source": "micromark-extension-mdx-jsx",
+        │   "url": "https://github.com/micromark/micromark-extension-mdx-jsx#unexpected-end-of-file-at-expected-expect"
+        │ }
+        │
+        │     at compileToJSX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\utils.js:93:15)
+        │     at async loadMDX (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:22:20)
+        │     at async Object.mdxLoader (D:\ai\mirrorfrog\ai-compute-cards\node_modules\@docusaurus\mdx-loader\lib\loader.js:157:24)
+[1mclient[39m[22m (Rspack 1.7.11) compiled with [1m[31m2 errors[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+[1mclient[39m[22m (Rspack 1.7.11) compiled [1m[32msuccessfully[39m[22m
+Panic occurred at runtime. Please file an issue on GitHub with the backtrace below: https://github.com/web-infra-dev/rspack/issues: panicked at crates\rspack_storage\src\pack\strategy\split\write_pack.rs:280:5:
+should have same length keys, contents, and generations

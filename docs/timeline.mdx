@@ -1,0 +1,143 @@
+---
+id: timeline
+title: 'AI 算力卡发展史时间线 | 从 GPU 到专用 AI 加速器'
+description: 'AI 算力卡完整发展史：从 NVIDIA G80 (CUDA) 到 H100/H200/B200，从 Google TPU v1 到 Ironwood，从 Cerebras WSE 到 Groq LPU。时间线覆盖 2006-2026 年。'
+keywords: [AI 算力卡历史, NVIDIA CUDA 历史, Google TPU 发展史, AI 芯片时间线, GPU 算力进化]
+sidebar_position: 4
+sidebar_label: '发展史时间线'
+---
+
+# AI 算力卡发展史时间线（2006-2026）
+
+> 从通用 GPU 到专用 AI 加速器，20 年算力进化之路。
+
+## 2006-2011：CUDA 时代开启
+
+| 年份 | 事件 | 意义 |
+|---|---|---|
+| 2006 | **NVIDIA G80 (8800 GTS)** 发布，CUDA 1.0 问世 | 通用 GPU 计算元年，GPU 不再只是显卡 |
+| 2007 | **NVIDIA Tesla C870** 发布 | 首款专用 GPU 计算卡，无显示输出 |
+| 2008 | **NVIDIA Tesla C1060** (GT200) | 240 个 CUDA 核心，首款双精度支持 |
+| 2009 | **NVIDIA Fermi (Tesla C2050)** | ECC 内存，错误校正，进入 HPC 市场 |
+| 2010 | **NVIDIA CUDA 3.0** | 正式支持 C++，cuDNN 前身 |
+| 2011 | **NVIDIA Tesla M2090** (Fermi) | 双精度 665 GFLOPS，超算标配 |
+
+## 2012-2016：深度学习爆发
+
+| 年份 | 事件 | 意义 |
+|---|---|---|
+| 2012 | **AlexNet (CUDA)** | GPU 加速深度学习一战成名 |
+| 2012 | **NVIDIA K20 (Kepler)** | 15.9 TFLOPS FP32，HPC 爆发 |
+| 2013 | **NVIDIA Tesla K40** | 12GB 显存，首款 12GB GPU |
+| 2014 | **NVIDIA CUDA 6.0** | Unified Memory，简化 GPU 编程 |
+| 2015 | **NVIDIA Tesla P100** (Pascal) | **首款 HBM 显存**，HPC 内存带宽革命 |
+| 2016 | **NVIDIA Tesla P100 (量产)** | NVLink 1.0，160 GB/s GPU 间互联 |
+
+## 2016-2020：AI 专用加速卡诞生
+
+| 年份 | 事件 | 意义 |
+|---|---|---|
+| 2016 | **Google TPU v1** (推理) | 首款非 GPU 架构 AI 加速器，~92 TOPS INT8 |
+| 2017 | **Google TPU v2** (训练+推理) | 180 TFLOPS BF16，TPU Pod 机架 |
+| 2017 | **NVIDIA V100** (Volta) | **Tensor Core 问世**，AI 训练专用单元 |
+| 2018 | **Google TPU v3** | 420 TFLOPS BF16，液冷 TPU Pod |
+| 2019 | **NVIDIA A100** (Ampere) | **MIG 多实例 GPU**，7nm，40GB HBM2 |
+| 2020 | **Google TPU v4** (Intrepid) | 1,086 TFLOPS BF16，稀疏架构 |
+
+## 2021-2023：大模型时代
+
+| 年份 | 事件 | 意义 |
+|---|---|---|
+| 2021 | **NVIDIA H100** (Hopper) | **Transformer Engine**，FP8 支持，LLM 训练之王 |
+| 2022 | **Google TPU v5e** (Cydonia) | 单芯片推理优化，1,028 TFLOPS |
+| 2022 | **Google TPU v5p** (Cydonia) | 训练优化，1,444 TFLOPS，32GB HBM |
+| 2023 | **NVIDIA H200** | **141GB HBM3e**，4.8 TB/s，大模型推理优化 |
+| 2023 | **AMD MI300X** | 192GB HBM3，对标 H100，开源 ROCm |
+| 2023 | **Cerebras WSE-2** | 2.6 万亿晶体管，85 PFLOPS，晶圆级 |
+| 2023 | **Intel Gaudi 2** | 6nm，Habana Labs 被收购后首款产品 |
+
+## 2024-2025：Blackwell 与国产替代
+
+| 年份 | 事件 | 意义 |
+|---|---|---|
+| 2024 Q1 | **NVIDIA B200** (Blackwell) | 9 PFLOPS，192GB HBM3e，2nm 工艺 |
+| 2024 Q2 | **NVIDIA GB200** | 2× B200 + Grace CPU，LLM 推理怪兽 |
+| 2024 Q3 | **AMD MI325X** | 256GB HBM3e，对标 H200 |
+| 2024 Q4 | **AMD MI350X** (CDNA 4) | 288GB HBM3e，9.2 PFLOPS |
+| 2024 Q4 | **Google TPU v6e** (Trillium) | 918 TFLOPS，32GB HBM，已 GA |
+| 2025 Q1 | **Intel Gaudi 3** | 1,600 TFLOPS，128GB SRAM，对标 H100 |
+| 2025 Q2 | **NVIDIA B300 Ultra** | 14 PFLOPS，288GB HBM3e，1,400W |
+| 2025 Q2 | **AMD MI355X** | 10.1 PFLOPS (MXFP6)，288GB HBM3e |
+| 2025 H2 | **华为昇腾 910C** | 双 Die，780 TFLOPS，国产替代主力 |
+
+## 2026（官宣 / 预期）
+
+| 产品 | 厂商 | 关键信息 |
+|---|---|---|
+| **NVIDIA Rubin R200** | NVIDIA | 288GB HBM4，50 PFLOPS FP4 (稀疏)，Vera CPU |
+| **AMD MI400 + Helios** | AMD | 432GB HBM4，40 PFLOPS FP4，260 TB/s UALink |
+| **Google TPU Ironwood (v7)** | Google | 192GB HBM，~2,000 TFLOPS BF16 |
+| **Cerebras WSE-4** | Cerebras | 1.4 万亿晶体管，125 PFLOPS FP8 |
+| **AWS Trainium 3** | AWS | 3nm，~2,000 TFLOPS，128GB HBM |
+| **华为昇腾 920** | 华为 | 900+ TFLOPS BF16，4 Tbps 片间互联 |
+
+## 算力增长曲线（FP16 训练算力）
+
+```
+年份  产品                FP16 算力
+----------------------------------------
+2006  Tesla C870          ~0.5  TFLOPS
+2010  Tesla C2050        ~1.3  TFLOPS
+2016  Tesla P100          ~10   TFLOPS
+2017  V100                ~15   TFLOPS
+2020  A100                ~312  TFLOPS
+2021  H100                ~1,979 TFLOPS
+2023  H200                ~1,979 TFLOPS (显存↑)
+2024  B200                ~4,500 TFLOPS
+2025  B300 Ultra          ~7,000 TFLOPS
+2026  Rubin R200          ~10,000 TFLOPS (FP4: 50 PFLOPS)
+2026  AMD MI400           ~10,000 TFLOPS (FP4: 40 PFLOPS)
+```
+
+> **趋势**：每 2-3 年算力 ~4×（摩尔定律 × Tensor Core 架构创新）
+
+## 关键架构演进
+
+### NVIDIA 架构代号
+
+| 架构 | 年份 | 关键创新 |
+|---|---|---|
+| Tesla (G80) | 2006 | CUDA 1.0，通用 GPU 计算 |
+| Fermi | 2010 | ECC 内存，双精度 |
+| Kepler | 2012 | GPU Boost，动态频率 |
+| Maxwell | 2014 | 能效优化 |
+| Pascal | 2016 | HBM 显存，NVLink 1.0 |
+| Volta | 2017 | **Tensor Core**，AI 训练专用 |
+| Turing | 2018 | RT Core，消费级光追 |
+| Ampere | 2020 | MIG，多实例 GPU |
+| Hopper | 2022 | **Transformer Engine**，FP8 |
+| Blackwell | 2024 | 2nm，9 PFLOPS，192GB HBM3e |
+| Rubin | 2026 | HBM4，50 PFLOPS FP4，Vera CPU |
+
+### Google TPU 代际
+
+| 代 | 年份 | 关键创新 |
+|---|---|---|
+| v1 | 2016 | 首款 ASIC AI 加速器，推理专用 |
+| v2 | 2017 | 训练+推理，TPU Pod |
+| v3 | 2018 | 液冷，~420 TFLOPS |
+| v4 | 2020 | 稀疏架构，1,086 TFLOPS |
+| v5e | 2022 | 推理优化，单芯片 |
+| v5p | 2022 | 训练优化，32GB HBM |
+| v6e (Trillium) | 2024 | 918 TFLOPS，32GB HBM |
+| v6p | 2024 | 训练优化，64GB HBM |
+| 8t / 8i | 2026 | 训练/推理拆分架构 |
+| Ironwood (v7) | 2026 | 192GB HBM，~2,000 TFLOPS |
+
+## 贡献与纠错
+
+发现时间线有误或缺失关键事件？[提交 PR](https://github.com/anomalyco/mirrorfrog/pulls) 帮助我们完善！
+
+---
+
+[← 返回首页](/docs/intro) | [未来路线图 →](/docs/roadmap) | [完整对比表 →](/docs/comparison)

@@ -1,0 +1,149 @@
+---
+title: 'Intel NPU (AI Boost) - Intel'
+description: 'Intel Core Ultra 处理器内置的 NPU（AI Boost），用于低功耗 AI 推理加速。支持 OpenVINO 框架，适合轻薄本和边缘设备上的 AI 工作负载。'
+sidebar_label: 'Intel NPU (AI Boost)'
+keywords:
+  - 'Intel'
+  - 'NPU'
+  - 'AI'
+  - 'Boost'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Intel NPU (AI Boost)
+
+**厂商**: Intel
+
+**分类**: NPU 神经网络处理器
+
+**架构**: Gaudi NPU Core / Movidius
+
+## 简介
+
+Intel Core Ultra 处理器内置的 NPU（AI Boost），用于低功耗 AI 推理加速。支持 OpenVINO 框架，适合轻薄本和边缘设备上的 AI 工作负载。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Core Ultra 200V | 48 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 17-45W | Intel 4 |
+| Core Ultra (Meteor Lake) | 12 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 28W | Intel 4 |
+| Movidius Myriad X | 4 TOPS (INT8) | 512MB LPDDR4 | USB 3.0 | 1.5W | 16nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.intel.com/content/www/us/en/products/docs/processors/core-ultra/npu-ai.html)
+## 驱动下载
+
+### Windows
+
+- [Intel NPU Driver (Windows)](https://www.intel.com/content/www/us/en/download-center/home.html)
+
+### Linux
+
+- [Intel NPU Linux Driver](https://github.com/intel/linux-npu-driver)
+
+
+## 相关文档
+
+- [Intel NPU 加速指南](https://docs.openvino.ai/2024/openvino-workflow/model-optimization-guide/optimizing-use-npu.html)
+- [OpenVINO 文档](https://docs.openvino.ai/)
+- [Intel AI PC 开发者资源](https://www.intel.com/content/www/us/en/developer/topic-technology/artificial-intelligence/overview.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| OpenVINO 2024.4 | 2024 | Lunar Lake NPU 支持 |
+| OpenVINO 2024.0 | 2024-Q1 | LLM 推理优化 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Core Ultra 200V | NPU TOPS | 48 TOPS |
+| Core Ultra (Meteor Lake) | NPU TOPS | 11 TOPS |
+| Movidius Myriad X | 视觉推理 | 4 TOPS, 1.5W |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Core Ultra 200V | 随笔记本提供 | AI PC 笔记本 |
+| Movidius Myriad X | ~$69-99 | USB 加速棒 |
+
+## 快速安装
+
+### Windows 11
+
+Intel NPU 通过 OpenVINO 运行时自动使用，确保安装最新驱动。
+
+```powershell
+# 安装 OpenVINO
+pip install openvino
+
+# 验证 NPU 可用
+python -c "from openvino import Core; core = Core(); print(core.available_devices)"
+```
+
+## 代码示例
+
+### Python (OpenVINO NPU)
+
+```python
+from openvino import Core
+from openvino.runtime import Model
+
+# 检测 NPU 设备
+core = Core()
+print(f"Available devices: {core.available_devices}")  # 包含 'NPU'
+
+# 加载并编译模型到 NPU
+model = core.read_model("model.xml")
+compiled = core.compile_model(model, "NPU")
+
+# 推理
+output = compiled(input_data)
+```
+
+## 架构特色
+
+- **Intel NPU Core**: 基于 Gaudi 技术的低功耗 NPU 核心，面向 AI PC 的日常 AI 任务
+- **Movidius VPU**: 面向边缘视觉推理的独立 VPU，适合摄像头/机器人
+- **OpenVINO**: Intel 统一推理框架，自动选择 CPU/GPU/NPU 最佳后端
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| OpenVINO | ✅ 原生 | 最佳支持 |
+| ONNX | ✅ 转换 | OpenVINO 直接加载 |
+| PyTorch | ✅ 导出 | 转 ONNX → OpenVINO |
+| 小型 LLM | ✅ | OpenVINO + NPU 加速 |
+| 语音/视觉 | ✅ | Movidius 视觉优化 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [Apple Neural Engine](/npu/apple-neural-engine) — Apple（NPU 神经网络处理器）
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana（ASIC 专用加速卡）
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo（NPU 神经网络处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+

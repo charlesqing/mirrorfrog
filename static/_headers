@@ -1,0 +1,36 @@
+# Cloudflare Pages _headers
+# Path-prefix headers for SEO + Security + Performance
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-XSS-Protection: 1; mode=block
+  X-DNS-Prefetch-Control: on
+  X-MirrorFrog-Cache: HIT
+
+# HTML files - always revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Sitemap and robots
+/sitemap.xml
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/robots.txt
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+# Build assets - immutable
+/build/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Blog RSS/Atom feeds - 1 hour
+/blog/rss.xml
+  Cache-Control: public, max-age=3600, s-maxage=3600
+/blog/atom.xml
+  Cache-Control: public, max-age=3600, s-maxage=3600

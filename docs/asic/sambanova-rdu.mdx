@@ -1,0 +1,130 @@
+---
+title: 'SambaNova RDU - SambaNova'
+description: 'SambaNova SN40 RDU（Reconfigurable Dataflow Unit）采用可重构数据流架构，支持大模型训练和推理。SN40 集成了 1040 亿晶体管和 64 个可重构节点。'
+sidebar_label: 'SambaNova RDU'
+keywords:
+  - 'SambaNova'
+  - 'RDU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# SambaNova RDU
+
+**厂商**: SambaNova
+
+**分类**: ASIC 专用加速卡
+
+**架构**: RDU (Reconfigurable Dataflow Unit)
+
+## 简介
+
+SambaNova SN40 RDU（Reconfigurable Dataflow Unit）采用可重构数据流架构，支持大模型训练和推理。SN40 集成了 1040 亿晶体管和 64 个可重构节点。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| SN40L | 1,024 TFLOPS (FP8) | 64GB 芯上内存 | Fabric 互联 | 800W | 5nm |
+| SN30 | 330 TFLOPS (FP16) | 32GB 芯上内存 | Fabric 互联 | 400W | 7nm |
+
+
+## 官方网站
+
+[访问官方网站](https://sambanova.ai/)
+## 驱动下载
+
+### Linux
+
+- [SambaNova 软件平台](https://docs.sambanova.ai/)
+- [SambaNova Suite](https://sambanova.ai/products/sambanova-suite)
+
+
+## 相关文档
+
+- [SambaNova 文档中心](https://docs.sambanova.ai/)
+- [RDU 架构介绍](https://sambanova.ai/products/sn40)
+- [开发者资源](https://sambanova.ai/developers)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| SambaFlow 1.5 | 2024 | SN40L 支持 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| SN40L | Llama 2 70B 推理 | ~130 tok/s |
+| SN40L | GPT-3 175B 推理 | 流水线优化高吞吐 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| SN40L | 云端 API | SambaNova Cloud |
+| SN40L | 需询价 | 企业部署 |
+
+## 快速安装
+
+### SambaNova Cloud (API)
+
+```bash
+pip install sambanova-sdk
+```
+
+> SN40L 主要通过 SambaNova Cloud API 或企业部署使用。
+
+## 代码示例
+
+### Python (SambaNova API)
+
+```python
+from sambanova import SambaNova
+
+# 类似 OpenAI API 接口
+client = SambaNova(api_key="your-key")
+response = client.chat.completions.create(
+    model="Meta-Llama-3.1-70B-Instruct",
+    messages=[{"role": "user", "content": "你好"}]
+)
+```
+
+## 架构特色
+
+- **RDU (Reconfigurable Dataflow Unit)**: 数据流可重构架构，编译器决定数据路径，硬件按需重组
+- **SN40L**: 支持 1.2 万亿参数模型的组合执行，集成 HBM3e
+- **Compiled Dataflow**: 模型在编译阶段确定硬件数据流，运行时零开销
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Llama 系列 | ✅ 原生 | SambaNova 官方部署 |
+| 大语言模型 | ✅ | API 推理 |
+| 自定义训练 | ⚠️ | 需联系 SambaNova |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [Graphcore IPU (Bow Pod)](/ipu/graphcore-ipu) — Graphcore (RapidAI)（IPU 智能处理器）
+- [Groq LPU v1](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）
+

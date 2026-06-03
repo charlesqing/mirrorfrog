@@ -1,0 +1,143 @@
+---
+title: 'Intel GPU - Intel'
+description: 'Intel 集成显卡和独立显卡系列，包括 Arc A 系列、Arc B 系列（Battlemage）、Data Center GPU Max/Flex。通过 Intel oneAPI 统一编程模型进行加速计算。'
+sidebar_label: 'Intel GPU'
+keywords:
+  - 'Intel'
+  - 'GPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Intel GPU
+
+**厂商**: Intel
+
+**分类**: GPU 图形处理器
+
+**架构**: Xe HPC (Ponte Vecchio / Falcon Shores)
+
+## 简介
+
+Intel 集成显卡和独立显卡系列，包括 Arc A 系列、Arc B 系列（Battlemage）、Data Center GPU Max/Flex。通过 Intel oneAPI 统一编程模型进行加速计算。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Max Series 1550 | 75 TFLOPS (FP32) | 128GB HBM2e | SXM | 300W | Intel 7 |
+| Arc A770 | 20 TFLOPS (FP32) | 16GB GDDR6 | PCIe 4.0 | 225W | Xe HPG |
+
+
+## 官方网站
+
+[访问官方网站](https://www.intel.com/content/www/us/en/download-center/home.html)
+## 驱动下载
+
+### Windows
+
+- [Intel Arc & Iris Driver (Windows)](https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics.html)
+- [Intel Graphics Control Panel](https://www.intel.com/content/www/us/en/download/18380/intel-graphics-command-center.html)
+
+### Linux
+
+- [Intel GPU Driver (Linux)](https://dgpu-docs.intel.com/)
+- [Intel oneAPI Base Toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html)
+- [Level Zero GPU Runtime](https://dgpu-docs.intel.com/releases/level_zero.html)
+
+
+## 相关文档
+
+- [Intel GPU 文档中心](https://dgpu-docs.intel.com/)
+- [oneAPI 编程指南](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/overview.html)
+- [Intel OpenCL 扩展](https://www.intel.com/content/www/us/en/docs/opencl-sdk/developer-guide-core/2024/overview.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| oneAPI 2024.2 | 2024 | SYCL 优化 |
+| Arc Driver 101.5 | 2024-Q2 | Stable release |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Max 1550 | AI 推理 | ~200 TOPS (INT8) |
+| Max 1550 | Llama 2 7B 推理 | ~20 tok/s (INT8, IPEX) |
+| Arc A770 | Stable Diffusion | ~4s/img (SYCL) |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Max Series 1550 | $3,000-5,000 | 数据中心推理卡 |
+| Arc A770 | $299-349 | 消费级显卡 |
+
+## 快速安装
+
+### Linux (Intel GPU
+
+```bash
+# 1. 安装 Intel GPU 驱动
+sudo apt install -y intel-opencl-icd intel-level-zero-gpu
+
+# 2. 安装 IPEX (Intel Extension for PyTorch)
+pip install intel-extension-for-pytorch
+
+# 3. 验证
+sycl-ls
+```
+
+## 代码示例
+
+### Python (Intel IPEX)
+
+```python
+import torch
+import intel_extension_for_pytorch as ipex
+
+# 使用 Intel XPU 后端
+x = torch.randn(1024, 1024).xpu()
+y = torch.matmul(x, x)
+print(f"Intel XPU matrix multiply: {y.shape}")
+```
+
+## 架构特色
+
+- **Xe HPC 架构**: 统一计算架构，支持 AI 和 HPC 场景，Falcon Shores 为下一代产品
+- **SYCL/oneAPI**: Intel 开放编程模型，替代 CUDA 的跨平台方案
+- **IPEX**: Intel PyTorch 扩展，提供 XPU 后端加速
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ IPEX | Intel 官方扩展 |
+| OpenVINO | ✅ 原生 | Intel 推理优化工具链 |
+| Llama 等 LLM | ⚠️ | IPEX + bigdl-llm 支持 |
+| Stable Diffusion | ✅ | SYCL 后端 |
+| Whisper | ✅ | OpenVINO 优化 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Apple Silicon GPU](/gpu/apple-gpu) — Apple（GPU 图形处理器）
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm（GPU 图形处理器）
+- [摩尔线程 MTT S5000](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+

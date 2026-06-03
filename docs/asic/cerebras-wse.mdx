@@ -1,0 +1,158 @@
+---
+title: 'Cerebras Wafer Scale (WSE) - Cerebras'
+description: 'Cerebras 晶圆级引擎（WSE-3）是目前最大的 AI 处理器，单芯片包含 4 万亿晶体管和 90 万个 AI 核心。专注于大模型训练，提供与其他集群相当的性能而无需分布式编程。'
+sidebar_label: 'Cerebras Wafer Scale (WSE)'
+keywords:
+  - 'Cerebras'
+  - 'Wafer'
+  - 'Scale'
+  - 'WSE'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Cerebras Wafer Scale (WSE)
+
+**厂商**: Cerebras (已 IPO)
+
+**分类**: ASIC 专用加速卡
+
+**架构**: CS-3
+
+## 简介
+
+Cerebras 晶圆级引擎（WSE-3）是目前最大的 AI 处理器，单芯片包含 4 万亿晶体管和 90 万个 AI 核心。专注于大模型训练，提供与其他集群相当的性能而无需分布式编程。**2026年5月14日，Cerebras 在纳斯达克 IPO，首日估值约 $560亿**。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| WSE-3 | 4 万亿晶体管，90万核心 | 44GB 芯上 SRAM | CS-2 Fabric | 20000+ | 5nm |
+| WSE-2 | 2.6 万亿晶体管，85万核心 | 40GB 芯上 SRAM | CS-2 Fabric | 20000+ | 7nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.cerebras.ai/)
+## 驱动下载
+
+### Linux
+
+- [Cerebras 软件平台](https://docs.cerebras.net/en/latest/)
+- [Cerebras SDK](https://docs.cerebras.net/en/latest/quickstart/index.html)
+
+
+## 相关文档
+
+- [Cerebras 文档中心](https://docs.cerebras.net/)
+- [WSE-3 白皮书](https://cerebras.net/product/wafer-scale-engine/)
+- [Cerebras AI 示例](https://github.com/Cerebras/cerebras-ai-examples)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (Cerebras Cloud) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Cerebras Cloud 2.0 | 2024 | WSE-3 上线 + API 访问 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| WSE-3 | Llama 3 70B 推理 | ~1800 tok/s (流水线) |
+| WSE-3 | 超长上下文推理 | 支持 128K 上下文 |
+| WSE-2 | GPT-J 6B 训练 | 数分钟完成 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| WSE-3 | 云端 API 按量 | Cerebras Cloud / CSP |
+| WSE-3 | 需询价 | 裸机部署 |
+
+## 快速安装
+
+### Cerebras Cloud (API)
+
+```bash
+# 安装 Cerebras SDK
+pip install cerebras-cloud-sdk
+
+# 使用 Cerebras 推理 API
+# 类似 OpenAI API 兼容接口
+```
+
+> WSE 系列主要通过 Cerebras Cloud API 或合作伙伴云服务使用，不单独出售裸卡给终端用户。
+
+## 代码示例
+
+### Python (Cerebras API)
+
+```python
+from cerebras.cloud.sdk import Cerebras
+
+# 兼容 OpenAI 接口
+client = Cerebras(api_key="your-key")
+response = client.chat.completions.create(
+    model="llama3.1-8b",
+    messages=[{"role": "user", "content": "你好"}],
+    max_tokens=100
+)
+print(response.choices[0].message.content)
+```
+
+## 架构特色
+
+- **晶圆级引擎 (WSE)**: 整个晶圆作为单个芯片，WSE-3 拥有 4 万亿晶体管、90 万 AI 核心
+- **CS-3 系统**: 16 个 WSE-3 互联，支持万亿参数模型训练
+- **零碎片**: 晶圆级设计消除传统芯片互联瓶颈，延迟极低
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Llama 系列 | ✅ 原生 | Cerebras 官方部署 |
+| 大语言模型 | ✅ | API 推理 |
+| 训练框架 | ⚠️ | 通过 Cerebras PyTorch 扩展 |
+| 自定义模型 | ⚠️ | 需联系 Cerebras 定制 |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，Cerebras WSE 在已公开的集群部署中累计超过 **65** 颗芯片，分布在 **2** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| Cerebras CS-2 | 64 | 1 |
+| Cerebras CS-1 | 1 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | Condor Galaxy 1 (CG-1) | 64 | Cerebras CS-2 ×64 | G42,Cerebras Systems, United States of America |
+| 2 | Lawrence Livermore NL Lassen Phase 2 | 1 | Cerebras CS-1 ×1 | US Department of Energy, United States of America |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Groq LPU v1](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+- [SambaNova SN40L](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Etched Sohu ASIC](/asic/etched-sohu) — Etched（ASIC 专用加速卡）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）
+

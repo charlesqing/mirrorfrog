@@ -1,0 +1,133 @@
+---
+title: '海光信息 深算 DCU - 海光信息 Hygon'
+description: '海光信息（Hygon）深算系列 DCU（GPGPU），国内唯一同时拥有 x86 CPU 和 GPGPU DCU 双芯产品的厂商。深算 Z100/ZK2 系列兼容 ROCm/CUDA 生态，FP64 双精度约 10 TFLOPS，适合 HPC+AI 混合场景。2025 年出货约 8.3 万颗，市值 3300 亿元。'
+sidebar_label: '海光信息 深算 DCU'
+keywords:
+  - '海光信息'
+  - '深算'
+  - 'DCU'
+  - 'Hygon'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# 海光信息 深算 DCU
+
+**厂商**: 海光信息 Hygon
+
+**分类**: ASIC 专用加速卡
+
+**架构**: GPGPU (类ROCm)
+
+## 简介
+
+海光信息（Hygon）深算系列 DCU（GPGPU），国内唯一同时拥有 x86 CPU 和 GPGPU DCU 双芯产品的厂商。深算 Z100/ZK2 系列兼容 ROCm/CUDA 生态，FP64 双精度约 10 TFLOPS，适合 HPC+AI 混合场景。2025 年出货约 8.3 万颗，市值 3300 亿元。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| 深算二号 (K100-AI) | 192 TFLOPS (FP16) / 49 (FP32) | 64GB HBM2 | OAM | 300W | 7nm |
+| 深算一号 (Z100) | 21.6 TFLOPS (FP16) / 10.8 (FP32) | 32GB HBM2 | PCIe 4.0 | 250W | 7nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.hygon.cn/)
+## 驱动下载
+
+### Linux
+
+- [DCU 驱动（DTK）](https://developer.hygontools.com/)
+- [ROCm 兼容层](https://www.hygon.cn/)
+
+
+## 相关文档
+
+- [海光开发者中心](https://developer.hygontools.com/)
+- [DCU 技术文档](https://www.hygon.cn/)
+- [DTK 开发指南](https://developer.hygontools.com/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ⚠️ (部分) | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| DTK 3.0 | 2024 | Z200 支持 + CUDA 兼容优化 |
+| DTK 2.5 | 2023 | PyTorch 兼容层增强 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| 深算二号 Z200 | BF16 训练 | 接近 MI250X 效率 |
+| 深算一号 Z100 | 通用 AI 推理 | 兼容 ROCm 生态 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Z200 | 需询价 | 国产替代 AMD Instinct |
+| Z100 | 需询价 | 已量产 |
+
+## 快速安装
+
+### Linux (Kylin / UOS / Ubuntu)
+
+```bash
+# 海光 DCU 兼容 ROCm 生态
+# 安装 DCU 驱动 (类似 ROCm)
+sudo ./dcu-driver-*.run --install
+
+# 验证
+dcu-smi
+```
+
+## 代码示例
+
+### Python (海光 DCU PyTorch)
+
+```python
+import torch
+# 海光 DCU 兼容 ROCm/CUDA 后端
+assert torch.cuda.is_available()
+print(f"DCU: {torch.cuda.get_device_name(0)}")
+```
+
+## 架构特色
+
+- **GPGPU 架构**: 基于 AMD Zen 架构授权 + 自研 DCU 设计，兼容 ROCm 生态
+- **国产化替代**: AMD 授权基础上自主研发，面向信创/国产替代市场
+- **类 ROCm 生态**: 可直接使用 ROCm 工具链和 PyTorch ROCm 版本
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ ROCm | 兼容 ROCm 后端 |
+| 麒麟/UOS | ✅ 原生 | 国产操作系统适配 |
+| 通用 AI | ⚠️ | 通过 ROCm 生态 |
+| 大模型训练 | ⚠️ | 逐步完善 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [天数智芯 天垓 100](/gpu/iluvatar-bi) — 天数智芯 Iluvatar（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（NPU 神经网络处理器）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）
+- [燧原科技 云燧 T20/T21](/asic/enflame-blaze) — 燧原（ASIC 专用加速卡）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+

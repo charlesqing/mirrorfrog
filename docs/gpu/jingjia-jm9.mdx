@@ -1,0 +1,136 @@
+---
+title: '景嘉微 JM9 系列 - 景嘉微 Jingjia Micro'
+description: '景嘉微（Jingjia Micro）国产 GPU，军工起家，JM9 系列覆盖图形渲染+轻量 AI 加速。景宏系列智算模块面向数据中心。民用 AI 加速刚起步，军用/工控订单稳定。'
+sidebar_label: '景嘉微 JM9 系列'
+keywords:
+  - '景嘉微'
+  - 'JM9'
+  - '系列'
+  - 'Jingjia'
+  - 'Micro'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 景嘉微 JM9 系列
+
+**厂商**: 景嘉微 Jingjia Micro
+
+**分类**: GPU 图形处理器
+
+**架构**: JM9
+
+## 简介
+
+景嘉微（Jingjia Micro）国产 GPU，军工起家，JM9 系列覆盖图形渲染+轻量 AI 加速。景宏系列智算模块面向数据中心。民用 AI 加速刚起步，军用/工控订单稳定。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| JM9 series | 10 TFLOPS (FP32) | 8GB GDDR6 | PCIe 3.0 | 25W | 28nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.jingjiamicro.com/)
+## 驱动下载
+
+### Linux
+
+- [JM9 驱动（Linux）](https://www.jingjiamicro.com/driver)
+
+### Windows
+
+- [JM9 驱动（Windows）](https://www.jingjiamicro.com/driver)
+
+
+## 相关文档
+
+- [景嘉微开发者中心](https://www.jingjiamicro.com/developer)
+- [JM9 产品文档](https://www.jingjiamicro.com/jm9)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Driver 1.2 | 2024 | 政企桌面办公场景 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| JM9 系列 | 图形渲染 | 国产 GPU 图形处理 |
+| JM9 系列 | 简单推理 | 通用计算能力有限 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| JM9 系列 | 需询价 | 军工/政府领域为主 |
+
+## 快速安装
+
+### Linux / Windows
+
+安装景嘉微驱动和 SDK（从官方获取后）：
+
+```bash
+sudo rpm -ivh jingjia-driver-*.rpm
+```
+
+> JM9 系列主要面向图形渲染场景，AI 计算能力有限。
+
+## 代码示例
+
+### C (JM9 API)
+
+景嘉微 JM9 提供自研图形 API，主要通过 OpenGL 兼容层使用。AI 计算支持度有限，推荐使用景嘉微官方 SDK 文档。
+
+```c
+// JM9 图形渲染示例 (OpenGL 兼容)
+#include <GL/gl.h>
+glClear(GL_COLOR_BUFFER_BIT);
+glBegin(GL_TRIANGLES);
+glVertex3f(0.0f, 1.0f, 0.0f);
+glVertex3f(-1.0f, -1.0f, 0.0f);
+glVertex3f(1.0f, -1.0f, 0.0f);
+glEnd();
+```
+
+## 架构特色
+
+- **JM9 架构**: 景嘉微自研 GPU 架构，主要面向图形渲染，OpenGL 兼容
+- **国产化定位**: 军工/政府领域国产替代，已完成国产操作系统适配
+- **AI 能力**: AI 计算能力有限，不推荐作为 AI 加速方案
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| 图形渲染 | ✅ | OpenGL/Vulkan 兼容 |
+| AI 计算 | ❌ | 不推荐用于 AI 加速 |
+| OpenCL | ⚠️ | 通用计算支持度有限 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [摩尔线程 MTT S80](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [壁仞科技 BR100/BR20X](/gpu/biren-br) — 壁仞科技 Biren（GPU 图形处理器）
+- [沐曦 曦云 C500/C600](/gpu/metax-c600) — 沐曦 MetaX（GPU 图形处理器）
+- [天数智芯 BI-150/BI-V150](/gpu/iluvatar-bi) — 天数智芯 Iluvatar（GPU 图形处理器）
+- [百度昆仑芯 P800](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+

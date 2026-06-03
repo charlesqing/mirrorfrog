@@ -1,0 +1,182 @@
+---
+title: 'AMD ROCm / GPU - AMD'
+description: 'AMD Radeon 显卡与 Instinct 计算卡的 GPU 计算平台。ROCm（Radeon Open Compute）是 AMD 的开源 GPU 计算平台，支持 Radeon RX、Radeon PRO、Instinct MI 系列。'
+sidebar_label: 'AMD ROCm / GPU'
+keywords:
+  - 'AMD'
+  - 'ROCm'
+  - 'GPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 2
+---
+
+# AMD ROCm / GPU
+
+**厂商**: AMD
+
+**分类**: GPU 图形处理器
+
+**架构**: CDNA 4 / CDNA 3 / CDNA 2
+
+## 简介
+
+AMD Radeon 显卡与 Instinct 计算卡的 GPU 计算平台。ROCm（Radeon Open Compute）是 AMD 的开源 GPU 计算平台，支持 Radeon RX、Radeon PRO、Instinct MI 系列。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| MI350X | 待公布 (FP8) | 288GB HBM3E | OAM | 待公布 | 3nm (CDNA 4) |
+| MI325X | 2,614 TFLOPS (FP8) / 1,307 (FP16) | 256GB HBM3E | OAM | 750W | 5nm (CDNA 3) |
+| MI300X | 2,614 TFLOPS (FP8) / 1,307 (FP16) | 192GB HBM3 | OAM | 750W | 5nm (CDNA 3) |
+| MI300A | 983 TFLOPS (FP8) / 246 (FP16) | 128GB HBM3 | OAM (CPU+GPU) | 750W | 5nm (CDNA 3) |
+| MI250X | 383 TFLOPS (FP16) | 128GB HBM2e | OAM | 560W | 6nm (CDNA 2) |
+| RX 7900 XTX | 61 TFLOPS (FP32) | 24GB GDDR6 | PCIe 4.0 | 355W | RDNA 3 |
+
+## 官方网站
+
+[访问官方网站](https://www.amd.com/en/products/accelerators/instinct/mi300.html)
+## 驱动下载
+
+### Windows
+
+- [Adrenalin Driver (Windows)](https://www.amd.com/en/support)
+- [ROCm (Windows - Preview)](https://rocm.docs.amd.com/)
+
+### Linux
+
+- [ROCm Installation Guide](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/)
+- [AMD GPU Driver (amdgpu)](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/quick-start.html)
+- [ROCm Docker Images](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/how-to/docker.html)
+
+## 相关文档
+
+- [ROCm 文档](https://rocm.docs.amd.com/)
+- [ROCm 支持硬件列表](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html)
+- [AMD Instinct 入门](https://www.amd.com/en/products/accelerators/instinct.html)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ⚠️ (部分支持) | ✅ | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| ROCm 6.1 | 2024-Q4 | MI300X 全面支持 |
+| ROCm 6.0 | 2024-Q1 | PyTorch 2.x 原生集成 |
+| ROCm 5.7 | 2023-Q3 | CDNA 3 支持 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| MI300X × 8 | GPT-3 175B 训练 | ~1.5 天 (MLPerf) |
+| MI300X | Llama 2 70B 推理 | ~95 tok/s (FP16) |
+| MI250X × 8 | BERT-Large 训练 | ~85% H100 效率 |
+| RX 7900 XTX | Stable Diffusion XL | ~2.2s/img |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| MI300X | $12,000-16,000 | 性价比高于 H100 |
+| MI250X | $8,000-12,000 | 上一代数据中心卡 |
+| RX 7900 XTX | ¥4,099-4,999 | 消费级旗舰 |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. 添加 ROCm 仓库
+wget https://repo.radeon.com/amdgpu-install/6.1/ubuntu/jammy/amdgpu-install_6.1.60100-1_all.deb
+sudo dpkg -i amdgpu-install_6.1.60100-1_all.deb
+sudo amdgpu-install --usecase=rocm
+
+# 2. 验证安装
+rocminfo
+/opt/rocm/bin/rocm-smi
+```
+
+> ROCm 目前官方仅支持 Linux，Windows 支持处于预览阶段。
+
+## 代码示例
+
+### Python (PyTorch ROCm)
+
+```python
+import torch
+
+# ROCm 使用 HIP 后端，API 与 CUDA 一致
+assert torch.cuda.is_available(), "ROCm GPU not found"
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+print(f"HIP version: {torch.version.hip}")
+
+# PyTorch ROCm 版本可直接运行 CUDA 代码
+x = torch.randn(2048, 2048).cuda()
+y = torch.matmul(x, x)
+print(f"HIP matrix multiply: {y.shape}")
+```
+
+> PyTorch ROCm 版本需从 [pytorch.org](https://pytorch.org/) 单独下载，选择 ROCm 对应版本。
+
+## 架构特色
+
+- **CDNA 3 架构 (MI300)**: Chiplet 设计，CPU+GPU 封装在同一基板上 (MI300A)；Infinity Fabric 互联
+- **开源策略**: ROCm 完全开源，包括计算运行时、编译器和库
+- **HIP 兼容层**: HIP API 与 CUDA 高度兼容，CUDA 代码只需少量修改即可移植
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ 原生 | ROCm 后端，API 兼容 CUDA |
+| TensorFlow | ⚠️ 有限 | 通过 PluggableDevice 支持 |
+| JAX | ✅ | 通过插件支持 |
+| Llama 等 LLM | ✅ | vLLM / llama.cpp 均支持 ROCm |
+| Stable Diffusion | ✅ | DirectML / ROCm 后端 |
+| Whisper | ✅ | OpenAI Whisper 原生支持 |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，AMD ROCm 在已公开的集群部署中累计超过 **145,952** 颗芯片，分布在 **17** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| AMD Radeon Instinct MI250X | 68,672 | 7 |
+| AMD Instinct MI300A | 51,696 | 5 |
+| AMD Instinct MI300X | 20,384 | 3 |
+| AMD Instinct MI210 | 5,200 | 2 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | Lawrence Livermore NL El Capitan Phase 2 | 44,544 | AMD Instinct MI300A ×44,544 | US Department of Energy, United States of America |
+| 2 | Oak Ridge NL Frontier | 37,632 | AMD Radeon Instinct MI250X ×37,632 | US Department of Energy, United States of America |
+| 3 | Oracle OCI MI300x | 16,384 | AMD Instinct MI300X ×16,384 | Oracle, United States of America |
+| 4 | Eni HPC6 | 13,888 | AMD Radeon Instinct MI250X ×13,888 | Eni, Italy |
+| 5 | EuroHPC LUMI | 11,912 | AMD Radeon Instinct MI250X ×11,912 | EuroHPC JU, Finland |
+| 6 | Lawrence Livermore NL Tuolumne | 4,608 | AMD Instinct MI300A ×4,608 | US Department of Energy, United States of America |
+| 7 | Core42 AI-03 | 4,320 | AMD Instinct MI210 ×4,320 | G42, United Arab Emirates |
+| 8 | Vultr Chicago Cluster | 3,000 | AMD Instinct MI300X ×3,000 | Vultr, United States of America |
+| 9 | Microsoft Explorer-WUS3 | 1,920 | AMD Radeon Instinct MI250X ×1,920 | Microsoft, United States of America |
+| 10 | Sandia NL El Dorado | 1,520 | AMD Instinct MI300A ×1,520 | US Department of Energy, United States of America |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Intel Data Center GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+- [海光 深算 Z100](/asic/hygon-dcu) — 海光信息 Hygon（ASIC 专用加速卡）
+- [Apple Silicon GPU](/gpu/apple-gpu) — Apple（GPU 图形处理器）
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm（GPU 图形处理器）
+- [摩尔线程 MTT S5000](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [Intel Gaudi](/asic/intel-gaudi) — Intel（ASIC 训练加速器）

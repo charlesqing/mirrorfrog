@@ -1,0 +1,114 @@
+---
+title: 'Samsung Gauss AI - Samsung'
+description: 'Samsung Exynos 和 Galaxy 芯片内置的 AI 处理器，包括 Galaxy AI 功能和三星 Gauss 大语言模型。通过 Samsung NN (SLIM) 框架执行边缘 AI 推理。'
+sidebar_label: 'Samsung Gauss AI'
+keywords:
+  - 'Samsung'
+  - 'Gauss'
+  - 'AI'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Samsung Gauss AI
+
+**厂商**: Samsung
+
+**分类**: NPU 神经网络处理器
+
+**架构**: Samsung NPU Core
+
+## 简介
+
+Samsung Exynos 和 Galaxy 芯片内置的 AI 处理器，包括 Galaxy AI 功能和三星 Gauss 大语言模型。通过 Samsung NN (SLIM) 框架执行边缘 AI 推理。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Exynos 2400 | 35 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 10W | 4nm LPP+ |
+| Exynos 2500 | 45 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 10W | 3nm GAA |
+
+
+## 官方网站
+
+[访问官方网站](https://developer.samsung.com/)
+## 驱动下载
+
+### Linux
+
+- [Samsung Developer Tools](https://developer.samsung.com/tools)
+
+
+## 相关文档
+
+- [Samsung 开发者文档](https://developer.samsung.com/docs)
+- [Samsung AI 框架](https://developer.samsung.com/ai)
+- [Exynos 芯片文档](https://semiconductor.samsung.com/processor/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (Android) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Gauss 2.0 | 2025 | 端侧 Galaxy AI 2.0 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Exynos 2500 | NPU TOPS | ~45 TOPS |
+| Exynos 2400 | 端侧 AI | 通话/文本处理 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Exynos 2500 | 随 SoC 提供 | Galaxy 手机专用 |
+
+## 快速安装
+
+### Android
+
+Samsung NPU 通过 Android NNAPI 自动调用。Samsung 提供官方 Galaxy AI 功能（通话翻译、图片编辑等）。
+
+## 代码示例
+
+端侧开发主要通过 Samsung Neural SDK，目前主要面向 Galaxy 设备的原生 AI 功能。
+
+## 架构特色
+
+- **Samsung NPU Core**: 集成在 Exynos SoC 中的 NPU，支持 Galaxy AI 功能
+- **Gauss 大模型**: Samsung 自研多模态大模型，端侧推理 + 云端协同
+- **端侧 AI**: 通话实时翻译、图片生成、搜索增强
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| NNAPI | ✅ 原生 | Galaxy 设备 |
+| Galaxy AI | ✅ 内置 | 通话翻译/图片编辑 |
+| 端侧 LLM | ⚠️ | Gauss 端侧版 |
+| 第三方开发 | ⚠️ | SDK 获取渠道有限 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek（NPU 神经网络处理器）
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [Apple Neural Engine](/npu/apple-neural-engine) — Apple（NPU 神经网络处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+

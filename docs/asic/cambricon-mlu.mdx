@@ -1,0 +1,159 @@
+---
+title: '寒武纪 思元 MLU - 寒武纪 Cambricon'
+description: '寒武纪（Cambricon）国产 AI 加速卡，思元系列覆盖训练与推理场景。思元 590（MLU590）采用 7nm Chiplet 封装，FP16 算力 256 TFLOPS，INT8 算力 512 TOPS，96GB HBM2e。自研 Bangware 软件栈实现 CUDA 兼容，通过 NeuWare SDK 调用'
+sidebar_label: '寒武纪 思元 MLU'
+keywords:
+  - '寒武纪'
+  - '思元'
+  - 'MLU'
+  - 'Cambricon'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# 寒武纪 思元 MLU
+
+**厂商**: 寒武纪 Cambricon
+
+**分类**: ASIC 专用加速卡
+
+**架构**: MLUarch
+
+## 简介
+
+寒武纪（Cambricon）国产 AI 加速卡，思元系列覆盖训练与推理场景。思元 590（MLU590）采用 7nm Chiplet 封装，FP16 算力 256 TFLOPS，INT8 算力 512 TOPS，96GB HBM2e。自研 Bangware 软件栈实现 CUDA 兼容，通过 NeuWare SDK 调用。2025 年出货约 11.6 万颗，国产第三梯队。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| 思元 590 | 256 TFLOPS (FP16) / 512 (INT8) / 80 (FP32) | 96GB HBM2e (2.7 TB/s) | OAM | 350W | 7nm |
+| 思元 370 | 128 TOPS (INT8) | 24GB LPDDR5 | PCIe 4.0 | 150W | 12nm |
+| 思元 270 | 64 TOPS (INT8) | 8GB DDR4 | PCIe 3.0 | 70W | 16nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.cambricon.com/)
+## 驱动下载
+
+### Linux
+
+- [寒武纪驱动安装包（Linux）](https://developer.cambricon.com/index/document/down.html?ddd=13)
+- [NeuWare SDK](https://developer.cambricon.com/index/document/down.html)
+- [Docker 镜像](https://developer.cambricon.com/index/document/details/classid/7/cid/13/id/252.html)
+
+
+## 相关文档
+
+- [寒武纪开发者社区](https://developer.cambricon.com/)
+- [驱动安装手册](https://developer.cambricon.com/index/document/details/classid/7/cid/13/id/252.html)
+- [Bang C 开发者手册](https://developer.cambricon.com/index/document/down.html?ddd=13)
+- [NeuWare SDK 文档](https://developer.cambricon.com/index/document/down.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Neuware 5.0 | 2024 | 590 支持 + CNN/Transformer 双优化 |
+| BANG C 2.0 | 2023 | 兼容 CUDA 编程模型 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| 思元 590 | BERT-Large 训练 | ~80% A100 效率 (官方数据) |
+| 思元 590 | INT8 推理 | 512 TOPS |
+| 思元 370 | 推理吞吐 | INT8 优化 |
+| 思元 270 | 边缘推理 | 64 TOPS, 70W |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| 思元 590 | 需询价 | 企业级训练卡 |
+| 思元 370 | 需询价 | 推理加速卡 |
+| 思元 270 | 需询价 | 边缘/端侧 |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04 / Kylin)
+
+```bash
+# 1. 安装 NeuWare 驱动
+sudo ./neuware-driver-*.run --install
+
+# 2. 安装 NeuWare SDK
+sudo ./neuware-sdk-*.run --install
+
+# 3. 验证
+cnmon
+```
+
+> NeuWare 从 [寒武纪开发者社区](https://developer.cambricon.com/) 下载。
+
+## 代码示例
+
+### Python (Cambricon PyTorch)
+
+```python
+import torch
+import torch_cambricon  # 寒武纪 NPU 扩展
+
+# 使用 MLU 后端
+device = torch.device("mlu")
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"MLU matrix multiply: {y.shape}")
+```
+
+### Bang C (寒武纪 CUDA 兼容)
+
+```c
+// Bang C API 与 CUDA 高度兼容
+__mlu_entry__ void kernel(float *input, float *output) {
+    int idx = get_thread_id();
+    output[idx] = input[idx] * 2.0f;
+}
+```
+
+## 架构特色
+
+- **MLUarch**: 寒武纪自研 AI 加速架构，590 采用 7nm Chiplet 封装，96GB HBM2e 大显存
+- **Bang C**: 寒武纪 CUDA 兼容编程语言，CUDA 代码可低成本迁移
+- **NeuWare**: 完整软件栈 — 驱动 + 运行时 (CNRT) + 算子库 (CNBL/CNCL) + 编译器
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ torch_cambricon | MLU 后端 |
+| Bang C | ✅ 原生 | CUDA 兼容 |
+| MindSpore | ⚠️ | 适配中 |
+| Llama / Qwen 等 LLM | ⚠️ | 生态逐步完善 |
+| 模型量化 | ✅ | INT8 优化 |
+| 国产 OS | ✅ | 麒麟/UOS 适配 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+- [昆仑芯 2代 / 3代](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+- [海光 深算 Z100](/asic/hygon-dcu) — 海光信息 Hygon（ASIC 专用加速卡）
+- [燧原科技 云燧 T20/T21](/asic/enflame-blaze) — 燧原（ASIC 专用加速卡）
+- [清微智能 可重构 RPU](/asic/tsingmicro-rpu) — 清微（ASIC 专用加速卡）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+

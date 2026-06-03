@@ -1,0 +1,142 @@
+---
+title: 'Hailo-8 / Hailo-15 - Hailo'
+description: '全球边缘AI算力领导者。以极低的功耗（仅数瓦）提供高达26 TOPS的算力，广泛应用于自动驾驶、机器人和智能摄像头领域。'
+sidebar_label: 'Hailo-8 / Hailo-15'
+keywords:
+  - 'Hailo'
+  - '15'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Hailo-8 / Hailo-15
+
+**厂商**: Hailo
+
+**架构**: 数据流 (Dataflow)
+
+**分类**: NPU 神经网络处理器
+
+## 简介
+
+全球边缘AI算力领导者。以极低的功耗（仅数瓦）提供高达26 TOPS的算力，广泛应用于自动驾驶、机器人和智能摄像头领域。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Hailo-8 | 26 TOPS (INT8) | 外部 DDR | PCIe 2.1 / M.2 | 2.5W | 16nm |
+| Hailo-15 | 42 TOPS (INT8) | 内部 SRAM | PCIe 3.0 | 11W | 10nm |
+| Hailo-8L | 13 TOPS (INT8) | 外部 DDR | M.2 | 1.5W | 22nm FDX |
+
+
+## 官方网站
+
+[访问官方网站](https://hailo.ai/)
+## 驱动下载
+
+### Linux
+
+- [驱动 & SDK 下载](https://hailo.ai/developer-zone/software-downloads/)
+
+## 相关文档
+
+- [开发者文档](https://hailo.ai/developer-zone/documentation/)
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ✅ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| HailoRT 4.x | 2024 | Hailo-15 支持 + 多模型编排 |
+| Dataflow Compiler 3.15 | 2024 | YOLOv8 优化 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Hailo-8 | YOLOv8 推理 | ~26 TOPS, 低延迟 |
+| Hailo-8 | ResNet-50 | ~700 fps |
+| Hailo-8L | 边缘检测 | 13 TOPS, 超低功耗 |
+| Hailo-15 | 多路视频分析 | 20 TOPS, 带 ISP |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Hailo-8 | ~$99-149 | 模块化加速器 |
+| Hailo-8L | ~$49-79 | 入门级 |
+| Hailo-15 | 需询价 | 芯片级 (面向 ODM) |
+
+## 快速安装
+
+### Linux / Raspberry Pi
+
+```bash
+# 1. 安装 Hailo SDK
+pip install hailo-sdk
+
+# 2. 编译模型为 Hailo 格式 (HEF)
+hailo compiler model.onnx --output model.hef
+
+# 3. 推理
+hailo run model.hef --input image.jpg
+```
+
+> Hailo-8 可通过 M.2 / PCIe 加速棒连接到 x86 或 ARM 设备。
+
+## 代码示例
+
+### Python (Hailo Runtime)
+
+```python
+from hailo_platform import HailoPlatform
+
+# 初始化 Hailo 设备
+platform = HailoPlatform()
+platform.init()
+
+# 加载编译好的 HEF 模型
+platform.load_hef("yolov8.hef")
+
+# 推理
+output = platform.run(np_input)
+```
+
+## 架构特色
+
+- **数据流架构**: Hailo 自研数据流处理架构，专为 CNN 推理优化，无需外部 DRAM
+- **超低功耗**: Hailo-8 仅 2.5W，Hailo-8L 仅 1W，适合电池供电设备
+- **边缘定位**: 专攻摄像头/机器人/无人机等边缘 AI 场景
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| ONNX | ✅ 编译 | 主流模型格式 |
+| TensorFlow | ✅ 编译 | 转 ONNX 后编译 |
+| YOLO 系列 | ✅ 官方优化 | 最成熟的使用场景 |
+| 图像分类 | ✅ | ResNet/MobileNet |
+| LLM | ❌ | 不适合大模型推理 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [Google Coral Edge TPU](/tpu/google-edge-tpu) — Google（TPU 张量处理器）
+- [寒武纪 思元 590](/asic/cambricon-mlu) — 寒武纪 Cambricon（ASIC 专用加速卡）
+- [Groq LPU](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+- [芯擎科技 龍鹰系列](/npu/nexchip-dragon) — 芯擎科技（NPU 神经网络处理器）
+

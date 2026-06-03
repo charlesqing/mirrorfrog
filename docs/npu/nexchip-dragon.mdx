@@ -1,0 +1,123 @@
+---
+title: '芯擎科技 龍鹰系列 - 芯擎科技 Nexchip'
+description: '专注于车载高端芯片。其旗舰芯片内置高算力NPU，专为智能座舱和自动驾驶场景的AI推理任务设计。'
+sidebar_label: '芯擎科技 龍鹰系列'
+keywords:
+  - '芯擎科技'
+  - '龍鹰系列'
+  - 'Nexchip'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 芯擎科技 龍鹰系列
+
+**厂商**: 芯擎科技 (Nexchip)
+
+**分类**: 边缘计算 / 自动驾驶
+
+**架构**: ARM + NPU
+
+## 简介
+
+专注于车载高端芯片。其旗舰芯片内置高算力NPU，专为智能座舱和自动驾驶场景的AI推理任务设计。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| 龍鹰一号 | 8 TOPS (INT8) | 8GB LPDDR5 | 车规级 SoC | 15W | 7nm |
+| 龍鹰二号 | 16 TOPS (INT8) | 16GB LPDDR5 | 车规级 SoC | 20W | 7nm |
+
+## 官方网站
+
+[访问官方网站](https://www.nexchip.com.cn/)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ✅ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| 龍鹰一号 | 2023 | 首款车规级 AI 芯片，通过 AEC-Q100 认证 |
+| 龍鹰二号 | 2025 | NPU 算力翻倍，支持 L4 级自动驾驶 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| 龍鹰一号 | 智能座舱多模态交互 | 8 TOPS，支持多路摄像头 |
+| 龍鹰二号 | 自动驾驶 BEV 感知 | 16 TOPS，支持 L4 级 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| 龍鹰一号 | 需询价 | 面向主机厂 OEM 供货 |
+| 龍鹰二号 | 需询价 | 2025 年量产中 |
+
+## 快速安装
+
+### Linux (车载系统)
+
+```bash
+# 1. 下载芯擎 SDK（需注册开发者账号）
+# 访问 https://www.nexchip.com.cn/ 获取 SDK
+
+# 2. 设置环境变量
+export NEXCHIP_SDK_PATH=/opt/nexchip-sdk
+
+# 3. 验证 NPU
+npu-info
+```
+
+## 代码示例
+
+### C/C++ (车载 NPU 推理)
+
+```c
+#include <nexchip_npu.h>
+
+// 初始化 NPU 推理引擎
+npu_handle_t handle;
+npu_init(&handle, NPU_MODEL_AUTO);
+
+// 执行推理
+npu_tensor_t input = npu_create_tensor(input_data, dims);
+npu_tensor_t output = npu_infer(handle, input);
+
+// 释放资源
+npu_release(handle);
+```
+
+## 架构特色
+
+- **ARM + NPU 异构**: CPU 与 NPU 深度集成，低功耗下车载实时推理
+- **车规级认证**: 通过 AEC-Q100 Grade 2，满足严苛车载环境要求
+- **统一内存架构**: CPU 和 NPU 共享 LPDDR5，减少数据搬运开销
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| TensorFlow Lite | ✅ 原生 | 主推理框架 |
+| ONNX Runtime | ✅ | 车载常用 |
+| PaddlePaddle Lite | ⚠️ | 适配中 |
+| 自研量化工具链 | ✅ | INT8/INT4 量化支持 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（云端训练+推理）
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（移动端 NPU）
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo（边缘 AI 推理）
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [寒武纪 思元 590](/asic/cambricon-mlu) — 寒武纪 Cambricon（ASIC 专用加速卡）
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek（NPU 神经网络处理器）

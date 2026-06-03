@@ -1,0 +1,119 @@
+product-launch:
+  label: Product Launch
+  description: Official releases and first reviews of new AI chips / GPUs / ASICs
+  permalink: /product-launch
+
+strategy:
+  label: Vendor Strategy
+  description: AI chip vendor strategy, M&A, IPO, ecosystem partnerships
+  permalink: /strategy
+
+tech-deep-dive:
+  label: Tech Deep Dive
+  description: Deep analysis of AI chip architecture, HBM, interconnect, packaging
+  permalink: /tech-deep-dive
+
+selection:
+  label: Selection Guide
+  description: AI chip selection recommendations and comparisons for different scenarios
+  permalink: /selection
+
+news:
+  label: Industry News
+  description: Major events and market dynamics in the AI compute card industry
+  permalink: /news
+
+benchmarks:
+  label: Benchmarks
+  description: LLM training / inference performance benchmarks and comparisons
+  permalink: /benchmarks
+
+cloud-pricing:
+  label: Cloud Pricing
+  description: AI cloud instance pricing and per-token cost analysis
+  permalink: /cloud-pricing
+
+选型指南:
+  label: 选型指南
+  description: AI 芯片选型指南与推荐
+  permalink: /tags/selection-guide
+
+GPU:
+  label: GPU
+  description: GPU 加速卡相关文章
+  permalink: /tags/GPU
+
+NPU:
+  label: NPU
+  description: NPU 神经网络处理器
+  permalink: /tags/NPU
+
+TPU:
+  label: TPU
+  description: Google TPU 相关文章
+  permalink: /tags/TPU
+
+ASIC:
+  label: ASIC
+  description: ASIC 定制芯片架构
+  permalink: /tags/ASIC
+
+深度学习:
+  label: 深度学习
+  description: 深度学习与 AI 训练
+  permalink: /tags/deep-learning
+
+公告:
+  label: 公告
+  description: 站点公告与通知
+  permalink: /tags/announcement
+
+站点更新:
+  label: 站点更新
+  description: 站点功能更新与维护记录
+  permalink: /tags/site-update
+
+新功能:
+  label: 新功能
+  description: 新功能介绍与使用指南
+  permalink: /tags/new-feature
+
+架构对比:
+  label: 架构对比
+  description: AI 芯片架构对比分析
+  permalink: /tags/arch-comparison
+
+推理:
+  label: 推理
+  description: AI 推理加速与优化
+  permalink: /tags/inference
+
+国产芯片:
+  label: 国产芯片
+  description: 中国国产 AI 芯片发展动态
+  permalink: /tags/domestic-chip
+
+昇腾:
+  label: 昇腾
+  description: 华为昇腾系列 AI 芯片
+  permalink: /tags/ascend
+
+寒武纪:
+  label: 寒武纪
+  description: 寒武纪 AI 芯片与加速卡
+  permalink: /tags/cambricon
+
+海光:
+  label: 海光
+  description: 海光 DCU 加速卡
+  permalink: /tags/hygon
+
+AI芯片:
+  label: AI芯片
+  description: AI 芯片行业动态
+  permalink: /tags/ai-chip
+
+国产替代:
+  label: 国产替代
+  description: AI 芯片国产化替代进程
+  permalink: /tags/domestic-substitute

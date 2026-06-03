@@ -1,0 +1,367 @@
+import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+
+const sidebars: SidebarsConfig = {
+  aiCardsSidebar: [
+    'intro',
+    'comparison',
+    'roadmap',
+
+    {
+      type: 'category',
+      label: '📊 数据中心 AI 训练',
+      collapsed: false,
+      items: [
+        'types/training-gpu',
+        'types/training-asic',
+        'types/training-wafer',
+      ],
+    },
+    {
+      type: 'category',
+      label: '📈 数据中心 AI 推理',
+      collapsed: false,
+      items: [
+        'types/inference-gpu',
+        'types/inference-asic',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🖥️ 工作站与消费级',
+      collapsed: true,
+      items: [
+        'types/workstation',
+        'types/consumer',
+      ],
+    },
+    {
+      type: 'category',
+      label: '📡 边缘 AI',
+      collapsed: true,
+      items: [
+        'types/edge',
+      ],
+    },
+    {
+      type: 'category',
+      label: '💡 创新架构',
+      collapsed: true,
+      items: [
+        'types/innovative',
+      ],
+    },
+
+    {
+      type: 'category',
+      label: '🟢 NVIDIA',
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: '数据中心训练',
+          items: [
+            'cards/nvidia/a100',
+            'cards/nvidia/h100',
+            'cards/nvidia/h100-nvl',
+            'cards/nvidia/h200',
+            'cards/nvidia/b100',
+            'cards/nvidia/b200',
+            'cards/nvidia/b300-ultra',
+            'cards/nvidia/gb200',
+            'cards/nvidia/gb300',
+            'cards/nvidia/rubin-r200',
+          ],
+        },
+        {
+          type: 'category',
+          label: '数据中心推理',
+          items: [
+            'cards/nvidia/t4',
+            'cards/nvidia/l2',
+            'cards/nvidia/l4',
+            'cards/nvidia/l40s',
+            'cards/nvidia/groq-3-lpx',
+          ],
+        },
+        {
+          type: 'category',
+          label: '工作站 / 消费级',
+          items: [
+            'cards/nvidia/rtx-6000-ada',
+            'cards/nvidia/rtx-4090',
+            'cards/nvidia/rtx-5080',
+            'cards/nvidia/rtx-5090',
+          ],
+        },
+        {
+          type: 'category',
+          label: '边缘 AI',
+          items: [
+            'cards/nvidia/jetson-orin',
+            'cards/nvidia/jetson-thor',
+            'cards/nvidia/drive-thor',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔴 AMD Instinct',
+      collapsed: true,
+      items: [
+        'cards/amd/mi210',
+        'cards/amd/mi250',
+        'cards/amd/mi300a',
+        'cards/amd/mi300x',
+        'cards/amd/mi325x',
+        'cards/amd/mi350',
+        'cards/amd/mi355x',
+        'cards/amd/mi400',
+        'cards/amd/ryzen-ai-max',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔵 Intel (Habana)',
+      collapsed: true,
+      items: [
+        'cards/intel/gaudi-1',
+        'cards/intel/gaudi-2',
+        'cards/intel/gaudi-3',
+        'cards/intel/gaudi-4',
+        'cards/intel/max-series',
+        'cards/intel/flex-series',
+        'cards/intel/jaguar-shores',
+        'cards/intel/core-ultra-2',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🟡 Google Cloud TPU',
+      collapsed: true,
+      items: [
+        'cards/google/tpu-v4',
+        'cards/google/tpu-v5e',
+        'cards/google/tpu-v5p',
+        'cards/google/tpu-v6e',
+        'cards/google/tpu-v6p',
+        'cards/google/tpu-ironwood',
+        'cards/google/tpu-8t',
+        'cards/google/tpu-8i',
+        'cards/google/edge-tpu',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🟠 AWS Trainium / Inferentia',
+      collapsed: true,
+      items: [
+        'cards/aws/trainium',
+        'cards/aws/trainium-2',
+        'cards/aws/trainium-3',
+        'cards/aws/inferentia',
+        'cards/aws/inferentia-2',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔴 华为昇腾',
+      collapsed: true,
+      items: [
+        'cards/huawei/ascend-910b',
+        'cards/huawei/ascend-910c',
+        'cards/huawei/ascend-910d',
+        'cards/huawei/ascend-920',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔷 Cerebras 晶圆级',
+      collapsed: true,
+      items: [
+        'cards/cerebras/wse-2',
+        'cards/cerebras/wse-3',
+        'cards/cerebras/wse-4',
+      ],
+    },
+
+    // ===== 其他厂商：按子类拆分 =====
+    {
+      type: 'category',
+      label: '🍎 Apple Silicon',
+      collapsed: true,
+      items: [
+        'cards/others/apple-m-series',
+        'cards/others/apple-a17-pro',
+        'cards/others/apple-a18',
+        'cards/others/apple-a18-pro',
+        'cards/others/apple-a19',
+        'cards/others/apple-a19-pro',
+        'cards/others/apple-m1-ultra',
+        'cards/others/apple-m1-pro',
+        'cards/others/apple-m1-max',
+        'cards/others/apple-m2-ultra',
+        'cards/others/apple-m2-max',
+        'cards/others/apple-m3-max',
+        'cards/others/apple-m3-ultra',
+        'cards/others/apple-m4-max',
+        'cards/others/apple-m4-pro',
+        'cards/others/apple-m4-ultra',
+        'cards/others/apple-m5-ultra',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🇨🇳 国产 AI 芯片',
+      collapsed: true,
+      items: [
+        'cards/others/cambricon-mlu',
+        'cards/others/cambricon-mlu-370',
+        'cards/others/cambricon-mlu-690',
+        'cards/others/moore-threads-mtt-s5000',
+        'cards/others/biren-br104',
+        'cards/others/alibaba-hanguang-800',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🚀 创新架构初创',
+      collapsed: true,
+      items: [
+        'cards/others/groq-lpu',
+        'cards/others/groq-lpu-v2',
+        'cards/others/sambanova-sn40l',
+        'cards/others/sn50',
+        'cards/others/tenstorrent-blackhole',
+        'cards/others/tenstorrent',
+        'cards/others/furiosaai-rngd',
+        'cards/others/rebellions-rbln',
+        'cards/others/mobilint',
+        'cards/others/esperanto-et-soc-1',
+      ],
+    },
+    {
+      type: 'category',
+      label: '📱 边缘与移动 NPU',
+      collapsed: true,
+      items: [
+        'cards/others/qualcomm-ai100',
+        'cards/others/qualcomm-ai-200',
+        'cards/others/qualcomm-snapdragon-x-elite',
+        'cards/others/mediatek-dimensity-9400',
+        'cards/others/hailo',
+        'cards/others/hailo-15',
+        'cards/others/blaize-xplorer',
+      ],
+    },
+    {
+      type: 'category',
+      label: '💡 存算一体与神经形态',
+      collapsed: true,
+      items: [
+        'cards/others/lightmatter-envise',
+        'cards/others/lightelligence',
+        'cards/others/lighton',
+        'cards/others/ibm-northpole',
+        'cards/others/hbm-pim',
+        'cards/others/akida-2',
+      ],
+    },
+    {
+      type: 'category',
+      label: '⚙️ 其他特殊架构',
+      collapsed: true,
+      items: [
+        'cards/others/graphcore-ipu',
+        'cards/others/tesla-dojo',
+        'cards/others/tesla-dojo-v2',
+      ],
+    },
+
+    // ===== 架构详解 =====
+    {
+      type: 'category',
+      label: '🔬 芯片架构详解',
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'GPU 通用并行',
+          items: ['architectures/arch-gpu'],
+        },
+        {
+          type: 'category',
+          label: 'TPU 张量处理',
+          items: ['architectures/arch-tpu'],
+        },
+        {
+          type: 'category',
+          label: 'LPU 语言处理',
+          items: ['architectures/arch-lpu'],
+        },
+        {
+          type: 'category',
+          label: 'NPU 神经处理',
+          items: ['architectures/arch-npu'],
+        },
+        {
+          type: 'category',
+          label: 'APU 加速处理（CPU+GPU）',
+          items: ['architectures/arch-apu'],
+        },
+        {
+          type: 'category',
+          label: 'ASIC 专用集成电路',
+          items: ['architectures/arch-asic'],
+        },
+        {
+          type: 'category',
+          label: 'WSE 晶圆级引擎',
+          items: ['architectures/arch-wse'],
+        },
+        {
+          type: 'category',
+          label: 'IPU 智能处理',
+          items: ['architectures/arch-ipu'],
+        },
+        {
+          type: 'category',
+          label: 'RPU / RDU 可重构数据流',
+          items: ['architectures/arch-rpu-rdu'],
+        },
+        {
+          type: 'category',
+          label: 'PIM 存算一体',
+          items: ['architectures/arch-pim'],
+        },
+        {
+          type: 'category',
+          label: 'Neuromorphic 神经形态',
+          items: ['architectures/arch-neuromorphic'],
+        },
+      ],
+    },
+
+    // ===== 工具与关于 =====
+    {
+      type: 'category',
+      label: '🔧 实用工具',
+      collapsed: true,
+      items: [{ type: 'autogenerated', dirName: 'tools' }],
+    },
+    {
+      type: 'category',
+      label: '📖 参考与术语',
+      collapsed: true,
+      items: [{ type: 'autogenerated', dirName: 'reference' }],
+    },
+    {
+      type: 'category',
+      label: '📌 关于项目',
+      collapsed: true,
+      items: [{ type: 'autogenerated', dirName: 'about' }],
+    },
+  ],
+};
+
+export default sidebars;

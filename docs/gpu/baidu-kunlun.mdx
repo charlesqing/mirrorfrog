@@ -1,0 +1,142 @@
+---
+title: '百度昆仑芯 P800 - 百度 Baidu'
+description: '百度昆仑芯（Kunlun）AI 加速芯片，从百度孵化。P800 系列 FP16 算力 345 TFLOPS，是 NVIDIA H20 的 2.3 倍。2026年1月启动科创板 IPO，估值预期500亿美元。凭借"应用驱动"优势和大规模集群技术，成为国产 AI 芯片第一梯队。2025 年出货约 11.6 万颗。'
+sidebar_label: '百度昆仑芯 P800'
+keywords:
+  - '百度昆仑芯'
+  - 'P800'
+  - '百度'
+  - 'Baidu'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 百度昆仑芯 P800
+
+**厂商**: 百度 Baidu
+
+**分类**: GPU 图形处理器
+
+**架构**: XPU
+
+## 简介
+
+百度昆仑芯（Kunlun）AI 加速芯片，从百度孵化。P800 系列 FP16 算力 345 TFLOPS，是 NVIDIA H20 的 2.3 倍。**2026年1月启动科创板 IPO，估值预期约500亿美元**。凭借"应用驱动"优势和大规模集群技术，成为国产 AI 芯片第一梯队。2025 年出货约 11.6 万颗。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| 昆仑芯 2代 | 256 TOPS (INT8) / 128 (FP16) | 32GB GDDR6 (512 GB/s) | PCIe 4.0 | 160W | 7nm |
+| 昆仑芯 3代 | 512 TOPS (INT8) / 256 (FP16) | 64GB HBM2e | OAM | 400W | 5nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.kunlunxin.com/)
+## 驱动下载
+
+### Linux
+
+- [昆仑芯驱动（Linux）](https://www.kunlunxin.com/)
+- [XPU SDK](https://www.kunlunxin.com/)
+
+
+## 相关文档
+
+- [昆仑芯开发者中心](https://developer.kunlunxin.com/)
+- [XPU 编程指南](https://developer.kunlunxin.com/)
+- [P800 产品文档](https://www.kunlunxin.com/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| SDK 3.0 | 2024 | 3代芯片支持 + Paddle 集成 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| 昆仑芯 3代 | Llama 2 7B 推理 | ~35 tok/s (INT8) |
+| 昆仑芯 2代 | Paddle 模型推理 | ~80% GPU 效率 |
+| 昆仑芯 3代 | 自然语言理解 (NLU) | 通用 AI 推理 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| 昆仑芯 3代 | 需询价 | 面向企业客户 |
+| 昆仑芯 2代 | 需询价 | 主要通过百度云实例获取 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 1. 安装 XPU 驱动和 SDK
+sudo rpm -ivh kunlun-driver-*.rpm
+tar -xzf xpu-sdk-*.tar.gz && cd xpu-sdk && sudo ./install.sh
+
+# 2. 验证
+xpu-smi
+```
+
+> 驱动和 SDK 从 [昆仑芯官网](https://www.kunlunxin.com/) 下载。
+
+## 代码示例
+
+### Python (PaddlePaddle XPU)
+
+```python
+import paddle
+
+# 检查 XPU 可用性
+print(f"XPU available: {paddle.device.is_compiled_with_xpu()}")
+paddle.set_device('xpu')
+
+# 运行简单模型
+x = paddle.randn([1024, 1024])
+y = paddle.matmul(x, x)
+print(f"XPU matrix multiply: {y.shape}")
+```
+
+## 架构特色
+
+- **XPU 架构**: 百度自研 AI 加速架构，专为深度学习优化，支持训练和推理
+- **PaddlePilot 深度集成**: 作为百度飞桨 (PaddlePaddle) 的原生加速后端
+- **昆仑芯 3代**: 算力和显存大幅提升，支持大模型训练场景
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PaddlePaddle | ✅ 原生 | 最佳支持 |
+| PyTorch | ⚠️ | 通过 XPU 适配插件 |
+| PaddleOCR | ✅ | 官方推荐加速方案 |
+| 文心大模型 | ✅ | 原生支持 |
+| 通用模型 | ⚠️ | 生态正在扩展 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [天数智芯 天垓 100](/gpu/iluvatar-bi) — 天数智芯 Iluvatar（GPU 图形处理器）
+- [寒武纪 思元 590](/asic/cambricon-mlu) — 寒武纪 Cambricon（ASIC 专用加速卡）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+- [摩尔线程 MTT S5000](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [壁仞科技 BR100/BR20X](/gpu/biren-br) — 壁仞科技 Biren（GPU 图形处理器）
+- [沐曦 曦云 C500/C600](/gpu/metax-c600) — 沐曦 MetaX（GPU 图形处理器）
+- [阿里平头哥 真武 PPU](/gpu/t-head-zhenwu) — 阿里巴巴 Alibaba（GPU 图形处理器）
+

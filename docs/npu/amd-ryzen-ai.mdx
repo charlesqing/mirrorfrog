@@ -1,0 +1,136 @@
+---
+title: 'AMD Ryzen AI NPU - AMD'
+description: 'AMD Ryzen AI 是高通后集成在 AMD Ryzen 7040/8040/9000 系列处理器中的 NPU。基于 XDNA 架构，支持 ONNX Runtime 和 DirectML 加速推理，适合轻薄本上的 AI 应用。'
+sidebar_label: 'AMD Ryzen AI NPU'
+keywords:
+  - 'AMD'
+  - 'Ryzen'
+  - 'AI'
+  - 'NPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# AMD Ryzen AI NPU
+
+**厂商**: AMD
+
+**分类**: NPU 神经网络处理器
+
+**架构**: XDNA 2
+
+## 简介
+
+AMD Ryzen AI 是高通后集成在 AMD Ryzen 7040/8040/9000 系列处理器中的 NPU。基于 XDNA 架构，支持 ONNX Runtime 和 DirectML 加速推理，适合轻薄本上的 AI 应用。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Ryzen AI 300 (Strix) | 50 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 15-54W | 4nm |
+| Ryzen AI 200 | 16 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 15-28W | 4nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.amd.com/en/products/processors/consumer/ryzen-ai.html)
+## 驱动下载
+
+### Windows
+
+- [Ryzen AI 驱动 (Windows)](https://www.amd.com/en/support)
+- [Ryzen AI Software](https://account.amd.com/en/member/ryzen-ai-software-download.html)
+
+### Linux
+
+- [XDNA Linux 驱动](https://github.com/amd/xdna-driver)
+
+
+## 相关文档
+
+- [Ryzen AI 文档](https://ryzenai.docs.amd.com/)
+- [Ryzen AI 软件平台](https://www.amd.com/en/developer/ryzen-ai-software.html)
+- [Vitis AI 集成](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ⚠️ (实验性) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Ryzen AI Software 1.2 | 2024 | NPU Studio 图形化工具 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Ryzen AI 300 (Strix) | Windows Studio Effects | 实时背景模糊/眼神接触 |
+| Ryzen AI 300 | NPU TOPS | 50 TOPS |
+| Ryzen AI 300 | Stable Diffusion (本地) | ~30s/img |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Ryzen AI 300 (Strix) | 随笔记本提供 | AI PC 笔记本 |
+| Ryzen AI 200 | 随笔记本提供 | 第一代 AI PC |
+
+## 快速安装
+
+### Windows 11
+
+Ryzen AI NPU 通过 Windows 11 驱动和 ONNX Runtime 自动激活，无需额外安装。确保系统已更新。
+
+```powershell
+# 验证 NPU 可用 (通过 DirectML)
+python -c "import onnxruntime as ort; print(ort.get_available_providers())"
+```
+
+## 代码示例
+
+### Python (ONNX Runtime NPU)
+
+```python
+import onnxruntime as ort
+
+# 使用 DirectML / NPU 后端
+session = ort.InferenceSession("model.onnx", providers=['DmlExecutionProvider'])
+results = session.run(None, {'input': input_data})
+```
+
+## 架构特色
+
+- **XDNA 2 架构**: AMD 第二代 NPU 架构，50 TOPS 算力满足 Copilot+ PC 要求
+- **AI PC 定位**: 面向日常 AI 助手任务（背景模糊、语音增强、文本生成）
+- **CPU+NPU+GPU 协同**: 三大计算单元协同工作，NPU 处理低功耗常驻 AI 任务
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| ONNX Runtime | ✅ DirectML | Windows AI 推荐 |
+| PyTorch | ⚠️ | DirectML 后端 |
+| Windows Studio Effects | ✅ | 系统级 AI 功能 |
+| 小型 LLM (Phi/Granite) | ✅ | CPU+GPU 混合推理 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [Apple Neural Engine](/npu/apple-neural-engine) — Apple（NPU 神经网络处理器）
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek（NPU 神经网络处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Groq LPU](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+

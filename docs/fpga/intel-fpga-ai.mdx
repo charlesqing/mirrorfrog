@@ -1,0 +1,138 @@
+---
+title: 'Intel FPGA AI Suite - Intel'
+description: 'Intel FPGA AI Suite 是面向 Intel Agilex/Arria/Stratix FPGA 的 AI 推理优化工具套件。支持 OpenVINO 模型优化，可将模型部署到 FPGA 上实现低延迟推理。'
+sidebar_label: 'Intel FPGA AI Suite'
+keywords:
+  - 'Intel'
+  - 'FPGA'
+  - 'AI'
+  - 'Suite'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Intel FPGA AI Suite
+
+**厂商**: Intel
+
+**分类**: FPGA 可编程门阵列
+
+**架构**: Intel Agilex / Stratix
+
+## 简介
+
+Intel FPGA AI Suite 是面向 Intel Agilex/Arria/Stratix FPGA 的 AI 推理优化工具套件。支持 OpenVINO 模型优化，可将模型部署到 FPGA 上实现低延迟推理。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Agilex 9 | 200 TOPS (INT8) | 64GB DDR4 | PCIe 4.0 | 250W | Intel 7 |
+| Agilex 7 | 100 TOPS (INT8) | 32GB DDR4 | PCIe 4.0 | 150W | Intel 7 |
+
+
+## 官方网站
+
+[访问官方网站](https://www.intel.com/content/www/us/en/products/details/fpga.html)
+## 驱动下载
+
+### Linux
+
+- [Intel FPGA 驱动 (Linux)](https://www.intel.com/content/www/us/en/support/download-center.html)
+- [Intel FPGA AI Suite](https://www.intel.com/content/www/us/en/software/welcome-to-intel-fpga-ai-suite.html)
+
+
+## 相关文档
+
+- [Intel FPGA AI Suite 文档](https://www.intel.com/content/www/us/en/docs/fpga-ai-suite/ug-integrator-title/2024-1/overview.html)
+- [OpenVINO  on FPGA](https://docs.openvino.ai/2024/openvino-sample-guides/fpga.html)
+- [FPGA AI 入门指南](https://www.intel.com/content/www/us/en/docs/fpga-ai-suite/ug-overview/2024-1/overview.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Intel FPGA AI Suite 3.0 | 2024 | Agilex 9 支持 + oneAPI |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Agilex 9 | AI 推理 | 高吞吐 INT8 推理 |
+| Agilex 7 | 视频处理 | 多路实时处理 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Agilex 9 | $5,000-10,000 | 高端 FPGA |
+| Agilex 7 | $2,000-5,000 | 中端 FPGA |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. 安装 Intel FPGA 运行时
+sudo apt install -y intel-fpga-runtime
+
+# 2. 编程 FPGA
+aocl program acl0 kernel.aocx
+
+# 3. 验证
+aocllist
+```
+
+> Intel FPGA SDK 从 [Intel FPGA](https://www.intel.com/content/www/us/en/products/programmable.html) 下载。
+
+## 代码示例
+
+### C (Intel FPGA OpenCL)
+
+```c
+// FPGA 内核 (OpenCL)
+__kernel void matmul(__global const float *A, __global const float *B, __global float *C) {
+    int i = get_global_id(0);
+    C[i] = A[i] * B[i];
+}
+```
+
+编译: `aoc kernel.cl -o kernel.aocx`
+
+## 架构特色
+
+- **Agilex / Stratix**: Intel (Altera) FPGA 架构，支持 AI 和信号处理
+- **OneAPI for FPGA**: 统一编程模型，支持 SYCL/OpenCL
+- **AI Suite**: Intel FPGA AI 推理优化工具链
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| OpenVINO | ✅ | Intel FPGA 后端 |
+| OneAPI/SYCL | ✅ | 统一编程 |
+| 自定义逻辑 | ✅ | FPGA 核心优势 |
+| 量化推理 | ✅ | INT8 优化 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD Alveo FPGA](/fpga/amd-alveo) — AMD (Xilinx)（FPGA 可编程门阵列）
+- [Achronix Speedster](/fpga/achronix-speedster) — Achronix（FPGA 可编程门阵列）
+- [Intel GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+- [Intel Gaudi](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+

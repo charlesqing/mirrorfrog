@@ -1,0 +1,120 @@
+---
+title: 'Microsoft Maia 100 - Microsoft'
+description: 'Microsoft Maia 100 是微软自研的 AI 加速器，针对 Azure 云中的 AI 训练和推理优化。采用 5nm 工艺，与 Azure 基础设施深度集成，服务于 Microsoft Copilot 等 AI 服务。'
+sidebar_label: 'Microsoft Maia 100'
+keywords:
+  - 'Microsoft'
+  - 'Maia'
+  - '100'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Microsoft Maia 100
+
+**厂商**: Microsoft
+
+**分类**: ASIC 专用加速卡
+
+**架构**: Maia AI Accelerator
+
+## 简介
+
+Microsoft Maia 100 是微软自研的 AI 加速器，针对 Azure 云中的 AI 训练和推理优化。采用 5nm 工艺，与 Azure 基础设施深度集成，服务于 Microsoft Copilot 等 AI 服务。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Maia 100 | 1,200 TFLOPS (FP8) | 512MB HBM | 定制高速互联 | 500W | 5nm TSMC |
+
+## 官方网站
+
+[访问官方网站](https://azure.microsoft.com/en-us/products/ai/)
+## 驱动下载
+
+### Linux
+
+- [Azure AI 基础设施](https://learn.microsoft.com/en-us/azure/machine-learning/)
+
+## 相关文档
+
+- [Maia 100 介绍](https://azure.microsoft.com/en-us/blog/introducing-microsoft-maia-100/)
+- [Azure AI 平台文档](https://learn.microsoft.com/en-us/azure/machine-learning/)
+- [Azure AI Studio](https://ai.azure.com/)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (Azure) | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Maia 100 Preview | 2024 | Azure AI 基础设施内部部署 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Maia 100 | Azure AI 推理 | 微软内部优化 |
+| Maia 100 | LLM 推理 | Azure OpenAI 后端 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Maia 100 | 不单独销售 | 仅 Azure 内部使用 |
+
+## 快速安装
+
+> Maia 100 不对外销售，仅供 Azure 内部服务使用。用户通过 Azure AI 服务间接使用 Maia 算力。
+
+## 代码示例
+
+> Maia 100 为 Microsoft 内部 AI 加速器，不提供独立 SDK。开发者通过 Azure AI Services / Azure OpenAI 使用。
+
+## 架构特色
+
+- **Maia 架构**: Microsoft 自研 AI 加速器，专为 Azure 云服务优化
+- **Azure 定制**: 与 Azure 网络和存储深度集成，端到端优化
+- **不对外销售**: 仅作为 Azure 基础设施使用
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Azure OpenAI | ✅ 后端 | GPT-4o 等 |
+| Azure AI | ✅ | 微软 AI 服务 |
+| 第三方框架 | ❌ | 不对外提供 |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，Microsoft Maia 在已公开的集群部署中累计超过 **2,048** 颗芯片，分布在 **1** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| Maia 100 (M100) | 2,048 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | Microsoft Ares/Maia | 2,048 | Maia 100 (M100) ×2,048 | Microsoft, United States of America |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AWS Trainium2 / Inferentia2](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）

@@ -1,0 +1,114 @@
+{
+  "title": {
+    "message": "AI Compute Cards Wiki",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "AI Compute Cards Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.AI 计算卡目录": {
+    "message": "AI Compute Cards",
+    "description": "Navbar item with label AI 计算卡目录"
+  },
+  "item.label.对比表": {
+    "message": "Comparison",
+    "description": "Navbar item with label 对比表"
+  },
+  "item.label.路线图": {
+    "message": "Roadmap",
+    "description": "Navbar item with label 路线图"
+  },
+  "item.label.行业动态": {
+    "message": "Blog",
+    "description": "Navbar item with label 行业动态"
+  },
+  "item.label.芯片架构": {
+    "message": "Chip Architectures",
+    "description": "Navbar item with label 芯片架构"
+  },
+  "item.label.工具": {
+    "message": "Tools",
+    "description": "Navbar item with label 工具"
+  },
+  "item.label.关于": {
+    "message": "About",
+    "description": "Navbar item with label 关于"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.所有文章": {
+    "message": "All Posts",
+    "description": "Navbar item with label 所有文章"
+  },
+  "item.label.产品发布": {
+    "message": "Product Launches",
+    "description": "Navbar item with label 产品发布"
+  },
+  "item.label.厂商战略": {
+    "message": "Vendor Strategy",
+    "description": "Navbar item with label 厂商战略"
+  },
+  "item.label.技术深度": {
+    "message": "Tech Deep Dives",
+    "description": "Navbar item with label 技术深度"
+  },
+  "item.label.选型指南": {
+    "message": "Selection Guides",
+    "description": "Navbar item with label 选型指南"
+  },
+  "item.label.行业新闻": {
+    "message": "Industry News",
+    "description": "Navbar item with label 行业新闻"
+  },
+  "item.label.归档": {
+    "message": "Archive",
+    "description": "Navbar item with label 归档"
+  },
+  "item.label.GPU 通用并行": {
+    "message": "GPU (General Parallel)",
+    "description": "Navbar item with label GPU 通用并行"
+  },
+  "item.label.TPU 张量处理": {
+    "message": "TPU (Tensor Processing)",
+    "description": "Navbar item with label TPU 张量处理"
+  },
+  "item.label.LPU 语言处理": {
+    "message": "LPU (Language Processing)",
+    "description": "Navbar item with label LPU 语言处理"
+  },
+  "item.label.NPU 神经处理": {
+    "message": "NPU (Neural Processing)",
+    "description": "Navbar item with label NPU 神经处理"
+  },
+  "item.label.APU 加速处理": {
+    "message": "APU (Accelerated Processing)",
+    "description": "Navbar item with label APU 加速处理"
+  },
+  "item.label.ASIC 专用芯片": {
+    "message": "ASIC (Application-Specific)",
+    "description": "Navbar item with label ASIC 专用芯片"
+  },
+  "item.label.WSE 晶圆级": {
+    "message": "WSE (Wafer-Scale)",
+    "description": "Navbar item with label WSE 晶圆级"
+  },
+  "item.label.IPU 智能处理": {
+    "message": "IPU (Intelligence Processing)",
+    "description": "Navbar item with label IPU 智能处理"
+  },
+  "item.label.RPU / RDU": {
+    "message": "RPU / RDU (Reconfigurable Dataflow)",
+    "description": "Navbar item with label RPU / RDU"
+  },
+  "item.label.PIM 存算一体": {
+    "message": "PIM (Processing-in-Memory)",
+    "description": "Navbar item with label PIM 存算一体"
+  },
+  "item.label.Neuromorphic 神经形态": {
+    "message": "Neuromorphic (Spiking Neural)",
+    "description": "Navbar item with label Neuromorphic 神经形态"
+  }
+}

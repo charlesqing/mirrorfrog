@@ -1,0 +1,143 @@
+---
+title: 'Groq LPU - Groq'
+description: 'Groq LPU（Language Processing Unit）是专为大语言模型推理设计的处理器。采用确定性架构，推理延迟极低，LLaMA 等模型的 token 生成速度远超传统 GPU。'
+sidebar_label: 'Groq LPU'
+keywords:
+  - 'Groq'
+  - 'LPU'
+  - 'Groq LPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# Groq LPU
+
+**厂商**: Groq (已被 NVIDIA 收购)
+
+**分类**: LPU 语言处理器
+
+**架构**: TSP (Tensor Streaming Processor)
+
+## 简介
+
+Groq LPU（Language Processing Unit）是专为大语言模型推理设计的处理器。采用确定性架构，推理延迟极低，LLaMA 等模型的 token 生成速度远超传统 GPU。**2025年12月，NVIDIA 以约 $200亿收购 Groq**，LPU 技术将融入 NVIDIA 产品线。第三代 LPU (LP30) 将于 2026年发布。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| LPU v1 | 750 TOPS (INT8) / 188 TFLOPS (FP16) | 230MB 芯上 SRAM | 以太网互联 | 300W | 14nm |
+| LPU v3 (LP30) | 1.2 PFLOPS (FP8) | 500MB 芯上 SRAM | NVLink-C2C | 待公布 | Samsung 4nm |
+
+## 官方网站
+
+[访问官方网站](https://groq.com/)
+## 驱动下载
+
+### Linux
+
+- [Groq SDK](https://docs.r0b.re/r0b/)
+- [Groq API](https://console.groq.com/)
+
+## 相关文档
+
+- [Groq 开发者文档](https://docs.r0b.re/r0b/)
+- [Groq Cloud API](https://console.groq.com/docs)
+- [LPU 架构白皮书](https://groq.com/research/)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (GroqCloud API) | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| LPU Runtime 1.0 | 2024 | Llama 3 8B 达 800+ tokens/s |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| LPU v1 | Llama 2 70B 推理 | ~330 tok/s (FP16, GroqCloud) |
+| LPU v1 | Mixtral 8x7B 推理 | ~180 tok/s/chip |
+| LPU v1 | Llama 3 8B 推理 | ~800 tok/s |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| LPU v1 | 免费 API | GroqCloud 免费额度 |
+| LPU v1 | 企业版 | GroqCloud 按量计费 |
+
+## 快速安装
+
+### GroqCloud (API)
+
+```bash
+pip install groq
+```
+
+> LPU v1 不单独出售，仅通过 GroqCloud API 使用。
+
+## 代码示例
+
+### Python (Groq API)
+
+```python
+from groq import Groq
+
+client = Groq(api_key="your-key")
+response = client.chat.completions.create(
+    model="llama-3.1-70b-versatile",
+    messages=[{"role": "user", "content": "你好"}],
+    max_tokens=100
+)
+print(response.choices[0].message.content)
+```
+
+## 架构特色
+
+- **TSP (Tensor Streaming Processor)**: 专为顺序执行优化的张量处理器，每个时钟周期完成一次完整矩阵运算
+- **确定性延迟**: 推理延迟完全可预测，适合实时 AI 服务
+- **SRAM 密集**: 片上 230MB SRAM，避免 DRAM 访问延迟
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Llama 系列 | ✅ 原生 | Groq 官方部署 |
+| Mixtral | ✅ 原生 | MoE 模型支持 |
+| 大语言模型 | ✅ | GroqCloud API |
+| CNN/训练 | ❌ | 仅推理，仅 Transformer |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，Groq LPU 在已公开的集群部署中累计超过 **19,725** 颗芯片，分布在 **1** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| GroqChip LPU v1 | 19,725 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | Aramco Groq Inference Cluster | 19,725 | GroqChip LPU v1 ×19,725 | Saudi Aramco, Saudi Arabia |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [Etched Sohu ASIC](/asic/etched-sohu) — Etched（ASIC 专用加速卡）
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Intel Gaudi](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（NPU 神经网络处理器）

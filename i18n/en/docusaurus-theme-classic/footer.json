@@ -1,0 +1,118 @@
+{
+  "link.title.按类型": {
+    "message": "By Type",
+    "description": "The title of the footer links column with title=按类型 in the footer"
+  },
+  "link.title.按厂商": {
+    "message": "By Vendor",
+    "description": "The title of the footer links column with title=按厂商 in the footer"
+  },
+  "link.title.按芯片架构": {
+    "message": "By Architecture",
+    "description": "The title of the footer links column with title=按芯片架构 in the footer"
+  },
+  "link.title.资源": {
+    "message": "Resources",
+    "description": "The title of the footer links column with title=资源 in the footer"
+  },
+  "link.item.label.AI 训练 GPU": {
+    "message": "AI Training GPU",
+    "description": "The label of footer link with label=AI 训练 GPU linking to /docs/types/training-gpu"
+  },
+  "link.item.label.AI 训练 ASIC": {
+    "message": "AI Training ASIC",
+    "description": "The label of footer link with label=AI 训练 ASIC linking to /docs/types/training-asic"
+  },
+  "link.item.label.晶圆级训练": {
+    "message": "Wafer-Scale Training",
+    "description": "The label of footer link with label=晶圆级训练 linking to /docs/types/training-wafer"
+  },
+  "link.item.label.AI 推理 GPU": {
+    "message": "AI Inference GPU",
+    "description": "The label of footer link with label=AI 推理 GPU linking to /docs/types/inference-gpu"
+  },
+  "link.item.label.AI 推理 ASIC": {
+    "message": "AI Inference ASIC",
+    "description": "The label of footer link with label=AI 推理 ASIC linking to /docs/types/inference-asic"
+  },
+  "link.item.label.工作站 / 消费级": {
+    "message": "Workstation / Consumer",
+    "description": "The label of footer link with label=工作站 / 消费级 linking to /docs/types/workstation"
+  },
+  "link.item.label.边缘 AI": {
+    "message": "Edge AI",
+    "description": "The label of footer link with label=边缘 AI linking to /docs/types/edge"
+  },
+  "link.item.label.创新架构": {
+    "message": "Innovative",
+    "description": "The label of footer link with label=创新架构 linking to /docs/types/innovative"
+  },
+  "link.item.label.NVIDIA": {
+    "message": "NVIDIA",
+    "description": "The label of footer link with label=NVIDIA linking to /docs/cards/nvidia/h100"
+  },
+  "link.item.label.AMD": {
+    "message": "AMD",
+    "description": "The label of footer link with label=AMD linking to /docs/cards/amd/mi300x"
+  },
+  "link.item.label.Intel (Habana)": {
+    "message": "Intel (Habana)",
+    "description": "The label of footer link with label=Intel (Habana) linking to /docs/cards/intel/gaudi-3"
+  },
+  "link.item.label.Google TPU": {
+    "message": "Google TPU",
+    "description": "The label of footer link with label=Google TPU linking to /docs/cards/google/tpu-ironwood"
+  },
+  "link.item.label.AWS": {
+    "message": "AWS",
+    "description": "The label of footer link with label=AWS linking to /docs/cards/aws/trainium-2"
+  },
+  "link.item.label.Huawei 昇腾": {
+    "message": "Huawei Ascend",
+    "description": "The label of footer link with label=Huawei 昇腾 linking to /docs/cards/huawei/ascend-910c"
+  },
+  "link.item.label.Cerebras / Apple / 其他": {
+    "message": "Cerebras / Apple / Others",
+    "description": "The label of footer link with label=Cerebras / Apple / 其他 linking to /docs/cards/others/groq-lpu"
+  },
+  "link.item.label.GPU / TPU / LPU": {
+    "message": "GPU / TPU / LPU",
+    "description": "The label of footer link with label=GPU / TPU / LPU linking to /docs/architectures/arch-gpu"
+  },
+  "link.item.label.NPU / APU / ASIC": {
+    "message": "NPU / APU / ASIC",
+    "description": "The label of footer link with label=NPU / APU / ASIC linking to /docs/architectures/arch-npu"
+  },
+  "link.item.label.WSE / IPU / RPU": {
+    "message": "WSE / IPU / RPU",
+    "description": "The label of footer link with label=WSE / IPU / RPU linking to /docs/architectures/arch-wse"
+  },
+  "link.item.label.PIM 存算一体": {
+    "message": "PIM (Processing-in-Memory)",
+    "description": "The label of footer link with label=PIM 存算一体 linking to /docs/architectures/arch-pim"
+  },
+  "link.item.label.Neuromorphic 神经形态": {
+    "message": "Neuromorphic (Spiking)",
+    "description": "The label of footer link with label=Neuromorphic 神经形态 linking to /docs/architectures/arch-neuromorphic"
+  },
+  "link.item.label.完整对比表": {
+    "message": "Full Comparison",
+    "description": "The label of footer link with label=完整对比表 linking to /docs/comparison"
+  },
+  "link.item.label.未来路线图": {
+    "message": "Future Roadmap",
+    "description": "The label of footer link with label=未来路线图 linking to /docs/roadmap"
+  },
+  "link.item.label.行业动态": {
+    "message": "Blog",
+    "description": "The label of footer link with label=行业动态 linking to /blog"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/anomalyco/mirrorfrog"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 AI Compute Cards Wiki. Built with Docusaurus.",
+    "description": "The footer copyright"
+  }
+}

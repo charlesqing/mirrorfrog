@@ -1,0 +1,140 @@
+---
+title: 'Apple Neural Engine - Apple'
+description: 'Apple A 系列和 M 系列芯片内置的神经网络引擎（ANE），专为机器学习推理加速设计。提供 16 核架构，算力高达 38 TOPS。通过 Core ML 框架调用，支持模型压缩和部署。'
+sidebar_label: 'Apple Neural Engine'
+keywords:
+  - 'Apple'
+  - 'Neural'
+  - 'Engine'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Apple Neural Engine
+
+**厂商**: Apple
+
+**分类**: NPU 神经网络处理器
+
+**架构**: Neural Engine (ANE)
+
+## 简介
+
+Apple A 系列和 M 系列芯片内置的神经网络引擎（ANE），专为机器学习推理加速设计。提供 16 核架构，算力高达 38 TOPS。通过 Core ML 框架调用，支持模型压缩和部署。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| A18 Pro ANE | 38 TOPS (INT8) | 统一内存 | 集成 SoC | 6W | N3E (3nm) |
+| M4 ANE | 38 TOPS (INT8) | 统一内存 | 集成 SoC | 10W | N3E (3nm) |
+| M3 ANE | 18 TOPS (INT8) | 统一内存 | 集成 SoC | 10W | N3B (3nm) |
+
+
+## 官方网站
+
+[访问官方网站](https://developer.apple.com/machine-learning/)
+## 驱动下载
+
+### macOS
+
+- [macOS AI 框架（内置，随系统更新）](https://developer.apple.com/machine-learning/)
+- [Core ML Tools](https://developer.apple.com/documentation/coreml)
+
+
+## 相关文档
+
+- [Core ML 文档](https://developer.apple.com/documentation/coreml)
+- [神经引擎性能指南](https://developer.apple.com/metal/performance/)
+- [Create ML 模型训练](https://developer.apple.com/documentation/createml)
+- [mlx (Apple ML 框架)](https://ml-explore.github.io/mlx/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ❌ | ✅ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Core ML 7 | 2024 | M4/A18 Pro，增强 Transformer 模型 |
+| Core ML 6 | 2023 | M3/A17 Pro 支持 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| A18 Pro ANE | Core ML 推理 | 38 TOPS |
+| M4 ANE | Core ML 推理 | 38 TOPS |
+| M4 ANE | Stable Diffusion (Core ML) | ~5s/img |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| ANE | 随 Apple SoC 提供 | iPhone/iPad/Mac 内置 |
+
+## 快速安装
+
+### macOS / iOS
+
+ANE 通过 Core ML 框架自动调用，无需额外安装。
+
+```bash
+# 安装 coremltools 用于模型转换
+pip install coremltools
+```
+
+## 代码示例
+
+### Python (Core ML)
+
+```python
+import coremltools as ct
+import numpy as np
+
+# 将 PyTorch 模型转换为 Core ML
+traced_model = torch.jit.trace(model, example_input)
+mlmodel = ct.convert(traced_model, inputs=[ct.TensorType(name="input", shape=example_input.shape)])
+mlmodel.save("Model.mlpackage")
+
+# 推理使用 Apple Neural Engine
+import coremltools as ct
+model = ct.models.MLModel("Model.mlpackage")
+predictions = model.predict({"input": input_array})
+```
+
+## 架构特色
+
+- **Neural Engine (ANE)**: Apple 专用神经网络加速器，独立于 CPU 和 GPU 运行，功耗极低
+- **Core ML 优化**: 模型自动路由到 ANE 执行，支持神经网络和传统机器学习
+- **统一内存**: ANE 与 CPU/GPU 共享内存，模型加载零拷贝
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Core ML | ✅ 原生 | 最佳支持 |
+| PyTorch | ✅ 转换 | coremltools 转换 |
+| TensorFlow | ✅ 转换 | coremltools 转换 |
+| Stable Diffusion | ✅ | Core ML 版本 |
+| 小型 LLM | ✅ | 侧载支持 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek（NPU 神经网络处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+

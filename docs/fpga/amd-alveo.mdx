@@ -1,0 +1,141 @@
+---
+title: 'AMD Alveo FPGA - AMD'
+description: 'AMD Alveo 加速卡（原 Xilinx Alveo）是基于 FPGA 的可重构 AI 加速平台。支持 Vitis AI 开发流程，可针对特定模型定制硬件逻辑，适合低延迟推理和算法快速迭代场景。'
+sidebar_label: 'AMD Alveo FPGA'
+keywords:
+  - 'AMD'
+  - 'Alveo'
+  - 'FPGA'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# AMD Alveo FPGA
+
+**厂商**: AMD
+
+**分类**: FPGA 可编程门阵列
+
+**架构**: Xilinx Versal / UltraScale+
+
+## 简介
+
+AMD Alveo 加速卡（原 Xilinx Alveo）是基于 FPGA 的可重构 AI 加速平台。支持 Vitis AI 开发流程，可针对特定模型定制硬件逻辑，适合低延迟推理和算法快速迭代场景。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| V70 | 280 TOPS (INT8) | 64GB DDR4 | PCIe 4.0 | 300W | 7nm |
+| V50 | 160 TOPS (INT8) | 32GB DDR4 | PCIe 4.0 | 150W | 7nm |
+| VCK5000 | 100 TOPS (INT8) | 16GB DDR4 | PCIe 4.0 | 75W | 16nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.amd.com/en/products/adaptive-socs-and-fpgas/alveo.html)
+## 驱动下载
+
+### Linux
+
+- [Alveo 驱动 (Linux)](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/alveo.html)
+- [Vitis AI 安装](https://docs.xilinx.com/r/en-US/ug1400-vitis-ai/Installation)
+
+
+## 相关文档
+
+- [Alveo 文档中心](https://docs.xilinx.com/v/u/en-US/alveo-landing-page)
+- [Vitis AI 开发指南](https://docs.xilinx.com/r/en-US/ug1400-vitis-ai/)
+- [FPGA AI 模型部署](https://www.xilinx.com/products/acceleration-solutions/alveo.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Vitis AI 3.0 | 2024 | Versal ACAP 全面支持 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| V70 | AI 推理 | 300 TOPS (INT8) |
+| V70 | 视频转码 | 多路 4K 实时 |
+| VCK5000 | 金融/量化 | 低延迟计算 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| V70 | $6,000-10,000 | AI/视频处理 |
+| V50 | $4,000-7,000 | 中端加速 |
+| VCK5000 | $3,000-5,000 | 入门 AI 推理 |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. 安装 Xilinx 运行时
+sudo apt install -y xrt
+
+# 2. 刷新 FPGA bitstream
+xbutil program -k xclbin/v70_ai.xclbin
+
+# 3. 验证
+xbutil examine
+```
+
+> XRT (Xilinx Runtime) 和 Vitis AI 从 [AMD Xilinx](https://www.xilinx.com/) 下载。
+
+## 代码示例
+
+### Python (Vitis AI)
+
+```python
+from vart import DpuRunner
+
+# 加载 DPU 任务
+runner = DpuRunner("v70_dpu.xclbin")
+input_data = runner.get_input_tensors()[0]
+runner.execute_async([input_data], [output_data])
+runner.wait()
+```
+
+## 架构特色
+
+- **Versal / UltraScale+**: AMD (Xilinx) FPGA 架构，高灵活性的可编程逻辑
+- **Vitis AI**: Xilinx AI 推理优化工具链，支持模型量化和部署
+- **硬件可重配**: 可在运行时重新配置 FPGA 电路，适应不同工作负载
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Vitis AI | ✅ 原生 | 最佳支持 |
+| PYNQ | ✅ | Python FPGA 编程 |
+| ONNX/TFLite | ✅ | Vitis AI 编译 |
+| 量化推理 | ✅ | INT8 优化 |
+| 自定义逻辑 | ✅ | FPGA 最大优势 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Intel FPGA AI](/fpga/intel-fpga-ai) — Intel (Altera)（FPGA 可编程门阵列）
+- [Achronix Speedster](/fpga/achronix-speedster) — Achronix（FPGA 可编程门阵列）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Intel GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（NPU 神经网络处理器）
+

@@ -1,0 +1,114 @@
+---
+title: 'AI 加速芯片术语表'
+description: 'AI 计算加速芯片常用术语解释：TFLOPS、TOPS、HBM、显存带宽、NVLink、Tensor Core 等概念速查。'
+sidebar_label: '术语表'
+keywords:
+  - 'AI'
+  - '加速芯片术语表'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# AI 加速芯片术语表
+
+## 性能指标
+
+### TFLOPS（Tera FLOPs）
+
+每秒万亿次浮点运算，衡量芯片的浮点计算能力。常用精度包括：
+
+- **FP64**（双精度）：科学计算，HPC 领域
+- **FP32**（单精度）：传统 AI 训练精度
+- **FP16**（半精度）/ **BF16**：混合精度训练主流格式
+- **FP8**：新一代训练/推理精度，Blackwell、Hopper 支持
+- **FP4**：推理优化精度，Blackwell 架构引入
+
+> 例：NVIDIA H100 SXM5 的 FP8 算力为 1,979 TFLOPS
+
+### TOPS（Tera Operations/s）
+
+每秒万亿次整数运算，通常用于 INT8 精度推理场景。INT8 算力通常是 FP16 的 2 倍、FP32 的 4 倍。
+
+> 例：昇腾 910B 的 INT8 算力为 640 TOPS
+
+### 显存与带宽
+
+| 术语 | 说明 |
+|------|------|
+| **HBM** (High Bandwidth Memory) | 高带宽内存，通过 3D 堆叠技术实现极高带宽，主流为 HBM2e / HBM3 / HBM3e |
+| **GDDR** (Graphics DDR) | 图形专用内存，成本低于 HBM，消费级和专业级 GPU 常用（GDDR6 / GDDR7）|
+| **显存带宽** (Memory Bandwidth) | 显存每秒可读写的字节数，单位 GB/s。对于大模型推理至关重要 |
+| **SRAM** (Static RAM) | 片上静态缓存，速度极快但容量小。Groq LPU 用 230MB 片上 SRAM 替代 DRAM |
+
+> 带宽公式：带宽 = 显存频率 × 位宽 ÷ 8
+
+## 互连技术
+
+| 术语 | 说明 |
+|------|------|
+| **NVLink** | NVIDIA 专有高速 GPU 互连技术，第五代达 1.8 TB/s 双向带宽 |
+| **NVLink-C2C** | NVIDIA 芯片级互连，用于 Grace CPU + Hopper GPU 超级芯片 |
+| **InfiniBand** | 高性能网络互连标准，AI 集群中用于跨节点通信（400Gb/s NDR 为主流）|
+| **PCIe** (PCI Express) | 通用外设互连，GPU 和主机间的主要接口。PCIe 5.0 x16 带宽约 64 GB/s |
+| **CXL** (Compute Express Link) | 新型 CPU-内存/加速器互连标准，基于 PCIe 物理层 |
+| **OAM** (OCP Accelerator Module) | 开放计算项目定义的加速器模组外形标准 |
+
+## 计算架构
+
+| 术语 | 说明 |
+|------|------|
+| **Tensor Core** | NVIDIA GPU 中的专用矩阵运算单元，从 Volta 架构开始引入，现已是 AI 计算核心 |
+| **Transformer Engine** | NVIDIA Hopper/Blackwell 架构中的专用 Transformer 加速单元，自动管理 FP8/FP16 精度切换 |
+| **MIG** (Multi-Instance GPU) | NVIDIA A100/H100 支持的 GPU 虚拟化技术，将一个物理 GPU 分割为多个独立实例 |
+| **3D Cube** | 华为达芬奇架构中的矩阵计算单元，专为矩阵乘法加速设计 |
+| **TSP** (Tensor Streaming Processor) | Groq LPU 的处理器架构，基于确定性时序执行，延迟极低 |
+
+## 软件栈
+
+| 术语 | 说明 |
+|------|------|
+| **CUDA** | NVIDIA 的并行计算平台和编程模型，AI 计算领域事实标准 |
+| **ROCm** | AMD 的开源 GPU 计算平台，兼容 CUDA 编程模型 |
+| **oneAPI** | Intel 的统一编程模型，支持 CPU/GPU/FPGA 异构计算 |
+| **CANN** | 华为昇腾的 AI 计算框架，对标 CUDA |
+| **MUSA** | 摩尔线程的 GPU 计算平台，兼容 CUDA API |
+| **cuDNN** | NVIDIA 深度神经网络加速库，提供卷积、归一化等算子优化实现 |
+| **TensorRT** | NVIDIA 推理优化引擎，支持模型量化、层融合等优化 |
+| **vLLM** | 高性能 LLM 推理引擎，支持 PagedAttention 连续批处理 |
+| **llama.cpp** | 轻量级 LLM 推理框架，支持 CPU/GPU 混合推理，主打量化模型部署 |
+
+## 部署架构
+
+| 术语 | 说明 |
+|------|------|
+| **SXM** (Server eXpansion Module) | NVIDIA 数据中心 GPU 的板载接口形态，带宽高于 PCIe |
+| **NVL** (NVLink) | NVIDIA 通过 NVLink 互联的多 GPU 配置（如 H100 NVL 双卡）|
+| **超级芯片** (Superchip) | 将 CPU 和 GPU 通过高速互连封装在一起（如 NVIDIA Grace Hopper、GB200）|
+| **TDP** (Thermal Design Power) | 热设计功耗，单位 W。AI 集群中 H100 ~700W，B200 ~1000W |
+| **HPC** (High Performance Computing) | 高性能计算，通常指科学计算而非 AI 推理 |
+
+## 模型相关
+
+| 术语 | 说明 |
+|------|------|
+| **LLM** (Large Language Model) | 大语言模型，如 GPT-4、Llama 3、Qwen 等 |
+| **MoE** (Mixture of Experts) | 混合专家架构，将模型拆分为多个专家子网络，推理时只激活相关专家，降低计算量 |
+| **量化** (Quantization) | 将模型权重从 FP16 压缩到 INT8/FP4/INT4，减少显存占用和计算量 |
+| **蒸馏** (Distillation) | 用大模型训练小模型，保留大部分能力的同时大幅降低计算需求 |
+| **批处理** (Batch) | 同时处理多个推理请求，提高 GPU 利用率和吞吐量 |
+| **TTFT** (Time to First Token) | 首 token 延迟，衡量推理响应速度的关键指标 |
+| **TPOT** (Time per Output Token) | 每输出一个 token 的时间，衡量推理吞吐的关键指标 |
+
+## 芯片分类
+
+| 分类 | 全称 | 典型应用 |
+|------|------|---------|
+| **GPU** | Graphics Processing Unit | AI 训练与推理（通用性最广）|
+| **NPU** | Neural Processing Unit | 端侧 AI 推理、边缘计算 |
+| **TPU** | Tensor Processing Unit | Google 生态内的训练与推理 |
+| **LPU** | Language Processing Unit | 专为 LLM 推理优化 |
+| **IPU** | Intelligence Processing Unit | Graphcore 设计的 AI 训练加速器 |
+| **DPU** | Data Processing Unit | 数据中心网络与数据卸载 |
+| **FPGA** | Field-Programmable Gate Array | 可重配置的 AI 推理/信号处理 |
+| **ASIC** | Application-Specific IC | 专用 AI 训练/推理加速 |

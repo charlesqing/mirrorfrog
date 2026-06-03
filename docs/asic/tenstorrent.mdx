@@ -1,0 +1,139 @@
+---
+title: 'Tenstorrent AI Accelerator - Tenstorrent'
+description: 'Tenstorrent 的 AI 加速器（Wormhole/Grayskull/Blackhole）采用独特的 Tensix 架构，融合 RISC-V 核心与 AI 张量计算单元。由传奇芯片架构师 Jim Keller 领导，开源软件栈。'
+sidebar_label: 'Tenstorrent AI Accelerator'
+keywords:
+  - 'Tenstorrent'
+  - 'AI'
+  - 'Accelerator'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Tenstorrent AI Accelerator
+
+**厂商**: Tenstorrent
+
+**分类**: ASIC 专用加速卡
+
+**架构**: Tensix / RISC-V
+
+## 简介
+
+Tenstorrent 的 AI 加速器（Wormhole/Grayskull/Blackhole）采用独特的 Tensix 架构，融合 RISC-V 核心与 AI 张量计算单元。由传奇芯片架构师 Jim Keller 领导，开源软件栈。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Wormhole n300 | 200 TFLOPS (BF16) | 64GB LPDDR5 | PCIe 5.0 + 以太网 | 200W | 6nm |
+| Grayskull e150 | 50 TFLOPS (BF16) | 16GB GDDR6 | PCIe 4.0 | 75W | 12nm |
+
+
+## 官方网站
+
+[访问官方网站](https://tenstorrent.com/)
+## 驱动下载
+
+### Linux
+
+- [Tenstorrent TT-BUILD](https://github.com/tenstorrent/tt-build)
+- [Tenstorrent TT-Metalium](https://github.com/tenstorrent/tt-metal)
+
+
+## 相关文档
+
+- [Tenstorrent 开发者文档](https://docs.tenstorrent.com/)
+- [TT-Metalium 编程指南](https://docs.tenstorrent.com/tt-metalium/)
+- [TT-MLIR 编译器](https://github.com/tenstorrent/tt-mlir)
+- [Wormhole 架构介绍](https://tenstorrent.com/hardware/wormhole)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| TT-Metalium 1.0 | 2024 | RISC-V 开源软件栈 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Wormhole n300 | LLM 推理 | 中等规模推理优化 |
+| Grayskull e150 | 边缘 AI | 入门级 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Wormhole n300 | ~$699-999 | 开发者卡 |
+| Grayskull e150 | ~$399-599 | 入门开发者卡 |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. 安装 Tenstorrent 驱动
+pip install tt-torch
+
+# 2. 验证
+tt-smi
+```
+
+> 从 [Tenstorrent GitHub](https://github.com/tenstorrent) 获取驱动和工具。
+
+## 代码示例
+
+### Python (PyTorch TT)
+
+```python
+import torch
+import tt_lib
+
+# 使用 Tenstorrent 后端
+device = tt_lib.device.CreateDevice()
+tt_lib.device.SetDefaultDevice(device)
+
+# tt-torch 提供 PyTorch 后端
+x = torch.randn(1024, 1024)
+# 自动路由到 Tenstorrent 硬件
+```
+
+## 架构特色
+
+- **Tensix 核心**: 基于 RISC-V 的可编程张量核心，每个核心包含矩阵引擎和路由引擎
+- **Wormhole 互联**: 高带宽片间/卡间互联，支持网格拓扑
+- **开源路线**: 硬件设计和软件栈开源，开发者社区活跃
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ tt-torch | 后端开发中 |
+| Cerebras NN | ✅ | 类似数据流架构 |
+| LLM 推理 | ⚠️ | 社区适配中 |
+| 通用 AI | ⚠️ | 生态发展初期 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [Etched Sohu ASIC](/asic/etched-sohu) — Etched（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+

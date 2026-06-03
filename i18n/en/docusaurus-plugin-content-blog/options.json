@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "AI Compute Cards Industry Blog",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Latest 2025-2026 AI compute cards industry news: product launches, M&A, IPOs, roadmaps, and in-depth analysis.",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "Post Categories",
+    "description": "The label for the left sidebar"
+  }
+}

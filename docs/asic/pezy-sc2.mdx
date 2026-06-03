@@ -1,0 +1,157 @@
+---
+title: 'PEZY-SC2 - PEZY Computing'
+description: '日本MIMD众核处理器，2048个处理单元，16nm制程，专为HPC和科学计算优化，应用于晓光(Gyoukou)超级计算机。'
+sidebar_label: 'PEZY-SC2'
+keywords:
+  - 'PEZY'
+  - 'SC2'
+  - 'Computing'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# PEZY-SC2
+
+**厂商**: PEZY Computing
+
+**分类**: ASIC 专用加速器
+
+**架构**: MIMD Many-Core Processor
+
+## 简介
+
+PEZY-SC2 是由日本 PEZY Computing 开发的 MIMD（多指令流多数据流）众核处理器，专为高性能计算（HPC）和科学计算优化。芯片集成 2048 个处理单元（PE），采用分层架构（Prefecture→City→Village→PE），支持 16384 线程并发执行。PEZY-SC2 应用于晓光（Gyoukou）超级计算机，结合浸没式液冷系统实现高密度部署。
+
+## 规格参数
+
+| 型号 | 算力 (峰值) | 内存 | 接口 | TDP | 制程 |
+|------|-----------|------|------|-----|------|
+| PEZY-SC2 | 4.1 TFLOPS (FP64) / 8.2 TFLOPS (FP32) / 16.4 TFLOPS (FP16) | DDR4 128GB (100 GB/s) | PCIe 3.0/4.0 x16 ×2 | 130W | 16nm FinFET |
+
+### 架构特色
+
+| 特性 | 说明 |
+|------|------|
+| 核心架构 | 2048 PE，分层互联（8 Prefecture → 128 City → 512 Village → 2048 PE） |
+| 线程并发 | 16,384 硬件线程（每 PE 8 线程） |
+| SIMD 支持 | 64-bit SIMD，单 PE 同时执行 1×DP / 2×SP / 4×HP |
+| 缓存层次 | L1 D-cache 4MB + L2 D-cache 8MB + LLC 40MB + Atomic Cache 16KB |
+| 板载 CPU | MIPS64 R6 (P6600) 6 核，用于主机端管理 |
+| 互联 | Prefecture 间 X-bar 交叉开关，6 级同步粒度 |
+
+## 性能基准
+
+| 基准测试 | 性能 | 备注 |
+|---------|------|------|
+| FP64 峰值 | 4.1 TFLOPS | 双精度浮点 |
+| FP32 峰值 | 8.2 TFLOPS | 单精度浮点 |
+| FP16 峰值 | 16.4 TFLOPS | 半精度浮点 |
+| 能效比 | ~31.5 GFLOPS/W (FP64) | 130W TDP |
+| 晓光超算 HPL | 1.67 PFLOPS | 2018 年 11 月 TOP500 |
+
+## 快速安装
+
+```bash
+# 1. 安装 PEZY SDK（需要联系厂商获取）
+# 下载地址: https://www.pezy.co.jp/en/products/
+
+# 2. 设置环境变量
+export PEZY_HOME=/opt/pezy
+export PATH=$PEZY_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$PEZY_HOME/lib:$LD_LIBRARY_PATH
+
+# 3. 编译示例程序
+pzcc -o hello_pz hello_pz.c
+
+# 4. 运行
+./hello_pz
+```
+
+## 代码示例
+
+```c
+// PEZY-SC2 OpenCL 示例：向量加法
+#include <CL/cl.h>
+#include <stdio.h>
+
+int main() {
+    // 获取 PEZY-SC2 OpenCL 平台
+    cl_platform_id platform;
+    clGetPlatformIDs(1, &platform, NULL);
+
+    cl_device_id device;
+    clGetDeviceIDs(platform, CL_DEVICE_TYPE_ACCELERATOR, 1, &device, NULL);
+
+    cl_context ctx = clCreateContext(NULL, 1, &device, NULL, NULL, NULL);
+    cl_command_queue queue = clCreateCommandQueue(ctx, device, 0, NULL);
+
+    printf("PEZY-SC2 device ready\n");
+    printf("Max compute units: query device info for PE count\n");
+
+    clReleaseCommandQueue(queue);
+    clReleaseContext(ctx);
+    return 0;
+}
+```
+
+## 定价信息
+
+| 产品 | 价格范围 | 备注 |
+|------|---------|------|
+| PEZY-SC2 模块 | 按需询价 | 需联系厂商获取报价 |
+| PEZY SDK | 免费获取 | 需 NDA 签署 |
+
+## 模型兼容性
+
+| 模型类型 | 支持情况 | 备注 |
+|---------|---------|------|
+| 科学计算 | ✅ 良好 | 主要应用场景（CFD、分子动力学等） |
+| 传统 HPC | ✅ 良好 | Linpack、HPCG 等基准 |
+| 深度学习推理 | ⚠️ 有限 | 非主要设计目标，需适配 |
+| 深度学习训练 | ❌ 不支持 | 无 CUDA/Tensor Core 等矩阵加速 |
+| LLM | ❌ 不支持 | 无针对性优化 |
+
+## OS 支持矩阵
+
+| 操作系统 | 支持情况 | 备注 |
+|---------|---------|------|
+| Linux (CentOS/RHEL) | ✅ | 主要支持平台 |
+| Linux (Ubuntu) | ✅ | 支持 |
+| Windows | ❌ | 不支持 |
+
+## 版本历史
+
+| 版本 | 时间 | 说明 |
+|------|------|------|
+| PEZY-SC2 | 2017 | 首次发布，2048 核 MIMD 架构 |
+| 晓光超算上线 | 2017-11 | TOP500 第 11 名，HPL 1.67 PFLOPS |
+| 晓光扩容 | 2018-11 | 扩展至 19,856 节点，TOP500 榜单 |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，PEZY-SC2 在已公开的集群部署中累计超过 **11,600** 颗芯片，分布在 **1** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| PEZY-SC2 | 11,600 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | JAIST Gyoukou | 11,600 | PEZY-SC2 ×11,600 | JAIST, Japan |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（AI 专用加速器）
+- [Tenstorrent AI Accelerator](/asic/tenstorrent) — Tenstorrent（RISC-V AI 加速器）
+- [Cerebras Wafer Scale (WSE)](/asic/cerebras-wse) — Cerebras（晶圆级 AI 引擎）
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）

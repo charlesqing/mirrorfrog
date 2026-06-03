@@ -1,0 +1,133 @@
+---
+title: '沐曦 曦云 C500/C600 - 沐曦 MetaX'
+description: '沐曦（MetaX）国产 GPU，曦云 C 系列专注云端训练与推理。曦云 C600 基于全国产工艺，集成大容量显存与多精度混合算力，支持 MetaXLink 超节点扩展，内置 ECC/RAS 安全模块。累计销量超 5.5 万颗，2025 年营收 16.44 亿元。'
+sidebar_label: '沐曦 曦云 C500/C600'
+keywords:
+  - '沐曦'
+  - '曦云'
+  - 'C500'
+  - 'C600'
+  - 'MetaX'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 沐曦 曦云 C500/C600
+
+**厂商**: 沐曦 MetaX
+
+**分类**: GPU 图形处理器
+
+**架构**: 沐曦MACA
+
+## 简介
+
+沐曦（MetaX）国产 GPU，曦云 C 系列专注云端训练与推理。曦云 C600 基于全国产工艺，集成大容量显存与多精度混合算力，支持 MetaXLink 超节点扩展，内置 ECC/RAS 安全模块。累计销量超 5.5 万颗，2025 年营收 16.44 亿元。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| 曦云 C600 | 待公布 (FP8) | 144GB HBM3e | OAM | 待公布 | 7nm (国产) |
+| 曦云 C500 | 280 TFLOPS (FP16) / 560 (INT8) | 64GB HBM2e (1.8 TB/s) | OAM | 450W | 7nm |
+| 曦思 N100 | 80 TFLOPS (FP16) / 160 (INT8) | 16GB GDDR6 | PCIe 4.0 | 75W | 12nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.metax-tech.com/)
+## 驱动下载
+
+### Linux
+
+- [MXMACA 驱动](https://www.metax-tech.com/sdk)
+- [MXMACA SDK](https://www.metax-tech.com/sdk)
+
+
+## 相关文档
+
+- [沐曦开发者中心](https://developer.metax-tech.com/)
+- [MXMACA 编程指南](https://www.metax-tech.com/sdk)
+- [曦云 C600 产品页](https://www.metax-tech.com/c600)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| MACA SDK 1.0 | 2024 | 首个正式版，兼容 CUDA 习惯 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| 曦云 C500 | BF16 训练 | 接近 A100 效率 (官方数据) |
+| 曦云 C500 | 通用 AI 推理 | INT8 优化高吞吐 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| 曦云 C500 | 需询价 | 企业级 AI 训练加速卡 |
+| 曦思 N100 | 需询价 | 推理专用 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 1. 安装沐曦驱动和 SDK
+sudo rpm -ivh metax-driver-*.rpm
+# 2. 验证
+metax-smi
+```
+
+> 驱动和 SDK 从沐曦官方获取。
+
+## 代码示例
+
+### Python (沐曦 MetaX)
+
+```python
+import torch
+# 沐曦 GPU 使用 CUDA 兼容后端
+assert torch.cuda.is_available()
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+```
+
+## 架构特色
+
+- **MACA 架构**: 沐曦自研 GPU 计算架构，面向 AI 训练和推理
+- **CUDA 兼容**: API 层兼容 CUDA 编程模型，降低迁移成本
+- **全栈自主**: 硬件、驱动、编译器、库全栈自主研发
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ⚠️ 兼容 | CUDA 兼容后端 |
+| 通用 AI | ⚠️ | 生态发展中 |
+| 大模型训练 | ⚠️ | 逐步支持中 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [天数智芯 天垓 100](/gpu/iluvatar-bi) — 天数智芯 Iluvatar（GPU 图形处理器）
+- [海光 深算 Z100](/asic/hygon-dcu) — 海光信息 Hygon（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [壁仞科技 BR100/BR20X](/gpu/biren-br) — 壁仞科技 Biren（GPU 图形处理器）
+- [摩尔线程 MTT S5000](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [百度昆仑芯 P800](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+- [阿里平头哥 真武 PPU](/gpu/t-head-zhenwu) — 阿里巴巴 Alibaba（GPU 图形处理器）
+

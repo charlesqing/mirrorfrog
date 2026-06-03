@@ -1,0 +1,122 @@
+---
+title: 'Rebellions REBEL-Quad - Rebellions'
+description: '韩国 Rebellions 公司推出的 REBEL-Quad 数据中心 AI 加速卡，基于 UCIe-Advanced 4-chiplet 架构，FP16 算力 1,024 TFLOPS，FP8 算力 2,048 TFLOPS，配备 144GB HBM3E 显存，面向大语言模型训练与推理。'
+sidebar_label: 'Rebellions REBEL-Quad'
+keywords:
+  - 'Rebellions'
+  - 'REBEL'
+  - 'Quad'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Rebellions REBEL-Quad
+
+**厂商**: Rebellions (韩国)
+
+**分类**: ASIC 专用加速卡
+
+**架构**: UCIe-Advanced Chiplet
+
+## 简介
+
+Rebellions REBEL-Quad 是韩国 AI 芯片公司 Rebellions 推出的数据中心级 AI 加速卡，基于 UCIe-Advanced 4-chiplet 架构，专为前沿大语言模型的训练与推理设计。REBEL-Quad 采用统一混合精度核心，FP8 和 FP16 在单一管线中执行，无需单独的计算块或重新编译内核。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| REBEL-Quad | 2,048 TFLOPS (FP8) / 1,024 (FP16) | 144GB HBM3E | 2× PCIe Gen5 x16 | 600W | 5nm |
+
+## 官方网站
+
+[访问官方网站](https://rebellions.ai/rebellions-product/rebel-quad/)
+
+## 驱动下载
+
+### Linux
+
+- [Rebellions SDK](https://rebellions.ai/)
+
+## 相关文档
+
+- [REBEL-Quad 产品页](https://rebellions.ai/rebellions-product/rebel-quad/)
+- [Rebellions 开发者中心](https://rebellions.ai/)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| REBEL-Quad | 2025 | 4-chiplet UCIe-Advanced 架构，144GB HBM3E |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| REBEL-Quad | FP8 推理 | 2,048 TFLOPS |
+| REBEL-Quad | FP16 训练 | 1,024 TFLOPS |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| REBEL-Quad | 需询价 | 企业级数据中心产品 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 安装 Rebellions SDK
+# 参考官方文档
+pip install rebellions-sdk
+```
+
+## 代码示例
+
+### Python (Rebellions SDK)
+
+```python
+import rebellions as rb
+
+# 初始化设备
+device = rb.Device(0)
+x = rb.randn((1024, 1024), device=device)
+y = rb.matmul(x, x)
+print(f"REBEL-Quad matrix multiply: {y.shape}")
+```
+
+## 架构特色
+
+- **UCIe-Advanced Chiplet**: 4 个同构 chiplet 通过 UCIe 互联，1TB/s 双向带宽，11ns 延迟
+- **混合精度管线**: FP8 和 FP16 在单一管线中执行，计算密度比 ATOM™ 高 2.8 倍
+- **预测性 DMA**: 软件控制的 DMA 引擎，有效带宽 2.7TB/s，降低长上下文 LLM 延迟
+- **全网格同步**: 256 个路由器的硬件加速全网格同步，稀疏或不平衡负载下保持高利用率
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch 2.x | ✅ 原生支持 | vLLM 和 Triton 兼容 |
+| vLLM | ✅ | 推理优化 |
+| Llama 系列 | ✅ | 大规模部署 |
+| Transformer LLM | ✅ | 前沿模型训练 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA B200 SXM](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD MI300X](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）

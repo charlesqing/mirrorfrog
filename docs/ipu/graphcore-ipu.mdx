@@ -1,0 +1,136 @@
+---
+title: 'Graphcore IPU - Graphcore'
+description: '英国AI芯片先驱。IPU采用 massively parallel 架构，专为稀疏计算和图神经网络优化，在特定AI负载下表现卓越。'
+sidebar_label: 'Graphcore IPU'
+keywords:
+  - 'Graphcore'
+  - 'IPU'
+  - 'Graphcore IPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Graphcore IPU
+
+**厂商**: Graphcore
+
+**分类**: 创新架构 / 机器智能
+
+**架构**: IPU (Intelligence Processing Unit)
+
+## 简介
+
+英国AI芯片先驱。IPU采用 massively parallel 架构，专为稀疏计算和图神经网络优化，在特定AI负载下表现卓越。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Bow IPU | 350 TFLOPS (FP16) | 900MB 芯上 SRAM | IPU-Fabric 互联 | 350W | 7nm |
+| Mk2 IPU | 250 TFLOPS (FP16) | 900MB 芯上 SRAM | IPU-Fabric 互联 | 275W | 7nm |
+
+
+## 官方网站
+
+[访问官方网站](https://graphcore.ai/)
+## 驱动下载
+
+### Linux
+
+- [Graphcore Poplar SDK](https://docs.graphcore.ai/projects/poplar-sdk-install/en/latest/)
+- [IPU 驱动安装](https://docs.graphcore.ai/projects/ipu-install/en/latest/)
+
+
+## 相关文档
+
+- [Graphcore 文档中心](https://docs.graphcore.ai/)
+- [Poplar 编程模型](https://docs.graphcore.ai/projects/poplar-user-guide/en/latest/)
+- [PyTorch 适配 (PopTorch)](https://docs.graphcore.ai/projects/poptorch-user-guide/en/latest/)
+- [TensorFlow 适配 (PopART)](https://docs.graphcore.ai/projects/popart-user-guide/en/latest/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| PopTorch 2.0 | 2024 | PyTorch 2.x 兼容 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Bow IPU | BERT-Large 训练 | ~85% H100 效率 |
+| Bow IPU | PopART 灵图训练 | 支持 1B+ 参数模型 |
+| Mk2 IPU | 通用 AI | 上一代产品 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Bow IPU | 需询价 | RapidAI (中国子公司) 销售 |
+| Mk2 IPU | 需询价 | 逐步被 Bow 取代 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 1. 安装 Poplar SDK (Graphcore 编程框架)
+pip install poplar
+pip install popart
+
+# 2. 验证
+gc-info
+```
+
+## 代码示例
+
+### Python (PopART)
+
+```python
+import popart
+import popart.ir as pir
+import torch
+
+# 使用 PopART IPU 后端
+ir = pir.Ir()
+with ir.main_graph:
+    x = pir.ops.host_store(pir.constant([1.0, 2.0]))
+```
+
+## 架构特色
+
+- **IPU (Intelligence Processing Unit)**: 专为大模型训练设计的处理器，片上通信密集
+- **Bow 架构**: 第二代 IPU，引入内存优化和计算效率改进
+- **Poplar + PopART**: Graphcore 统一编译器和运行时框架
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PopART (PyTorch) | ✅ 原生 | 最佳支持 |
+| TensorFlow | ✅ | PopART 后端 |
+| PaddlePaddle | ⚠️ | 适配中 |
+| 大模型训练 | ✅ | 分布式训练支持 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [SambaNova SN40L](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Intel Gaudi](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+

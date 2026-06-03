@@ -1,0 +1,120 @@
+---
+title: 'AMD Pensando DPU - AMD'
+description: 'AMD Pensando DPU 是 AMD 收购 Pensando Systems 后推出的数据中心 DPU 产品线，专注于可编程数据包处理、安全卸载和存储加速。'
+sidebar_label: 'AMD Pensando DPU'
+keywords:
+  - 'AMD'
+  - 'Pensando'
+  - 'DPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# AMD Pensando DPU
+
+**厂商**: AMD
+
+**分类**: DPU 数据处理器
+
+**架构**: Pensando (P4 Programmable)
+
+## 简介
+
+AMD Pensando DPU 是 AMD 收购 Pensando Systems 后推出的数据中心 DPU 产品线，专注于可编程数据包处理、安全卸载和存储加速。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Pensando DPU | 400 Gbps 网络 | 8GB DDR5 | PCIe 5.0 | 35W | 5nm |
+| Pensando Salamander | 200 Gbps 网络 | 4GB DDR5 | PCIe 5.0 | 18W | 5nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.amd.com/en/accelerators/pensando.html)
+## 驱动下载
+
+### Linux
+
+- [Pensando DPU 驱动](https://www.amd.com/en/accelerators/pensando.html)
+
+
+## 相关文档
+
+- [Pensando 产品文档](https://www.amd.com/en/accelerators/pensando.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| DPUs P4 Studio 1.0 | 2024 | P4 可编程网络 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Pensando DPU | 网络卸载 | 100Gbps+ 线速处理 |
+| Pensando DPU | 安全卸载 | P4 可编程数据面 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Pensando DPU | 需询价 | 企业数据中心 |
+| Salamander | 需询价 | 下一代产品 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 安装 Pensando DPU 固件和驱动
+# 从 AMD Pensando 官方获取
+```
+
+## 代码示例
+
+### P4 (Pensando 数据面编程)
+
+```
+// Pensando DPU 使用 P4 可编程数据面
+match ingress {
+    // 自定义网络处理逻辑
+}
+```
+
+## 架构特色
+
+- **P4 可编程**: 数据面完全可编程，灵活适配不同网络和安全策略
+- **ARM 核心处理器**: 独立 ARM CPU 运行控制面，与主机隔离
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| P4 | ✅ 原生 | 数据面编程 |
+| Kubernetes | ✅ | 服务网格卸载 |
+| AI 框架 | N/A | DPU 非 AI 加速器 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA BlueField DPU](/dpu/nvidia-bluefield) — NVIDIA（DPU 数据处理器）
+- [Intel IPU](/dpu/intel-ipu) — Intel（DPU 数据处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Intel GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+

@@ -1,0 +1,123 @@
+---
+title: 'Axelera Europa AIPU - Axelera AI'
+description: '荷兰 Axelera AI 公司的 Europa AI 处理器单元（AIPU），基于数字存内计算（D-IMC）技术，INT8 算力 629 TOPS，专为边缘到企业级 AI 推理应用设计。'
+sidebar_label: 'Axelera Europa AIPU'
+keywords:
+  - 'Axelera'
+  - 'Europa'
+  - 'AIPU'
+  - 'AI'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Axelera Europa AIPU
+
+**厂商**: Axelera AI (荷兰)
+
+**分类**: ASIC 专用加速卡
+
+**架构**: D-IMC (Digital In-Memory Compute)
+
+## 简介
+
+Axelera Europa 是荷兰 AI 硬件公司 Axelera AI 推出的第二代 AI 处理器单元（AIPU），基于数字存内计算（D-IMC）技术。Europa 拥有 8 个第二代 AI 核心，每个核心集成先进的 D-IMC 技术和大型向量引擎，INT8 算力达 629 TOPS，专为边缘到企业级的多模态 AI 推理应用设计。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Europa AIPU | 629 TOPS (INT8) | 128MB 芯上 SRAM + LPDDR5 | PCIe / M.2 | 低功耗 | 先进制程 |
+| Metis M.2 Max | 边缘推理优化 | M.2 形态 | M.2 | 超低功耗 | 先进制程 |
+
+## 官方网站
+
+[访问官方网站](https://www.axelera.ai/)
+
+## 驱动下载
+
+### Linux
+
+- [Axelera Voyager SDK](https://www.axelera.ai/)
+
+## 相关文档
+
+- [Axelera 开发者中心](https://www.axelera.ai/)
+- [Europa 产品白皮书](https://www.axelera.ai/products/europa)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ⚠️ (嵌入式) |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Europa AIPU | 2026 H1 出货 | 第二代 AI 核心，629 TOPS |
+| Metis M.2 Max | 2025 | M.2 形态边缘推理 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Europa | INT8 推理 | 629 TOPS |
+| Europa | 能效比 | 比同类产品高 3-5 倍 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Europa | 需询价 | 企业级/边缘部署 |
+| Europa PCIe | 需询价 | 单芯片 16GB 至四芯片 256GB |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 安装 Voyager SDK
+# 参考官方文档
+```
+
+## 代码示例
+
+### Python (Axelera SDK)
+
+```python
+import axelera as ax
+
+# 加载量化模型
+model = ax.load_model("model.axn")
+output = model.run(input_data)
+```
+
+## 架构特色
+
+- **D-IMC (数字存内计算)**: 消除内存瓶颈，直接在存储中执行计算
+- **8 个 AI 核心**: 每个核心集成 D-IMC 和大型向量引擎
+- **2 个 RISC-V 向量集群**: 8 个专用 RISC-V 向量处理核心，4,915 GOPS 峰值
+- **集成 H.264/H.265 解码器**: 硬件媒体解码，释放主机 CPU
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| 量化 INT8 模型 | ✅ 原生 | 最佳性能 |
+| LLM 推理 | ✅ | 多用户生成式 AI |
+| 计算机视觉 | ✅ | 目标检测/分割 |
+| 嵌入式 AI | ✅ | 机器人/自动驾驶 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo（NPU 神经网络处理器）
+- [Google Edge TPU](/tpu/google-edge-tpu) — Google（TPU 张量处理器）
+- [FuriosaAI RNGD](/asic/furiosaai-rngd) — FuriosaAI（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [d-Matrix Corsair](/asic/dmatrix-corsair) — d-Matrix（ASIC 专用加速卡）
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）

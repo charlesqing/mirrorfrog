@@ -1,0 +1,11 @@
+name = "mirrorfrog-ai-compute-cards"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "./build"
+
+[build]
+command = "npm run build"
+
+[vars]
+SITE_URL = "https://mirrorfrog.com"
+SITE_NAME = "MirrorFrog AI Compute Cards Wiki"
+SITE_LOCALE = "zh-Hans"

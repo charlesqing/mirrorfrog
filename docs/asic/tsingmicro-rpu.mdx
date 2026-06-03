@@ -1,0 +1,120 @@
+---
+title: '清微智能 可重构 RPU - 清微智能 TsingMicro'
+description: '清微智能（TsingMicro）源自清华大学，专注可重构数据流 AI 芯片（RPU），被称为芯片界的"变形金刚"。以高能效、高灵活性、低成本为核心竞争力。2025 年中国 AI 加速卡出货八强中唯一新型算力架构厂商，估值超 200 亿元。'
+sidebar_label: '清微智能 可重构 RPU'
+keywords:
+  - '清微智能'
+  - '可重构'
+  - 'RPU'
+  - 'TsingMicro'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 清微智能 可重构 RPU
+
+**厂商**: 清微智能 TsingMicro
+
+**分类**: ASIC 专用加速卡
+
+**架构**: 可重构计算 (CGRA)
+
+## 简介
+
+清微智能（TsingMicro）源自清华大学，专注可重构数据流 AI 芯片（RPU），被称为芯片界的"变形金刚"。以高能效、高灵活性、低成本为核心竞争力。2025 年中国 AI 加速卡出货八强中唯一新型算力架构厂商，估值超 200 亿元。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| TX510 | 10 TOPS (INT8) | 外部 DDR | PCIe / SoC | 3W | 22nm |
+| TX210 | 3 TOPS (INT8) | 外部 DDR | SoC 集成 | 0.5W | 22nm |
+
+
+## 官方网站
+
+[访问官方网站](http://www.tsingmicro.com/)
+## 驱动下载
+
+### Linux
+
+- [RPU 驱动（Linux）](http://www.tsingmicro.com/)
+- [TXN SDK](http://www.tsingmicro.com/)
+
+
+## 相关文档
+
+- [清微智能开发者中心](http://www.tsingmicro.com/)
+- [RPU 架构文档](http://www.tsingmicro.com/)
+- [TXN 编程指南](http://www.tsingmicro.com/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ✅ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| SDK 2.0 | 2024 | 可重构计算优化 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| TX510 | 边缘推理 | RISC-V CGRA 加速 |
+| TX210 | 超低功耗推理 | 端侧场景 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| TX510 | 需询价 | 芯片级 (面向 OEM) |
+| TX210 | 需询价 | 端侧方案 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 清微智能 SDK 从官方获取
+# 支持 RISC-V + CGRA 编程
+```
+
+## 代码示例
+
+清微智能 RPU 的 AI 开发主要通过 TSM SDK，支持 CGRA 可重构编程。目前生态较新，公开文档有限。
+
+## 架构特色
+
+- **CGRA (Coarse-Grained Reconfigurable Architecture)**: 粗粒度可重构架构，灵活适配不同 AI 算法
+- **RISC-V 基础**: 基于 RISC-V 处理器核 + CGRA 加速单元
+- **端侧定位**: 低功耗边缘 AI 推理场景
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| 端侧模型 | ⚠️ | TSM SDK 支持 |
+| 语音/NLP | ⚠️ | 场景优化 |
+| LLM | ❌ | 不适合大模型 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo（NPU 神经网络处理器）
+- [平头哥 玄铁 C920](/gpu/t-head-zhenwu) — 阿里巴巴 Alibaba（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（NPU 神经网络处理器）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）
+- [海光信息 深算 DCU](/asic/hygon-dcu) — 海光（ASIC 专用加速卡）
+- [燧原科技 云燧 T20/T21](/asic/enflame-blaze) — 燧原（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+

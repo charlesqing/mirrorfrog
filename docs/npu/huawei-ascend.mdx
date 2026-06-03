@@ -1,0 +1,175 @@
+---
+title: '华为昇腾 Ascend - 华为 Huawei'
+description: '华为昇腾 AI 处理器系列，包括训练芯片昇腾 910B/910 和推理芯片昇腾 310P/310。搭配 CANN（华为 AI 计算框架）和 MindSpore 深度学习框架，广泛用于国产 AI 基础设施建设。'
+sidebar_label: '华为昇腾 Ascend'
+keywords:
+  - '华为昇腾'
+  - 'Ascend'
+  - '华为'
+  - 'Huawei'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# 华为昇腾 Ascend
+
+**厂商**: 华为 Huawei
+
+**分类**: NPU 神经网络处理器
+
+**架构**: 达芬奇 (Da Vinci)
+
+## 简介
+
+华为昇腾 AI 处理器系列，包括训练芯片昇腾 910B/910 和推理芯片昇腾 310P/310。搭配 CANN（华为 AI 计算框架）和 MindSpore 深度学习框架，广泛用于国产 AI 基础设施建设。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| 昇腾 910B | 280 TFLOPS (FP16) / 560 TOPS (INT8) | 64GB HBM2e | OAM | 310W | 7nm |
+| 昇腾 910 | 256 TFLOPS (FP16) | 32GB HBM2 | PCIe 4.0 | 300W | 7nm |
+| 昇腾 310P | 70 TOPS (INT8) | 24GB LPDDR4X | PCIe 4.0 | 75W | 12nm |
+| 昇腾 310 | 22 TOPS (INT8) | 8GB LPDDR4 | PCIe 3.0 | 8W | 12nm |
+
+## 官方网站
+
+[访问官方网站](https://e.huawei.com/cn/products/computing/ascend)
+## 驱动下载
+
+### Linux
+
+- [CANN 软件包下载](https://www.hiascend.com/en/software/cann)
+- [昇腾驱动 & 固件](https://www.hiascend.com/en/hardware/firmware-drivers)
+- [MindSpore 安装](https://www.mindspore.cn/install)
+
+## 相关文档
+
+- [昇腾文档中心](https://www.hiascend.com/en/documentation)
+- [CANN 安装指南](https://www.hiascend.com/document/detail/en/canncom/80/quickstart/quickstart/quickstart_18_0005.html)
+- [Ascend NPU PyTorch 适配 (torch_npu)](https://gitee.com/ascend/pytorch)
+- [MindSpore 教程](https://www.mindspore.cn/tutorials)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| CANN 8.0 | 2024-Q4 | 910B 全面优化 + MindSpore 2.x |
+| CANN 7.0 | 2024-Q1 | torch_npu PyTorch 原生适配 |
+| CANN 6.0 | 2023-Q1 | 3D Cube 架构深度优化 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| 昇腾 910B × 8 | GPT-3 175B 训练 | ~1.5 天 (官方数据) |
+| 昇腾 910B | Llama 2 70B 推理 | ~80 tok/s (FP16) |
+| 昇腾 310P | 图像分类/检测 | ~2000 img/s (ResNet-50) |
+| 昇腾 310 | 边缘推理 | 8W 超低功耗 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| 昇腾 910B | 需询价 | 主要通过 Atlas 产品线销售 |
+| 昇腾 310P | 需询价 | Atlas 300I Pro |
+| 昇腾 310 | 需询价 | Atlas 200 DK 开发者套件 |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04 / EulerOS)
+
+```bash
+# 1. 安装昇腾驱动和固件
+sudo ./Ascend-cann-npu-driver_*.run --install
+
+# 2. 安装 CANN 工具包
+sudo ./Ascend-cann-toolkit_*.run --install
+
+# 3. 设置环境变量
+source /usr/local/Ascend/ascend-toolkit/set_env.sh
+
+# 4. 验证安装
+npu-smi info
+```
+
+## 代码示例
+
+### Python (torch_npu)
+
+```python
+import torch
+import torch_npu  # 昇腾 NPU 扩展
+
+# 使用 NPU 后端
+device = torch.device("npu:0")
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"NPU matrix multiply: {y.shape}")
+print(f"NPU device: {torch.npu.get_device_name(0)}")
+```
+
+### MindSpore (昇腾原生框架)
+
+```python
+import mindspore as ms
+
+# MindSpore 自动使用昇腾 NPU
+context.set_context(device_target="Ascend")
+x = ms.Tensor(np.random.randn(1024, 1024), ms.float32)
+y = ms.ops.matmul(x, x)
+print(f"MindSpore NPU multiply: {y.shape}")
+```
+
+## 架构特色
+
+- **达芬奇架构**: 3D Cube 计算单元，专为矩阵乘法优化；Cube 单元可加速 Transformer 注意力计算
+- **CANN 全栈**: Compute Architecture for Neural Networks — 从驱动到编译器到算子库的完整软件栈
+- **torch_npu**: PyTorch 的昇腾 NPU 后端，API 与 CUDA 后端高度一致，迁移成本低
+- **MindSpore**: 华为自研全场景 AI 框架，自动微分 + 分布式训练
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| MindSpore | ✅ 原生 | 最佳支持 |
+| PyTorch | ✅ torch_npu | API 兼容 CUDA |
+| TensorFlow | ⚠️ | 通过 CANN 适配 |
+| Llama / Qwen 等 LLM | ✅ | MindIE / torch_npu 均支持 |
+| PaddlePaddle | ⚠️ | 适配中 |
+| 语音/视觉模型 | ✅ | ModelScope 支持 |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，华为昇腾 在已公开的集群部署中累计超过 **6,000** 颗芯片，分布在 **1** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| Huawei Ascend 910B | 6,000 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | Huawei Pangu Ultra MoE 910Bs | 6,000 | Huawei Ascend 910B ×6,000 |  |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [寒武纪 思元 590](/asic/cambricon-mlu) — 寒武纪 Cambricon（ASIC 专用加速卡）
+- [昆仑芯 2代 / 3代](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+- [Groq LPU v1](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana（ASIC 专用加速卡）
+- [芯擎科技 龍鹰系列](/npu/nexchip-dragon) — 芯擎科技（NPU 神经网络处理器）

@@ -1,0 +1,123 @@
+---
+id: comparison
+title: 'AI 算力卡完整对比表 | 100+ 款规格参数并排对比'
+description: '100+ 款 AI 算力卡完整对比表：FP8/FP16/INT8 算力、显存容量与带宽、功耗、价格。覆盖 NVIDIA H100/H200/B200、AMD MI300X/MI400、华为昇腾 910C/920、Google TPU v6e/Ironwood。'
+keywords: [AI 算力卡对比, NVIDIA H100 vs H200, AMD MI300X vs MI400, 华为昇腾 910C, AI 训练卡对比, GPU 规格对比]
+sidebar_position: 2
+sidebar_label: '完整对比表'
+---
+
+# AI 算力卡完整对比表（100+ 款）
+
+> 数据持续更新中。发现错误？[提交 Issue](https://github.com/anomalyco/mirrorfrog/issues)。
+
+## 快速筛选
+
+| 场景 | 推荐型号 |
+|---|---|
+| 万亿参数训练（GPT-4 级） | NVIDIA B200, B300 Ultra, AMD MI400, Google TPU Ironwood |
+| 百亿-千亿参数训练 | NVIDIA H100, H200, AMD MI300X, MI325X |
+| 中国市场（国产替代） | 华为昇腾 910C, 920 |
+| 高吞吐推理 | NVIDIA L40S, L4, H200 (推理模式) |
+| 边缘 AI | NVIDIA Jetson Orin, Google Edge TPU, Hailo-8L |
+
+## 数据中心训练 GPU
+
+| 型号 | FP8 算力 | FP16 算力 | 显存 | 显存带宽 | TDP | 发布时间 |
+|---|---|---|---|---|---|---|
+| NVIDIA Rubin R200 | 50 PFLOPS (FP4) | ~10 PFLOPS | 288GB HBM4 | 22 TB/s | ~1,800W | 2026 H2 |
+| NVIDIA B300 Ultra | 14 PFLOPS | ~7 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2026 H1 |
+| NVIDIA B200 | 9 PFLOPS | ~4.5 PFLOPS | 192GB HBM3e | 8 TB/s | 1,000W | 2024 Q4 |
+| NVIDIA B100 | 7 PFLOPS | ~3.5 PFLOPS | 192GB HBM3e | 8 TB/s | 700W | 2024 Q4 |
+| NVIDIA H200 | 3,958 TFLOPS | 1,979 TFLOPS | 141GB HBM3e | 4.8 TB/s | 700W | 2024 Q2 |
+| NVIDIA H100 SXM5 | 3,958 TFLOPS | 1,979 TFLOPS | 80GB HBM3 | 3.35 TB/s | 700W | 2022 Q3 |
+| AMD MI400 | 40 PFLOPS (FP4) | ~10 PFLOPS | 432GB HBM4 | 19.6 TB/s | ~1,000W | 2026 H2 |
+| AMD MI355X | 10.1 PFLOPS (MXFP6) | ~5 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 H2 |
+| AMD MI350X | 9.2 PFLOPS (MXFP6) | ~4.6 PFLOPS | 288GB HBM3e | 8 TB/s | 750W | 2025 H2 |
+| AMD MI325X | 2,614 TFLOPS | 1,307 TFLOPS | 256GB HBM3e | 6.48 TB/s | 750W | 2024 Q4 |
+| AMD MI300X | 2,614 TFLOPS | 1,307 TFLOPS | 192GB HBM3 | 5.3 TB/s | 750W | 2023 Q4 |
+| 华为昇腾 920 | 900+ TFLOPS (BF16) | ~450 TFLOPS | ~96GB HBM | 4 Tbps | ~400W | 2025 H2 |
+| 华为昇腾 910C | 780 TFLOPS (BF16) | ~390 TFLOPS | 128GB HBM2e | 1.2 TB/s | 310W×2 | 2024 H2 |
+| 华为昇腾 910B | 320 TFLOPS (FP16) | 320 TFLOPS | 64GB HBM2e | 1.2 TB/s | 310W | 2023 |
+
+## 数据中心推理 GPU
+
+| 型号 | FP8 算力 | INT8 算力 | 显存 | TDP | 适用场景 |
+|---|---|---|---|---|---|
+| NVIDIA L40S | 733 TFLOPS | 1,466 TOPS | 48GB GDDR6 | 350W | 数据中心推理 |
+| NVIDIA L4 | 242 TFLOPS | 485 TOPS | 24GB GDDR6 | 72W | 边缘推理 |
+| NVIDIA L2 | ~203 TFLOPS | ~406 TOPS | 16GB GDDR6 | 75W | 低功耗推理 |
+| NVIDIA RTX 6000 Ada | 1,452 TFLOPS | 2,905 TOPS | 48GB GDDR6 | 300W | 工作站推理 |
+| NVIDIA T4 | 65 TFLOPS | 130 TOPS | 16GB GDDR6 | 70W | 入门推理 |
+
+## AI 训练 ASIC（TPU / Gaudi / Trainium）
+
+| 型号 | 厂商 | 算力 (BF16) | 内存 | 互联带宽 | 发布时间 |
+|---|---|---|---|---|---|
+| Google TPU v6e (Trillium) | Google | 918 TFLOPS | 32GB HBM | 1.6 Tb/s | 2024 |
+| Google TPU Ironwood (v7) | Google | ~2,000 TFLOPS | 192GB HBM | ~5 Tb/s | 2026 H1 |
+| Google TPU 8t (训练) | Google | ~1,200 TFLOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
+| Google TPU 8i (推理) | Google | ~1,500 TOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
+| Intel Gaudi 3 | Intel | 1,600 TFLOPS | 128GB SRAM | 2.4 Tb/s | 2024 Q2 |
+| AWS Trainium 3 | AWS | ~2,000 TFLOPS | ~128GB | ~3 Tb/s | 2025 H2 |
+| AWS Trainium 2 | AWS | ~1,000 TFLOPS | 64GB | ~1.6 Tb/s | 2024 |
+
+## 晶圆级训练（Wafer-Scale）
+
+| 型号 | 厂商 | 晶体管数 | 片上内存 | FP16 算力 | 发布时间 |
+|---|---|---|---|---|---|
+| Cerebras WSE-4 | Cerebras | 4 万亿 | 44GB SRAM | 125 PFLOPS | 2026 |
+| Cerebras WSE-3 | Cerebras | 4 万亿 | 40GB SRAM | 125 PFLOPS | 2024 |
+| Cerebras WSE-2 | Cerebras | 2.6 万亿 | 40GB SRAM | 85 PFLOPS | 2022 |
+
+## 边缘 AI 与端侧 NPU
+
+| 型号 | 厂商 | 算力 (TOPS) | 功耗 | 适用场景 |
+|---|---|---|---|---|
+| NVIDIA Jetson Thor | NVIDIA | 2,070 TOPS | 130W | 机器人 / 自动驾驶 |
+| NVIDIA Jetson Orin AGX | NVIDIA | 275 TOPS | 60W | 边缘推理 |
+| Google Edge TPU (Dev Board) | Google | 4 TOPS | 2W | IoT 端侧推理 |
+| Hailo-8L | Hailo | 13 TOPS | 1.5W | 端侧视觉 AI |
+| 高通 AI 100 | Qualcomm | 70 TOPS | 15W | 数据中心边缘推理 |
+| 华为昇腾 310 | 华为 | 22 TOPS | 8W | 端侧推理 |
+
+## 创新架构
+
+| 型号 | 架构类型 | 核心特色 | 厂商 |
+|---|---|---|---|
+| Groq LPU (LPU v2) | LPU（语言处理单元） | 极低延迟推理（~500 tok/s） | Groq |
+| Graphcore IPU (Bow POD) | IPU（智能处理单元） | 图计算原生，1,400 个 IPU 核心 | Graphcore |
+| Tesla Dojo (D1) | 分布式训练晶圆 | 自动标注 + 模型训练一体化 | Tesla |
+| Apple M5 Ultra (Neural Engine) | SoC + NPU | 端侧 50 TOPS，统一内存 | Apple |
+| Akida2 (AKD1000) | 脉冲神经网络 (SNN) | 超低功耗神经形态 | BrainChip |
+
+## 价格参考（云平台按需计费）
+
+| 型号 | 按需价格（USD/小时） | 预留价格（USD/小时） | 采购价格（USD） |
+|---|---|---|---|
+| NVIDIA B200 | $8.87 | ~$5.50 | ~$40,000 |
+| NVIDIA H200 | $5.87 | ~$3.80 | ~$30,000 |
+| NVIDIA H100 | $4.20 | ~$2.80 | ~$25,000 |
+| AMD MI300X | — | — | ~$15,000 |
+| 华为昇腾 910C | — | — | 国内定价 |
+
+> **注意**：价格随市场供需波动，采购价格受出口管制影响。以上数据仅供参考。
+
+## 选型建议
+
+### 按模型规模选择
+
+- **万亿参数（GPT-4 级）**：NVIDIA B300 Ultra / Rubin R200，AMD MI400（2026 H2）
+- **百亿-千亿参数（Llama 70B, Qwen 72B）**：NVIDIA H100 / H200，AMD MI300X / MI325X
+- **十亿-百亿参数（Llama 7B-13B）**：NVIDIA H100, A100 80GB
+- **小模型 / 推理**：NVIDIA L40S, L4, T4
+
+### 按地区选择
+
+- **北美 / 欧洲**：NVIDIA + AMD 自由选择
+- **中国**：华为昇腾 910B / 910C / 920（国产替代）
+- **云端（无硬件偏好）**：任意厂商，按价格选择
+
+---
+
+[← 返回首页](/docs/intro) | [路线图 →](/docs/roadmap)

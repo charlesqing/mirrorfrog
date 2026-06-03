@@ -1,0 +1,137 @@
+---
+title: 'Qualcomm Adreno GPU - Qualcomm'
+description: 'Qualcomm Adreno GPU 内置于骁龙（Snapdragon）SoC 中，支持 Vulkan、OpenCL、OpenGL ES 等图形和计算 API。适用于移动端和边缘设备的 GPU 加速计算。'
+sidebar_label: 'Qualcomm Adreno GPU'
+keywords:
+  - 'Qualcomm'
+  - 'Adreno'
+  - 'GPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Qualcomm Adreno GPU
+
+**厂商**: Qualcomm
+
+**分类**: GPU 图形处理器
+
+**架构**: Adreno
+
+## 简介
+
+Qualcomm Adreno GPU 内置于骁龙（Snapdragon）SoC 中，支持 Vulkan、OpenCL、OpenGL ES 等图形和计算 API。适用于移动端和边缘设备的 GPU 加速计算。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Adreno 830 (SD 8 Elite) | 12 TFLOPS (FP16) | LPDDR5X (共享) | 集成 SoC | 10W | 3nm |
+| Adreno 750 (X Elite) | 8.5 TFLOPS (FP16) | LPDDR5X (共享) | 集成 SoC | 23W | 4nm |
+
+
+## 官方网站
+
+[访问官方网站](https://developer.qualcomm.com/sdsp/)
+## 驱动下载
+
+### Linux
+
+- [Qualcomm GPU 内核驱动 (Linux)](https://gitlab.freedesktop.org/drm/msm)
+
+
+## 相关文档
+
+- [Qualcomm 开发者文档](https://developer.qualcomm.com/)
+- [Qualcomm Neural Processing SDK](https://developer.qualcomm.com/software/qualcomm-neural-processing-sdk)
+- [OpenCL 2.0 支持文档](https://developer.qualcomm.com/software/adreno-gpu-sdk)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ (Snapdragon) | ✅ (Android) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Adreno SDK 3.0 | 2024 | Snapdragon 8 Elite Vulkan 1.3 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Adreno 830 (SD 8 Elite) | Stable Diffusion Mobile | ~8s/img |
+| Adreno 830 | INT8 推理 | ~45 TOPS |
+| Adreno 750 (X Elite) | AI 推理 | ~40 TOPS |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Adreno 830 | 随 SoC 提供 | Snapdragon 8 Elite |
+| Adreno 750 | 随 SoC 提供 | Snapdragon X Elite |
+
+## 快速安装
+
+### Android (通过 Qualcomm AI Engine)
+
+```bash
+# 使用 QNN (Qualcomm Neural Network) SDK
+# 从 Qualcomm Developer Network 下载
+# 编译并部署 TFLite/QNN 模型
+adb push model.dlc /data/local/tmp/
+adb shell snpe-qlc-run --container /data/local/tmp/model.dlc
+```
+
+### Windows on Snapdragon
+
+直接安装 Windows ARM64 驱动即可使用 Adreno GPU。
+
+## 代码示例
+
+### Python (QNN / TFLite)
+
+```python
+# Android 端通过 TFLite 使用 Adreno GPU 加速
+import tflite_runtime.interpreter as tflite
+
+interpreter = tflite.Interpreter(
+    model_path="model.tflite",
+    experimental_delegates=[tflite.load_delegate('libGpuDelegate.so')]
+)
+interpreter.allocate_tensors()
+```
+
+## 架构特色
+
+- **Adreno GPU**: Qualcomm 移动/PC 端 GPU，集成在 Snapdragon SoC 中
+- **Hexagon NPU 协同**: Adreno GPU 与 Hexagon DSP 协同提供 AI 加速
+- **Snapdragon X Elite**: 面向 Windows on ARM 的 PC 级 AI 处理
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| TFLite | ✅ GPU 委托 | Android 端主力 |
+| QNN SDK | ✅ 原生 | Qualcomm 原生推理 |
+| ONNX Runtime | ✅ | WinML / QNN 后端 |
+| Stable Diffusion | ⚠️ | 移动端受限 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [Apple Silicon GPU](/gpu/apple-gpu) — Apple（GPU 图形处理器）
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek（NPU 神经网络处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Intel Data Center GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+

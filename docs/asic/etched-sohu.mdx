@@ -1,0 +1,115 @@
+---
+title: 'Etched Sohu ASIC - Etched'
+description: '专为Transformer架构硬编码的ASIC芯片。去除了GPU中用于图形渲染和通用计算的冗余逻辑，号称在Llama等大模型上比NVIDIA H100快数个数量级。'
+sidebar_label: 'Etched Sohu ASIC'
+keywords:
+  - 'Etched'
+  - 'Sohu'
+  - 'ASIC'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Etched Sohu ASIC
+
+**厂商**: Etched
+
+**架构**: Transformer ASIC
+
+**分类**: ASIC 专用加速卡
+
+## 简介
+
+专为Transformer架构硬编码的ASIC芯片。去除了GPU中用于图形渲染和通用计算的冗余逻辑，号称在Llama等大模型上比NVIDIA H100快数个数量级。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Sohu | Transformer 专用 (数倍 H100) | 外部 HBM | PCIe 5.0 | 待公布 | 待公布 |
+
+
+## 官方网站
+
+[访问官方网站](https://www.etched.com/)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (Etched Cloud API) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Sohu 预发布 | 2025 | 宣称 Llama 推理速度远超 H100 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Sohu | Llama 2 70B 推理 | 超高吞吐 (官方数据) |
+| Sohu | Transformer 推理 | 专用 Transformer 推理加速 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Sohu | 云端 API | Etched Cloud API |
+| Sohu | 需询价 | 企业部署 |
+
+## 快速安装
+
+### Etched Cloud (API)
+
+```bash
+pip install etched-sdk
+```
+
+> Sohu 是专用 Transformer ASIC，仅支持 Transformer 架构模型推理。
+
+## 代码示例
+
+### Python (Etched API)
+
+```python
+from etched import EtchedClient
+
+client = EtchedClient(api_key="your-key")
+response = client.generate(
+    model="llama-3-70b",
+    prompt="你好",
+    max_tokens=100
+)
+```
+
+## 架构特色
+
+- **Transformer ASIC**: 世界首款专为 Transformer 架构设计的 ASIC，硬件直接实现注意力机制
+- **极致推理**: 跳过通用计算的灵活性开销，将 Transformer 推理效率推到极致
+- **限制**: 仅支持 Transformer 架构模型，不支持 CNN/图神经网络等
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Transformer LLM | ✅ 原生 | Llama/GPT/Qwen 等 |
+| CNN 模型 | ❌ | 不支持 |
+| 非 Transformer | ❌ | 仅 Transformer 架构 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Groq LPU v1](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [Tenstorrent Wormhole](/asic/tenstorrent) — Tenstorrent（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）
+

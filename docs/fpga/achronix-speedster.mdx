@@ -1,0 +1,115 @@
+---
+title: 'Achronix Speedster FPGA - Achronix'
+description: 'Achronix Speedster7t FPGA 采用 7nm 工艺，专为 AI 高带宽推理优化。内置机器学习处理器（MLP）模块，支持张量运算加速，适合数据中心 AI 推理场景。'
+sidebar_label: 'Achronix Speedster FPGA'
+keywords:
+  - 'Achronix'
+  - 'Speedster'
+  - 'FPGA'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Achronix Speedster FPGA
+
+**厂商**: Achronix
+
+**分类**: FPGA 可编程门阵列
+
+**架构**: Speedster7t
+
+## 简介
+
+Achronix Speedster7t FPGA 采用 7nm 工艺，专为 AI 高带宽推理优化。内置机器学习处理器（MLP）模块，支持张量运算加速，适合数据中心 AI 推理场景。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Speedster7t AC7t1500 | 80 TOPS (INT8) | 外部 DDR4 | PCIe Gen4 x16 | 120W | 7nm (TSMC) |
+| Speedster7t AC7t600 | 40 TOPS (INT8) | 外部 DDR4 | PCIe Gen4 x8 | 60W | 7nm (TSMC) |
+
+
+## 官方网站
+
+[访问官方网站](https://www.achronix.com/speedster7t)
+## 驱动下载
+
+### Linux
+
+- [ACE 开发工具](https://www.achronix.com/ace-design-software)
+
+
+## 相关文档
+
+- [Speedster7t 文档](https://www.achronix.com/speedster7t)
+- [MLP 开发指南](https://www.achronix.com/support/documentation)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| ACE 3.0 | 2024 | Speedster7t 全系列支持 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| AC7t1500 | AI 推理 | 高密度 FPGA AI 加速 |
+| AC7t600 | 网络处理 | 高速数据面 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| AC7t1500 | 需询价 | 高端 FPGA |
+| AC7t600 | 需询价 | 中端 FPGA |
+
+## 快速安装
+
+### Linux / Windows
+
+```bash
+# 安装 Achronix ACE 开发工具
+# 从 Achronix 官方获取
+```
+
+## 代码示例
+
+Achronix FPGA 开发使用 ACE (Achronix CAD Environment) 工具，支持 Verilog/SystemVerilog 设计和综合。
+
+## 架构特色
+
+- **Speedster7t**: 高性能独立 FPGA，集成 2D 高带宽内存接口
+- **eFPGA IP**: Achronix 同时提供嵌入式 FPGA IP，可集成到 ASIC SoC 中
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| Verilog/SV | ✅ 原生 | FPGA 编程 |
+| 自定义逻辑 | ✅ | FPGA 核心优势 |
+| AI 推理 | ⚠️ | 需自建流水线 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD Alveo FPGA](/fpga/amd-alveo) — AMD (Xilinx)（FPGA 可编程门阵列）
+- [Intel FPGA AI](/fpga/intel-fpga-ai) — Intel (Altera)（FPGA 可编程门阵列）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（NPU 神经网络处理器）
+- [Intel Gaudi](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+

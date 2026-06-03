@@ -1,0 +1,132 @@
+---
+title: 'Qualcomm Hexagon NPU - Qualcomm'
+description: 'Qualcomm Hexagon NPU 集成在骁龙（Snapdragon）SoC 中，提供高效的 AI 推理加速。通过 Qualcomm AI Engine Direct 和 SNPE 框架使用，支持 INT8/INT16 量化推理。'
+sidebar_label: 'Qualcomm Hexagon NPU'
+keywords:
+  - 'Qualcomm'
+  - 'Hexagon'
+  - 'NPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Qualcomm Hexagon NPU
+
+**厂商**: Qualcomm
+
+**分类**: NPU 神经网络处理器
+
+**架构**: Hexagon (HTA + HVX)
+
+## 简介
+
+Qualcomm Hexagon NPU 集成在骁龙（Snapdragon）SoC 中，提供高效的 AI 推理加速。通过 Qualcomm AI Engine Direct 和 SNPE 框架使用，支持 INT8/INT16 量化推理。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Snapdragon 8 Elite | 45 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 10W | 3nm |
+| Snapdragon X Elite | 45 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 23W | 4nm |
+
+
+## 官方网站
+
+[访问官方网站](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct)
+## 驱动下载
+
+### Linux
+
+- [Qualcomm AI Engine Direct SDK](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct)
+
+
+## 相关文档
+
+- [AI Engine Direct 文档](https://docs.qualcomm.com/browse/qualcomm_ai_engine_direct)
+- [Qualcomm Neural Processing SDK](https://developer.qualcomm.com/software/qualcomm-neural-processing-sdk)
+- [Snapdragon 开发者资源](https://developer.qualcomm.com/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ (Snapdragon) | ✅ (Android) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| QNN 2.x | 2024 | Snapdragon 8 Elite 支持 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Snapdragon 8 Elite | NPU TOPS | 45 TOPS (Hexagon) |
+| Snapdragon X Elite | NPU TOPS | 45 TOPS |
+| Snapdragon 8 Elite | Stable Diffusion Mobile | ~10s/img |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Snapdragon 8 Elite | 随 SoC 提供 | 旗舰手机 SoC |
+| Snapdragon X Elite | 随 SoC 提供 | Windows on ARM |
+
+## 快速安装
+
+### Android / Windows on Snapdragon
+
+Hexagon NPU 通过 Qualcomm AI Engine Direct 调用。
+
+```bash
+# 安装 QNN SDK (从 Qualcomm Developer Network 下载)
+# 支持 TFLite/ONNX 模型编译和部署
+```
+
+## 代码示例
+
+### Python (QNN Runtime)
+
+```python
+# 使用 QNN SDK 运行编译后的模型
+from qnn import QnnRuntime
+
+runtime = QnnRuntime()
+model = runtime.load("model.qnn")
+output = model.run(input_data)
+```
+
+## 架构特色
+
+- **Hexagon DSP + HVX**: Qualcomm 标量/向量 DSP 架构，支持 AI 推理和信号处理
+- **HTA (Hexagon Tensor Accelerator)**: 专用张量加速器，面向 Transformer 模型优化
+- **AI Engine**: 统一 AI 软件栈，覆盖 Hexagon + Adreno GPU + Kryo CPU
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| QNN SDK | ✅ 原生 | 最佳支持 |
+| TFLite | ✅ | NNAPI/Hexagon 后端 |
+| ONNX | ✅ | QNN 编译 |
+| Stable Diffusion | ✅ | 移动端优化版 |
+| Whisper | ✅ | 端侧语音 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek（NPU 神经网络处理器）
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm（GPU 图形处理器）
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [Samsung Gauss AI](/npu/samsung-gauss) — Samsung（NPU 神经网络处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+

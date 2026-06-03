@@ -1,0 +1,115 @@
+---
+title: 'Intel IPU (Infrastructure) - Intel'
+description: 'Intel IPU（Infrastructure Processing Unit）用于数据中心基础设施卸载，类似 DPU。E2000 系列采用 Agilex FPGA 架构，支持 NVMe over Fabrics、 virtIO、加密卸载等。'
+sidebar_label: 'Intel IPU (Infrastructure)'
+keywords:
+  - 'Intel'
+  - 'IPU'
+  - 'Infrastructure'
+  - 'Graphcore IPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Intel IPU (Infrastructure)
+
+**厂商**: Intel
+
+**分类**: DPU 数据处理器
+
+**架构**: Intel IPU (N6000)
+
+## 简介
+
+Intel IPU（Infrastructure Processing Unit）用于数据中心基础设施卸载，类似 DPU。E2000 系列采用 Agilex FPGA 架构，支持 NVMe over Fabrics、 virtIO、加密卸载等。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| IPU N6000 | 200 Gbps 网络 | 16GB DDR5 | PCIe 5.0 | 30W | Intel 7 |
+| IPU E2100 | 100 Gbps 网络 | 8GB DDR4 | PCIe 4.0 | 20W | Intel 7 |
+
+
+## 官方网站
+
+[访问官方网站](https://www.intel.com/content/www/us/en/products/network-io/ipu.html)
+## 驱动下载
+
+### Linux
+
+- [Intel IPU 驱动 (Linux)](https://www.intel.com/content/www/us/en/download/19733/intel-ethernet-controller-e810-series-linux-driver.html)
+
+
+## 相关文档
+
+- [Intel IPU 产品介绍](https://www.intel.com/content/www/us/en/products/network-io/ipu.html)
+- [IPU 开发资源](https://developers.intel.com/ipu)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| IPU Platform 2.0 | 2024 | OVS 卸载 + P4 运行时 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| IPU N6000 | 网络卸载 | 数据中心网络加速 |
+| IPU E2100 | 边缘 DPU | SmartEdge 场景 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| IPU N6000 | 需询价 | 企业数据中心 |
+| IPU E2100 | 需询价 | 边缘/电信 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 安装 Intel IPU 驱动和 SDK
+# 从 Intel 官方获取
+```
+
+## 代码示例
+
+Intel IPU 主要通过 SR-IOV 和 virtio 接口使用，开发需使用 Intel IPU SDK。
+
+## 架构特色
+
+- **Intel IPU 架构**: 基于 FPGA/ASIC 的基础设施处理单元，面向云数据中心网络虚拟化
+- **SR-IOV**: 标准 PCIe 虚拟化接口，与云管理平台集成
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| OpenStack | ✅ | 虚拟化集成 |
+| Kubernetes | ✅ | CNI 插件 |
+| AI 框架 | N/A | DPU 非 AI 加速器 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA BlueField DPU](/dpu/nvidia-bluefield) — NVIDIA（DPU 数据处理器）
+- [AMD Pensando](/dpu/amd-pensando) — AMD（DPU 数据处理器）
+- [Intel GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+

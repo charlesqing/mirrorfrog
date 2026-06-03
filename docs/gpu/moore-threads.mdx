@@ -1,0 +1,152 @@
+---
+title: '摩尔线程 MTT S5000 - 摩尔线程 Moore Threads'
+description: '摩尔线程（Moore Threads）全功能 GPU，采用 MUSA 统一架构，兼容 CUDA 生态。旗舰 MTT S5000 训推一体 GPU 已规模量产，支持万亿参数大模型训练。MTT S4000（FP16 100T，48GB 显存）定价约 3 万元。2025 年 12 月科创板上市，2026 Q1 首次单季盈利。'
+sidebar_label: '摩尔线程 MTT S5000'
+keywords:
+  - '摩尔线程'
+  - 'MTT'
+  - 'S5000'
+  - 'Moore'
+  - 'Threads'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 4
+---
+
+# 摩尔线程 MTT S5000
+
+**厂商**: 摩尔线程 Moore Threads
+
+**分类**: GPU 图形处理器
+
+**架构**: MUSA
+
+## 简介
+
+摩尔线程（Moore Threads）全功能 GPU，采用 MUSA 统一架构，兼容 CUDA 生态。旗舰 MTT S5000 训推一体 GPU 已规模量产，支持万亿参数大模型训练。MTT S4000（FP16 100T，48GB 显存）定价约 3 万元。2025 年 12 月科创板上市，2026 Q1 首次单季盈利。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| MTT S5000 | 1,000 TFLOPS (FP8) | 80GB GDDR6 (1.6 TB/s) | OAM | 350W | 12nm |
+| MTT S4000 | 128 TFLOPS (BF16) / 256 (INT8) | 48GB GDDR6 (768 GB/s) | PCIe 4.0 | 450W | 12nm |
+| MTT S80 | 30 TFLOPS (FP32) | 16GB GDDR6 | PCIe 4.0 | 255W | 12nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.mthreads.com/)
+## 驱动下载
+
+### Linux
+
+- [MUSA 驱动（Linux）](https://www.mthreads.com/driver)
+- [MUSA SDK](https://www.mthreads.com/sdk)
+
+### Windows
+
+- [MUSA 驱动（Windows）](https://www.mthreads.com/driver)
+
+
+## 相关文档
+
+- [摩尔线程开发者中心](https://developer.mthreads.com/)
+- [MUSA 编程指南](https://developer.mthreads.com/musa)
+- [MTT S5000 产品页](https://www.mthreads.com/mtt-s5000)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| MUSA 2.0 | 2024 | 国产图形渲染 + AI 计算 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| MTT S5000 | Llama 2 7B 推理 | ~40 tok/s (FP16, 官方数据) |
+| MTT S4000 | ResNet-50 推理 | ~5000 img/s |
+| MTT S80 | 渲染/通用计算 | CUDA 兼容模式运行 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| MTT S5000 | 需询价 | 训推一体旗舰 |
+| MTT S4000 | ~¥30,000 | 推理加速卡 |
+| MTT S80 | ~¥3,000 | 消费级显卡 |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. 安装 MUSA 驱动
+sudo apt update
+sudo dpkg -i mthreads-driver_*.deb
+
+# 2. 安装 MUSA SDK
+tar -xzf musa-sdk-*.tar.gz
+cd musa-sdk && sudo ./install.sh
+
+# 3. 验证安装
+mthreads-smi
+```
+
+> MUSA SDK 从 [摩尔线程开发者中心](https://developer.mthreads.com/) 下载。
+
+## 代码示例
+
+### Python (MUSA PyTorch)
+
+```python
+import torch
+
+# MUDA 是摩尔线程的 CUDA 兼容后端
+assert torch.cuda.is_available(), "Moore Threads GPU not found"
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+
+# MUDA API 与 CUDA 一致，代码无需修改
+x = torch.randn(1024, 1024).cuda()
+y = torch.matmul(x, x)
+print(f"MUSA matrix multiply: {y.shape}")
+```
+
+## 架构特色
+
+- **MUSA 统一架构**: 摩尔线程自研 GPU 架构，兼容 CUDA 编程模型，支持 CUDA 源码级移植
+- **S5000 旗舰**: 专为大模型训练和推理设计，OAM 接口适合集群部署
+- **双轨战略**: 同时推进图形渲染 (MUSA Graphics) 和 AI 计算 (MUSA Compute)
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ⚠️ MUDA 后端 | 兼容 CUDA API，需 MUSA 版 PyTorch |
+| TensorFlow | ⚠️ 有限 | 通过 MUDA 兼容层 |
+| Llama 等 LLM | ⚠️ | 社区适配中，大模型支持逐步完善 |
+| 通用推理 | ✅ | ResNet/YOLO 等推理场景成熟 |
+| 图形渲染 | ✅ | DirectX/Vulkan/OpenGL 支持 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [景嘉微 JM9](/gpu/jingjia-jm9) — 景嘉微 Jingjia Micro（GPU 图形处理器）
+- [瀚博 VA100](/gpu/vastai-sv) — 瀚博半导体 Vastai（GPU 图形处理器）
+- [壁仞科技 BR100/BR20X](/gpu/biren-br) — 壁仞科技 Biren（GPU 图形处理器）
+- [沐曦 曦云 C500/C600](/gpu/metax-c600) — 沐曦 MetaX（GPU 图形处理器）
+- [天数智芯 BI-150/BI-V150](/gpu/iluvatar-bi) — 天数智芯 Iluvatar（GPU 图形处理器）
+- [百度昆仑芯 P800](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+

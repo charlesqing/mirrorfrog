@@ -1,0 +1,146 @@
+---
+title: 'NVIDIA BlueField DPU - NVIDIA'
+description: 'NVIDIA BlueField DPU（Data Processing Unit）专为数据中心基础设施加速设计。卸载网络、存储、安全、遥测等任务，让 CPU 和 GPU 专注计算。支持 DOCA SDK 编程。'
+sidebar_label: 'NVIDIA BlueField DPU'
+keywords:
+  - 'NVIDIA'
+  - 'BlueField'
+  - 'DPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# NVIDIA BlueField DPU
+
+**厂商**: NVIDIA
+
+**分类**: DPU 数据处理器
+
+**架构**: Mellanox ConnectX + ARM
+
+## 简介
+
+NVIDIA BlueField DPU（Data Processing Unit）专为数据中心基础设施加速设计。卸载网络、存储、安全、遥测等任务，让 CPU 和 GPU 专注计算。支持 DOCA SDK 编程。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| BlueField-3 | 200 Gbps 网络 | 16GB DDR5 + 4GB ARM | PCIe 5.0 / 400GbE | 35W | 5nm |
+| BlueField-2 | 100 Gbps 网络 | 8GB DDR4 + 4GB ARM | PCIe 4.0 / 200GbE | 25W | 16nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.nvidia.com/en-us/networking/products/data-processing-unit/)
+## 驱动下载
+
+### Linux
+
+- [BlueField DPU 驱动 (Linux)](https://docs.nvidia.com/networking/display/bluefielddpuenteringlinux/installing-doca.html)
+- [DOCA SDK 下载](https://developer.nvidia.com/doca-sdk)
+
+
+## 相关文档
+
+- [BlueField DPU 文档](https://docs.nvidia.com/networking/display/bluefielddpuenteringlinux/)
+- [DOCA 开发指南](https://docs.nvidia.com/doca/)
+- [DPU 编程入门](https://developer.nvidia.com/doca-software)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| DOCA 2.5 | 2024 | BlueField-3 全功能支持 |
+| DOCA 2.0 | 2023 | 零信任安全框架 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| BlueField-3 | 网络卸载 | 400Gbps 线速处理 |
+| BlueField-3 | 存储卸载 | NVMe-oF/RDMA 加速 |
+| BlueField-2 | 安全卸载 | IPsec/TLS 硬件加速 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| BlueField-3 DPU | 需询价 | 企业数据中心 |
+| BlueField-2 DPU | 需询价 | 广泛部署 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 1. 安装 DOCA SDK (NVIDIA DPU 软件)
+apt install -y doca-sdk
+
+# 2. 配置 BlueField
+bfread -p /dev/mst/mt41686_pciconf0
+
+# 3. 验证
+mst status
+```
+
+> DOCA SDK 从 [NVIDIA DOCA](https://developer.nvidia.com/networking/doca) 下载。
+
+## 代码示例
+
+### C (DOCA Flow - 网络加速)
+
+```c
+#include <doca_flow.h>
+
+// 创建流规则进行网络包处理
+doca_flow_port_cfg port_cfg = {0};
+port_cfg.port_id = 0;
+port_cfg.type = DOCA_FLOW_PORT_DPDK_BY_ID;
+
+// 添加流规则：转发到 VF
+doca_flow_match match = {0};
+doca_flow_actions actions = {0};
+actions fwd.type = DOCA_FLOW_FWD_VPORT;
+actions.fwd.port_id = vport_id;
+
+doca_flow_create_rule(port, &match, NULL, &actions, NULL);
+```
+
+## 架构特色
+
+- **Mellanox ConnectX + ARM**: 网络控制器 + ARM 核心的组合，可运行独立 OS
+- **DOCA 软件栈**: NVIDIA 统一 DPU 编程框架，支持网络、存储、安全卸载
+- **零信任安全**: 硬件级隔离，DPU 上运行安全策略不影响主机性能
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| DOCA SDK | ✅ 原生 | NVIDIA 官方 |
+| DPDK | ✅ | 网络加速 |
+| SPDK | ✅ | 存储加速 |
+| Kubernetes | ✅ | 容器网络 |
+| AI 框架 | N/A | DPU 非 AI 加速器 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD Pensando](/dpu/amd-pensando) — AMD（DPU 数据处理器）
+- [Intel IPU](/dpu/intel-ipu) — Intel（DPU 数据处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Intel GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+

@@ -1,0 +1,147 @@
+---
+title: 'Google Coral Edge TPU - Google'
+description: 'Google Coral Edge TPU 是专为边缘设备设计的低功耗 AI 加速器。提供 USB 加速棒、M.2 模块、Dev Board 等多种形态，用于 TensorFlow Lite 模型的实时推理。'
+sidebar_label: 'Google Coral Edge TPU'
+keywords:
+  - 'Google'
+  - 'Coral'
+  - 'Edge'
+  - 'TPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# Google Coral Edge TPU
+
+**厂商**: Google
+
+**分类**: TPU 张量处理器
+
+**架构**: Edge TPU
+
+## 简介
+
+Google Coral Edge TPU 是专为边缘设备设计的低功耗 AI 加速器。提供 USB 加速棒、M.2 模块、Dev Board 等多种形态，用于 TensorFlow Lite 模型的实时推理。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Coral Edge TPU | 4 TOPS (INT8) | 外部 DDR | USB 3.0 / M.2 / PCIe | 2W | 9nm |
+| Dev Board Micro | 4 TOPS (INT8) | 512MB DDR | USB-C | 2W | 28nm |
+
+
+## 官方网站
+
+[访问官方网站](https://coral.ai/)
+## 驱动下载
+
+### Linux
+
+- [Coral Edge TPU 驱动 (Linux)](https://coral.ai/docs/edgetpu/get-started/#linux)
+- [Mendel Linux (Dev Board)](https://coral.ai/docs/dev-board/get-started/)
+
+
+## 相关文档
+
+- [Edge TPU 文档](https://coral.ai/docs/)
+- [TensorFlow Lite on Edge TPU](https://coral.ai/docs/edgetpu/models-intro/)
+- [Edge TPU 性能指南](https://coral.ai/docs/edgetpu/performance/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ✅ | ✅ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Edge TPU Compiler 16 | 2024 | 模型量化优化 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Coral Edge TPU | MobileNet V2 | ~400 fps |
+| Coral Edge TPU | YOLOv5s | ~30 fps (量化) |
+| Dev Board Micro | 多模型推理 | 支持多模型并发 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Coral USB Accelerator | ~$60 | USB 3.0 加速棒 |
+| Coral Dev Board | ~$150 | 独立开发板 |
+| Coral M.2 | ~$35 | M.2 模块 |
+
+## 快速安装
+
+### Linux / Windows / macOS / Raspberry Pi
+
+```bash
+# 1. 安装 Edge TPU 运行时
+sudo apt-get install -y libedgetpu1-std
+
+# 2. 安装 Python SDK
+pip install tflite-runtime
+
+# 3. 编译模型为 TFLite + Edge TPU 格式
+# 使用 Edge TPU Compiler
+edgetpu_compiler model.tflite
+```
+
+## 代码示例
+
+### Python (Edge TPU)
+
+```python
+from tflite_runtime.interpreter import Interpreter
+
+# 加载 Edge TPU 编译后的模型
+interpreter = Interpreter(
+    model_path="model_edgetpu.tflite",
+    experimental_delegates=[load_delegate("libedgetpu.so")]
+)
+interpreter.allocate_tensors()
+
+# 推理
+input_details = interpreter.get_input_details()
+interpreter.set_tensor(input_details[0]['index'], input_data)
+interpreter.invoke()
+output = interpreter.get_tensor(interpreter.get_output_details()[0]['index'])
+```
+
+## 架构特色
+
+- **Edge TPU**: 专为 INT8 量化推理设计的协处理器，功耗仅 2W
+- **全平台支持**: 唯一同时支持 Windows/Linux/macOS/Android/Raspberry Pi 的 AI 加速器
+- **Coral 生态**: Google Coral 提供完整的硬件 (USB/M.2/PCIe/Dev Board) 和软件工具链
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| TFLite | ✅ 原生 | 主流格式 |
+| ONNX | ⚠️ | 转 TFLite 后使用 |
+| YOLO / MobileNet | ✅ 官方优化 | 最成熟场景 |
+| 图像分类/检测 | ✅ | 官方预编译模型 |
+| LLM | ❌ | 仅支持小型模型 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo（NPU 神经网络处理器）
+- [清微智能 TX510](/asic/tsingmicro-rpu) — 清微智能 TsingMicro（ASIC 专用加速卡）
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+

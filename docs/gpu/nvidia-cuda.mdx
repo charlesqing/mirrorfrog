@@ -1,0 +1,290 @@
+---
+title: 'NVIDIA GPU / CUDA - NVIDIA'
+description: 'NVIDIA GPU 加速计算平台，涵盖 GeForce/RTX 游戏卡、RTX Professional 工作站卡、H100/B200 数据中心卡等全系列。所有 NVIDIA GPU 统一通过 CUDA 平台进行通用计算加速。'
+sidebar_label: 'NVIDIA GPU / CUDA'
+keywords:
+  - 'NVIDIA'
+  - 'GPU'
+  - 'CUDA'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# NVIDIA GPU / CUDA
+
+**厂商**: NVIDIA
+
+**分类**: GPU 图形处理器
+
+**架构**: Blackwell Ultra / Blackwell / Hopper / Ada Lovelace / Ampere / Volta / Pascal
+
+## 简介
+
+NVIDIA GPU 加速计算平台，涵盖 GeForce/RTX 游戏卡、RTX Professional 工作站卡、H100/B200 数据中心卡等全系列。所有 NVIDIA GPU 统一通过 CUDA 平台进行通用计算加速。
+
+## 规格参数
+
+### Blackwell Ultra / Blackwell 架构（ 至今）
+
+| 型号 | 算力 | 显存 | 带宽 | 接口 | TDP | 制程 |
+|------|------|------|------|------|-----|------|
+| B300 SXM (Blackwell Ultra) | 9,000 TFLOPS (FP8) / 18,000 (FP4) | 270GB HBM3e | 7.7 TB/s | SXM6 | 1,400W | TSMC 4NP |
+| B200 SXM | 4,500 TFLOPS (FP8) / 9,000 (FP4) | 192GB HBM3e | 8.0 TB/s | SXM6 | 1,000W | TSMC 4NP |
+| B100 SXM | 3,500 TFLOPS (FP8) / 7,000 (FP4) | 192GB HBM3e | 8.0 TB/s | SXM6 | 700W | TSMC 4NP |
+| GB200 超级芯片 (2×B200+Grace) | 20,000 TFLOPS (FP8) / 40,000 (FP4) | 384GB HBM3e | 16 TB/s | NVLink-C2C | 2,700W | TSMC 4NP |
+| GB300 超级芯片 (2×B300+Grace) | 40,000 TFLOPS (FP8) / 80,000 (FP4) | 540GB HBM3e | 15.4 TB/s | NVLink-C2C | 2,800W | TSMC 4NP |
+
+### Hopper 架构（ 至今）
+
+| 型号 | 算力 | 显存 | 带宽 | 接口 | TDP | 制程 |
+|------|------|------|------|------|-----|------|
+| H200 SXM | 1,979 TFLOPS (FP8) | 141GB HBM3e | 4.8 TB/s | SXM5 | 700W | TSMC 4N |
+| H100 SXM5 | 1,979 TFLOPS (FP8) / 989 (FP16) | 80GB HBM3 | 3.35 TB/s | SXM5 | 700W | TSMC 4N |
+| H100 PCIe | 1,513 TFLOPS (FP8) | 80GB HBM3 | 2.0 TB/s | PCIe 5.0 | 350W | TSMC 4N |
+| H100 NVL (双卡) | 3,958 TFLOPS (FP8) | 2×80GB HBM3 | 2.0 TB/s | NVLink | 700W | TSMC 4N |
+| H800 SXM5 (中国特供) | 1,979 TFLOPS (FP8) | 80GB HBM3 | 3.35 TB/s | SXM5 | 350W | TSMC 4N |
+
+### Ada Lovelace 架构（ 至今）
+
+| 型号 | 算力 | 显存 | 带宽 | 接口 | TDP | 制程 |
+|------|------|------|------|------|-----|------|
+| L40S | 362 TFLOPS (FP8) / 733 (INT8) | 48GB GDDR6 w/ECC | 864 GB/s | PCIe 4.0 | 300W | TSMC 4N |
+| L40 | 362 TFLOPS (FP16) / 724 (INT8) | 48GB GDDR6 | 864 GB/s | PCIe 4.0 | 300W | TSMC 4N |
+| L20 | 119 TFLOPS (FP16) / 239 (INT8) | 48GB GDDR6 | 864 GB/s | PCIe 4.0 | 275W | TSMC 4N |
+| L4 | 242 TFLOPS (FP8) / 484 (INT8) | 24GB GDDR6 | 300 GB/s | PCIe 4.0 | 72W | TSMC 4N |
+| RTX 6000 Ada | 362 TFLOPS (FP8) / 733 (INT8) | 48GB GDDR6 | 960 GB/s | PCIe 4.0 | 300W | TSMC 4N |
+
+### Ampere 架构（ 至今）
+
+| 型号 | 算力 | 显存 | 带宽 | 接口 | TDP | 制程 |
+|------|------|------|------|------|-----|------|
+| A100 SXM4 (80GB) | 312 TFLOPS (FP16) / 19.5 (FP32) | 80GB HBM2e | 2.0 TB/s | SXM4 | 400W | TSMC 7N |
+| A100 PCIe (80GB) | 312 TFLOPS (FP16) / 19.5 (FP32) | 80GB HBM2e | 2.0 TB/s | PCIe 4.0 | 250W | TSMC 7N |
+| A800 SXM4 (中国特供) | 312 TFLOPS (FP16) | 80GB HBM2e | 2.0 TB/s | SXM4 | 400W | TSMC 7N |
+| A40 | 150 TFLOPS (FP16) / 37.4 (FP32) | 48GB GDDR6 | 696 GB/s | PCIe 4.0 | 300W | TSMC 7N |
+| A30 | 165 TFLOPS (FP16) / 10.3 (FP32) | 24GB HBM2e | 933 GB/s | PCIe 4.0 | 165W | TSMC 7N |
+| A10 | 125 TFLOPS (FP16) / 31.2 (FP32) | 24GB GDDR6 | 600 GB/s | PCIe 4.0 | 150W | TSMC 7N |
+| A16 (4×MIG) | 120 TFLOPS (FP16) | 4×16GB GDDR6 | 4×448 GB/s | PCIe 4.0 | 250W | TSMC 7N |
+
+### Volta / Pascal 架构（ 至今）
+
+| 型号 | 算力 | 显存 | 带宽 | 接口 | TDP | 制程 |
+|------|------|------|------|------|-----|------|
+| Tesla V100 SXM2 (32GB) | 125 TFLOPS (FP16) / 15.7 (FP32) | 32GB HBM2 | 900 GB/s | SXM2 | 300W | TSMC 12nm |
+| Tesla V100 PCIe (16/32GB) | 125 TFLOPS (FP16) / 15.7 (FP32) | 16/32GB HBM2 | 900 GB/s | PCIe 3.0 | 250W | TSMC 12nm |
+| Tesla T4 | 65 TFLOPS (FP16) / 8.1 (FP32) | 16GB GDDR6 | 300 GB/s | PCIe 3.0 | 70W | TSMC 12nm |
+| Tesla P100 (16GB) | 18.7 TFLOPS (FP16) / 10.6 (FP32) | 16GB HBM2 | 720 GB/s | SXM2/PCIe | 300W | TSMC 16nm |
+| Tesla P40 | 47 TOPS (INT8) / 12 TFLOPS (FP32) | 24GB GDDR5X | 346 GB/s | PCIe 3.0 | 250W | TSMC 16nm |
+| Tesla P4 | 22 TOPS (INT8) / 5.5 TFLOPS (FP32) | 8GB GDDR5 | 195 GB/s | PCIe 3.0 | 75W | TSMC 16nm |
+
+## 官方网站
+
+[访问官方网站](https://www.nvidia.com/en-us/data-center/h100/)
+## 驱动下载
+
+### Windows
+
+- [Game Ready Driver (Windows)](https://www.nvidia.com/download/index.aspx)
+- [Studio Driver (Windows)](https://www.nvidia.com/download/index.aspx)
+- [CUDA Toolkit (Windows)](https://developer.nvidia.com/cuda-downloads)
+
+### Linux
+
+- [Linux x86_64 Driver](https://www.nvidia.com/download/index.aspx)
+- [CUDA Toolkit (Linux)](https://developer.nvidia.com/cuda-downloads)
+- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+
+### macOS
+
+- [macOS Driver (Legacy)](https://www.nvidia.com/download/index.aspx)
+
+## 相关文档
+
+- [CUDA 官方文档](https://docs.nvidia.com/cuda/)
+- [驱动安装指南 (Linux)](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/)
+- [TensorRT 文档](https://docs.nvidia.com/deeplearning/tensorrt/)
+- [NVIDIA Docker 支持](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ⚠️ (仅AMD eGPU) | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| CUDA 12.8 | 2025-Q2 | 支持 Blackwell 架构，B200/B100 全面支持 |
+| CUDA 12.4 | 2024-Q3 | Hopper 性能优化，H200 支持 |
+| CUDA 12.0 | 2023-Q2 | H100/H200 全面支持，FP8 原生支持 |
+| CUDA 11.8 | 2022-Q4 | Ada Lovelace (L40S/L4) 支持 |
+| CUDA 11.0 | 2020-Q3 | Ampere (A100) 支持，MIG 多实例 |
+| CUDA 10.0 | 2018-Q3 | Volta (V100) Tensor Core 增强 |
+| CUDA 9.0 | 2017-Q3 | Volta V100 首次支持 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| B200 × 8 | Llama 3 405B 训练 | ~2.5 天 (预估) |
+| H100 SXM5 × 8 | GPT-3 175B 训练 | ~1.1 天 (MLPerf) |
+| H100 SXM5 | Llama 2 70B 推理 | ~120 tok/s (FP16) |
+| H200 SXM5 | Llama 3 70B 推理 | ~140 tok/s (FP8) |
+| A100 SXM4 × 8 | GPT-3 175B 训练 | ~3.5 天 (MLPerf) |
+| L40S × 4 | Whisper-large-v3 | ~18x 实时转录 |
+| L4 × 1 | Stable Diffusion XL | ~3.5s/img (batch=1) |
+| Tesla T4 × 1 | BERT-large 推理 | ~1,200 qps |
+| RTX 4090 | Stable Diffusion XL | ~1.8s/img (batch=1) |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| B200 SXM | $30,000-45,000 | 2025 年量产 |
+| GB200 NVL | $60,000-80,000 | 超级芯片 (2 GPU + Grace CPU) |
+| H100 SXM5 | $25,000-35,000 | 市场价受供应影响波动大 |
+| H200 SXM5 | $30,000-40,000 | HBM3e 大显存版本 |
+| H800 SXM5 | $15,000-20,000 | 中国特供版 |
+| A100 80GB | $10,000-15,000 | 已有大量二手市场 |
+| A800 80GB | $8,000-12,000 | 中国特供版 |
+| L40S | $7,500-10,000 | 推理/图形双用途 |
+| L4 | $3,000-4,500 | 低功耗推理首选 |
+| Tesla T4 | $2,000-3,000 | 入门推理卡（二手更低） |
+| Tesla V100 32GB | $2,500-4,000 | 已停产，二手为主 |
+
+## 快速安装
+
+### Linux（Ubuntu 22.04）
+
+```bash
+# 1. 安装 NVIDIA 驱动
+sudo apt update
+sudo apt install nvidia-driver-550
+
+# 2. 安装 CUDA Toolkit
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt update
+sudo apt install -y cuda-toolkit-12-8
+
+# 3. 验证安装
+nvidia-smi
+nvcc --version
+```
+
+### Windows
+
+下载并安装 [NVIDIA Game Ready Driver](https://www.nvidia.com/download/index.aspx) 和 [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)，重启后运行 `nvidia-smi` 验证。
+
+## 代码示例
+
+### Python (PyTorch)
+
+```python
+import torch
+
+# 检查 CUDA 可用性
+print(f"CUDA available: {torch.cuda.is_available()}")
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+print(f"CUDA version: {torch.cuda.version.cuda}")
+
+# 简单张量运算
+x = torch.randn(1000, 1000).cuda()
+y = torch.matmul(x, x)
+print(f"GPU matrix multiply result shape: {y.shape}")
+```
+
+### CUDA C (Hello World)
+
+```c
+#include <stdio.h>
+__global__ void hello() { printf("Hello from GPU thread %d!\n", threadIdx.x); }
+int main() {
+    hello<<<1, 5>>>();
+    cudaDeviceSynchronize();
+    return 0;
+}
+```
+
+编译: `nvcc hello.cu -o hello && ./hello`
+
+## 架构特色
+
+- **Blackwell 架构 (B200/B100)**: 双 Die 设计 (2080 亿晶体管)，第二代 Transformer Engine，FP4 推理支持；NVLink 第五代 1.8TB/s 互联；10TB/s 芯片间互连统一为单 GPU
+- **Hopper 架构 (H100/H200)**: 引入 Transformer Engine，自动在 FP8/FP16 间切换；TMA (Tensor Memory Accelerator) 异步内存搬运；FP8 精度原生支持
+- **Ada Lovelace 架构 (L40S/L4)**: 第四代 Tensor Core，FP8 推理支持；AV1 编码硬件加速；Omniverse/图形渲染优化
+- **Ampere 架构 (A100/A40)**: 第三代 Tensor Core，TF32/BF16 原生支持；MIG 多实例 GPU 虚拟化；结构化稀疏 2x 加速
+- **Volta 架构 (V100)**: 首次引入 Tensor Core (FP16/FP32 混合精度)；900GB/s HBM2 带宽
+- **软件栈**: CUDA → cuDNN → cuBLAS → TensorRT → Triton (OpenAI)，生态最为完善
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ 原生 | CUDA 后端首选平台 |
+| TensorFlow | ✅ 原生 | 完整 GPU 支持 |
+| JAX | ✅ 原生 | CUDA 后端 |
+| Llama / Qwen 等 LLM | ✅ | vLLM / TensorRT-LLM / llama.cpp 均支持 |
+| Stable Diffusion | ✅ | xFormers 加速 |
+| Whisper | ✅ | Faster-Whisper (CTranslate2) |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，NVIDIA CUDA 在已公开的集群部署中累计超过 **1,620,688** 颗芯片，分布在 **249** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| NVIDIA H100 SXM5 80GB | 948,792 | 78 |
+| NVIDIA A100 | 191,782 | 73 |
+| NVIDIA H200 SXM | 178,800 | 8 |
+| NVIDIA V100 | 86,376 | 35 |
+| NVIDIA GH200 | 59,908 | 11 |
+| NVIDIA Tesla V100 SXM2 | 51,996 | 16 |
+| NVIDIA GB200 | 30,000 | 1 |
+| NVIDIA A100 SXM4 80 GB | 20,652 | 12 |
+| NVIDIA A100 SXM4 40 GB | 13,496 | 11 |
+| NVIDIA Tesla P100 PCIe 16GB | 8,744 | 2 |
+| NVIDIA Tesla K40c | 8,320 | 2 |
+| NVIDIA Tesla K20X | 7,224 | 2 |
+| NVIDIA P100 | 5,154 | 3 |
+| NVIDIA Tesla P100 SXM2 | 2,156 | 1 |
+| NVIDIA Tesla K80 | 1,728 | 1 |
+| NVIDIA Tesla V100 DGXS 32 GB | 1,536 | 1 |
+| NVIDIA Tesla K40m | 1,472 | 1 |
+| NVIDIA Tesla V100 SXM2 32 GB | 1,044 | 1 |
+| NVIDIA A100 PCIe | 492 | 2 |
+| NVIDIA A40 PCIe | 400 | 1 |
+| NVIDIA Quadro RTX 5000 | 360 | 1 |
+| NVIDIA L40 | 256 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | xAI Colossus Memphis Phase 3 | 230,000 | NVIDIA H100 SXM5 80GB ×200,000 + NVIDIA GB200 ×30,000 | xAI, United States of America |
+| 2 | xAI Colossus Memphis Phase 2 | 200,000 | NVIDIA H100 SXM5 80GB ×150,000 + NVIDIA H200 SXM ×50,000 | xAI, United States of America |
+| 3 | xAI Colossus Memphis Phase 1 | 100,000 | NVIDIA H100 SXM5 80GB ×100,000 | xAI, United States of America |
+| 4 | Meta 100k | 100,000 | NVIDIA H100 SXM5 80GB ×100,000 | Meta AI, United States of America |
+| 5 | OpenAI/Microsoft Goodyear Arizona | 100,000 | NVIDIA H100 SXM5 80GB ×100,000 | Microsoft,OpenAI, United States of America |
+| 6 | Oracle OCI Supercluster H200s | 65,536 | NVIDIA H200 SXM ×65,536 | Oracle, United States of America |
+| 7 | Tesla Cortex Phase 1 | 50,000 | NVIDIA H100 SXM5 80GB ×50,000 | Tesla, United States of America |
+| 8 | CoreWeave H200s | 42,000 | NVIDIA H200 SXM ×42,000 | CoreWeave, United States of America |
+| 9 | Oracle OCI Supercluster A100s | 32,768 | NVIDIA A100 ×32,768 | Oracle, United States of America |
+| 10 | Microsoft GPT-4 cluster | 25,000 | NVIDIA A100 ×25,000 | Microsoft,OpenAI, United States of America |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Apple Silicon GPU](/gpu/apple-gpu) — Apple（GPU 图形处理器）
+- [Intel Data Center GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+- [沐曦 曦云 C500](/gpu/metax-c600) — 沐曦 MetaX（GPU 图形处理器）
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm（GPU 图形处理器）
+- [摩尔线程 MTT S5000](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [壁仞科技 BR100/BR20X](/gpu/biren-br) — 壁仞科技 Biren（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）

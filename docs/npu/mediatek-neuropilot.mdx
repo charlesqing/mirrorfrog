@@ -1,0 +1,129 @@
+---
+title: 'MediaTek NeuroPilot - MediaTek'
+description: 'MediaTek NeuroPilot AI 平台，用于天玑（Dimensity）和 Kompanio 系列 SoC 中的 AI 加速。支持多框架融合（TensorFlow/PyTorch/ONNX），提供异构计算能力。'
+sidebar_label: 'MediaTek NeuroPilot'
+keywords:
+  - 'MediaTek'
+  - 'NeuroPilot'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# MediaTek NeuroPilot
+
+**厂商**: MediaTek
+
+**分类**: NPU 神经网络处理器
+
+**架构**: APU (AI Processing Unit)
+
+## 简介
+
+MediaTek NeuroPilot AI 平台，用于天玑（Dimensity）和 Kompanio 系列 SoC 中的 AI 加速。支持多框架融合（TensorFlow/PyTorch/ONNX），提供异构计算能力。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Dimensity 9400 | 40 TOPS (INT8) | LPDDR5X (共享) | 集成 SoC | 10W | 3nm |
+| Dimensity 9300 | 32 TOPS (INT8) | LPDDR5T (共享) | 集成 SoC | 8W | 4nm |
+
+
+## 官方网站
+
+[访问官方网站](https://neuropilot.mediatek.com/)
+## 驱动下载
+
+### Linux
+
+- [NeuroPilot SDK](https://neuropilot.mediatek.com/)
+
+
+## 相关文档
+
+- [NeuroPilot 文档](https://neuropilot.mediatek.com/documentation)
+- [MediaTek AI 框架支持](https://neuropilot.mediatek.com/support)
+- [天玑开发者中心](https://developer.mediatek.com/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (Android) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| NeuroPilot 9.0 | 2024 | 端侧大模型 7B 推理 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Dimensity 9400 | NPU TOPS | ~70 TOPS |
+| Dimensity 9400 | 相机 AI | 实时语义分割 |
+| Dimensity 9300 | 端侧 LLM | 7B 量化推理 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Dimensity 9400 | 随 SoC 提供 | 旗舰手机 SoC |
+
+## 快速安装
+
+### Android
+
+MediaTek NeuroPilot 通过 Android NNAPI 自动调用。TFLite 模型直接受益于 NPU 加速。
+
+```bash
+# 使用 NeuroPilot SDK 进行模型优化
+# 从 MediaTek Developer Portal 获取
+```
+
+## 代码示例
+
+### Python (TFLite Android)
+
+```python
+import tflite_runtime.interpreter as tflite
+
+# Android 端通过 NNAPI 使用 Dimensity NPU
+interpreter = tflite.Interpreter(
+    model_path="model.tflite",
+    experimental_delegates=[tflite.load_delegate('libneuropilot_delegate.so')]
+)
+```
+
+## 架构特色
+
+- **APU (AI Processing Unit)**: MediaTek 集成 NPU，与 CPU/GPU 协同处理 AI 任务
+- **NeuroPilot SDK**: 开发者工具链，支持模型优化和部署
+- **端侧 LLM**: Dimensity 9400 支持 7B 参数 LLM 端侧推理
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| NNAPI | ✅ 原生 | Android 标准 |
+| TFLite | ✅ | NeuroPilot 优化 |
+| 端侧 LLM | ✅ | 7B 量化 |
+| 相机 AI | ✅ | 相机场景最佳 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm（NPU 神经网络处理器）
+- [Samsung Gauss NPU](/npu/samsung-gauss) — Samsung（NPU 神经网络处理器）
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD（NPU 神经网络处理器）
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel（NPU 神经网络处理器）
+- [Apple Neural Engine](/npu/apple-neural-engine) — Apple（NPU 神经网络处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+

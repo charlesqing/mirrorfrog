@@ -1,0 +1,155 @@
+---
+title: 'Intel Gaudi (Habana) - Intel Habana'
+description: 'Intel Gaudi AI 加速器（原 Habana Labs），专为 AI 训练和推理优化。Gaudi 2 和 Gaudi 3 在 LLM 训练方面表现出色，支持 PyTorch 和 TensorFlow，性价比高。'
+sidebar_label: 'Intel Gaudi (Habana)'
+keywords:
+  - 'Intel'
+  - 'Gaudi'
+  - 'Habana'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# Intel Gaudi (Habana)
+
+**厂商**: Intel Habana
+
+**分类**: ASIC 专用加速卡
+
+**架构**: Gaudi / Xe HPC
+
+## 简介
+
+Intel Gaudi AI 加速器（原 Habana Labs），专为 AI 训练和推理优化。Gaudi 2 和 Gaudi 3 在 LLM 训练方面表现出色，支持 PyTorch 和 TensorFlow，性价比高。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Gaudi 3 | 1,678 TFLOPS (FP8) / 1,678 (BF16) | 128GB HBM2e (3.7 TB/s) | OAM + 24x 200GbE | 900W | 5nm |
+| Gaudi 2 | 865 TFLOPS (FP8) / 432 (BF16) | 96GB HBM2e (2.45 TB/s) | OAM + 24x 100GbE | 600W | 7nm |
+
+## 官方网站
+
+[访问官方网站](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html)
+## 驱动下载
+
+### Linux
+
+- [Habana 驱动 & 软件包](https://developer.habana.ai/)
+- [SynapseAI SDK](https://developer.habana.ai/synapse-ai/)
+
+## 相关文档
+
+- [Habana 文档中心](https://docs.habana.ai/)
+- [Gaudi 安装指南](https://docs.habana.ai/en/latest/Installation_Guide/index.html)
+- [PyTorch 适配 (HPU)](https://docs.habana.ai/en/latest/PyTorch/index.html)
+- [Gaudi 性能优化](https://docs.habana.ai/en/latest/Performance_Optimization/index.html)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| SynapseAI 1.18 | 2025-Q1 | Gaudi 3 全面支持 |
+| SynapseAI 1.16 | 2024-Q2 | PyTorch 2.1 原生集成 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Gaudi 3 × 8 | GPT-3 175B 训练 | ~1.2 天 (预估) |
+| Gaudi 3 | Llama 2 70B 推理 | ~100 tok/s (FP8) |
+| Gaudi 2 × 8 | BERT-Large 训练 | ~90% H100 效率 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Gaudi 3 | 需询价 | 通过 Intel Developer Cloud 或 ODM 获取 |
+| Gaudi 2 | $8,000-12,000 | 市场价低于 H100 |
+
+## 快速安装
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. 安装 Habana 驱动
+sudo ./habana-driver-*.run --install
+
+# 2. 安装 SynapseAI SDK
+sudo ./SynapseAI-*.run --install
+
+# 3. 验证
+hl-smi
+```
+
+> 也可通过 [Intel Developer Cloud](https://cloud.intel.com/) 免费试用 Gaudi 2。
+
+## 代码示例
+
+### Python (PyTorch on HPU)
+
+```python
+import torch
+import habana_frameworks.torch.core as htcore
+
+# 使用 HPU 后端 (API 与 CUDA 一致)
+device = torch.device("hpu")
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"HPU matrix multiply: {y.shape}")
+
+# Habana Graph 模式 (类似 CUDA Graphs)
+htcore.hpu.graphs()
+```
+
+## 架构特色
+
+- **Gaudi 架构**: 专为大模型训练设计的 AI 加速器，集成 24x RoCE 2.0 网络接口，支持大集群直接互联
+- **SynapseAI**: Intel AI 软件栈，PyTorch/TensorFlow 原生支持
+- **性价比定位**: Gaudi 2 价格约为 H100 的 1/3，适合预算有限的训练场景
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ 原生 | HPU 后端，API 兼容 CUDA |
+| TensorFlow | ✅ | Habana 后端 |
+| JAX | ⚠️ | 实验性支持 |
+| Llama / Qwen 等 LLM | ✅ | DeepSpeed / FSDP 均支持 |
+| Stable Diffusion | ✅ | HPU 后端 |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，Intel Gaudi 在已公开的集群部署中累计超过 **4,000** 颗芯片，分布在 **1** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| Intel Habana Gaudi2 | 4,000 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | Intel Stability Gaudi 2 | 4,000 | Intel Habana Gaudi2 ×4,000 | Intel, United States of America |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+- [AWS Trainium2 / Inferentia2](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）
+- [寒武纪 思元 MLU](/asic/cambricon-mlu) — 寒武纪（ASIC 专用加速卡）

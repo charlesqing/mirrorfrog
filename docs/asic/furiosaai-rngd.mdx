@@ -1,0 +1,120 @@
+---
+title: 'FuriosaAI RNGD - FuriosaAI'
+description: '韩国 FuriosaAI 公司的 RNGD 数据中心推理芯片，基于 Tensor Contraction Processor (TCP) 架构，TSMC 5nm 工艺，180W PCIe 设计，专为大语言模型和 Agentic AI 工作负载优化。'
+sidebar_label: 'FuriosaAI RNGD'
+keywords:
+  - 'FuriosaAI'
+  - 'RNGD'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# FuriosaAI RNGD
+
+**厂商**: FuriosaAI (韩国)
+
+**分类**: ASIC 专用加速卡
+
+**架构**: TCP (Tensor Contraction Processor)
+
+## 简介
+
+FuriosaAI RNGD 是韩国 AI 芯片公司 FuriosaAI 的数据中心推理芯片，基于自研 Tensor Contraction Processor (TCP) 架构。RNGD 采用 TSMC 5nm 工艺制造，180W PCIe 设计，可直接插入标准服务器，无需特殊冷却。FuriosaAI 于 2025年12月被 NVIDIA 以约 $200亿收购。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| RNGD | 推理优化 (FP8/INT8) | HBM | PCIe Gen5 | 180W | TSMC 5nm |
+
+## 官方网站
+
+[访问官方网站](https://www.furiosa.ai/)
+
+## 驱动下载
+
+### Linux
+
+- [FuriosaAI SDK](https://www.furiosa.ai/)
+
+## 相关文档
+
+- [FuriosaAI 开发者中心](https://www.furiosa.ai/)
+- [RNGD 产品文档](https://www.furiosa.ai/rngd)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| RNGD | 2024 | TCP 架构，TSMC 5nm，180W PCIe |
+| 第三代 (开发中) | 2028 预计 | 2nm，HBM4，Broadcom 封装 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| RNGD | LLM 推理 | 高效 tokens/watt |
+| RNGD | Agentic AI | 低延迟推理 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| RNGD | 需询价 | 企业级数据中心产品 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 安装 FuriosaAI SDK
+# 参考官方文档
+pip install furiosa-sdk
+```
+
+## 代码示例
+
+### Python (FuriosaAI SDK)
+
+```python
+import furiosa
+
+# 初始化设备
+model = furiosa.compile_model("model.onnx", target="rngd")
+output = model.run(input_data)
+```
+
+## 架构特色
+
+- **TCP (Tensor Contraction Processor)**: 自研张量收缩处理器架构，专为推理优化
+- **180W PCIe 设计**: 标准服务器兼容，无需特殊冷却
+- **确定性执行**: 编译器控制的确定性执行模型，延迟可预测
+- **成熟 SDK**: 支持主流 AI 框架的推理编译器
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ | 通过编译器转换 |
+| ONNX | ✅ | 原生支持 |
+| Llama 系列 | ✅ | 推理优化 |
+| Transformer LLM | ✅ | Agentic AI 工作负载 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Groq LPU v1](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [Etched Sohu ASIC](/asic/etched-sohu) — Etched（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel（ASIC 专用加速卡）
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova（ASIC 专用加速卡）

@@ -1,0 +1,149 @@
+---
+title: 'AWS Trainium / Inferentia - Amazon AWS'
+description: 'AWS 自研 AI 芯片系列：Trainium（训练专用）和 Inferentia（推理专用）。Trainium2 提供极致训练性能，Inferentia2 提供低延迟高吞吐推理，通过 Amazon EC2 Trn1/Inf2 实例提供。'
+sidebar_label: 'AWS Trainium / Inferentia'
+keywords:
+  - 'AWS'
+  - 'Trainium'
+  - 'Inferentia'
+  - 'Amazon'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# AWS Trainium / Inferentia
+
+**厂商**: Amazon AWS
+
+**分类**: ASIC 专用加速卡
+
+**架构**: NeuronCore
+
+## 简介
+
+AWS 自研 AI 芯片系列：Trainium（训练专用）和 Inferentia（推理专用）。Trainium2 提供极致训练性能，Inferentia2 提供低延迟高吞吐推理，通过 Amazon EC2 Trn1/Inf2 实例提供。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| Trainium2 | 676 TFLOPS (FP8) | 192GB HBM3e | NeuronLink | 500W | 5nm |
+| Inferentia2 | 220 TOPS (FP16) | 64GB HBM2e | NeuronLink | 175W | 5nm |
+
+
+## 官方网站
+
+[访问官方网站](https://aws.amazon.com/machine-learning/)
+## 驱动下载
+
+### Linux
+
+- [AWS Neuron SDK](https://aws.amazon.com/machine-learning/neuron/)
+- [Neuron 安装指南](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/general/setup/neuron-setup.html)
+
+
+## 相关文档
+
+- [Neuron 文档中心](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/)
+- [Trainium 开发指南](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/trainium.html)
+- [Inferentia 开发指南](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/inferentia.html)
+- [PyTorch on Trainium](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/frameworks/torch/torch-setup.html)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (AWS EC2) | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Neuron SDK 3.0 | 2025-Q1 | Trainium2 全面支持 |
+| Neuron SDK 2.x | 2024 | Inferentia2 支持 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| Trainium2 × 16 | Llama 3 405B 训练 | ~2 天 (AWS 数据) |
+| Inferentia2 | Llama 2 13B 推理 | ~500 tok/s |
+| Inferentia2 | Stable Diffusion XL | ~5s/img (批量) |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| Trainium2 (Trn2) | ~$5.00/chip/h | EC2 实例按需 |
+| Inferentia2 (Inf2) | ~$0.96/chip/h | 按需计费 |
+| Inf2 (xlarge) | ~$1.16/h | 最小实例 |
+
+## 快速安装
+
+### AWS (通过 EC2)
+
+```bash
+# 1. 启动 Trn2 实例
+aws ec2 run-instances --instance-type trn2.48xlarge --region us-east-1
+
+# 2. 连接后安装 Neuron SDK
+pip install torch-neuron neuronx-cc
+
+# 3. 验证
+neuron-ls
+```
+
+> Trainium/Inferentia 仅在 AWS EC2 可用，无法单独购买裸卡。
+
+## 代码示例
+
+### Python (Neuron SDK)
+
+```python
+import torch
+import torch_neuronx
+
+# 将 PyTorch 模型编译为 Neuron 格式
+model = torch.nn.Linear(1024, 1024)
+model = model.to("xla")  # XLA 后端
+
+# 编译
+neuron_model = torch_neuronx.trace(model, example_input)
+
+# 推理
+output = neuron_model(input_data)
+```
+
+## 架构特色
+
+- **NeuronCore**: AWS 自研 AI 加速器架构，Trainium 面向训练，Inferentia 面向推理
+- **NeuronLink**: 芯片间互联，支持大规模分布式训练
+- **Trn2 UltraServers**: 每节点 16 个 Trainium2 芯片，通过 NeuronLink Connect 互联
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ Neuron SDK | torch-neuronx |
+| TensorFlow | ✅ | neuron-cc |
+| JAX | ✅ | jax-neuronx |
+| Llama / QLM 等 LLM | ✅ | Inf2 推理最优 |
+| HuggingFace | ✅ | transformers-neuronx |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google（TPU 张量处理器）
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana（ASIC 专用加速卡）
+- [Microsoft Maia 100](/asic/microsoft-maia) — Microsoft（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [Tenstorrent AI Accelerator](/asic/tenstorrent) — Tenstorrent（ASIC 专用加速卡）
+- [燧原科技 云燧 T20/T21](/asic/enflame-blaze) — 燧原（ASIC 专用加速卡）
+

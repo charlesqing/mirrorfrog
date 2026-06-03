@@ -1,0 +1,166 @@
+---
+title: 'Apple Silicon GPU - Apple'
+description: 'Apple M 系列芯片（M1/M2/M3/M4/Pro/Max/Ultra）内置 GPU，通过 Metal 3 框架提供 GPU 加速计算。统一内存架构允许 CPU 和 GPU 共享内存，非常适合 AI 推理和机器学习。'
+sidebar_label: 'Apple Silicon GPU'
+keywords:
+  - 'Apple'
+  - 'Silicon'
+  - 'GPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 3
+---
+
+# Apple Silicon GPU
+
+**厂商**: Apple
+
+**分类**: GPU 图形处理器
+
+**架构**: Apple GPU (统一内存架构)
+
+## 简介
+
+Apple M 系列芯片（M1/M2/M3/M4/Pro/Max/Ultra）内置 GPU，通过 Metal 3 框架提供 GPU 加速计算。统一内存架构允许 CPU 和 GPU 共享内存，非常适合 AI 推理和机器学习。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| M4 Ultra | 27 TFLOPS (FP16) | 256GB 统一内存 | 集成 SoC | 150W | N3E (3nm) |
+| M3 Max | 18 TFLOPS (FP16) | 128GB 统一内存 | 集成 SoC | 100W | N3B (3nm) |
+| M2 Ultra | 15 TFLOPS (FP16) | 192GB 统一内存 | 集成 SoC | 100W | N5 (5nm) |
+
+
+## 官方网站
+
+[访问官方网站](https://developer.apple.com/metal/)
+## 驱动下载
+
+### macOS
+
+- [macOS (内置驱动，随系统更新)](https://developer.apple.com/documentation/macos-release-notes)
+- [Metal Developer Tools](https://developer.apple.com/metal/)
+
+### Linux
+
+- [Asahi Linux GPU Driver (M1/M2)](https://asahilinux.org/)
+
+
+## 相关文档
+
+- [Metal 开发文档](https://developer.apple.com/metal/)
+- [Metal 性能优化指南](https://developer.apple.com/documentation/metal/perf)
+- [Apple 机器学习框架](https://developer.apple.com/machine-learning/)
+- [MLX (Apple 机器学习框架)](https://ml-explore.github.io/mlx/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ⚠️ (Asahi Linux) | ✅ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| Metal 3 | 2023 | M3 系列支持 mesh shading |
+| Core ML 7 | 2024 | M4 NPU 深度集成 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| M4 Ultra | Llama 3 70B 推理 (MLX) | ~25 tok/s (量化) |
+| M3 Max | Llama 3 8B 推理 | ~40 tok/s (4-bit) |
+| M2 Ultra | Stable Diffusion XL | ~3.5s/img (batch=1) |
+| M4 | Whisper-large-v3 | ~6x 实时转录 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| M4 Ultra (Mac Pro/Studio) | ¥49,999 起 | 需整机购买，不可单独采购 |
+| M3 Max (MacBook Pro) | ¥27,999 起 | 笔记本形态 |
+| M2 Ultra (Mac Studio) | ¥29,999 起 | 已逐步被 M4 取代 |
+
+## 快速安装
+
+### macOS (MLX 框架)
+
+```bash
+# 1. 安装 MLX (Apple 官方 ML 框架)
+pip install mlx
+
+# 2. 安装 MLX 示例模型
+python -m mlx_lm.generate --model mlx-community/Llama-3.2-1B-4bit --max-tokens 50
+```
+
+### macOS (llama.cpp MPS 后端)
+
+```bash
+# 1. 编译 llama.cpp (自动启用 Metal)
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp && make LLAMA_METAL=1
+
+# 2. 运行推理
+./llama-cli -m models/llama-3.2-1b.Q4_K_M.gguf -p "你好"
+```
+
+## 代码示例
+
+### Python (MLX)
+
+```python
+import mlx.core as mx
+
+# 在 Apple Silicon GPU 上创建张量
+x = mx.random.normal((1024, 1024))
+y = mx.matmul(x, x)
+print(f"Apple GPU matrix multiply: {y.shape}")
+print(f"Device: {mx.default_device()}")
+```
+
+### Python (PyTorch MPS 后端)
+
+```python
+import torch
+
+if torch.backends.mps.is_available():
+    x = torch.randn(1024, 1024, device="mps")
+    y = torch.matmul(x, x)
+    print(f"MPS matrix multiply: {y.shape}")
+```
+
+## 架构特色
+
+- **统一内存架构 (UMA)**: CPU 和 GPU 共享同一块内存，无需数据拷贝，对 LLM 推理尤其有利 — 模型加载无显存瓶颈
+- **Metal 框架**: Apple 低级图形/计算 API，性能接近 CUDA
+- **MLX 框架**: Apple 官方 ML 框架，专为 Apple Silicon 优化，支持延迟加载和统一内存
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ✅ MPS 后端 | 部分算子可能回退 CPU |
+| MLX | ✅ 原生 | Apple 官方框架，推荐 |
+| llama.cpp | ✅ Metal 后端 | 本地 LLM 推理首选 |
+| Llama / Qwen 等 LLM | ✅ | MLX-LM / llama.cpp 均可 |
+| Stable Diffusion | ✅ | 通过 MPS / Core ML |
+| Whisper | ✅ | MLX-Whisper |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD（GPU 图形处理器）
+- [Intel Data Center GPU](/gpu/intel-gpu) — Intel（GPU 图形处理器）
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm（GPU 图形处理器）
+- [摩尔线程 MTT S5000](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为 Huawei（NPU 神经网络处理器）
+

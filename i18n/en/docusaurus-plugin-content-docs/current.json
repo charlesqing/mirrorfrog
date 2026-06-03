@@ -1,0 +1,122 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.aiCardsSidebar.category.📊 总览与对比": {
+    "message": "Overview & Comparison",
+    "description": "The label for category '📊 总览与对比' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.🖥️ 按类型浏览": {
+    "message": "Browse by Type",
+    "description": "The label for category '🖥️ 按类型浏览' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.数据中心训练": {
+    "message": "Datacenter Training",
+    "description": "The label for category '数据中心训练' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.数据中心推理": {
+    "message": "Datacenter Inference",
+    "description": "The label for category '数据中心推理' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.工作站 / 消费级": {
+    "message": "Workstation / Consumer",
+    "description": "The label for category '工作站 / 消费级' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.边缘 AI": {
+    "message": "Edge AI",
+    "description": "The label for category '边缘 AI' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.创新架构": {
+    "message": "Innovative Architectures",
+    "description": "The label for category '创新架构' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.🏭️ 按厂商浏览": {
+    "message": "Browse by Vendor",
+    "description": "The label for category '🏭️ 按厂商浏览' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.NVIDIA 完整产品": {
+    "message": "NVIDIA Full Lineup",
+    "description": "The label for category 'NVIDIA 完整产品' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.AMD Instinct 系列": {
+    "message": "AMD Instinct Series",
+    "description": "The label for category 'AMD Instinct 系列' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.Intel (Habana)": {
+    "message": "Intel (Habana)",
+    "description": "The label for category 'Intel (Habana)' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.Google Cloud TPU": {
+    "message": "Google Cloud TPU",
+    "description": "The label for category 'Google Cloud TPU' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.AWS Trainium / Inferentia": {
+    "message": "AWS Trainium / Inferentia",
+    "description": "The label for category 'AWS Trainium / Inferentia' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.Huawei Ascend 昇腾": {
+    "message": "Huawei Ascend",
+    "description": "The label for category 'Huawei Ascend 昇腾' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.Cerebras 晶圆级": {
+    "message": "Cerebras Wafer-Scale",
+    "description": "The label for category 'Cerebras 晶圆级' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.其他创新架构": {
+    "message": "Other Innovative",
+    "description": "The label for category '其他创新架构' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.🔬 架构详解": {
+    "message": "Architecture Deep Dives",
+    "description": "The label for category '🔬 架构详解' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.GPU 通用并行": {
+    "message": "GPU (General Parallel)",
+    "description": "The label for category 'GPU 通用并行' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.TPU 张量处理": {
+    "message": "TPU (Tensor Processing)",
+    "description": "The label for category 'TPU 张量处理' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.LPU 语言处理": {
+    "message": "LPU (Language Processing)",
+    "description": "The label for category 'LPU 语言处理' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.NPU 神经处理": {
+    "message": "NPU (Neural Processing)",
+    "description": "The label for category 'NPU 神经处理' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.APU 加速处理（CPU+GPU）": {
+    "message": "APU (CPU+GPU Accelerated)",
+    "description": "The label for category 'APU 加速处理（CPU+GPU）' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.ASIC 专用集成电路": {
+    "message": "ASIC (Application-Specific IC)",
+    "description": "The label for category 'ASIC 专用集成电路' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.WSE 晶圆级引擎": {
+    "message": "WSE (Wafer-Scale Engine)",
+    "description": "The label for category 'WSE 晶圆级引擎' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.IPU 智能处理": {
+    "message": "IPU (Intelligence Processing)",
+    "description": "The label for category 'IPU 智能处理' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.RPU / RDU 可重构数据流": {
+    "message": "RPU / RDU (Reconfigurable Dataflow)",
+    "description": "The label for category 'RPU / RDU 可重构数据流' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.PIM 存算一体": {
+    "message": "PIM (Processing-in-Memory)",
+    "description": "The label for category 'PIM 存算一体' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.Neuromorphic 神经形态": {
+    "message": "Neuromorphic (Spiking Neural)",
+    "description": "The label for category 'Neuromorphic 神经形态' in sidebar 'aiCardsSidebar'"
+  },
+  "sidebar.aiCardsSidebar.category.🔧 工具与关于": {
+    "message": "Tools & About",
+    "description": "The label for category '🔧 工具与关于' in sidebar 'aiCardsSidebar'"
+  }
+}

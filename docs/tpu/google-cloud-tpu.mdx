@@ -1,0 +1,187 @@
+---
+title: 'Google Cloud TPU - Google'
+description: 'Google 定制张量处理器（TPU），为 TensorFlow/JAX/PyTorch 等框架的 AI 训练和推理提供极致加速。目前主流型号包括 TPU v5e（推理优化）、TPU v5p（训练优化）和 TPU v4。'
+sidebar_label: 'Google Cloud TPU'
+keywords:
+  - 'Google'
+  - 'Cloud'
+  - 'TPU'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 1
+---
+
+# Google Cloud TPU
+
+**厂商**: Google
+
+**分类**: TPU 张量处理器
+
+**架构**: TPU Matrix
+
+## 简介
+
+Google 定制张量处理器（TPU），为 TensorFlow/JAX/PyTorch 等框架的 AI 训练和推理提供极致加速。目前主流型号包括 TPU v5e（推理优化）、TPU v5p（训练优化）和 TPU v4。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| v6e (Trillium) | 918 TFLOPS (BF16) / 1,836 (INT8) | 32GB HBM (per chip, 1,638 GB/s) | ICI 800GB/s | 200W | 5nm |
+| v5p | 459 TFLOPS (BF16) | 95GB HBM2e (per chip, 2,575 GB/s) | ICI 1,200GB/s | 300W | 4nm |
+| v4 | 275 TFLOPS (BF16) | 32GB HBM2 (per chip) | ICI 互联 | 250W | 7nm |
+
+## 官方网站
+
+[访问官方网站](https://cloud.google.com/tpu)
+## 驱动下载
+
+### Linux
+
+- [Cloud TPU 环境设置](https://cloud.google.com/tpu/docs/setup)
+- [TPU VM 快速入门](https://cloud.google.com/tpu/docs/quickstart)
+- [Cloud TPU PyTorch/XLA](https://cloud.google.com/tpu/docs/pytorch-xla)
+
+## 相关文档
+
+- [Cloud TPU 文档](https://cloud.google.com/tpu/docs)
+- [TPU v5e 介绍](https://cloud.google.com/tpu/docs/v5e)
+- [TPU v5p 介绍](https://cloud.google.com/tpu/docs/v5p)
+- [JAX on TPU](https://cloud.google.com/tpu/docs/jax-quickstart)
+- [TPU 性能指标](https://cloud.google.com/tpu/docs/performance-guide)
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (GCP) | ❌ | ❌ |
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| TPU v6e | 2025 | Trillium 架构，性能翻倍 |
+| TPU v5p | 2024 | Pod 规模扩大至 8960 芯 |
+| TPU v4 | 2023 | PyTorch/XLA 原生支持 |
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| v6e Trillium Pod | GPT-3 175B 训练 | ~1.1 天 (Google 数据) |
+| v5p Pod | Llama 2 70B 推理 | ~120 tok/s/chip |
+| v5p Pod | JAX 大规模训练 | 线性扩展至千卡 |
+| v4 Pod | MLPerf 训练 | 多项 SOTA 成绩 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| v6e Trillium | ~$4.20/chip/h | 按需计费 |
+| v5p | ~$4.20/chip/h | 按需计费 |
+| v4 | ~$2.46/chip/h | Spot 价格更低 |
+
+## 快速安装
+
+### GCP (gcloud CLI)
+
+```bash
+# 1. 创建 TPU
+gcloud compute tpus create tpu-node \
+  --zone=us-central1-b \
+  --accelerator-type=v5p-8 \
+  --version=tpu-vm-v5-base
+
+# 2. SSH 连接
+gcloud compute tpus tpu-vm ssh tpu-node --zone=us-central1-b
+
+# 3. 验证 TPU
+python3 -c "import jax; print(jax.devices())"
+```
+
+## 代码示例
+
+### Python (JAX on TPU)
+
+```python
+import jax
+import jax.numpy as jnp
+
+# 检查 TPU 设备
+print(f"TPU devices: {jax.devices()}")
+
+# 矩阵乘法自动并行
+x = jax.random.normal(jax.random.PRNGKey(0), (2048, 2048))
+y = jnp.dot(x, x)
+print(f"TPU matrix multiply: {y.shape}")
+```
+
+### PyTorch/XLA
+
+```python
+import torch
+import torch_xla
+import torch_xla.core.xla_model as xm
+
+# 使用 TPU 后端
+device = xm.xla_device()
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"TPU matrix multiply: {y.shape}")
+```
+
+## 架构特色
+
+- **TPU Matrix 架构**: 专为矩阵运算优化的脉动阵列 (Systolic Array)，天然适合 Transformer 模型
+- **ICI 互联**: 片间互联带宽 4.8Tbps (v5p)，支持大规模 Pod (数千芯片) 线性扩展
+- **软件栈**: JAX (原生最佳) / PyTorch-XLA / TensorFlow — 全部支持
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| JAX | ✅ 原生最佳 | Google 首选 |
+| PyTorch | ✅ XLA 后端 | torch_xla |
+| TensorFlow | ✅ 原生 | TPU 原生支持 |
+| Llama / Qwen 等 LLM | ✅ | JAX/PyTorch 均可 |
+| T5/BERT | ✅ | Google 内部模型原生 |
+
+## 大规模集群部署
+
+基于全球 AI 超算集群数据统计，Google Cloud TPU 在已公开的集群部署中累计超过 **94,856** 颗芯片，分布在 **9** 个集群中。
+
+### 芯片型号统计
+
+| 芯片型号 | 总部署量 | 集群数 |
+|---------|---------|-------|
+| Google TPU v4 | 71,680 | 4 |
+| Google TPU v5p | 8,960 | 1 |
+| Google TPU v3 | 5,120 | 2 |
+| Google TPU v1 | 5,000 | 1 |
+| Google TPU v2 | 4,096 | 1 |
+
+### 知名部署集群 Top 10
+
+| # | 集群名称 | 芯片总数 | 芯片型号 | 运营方 |
+|---|---------|---------|---------|-------|
+| 1 | Google Oklahoma TPU v4 Pods | 32,768 | Google TPU v4 ×32,768 | Google, United States of America |
+| 2 | Gemini 1.0 Ultra training cluster A | 28,672 | Google TPU v4 ×28,672 | Google, United States of America |
+| 3 | Google Hypercomputer TPU v5p pod | 8,960 | Google TPU v5p ×8,960 | Google |
+| 4 | Paper on PaLM | 6,144 | Google TPU v4 ×6,144 | Google, United States of America |
+| 5 | Paper on AlphaZero | 5,000 | Google TPU v1 ×5,000 | Google, United States of America |
+| 6 | Google TPU v4 Pod | 4,096 | Google TPU v4 ×4,096 | Google, United States of America |
+| 7 | Google MLPerf 0.7 Submission | 4,096 | Google TPU v3 ×4,096 | Google, United States of America |
+| 8 | Google TensorFlow Research Cloud | 4,096 | Google TPU v2 ×4,096 | Google, United States of America |
+| 9 | Google TPUv3 POD Generic | 1,024 | Google TPU v3 ×1,024 | Google |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [AWS Trainium2 / Inferentia2](/asic/aws-trainium) — Amazon AWS（ASIC 专用加速卡）
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana（ASIC 专用加速卡）
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras（ASIC 专用加速卡）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [华为昇腾 Ascend](/npu/huawei-ascend) — 华为（NPU 神经网络处理器）
+- [Groq LPU](/lpu/groq-lpu) — Groq（LPU 语言处理器）
+- [Google Coral Edge TPU](/tpu/google-edge-tpu) — Google（TPU 张量处理器）

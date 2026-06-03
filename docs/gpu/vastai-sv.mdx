@@ -1,0 +1,125 @@
+---
+title: '瀚博半导体 SV 系列 - 瀚博半导体 Vastai'
+description: '瀚博半导体（Vastai）高端 GPU 芯片，拥有两代自研 GPU 核心。SV 系列覆盖图形渲染 GPU、数据中心 AI GPU 和边缘 AI GPU 三大产品线，是国内少有同时在通用 AI 和渲染方面商业落地的厂商。SV 芯片深度学习推理吞吐速度达通用 GPU 的 2 倍。'
+sidebar_label: '瀚博半导体 SV 系列'
+keywords:
+  - '瀚博半导体'
+  - 'SV'
+  - '系列'
+  - 'Vastai'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 瀚博半导体 SV 系列
+
+**厂商**: 瀚博半导体 Vastai
+
+**分类**: GPU 图形处理器
+
+**架构**: Vastai
+
+## 简介
+
+瀚博半导体（Vastai）高端 GPU 芯片，拥有两代自研 GPU 核心。SV 系列覆盖图形渲染 GPU、数据中心 AI GPU 和边缘 AI GPU 三大产品线，是国内少有同时在通用 AI 和渲染方面商业落地的厂商。SV 芯片深度学习推理吞吐速度达通用 GPU 的 2 倍。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| VA12 | 160 TFLOPS (FP16) / 512 (INT8) | 32GB HBM2e | PCIe 4.0 | 250W | 7nm |
+| VA1L | 72 TFLOPS (FP16) / 200 (INT8) | 16GB GDDR6 | PCIe 4.0 | 150W | 7nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.vastaitech.com/)
+## 驱动下载
+
+### Linux
+
+- [VAST 驱动（Linux）](https://www.vastaitech.com/software)
+- [VAST SDK](https://www.vastaitech.com/software)
+
+
+## 相关文档
+
+- [瀚博开发者中心](https://developer.vastaitech.com/)
+- [SV 系列产品文档](https://www.vastaitech.com/)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| SDK 1.2 | 2023 | 视频编码优化 |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| VA100 | 视频转码/AI 推理 | INT8 优化 |
+| VA1P | 边缘推理 | 低功耗场景 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| VA100 | 需询价 | 视频处理+AI 推理 |
+| VA1P | 需询价 | 边缘推理专用 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 安装瀚博驱动和 SDK
+sudo rpm -ivh vastai-driver-*.rpm
+```
+
+## 代码示例
+
+### Python (瀚博 VA100)
+
+```python
+import torch
+# 瀚博 GPU 提供 CUDA 兼容后端
+assert torch.cuda.is_available()
+```
+
+## 架构特色
+
+- **Vastai 架构**: 瀚博自研 GPU 架构，主打视频处理和 AI 推理
+- **视频+AI 双能力**: 同时支持视频转码和 AI 推理，适合流媒体场景
+- **VA1P**: 低功耗边缘推理卡
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ⚠️ 兼容 | CUDA 兼容后端 |
+| 视频转码 | ✅ | 核心能力 |
+| AI 推理 | ⚠️ | 主推场景 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [天数智芯 天垓 100](/gpu/iluvatar-bi) — 天数智芯 Iluvatar（GPU 图形处理器）
+- [摩尔线程 MTT S80](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [壁仞科技 BR100/BR20X](/gpu/biren-br) — 壁仞科技 Biren（GPU 图形处理器）
+- [沐曦 曦云 C500/C600](/gpu/metax-c600) — 沐曦 MetaX（GPU 图形处理器）
+- [百度昆仑芯 P800](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+- [阿里平头哥 真武 PPU](/gpu/t-head-zhenwu) — 阿里巴巴 Alibaba（GPU 图形处理器）
+- [景嘉微 JM9 系列](/gpu/jingjia-jm9) — 景嘉微 Jingjia Micro（GPU 图形处理器）
+

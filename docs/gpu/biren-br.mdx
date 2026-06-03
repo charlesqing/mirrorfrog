@@ -1,0 +1,136 @@
+---
+title: '壁仞科技 BR100/BR20X - 壁仞科技 Biren'
+description: '壁仞科技（Biren）大算力 Chiplet GPU。BR100（INT8 2048 TOPS，PCIe 5.0）为主力产品，BR20X 下一代芯片计划 2026 年推出，保持训练优势同时优化推理场景。2048 卡光互联 GPU 超节点已在国家级算力平台部署。'
+sidebar_label: '壁仞科技 BR100/BR20X'
+keywords:
+  - '壁仞科技'
+  - 'BR100'
+  - 'BR20X'
+  - 'Biren'
+  - 'AI芯片'
+  - '算力卡'
+sidebar_position: 99
+---
+
+# 壁仞科技 BR100/BR20X
+
+**厂商**: 壁仞科技 Biren
+
+**分类**: GPU 图形处理器
+
+**架构**: 壁仞 Biren
+
+## 简介
+
+壁仞科技（Biren）大算力 Chiplet GPU。BR100（INT8 2048 TOPS，PCIe 5.0）为主力产品，BR20X 下一代芯片计划 2026 年推出，保持训练优势同时优化推理场景。2048 卡光互联 GPU 超节点已在国家级算力平台部署。
+
+## 规格参数
+
+| 型号 | 算力 | 显存/内存 | 接口 | TDP | 制程 |
+|------|------|-----------|------|-----|------|
+| BR100 | 256 TFLOPS (FP32) / 1,024 (BF16) / 2,048 (INT8) | 64GB HBM2E | OAM (PCIe 5.0) | 550W | 7nm |
+| BR104 | 128 TFLOPS (FP32) / 512 (BF16) / 1,024 (INT8) | 32GB HBM2E | PCIe 4.0 | 250W | 7nm |
+
+
+## 官方网站
+
+[访问官方网站](https://www.birentech.com/)
+## 驱动下载
+
+### Linux
+
+- [BIRENSUPA SDK](https://www.birentech.com/sdk)
+- [Docker 镜像](https://www.birentech.com/docker)
+
+
+## 相关文档
+
+- [壁仞开发者中心](https://www.birentech.com/developer)
+- [BR100 产品文档](https://www.birentech.com/br100)
+- [BIRENSUPA 编程指南](https://www.birentech.com/sdk)
+
+
+
+## 操作系统支持
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## 版本历史
+
+| 版本 | 发布时间 | 说明 |
+|------|----------|------|
+| BIRENSUPA 1.0 | 2023 | 兼容 PyTorch/TensorFlow |
+
+
+## 性能基准
+
+| 型号 | 任务 | 性能指标 |
+|------|------|----------|
+| BR100 | BF16 训练 | 接近 A100 水平 (官方数据) |
+| BR100 | 通用 AI 推理 | INT8 优化后高吞吐 |
+
+## 定价信息
+
+| 型号 | 参考价格 | 备注 |
+|------|----------|------|
+| BR100 | 需询价 | 面向企业客户，受出口管制影响 |
+| BR104 | 需询价 | 消费级/工作站版本 |
+
+## 快速安装
+
+### Linux
+
+```bash
+# 1. 安装壁仞驱动
+sudo rpm -ivh biren-driver-*.rpm
+# 或 DEB 系统
+sudo dpkg -i biren-driver_*.deb
+
+# 2. 验证
+biren-smi
+```
+
+> 受出口管制影响，驱动和 SDK 获取渠道有限。
+
+## 代码示例
+
+### Python (壁仞 BIREN CUDA 兼容)
+
+```python
+import torch
+# BR100 使用 CUDA 兼容后端
+assert torch.cuda.is_available()
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+```
+
+> 壁仞 GPU 旨在兼容 CUDA 编程模型，具体支持度需参考官方文档。
+
+## 架构特色
+
+- **壁仞自研架构**: 采用 Chiplet 设计，高算力和高带宽互联
+- **CUDA 兼容策略**: API 层兼容 CUDA，便于现有 CUDA 应用迁移
+- **出口管制**: BR100 被列入美国出口管制清单，影响商业化进程
+
+## 模型兼容性
+
+| 模型/框架 | 支持情况 | 备注 |
+|-----------|----------|------|
+| PyTorch | ⚠️ CUDA 兼容 | 兼容度取决于驱动版本 |
+| 深度学习推理 | ⚠️ | 生态发展中 |
+| 通用 AI | ⚠️ | 受管制影响，社区活跃度低 |
+
+## 相关产品
+
+如果你在评估替代方案，以下产品可能也适合你的场景：
+
+- [天数智芯 天垓 100](/gpu/iluvatar-bi) — 天数智芯 Iluvatar（GPU 图形处理器）
+- [沐曦 曦云 C500](/gpu/metax-c600) — 沐曦 MetaX（GPU 图形处理器）
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA（GPU 图形处理器）
+- [摩尔线程 MTT S5000](/gpu/moore-threads) — 摩尔线程 Moore Threads（GPU 图形处理器）
+- [百度昆仑芯 P800](/gpu/baidu-kunlun) — 百度 Baidu（GPU 图形处理器）
+- [阿里平头哥 真武 PPU](/gpu/t-head-zhenwu) — 阿里巴巴 Alibaba（GPU 图形处理器）
+- [景嘉微 JM9 系列](/gpu/jingjia-jm9) — 景嘉微 Jingjia Micro（GPU 图形处理器）
+
