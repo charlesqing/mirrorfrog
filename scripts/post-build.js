@@ -134,6 +134,66 @@ function optimizeSitemap() {
   console.log(`[sitemap] 已优化 ${blocks.length} 个 URL`);
 }
 
+// ================================================================
+// 3. 给首页注入 keywords meta 标签（读 intro.mdx front matter）
+// ================================================================
+function injectHomeKeywords() {
+  const introPath = path.join(DOCS, 'intro.mdx');
+  if (!fs.existsSync(introPath)) { console.log('[keywords] intro.mdx 不存在，跳过'); return; }
+
+  const raw  = fs.readFileSync(introPath, 'utf8');
+  const fm   = raw.match(/^---\n([\s\S]*?)\n---/);
+  if (!fm) return;
+
+  // 解析 keywords（支持 YAML 数组格式：keywords: ['a','b'] 或 YAML 列表格式）
+  const kwLine = fm[1].split('\n').find(l => l.trim().startsWith('keywords'));
+  if (!kwLine) return;
+
+  let keywords = [];
+  // 格式1: keywords: ['a','b']
+  const arrMatch = fm[1].match(/keywords:\s*\[([\s\S]*?)\]/);
+  if (arrMatch) {
+    keywords = arrMatch[1].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
+  } else {
+    // 格式2: keywords: \n  - a \n  - b
+    const lines = fm[1].split('\n');
+    let inKw = false;
+    for (const l of lines) {
+      if (l.trim().startsWith('keywords')) { inKw = true; continue; }
+      if (inKw) {
+        if (l.match(/^\s*-/)) keywords.push(l.replace(/^\s*-\s*['"]?|['"]?\s*$/g, '').trim());
+        else if (l.trim()) break;
+      }
+    }
+  }
+  if (keywords.length === 0) return;
+
+  const kwContent = keywords.join(', ');
+
+  // 注入到所有语言版本的首页
+  const targets = [
+    path.join(BUILD, 'index.html'),
+    path.join(BUILD, 'zh-Hans', 'index.html'),
+    path.join(BUILD, 'en', 'index.html'),
+  ];
+
+  let count = 0;
+  for (const hp of targets) {
+    if (!fs.existsSync(hp)) continue;
+    let html = fs.readFileSync(hp, 'utf8');
+    // 如果已有 keywords meta，替换；否则注入到 </head> 前
+    if (html.includes('name="keywords"')) {
+      html = html.replace(/<meta\s+name\s*=\s*"keywords"\s+content\s*=\s*"[^"]*"\s*\/?>/i,
+                          `<meta name="keywords" content="${kwContent}" />`);
+    } else {
+      html = html.replace(/<\/head>/i, `  <meta name="keywords" content="${kwContent}" />\n</head>`);
+    }
+    fs.writeFileSync(hp, html, 'utf8');
+    count++;
+  }
+  console.log(`[keywords] 已注入 ${count} 个首页文件，${keywords.length} 个关键词`);
+}
+
 function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -144,4 +204,5 @@ function esc(s) {
 console.log('[post-build] 开始...');
 injectJsonLd();
 optimizeSitemap();
+injectHomeKeywords();
 console.log('[post-build] 完成！');
