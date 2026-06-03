@@ -39,7 +39,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={siteConfig.title}
-      description="全球最全面的 AI 计算卡信息百科：NVIDIA H100/H200/B200、AMD MI300X/MI350、Google TPU v7、AWS Trainium 2、Huawei Ascend 910C 等 30+ 张卡的详尽规格、驱动下载、厂商信息">
+      description="完整收录 100+ 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA A100/H100/H200/B200/GB300/Rubin、AMD MI300X/MI350/MI400、Google TPU、华为昇腾 910B/950/960/970、AWS Trainium、寒武纪 MLU370/MLU690 等主流 AI 芯片，提供算力卡选型参考、驱动下载、厂商信息">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
