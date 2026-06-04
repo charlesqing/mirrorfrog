@@ -25,8 +25,8 @@ Vera Rubin 平台还包含**双独立 ConnectX-9 NIC**（每 GPU 28.8 TB/s 聚�
 | **显存** | **288 GB HBM4**（288 GB/颗 GPU 推断） |
 | **显存带宽** | **22 TB/s** |
 | **FP4 稀疏** | **50 PFLOPS**（**业界首款 50 PF 级别**） |
-| **FP8 稀疏** | 25 PFLOPS |
-| **FP16/BF16 Tensor** | 12.5 PFLOPS |
+| **FP8 稀疏** | **25 PFLOPS** |
+| **FP16/BF16 密集** | **12.5 PFLOPS** |
 | **NVLink 6** | **3.5 TB/s/GPU**（第 6 代，2× 上一代） |
 | **DC 网络** | **ConnectX-9, 28.8 TB/s/GPU**（双 14.4 TB/s 端口） |
 | **TDP** | ~1,800 W（**液冷必需**） |
