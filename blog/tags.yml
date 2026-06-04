@@ -117,3 +117,8 @@ AI芯片:
   label: 国产替代
   description: AI 芯片国产化替代进程
   permalink: /tags/domestic-substitute
+
+新闻:
+  label: 新闻
+  description: AI 算力卡行业新闻动态
+  permalink: /tags/news
