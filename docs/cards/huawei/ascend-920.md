@@ -29,7 +29,7 @@ Ascend 920 是 **Huawei CloudMatrix 384 / CloudMatrix 384 Ultra** 的核心，�
 | **INT8 算力** | 3,600 TOPS（推测） |
 | **TDP** | ~400 W |
 | **互联** | HCCS（Huawei Cache Coherence System） |
-| **首发** | **2025 H2 量产** |
+| **首发** | **2025 H2 量产（路线图）** |
 
 > 📌 **4 Tbps 带宽 = 国产最高 HBM 带宽**，比 Ascend 910C 的 3.2 Tbps 高 25%。
 
