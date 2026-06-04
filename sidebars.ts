@@ -172,6 +172,7 @@ const sidebars: SidebarsConfig = {
         'cards/huawei/ascend-910c',
         'cards/huawei/ascend-910d',
         'cards/huawei/ascend-920',
+        'cards/huawei/ascend-950',
       ],
     },
     {
