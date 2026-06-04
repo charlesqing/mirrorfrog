@@ -28,8 +28,8 @@ keywords: [Google TPU v6p, TPU v6p, Trillium 训练, Pathway, JAX, TPU 6P]
 | **HBM** | **96 GB HBM2**（v6e 仅 32GB） |
 | **HBM 带宽** | **1.6 TB/s**（v6e 仅 819 GB/s） |
 | **MXU** | 2× 128×128（v6e 同） |
-| **FP8 dense** | **2.7 PFLOPS**（v6e 1.5 PF） |
-| **BF16 dense** | 1.35 PFLOPS |
+| **FP8 dense** | **2,700 TFLOPS** |
+| **BF16 dense** | **1,350 TFLOPS** |
 | **INT8** | 2.7 POPS |
 | **稀疏性** | 2:4 结构化稀疏（2× 加速） |
 | **TDP** | **~450 W**（v6e 同） |

@@ -42,7 +42,7 @@ keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4,
 | 架构 | Blackwell | **Blackwell Ultra** | 中期升级 |
 | 显存 | 192 GB HBM3e | **288 GB HBM3e** | **+50%** |
 | 显存带宽 | 8 TB/s | 8 TB/s | 持平 |
-| FP8 密集 | 4,500 TFLOPS | **7,000 TFLOPS** | **+56%** |
+| FP8 密集 | 4.5 PFLOPS | **7 PFLOPS** | **+56%** |
 | FP4 稀疏 | ~9 PFLOPS | **14 PFLOPS** | **+56%** |
 | TDP | 1,000 W | **1,400 W** | +40% |
 | PCIe | Gen 5 | **Gen 6** | 2× |
@@ -58,7 +58,7 @@ keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4,
 | 架构 | Hopper | Hopper | **Blackwell Ultra** | — |
 | 显存 | 80GB HBM3 | 141GB HBM3e | **288GB HBM3e** | 3.6× |
 | 显存带宽 | 3.35 TB/s | 4.8 TB/s | 8 TB/s | 2.4× |
-| FP8 密集 | 989 TFLOPS | 989 TFLOPS | **7,000 TFLOPS** | **7×** |
+| FP8 密集 | 989 TFLOPS | 989 TFLOPS | **7 PFLOPS** | **7×** |
 | TDP | 700W | 700W | **1,400W** | 2× |
 | NVLink | 900 GB/s | 900 GB/s | **1,800 GB/s** | 2× |
 | 发布时间 | 2023-03 | 2024-Q4 | **2026-01** | — |
