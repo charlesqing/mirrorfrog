@@ -17,6 +17,22 @@ const config: Config = {
   organizationName: 'MirrorFrog',
   projectName: 'ai-compute-cards-wiki',
 
+  // ========== 插件 ==========
+  plugins: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['zh', 'en'],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: false,
+        docsRouteBasePath: '/docs',
+        blogRouteBasePath: '/blog',
+      },
+    ],
+  ],
+
   onBrokenLinks: 'warn',
   markdown: {
     hooks: {onBrokenMarkdownLinks: 'warn'},
