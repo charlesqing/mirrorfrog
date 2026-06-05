@@ -2,7 +2,7 @@
 id: tpu-ironwood
 title: Google Cloud TPU v7 (Ironwood)
 sidebar_label: Google TPU v7 Ironwood
-description: Google TPU v7 Ironwood is the 7th-generation TPU: 2,307 TFLOPS BF16, 192GB HBM, 7,380 GB/s bandwidth, purpose-built for the era of inference.
+description: "Google TPU v7 Ironwood is the 7th-generation TPU: 2,307 TFLOPS BF16, 192GB HBM, 7,380 GB/s bandwidth, purpose-built for the era of inference."
 keywords: [Google TPU Ironwood, TPU v7, 7th-gen TPU, AI inference TPU, Gemini 3]
 ---
 

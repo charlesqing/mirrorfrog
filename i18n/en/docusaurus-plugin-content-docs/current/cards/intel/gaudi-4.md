@@ -2,7 +2,7 @@
 id: gaudi-4
 title: Intel Gaudi 4 (Q2 2026 Estimated)
 sidebar_label: Gaudi 4
-description: Intel Gaudi 4 estimated specifications: 3nm, 192GB HBM3E, 3.7 PF FP8 dense, 2× Gaudi 3 performance, SynapseAI software stack.
+description: "Intel Gaudi 4 estimated specifications: 3nm, 192GB HBM3E, 3.7 PF FP8 dense, 2× Gaudi 3 performance, SynapseAI software stack."
 keywords: [Intel Gaudi 4, Gaudi 4, Intel AI, 3nm, HBM3E, SynapseAI, competing with H200]
 ---
 

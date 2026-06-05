@@ -2,7 +2,7 @@
 id: ascend-920
 title: Huawei Ascend 920 (Ascend 920)
 sidebar_label: Huawei Ascend 920
-description: Huawei Ascend 920 detailed specifications: 6nm process, 900+ BF16 TFLOPS, 4 Tbps HBM bandwidth, H2 2025 mass production, competing with NVIDIA H20 / domestic substitution.
+description: "Huawei Ascend 920 detailed specifications: 6nm process, 900+ BF16 TFLOPS, 4 Tbps HBM bandwidth, H2 2025 mass production, competing with NVIDIA H20 / domestic substitution."
 keywords: [Huawei Ascend 920, Ascend 920, 6nm, 900 BF16 TFLOPS, 4 Tbps, domestic substitution, H20 comparison, 2025 H2]
 ---
 

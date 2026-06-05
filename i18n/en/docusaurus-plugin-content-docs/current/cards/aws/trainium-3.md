@@ -2,7 +2,7 @@
 id: trainium-3
 title: AWS Trainium 3 (Trn3)
 sidebar_label: AWS Trainium 3
-description: AWS Trainium 3 detailed specifications: 3nm process, 5.7 PFLOPS FP8 dense, 4.4× Trainium 2 compute, 4× energy efficiency, Trn3 UltraServer 144 chips, 2025-12-02 re:Invent GA.
+description: "AWS Trainium 3 detailed specifications: 3nm process, 5.7 PFLOPS FP8 dense, 4.4× Trainium 2 compute, 4× energy efficiency, Trn3 UltraServer 144 chips, 2025-12-02 re:Invent GA."
 keywords: [AWS Trainium 3, Trainium3, NeuronCore-v4, Trn3 UltraServer, 3nm, 5.7 PFLOPS, 144 chips, re:Invent 2025]
 ---
 

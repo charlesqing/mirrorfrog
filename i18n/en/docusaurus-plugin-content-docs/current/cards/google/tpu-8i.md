@@ -2,7 +2,7 @@
 id: tpu-8i
 title: Google Cloud TPU 8i (Trillium 2 Inference)
 sidebar_label: Google TPU 8i
-description: Google TPU 8i inference-dedicated ASIC: 288GB HBM, 8,601 GB/s bandwidth, ~5,500 TFLOPS BF16, purpose-built for ultra-low-latency inference, announced 2026-04-22.
+description: "Google TPU 8i inference-dedicated ASIC: 288GB HBM, 8,601 GB/s bandwidth, ~5,500 TFLOPS BF16, purpose-built for ultra-low-latency inference, announced 2026-04-22."
 keywords: [Google TPU 8i, Trillium 2, inference TPU, 288GB HBM, 8601 GB/s, ultra-low latency, 2026]
 ---
 

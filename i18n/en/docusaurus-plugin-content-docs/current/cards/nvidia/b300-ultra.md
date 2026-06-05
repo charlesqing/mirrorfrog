@@ -2,7 +2,7 @@
 id: b300-ultra
 title: NVIDIA B300 Ultra (Blackwell Ultra)
 sidebar_label: NVIDIA B300 Ultra
-description: NVIDIA Blackwell Ultra B300 detailed specs: 288GB HBM3e, 7 PFLOPS FP8 dense, 14 PFLOPS FP4 sparse, DeepSeek R1 measured at 22,476 TGS.
+description: "NVIDIA Blackwell Ultra B300 detailed specs: 288GB HBM3e, 7 PFLOPS FP8 dense, 14 PFLOPS FP4 sparse, DeepSeek R1 measured at 22,476 TGS."
 keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4, 14 PFLOPS FP4, 8x generational performance]
 ---
 

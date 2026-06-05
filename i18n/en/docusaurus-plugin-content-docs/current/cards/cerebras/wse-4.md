@@ -2,7 +2,7 @@
 id: wse-4
 title: Cerebras WSE-4 (CS-4)
 sidebar_label: Cerebras WSE-4
-description: Cerebras WSE-4 estimated specifications: 4th-gen wafer-scale AI chip, 5nm / 3nm, ~600K-800K AI Cores, first product post-IPO, expected 2027 announcement.
+description: "Cerebras WSE-4 estimated specifications: 4th-gen wafer-scale AI chip, 5nm / 3nm, ~600K-800K AI Cores, first product post-IPO, expected 2027 announcement."
 keywords: [Cerebras WSE-4, CS-4, wafer-scale, 4th gen, IPO, 2027, Cerebras IPO, CS-5, CBRS]
 ---
 

@@ -2,7 +2,7 @@
 id: trainium-2
 title: AWS Trainium 2 (Trn2)
 sidebar_label: AWS Trainium 2
-description: AWS Trainium 2 detailed specifications: 96GB HBM, 1,299 FP8 TFLOPS, 8× NeuronCore-v3, 2.9 TB/s bandwidth, GA December 2024.
+description: "AWS Trainium 2 detailed specifications: 96GB HBM, 1,299 FP8 TFLOPS, 8× NeuronCore-v3, 2.9 TB/s bandwidth, GA December 2024."
 keywords: [AWS Trainium 2, Trainium2, NeuronCore-v3, Trn2 instances, Trn2 UltraServer]
 ---
 

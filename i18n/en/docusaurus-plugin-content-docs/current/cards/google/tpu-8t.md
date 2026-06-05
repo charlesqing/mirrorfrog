@@ -2,7 +2,7 @@
 id: tpu-8t
 title: Google Cloud TPU 8t (Trillium 2)
 sidebar_label: Google TPU 8t
-description: Google TPU 8t training-dedicated ASIC: 216GB HBM, 6,528 GB/s bandwidth, purpose-built for frontier model training, announced 2026-04-22, integrated Arm Axion CPU.
+description: "Google TPU 8t training-dedicated ASIC: 216GB HBM, 6,528 GB/s bandwidth, purpose-built for frontier model training, announced 2026-04-22, integrated Arm Axion CPU."
 keywords: [Google TPU 8t, Trillium 2, training TPU, 216GB HBM, 6528 GB/s, Arm Axion, 2026]
 ---
 

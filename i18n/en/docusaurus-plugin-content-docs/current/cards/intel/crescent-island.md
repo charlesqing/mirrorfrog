@@ -2,7 +2,7 @@
 id: crescent-island
 title: Intel Crescent Island (Datacenter AI Inference GPU)
 sidebar_label: Intel Crescent Island
-description: Intel Crescent Island AI GPU: Xe3P architecture, 480GB LPDDR5x, 350W PCIe air-cooled, optimized for agentic AI inference workloads.
+description: "Intel Crescent Island AI GPU: Xe3P architecture, 480GB LPDDR5x, 350W PCIe air-cooled, optimized for agentic AI inference workloads."
 keywords: [Intel Crescent Island, Xe3P, 480GB LPDDR5x, datacenter inference GPU, agentic AI, Computex 2026]
 ---
 

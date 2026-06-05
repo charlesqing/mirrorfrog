@@ -2,7 +2,7 @@
 id: ascend-910c
 title: Huawei Ascend 910C
 sidebar_label: Huawei Ascend 910C
-description: Huawei Ascend 910C detailed specifications: dual-chiplet design, 780 BF16 TFLOPS, CloudMatrix 384 system, China's strongest domestic AI chip.
+description: "Huawei Ascend 910C detailed specifications: dual-chiplet design, 780 BF16 TFLOPS, CloudMatrix 384 system, China's strongest domestic AI chip."
 keywords: [Huawei Ascend 910C, Ascend 910C, CloudMatrix 384, domestic AI chip, dual-chiplet]
 ---
 

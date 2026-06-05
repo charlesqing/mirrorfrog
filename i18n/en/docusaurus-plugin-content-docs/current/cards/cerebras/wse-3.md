@@ -2,7 +2,7 @@
 id: wse-3
 title: Cerebras WSE-3 (CS-3)
 sidebar_label: Cerebras WSE-3
-description: Cerebras WSE-3 detailed specifications: 4 trillion transistors, 900,000 cores, 44GB SRAM, 125 PFLOPS FP16 sparse compute, launched 2024.
+description: "Cerebras WSE-3 detailed specifications: 4 trillion transistors, 900,000 cores, 44GB SRAM, 125 PFLOPS FP16 sparse compute, launched 2024."
 keywords: [Cerebras WSE-3, CS-3, wafer-scale AI chip, 125 PFLOPS, 5nm]
 ---
 

@@ -2,7 +2,7 @@
 id: tpu-v6e
 title: Google Cloud TPU v6e (Trillium)
 sidebar_label: Google TPU v6e Trillium
-description: Google TPU v6e Trillium detailed specifications: 918 TFLOPS BF16, 32GB HBM, 4.7× v5e performance, 4.7× peak compute, 6th-generation TPU.
+description: "Google TPU v6e Trillium detailed specifications: 918 TFLOPS BF16, 32GB HBM, 4.7× v5e performance, 4.7× peak compute, 6th-generation TPU."
 keywords: [Google TPU v6e, Trillium, 6th-gen TPU, Gemini 2 training, AI training ASIC]
 ---
 

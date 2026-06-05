@@ -2,7 +2,7 @@
 id: tpu-v5p
 title: Google Cloud TPU v5p
 sidebar_label: Google TPU v5p
-description: Google TPU v5p detailed specifications: 459 TFLOPS BF16, 95GB HBM, 2,575 GB/s bandwidth, 8,960-chip Pod, Google's custom AI training ASIC.
+description: "Google TPU v5p detailed specifications: 459 TFLOPS BF16, 95GB HBM, 2,575 GB/s bandwidth, 8,960-chip Pod, Google's custom AI training ASIC."
 keywords: [Google TPU v5p, TPU, Gemini training, AI training ASIC, systolic array]
 ---
 

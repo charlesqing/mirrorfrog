@@ -2,7 +2,7 @@
 id: rubin-r200
 title: NVIDIA Rubin R200 (Vera Rubin Platform)
 sidebar_label: NVIDIA Rubin R200
-description: NVIDIA Vera Rubin platform: Rubin GPU + Vera CPU 6-die CoWoS-L package, 288GB HBM4, 22 TB/s, 50 PF FP4 sparse, ConnectX-9 28.8 TB/s, shipping H2 2026.
+description: "NVIDIA Vera Rubin platform: Rubin GPU + Vera CPU 6-die CoWoS-L package, 288GB HBM4, 22 TB/s, 50 PF FP4 sparse, ConnectX-9 28.8 TB/s, shipping H2 2026."
 keywords: [NVIDIA Rubin, Vera Rubin, R200, HBM4, 50 PFLOPS FP4, NVLink 6, ConnectX-9, 6-die package, Vera CPU]
 ---
 

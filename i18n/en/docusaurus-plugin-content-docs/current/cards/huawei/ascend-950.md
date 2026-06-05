@@ -2,7 +2,7 @@
 id: ascend-950
 title: Huawei Ascend 950 (Ascend 950PR / 950DT)
 sidebar_label: Huawei Ascend 950
-description: Huawei Ascend 950 series (950PR/950DT) detailed specifications: 1 PFLOPS FP8, self-developed HBM, SIMT dual programming model, HiF8 low-precision high-fidelity format, H1 2026 mass production.
+description: "Huawei Ascend 950 series (950PR/950DT) detailed specifications: 1 PFLOPS FP8, self-developed HBM, SIMT dual programming model, HiF8 low-precision high-fidelity format, H1 2026 mass production."
 keywords: [Huawei Ascend 950, Ascend 950, 950PR, 950DT, HiF8, self-developed HBM, FP8, FP4, CloudMatrix 384]
 ---
 

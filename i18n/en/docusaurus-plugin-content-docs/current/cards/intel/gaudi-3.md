@@ -2,7 +2,7 @@
 id: gaudi-3
 title: Intel Gaudi 3
 sidebar_label: Intel Gaudi 3
-description: Intel Gaudi 3 detailed specifications: 128GB HBM2e, 1,835 TFLOPS BF16, 900W TDP, 24× 200GbE integrated NIC, competing with NVIDIA H100/H200.
+description: "Intel Gaudi 3 detailed specifications: 128GB HBM2e, 1,835 TFLOPS BF16, 900W TDP, 24× 200GbE integrated NIC, competing with NVIDIA H100/H200."
 keywords: [Intel Gaudi 3, Habana, HBM2e, AI training ASIC, cost-effective GPU]
 ---
 
