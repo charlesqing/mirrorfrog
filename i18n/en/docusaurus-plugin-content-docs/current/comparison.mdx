@@ -1,19 +1,126 @@
 ---
-sidebar_label: Comparison Table
+id: comparison
+title: 'AI Compute Card Full Comparison Table | 100+ Specs Side-by-Side'
+description: 'Complete comparison table of 100+ AI compute cards: FP8/FP16/INT8 compute power, memory capacity and bandwidth, power consumption, pricing. Covers NVIDIA H100/H200/B200, AMD MI300X/MI400, Huawei Ascend 910C/920, Google TPU v6e/Ironwood.'
+keywords: [AI compute card comparison, NVIDIA H100 vs H200, AMD MI300X vs MI400, Huawei Ascend 910C, AI training card comparison, GPU spec comparison]
+sidebar_position: 2
+sidebar_label: 'Full Comparison Table'
 ---
 
-# AI Compute Cards Comparison Table
+# AI Compute Card Full Comparison Table (100+ Models)
 
-:::info Translation in Progress
-The full comparison table is available in the [Chinese version](/zh-Hans/docs/comparison).
-:::
+> Data continuously updated. Spot an error? [Submit an Issue](https://github.com/anomalyco/mirrorfrog/issues).
 
-This page provides a side-by-side comparison of 100+ AI accelerator cards across key metrics:
+## Quick Filter
 
-- **Compute Performance**: FP32 / FP16 / BF16 / INT8 / FP4 TOPS
-- **Memory**: Capacity, bandwidth, type (HBM3e / GDDR6X)
-- **Power & Form Factor**: TDP, interface (PCIe / SXM / OAM)
-- **Software Ecosystem**: CUDA / ROCm / OpenVINO / TPU / OneAPI
-- **Price & Availability**: MSRP, cloud rental rates, procurement channels
+| Scenario | Recommended Models |
+|---|---|
+| Trillion-parameter training (GPT-4 class) | NVIDIA Rubin R200, B300 Ultra, AMD MI400, Google TPU Ironwood |
+| 10B–100B parameter training | NVIDIA H100, H200, B200, AMD MI300X, MI325X |
+| China market (domestic alternatives) | Huawei Ascend 950, 910C, 920, Cambricon MLU690 |
+| High-throughput inference | NVIDIA L40S, L4, H200 (inference mode), Intel Crescent Island |
+| Edge AI | NVIDIA Jetson Orin, Google Edge TPU, Hailo-8L |
 
-For the complete data, please refer to the Chinese version or individual card pages.
+## Datacenter Training GPU
+
+| Model | FP8 Compute | FP16 Compute | Memory | Memory Bandwidth | TDP | Release Date |
+|---|---|---|---|---|---|---|
+| NVIDIA Rubin R200 | 50 PFLOPS (FP4) | ~10 PFLOPS | 288GB HBM4 | 22 TB/s | ~1,800W | 2026 H2 |
+| NVIDIA B300 Ultra | 14 PFLOPS | ~7 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 Q4 |
+| NVIDIA B200 | 9 PFLOPS | ~4.5 PFLOPS | 192GB HBM3e | 8 TB/s | 1,000W | 2025 Q2 |
+| NVIDIA B100 | 7 PFLOPS | ~3.5 PFLOPS | 192GB HBM3e | 8 TB/s | 700W | 2024 Q4 |
+| NVIDIA H200 | 3,958 TFLOPS | 1,979 TFLOPS | 141GB HBM3e | 4.8 TB/s | 700W | 2024 Q2 |
+| NVIDIA H100 SXM5 | 3,958 TFLOPS | 1,979 TFLOPS | 80GB HBM3 | 3.35 TB/s | 700W | 2022 Q3 |
+| AMD MI400 | 40 PFLOPS (FP4) | ~10 PFLOPS | 432GB HBM4 | 19.6 TB/s | ~1,000W | 2026 H2 |
+| AMD MI355X | 10.1 PFLOPS (MXFP6) | ~5 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 H2 |
+| AMD MI350X | 9.2 PFLOPS (MXFP6) | ~4.6 PFLOPS | 288GB HBM3e | 8 TB/s | 750W | 2025 H2 |
+| AMD MI325X | 2,614 TFLOPS | 1,307 TFLOPS | 256GB HBM3e | 6.48 TB/s | 750W | 2024 Q4 |
+| AMD MI300X | 2,614 TFLOPS | 1,307 TFLOPS | 192GB HBM3 | 5.3 TB/s | 750W | 2023 Q4 |
+| Huawei Ascend 950PR | 1 PFLOPS (FP8) | ~500 TFLOPS | 128GB HiBL (in-house) | ~3 TB/s | ~400W | 2026 H1 |
+| Huawei Ascend 950DT | 1 PFLOPS (FP8) | ~500 TFLOPS | 144GB HiZQ (in-house) | 4 TB/s | ~500W | 2026 H1 |
+| Huawei Ascend 920 | 900+ TFLOPS (BF16) | ~450 TFLOPS | ~96GB HBM | 4 Tbps | ~400W | 2025 H2 |
+| Huawei Ascend 910C | 780 TFLOPS (BF16) | ~390 TFLOPS | 128GB HBM2e (dual-die) | ~1.2 TB/s | ~310W | 2025 H1 |
+| Huawei Ascend 910B | 320 TFLOPS (FP16) | 320 TFLOPS | 64GB HBM2e | 1.2 TB/s | 310W | 2023 |
+
+## Datacenter Inference GPU
+
+| Model | FP8 Compute | INT8 Compute | Memory | TDP | Use Case |
+|---|---|---|---|---|---|
+| NVIDIA L40S | 733 TFLOPS | 1,466 TOPS | 48GB GDDR6 | 350W | Datacenter inference |
+| NVIDIA L4 | 242 TFLOPS | 485 TOPS | 24GB GDDR6 | 72W | Edge inference |
+| NVIDIA L2 | ~203 TFLOPS | ~406 TOPS | 16GB GDDR6 | 75W | Low-power inference |
+| NVIDIA RTX 6000 Ada | 1,452 TFLOPS | 2,905 TOPS | 48GB GDDR6 | 300W | Workstation inference |
+| NVIDIA T4 | 65 TFLOPS | 130 TOPS | 16GB GDDR6 | 70W | Entry-level inference |
+
+## AI Training ASIC (TPU / Gaudi / Trainium)
+
+| Model | Vendor | Compute (BF16) | Memory | Interconnect Bandwidth | Release Date |
+|---|---|---|---|---|---|
+| Google TPU v6e (Trillium) | Google | 918 TFLOPS | 32GB HBM | 1.6 Tb/s | 2024 |
+| Google TPU Ironwood (v7) | Google | ~2,000 TFLOPS | 192GB HBM | ~5 Tb/s | 2026 H1 |
+| Google TPU 8t (Training) | Google | ~1,200 TFLOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
+| Google TPU 8i (Inference) | Google | ~1,500 TOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
+| Intel Gaudi 3 | Intel | 1,600 TFLOPS | 128GB SRAM | 2.4 Tb/s | 2024 Q2 |
+| Intel Crescent Island | Intel | TBD | 480GB LPDDR5x | TBD | 2026 H2 |
+| AWS Trainium 3 | AWS | ~5.7 PFLOPS | ~144GB | ~4.5 Tb/s | 2025 Q4 |
+| AWS Trainium 2 | AWS | ~1,000 TFLOPS | 64GB | ~1.6 Tb/s | 2024 |
+
+## Wafer-Scale Training
+
+| Model | Vendor | Transistors | On-Chip Memory | FP16 Compute | Release Date |
+|---|---|---|---|---|---|
+| Cerebras WSE-4 | Cerebras | 4 trillion | 44GB SRAM | 125 PFLOPS | 2026 |
+| Cerebras WSE-3 | Cerebras | 4 trillion | 40GB SRAM | 125 PFLOPS | 2024 |
+| Cerebras WSE-2 | Cerebras | 2.6 trillion | 40GB SRAM | 85 PFLOPS | 2022 |
+
+## Edge AI & On-Device NPU
+
+| Model | Vendor | Compute (TOPS) | Power | Use Case |
+|---|---|---|---|---|
+| NVIDIA Jetson Thor | NVIDIA | 2,070 TOPS | 130W | Robotics / autonomous driving |
+| NVIDIA Jetson Orin AGX | NVIDIA | 275 TOPS | 60W | Edge inference |
+| Google Edge TPU (Dev Board) | Google | 4 TOPS | 2W | IoT on-device inference |
+| Hailo-8L | Hailo | 13 TOPS | 1.5W | On-device vision AI |
+| Qualcomm AI 100 | Qualcomm | 70 TOPS | 15W | Datacenter edge inference |
+| Huawei Ascend 310 | Huawei | 22 TOPS | 8W | On-device inference |
+
+## Innovative Architectures
+
+| Model | Architecture Type | Key Feature | Vendor |
+|---|---|---|---|
+| Groq LPU (LPU v2) | LPU (Language Processing Unit) | Ultra-low latency inference (~500 tok/s) | Groq |
+| Graphcore IPU (Bow POD) | IPU (Intelligence Processing Unit) | Native graph computing, 1,400 IPU cores | Graphcore |
+| Tesla Dojo (D1) | Distributed training wafer | Integrated auto-labeling + model training | Tesla |
+| Apple M5 Ultra (Neural Engine) | SoC + NPU | On-device 50 TOPS, unified memory | Apple |
+| Akida2 (AKD1000) | Spiking Neural Network (SNN) | Ultra-low-power neuromorphic | BrainChip |
+
+## Pricing Reference (Cloud On-Demand)
+
+| Model | On-Demand Price (USD/hr) | Reserved Price (USD/hr) | Purchase Price (USD) |
+|---|---|---|---|
+| NVIDIA B200 | $8.87 | ~$5.50 | ~$40,000 |
+| NVIDIA H200 | $5.87 | ~$3.80 | ~$30,000 |
+| NVIDIA H100 | $4.20 | ~$2.80 | ~$25,000 |
+| AMD MI300X | — | — | ~$15,000 |
+| Huawei Ascend 910C | — | — | Domestic pricing |
+
+> **Note**: Prices fluctuate with market supply and demand. Purchase prices are affected by export controls. The above data is for reference only.
+
+## Purchasing Guide
+
+### By Model Scale
+
+- **Trillion-parameter (GPT-4 class)**: NVIDIA B300 Ultra / Rubin R200, AMD MI400 (2026 H2)
+- **10B–100B parameters (Llama 70B, Qwen 72B)**: NVIDIA H100 / H200, AMD MI300X / MI325X
+- **1B–10B parameters (Llama 7B–13B)**: NVIDIA H100, A100 80GB
+- **Small models / inference**: NVIDIA L40S, L4, T4
+
+### By Region
+
+- **North America / Europe**: NVIDIA + AMD, freely available
+- **China**: Huawei Ascend 950 / 910C / 920 / Cambricon MLU690 (domestic alternatives)
+- **Cloud (no hardware preference)**: Any vendor, choose by price
+
+---
+
+[← Back to Home](/en/docs/intro) | [Roadmap →](/en/docs/roadmap)

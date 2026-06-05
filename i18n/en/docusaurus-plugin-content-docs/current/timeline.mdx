@@ -1,33 +1,143 @@
 ---
-sidebar_label: Release Timeline
+id: timeline
+title: 'AI Compute Card History Timeline | From GPU to Dedicated AI Accelerators'
+description: 'Complete history of AI compute cards: from NVIDIA G80 (CUDA) to H100/H200/B200, from Google TPU v1 to Ironwood, from Cerebras WSE to Groq LPU. Timeline covering 2006–2026.'
+keywords: [AI compute card history, NVIDIA CUDA history, Google TPU history, AI chip timeline, GPU compute evolution]
+sidebar_position: 4
+sidebar_label: 'History Timeline'
 ---
 
-# AI Chip Release Timeline
+# AI Compute Card History Timeline (2006–2026)
 
-:::info Translation in Progress
-The detailed timeline is available in the [Chinese version](/zh-Hans/docs/timeline).
-:::
+> From general-purpose GPU to dedicated AI accelerators, two decades of compute evolution.
 
-## Major Releases (2024-2026)
+## 2006–2011: The CUDA Era Begins
 
-| Date | Vendor | Product | Significance |
-|------|--------|---------|--------------|
-| 2024.03 | NVIDIA | B200 / GB200 | Blackwell architecture debut |
-| 2024.06 | AMD | MI325X | 256GB HBM3e, CDNA 3 refresh |
-| 2024.12 | Google | Ironwood TPU | TPU v7 generation, 6144 TOPS |
-| 2025.03 | NVIDIA | GB300 NVL72 | Full rack solution, 72 GPUs |
-| 2025.06 | Huawei | Ascend 920 | 5nm, domestic AI training |
-| 2025.09 | xAI | Colossus 2 | 1M+ GPU cluster online |
+| Year | Event | Significance |
+|---|---|---|
+| 2006 | **NVIDIA G80 (8800 GTS)** launched, CUDA 1.0 released | Year zero for general-purpose GPU computing — GPUs are no longer just graphics cards |
+| 2007 | **NVIDIA Tesla C870** launched | First dedicated GPU compute card, no display output |
+| 2008 | **NVIDIA Tesla C1060** (GT200) | 240 CUDA cores, first dual-precision support |
+| 2009 | **NVIDIA Fermi (Tesla C2050)** | ECC memory, error correction, enters HPC market |
+| 2010 | **NVIDIA CUDA 3.0** | Official C++ support, precursor to cuDNN |
+| 2011 | **NVIDIA Tesla M2090** (Fermi) | 665 GFLOPS double precision, supercomputing standard |
 
-## Upcoming (2026+)
+## 2012–2016: The Deep Learning Boom
 
-| Date | Vendor | Product |
-|------|--------|---------|
-| 2026 H1 | NVIDIA | Vera Rubin Platform |
-| 2026 H1 | AMD | MI400 Series |
-| 2026 | Intel | Jaguar Shores |
-| 2026 | Google | TPU v7p / v7e |
+| Year | Event | Significance |
+|---|---|---|
+| 2012 | **AlexNet (CUDA)** | GPU-accelerated deep learning makes a name for itself |
+| 2012 | **NVIDIA K20 (Kepler)** | 15.9 TFLOPS FP32, HPC explosion |
+| 2013 | **NVIDIA Tesla K40** | 12GB memory, first 12GB GPU |
+| 2014 | **NVIDIA CUDA 6.0** | Unified Memory, simplifying GPU programming |
+| 2015 | **NVIDIA Tesla P100** (Pascal) | **First HBM memory**, HPC memory bandwidth revolution |
+| 2016 | **NVIDIA Tesla P100 (production)** | NVLink 1.0, 160 GB/s GPU-to-GPU interconnect |
+
+## 2016–2020: The Birth of AI-Specific Accelerators
+
+| Year | Event | Significance |
+|---|---|---|
+| 2016 | **Google TPU v1** (inference) | First non-GPU architecture AI accelerator, ~92 TOPS INT8 |
+| 2017 | **Google TPU v2** (training + inference) | 180 TFLOPS BF16, TPU Pod rack |
+| 2017 | **NVIDIA V100** (Volta) | **Tensor Core debut**, dedicated AI training units |
+| 2018 | **Google TPU v3** | 420 TFLOPS BF16, liquid-cooled TPU Pod |
+| 2019 | **NVIDIA A100** (Ampere) | **MIG Multi-Instance GPU**, 7nm, 40GB HBM2 |
+| 2020 | **Google TPU v4** (Intrepid) | 1,086 TFLOPS BF16, sparse architecture |
+
+## 2021–2023: The Large Model Era
+
+| Year | Event | Significance |
+|---|---|---|
+| 2021 | **NVIDIA H100** (Hopper) | **Transformer Engine**, FP8 support, king of LLM training |
+| 2022 | **Google TPU v5e** (Cydonia) | Single-chip inference optimization, 1,028 TFLOPS |
+| 2022 | **Google TPU v5p** (Cydonia) | Training-optimized, 1,444 TFLOPS, 32GB HBM |
+| 2023 | **NVIDIA H200** | **141GB HBM3e**, 4.8 TB/s, optimized for large model inference |
+| 2023 | **AMD MI300X** | 192GB HBM3, competing with H100, open-source ROCm |
+| 2023 | **Cerebras WSE-2** | 2.6 trillion transistors, 85 PFLOPS, wafer-scale |
+| 2023 | **Intel Gaudi 2** | 6nm, first product after Habana Labs acquisition |
+
+## 2024–2025: Blackwell & Domestic Alternatives
+
+| Year | Event | Significance |
+|---|---|---|
+| 2024 Q1 | **NVIDIA B200** (Blackwell) | 9 PFLOPS, 192GB HBM3e, 2nm process |
+| 2024 Q2 | **NVIDIA GB200** | 2× B200 + Grace CPU, LLM inference monster |
+| 2024 Q3 | **AMD MI325X** | 256GB HBM3e, competing with H200 |
+| 2024 Q4 | **AMD MI350X** (CDNA 4) | 288GB HBM3e, 9.2 PFLOPS |
+| 2024 Q4 | **Google TPU v6e** (Trillium) | 918 TFLOPS, 32GB HBM, GA |
+| 2025 Q1 | **Intel Gaudi 3** | 1,600 TFLOPS, 128GB SRAM, competing with H100 |
+| 2025 Q2 | **NVIDIA B300 Ultra** | 14 PFLOPS, 288GB HBM3e, 1,400W |
+| 2025 Q2 | **AMD MI355X** | 10.1 PFLOPS (MXFP6), 288GB HBM3e |
+| 2025 H2 | **Huawei Ascend 910C** | Dual-die, 780 TFLOPS, domestic alternative workhorse |
+
+## 2026 (Announced / Expected)
+
+| Product | Vendor | Key Details |
+|---|---|---|
+| **NVIDIA Rubin R200** | NVIDIA | 288GB HBM4, 50 PFLOPS FP4 (sparse), Vera CPU |
+| **AMD MI400 + Helios** | AMD | 432GB HBM4, 40 PFLOPS FP4, 260 TB/s UALink |
+| **Google TPU Ironwood (v7)** | Google | 192GB HBM, ~2,000 TFLOPS BF16 |
+| **Cerebras WSE-4** | Cerebras | 1.4 trillion transistors, 125 PFLOPS FP8 |
+| **AWS Trainium 3** | AWS | 3nm, ~2,000 TFLOPS, 128GB HBM |
+| **Huawei Ascend 920** | Huawei | 900+ TFLOPS BF16, 4 Tbps inter-chip interconnect |
+
+## Compute Growth Curve (FP16 Training Compute)
+
+```
+Year   Product             FP16 Compute
+----------------------------------------
+2006   Tesla C870          ~0.5  TFLOPS
+2010   Tesla C2050         ~1.3  TFLOPS
+2016   Tesla P100          ~10   TFLOPS
+2017   V100                ~15   TFLOPS
+2020   A100                ~312  TFLOPS
+2021   H100                ~1,979 TFLOPS
+2023   H200                ~1,979 TFLOPS (memory ↑)
+2024   B200                ~4,500 TFLOPS
+2025   B300 Ultra          ~7,000 TFLOPS
+2026   Rubin R200          ~10,000 TFLOPS (FP4: 50 PFLOPS)
+2026   AMD MI400           ~10,000 TFLOPS (FP4: 40 PFLOPS)
+```
+
+> **Trend**: ~4× compute growth every 2–3 years (Moore's Law × Tensor Core architectural innovation)
+
+## Key Architecture Evolution
+
+### NVIDIA Architecture Codename
+
+| Architecture | Year | Key Innovation |
+|---|---|---|
+| Tesla (G80) | 2006 | CUDA 1.0, general-purpose GPU computing |
+| Fermi | 2010 | ECC memory, double precision |
+| Kepler | 2012 | GPU Boost, dynamic frequency |
+| Maxwell | 2014 | Energy efficiency optimization |
+| Pascal | 2016 | HBM memory, NVLink 1.0 |
+| Volta | 2017 | **Tensor Core**, dedicated AI training |
+| Turing | 2018 | RT Core, consumer ray tracing |
+| Ampere | 2020 | MIG, multi-instance GPU |
+| Hopper | 2022 | **Transformer Engine**, FP8 |
+| Blackwell | 2024 | 2nm, 9 PFLOPS, 192GB HBM3e |
+| Rubin | 2026 | HBM4, 50 PFLOPS FP4, Vera CPU |
+
+### Google TPU Generations
+
+| Generation | Year | Key Innovation |
+|---|---|---|
+| v1 | 2016 | First ASIC AI accelerator, inference-only |
+| v2 | 2017 | Training + inference, TPU Pod |
+| v3 | 2018 | Liquid cooling, ~420 TFLOPS |
+| v4 | 2020 | Sparse architecture, 1,086 TFLOPS |
+| v5e | 2022 | Inference-optimized, single-chip |
+| v5p | 2022 | Training-optimized, 32GB HBM |
+| v6e (Trillium) | 2024 | 918 TFLOPS, 32GB HBM |
+| v6p | 2024 | Training-optimized, 64GB HBM |
+| 8t / 8i | 2026 | Training/inference split architecture |
+| Ironwood (v7) | 2026 | 192GB HBM, ~2,000 TFLOPS |
+
+## Contribute & Corrections
+
+Spot an error or missing a key event in the timeline? [Submit a PR](https://github.com/anomalyco/mirrorfrog/pulls) to help us improve!
 
 ---
 
-*For the interactive Mermaid chart, visit the Chinese version.*
+[← Back to Home](/en/docs/intro) | [Future Roadmap →](/en/docs/roadmap) | [Full Comparison Table →](/en/docs/comparison)
