@@ -15,10 +15,10 @@ sidebar_label: '完整对比表'
 
 | 场景 | 推荐型号 |
 |---|---|
-| 万亿参数训练（GPT-4 级） | NVIDIA B200, B300 Ultra, AMD MI400, Google TPU Ironwood |
-| 百亿-千亿参数训练 | NVIDIA H100, H200, AMD MI300X, MI325X |
-| 中国市场（国产替代） | 华为昇腾 910C, 920 |
-| 高吞吐推理 | NVIDIA L40S, L4, H200 (推理模式) |
+| 万亿参数训练（GPT-4 级） | NVIDIA Rubin R200, B300 Ultra, AMD MI400, Google TPU Ironwood |
+| 百亿-千亿参数训练 | NVIDIA H100, H200, B200, AMD MI300X, MI325X |
+| 中国市场（国产替代） | 华为昇腾 950, 910C, 920, 寒武纪 MLU690 |
+| 高吞吐推理 | NVIDIA L40S, L4, H200 (推理模式), Intel Crescent Island |
 | 边缘 AI | NVIDIA Jetson Orin, Google Edge TPU, Hailo-8L |
 
 ## 数据中心训练 GPU
@@ -26,8 +26,8 @@ sidebar_label: '完整对比表'
 | 型号 | FP8 算力 | FP16 算力 | 显存 | 显存带宽 | TDP | 发布时间 |
 |---|---|---|---|---|---|---|
 | NVIDIA Rubin R200 | 50 PFLOPS (FP4) | ~10 PFLOPS | 288GB HBM4 | 22 TB/s | ~1,800W | 2026 H2 |
-| NVIDIA B300 Ultra | 14 PFLOPS | ~7 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2026 H1 |
-| NVIDIA B200 | 9 PFLOPS | ~4.5 PFLOPS | 192GB HBM3e | 8 TB/s | 1,000W | 2024 Q4 |
+| NVIDIA B300 Ultra | 14 PFLOPS | ~7 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 Q4 |
+| NVIDIA B200 | 9 PFLOPS | ~4.5 PFLOPS | 192GB HBM3e | 8 TB/s | 1,000W | 2025 Q2 |
 | NVIDIA B100 | 7 PFLOPS | ~3.5 PFLOPS | 192GB HBM3e | 8 TB/s | 700W | 2024 Q4 |
 | NVIDIA H200 | 3,958 TFLOPS | 1,979 TFLOPS | 141GB HBM3e | 4.8 TB/s | 700W | 2024 Q2 |
 | NVIDIA H100 SXM5 | 3,958 TFLOPS | 1,979 TFLOPS | 80GB HBM3 | 3.35 TB/s | 700W | 2022 Q3 |
@@ -36,8 +36,10 @@ sidebar_label: '完整对比表'
 | AMD MI350X | 9.2 PFLOPS (MXFP6) | ~4.6 PFLOPS | 288GB HBM3e | 8 TB/s | 750W | 2025 H2 |
 | AMD MI325X | 2,614 TFLOPS | 1,307 TFLOPS | 256GB HBM3e | 6.48 TB/s | 750W | 2024 Q4 |
 | AMD MI300X | 2,614 TFLOPS | 1,307 TFLOPS | 192GB HBM3 | 5.3 TB/s | 750W | 2023 Q4 |
+| 华为昇腾 950PR | 1 PFLOPS (FP8) | ~500 TFLOPS | 128GB HiBL (自研) | ~3 TB/s | ~400W | 2026 H1 |
+| 华为昇腾 950DT | 1 PFLOPS (FP8) | ~500 TFLOPS | 144GB HiZQ (自研) | 4 TB/s | ~500W | 2026 H1 |
 | 华为昇腾 920 | 900+ TFLOPS (BF16) | ~450 TFLOPS | ~96GB HBM | 4 Tbps | ~400W | 2025 H2 |
-| 华为昇腾 910C | 780 TFLOPS (BF16) | ~390 TFLOPS | 128GB HBM2e | 1.2 TB/s | 310W×2 | 2024 H2 |
+| 华为昇腾 910C | 780 TFLOPS (BF16) | ~390 TFLOPS | 128GB HBM2e (双芯片) | ~1.2 TB/s | ~310W | 2025 H1 |
 | 华为昇腾 910B | 320 TFLOPS (FP16) | 320 TFLOPS | 64GB HBM2e | 1.2 TB/s | 310W | 2023 |
 
 ## 数据中心推理 GPU
@@ -59,7 +61,8 @@ sidebar_label: '完整对比表'
 | Google TPU 8t (训练) | Google | ~1,200 TFLOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
 | Google TPU 8i (推理) | Google | ~1,500 TOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
 | Intel Gaudi 3 | Intel | 1,600 TFLOPS | 128GB SRAM | 2.4 Tb/s | 2024 Q2 |
-| AWS Trainium 3 | AWS | ~2,000 TFLOPS | ~128GB | ~3 Tb/s | 2025 H2 |
+| Intel Crescent Island | Intel | TBD | 480GB LPDDR5x | TBD | 2026 H2 |
+| AWS Trainium 3 | AWS | ~5.7 PFLOPS | ~144GB | ~4.5 Tb/s | 2025 Q4 |
 | AWS Trainium 2 | AWS | ~1,000 TFLOPS | 64GB | ~1.6 Tb/s | 2024 |
 
 ## 晶圆级训练（Wafer-Scale）
@@ -115,7 +118,7 @@ sidebar_label: '完整对比表'
 ### 按地区选择
 
 - **北美 / 欧洲**：NVIDIA + AMD 自由选择
-- **中国**：华为昇腾 910B / 910C / 920（国产替代）
+- **中国**：华为昇腾 950 / 910C / 920 / 寒武纪 MLU690（国产替代）
 - **云端（无硬件偏好）**：任意厂商，按价格选择
 
 ---

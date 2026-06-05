@@ -129,6 +129,7 @@ const sidebars: SidebarsConfig = {
         'cards/intel/gaudi-2',
         'cards/intel/gaudi-3',
         'cards/intel/gaudi-4',
+        'cards/intel/crescent-island',
         'cards/intel/max-series',
         'cards/intel/flex-series',
         'cards/intel/jaguar-shores',
