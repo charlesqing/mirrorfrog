@@ -147,8 +147,3 @@ new-feature:
   label: New Feature
   description: New feature introductions and guides
   permalink: /tags/new-feature
-
-新闻:
-  label: 新闻
-  description: AI 算力卡行业新闻动态
-  permalink: /tags/news
