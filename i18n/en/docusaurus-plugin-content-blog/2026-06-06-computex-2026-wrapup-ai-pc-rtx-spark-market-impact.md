@@ -1,6 +1,6 @@
 ---
 slug: computex-2026-wrapup-ai-pc-rtx-spark-market-impact
-title: "Computex 2026 Wrap-Up: AI PC Chip War Begins, NVIDIA RTX Spark Launches This Month at $1,399"
+title: "Computex 2026 Wrap-Up: AI PC Chip War Begins, NVIDIA RTX Spark Arrives Fall 2026"
 authors: aicomputecards
 tags: [新闻, AI芯片, GPU, 国产芯片, news, product-launch]
 date: 2026-06-06
@@ -18,10 +18,11 @@ Less than a week after its COMPUTEX debut, the NVIDIA-MediaTek **RTX Spark Super
 | Detail | Info |
 |--------|------|
 | **Launch OEMs** | ASUS, Dell, HP, Lenovo, Microsoft Surface, MSI |
-| **Availability** | **June 2026** (this month) |
-| **Starting Price** | **$1,399** |
-| **Core Specs** | 20-core Grace CPU + Blackwell GPU (6,144 CUDA cores) |
-| **AI Compute** | **1 PFLOPS** |
+| **Availability** | **Fall 2026** |
+| **Starting Price** | **Not yet announced** (analysts estimate $3,000-4,000) |
+| **Core Specs** | Arm CPU (up to 20 cores) + Blackwell GPU (6,144 CUDA cores) |
+| **Unified Memory** | **128 GB LPDDR5X** (300 GB/s) |
+| **Model Capacity** | Runs **120B parameter** models, up to 1M token context |
 
 **Market Reaction**: AMD, Intel, and Qualcomm shares fell following the announcement. Analysts believe RTX Spark will reshape the market across three fronts — Windows AI PCs, creator workstations, and edge inference nodes.
 

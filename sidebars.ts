@@ -88,6 +88,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '工作站 / 消费级',
           items: [
+            'cards/nvidia/rtx-spark',
             'cards/nvidia/rtx-6000-ada',
             'cards/nvidia/rtx-4090',
             'cards/nvidia/rtx-5080',
