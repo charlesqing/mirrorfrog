@@ -1,0 +1,2959 @@
+[
+  {
+    "id": "mi210",
+    "title": "AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi210",
+    "description": "AMD Instinct MI210 详尽规格：CDNA 2 架构、104 CU、22.6 TF FP64 / 181 TF FP16 / 181 TOPS INT8、64GB HBM2e 1.6 TB/s、PCIe Gen 4、欧洲百亿亿次超算首选用。",
+    "keywords": [
+      "AMD Instinct MI210",
+      "CDNA 2",
+      "104 CU",
+      "22.6 TF FP64",
+      "64GB HBM2e",
+      "1.6 TB/s",
+      "PCIe Gen 4",
+      "HPC",
+      "LUMI"
+    ],
+    "specs": {
+      "architecture": "CDNA 2（专为 HPC + AI 优化）",
+      "process": "TSMC 6nm FinFET",
+      "memory": {
+        "capacity": "64 GB HBM2e（4,096-bit 总线）",
+        "bandwidth": "1.6 TB/s"
+      },
+      "tdp": "300W",
+      "release": "2022-03-22"
+    }
+  },
+  {
+    "id": "mi250",
+    "title": "AMD Instinct MI250",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi250",
+    "description": "AMD Instinct MI250 (CDNA 2) 详尽规格：128GB HBM2e、47.9 TFLOPS FP64、383 TFLOPS FP16 Matrix、500W TDP，HPC 强项。",
+    "keywords": [
+      "AMD MI250",
+      "MI250X",
+      "CDNA 2",
+      "Instinct",
+      "HPC",
+      "Frontier 超算"
+    ],
+    "specs": {
+      "architecture": "CDNA 2（GFX90A）",
+      "process": "TSMC 6nm",
+      "memory": {
+        "capacity": "128 GB HBM2e（双芯片）",
+        "bandwidth": "3,276.8 GB/s"
+      },
+      "compute": {
+        "fp32": "47.9 TFLOPS",
+        "fp64": "47.9 TFLOPS（矢量）"
+      },
+      "tdp": "500 W"
+    }
+  },
+  {
+    "id": "mi300a",
+    "title": "AMD Instinct MI300A (CPU+GPU APU)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi300a",
+    "description": "AMD Instinct MI300A 详尽规格：CDNA 3 + Zen 4 APU、128GB HBM3 统一内存、HPC 与 AI 训练首选。",
+    "keywords": [
+      "AMD MI300A",
+      "APU",
+      "CDNA 3",
+      "Zen 4",
+      "128GB HBM3",
+      "统一内存",
+      "El Capitan"
+    ],
+    "specs": {
+      "architecture": "CDNA 3 +"
+    }
+  },
+  {
+    "id": "mi300x",
+    "title": "AMD Instinct MI300X",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi300x",
+    "description": "AMD MI300X 详尽规格：CDNA 3 架构、192GB HBM3、1,307 TFLOPS FP16、750W TDP，对标 NVIDIA H100/H200。",
+    "keywords": [
+      "AMD MI300X",
+      "CDNA 3",
+      "ROCm",
+      "HBM3",
+      "AI 训练 GPU",
+      "NVIDIA H100 对比"
+    ],
+    "specs": {
+      "architecture": "CDNA 3",
+      "process": "TSMC 5nm + 6nm（混合）",
+      "memory": {
+        "capacity": "192 GB HBM3",
+        "bandwidth": "5,300 GB/s"
+      },
+      "compute": {
+        "fp32": "65.3 TFLOPS",
+        "fp64": "32.6 TFLOPS"
+      },
+      "tdp": "750 W"
+    }
+  },
+  {
+    "id": "mi325x",
+    "title": "AMD Instinct MI325X",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi325x",
+    "description": "AMD MI325X 详尽规格：CDNA 3 架构、256GB HBM3e、6.48 TB/s 带宽、750W TDP，对标 NVIDIA H200。",
+    "keywords": [
+      "AMD MI325X",
+      "CDNA 3",
+      "HBM3e",
+      "MI300X 升级",
+      "AI 推理 GPU"
+    ],
+    "specs": {
+      "architecture": "CDNA 3",
+      "memory": {
+        "capacity": "256 GB HBM3e",
+        "bandwidth": "6.48 TB/s"
+      },
+      "tdp": "750 W"
+    }
+  },
+  {
+    "id": "mi350",
+    "title": "AMD Instinct MI350X / MI355X",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi350",
+    "description": "AMD MI350 系列 (CDNA 4)：MI350X 288GB HBM3e、2.5 PFLOPS FP16、MXFP4/FP6 原生支持，2025 年 6 月发布，对标 NVIDIA Blackwell。",
+    "keywords": [
+      "AMD MI350",
+      "CDNA 4",
+      "MI355X",
+      "HBM3e",
+      "MXFP4",
+      "MXFP6",
+      "AI 训练 GPU 2025"
+    ],
+    "specs": {
+      "architecture": "CDNA 4",
+      "memory": {
+        "capacity": "288 GB HBM3e",
+        "bandwidth": "8 TB/s"
+      },
+      "compute": {
+        "fp64": "72.1 TFLOPS"
+      },
+      "tdp": "750 W"
+    }
+  },
+  {
+    "id": "mi355x",
+    "title": "AMD Instinct MI355X (288GB HBM3E)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi355x",
+    "description": "AMD MI355X 详尽规格：CDNA 4、3nm、288GB HBM3E、8 TB/s、4.6 PF FP8 dense、Helios 72-GPU 平台。",
+    "keywords": [
+      "AMD MI355X",
+      "MI355X",
+      "CDNA 4",
+      "3nm",
+      "288GB HBM3E",
+      "8 TB/s",
+      "Helios",
+      "UALoF"
+    ],
+    "specs": {
+      "architecture": "AMD CDNA 4（与 MI350 相同架构）",
+      "process": "TSMC 3nm (N3)",
+      "memory": {
+        "bandwidth": "8 TB/s（业界最高）"
+      },
+      "compute": {
+        "fp32": "115 TFLOPS"
+      },
+      "tdp": "~1400 W（典型板卡功耗）（典型板卡功耗）"
+    }
+  },
+  {
+    "id": "mi400",
+    "title": "AMD Instinct MI400 (CDNA Next)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi400",
+    "description": "AMD Instinct MI400 详尽规格：CDNA Next 架构、432GB HBM4、19.6 TB/s 带宽、40 PF FP4，Helios 72-GPU 机柜 260 TB/s scale-up，2026 出货。",
+    "keywords": [
+      "AMD MI400",
+      "CDNA Next",
+      "HBM4",
+      "19.6 TB/s",
+      "40 PFLOPS FP4",
+      "Helios",
+      "260 TB/s",
+      "Ultra Accelerator Link"
+    ],
+    "specs": {
+      "architecture": "CDNA Next",
+      "process": "TSMC 3nm / 2nm（推测）",
+      "memory": {
+        "capacity": "432 GB HBM4",
+        "bandwidth": "19.6 TB/s"
+      },
+      "compute": {
+        "fp32": "250 TFLOPS（推测）"
+      },
+      "tdp": "~1,000 W（液冷必需）",
+      "release": "2026"
+    }
+  },
+  {
+    "id": "ryzen-ai-max",
+    "title": "AMD Ryzen AI Max (Strix Halo XDNA 2 50 TOPS 128GB UMA)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/ryzen-ai-max",
+    "description": "AMD Ryzen AI Max+ 395 (Strix Halo) 详尽规格：16 核 Zen 5 + 40 CU RDNA 3.5 + XDNA 2 NPU 50 TOPS、128GB LPDDR5X、256 GB/s 带宽、96GB VRAM、AI PC 旗舰、3.9× M4 Pro SD 性能。",
+    "keywords": [
+      "AMD Ryzen AI Max",
+      "Strix Halo",
+      "XDNA 2",
+      "50 TOPS",
+      "128GB UMA",
+      "96GB VRAM",
+      "RDNA 3.5",
+      "AI PC",
+      "Ryzen AI Max+ 395"
+    ],
+    "specs": {
+      "architecture": "Chiplet 异构（CPU + GPU + I/O die）",
+      "process": "TSMC N4P（CPU/GPU die）+ TSMC N6（I/O die）"
+    }
+  },
+  {
+    "id": "inferentia",
+    "title": "AWS Inferentia (第一代)",
+    "vendor": "aws",
+    "slug": "/docs/cards/aws/inferentia",
+    "description": "AWS Inferentia 详尽规格：128 TOPS INT8、NeuronCore-v1、AWS 自研 AI 推理 ASIC，Inf1 实例。",
+    "keywords": [
+      "AWS Inferentia",
+      "Inf1 实例",
+      "NeuronCore-v1",
+      "AI 推理 ASIC"
+    ],
+    "specs": {
+      "architecture": "Inferentia（NeuronCore-v1）",
+      "compute": {
+        "int8": "128 TOPS",
+        "fp16": "64 TFLOPS"
+      },
+      "tdp": "35 W"
+    }
+  },
+  {
+    "id": "inferentia-2",
+    "title": "AWS Inferentia 2 (Inf2)",
+    "vendor": "aws",
+    "slug": "/docs/cards/aws/inferentia-2",
+    "description": "AWS Inferentia 2 详尽规格：32GB HBM2e、4× NeuronCore-v2、芯片间互联、Inf2.xlarge 到 Inf2.48xlarge 实例。",
+    "keywords": [
+      "AWS Inferentia 2",
+      "Inf2 实例",
+      "大模型推理",
+      "AI 推理 ASIC"
+    ],
+    "specs": {
+      "architecture": "Inferentia 2（NeuronCore-v2）",
+      "memory": {
+        "capacity": "32 GB HBM2e"
+      },
+      "compute": {
+        "fp16": "190 TFLOPS（估算）"
+      },
+      "tdp": "约 150 W"
+    }
+  },
+  {
+    "id": "trainium",
+    "title": "AWS Trainium (第一代)",
+    "vendor": "aws",
+    "slug": "/docs/cards/aws/trainium",
+    "description": "AWS Trainium 详尽规格：32GB HBM、191 TFLOPS FP8、32 NeuronCore v2、AWS 自研 AI 训练 ASIC。",
+    "keywords": [
+      "AWS Trainium",
+      "NeuronCore",
+      "Trainium1",
+      "Trn1 实例",
+      "AI 训练 ASIC"
+    ],
+    "specs": {
+      "architecture": "Trainium（第一代）",
+      "memory": {
+        "capacity": "32 GB HBM",
+        "bandwidth": "0.8 TB/s"
+      },
+      "compute": {
+        "fp8": "191 TFLOPS",
+        "fp32": "48 TFLOPS"
+      },
+      "tdp": "约 350 W"
+    }
+  },
+  {
+    "id": "trainium-2",
+    "title": "AWS Trainium 2 (Trn2)",
+    "vendor": "aws",
+    "slug": "/docs/cards/aws/trainium-2",
+    "description": "AWS Trainium 2 详尽规格：96GB HBM、1,299 FP8 TFLOPS、8× NeuronCore-v3、2.9 TB/s 带宽，2024 年 12 月 GA。",
+    "keywords": [
+      "AWS Trainium 2",
+      "Trainium2",
+      "NeuronCore-v3",
+      "Trn2 实例",
+      "Trn2 UltraServer"
+    ],
+    "specs": {
+      "architecture": "Trainium2（NeuronCore-v3）",
+      "process": "TSMC 4nm（推测）",
+      "memory": {
+        "capacity": "96 GB HBM（3× 第一代）",
+        "bandwidth": "2.9 TB/s（3.6× 第一代）"
+      },
+      "compute": {
+        "fp8": "1,299 TFLOPS（密集）/ 2,563（稀疏）",
+        "fp32": "181 TFLOPS"
+      },
+      "tdp": "约 700 W"
+    }
+  },
+  {
+    "id": "trainium-3",
+    "title": "AWS Trainium 3 (Trn3)",
+    "vendor": "aws",
+    "slug": "/docs/cards/aws/trainium-3",
+    "description": "AWS Trainium 3 详尽规格：3nm 工艺、5.7 PFLOPS FP8 dense、4.4× Trainium 2 算力、4× 能效、Trn3 UltraServer 144 芯片，2025-12-02 re:Invent GA。",
+    "keywords": [
+      "AWS Trainium 3",
+      "Trainium3",
+      "NeuronCore-v4",
+      "Trn3 UltraServer",
+      "3nm",
+      "5.7 PFLOPS",
+      "144 chips",
+      "re:Invent 2025"
+    ],
+    "specs": {
+      "architecture": "Trainium3（NeuronCore-v4）",
+      "process": "TSMC 3nm",
+      "tdp": "~700 W",
+      "release": "2025-12-02 GA（re:Invent 2025）"
+    }
+  },
+  {
+    "id": "wse-2",
+    "title": "Cerebras WSE-2 (CS-2)",
+    "vendor": "cerebras",
+    "slug": "/docs/cards/cerebras/wse-2",
+    "description": "Cerebras WSE-2 详尽规格：2.6 万亿晶体管、850,000 核心、40GB 片上 SRAM、晶圆级 AI 训练芯片。",
+    "keywords": [
+      "Cerebras WSE-2",
+      "CS-2",
+      "晶圆级芯片",
+      "AI 训练超算",
+      "Weight Streaming"
+    ],
+    "specs": {
+      "architecture": "WSE-2（Wafer-Scale Engine）",
+      "process": "TSMC 7nm"
+    }
+  },
+  {
+    "id": "wse-3",
+    "title": "Cerebras WSE-3 (CS-3)",
+    "vendor": "cerebras",
+    "slug": "/docs/cards/cerebras/wse-3",
+    "description": "Cerebras WSE-3 详尽规格：4 万亿晶体管、900,000 核心、44GB SRAM、125 PFLOPS FP16 稀疏算力，2024 年发布。",
+    "keywords": [
+      "Cerebras WSE-3",
+      "CS-3",
+      "晶圆级 AI 芯片",
+      "125 PFLOPS",
+      "5nm"
+    ],
+    "specs": {
+      "architecture": "WSE-3（Wafer-Scale Engine 3）",
+      "process": "TSMC 5nm"
+    }
+  },
+  {
+    "id": "wse-4",
+    "title": "Cerebras WSE-4 (CS-4)",
+    "vendor": "cerebras",
+    "slug": "/docs/cards/cerebras/wse-4",
+    "description": "Cerebras WSE-4 推测规格：第四代晶圆级 AI 芯片、5nm / 3nm、~60-80 万 AI Core、IPO 后首代产品，预计 2027 年公布。",
+    "keywords": [
+      "Cerebras WSE-4",
+      "CS-4",
+      "wafer-scale",
+      "4th gen",
+      "IPO",
+      2027,
+      "Cerebras IPO",
+      "CS-5",
+      "CBRS"
+    ],
+    "specs": {
+      "process": "TSMC 5nm",
+      "compute": {
+        "fp8": "250 PFLOPS（推测）"
+      },
+      "tdp": "~25 kW",
+      "release": "2024"
+    }
+  },
+  {
+    "id": "edge-tpu",
+    "title": "Google Edge TPU (Coral 4 TOPS 边缘推理 ASIC)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/edge-tpu",
+    "description": "Google Edge TPU 详尽规格：4 TOPS INT8、2 TOPS/W、M.2/USB/PCIe 多种形态、TensorFlow Lite、Coral USB Accelerator $60 入门。",
+    "keywords": [
+      "Google Edge TPU",
+      "Edge TPU",
+      "Coral",
+      "4 TOPS",
+      "2 TOPS/W",
+      "M.2 Accelerator",
+      "TensorFlow Lite"
+    ],
+    "specs": {
+      "architecture": "Edge TPU ASIC（Google 自研边缘推理）",
+      "process": "推测 28nm",
+      "release": "2019-03（Coral Dev Board）/ 2019-07（Coral USB Accelerator）"
+    }
+  },
+  {
+    "id": "tpu-8i",
+    "title": "Google Cloud TPU 8i (Trillium 2 Inference)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-8i",
+    "description": "Google TPU 8i 推理专用 ASIC：288GB HBM、8,601 GB/s 带宽、~5,500 TFLOPS BF16，专为超低延迟推理设计，2026-04-22 公布。",
+    "keywords": [
+      "Google TPU 8i",
+      "Trillium 2",
+      "inference TPU",
+      "288GB HBM",
+      "8601 GB/s",
+      "ultra-low latency",
+      2026
+    ],
+    "specs": {
+      "architecture": "TPU 8i（Trillium 2）",
+      "compute": {
+        "int8": "~22,000 TOPS"
+      },
+      "release": "2026-04-22 公布"
+    }
+  },
+  {
+    "id": "tpu-8t",
+    "title": "Google Cloud TPU 8t (Trillium 2)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-8t",
+    "description": "Google TPU 8t 训练专用 ASIC：216GB HBM、6,528 GB/s 带宽，专为 frontier 模型训练设计，2026-04-22 公布，Arm Axion CPU 集成。",
+    "keywords": [
+      "Google TPU 8t",
+      "Trillium 2",
+      "training TPU",
+      "216GB HBM",
+      "6528 GB/s",
+      "Arm Axion",
+      2026
+    ],
+    "specs": {
+      "architecture": "TPU 8t（Trillium 2）",
+      "release": "2026-04-22 公布"
+    }
+  },
+  {
+    "id": "tpu-ironwood",
+    "title": "Google Cloud TPU v7 (Ironwood)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-ironwood",
+    "description": "Google TPU v7 Ironwood 是第七代 TPU：2,307 TFLOPS BF16、192GB HBM、7,380 GB/s 带宽，专为推理时代设计。",
+    "keywords": [
+      "Google TPU Ironwood",
+      "TPU v7",
+      "第七代 TPU",
+      "AI 推理 TPU",
+      "Gemini 3"
+    ],
+    "specs": {
+      "architecture": "TPU v7（Ironwood）"
+    }
+  },
+  {
+    "id": "tpu-v4",
+    "title": "Google TPU v4 (历代旗舰)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-v4",
+    "description": "Google TPU v4 详尽规格：32GB HBM、2D 环形互联、4096 颗 Pod、2021-2023 旗舰训练 TPU。",
+    "keywords": [
+      "Google TPU v4",
+      "TPU v4 Pod",
+      "2D torus",
+      "32GB HBM",
+      "4096 chips",
+      "AI 训练"
+    ],
+    "specs": {
+      "architecture": "TPU v4（4 代）",
+      "process": "TSMC 7nm",
+      "compute": {
+        "int8": "275 TOPS"
+      },
+      "tdp": "170 W（约）"
+    }
+  },
+  {
+    "id": "tpu-v5e",
+    "title": "Google TPU v5e (Trillium 训练-Lite, 2023)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-v5e",
+    "description": "Google TPU v5e 详尽规格：5nm、16GB HBM2、400 TF FP8 dense、推理 + 小型训练、性价比旗舰。",
+    "keywords": [
+      "Google TPU v5e",
+      "TPU v5e",
+      "5nm",
+      "16GB HBM2",
+      "400 TF FP8",
+      "训练-Lite",
+      "推理优化"
+    ],
+    "specs": {
+      "architecture": "Google TPU v5（与 v5p 同代）",
+      "process": "TSMC 5nm",
+      "compute": {
+        "int8": "400 TOPS"
+      },
+      "tdp": "180W（v5p 是 450W）"
+    }
+  },
+  {
+    "id": "tpu-v5p",
+    "title": "Google Cloud TPU v5p",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-v5p",
+    "description": "Google TPU v5p 详尽规格：459 TFLOPS BF16、95GB HBM、2,575 GB/s 带宽、8,960 芯片 Pod，Google 自研 AI 训练 ASIC。",
+    "keywords": [
+      "Google TPU v5p",
+      "TPU",
+      "Gemini 训练",
+      "AI 训练 ASIC",
+      "脉动阵列"
+    ],
+    "specs": {
+      "architecture": "Google TPU v5p（脉动阵列）",
+      "process": "TSMC 5nm"
+    }
+  },
+  {
+    "id": "tpu-v6e",
+    "title": "Google Cloud TPU v6e (Trillium)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-v6e",
+    "description": "Google TPU v6e Trillium 详尽规格：918 TFLOPS BF16、32GB HBM、4.7× v5e 性能、4.7× 峰值算力，第六代 TPU。",
+    "keywords": [
+      "Google TPU v6e",
+      "Trillium",
+      "第六代 TPU",
+      "Gemini 2 训练",
+      "AI 训练 ASIC"
+    ],
+    "specs": {
+      "architecture": "TPU v6e（Trillium）",
+      "compute": {
+        "int8": "1,836 TOPS"
+      }
+    }
+  },
+  {
+    "id": "tpu-v6p",
+    "title": "Google TPU v6p (Pathway, 2024-12)",
+    "vendor": "google",
+    "slug": "/docs/cards/google/tpu-v6p",
+    "description": "Google TPU v6p (Pathway) 详尽规格：Trillium 训练专用、96GB HBM、2.7 PF FP8 dense、JAX/Pathways 软件栈。",
+    "keywords": [
+      "Google TPU v6p",
+      "TPU v6p",
+      "Trillium 训练",
+      "Pathway",
+      "JAX",
+      "TPU 6P"
+    ],
+    "specs": {
+      "architecture": "Google TPU v6（与 v6e 同代）",
+      "process": "TSMC 5nm（vs v5e 7nm）",
+      "compute": {
+        "int8": "2.7 POPS"
+      },
+      "tdp": "~450 W（v6e 同）"
+    }
+  },
+  {
+    "id": "ascend-910b",
+    "title": "Huawei Ascend 910B",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-910b",
+    "description": "Huawei Ascend 910B 详尽规格：64GB HBM3、320 TFLOPS FP16、640 TOPS INT8、310W TDP，国产 AI 训练 GPU。",
+    "keywords": [
+      "Huawei Ascend 910B",
+      "昇腾 910B",
+      "国产 AI 芯片",
+      "Da Vinci",
+      "CANN"
+    ],
+    "specs": {
+      "architecture": "Da Vinci（华为自研）",
+      "process": "TSMC 7nm+（含 SMIC 国产化努力）",
+      "memory": {
+        "capacity": "64 GB HBM3",
+        "bandwidth": "1,224 GB/s"
+      },
+      "compute": {
+        "fp32": "64 TFLOPS",
+        "fp16": "320 TFLOPS",
+        "int8": "640 TOPS"
+      },
+      "tdp": "310 W"
+    }
+  },
+  {
+    "id": "ascend-910c",
+    "title": "Huawei Ascend 910C",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-910c",
+    "description": "Huawei Ascend 910C 详尽规格：双小芯片设计、780 BF16 TFLOPS、CloudMatrix 384 系统、国产最强 AI 芯片。",
+    "keywords": [
+      "Huawei Ascend 910C",
+      "昇腾 910C",
+      "CloudMatrix 384",
+      "国产 AI 芯片",
+      "双小芯片"
+    ],
+    "specs": {
+      "architecture": "Da Vinci（双小芯片）",
+      "process": "7nm 级（含 SMIC 国产化）",
+      "tdp": "~310 W（双芯片，仅约 H100 的 45%）"
+    }
+  },
+  {
+    "id": "ascend-910d",
+    "title": "Huawei Ascend 910D (传闻)",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-910d",
+    "description": "Huawei Ascend 910D 是 910C 下一代产品，2025 年中后期量产，对标 NVIDIA Blackwell / Rubin。",
+    "keywords": [
+      "Huawei Ascend 910D",
+      "昇腾 910D",
+      "国产 AI 芯片",
+      "下一代"
+    ],
+    "specs": {}
+  },
+  {
+    "id": "ascend-920",
+    "title": "Huawei Ascend 920 (昇腾 920)",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-920",
+    "description": "Huawei Ascend 920 详尽规格：6nm 工艺、900+ BF16 TFLOPS、4 Tbps HBM 带宽，2025 H2 量产，对标 NVIDIA H20 / 国产替代。",
+    "keywords": [
+      "Huawei Ascend 920",
+      "昇腾 920",
+      "6nm",
+      "900 BF16 TFLOPS",
+      "4 Tbps",
+      "国产替代",
+      "H20 对标",
+      "2025 H2"
+    ],
+    "specs": {
+      "architecture": "Da Vinci v4",
+      "process": "6nm（SMIC N+1 / N+2 国产化）",
+      "compute": {
+        "fp16": "1,800 TFLOPS（推测）",
+        "int8": "3,600 TOPS（推测）"
+      },
+      "tdp": "~400 W",
+      "release": "2025 H2 量产（路线图）"
+    }
+  },
+  {
+    "id": "ascend-950",
+    "title": "Huawei Ascend 950 (昇腾 950PR / 950DT)",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-950",
+    "description": "Huawei Ascend 950 系列 (950PR/950DT) 详尽规格：1 PFLOPS FP8、自研 HBM、SIMT 双编程模型、HiF8 低精度高保真格式，2026 H1 量产。",
+    "keywords": [
+      "Huawei Ascend 950",
+      "昇腾 950",
+      "950PR",
+      "950DT",
+      "HiF8",
+      "自研 HBM",
+      "FP8",
+      "FP4",
+      "CloudMatrix 384"
+    ],
+    "specs": {
+      "architecture": "Da Vinci v5（第四代昇腾）",
+      "process": "N+2（SMIC 国产化）"
+    }
+  },
+  {
+    "id": "core-ultra-2",
+    "title": "Intel Core Ultra Series 2 (Lunar Lake NPU 48 TOPS AI PC)",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/core-ultra-2",
+    "description": "Intel Core Ultra Series 2 (Lunar Lake) 详尽规格：Foveros 3D 封装、4P Lion Cove + 4E Skymont、NPU 4.0 48 TOPS、Xe2 GPU 60+ TOPS、内存 on-package、AI PC 旗舰。",
+    "keywords": [
+      "Intel Core Ultra Series 2",
+      "Lunar Lake",
+      "LNL",
+      "NPU 4.0",
+      "48 TOPS",
+      "Xe2 GPU",
+      "on-package LPDDR5X",
+      "Foveros",
+      "AI PC"
+    ],
+    "specs": {
+      "architecture": "Foveros 3D 封装（Compute Tile + Platform Controller Tile）",
+      "process": "TSMC N3B（Compute Tile）+ TSMC N6（Platform Controller Tile）",
+      "memory": {
+        "capacity": "16/32 GB LPDDR5X on-package（与 SoC 一体封装，8533 MT/s）",
+        "bandwidth": "~136 GB/s（128-bit，8533 MT/s）"
+      },
+      "tdp": "17W / 28W / 37W（cTDP 灵活）",
+      "release": "2024-09-03 公布、2024-09-24 上市"
+    }
+  },
+  {
+    "id": "crescent-island",
+    "title": "Intel Crescent Island (数据中心 AI 推理 GPU)",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/crescent-island",
+    "description": "Intel Crescent Island AI GPU：Xe3P 架构、480GB LPDDR5x、350W PCIe 风冷，专为智能体 AI 推理负载优化。",
+    "keywords": [
+      "Intel Crescent Island",
+      "Xe3P",
+      "480GB LPDDR5x",
+      "数据中心推理 GPU",
+      "智能体 AI",
+      "Computex 2026"
+    ],
+    "specs": {
+      "architecture": "Xe3P",
+      "memory": {
+        "capacity": "高达 480 GB LPDDR5x",
+        "bandwidth": "待官方公布（LPDDR5x 配置）"
+      },
+      "compute": {
+        "fp8": "待官方公布",
+        "fp16": "待官方公布",
+        "fp32": "待官方公布"
+      },
+      "tdp": "350 W（风冷）"
+    }
+  },
+  {
+    "id": "flex-series",
+    "title": "Intel Data Center GPU Flex 系列",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/flex-series",
+    "description": "Intel Flex 140/170 详尽规格：Xe-HPG 架构、12-16GB GDDR6、224 TOPS INT8、75-150W TDP，云游戏与转码。",
+    "keywords": [
+      "Intel Flex 140",
+      "Flex 170",
+      "Xe-HPG",
+      "云游戏",
+      "视频转码",
+      "AV1"
+    ],
+    "specs": {
+      "architecture": "Xe-HPG",
+      "process": "TSMC 6nm",
+      "memory": {
+        "capacity": "12 GB GDDR6",
+        "bandwidth": "336 GB/s"
+      },
+      "compute": {
+        "fp32": "3.5 TFLOPS"
+      },
+      "tdp": "75 W"
+    }
+  },
+  {
+    "id": "gaudi-1",
+    "title": "Intel Gaudi 1 (Habana 第一代)",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/gaudi-1",
+    "description": "Intel Gaudi 1 详尽规格：Habana Labs 第一代训练卡、V100 性能、性价比之选。",
+    "keywords": [
+      "Intel Gaudi 1",
+      "Habana Labs",
+      "HL-2000",
+      "V100 替代",
+      "性价比"
+    ],
+    "specs": {
+      "architecture": "Habana Goya（训练）",
+      "process": "TSMC 16nm",
+      "memory": {
+        "capacity": "32 GB HBM2",
+        "bandwidth": "1 TB/s"
+      },
+      "compute": {
+        "fp16": "270 TFLOPS（密集） / 540 TFLOPS（稀疏）",
+        "int8": "270 TOPS"
+      },
+      "tdp": "250 W"
+    }
+  },
+  {
+    "id": "gaudi-2",
+    "title": "Intel Gaudi 2",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/gaudi-2",
+    "description": "Intel Gaudi 2 详尽规格：96GB HBM2e、432 TFLOPS BF16、600W TDP、24× 100GbE 集成网卡，Habana Labs 训练加速器。",
+    "keywords": [
+      "Intel Gaudi 2",
+      "Habana",
+      "HBM2e",
+      "训练 ASIC",
+      "AI 训练加速器"
+    ],
+    "specs": {
+      "architecture": "Gaudi 2（Habana 定制）",
+      "process": "TSMC 7nm",
+      "memory": {
+        "capacity": "96 GB HBM2e",
+        "bandwidth": "2.46 TB/s"
+      },
+      "compute": {
+        "fp32": "N/A（推理路径）",
+        "fp8": "865 TFLOPS（AMD 估算）",
+        "int8": "865 TOPS"
+      },
+      "tdp": "600 W"
+    }
+  },
+  {
+    "id": "gaudi-3",
+    "title": "Intel Gaudi 3",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/gaudi-3",
+    "description": "Intel Gaudi 3 详尽规格：128GB HBM2e、1,835 TFLOPS BF16、900W TDP、24× 200GbE 集成网卡，对标 NVIDIA H100/H200。",
+    "keywords": [
+      "Intel Gaudi 3",
+      "Habana",
+      "HBM2e",
+      "AI 训练 ASIC",
+      "性价比 GPU"
+    ],
+    "specs": {
+      "architecture": "Gaudi 3（Habana 5 代）",
+      "process": "TSMC 5nm",
+      "memory": {
+        "capacity": "128 GB HBM2e",
+        "bandwidth": "3.67 TB/s（+50% vs Gaudi 2）"
+      },
+      "tdp": "900 W（风冷） / 1,200 W（液冷）"
+    }
+  },
+  {
+    "id": "gaudi-4",
+    "title": "Intel Gaudi 4 (2026-Q2 推测)",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/gaudi-4",
+    "description": "Intel Gaudi 4 详尽规格（推测）：3nm、192GB HBM3E、3.7 PF FP8 dense、Gaudi 3 2× 性能、SynapseAI 软件栈。",
+    "keywords": [
+      "Intel Gaudi 4",
+      "Gaudi 4",
+      "Intel AI",
+      "3nm",
+      "HBM3E",
+      "SynapseAI",
+      "对标 H200"
+    ],
+    "specs": {
+      "architecture": "Intel Gaudi 第四代（与 Gaudi 3 同架构演进）",
+      "process": "Intel 18A（1.8nm，等效 2nm 级）",
+      "memory": {
+        "bandwidth": "~5 TB/s（每 HBM3E 819 GB/s × 6）"
+      },
+      "compute": {
+        "fp32": "~462 TFLOPS"
+      },
+      "tdp": "~700 W"
+    }
+  },
+  {
+    "id": "jaguar-shores",
+    "title": "Intel Jaguar Shores (Rack-Scale System)",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/jaguar-shores",
+    "description": "Intel Jaguar Shores 机柜级 AI 系统：替代取消的 Falcon Shores，2027/2028 推出，整合 Gaudi IP + Xeon 6 + 800G NIC。",
+    "keywords": [
+      "Intel Jaguar Shores",
+      "Falcon Shores cancelled",
+      "rack-scale",
+      2027,
+      2028,
+      "Gaudi IP",
+      "800G NIC",
+      "Intel Foundry"
+    ],
+    "specs": {
+      "process": "Intel Foundry 18A（加速器） + TSMC 3nm（部分 IP）",
+      "release": "2027-2028"
+    }
+  },
+  {
+    "id": "max-series",
+    "title": "Intel Max Series (Ponte Vecchio)",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/max-series",
+    "description": "Intel Max 1550/1350 (Ponte Vecchio) 详尽规格：Xe-HPC 架构、128GB HBM2e、52.3 TFLOPS FP32、600W TDP，Aurora 超算核心。",
+    "keywords": [
+      "Intel Max 1550",
+      "Ponte Vecchio",
+      "Xe-HPC",
+      "Aurora 超算",
+      "Intel 数据中心 GPU"
+    ],
+    "specs": {
+      "architecture": "Xe-HPC（Ponte Vecchio）",
+      "process": "Intel 7 + TSMC 5nm + TSMC 7nm",
+      "memory": {
+        "capacity": "128 GB HBM2e",
+        "bandwidth": "3,276.8 GB/s"
+      },
+      "compute": {
+        "fp32": "52.3 TFLOPS",
+        "fp64": "26.2 TFLOPS"
+      },
+      "tdp": "600 W"
+    }
+  },
+  {
+    "id": "a100",
+    "title": "NVIDIA A100",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/a100",
+    "description": "NVIDIA A100 详尽规格：Ampere 架构、80GB HBM2e、1,248 TFLOPS FP16、400W TDP，AI 训练和推理的上一代经典。",
+    "keywords": [
+      "NVIDIA A100",
+      "Ampere",
+      "GA100",
+      "HBM2e",
+      "MIG",
+      "AI 训练 GPU"
+    ],
+    "specs": {
+      "architecture": "Ampere GA100",
+      "process": "TSMC 7nm",
+      "memory": {
+        "capacity": "40 GB HBM2e",
+        "bandwidth": "1,555 GB/s"
+      },
+      "compute": {
+        "fp32": "19.5 TFLOPS",
+        "fp64": "9.7 TFLOPS"
+      },
+      "tdp": "250 W / 400 W"
+    }
+  },
+  {
+    "id": "b100",
+    "title": "NVIDIA B100",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/b100",
+    "description": "NVIDIA Blackwell B100 详尽规格：2080 亿晶体管、192GB HBM3e、14 PFLOPS FP4、700W TDP，Blackwell 架构入门级 AI 训练 GPU。",
+    "keywords": [
+      "NVIDIA B100",
+      "Blackwell",
+      "B200 对比",
+      "5th-gen Tensor Core",
+      "FP4",
+      "NVLink 5"
+    ],
+    "specs": {
+      "architecture": "Blackwell GB100",
+      "process": "TSMC 4NP",
+      "memory": {
+        "capacity": "192 GB HBM3e",
+        "bandwidth": "8 TB/s"
+      },
+      "compute": {
+        "fp8": "7 PFLOPS（稀疏）",
+        "fp16": "3.5 PFLOPS（稀疏）"
+      },
+      "tdp": "700 W"
+    }
+  },
+  {
+    "id": "b200",
+    "title": "NVIDIA B200",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/b200",
+    "description": "NVIDIA Blackwell B200 是当前最强大的 AI 训练 GPU：18 PFLOPS FP4、192GB HBM3e、8 TB/s 带宽、1000W TDP，旗舰级数据中心 AI 加速器。",
+    "keywords": [
+      "NVIDIA B200",
+      "Blackwell",
+      "GB200",
+      "NVL72",
+      "FP4",
+      "推理",
+      "LLM 训练"
+    ],
+    "specs": {
+      "architecture": "Blackwell GB100（双 die）",
+      "process": "TSMC 4NP",
+      "memory": {
+        "capacity": "192 GB HBM3e",
+        "bandwidth": "8 TB/s"
+      },
+      "compute": {
+        "fp8": "9 PFLOPS（稀疏）",
+        "fp16": "4.5 PFLOPS（稀疏）",
+        "fp64": "40 TFLOPS"
+      },
+      "tdp": "1,000 W（最高 1,200 W）"
+    }
+  },
+  {
+    "id": "b300-ultra",
+    "title": "NVIDIA B300 Ultra (Blackwell Ultra)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/b300-ultra",
+    "description": "NVIDIA Blackwell Ultra B300 详尽规格：288GB HBM3e、7 PFLOPS FP8 密集、14 PFLOPS FP4 稀疏、DeepSeek R1 实测 22,476 TGS。",
+    "keywords": [
+      "NVIDIA B300",
+      "Blackwell Ultra",
+      "GB300",
+      "288GB HBM3e",
+      "DeepSeek R1",
+      "NVFP4",
+      "14 PFLOPS FP4",
+      "代际性能 8x"
+    ],
+    "specs": {
+      "architecture": "Blackwell Ultra（GB300）",
+      "process": "TSMC 4NP",
+      "memory": {
+        "capacity": "288 GB HBM3e（12-Hi 堆叠）",
+        "bandwidth": "8 TB/s"
+      },
+      "compute": {
+        "int8": "7,000 TOPS"
+      },
+      "tdp": "1,400 W（液冷必需）",
+      "release": "2026-01 正式出货"
+    }
+  },
+  {
+    "id": "drive-thor",
+    "title": "NVIDIA DRIVE Thor (1000 TOPS 自动驾驶 SoC)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/drive-thor",
+    "description": "NVIDIA DRIVE Thor 详尽规格：Blackwell 架构 GPU、1000 INT8 TOPS / 2000 FP4 TFLOPS、Neoverse V3AE CPU、64GB LPDDR5X、273 GB/s、车规 ASIL-D、ZEEKR 极氪首发。",
+    "keywords": [
+      "NVIDIA DRIVE Thor",
+      "DRIVE Thor",
+      "Blackwell 自动驾驶",
+      "1000 TOPS INT8",
+      "2000 FP4 TFLOPS",
+      "Neoverse V3AE",
+      "ASIL-D",
+      "ZEEKR 极氪"
+    ],
+    "specs": {
+      "architecture": "Blackwell GPU 架构（车规定制，无 HBM 显存）",
+      "process": "4nm Samsung 4LPP（推测）",
+      "memory": {
+        "capacity": "64 GB LPDDR5X @ 4266 MHz",
+        "bandwidth": "273 GB/s（256-bit LPDDR5X）"
+      }
+    }
+  },
+  {
+    "id": "gb200",
+    "title": "NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/gb200",
+    "description": "NVIDIA GB200 Grace Blackwell 200 详尽规格：72-GPU NVL72、ConnectX-8 800G、Arm Grace 72-core、B200 GPU、1.8 TB/s NVLink。",
+    "keywords": [
+      "NVIDIA GB200",
+      "Grace Blackwell 200",
+      "NVL72",
+      "ConnectX-8",
+      "Grace CPU",
+      "B200 GPU",
+      "2024-Q4",
+      "1 EFLOPS 机柜"
+    ],
+    "specs": {
+      "architecture": "Grace Blackwell 200 Superchip"
+    }
+  },
+  {
+    "id": "gb300",
+    "title": "NVIDIA GB300 (Grace Blackwell 300, 2025 H2)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/gb300",
+    "description": "NVIDIA GB300 Grace Blackwell 300 详尽规格：72-GPU NVL72 机柜、ConnectX-9 1.6T 网络、Arm Vera CPU、B300 Ultra GPU。",
+    "keywords": [
+      "NVIDIA GB300",
+      "Grace Blackwell 300",
+      "NVL72",
+      "ConnectX-9",
+      "Vera CPU",
+      "B300 Ultra",
+      "机柜级 AI"
+    ],
+    "specs": {
+      "architecture": "Grace Blackwell 300 Superchip"
+    }
+  },
+  {
+    "id": "groq-3-lpx",
+    "title": "NVIDIA Groq 3 LPX (LPU Rack-Scale)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/groq-3-lpx",
+    "description": "NVIDIA 收购后 Groq 3 LPX 机柜：256 颗 LPU、40 PB/s 片上 SRAM 聚合、640 TB/s 互联、35× perf/W，专为 trillion-parameter 推理，2026 H2。",
+    "keywords": [
+      "Groq 3 LPX",
+      "NVIDIA Groq acquisition",
+      "LPU",
+      "40 PB/s",
+      "640 TB/s",
+      "agentic AI",
+      "35x perf/W",
+      "trillion parameter"
+    ],
+    "specs": {
+      "architecture": "Groq 3 LPU（Tensor Streaming Processor v3）",
+      "release": "2026 H2（与 Rubin R200 同期）"
+    }
+  },
+  {
+    "id": "h100",
+    "title": "NVIDIA H100 SXM",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/h100",
+    "description": "NVIDIA H100 详尽规格：Hopper 架构、80GB HBM3 显存、989 TFLOPS FP8 算力、700W TDP，AI 训练与推理的事实标准。",
+    "keywords": [
+      "NVIDIA H100",
+      "Hopper",
+      "GH100",
+      "HBM3",
+      "Transformer Engine",
+      "AI 训练 GPU",
+      "NVLink"
+    ],
+    "specs": {
+      "architecture": "Hopper GH100",
+      "process": "TSMC 4N（定制 5nm）",
+      "memory": {
+        "capacity": "80 GB HBM3",
+        "bandwidth": "3.35 TB/s（3,352 GB/s）"
+      },
+      "compute": {
+        "fp32": "67 TFLOPS",
+        "fp64": "34 TFLOPS（双精度 HPC 重要）",
+        "fp8": "3,958 TFLOPS（稀疏）"
+      },
+      "tdp": "700 W（SXM5）"
+    }
+  },
+  {
+    "id": "h100-nvl",
+    "title": "NVIDIA H100 NVL (94GB HBM3 双 die)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/h100-nvl",
+    "description": "NVIDIA H100 NVL 详尽规格：双 die H100、94GB HBM3、188GB HBM3e 容量、专为 LLM 推理优化。",
+    "keywords": [
+      "H100 NVL",
+      "双 die",
+      "94GB HBM3",
+      "188GB HBM3e",
+      "LLM 推理",
+      "PCIe Gen5"
+    ],
+    "specs": {
+      "architecture": "Hopper (GH100, 双 die)",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "94 GB HBM3（双 48GB 堆叠） / 188 GB HBM3e",
+        "bandwidth": "3.35 TB/s（HBM3）/ 7.0 TB/s（HBM3e）"
+      },
+      "compute": {
+        "fp16": "1979 TFLOPS（稀疏）",
+        "fp8": "3958 TFLOPS（稀疏）"
+      },
+      "tdp": "350-400 W（PCIe）/ 700 W（SXM-NVL）",
+      "release": "2024-Q1"
+    }
+  },
+  {
+    "id": "h200",
+    "title": "NVIDIA H200 SXM",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/h200",
+    "description": "NVIDIA H200 详尽规格：Hopper Refresh 架构、141GB HBM3e 显存、4.8 TB/s 带宽，专为大模型推理优化。",
+    "keywords": [
+      "NVIDIA H200",
+      "HBM3e",
+      "AI 推理 GPU",
+      "LLM 推理",
+      "Hopper refresh"
+    ],
+    "specs": {
+      "architecture": "Hopper GH100（refresh）",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "141 GB HBM3e",
+        "bandwidth": "4.8 TB/s（4,800 GB/s）"
+      },
+      "compute": {
+        "fp8": "3,958 TFLOPS（稀疏）"
+      },
+      "tdp": "700 W（SXM5）"
+    }
+  },
+  {
+    "id": "jetson-orin",
+    "title": "NVIDIA Jetson Orin",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/jetson-orin",
+    "description": "NVIDIA Jetson Orin 系列边缘 AI 模组：Orin Nano (67 TOPS) 到 AGX Orin (275 TOPS)，Ampere 架构，7-60W TDP。",
+    "keywords": [
+      "Jetson Orin",
+      "边缘 AI",
+      "嵌入式",
+      "AGX Orin",
+      "Orin Nano",
+      "机器人",
+      "工业"
+    ],
+    "specs": {}
+  },
+  {
+    "id": "jetson-thor",
+    "title": "NVIDIA Jetson Thor",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/jetson-thor",
+    "description": "NVIDIA Jetson Thor 是 Blackwell 边缘 AI 模组：2070 FP4 TFLOPS、128GB LPDDR5X、40-130W，专为人形机器人和物理 AI 设计。",
+    "keywords": [
+      "Jetson Thor",
+      "Blackwell 边缘",
+      "人形机器人",
+      "物理 AI",
+      "T5000",
+      "T4000"
+    ],
+    "specs": {
+      "memory": {
+        "capacity": "128 GB LPDDR5X",
+        "bandwidth": "273 GB/s"
+      },
+      "tdp": "40-130 W"
+    }
+  },
+  {
+    "id": "l2",
+    "title": "NVIDIA L2 (Ada 入门级推理)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/l2",
+    "description": "NVIDIA L2 详尽规格：Ada Lovelace 入门级、24GB GDDR6、48 TFLOPS FP8、低功耗 PCIe。",
+    "keywords": [
+      "NVIDIA L2",
+      "Ada Lovelace",
+      "24GB GDDR6",
+      "入门推理",
+      "低功耗"
+    ],
+    "specs": {
+      "architecture": "Ada Lovelace (AD102 简化)",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "24 GB GDDR6",
+        "bandwidth": "384 GB/s（16 Gbps × 192-bit）"
+      },
+      "compute": {
+        "fp8": "96 TFLOPS（稀疏）/ 48 TFLOPS 密集",
+        "int8": "96 TOPS（密集）/ 192 TOPS 稀疏"
+      },
+      "tdp": "50-75 W",
+      "release": "2024-Q4"
+    }
+  },
+  {
+    "id": "l4",
+    "title": "NVIDIA L4",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/l4",
+    "description": "NVIDIA L4 是低功耗 AI 推理 GPU：Ada Lovelace 架构、24GB GDDR6、485 TFLOPS FP8、仅 72W TDP，专为云端推理优化。",
+    "keywords": [
+      "NVIDIA L4",
+      "Ada Lovelace",
+      "AI 推理 GPU",
+      "低功耗",
+      "T4 继任者"
+    ],
+    "specs": {
+      "architecture": "Ada Lovelace AD104",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "24 GB GDDR6",
+        "bandwidth": "300 GB/s"
+      },
+      "compute": {
+        "fp32": "30.3 TFLOPS",
+        "fp8": "485 TFLOPS"
+      },
+      "tdp": "72 W（可被动散热）"
+    }
+  },
+  {
+    "id": "l40s",
+    "title": "NVIDIA L40S",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/l40s",
+    "description": "NVIDIA L40S 详尽规格：Ada Lovelace 架构、48GB GDDR6 ECC、733 TFLOPS FP8、350W TDP，多用途 AI + 图形工作负载。",
+    "keywords": [
+      "NVIDIA L40S",
+      "Ada Lovelace",
+      "AI 推理 GPU",
+      "专业显卡",
+      "vGPU"
+    ],
+    "specs": {
+      "architecture": "Ada Lovelace AD102",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "48 GB GDDR6 ECC",
+        "bandwidth": "864 GB/s"
+      },
+      "compute": {
+        "fp32": "91.6 TFLOPS",
+        "fp8": "733 TFLOPS（稀疏）"
+      },
+      "tdp": "350 W"
+    }
+  },
+  {
+    "id": "rtx-4090",
+    "title": "NVIDIA RTX 4090",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-4090",
+    "description": "NVIDIA GeForce RTX 4090 详尽规格：Ada Lovelace 架构、24GB GDDR6X、2,642 TOPS INT8、消费级 AI 卡之王。",
+    "keywords": [
+      "RTX 4090",
+      "Ada Lovelace",
+      "消费级 AI",
+      "深度学习",
+      "Stable Diffusion",
+      "本地 LLM"
+    ],
+    "specs": {
+      "architecture": "Ada Lovelace AD102",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "24 GB GDDR6X",
+        "bandwidth": "1,008 GB/s"
+      },
+      "compute": {
+        "fp32": "82.6 TFLOPS",
+        "fp8": "2,642 TFLOPS（稀疏）"
+      },
+      "tdp": "450 W"
+    }
+  },
+  {
+    "id": "rtx-5080",
+    "title": "NVIDIA RTX 5080 (Blackwell)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-5080",
+    "description": "NVIDIA RTX 5080 详尽规格：Blackwell 架构、16GB GDDR7、10,752 CUDA 核心、360W TDP。",
+    "keywords": [
+      "RTX 5080",
+      "Blackwell",
+      "GeForce RTX 50",
+      "16GB GDDR7",
+      "DLSS 4"
+    ],
+    "specs": {
+      "architecture": "Blackwell (GB203)",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "16 GB GDDR7",
+        "bandwidth": "960 GB/s（30 Gbps × 256-bit）"
+      },
+      "compute": {
+        "fp16": "196 TFLOPS（稀疏）",
+        "fp8": "392 TFLOPS（稀疏）"
+      },
+      "tdp": "360 W",
+      "release": "2025-01-30"
+    }
+  },
+  {
+    "id": "rtx-5090",
+    "title": "NVIDIA RTX 5090 (Blackwell 消费级旗舰)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-5090",
+    "description": "NVIDIA RTX 5090 详尽规格：Blackwell 架构、32GB GDDR7、21,760 CUDA 核心、575W TDP、本地 AI 推理新王者。",
+    "keywords": [
+      "RTX 5090",
+      "Blackwell",
+      "GeForce RTX 50",
+      "32GB GDDR7",
+      21,
+      "760 CUDA",
+      "FP4 AI TOPS",
+      "DLSS 4"
+    ],
+    "specs": {
+      "architecture": "Blackwell (GB202)",
+      "process": "TSMC 4N（5nm 定制）",
+      "memory": {
+        "capacity": "32 GB GDDR7",
+        "bandwidth": "1,792 GB/s（28 Gbps × 512-bit）"
+      },
+      "compute": {
+        "fp32": "104.8 TFLOPS",
+        "fp16": "419 TFLOPS（稀疏）",
+        "fp8": "838 TFLOPS（稀疏）",
+        "int8": "1,676 TOPS"
+      },
+      "tdp": "575 W",
+      "release": "2025-01-30"
+    }
+  },
+  {
+    "id": "rtx-6000-ada",
+    "title": "NVIDIA RTX 6000 Ada",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-6000-ada",
+    "description": "NVIDIA RTX 6000 Ada 工作站 GPU：48GB GDDR6 ECC、1,458 TFLOPS FP8、300W TDP、AI 开发首选工作站卡。",
+    "keywords": [
+      "RTX 6000 Ada",
+      "工作站 GPU",
+      "ECC 显存",
+      "AI 开发",
+      "专业显卡"
+    ],
+    "specs": {
+      "architecture": "Ada Lovelace AD102",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "48 GB GDDR6 ECC",
+        "bandwidth": "960 GB/s"
+      },
+      "compute": {
+        "fp32": "91.1 TFLOPS",
+        "fp8": "1,458 TFLOPS（稀疏）"
+      },
+      "tdp": "300 W"
+    }
+  },
+  {
+    "id": "rtx-spark",
+    "title": "NVIDIA RTX Spark (AI PC Superchip)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-spark",
+    "description": "NVIDIA RTX Spark: up to 20 Arm CPU cores + 6,144 CUDA Blackwell GPU, 128GB unified LPDDR5X memory, 300 GB/s bandwidth, runs 120B parameter models with 1M token context. Launching Fall 2026.",
+    "keywords": [
+      "NVIDIA RTX Spark",
+      "AI PC",
+      "Computex 2026",
+      "Blackwell",
+      "Arm CPU",
+      "unified memory",
+      "128GB LPDDR5X",
+      "MediaTek"
+    ],
+    "specs": {
+      "architecture": "Blackwell GPU + Arm CPU（联发科合作）",
+      "memory": {
+        "capacity": "128 GB LPDDR5X（CPU + GPU 共享）",
+        "bandwidth": "300 GB/s"
+      }
+    }
+  },
+  {
+    "id": "rubin-r200",
+    "title": "NVIDIA Rubin R200 (Vera Rubin Platform)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rubin-r200",
+    "description": "NVIDIA Vera Rubin 平台：Rubin GPU + Vera CPU 6 芯片封装，288GB HBM4、22 TB/s、50 PF FP4 稀疏，ConnectX-9 28.8 TB/s，2026 H2 出货。",
+    "keywords": [
+      "NVIDIA Rubin",
+      "Vera Rubin",
+      "R200",
+      "HBM4",
+      "50 PFLOPS FP4",
+      "NVLink 6",
+      "ConnectX-9",
+      "6 芯片封装",
+      "Vera CPU"
+    ],
+    "specs": {
+      "architecture": "Rubin（Vera Rubin 平台）",
+      "process": "TSMC 3NP / 4NP（混合）",
+      "memory": {
+        "capacity": "288 GB HBM4（288 GB/颗 GPU 推断）",
+        "bandwidth": "22 TB/s"
+      },
+      "tdp": "~1,800 W（液冷必需）",
+      "release": "2026 H2"
+    }
+  },
+  {
+    "id": "t4",
+    "title": "NVIDIA T4",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/t4",
+    "description": "NVIDIA T4 详尽规格：Turing 架构、16GB GDDR6、130 TOPS INT8、70W TDP，云端 AI 推理的经典低功耗 GPU。",
+    "keywords": [
+      "NVIDIA T4",
+      "Turing",
+      "AI 推理 GPU",
+      "70W",
+      "vGPU",
+      "虚拟化"
+    ],
+    "specs": {
+      "architecture": "Turing TU104",
+      "process": "TSMC 12nm",
+      "memory": {
+        "capacity": "16 GB GDDR6",
+        "bandwidth": "320 GB/s"
+      },
+      "compute": {
+        "fp32": "8.1 TFLOPS",
+        "fp16": "65 TFLOPS"
+      },
+      "tdp": "70 W（可被动散热）"
+    }
+  },
+  {
+    "id": "akida-2",
+    "title": "BrainChip Akida 2 (类脑神经形态芯片)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/akida-2",
+    "description": "BrainChip Akida 2 详尽规格：神经形态架构、event-driven、1.5W 超低功耗、边缘 AI 推理。",
+    "keywords": [
+      "BrainChip Akida 2",
+      "神经形态",
+      "neuromorphic",
+      "event-driven",
+      "spiking neural network",
+      "SNN",
+      "边缘 AI"
+    ],
+    "specs": {
+      "architecture": "Akida 2 神经形态处理器",
+      "process": "TSMC 22nm ULL",
+      "tdp": "< 1.5 W",
+      "release": "2024-09（Akida 2 IP）"
+    }
+  },
+  {
+    "id": "alibaba-hanguang-800",
+    "title": "Alibaba Hanguang 800 含光 800 (阿里推理, 2021)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/alibaba-hanguang-800",
+    "description": "阿里含光 800 详尽规格：12nm、820 INT8 TOPS、700 GB/s、168W、阿里平头哥、淘宝 / 阿里云推理、阿里第一代 AI 芯片。",
+    "keywords": [
+      "Alibaba 含光",
+      "Hanguang 800",
+      "平头哥",
+      "T-Head",
+      "阿里云",
+      "12nm",
+      "820 TOPS",
+      "168W",
+      "国产 AI 芯片"
+    ],
+    "specs": {
+      "architecture": "Hanguang NPU（自研）",
+      "process": "TSMC 12nm",
+      "memory": {
+        "bandwidth": "700 GB/s"
+      },
+      "compute": {
+        "int8": "820 TOPS",
+        "fp16": "128 TFLOPS"
+      },
+      "tdp": "168W"
+    }
+  },
+  {
+    "id": "apple-a17-pro",
+    "title": "Apple A17 Pro (iPhone 15 Pro 首款 3nm 硬件光追)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-a17-pro",
+    "description": "Apple A17 Pro 详尽规格：3nm N3B 首发、6 核 CPU + 6 核 GPU（硬件光线追踪）+ 16 核 NE 35 TOPS、iPhone 15 Pro Max、8GB LPDDR5、AV1 解码。",
+    "keywords": [
+      "Apple A17 Pro",
+      "A17 Pro",
+      "iPhone 15 Pro",
+      "3nm N3B",
+      "hardware ray tracing",
+      "35 TOPS NE",
+      "USB 3",
+      "AV1"
+    ],
+    "specs": {
+      "architecture": "Apple A-Series (iPhone 移动 SoC)",
+      "process": "TSMC 3nm (N3B) — 全球首款 3nm 芯片",
+      "memory": {
+        "capacity": "8 GB LPDDR5",
+        "bandwidth": "~51.2 GB/s（8 GB @ 6400 MT/s）"
+      },
+      "tdp": "~8-10 W（iPhone 持续负载）",
+      "release": "2023-09-12"
+    }
+  },
+  {
+    "id": "apple-a18",
+    "title": "Apple A18 (iPhone 16 入门 AI 芯片)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-a18",
+    "description": "Apple A18 详尽规格：3nm N3E 第二代、6 核 CPU + 5 核 GPU（硬件光追）+ 16 核 NE 35 TOPS、iPhone 16/16 Plus/16e/MacBook Neo、Apple Intelligence。",
+    "keywords": [
+      "Apple A18",
+      "A18",
+      "iPhone 16",
+      "5-core GPU",
+      "8 GB RAM",
+      "3nm N3E",
+      "Apple Intelligence",
+      "MacBook Neo"
+    ],
+    "specs": {
+      "architecture": "Apple A-Series (iPhone 移动 SoC)",
+      "process": "TSMC 第二代 3nm (N3E)",
+      "memory": {
+        "capacity": "8 GB LPDDR5（17% more 内存带宽）",
+        "bandwidth": "~51.2 GB/s（8 GB @ 6400 MT/s）"
+      },
+      "tdp": "~8 W（iPhone 持续负载）",
+      "release": "2024-09-09"
+    }
+  },
+  {
+    "id": "apple-a18-pro",
+    "title": "Apple A18 Pro (Mobile NPU 35 TOPS, iPhone 16 Pro)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-a18-pro",
+    "description": "Apple A18 Pro 详尽规格：3nm、6 核 CPU、6 核 GPU、35 TOPS NPU、iPhone 16 Pro、Apple Intelligence 端侧 LLM。",
+    "keywords": [
+      "Apple A18 Pro",
+      "A18 Pro",
+      "35 TOPS",
+      "iPhone 16 Pro",
+      "Apple Intelligence",
+      "端侧 LLM",
+      "3nm"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (A18 Pro, 移动 SoC)",
+      "process": "TSMC 第二代 3nm (N3E)",
+      "memory": {
+        "capacity": "8GB LPDDR5X",
+        "bandwidth": "51.2 GB/s"
+      },
+      "tdp": "~8-10W（业界最高能效 AI 芯片之一）",
+      "release": "iPhone 16 Pro / Pro Max 2024-09-20"
+    }
+  },
+  {
+    "id": "apple-a19",
+    "title": "Apple A19 (iPhone 17 入门 AI 芯片)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-a19",
+    "description": "Apple A19 详尽规格：3nm N3P、6 核 CPU + 5 核 GPU（Neural Accelerators）+ 16 核 NE、8 GB LPDDR5X、iPhone 17/17e、Apple Intelligence。",
+    "keywords": [
+      "Apple A19",
+      "A19",
+      "iPhone 17",
+      "5-core GPU",
+      "8 GB RAM",
+      "3nm N3P",
+      "Apple Intelligence"
+    ],
+    "specs": {
+      "architecture": "Apple A-Series (iPhone 移动 SoC)",
+      "process": "TSMC 第三代 3nm (N3P)",
+      "memory": {
+        "capacity": "8 GB LPDDR5X",
+        "bandwidth": "~51.2 GB/s（8 GB @ 6400 MT/s）"
+      },
+      "tdp": "~8 W（iPhone 持续负载）",
+      "release": "2025-09-09"
+    }
+  },
+  {
+    "id": "apple-a19-pro",
+    "title": "Apple A19 Pro (iPhone 17 Pro 35+ TOPS 端侧 LLM)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-a19-pro",
+    "description": "Apple A19 Pro 详尽规格：3nm N3P、6 核 CPU + 6 核 GPU（Neural Accelerators）+ 16 核 NE 35+ TOPS、iPhone 17 Pro Max、Apple Intelligence 端侧 3B LLM 30+ tok/s。",
+    "keywords": [
+      "Apple A19 Pro",
+      "A19 Pro",
+      "iPhone 17 Pro",
+      "Neural Engine 35 TOPS",
+      "Apple Intelligence",
+      "端侧 LLM",
+      "3nm N3P"
+    ],
+    "specs": {
+      "architecture": "Apple A-Series (iPhone 移动 SoC)",
+      "process": "TSMC 第三代 3nm (N3P)",
+      "memory": {
+        "capacity": "12 GB LPDDR5X（iPhone Air 也是 12 GB）"
+      },
+      "tdp": "~8-10 W（iPhone 持续负载）",
+      "release": "2025-09-09"
+    }
+  },
+  {
+    "id": "apple-m-series",
+    "title": "Apple M-Series (M2/M3/M4 Max/Ultra)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m-series",
+    "description": "Apple Silicon M2/M3/M4 Max/Ultra 详尽规格：统一内存架构、Neural Engine、能效比、本地 LLM 推理。",
+    "keywords": [
+      "Apple M2 Ultra",
+      "Apple M3 Ultra",
+      "Apple M4 Max",
+      "Apple Silicon",
+      "Neural Engine",
+      "统一内存",
+      "本地 LLM"
+    ],
+    "specs": {
+      "memory": {
+        "capacity": "32-96 GB LPDDR5",
+        "bandwidth": "400 GB/s"
+      },
+      "process": "TSMC 5nm",
+      "tdp": "60-90 W",
+      "release": "2023-01"
+    }
+  },
+  {
+    "id": "apple-m1-max",
+    "title": "Apple M1 Max (MacBook Pro 2021 64GB UMA 400 GB/s)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m1-max",
+    "description": "Apple M1 Max 详尽规格：5nm N5、10 核 CPU、32 核 GPU、400 GB/s 内存带宽、64GB UMA、双 ProRes 引擎、MacBook Pro 16\" 2021。",
+    "keywords": [
+      "Apple M1 Max",
+      "M1 Max",
+      "32 核 GPU",
+      "400 GB/s",
+      "64GB UMA",
+      "MacBook Pro 16 2021",
+      "ProRes"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M1 Max 单芯片)",
+      "process": "TSMC 5nm (N5)",
+      "memory": {
+        "capacity": "32GB / 64GB LPDDR5",
+        "bandwidth": "400 GB/s（M1 50 GB/s 的 8×、M1 Pro 200 GB/s 的 2×）"
+      },
+      "tdp": "~30-60W（笔记本）",
+      "release": "2021-10-26"
+    }
+  },
+  {
+    "id": "apple-m1-pro",
+    "title": "Apple M1 Pro (MacBook Pro 2021 32GB UMA 200 GB/s)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m1-pro",
+    "description": "Apple M1 Pro 详尽规格：5nm N5、10 核 CPU (8P+2E)、16 核 GPU、200 GB/s 内存带宽、16/32GB UMA、MacBook Pro 14\"/16\" 2021、Apple Silicon 第二代。",
+    "keywords": [
+      "Apple M1 Pro",
+      "M1 Pro",
+      "10 核 CPU",
+      "16 核 GPU",
+      "200 GB/s",
+      "MacBook Pro 2021",
+      "Apple Silicon"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M1 Pro 单芯片)",
+      "process": "TSMC 5nm (N5)",
+      "memory": {
+        "capacity": "16GB / 32GB LPDDR5",
+        "bandwidth": "200 GB/s（M1 50 GB/s 的 4×）"
+      },
+      "tdp": "~30W（笔记本）",
+      "release": "2021-10-26"
+    }
+  },
+  {
+    "id": "apple-m1-ultra",
+    "title": "Apple M1 Ultra (128GB UMA 统一内存)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m1-ultra",
+    "description": "Apple M1 Ultra 详尽规格：64 核 GPU、20 核 CPU、128GB 统一内存、Apple Silicon 第一代 Ultra、2022 WWDC。",
+    "keywords": [
+      "Apple M1 Ultra",
+      "M1 Ultra",
+      "64 核 GPU",
+      "128GB UMA",
+      "UltraFusion 1.0",
+      "800 GB/s",
+      "Mac Studio"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M1 Max × 2, UltraFusion 1.0)",
+      "process": "TSMC 5nm",
+      "memory": {
+        "capacity": "64GB / 128GB LPDDR5",
+        "bandwidth": "800 GB/s"
+      },
+      "tdp": "60-120 W",
+      "release": "2022-03-18（Mac Studio 首发）"
+    }
+  },
+  {
+    "id": "apple-m2-max",
+    "title": "Apple M2 Max (96GB UMA 统一内存)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m2-max",
+    "description": "Apple M2 Max 详尽规格：12 核 CPU、38 核 GPU、96GB LPDDR5、400 GB/s、15.8 TOPS NE、Apple Silicon 第二代高性能。",
+    "keywords": [
+      "Apple M2 Max",
+      "M2 Max",
+      "38 核 GPU",
+      "96GB UMA",
+      "400 GB/s",
+      "15.8 TOPS NE",
+      "MacBook Pro"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M2 Max 单芯片，非 UltraFusion)",
+      "process": "TSMC 第二代 5nm (N5P)",
+      "memory": {
+        "capacity": "32GB / 64GB / 96GB LPDDR5",
+        "bandwidth": "400 GB/s"
+      },
+      "tdp": "60-90 W（笔记本） / 100-150 W（Mac Studio）",
+      "release": "2023-01-17"
+    }
+  },
+  {
+    "id": "apple-m2-ultra",
+    "title": "Apple M2 Ultra (192GB UMA 统一内存)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m2-ultra",
+    "description": "Apple M2 Ultra 详尽规格：76 核 GPU、24 核 CPU、192GB 统一内存、800 GB/s 带宽、本地 70B LLM 推理。",
+    "keywords": [
+      "Apple M2 Ultra",
+      "M2 Ultra",
+      "76 核 GPU",
+      "192GB UMA",
+      "800 GB/s",
+      "本地 LLM",
+      "Mac Studio"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M2 Max × 2, UltraFusion)",
+      "process": "TSMC 第二代 5nm (N5P)",
+      "memory": {
+        "capacity": "64GB / 128GB / 192GB LPDDR5",
+        "bandwidth": "800 GB/s"
+      },
+      "tdp": "100-215 W（取决于负载）",
+      "release": "2023-06-05（WWDC 2023）"
+    }
+  },
+  {
+    "id": "apple-m3-max",
+    "title": "Apple M3 Max (128GB UMA 统一内存)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m3-max",
+    "description": "Apple M3 Max 详尽规格：16 核 CPU、40 核 GPU、128GB LPDDR5、400 GB/s、18 TOPS NE、Apple Silicon 第三代高性能。",
+    "keywords": [
+      "Apple M3 Max",
+      "M3 Max",
+      "40 核 GPU",
+      "128GB UMA",
+      "400 GB/s",
+      "18 TOPS NE",
+      "MacBook Pro"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M3 Max 单芯片，非 UltraFusion)",
+      "process": "TSMC 3nm (N3)",
+      "memory": {
+        "capacity": "36GB / 64GB / 128GB LPDDR5",
+        "bandwidth": "400 GB/s（36GB / 64GB 版本）"
+      },
+      "tdp": "56-78 W（笔记本） / 100-150 W（Mac Studio）",
+      "release": "2023-10-30"
+    }
+  },
+  {
+    "id": "apple-m3-ultra",
+    "title": "Apple M3 Ultra (192GB UMA 统一内存)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m3-ultra",
+    "description": "Apple M3 Ultra 详尽规格：80 核 GPU、32 核 CPU、192GB 统一内存、本地 70B+ LLM 推理。",
+    "keywords": [
+      "Apple M3 Ultra",
+      "M3 Ultra",
+      "80 核 GPU",
+      "192GB UMA",
+      "本地 LLM",
+      "Mac Studio"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M3 Max × 2, UltraFusion)",
+      "process": "TSMC 3nm",
+      "memory": {
+        "capacity": "96GB / 192GB / 256GB LPDDR5",
+        "bandwidth": "800 GB/s"
+      },
+      "tdp": "90-215 W（取决于负载）",
+      "release": "2023-12"
+    }
+  },
+  {
+    "id": "apple-m4-max",
+    "title": "Apple M4 Max (128GB UMA 统一内存)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m4-max",
+    "description": "Apple M4 Max 详尽规格：16 核 CPU、40 核 GPU、128GB LPDDR5X、546 GB/s 带宽、38 TOPS NE、Apple Silicon 工作站。",
+    "keywords": [
+      "Apple M4 Max",
+      "M4 Max",
+      "40 核 GPU",
+      "128GB UMA",
+      "546 GB/s",
+      "Apple Intelligence",
+      "MacBook Pro"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M4 Max 单芯片，非 UltraFusion)",
+      "process": "TSMC 第二代 3nm (N3E)",
+      "memory": {
+        "capacity": "36GB / 64GB / 128GB LPDDR5X",
+        "bandwidth": "546 GB/s（409.6 GB/s 36GB, 410 GB/s 64GB, 546 GB/s 128GB）"
+      },
+      "tdp": "70-100 W（笔记本） / 100-150 W（Mac Studio）",
+      "release": "2024-10-28"
+    }
+  },
+  {
+    "id": "apple-m4-pro",
+    "title": "Apple M4 Pro (64GB UMA 273 GB/s 工作站)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m4-pro",
+    "description": "Apple M4 Pro 详尽规格：12/14 核 CPU、16/20 核 GPU、64GB LPDDR5X、273 GB/s 带宽、38 TOPS NE、Thunderbolt 5、Mac mini / MacBook Pro 工作站。",
+    "keywords": [
+      "Apple M4 Pro",
+      "M4 Pro",
+      "14 核 CPU",
+      "20 核 GPU",
+      "64GB UMA",
+      "273 GB/s",
+      "Thunderbolt 5",
+      "Mac mini",
+      "MacBook Pro"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M4 Pro 单芯片)",
+      "process": "TSMC 第二代 3nm (N3E)",
+      "memory": {
+        "capacity": "24GB / 48GB / 64GB LPDDR5X 8533 MT/s",
+        "bandwidth": "273 GB/s（比 M3 Pro 提升 75%，比任何 AI PC 芯片快 2×）"
+      },
+      "tdp": "38W（12C/16C 版） / 46W（14C/20C 版）",
+      "release": "2024-10-28"
+    }
+  },
+  {
+    "id": "apple-m4-ultra",
+    "title": "Apple M4 Ultra (256GB UMA 统一内存，2025-Q4 推测)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m4-ultra",
+    "description": "Apple M4 Ultra 详尽规格（推测）：32 核 CPU、80+ 核 GPU、256GB LPDDR5X、819 GB/s 带宽、Apple Silicon AI 终极形态。",
+    "keywords": [
+      "Apple M4 Ultra",
+      "M4 Ultra",
+      "256GB UMA",
+      "Apple Silicon",
+      "Mac Studio",
+      "Apple Intelligence",
+      "本地 LLM"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M4 Max × 2, UltraFusion)",
+      "process": "TSMC 第二代 3nm (N3E)",
+      "memory": {
+        "capacity": "128GB / 192GB / 256GB LPDDR5X",
+        "bandwidth": "819 GB/s（LPDDR5X 102.4 GB/s × 8）"
+      },
+      "tdp": "~200 W（推测）"
+    }
+  },
+  {
+    "id": "apple-m5-ultra",
+    "title": "Apple M5 Ultra (2026 H2 推测)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/apple-m5-ultra",
+    "description": "Apple M5 Ultra 详尽规格（推测）：2nm、384GB UMA、1 TB/s 带宽、Apple Silicon 第五代、装 200B+ LLM。",
+    "keywords": [
+      "Apple M5 Ultra",
+      "M5 Ultra",
+      "2nm",
+      "384GB UMA",
+      "1 TB/s",
+      "Apple Silicon 第五代",
+      "2026 推测"
+    ],
+    "specs": {
+      "architecture": "Apple Silicon (M5 Max × 2, UltraFusion)",
+      "process": "TSMC 2nm (N2)",
+      "memory": {
+        "capacity": "192GB / 256GB / 384GB LPDDR6",
+        "bandwidth": "~1 TB/s（LPDDR6 9.6 Gbps × 16 channel × 8 byte）"
+      },
+      "tdp": "~250 W"
+    }
+  },
+  {
+    "id": "biren-br104",
+    "title": "Biren 壁仞 BR100 / BR104 (国产 AI 训练/推理)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/biren-br104",
+    "description": "壁仞科技 BR100/BR104：7nm、BR100 BF16 1024 TFLOPS/INT8 2048 TOPS、BR104 32GB HBM2e 300W、BIRENSUPA 软件栈、国产 AI 创业五虎。2025年1月港交所上市。",
+    "keywords": [
+      "Biren",
+      "壁仞",
+      "BR100",
+      "BR104",
+      "国产 AI 芯片",
+      "BIRENSUPA",
+      "国产替代",
+      "港交所上市"
+    ],
+    "specs": {
+      "architecture": "壁立仞（Biren 自研 ISA）",
+      "process": "TSMC 7nm",
+      "compute": {
+        "int8": "2048 TOPS",
+        "fp32": "256 TFLOPS"
+      },
+      "tdp": "300 W",
+      "release": "2022-08"
+    }
+  },
+  {
+    "id": "blaize-xplorer",
+    "title": "Blaize Xplorer X1600 (Edge AI, 7K TOPS/W)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/blaize-xplorer",
+    "description": "Blaize Xplorer X1600 详尽规格：16nm、160 TOPS INT8、22W、7K TOPS/W 能效、Graph Streaming Processor 架构、Edge AI 极致能效。",
+    "keywords": [
+      "Blaize",
+      "Xplorer X1600",
+      "Edge AI",
+      "GSP",
+      "Graph Streaming Processor",
+      "7K TOPS/W",
+      "160 TOPS",
+      "22W"
+    ],
+    "specs": {
+      "architecture": "Blaize GSP（Graph Streaming Processor）",
+      "process": "TSMC 16nm",
+      "memory": {
+        "bandwidth": "51.2 GB/s"
+      },
+      "compute": {
+        "int8": "160 TOPS",
+        "fp16": "80 TFLOPS"
+      },
+      "tdp": "22 W（业界最低 TDP 的高 TOPS AI 芯片之一）"
+    }
+  },
+  {
+    "id": "cambricon-mlu",
+    "title": "Cambricon 寒武纪 MLU 590 (国产 AI 训练/推理)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/cambricon-mlu",
+    "description": "寒武纪 MLU 590 详尽规格：7nm、256 TOPS INT8、96GB HBM2、MindSpore 框架、科创板上市、AI 国家队主力。",
+    "keywords": [
+      "Cambricon",
+      "寒武纪",
+      "MLU 590",
+      "国产 AI 芯片",
+      "MindSpore",
+      "科创板",
+      "AI 国家队"
+    ],
+    "specs": {
+      "architecture": "Cambricon MLU 第五代（MLUv05）",
+      "process": "TSMC 7nm（含部分 SMIC 国产化）",
+      "memory": {
+        "bandwidth": "600 GB/s"
+      },
+      "compute": {
+        "int8": "256 TOPS",
+        "fp32": "62.5 TFLOPS"
+      },
+      "tdp": "~250 W"
+    }
+  },
+  {
+    "id": "cambricon-mlu-370",
+    "title": "Cambricon 寒武纪 MLU 370 (2021)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/cambricon-mlu-370",
+    "description": "寒武纪 MLU 370 详尽规格：7nm、96 INT8 TOPS、48GB HBM2、35W、2021 训练 + 推理、MLU 590 前代。",
+    "keywords": [
+      "Cambricon MLU 370",
+      "寒武纪 思元 370",
+      "7nm",
+      "48GB HBM2",
+      "96 TOPS",
+      "35W",
+      "国产 AI",
+      2021
+    ],
+    "specs": {
+      "architecture": "Cambricon MLUv04（第四代）",
+      "process": "TSMC 7nm",
+      "memory": {
+        "bandwidth": "614 GB/s"
+      },
+      "compute": {
+        "int8": "96 TOPS",
+        "fp32": "24 TFLOPS"
+      },
+      "tdp": "35W（业界最节能 7nm 数据中心 AI）"
+    }
+  },
+  {
+    "id": "cambricon-mlu-690",
+    "title": "Cambricon 寒武纪 MLU 690 (2025-2026 推测)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/cambricon-mlu-690",
+    "description": "寒武纪 MLU 690 详尽规格（推测）：5nm、2 PF FP8 dense、192GB HBM3E、MLU 590 2× 性能、国产下一代 AI。",
+    "keywords": [
+      "Cambricon MLU 690",
+      "寒武纪",
+      "5nm",
+      "FP8",
+      "HBM3E",
+      "国产下一代",
+      "2025-2026 推测"
+    ],
+    "specs": {
+      "architecture": "Cambricon MLUv07（第七代）",
+      "process": "TSMC 5nm / SMIC 5nm 国产化（推测）",
+      "memory": {
+        "bandwidth": "5 TB/s"
+      },
+      "compute": {
+        "int8": "4 POPS"
+      },
+      "tdp": "~500W"
+    }
+  },
+  {
+    "id": "enflame-t20",
+    "title": "Enflame 燧原 云燧 T20 (2021)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/enflame-t20",
+    "description": "燧原 云燧 T20 详尽规格：邃思 2.0 芯片，2.5D 封装，TF32 160 TFLOPS，INT8 320 TOPS，64GB HBM2E，1.8 TB/s，GCU-LARE 互联，2021 年发布",
+    "keywords": [
+      "燧原 T20",
+      "云燧T20",
+      "邃思2.0",
+      "Enflame",
+      "国产AI训练",
+      "TF32 160TFLOPS",
+      "64GB HBM2E",
+      "GCU-LARE",
+      2021
+    ],
+    "specs": {
+      "architecture": "自研 GCU-CARA 全域计算架构",
+      "process": "未公开（行业推测 12nm）",
+      "compute": {
+        "fp32": "40 TFLOPS",
+        "int8": "320 TOPS"
+      },
+      "memory": {
+        "capacity": "64GB HBM2E（三星，国内首款支持）",
+        "bandwidth": "1.8 TB/s（芯片级）"
+      },
+      "release": "2021 年 7 月 7 日（WAIC 2021）",
+      "tdp": "未公开"
+    }
+  },
+  {
+    "id": "esperanto-et-soc-1",
+    "title": "Esperanto ET-SoC-1 (RISC-V 异构 AI)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/esperanto-et-soc-1",
+    "description": "Esperanto ET-SoC-1 详尽规格：7nm、1300+ RISC-V 核、INT8 推理、低功耗、ET-Minion + ET-Maxion 异构。",
+    "keywords": [
+      "Esperanto",
+      "ET-SoC-1",
+      "RISC-V AI",
+      "异构 AI",
+      "ET-Minion",
+      "ET-Maxion",
+      "1300 核"
+    ],
+    "specs": {
+      "architecture": "Esperanto ET-SoC-1（异构 RISC-V）",
+      "process": "TSMC 7nm",
+      "memory": {
+        "bandwidth": "410 GB/s"
+      },
+      "compute": {
+        "int8": "42 TOPS",
+        "fp16": "21 TFLOPS",
+        "fp32": "10.5 TFLOPS"
+      },
+      "tdp": "~75 W"
+    }
+  },
+  {
+    "id": "furiosaai-rngd",
+    "title": "FuriosaAI RNGD (韩国 AI 推理, 2024)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/furiosaai-rngd",
+    "description": "FuriosaAI RNGD 详尽规格：5nm、512 GB HBM3、200K tokens/s LLM 推理、KT / 韩国电信 / 阿拉伯云客户、韩国 AI 芯片代表。",
+    "keywords": [
+      "FuriosaAI",
+      "RNGD",
+      "韩国 AI",
+      "5nm",
+      "HBM3",
+      "200K tokens/s",
+      "KT 客户",
+      "韩国 AI 创业"
+    ],
+    "specs": {
+      "architecture": "FuriosaAI TCP（Tensor Contraction Processor）",
+      "process": "TSMC 5nm",
+      "memory": {
+        "bandwidth": "~6.4 TB/s"
+      },
+      "compute": {
+        "int8": "1 POPS"
+      },
+      "tdp": "~450W"
+    }
+  },
+  {
+    "id": "graphcore-ipu",
+    "title": "Graphcore IPU (Bow)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/graphcore-ipu",
+    "description": "Graphcore Bow IPU 详尽规格：1472 处理器核心、900MB SRAM、MIMD 架构，2024 年公司已出售。",
+    "keywords": [
+      "Graphcore",
+      "IPU",
+      "Bow",
+      "MIMD 架构",
+      "已被收购"
+    ],
+    "specs": {
+      "architecture": "GC200 IPU（MIMD）",
+      "process": "TSMC 7nm",
+      "compute": {
+        "fp32": "350 TFLOPS（稀疏）",
+        "fp16": "350 TFLOPS",
+        "int8": "700 TOPS"
+      },
+      "tdp": "185 W"
+    }
+  },
+  {
+    "id": "groq-lpu",
+    "title": "Groq LPU",
+    "vendor": "others",
+    "slug": "/docs/cards/others/groq-lpu",
+    "description": "Groq LPU (Language Processing Unit) 详尽规格：1,000 TOPS INT8 估算、228MB SRAM、确定性低延迟 LLM 推理。",
+    "keywords": [
+      "Groq LPU",
+      "Language Processing Unit",
+      "LLM 推理",
+      "低延迟",
+      "GroqCloud"
+    ],
+    "specs": {
+      "architecture": "Tensor Streaming Processor (TSP)",
+      "process": "TSMC 14nm",
+      "compute": {
+        "fp16": "188 TFLOPS（官方）"
+      },
+      "tdp": "300 W（系统级）"
+    }
+  },
+  {
+    "id": "groq-lpu-v2",
+    "title": "Groq LPU v2 (LPU Inference, 2024)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/groq-lpu-v2",
+    "description": "Groq LPU v2 详尽规格：4nm、188 TOPS INT8、80GB SRAM、15 TB/s 带宽、TSMC 4nm、200W、2024 LPU 旗舰。",
+    "keywords": [
+      "Groq LPU v2",
+      "Groq Language Processing Unit",
+      "4nm",
+      "80GB SRAM",
+      "15 TB/s",
+      "LPU 第二代",
+      "GroqCloud"
+    ],
+    "specs": {
+      "architecture": "Groq LPU v2（deterministic dataflow）",
+      "process": "TSMC 4nm",
+      "memory": {
+        "type": "SRAM（片上）",
+        "bandwidth": "15 TB/s（业界最高 LPU 带宽）"
+      },
+      "compute": {
+        "int8": "188 TOPS",
+        "fp16": "94 TFLOPS"
+      },
+      "tdp": "200 W（业界能效比最高的推理芯片之一）"
+    }
+  },
+  {
+    "id": "hailo",
+    "title": "Hailo-8 / Hailo-8L / Hailo-15",
+    "vendor": "others",
+    "slug": "/docs/cards/others/hailo",
+    "description": "Hailo-8/Hailo-8L/Hailo-15 边缘 AI 加速器详尽规格：26-40 TOPS INT8、低功耗、视觉 AI 推理。",
+    "keywords": [
+      "Hailo-8",
+      "Hailo-8L",
+      "Hailo-15",
+      "边缘 AI",
+      "视觉推理",
+      "26 TOPS",
+      "40 TOPS"
+    ],
+    "specs": {}
+  },
+  {
+    "id": "hailo-15",
+    "title": "Hailo-15 (7-20 TOPS 智能摄像头 AI 视觉 SoC)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/hailo-15",
+    "description": "Hailo-15 详尽规格：7/11/20 TOPS INT8 视觉 AI SoC、AI-ISP 降噪 < 0.01 LUX、4K30、5W、四核 ARM A53、Qwen 2.5-VL 3B VLM、智能摄像头应用。",
+    "keywords": [
+      "Hailo-15",
+      "Hailo",
+      "AI 视觉处理器",
+      "20 TOPS",
+      "智能摄像头",
+      "AI-ISP",
+      "4K30",
+      "Qwen 2.5-VL"
+    ],
+    "specs": {
+      "architecture": "Hailo 结构化数据流（Structure-Defined Dataflow）NN Core + ARM A53 应用处理器",
+      "process": "推测 12nm 或 7nm",
+      "memory": {
+        "capacity": "LPDDR4/4X 32-bit @ 4266 MT/s（H）/ 3200 MT/s（L）"
+      }
+    }
+  },
+  {
+    "id": "hbm-pim",
+    "title": "Samsung HBM-PIM (Aquabolt-XL, 存算一体)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/hbm-pim",
+    "description": "Samsung HBM-PIM (Processing-in-Memory) 详尽规格：Aquabolt-XL、FP16 算力集成 HBM、2× 性能、能效提升。",
+    "keywords": [
+      "Samsung HBM-PIM",
+      "Aquabolt",
+      "Processing-in-Memory",
+      "PIM",
+      "存算一体",
+      "HBM-PIM",
+      "CXL"
+    ],
+    "specs": {
+      "architecture": "HBM-PIM (Processing-in-Memory)",
+      "process": "HBM: 1y nm DRAM / Logic: 4nm",
+      "memory": {
+        "bandwidth": "307 GB/s（传统）+ PIM 内部 1 TB/s+"
+      },
+      "tdp": "+10%（vs 传统 HBM，集成 PIM 仅小幅增加）",
+      "release": "2021-02（Aquabolt）/ 2022-12（XL）"
+    }
+  },
+  {
+    "id": "hygon-dcu-k100",
+    "title": "Hygon 海光 DCU K100 AI 版 (2024)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/hygon-dcu-k100",
+    "description": "海光 DCU K100 AI 版详尽规格：x86 兼容 GPGPU，FP16/BF16 192 TFLOPS，INT8 392 TOPS，40GB HBM2e，DTK 生态兼容 CUDA，国产 AI 数据中心加速卡",
+    "keywords": [
+      "海光 DCU K100",
+      "Hygon DCU K100",
+      "深算三号",
+      "GPGPU",
+      "x86",
+      "192 TFLOPS",
+      "40GB HBM2e",
+      "国产 AI",
+      "DTK",
+      "CUDA兼容"
+    ],
+    "specs": {
+      "architecture": "自研 GPGPU，x86 指令集兼容",
+      "process": "先进制程（推测 7nm，官方未公开）",
+      "compute": {
+        "fp32": "49 TFLOPS",
+        "int8": "392 TOPS"
+      },
+      "memory": {
+        "bandwidth": "1.2 TB/s（读取，双环形总线，实测利用率 92%+）"
+      },
+      "tdp": "约 300-400W（实测数据未公开）"
+    }
+  },
+  {
+    "id": "ibm-northpole",
+    "title": "IBM NorthPole (In-Memory Compute, 2023)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/ibm-northpole",
+    "description": "IBM NorthPole 详尽规格：22nm、458 TOPS INT8、75W、In-Memory Compute、原研 TrueNorth 后裔、Science 2023 论文。",
+    "keywords": [
+      "IBM NorthPole",
+      "In-Memory Compute",
+      "神经形态",
+      "22nm",
+      "458 TOPS",
+      "TrueNorth",
+      "IBM Research",
+      "Science 2023"
+    ],
+    "specs": {
+      "architecture": "IBM NorthPole（In-Memory Compute）",
+      "process": "IBM 22nm SOI（Samsung/Samsung 11nm 推测 2026）",
+      "memory": {
+        "bandwidth": "2.5 TB/s（片上 SRAM）"
+      },
+      "compute": {
+        "int8": "458 TOPS",
+        "fp16": "~110 TFLOPS"
+      },
+      "tdp": "75 W"
+    }
+  },
+  {
+    "id": "kunlun-m100",
+    "title": "Kunlun 昆仑芯 M100 (2026)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/kunlun-m100",
+    "description": "昆仑芯 M100：2025-11 百度世界大会发布，面向大规模 AI 推理（MoE 优化），计划 2026 年初上市。详细规格待公布。",
+    "keywords": [
+      "昆仑芯 M100",
+      "Kunlun M100",
+      "百度",
+      "AI推理",
+      "MoE",
+      2026,
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "自研架构（具体代号未公开）",
+      "process": "未公开",
+      "memory": {
+        "type": "未公开",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开",
+      "release": "2025 年 11 月 13 日（百度世界大会）"
+    }
+  },
+  {
+    "id": "kunlun-p800",
+    "title": "Kunlun 昆仑芯 P800 (2024)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/kunlun-p800",
+    "description": "昆仑芯 P800 详尽规格：自研 XPU-P 架构，FP16 345 TFLOPS（超越 NVIDIA H20），400W，OAM 形态，2024 年上市，国产 AI 训练/推理加速卡",
+    "keywords": [
+      "昆仑芯 P800",
+      "Kunlun P800",
+      "百度",
+      "XPU-P",
+      "345 TFLOPS",
+      "FP16",
+      "国产 AI",
+      "万卡集群",
+      "DeepSeek",
+      2024
+    ],
+    "specs": {
+      "architecture": "自研 XPU-P 架构",
+      "compute": {
+        "fp16": "345 TFLOPS（超越 H20 148 TFLOPS）",
+        "int8": "支持 8-bit 推理（具体 TOPS 未公开）"
+      },
+      "tdp": "~400W"
+    }
+  },
+  {
+    "id": "lightelligence",
+    "title": "Lightelligence 光启元 / 天机芯 (硟光 AI 加速器)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/lightelligence",
+    "description": "Lightelligence 天机芯 详尽规格：7nm、1.6 PF FP16、100W、光子矩阵计算、中科院 + 清华孵化、硟光三巨头。",
+    "keywords": [
+      "Lightelligence",
+      "天机芯",
+      "硟光",
+      "光学 AI",
+      "1.6 PF",
+      "中科院",
+      "硟光三巨头"
+    ],
+    "specs": {
+      "architecture": "Lightelligence 天机芯（Optical Matrix Multiplication）",
+      "process": "TSMC 7nm（光子 + 电子混合）"
+    }
+  },
+  {
+    "id": "lightmatter-envise",
+    "title": "Lightmatter Envise (硅光 AI 推理芯片)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/lightmatter-envise",
+    "description": "Lightmatter Envise 详尽规格：3nm、2 PF FP16、65W、硅光计算、MIPS 处理器、光子互连、8 卡 16 PF。",
+    "keywords": [
+      "Lightmatter",
+      "Envise",
+      "硅光",
+      "silicon photonics",
+      "光学计算",
+      "2 PF",
+      "65W",
+      "8 卡"
+    ],
+    "specs": {
+      "architecture": "Lightmatter Passage 硅光（光电混合）",
+      "process": "TSMC 3nm",
+      "memory": {
+        "bandwidth": "1.6 TB/s"
+      },
+      "compute": {
+        "fp16": "2 PFLOPS",
+        "fp32": "~1 PFLOPS",
+        "int8": "4 POPS"
+      },
+      "tdp": "65 W（业界最低 AI 推理 TDP 之一）"
+    }
+  },
+  {
+    "id": "lighton",
+    "title": "LightOn (法国硟光 AI 推理)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/lighton",
+    "description": "LightOn 详尽规格：硟光 AI 推理、1.2 PF FP16、80W、Alfred 平台、欧洲硟光三巨头之一。",
+    "keywords": [
+      "LightOn",
+      "Alfred",
+      "硟光",
+      "法国 AI",
+      "photonic computing",
+      "1.2 PF",
+      "EU AI"
+    ],
+    "specs": {
+      "architecture": "LightOn Alfred（Optical Processing Unit）",
+      "process": "混合：硅光工艺 + 标准 CMOS 控制器"
+    }
+  },
+  {
+    "id": "mediatek-dimensity-9400",
+    "title": "MediaTek Dimensity 9400 (Cortex-X925 NPU 890 Agentic AI)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/mediatek-dimensity-9400",
+    "description": "MediaTek Dimensity 9400 详尽规格：3nm N3E 第二代、8 核 All Big Core（Cortex-X925 @ 3.62 GHz）、Immortalis-G925 MC12 GPU、NPU 890 第八代、Agentic AI、LPDDR5X 10667 Mbps。",
+    "keywords": [
+      "MediaTek Dimensity 9400",
+      "Cortex-X925",
+      "Immortalis-G925",
+      "NPU 890",
+      "Agentic AI",
+      "端侧 LoRA 训练",
+      "端侧视频生成"
+    ],
+    "specs": {
+      "architecture": "ARM v9.2（第二代 3nm All Big Core）",
+      "process": "TSMC 第二代 3nm (N3E)",
+      "memory": {
+        "capacity": "LPDDR5X 10667 Mbps（全球最快手机内存）"
+      },
+      "release": "2024-10-09"
+    }
+  },
+  {
+    "id": "metax-c600",
+    "title": "MetaX 沐曦 曦云 C600 (2025)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-c600",
+    "description": "沐曦 曦云 C600 详尽规格：自研 XCORE 1.5 架构，7nm 国产工艺，FP8 1000 TFLOPS（对标 H100），144GB HBM3e，3.6 TB/s，全国产 GPU，2025 年发布",
+    "keywords": [
+      "MetaX C600",
+      "沐曦",
+      "曦云C600",
+      "XCORE 1.5",
+      "7nm",
+      "144GB HBM3e",
+      "FP8 1000 TFLOPS",
+      "全国产GPU",
+      "MXMACA",
+      "CUDA兼容"
+    ],
+    "specs": {
+      "architecture": "自研 XCORE 1.5（数十个核心 IP）",
+      "process": "7nm（中芯国际国产工艺）",
+      "compute": {
+        "fp8": "1000 TFLOPS（对标 H100 989 TFLOPS）",
+        "fp32": "15 TFLOPS",
+        "int8": "支持（具体 TOPS 未公开）"
+      },
+      "memory": {
+        "bandwidth": "3.6 TB/s"
+      },
+      "tdp": "400W",
+      "release": "2025 年 10 月"
+    }
+  },
+  {
+    "id": "mobilint",
+    "title": "Mobilint Regulus (韩国 NPU, 2023)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/mobilint",
+    "description": "Mobilint Regulus 详尽规格：5nm、32 TOPS INT8、12W、Edge AI + 数据中心、韩国 NPU、对标 H100 推理。",
+    "keywords": [
+      "Mobilint",
+      "Regulus",
+      "韩国 NPU",
+      "5nm",
+      "32 TOPS",
+      "12W",
+      "Edge AI",
+      "韩国 AI 芯片"
+    ],
+    "specs": {
+      "architecture": "Mobilint Aries NPU",
+      "process": "TSMC 5nm",
+      "memory": {
+        "bandwidth": "204 GB/s"
+      },
+      "compute": {
+        "int8": "32 TOPS",
+        "fp16": "16 TFLOPS"
+      },
+      "tdp": "12W（业界最低数据中心 NPU TDP 之一）"
+    }
+  },
+  {
+    "id": "moore-threads-mtt-s5000",
+    "title": "Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/moore-threads-mtt-s5000",
+    "description": "摩尔线程 MTT S5000 详尽规格：7nm、48GB GDDR6、FP32 25 TFLOPS、BF16 50 TFLOPS、MUSA 架构、国产 GPU 训练。",
+    "keywords": [
+      "Moore Threads",
+      "摩尔线程",
+      "MTT S5000",
+      "MUSA",
+      "国产 GPU",
+      "国产 AI 芯片"
+    ],
+    "specs": {
+      "architecture": "MUSA（第四代，平湖）",
+      "process": "TSMC 6nm（推测）",
+      "memory": {
+        "capacity": "80GB GDDR6X",
+        "bandwidth": "1.6 TB/s"
+      },
+      "compute": {
+        "fp32": "62.5 TFLOPS（推测）",
+        "int8": "2,000 TOPS（推测）"
+      },
+      "tdp": "~300 W"
+    }
+  },
+  {
+    "id": "qualcomm-ai-200",
+    "title": "Qualcomm AI 200 / AI 300 (Cloud AI Inference, 2025-2026 推测)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/qualcomm-ai-200",
+    "description": "Qualcomm AI 200/300 详尽规格（推测）：5nm、Cloud AI 推理、NPU 加速器、PyTorch + Qualcomm AI Engine、对标 H200。",
+    "keywords": [
+      "Qualcomm AI 200",
+      "Qualcomm AI 300",
+      "Cloud AI 推理",
+      "AI Engine",
+      "Snapdragon X",
+      "NPU",
+      "数据中心"
+    ],
+    "specs": {
+      "process": "TSMC 5nm",
+      "memory": {
+        "bandwidth": "1.5 TB/s"
+      },
+      "compute": {
+        "int8": "400 TOPS",
+        "fp16": "200 TFLOPS",
+        "fp8": "400 TFLOPS"
+      },
+      "tdp": "150W"
+    }
+  },
+  {
+    "id": "qualcomm-ai100",
+    "title": "Qualcomm Cloud AI 100",
+    "vendor": "others",
+    "slug": "/docs/cards/others/qualcomm-ai100",
+    "description": "Qualcomm Cloud AI 100 详尽规格：400 TOPS INT8、AIC100 编译器、低功耗数据中心推理。",
+    "keywords": [
+      "Qualcomm Cloud AI 100",
+      "Qualcomm AI 100",
+      "AIC100",
+      "400 TOPS",
+      "数据中心推理",
+      "低功耗"
+    ],
+    "specs": {
+      "architecture": "Qualcomm AI Engine（基于 Hexagon）",
+      "process": "TSMC 7nm",
+      "compute": {
+        "int8": "400 TOPS",
+        "fp16": "100 TFLOPS（官方）"
+      },
+      "memory": {
+        "capacity": "16/32/64 GB LPDDR4X",
+        "bandwidth": "51.2 GB/s（16GB）/ 102.4 GB/s（64GB）"
+      },
+      "tdp": "75 W（标准）/ 150 W（高性能模式）"
+    }
+  },
+  {
+    "id": "qualcomm-snapdragon-x-elite",
+    "title": "Qualcomm Snapdragon X Elite (Oryon 12 核 NPU 45 TOPS)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/qualcomm-snapdragon-x-elite",
+    "description": "Qualcomm Snapdragon X Elite 详尽规格：4nm、12 核 Oryon CPU @ 3.8 GHz（boost 4.3 GHz）、Adreno GPU 4.6 TFLOPs、Hexagon NPU 45 TOPS、LPDDR5x 64GB、Copilot+ PC 认证。",
+    "keywords": [
+      "Qualcomm Snapdragon X Elite",
+      "Oryon",
+      "12 核 CPU",
+      "4.3 GHz",
+      "45 TOPS NPU",
+      "Adreno",
+      "Copilot+ PC",
+      "ARM Windows"
+    ],
+    "specs": {
+      "architecture": "4nm TSMC",
+      "memory": {
+        "capacity": "LPDDR5x 8448 MT/s",
+        "bandwidth": "135 GB/s（16-bit 总线，8 通道）"
+      },
+      "tdp": "23W（典型）/ 45W（高性能模式）",
+      "release": "2024-06 上市（首批 Copilot+ PC）"
+    }
+  },
+  {
+    "id": "rebellions-rbln",
+    "title": "Rebellions RBLN / ATOM (韩国 AI 推理, 2024)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/rebellions-rbln",
+    "description": "Rebellions RBLN / ATOM 详尽规格：5nm、16 INT8 TOPS、15-30W、RDU 架构、KT 部署、韩国 AI 双雄。",
+    "keywords": [
+      "Rebellions",
+      "RBLN",
+      "ATOM",
+      "韩国 AI",
+      "RDU",
+      "5nm",
+      "边缘 AI",
+      "KT 部署"
+    ],
+    "specs": {
+      "architecture": "Rebellions RDU（Reconfigurable Dataflow）",
+      "process": "TSMC 5nm",
+      "memory": {
+        "bandwidth": "102 GB/s"
+      },
+      "compute": {
+        "int8": "16 TOPS"
+      },
+      "tdp": "15-30W（风冷，Edge 友好）"
+    }
+  },
+  {
+    "id": "sambanova-sn40l",
+    "title": "SambaNova SN40L",
+    "vendor": "others",
+    "slug": "/docs/cards/others/sambanova-sn40l",
+    "description": "SambaNova SN40L 详尽规格：64GB HBM3、可重构数据流架构（RDU）、企业级 LLM 一体机。",
+    "keywords": [
+      "SambaNova",
+      "SN40L",
+      "RDU",
+      "可重构数据流",
+      "AI 一体机"
+    ],
+    "specs": {
+      "architecture": "RDU（可重构数据流）",
+      "process": "TSMC 7nm",
+      "memory": {
+        "capacity": "64 GB HBM3"
+      }
+    }
+  },
+  {
+    "id": "sn50",
+    "title": "SambaNova SN50 (RDU 第三代, 2026 推测)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/sn50",
+    "description": "SambaNova SN50 详尽规格（推测）：3nm、256GB HBM3E、SN40L 2× 性能、Dataflow 架构、SN40L 继任者。",
+    "keywords": [
+      "SambaNova SN50",
+      "RDU 第三代",
+      "Dataflow",
+      "3nm",
+      "256GB HBM3E",
+      "SN40L 继任"
+    ],
+    "specs": {
+      "architecture": "SambaNova RDU 第三代",
+      "process": "TSMC 3nm (N3)",
+      "memory": {
+        "bandwidth": "~5.5 TB/s（SN40L 3.2 TB/s）"
+      },
+      "compute": {
+        "int8": "6 POPS（推测）"
+      },
+      "tdp": "~700 W"
+    }
+  },
+  {
+    "id": "tenstorrent",
+    "title": "Tenstorrent Grayskull / Wormhole",
+    "vendor": "others",
+    "slug": "/docs/cards/others/tenstorrent",
+    "description": "Tenstorrent Grayskull/Wormhole 详尽规格：Tensix 架构、片上 SRAM、以太网互联、RISC-V 开源生态。",
+    "keywords": [
+      "Tenstorrent",
+      "Tensix",
+      "Wormhole",
+      "Grayskull",
+      "RISC-V",
+      "开源 AI 芯片"
+    ],
+    "specs": {
+      "architecture": "Tensix",
+      "process": "TSMC 12nm",
+      "compute": {
+        "fp32": "~50 TFLOPS",
+        "int8": "~300 TOPS"
+      },
+      "tdp": "75W / 300W"
+    }
+  },
+  {
+    "id": "tenstorrent-blackhole",
+    "title": "Tenstorrent Blackhole (RISC-V 2nd Gen, 2024)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/tenstorrent-blackhole",
+    "description": "Tenstorrent Blackhole 详尽规格：6nm、120 Tensix 核、8GB SRAM、16 BF16 PF 集群、RISC-V 异构、Jim Keller 架构。",
+    "keywords": [
+      "Tenstorrent Blackhole",
+      "RISC-V 2nd gen",
+      "Tensix",
+      "120 核",
+      "8GB SRAM",
+      "16 PF 集群",
+      "Jim Keller"
+    ],
+    "specs": {
+      "architecture": "Tenstorrent Tensix + RISC-V",
+      "process": "TSMC 6nm（vs Wormhole 12nm）",
+      "memory": {
+        "bandwidth": "307 GB/s（LPDDR4X）"
+      },
+      "compute": {
+        "int8": "单卡 4.8 POPS（推测）"
+      },
+      "tdp": "~300W"
+    }
+  },
+  {
+    "id": "tesla-dojo",
+    "title": "Tesla Dojo D1",
+    "vendor": "others",
+    "slug": "/docs/cards/others/tesla-dojo",
+    "description": "Tesla Dojo D1 详尽规格：500 亿晶体管、36.7 TFLOPS BF16、ExaPOD 100 EFLOPs，专为 FSD 视频训练。",
+    "keywords": [
+      "Tesla Dojo",
+      "D1",
+      "自动驾驶训练",
+      "FSD",
+      "晶圆级"
+    ],
+    "specs": {}
+  },
+  {
+    "id": "tesla-dojo-v2",
+    "title": "Tesla Dojo v2 (2025 推测)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/tesla-dojo-v2",
+    "description": "Tesla Dojo v2 详尽规格（推测）：3nm、1 PFLOPS FP8、Dojo 2 训练专用、自研 D1 芯片、2nd Gen Fabric、Robotaxi / FSD 训练。",
+    "keywords": [
+      "Tesla Dojo v2",
+      "Dojo 2",
+      "3nm",
+      "FP8",
+      "D1 芯片",
+      "自研",
+      "FSD",
+      "Robotaxi",
+      "2025 推测"
+    ],
+    "specs": {
+      "architecture": "Tesla D1 第二代",
+      "process": "TSMC 3nm (N3)"
+    }
+  }
+]

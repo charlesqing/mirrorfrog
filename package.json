@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "prestart": "node scripts/generate-data.mjs",
+    "prebuild": "node scripts/generate-data.mjs",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "postbuild": "node scripts/post-build.js",
@@ -22,6 +24,7 @@
     "@easyops-cn/docusaurus-search-local": "^0.55.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "fuse.js": "^7.4.2",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.2.0",
     "prism-react-renderer": "^2.3.0",

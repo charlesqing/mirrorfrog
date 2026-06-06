@@ -1,23 +1,415 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * CSS modules for the documentation-style homepage.
+ * All colors use Docusaurus CSS custom properties so dark/light
+ * theme switching is automatic.
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 2rem 0 1.5rem;
+  text-align: left;
   position: relative;
+  background: linear-gradient(180deg, var(--ifm-background-surface-color) 0%, var(--ifm-background-color) 100%);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .heroBanner { padding: 1.25rem 0 1rem; }
+  .heroTitle { font-size: 1.75rem; }
+  .heroSubtitle { font-size: 0.95rem; }
+}
+
+/* ---------- Search ---------- */
+.searchWrap {
+  position: relative;
+  max-width: 720px;
+  z-index: 9999;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  padding: 0 0.75rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.searchBox:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.searchIcon {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-500);
+  margin-right: 0.5rem;
+  user-select: none;
+}
+
+.searchInput {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0.875rem 0;
+  font-size: 1rem;
+  color: var(--ifm-font-color-base);
+  font-family: inherit;
+}
+
+.searchInput::placeholder {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.searchClear {
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ifm-color-emphasis-500);
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+.searchClear:hover { color: var(--ifm-color-emphasis-800); }
+
+.searchResults {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 9999 !important;
+  max-height: 480px;
+  overflow-y: auto;
+  isolation: isolate;
+  opacity: 1 !important;
+}
+
+[data-theme='dark'] .searchResults {
+  background: #161b22 !important;
+  background-color: #161b22 !important;
+}
+
+.searchList {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+}
+
+.searchList li + li {
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.searchItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none !important;
+  color: var(--ifm-font-color-base) !important;
+  transition: background 0.1s;
+}
+
+.searchItem:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.searchItemTitle {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.searchItemMeta {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  grid-column: 1 / 2;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.searchVendor {
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+}
+
+.searchTag {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+}
+
+.searchArrow {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  color: var(--ifm-color-emphasis-500);
+  font-size: 1.2rem;
+}
+
+.searchEmpty {
+  padding: 1.25rem 1rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+.searchEmpty a {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* ---------- Section ---------- */
+.section {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.sectionDesc {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.sectionDescLink {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.sectionFooter {
+  margin-top: 1rem;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+/* ---------- Hot chips list ---------- */
+.chipList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.chipHeader {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.2fr) minmax(60px, 0.6fr) minmax(80px, 0.8fr) minmax(120px, 1fr) minmax(160px, 1.4fr) 70px;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-emphasis-100);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.buttons {
+.chipRow + .chipRow {
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.chipLink {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.2fr) minmax(60px, 0.6fr) minmax(80px, 0.8fr) minmax(120px, 1fr) minmax(160px, 1.4fr) 70px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  text-decoration: none !important;
+  color: var(--ifm-font-color-base) !important;
+  font-size: 0.9rem;
+  transition: background 0.1s;
+}
+
+.chipLink:hover { background: var(--ifm-color-emphasis-100); }
+
+.chipName {
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.chipVendor {
+  color: var(--ifm-color-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.chipArch {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+}
+
+.chipMem {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.chipBar {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+}
+
+.barWrap { flex: 1; }
+
+.barTrack {
+  display: block;
+  height: 8px;
+  background: var(--ifm-color-emphasis-150);
+  border-radius: 4px;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.chipBw {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.chipTag {
+  display: inline-block;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .chipHeader { display: none; }
+  .chipLink {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.25rem 0.5rem;
+  }
+  .chipName { grid-column: 1; grid-row: 1; }
+  .chipTag { grid-column: 2; grid-row: 1; justify-self: end; }
+  .chipBar { grid-column: 1 / 3; grid-row: 2; }
+  .chipVendor, .chipArch, .chipMem { grid-row: 3; }
+}
+
+/* ---------- News list ---------- */
+.newsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.newsItem + .newsItem {
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.newsLink {
+  display: grid;
+  grid-template-columns: 100px 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none !important;
+  color: var(--ifm-font-color-base) !important;
+  transition: background 0.1s;
+}
+
+.newsLink:hover { background: var(--ifm-color-emphasis-100); }
+
+.newsDate {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.newsTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.newsTags { display: flex; gap: 0.35rem; }
+
+.newsTag {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  color: var(--ifm-color-emphasis-600);
+  background: var(--ifm-color-emphasis-100);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.newsArrow {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .newsLink {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+  .newsDate { grid-column: 1; grid-row: 1; }
+  .newsArrow { grid-column: 2; grid-row: 1; }
+  .newsTitle { grid-column: 1 / 3; grid-row: 2; white-space: normal; }
+  .newsTags { grid-column: 1 / 3; grid-row: 3; }
+}
+
+/* ---------- CTA ---------- */
+.ctaSection {
+  padding: 1.5rem 0 2.5rem;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+.ctaBtn {
+  min-width: 140px;
+}
+
+@media (max-width: 600px) {
+  .ctaBtn { width: 100%; }
 }

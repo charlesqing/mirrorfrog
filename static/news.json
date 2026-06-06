@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Computex 2026 会后观察：AI PC 芯片大战开启，NVIDIA RTX Spark 六月上市",
+    "date": "2026-06-06",
+    "slug": "computex-2026-wrapup-ai-pc-rtx-spark-market-impact",
+    "url": "/blog/computex-2026-wrapup-ai-pc-rtx-spark-market-impact",
+    "description": "Computex 2026 圆满落幕后业界反应：NVIDIA RTX Spark 笔记本六月上市 $1,399 起，Intel 18A Clearwater Forest 投产，AMD Ryzen AI 400 出货。AI PC 元年正式开",
+    "tags": [
+      "新闻",
+      "AI芯片",
+      "GPU",
+      "国产芯片",
+      "news",
+      "product-launch"
+    ]
+  },
+  {
+    "title": "Computex 2026 AI 算力卡大事件：DGX Station for Windows、Intel Crescent Island 等重磅发布",
+    "date": "2026-06-05",
+    "slug": "computex-2026-ai-chip-roundup-dgx-station-crescent-island",
+    "url": "/blog/computex-2026-ai-chip-roundup-dgx-station-crescent-island",
+    "description": "Computex 2026 圆满收官：NVIDIA DGX Station for Windows（20 PFLOPS，748GB 内存）、Intel Crescent Island AI GPU（480GB LPDDR5x）、RTX Sp",
+    "tags": [
+      "新闻",
+      "AI芯片",
+      "product-launch",
+      "news"
+    ]
+  },
+  {
+    "title": "华为昇腾 950 量产与中国 AI 芯片生态全貌",
+    "date": "2026-06-04",
+    "slug": "huawei-ascend-950-mass-production-china-ai-chip-2026",
+    "url": "/blog/huawei-ascend-950-mass-production-china-ai-chip-2026",
+    "description": "华为昇腾 950PR/950DT 正式量产，自研 HBM 突破，中国 AI 芯片产业在 2026 年形成华为、寒武纪、摩尔线程三极格局。",
+    "tags": [
+      "新闻",
+      "AI芯片",
+      "国产芯片",
+      "昇腾",
+      "news"
+    ]
+  },
+  {
+    "title": "2026 H2 顶级 AI 芯片选型指南：从 H100 到 Rubin、MI400、TPU 8t、TPU 8i",
+    "date": "2026-06-01",
+    "slug": "2026-h2-top-ai-chip-selection-guide",
+    "url": "/blog/2026-h2-top-ai-chip-selection-guide",
+    "description": "2026 H2 顶级 AI 芯片完整选型指南：NVIDIA Rubin R200、AMD MI400、TPU 8t/8i、Trainium 3、Ascend 920、Groq 3 LPX。从训练到推理、从 LLM 70B 到 1T+ 模型的",
+    "tags": [
+      "selection",
+      "benchmarks",
+      "cloud-pricing"
+    ]
+  },
+  {
+    "title": "NVIDIA 发布 RTX Spark：AI 算力进入个人电脑时代",
+    "date": "2026-06-01",
+    "slug": "nvidia-rtx-spark-ai-pc-computex-2026",
+    "url": "/blog/nvidia-rtx-spark-ai-pc-computex-2026",
+    "description": "NVIDIA 在 Computex 2026 正式发布 RTX Spark，20 核 Grace CPU + Blackwell GPU，AI 算力 1 PFLOPS，重新定义个人 AI 计算机。",
+    "tags": [
+      "新闻",
+      "GPU",
+      "AI芯片",
+      "product-launch",
+      "news"
+    ]
+  }
+]
