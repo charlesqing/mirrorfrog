@@ -2,7 +2,7 @@
 id: qualcomm-snapdragon-x-elite
 title: Qualcomm Snapdragon X Elite (Oryon 12-core NPU 45 TOPS)
 sidebar_label: Snapdragon X Elite
-description: Qualcomm Snapdragon X Elite detailed specs: 4nm, 12-core Oryon CPU @ 3.8 GHz (boost 4.3 GHz), Adreno GPU 4.6 TFLOPs, Hexagon NPU 45 TOPS, LPDDR5x 64GB, Copilot+ PC certified.
+description: "Qualcomm Snapdragon X Elite detailed specs: 4nm, 12-core Oryon CPU @ 3.8 GHz (boost 4.3 GHz), Adreno GPU 4.6 TFLOPs, Hexagon NPU 45 TOPS, LPDDR5x 64GB, Copilot+ PC certified."
 keywords: [Qualcomm Snapdragon X Elite, Oryon, 12-core CPU, 4.3 GHz, 45 TOPS NPU, Adreno, Copilot+ PC, ARM Windows]
 ---
 

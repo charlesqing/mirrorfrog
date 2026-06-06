@@ -80,6 +80,7 @@ const config: Config = {
           showLastUpdateTime: false,
           postsPerPage: 10,
           archiveBasePath: 'archive',
+          onUntruncatedBlogPosts: 'ignore',
         },
         sitemap: {
           lastmod: 'date',

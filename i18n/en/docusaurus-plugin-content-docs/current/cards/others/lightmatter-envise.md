@@ -2,7 +2,7 @@
 id: lightmatter-envise
 title: Lightmatter Envise (Silicon Photonics AI Inference Chip)
 sidebar_label: Lightmatter Envise
-description: Lightmatter Envise detailed specs: 3nm, 2 PF FP16, 65W, photonic computing, MIPS processor, photonic interconnect, 8-card 16 PF.
+description: "Lightmatter Envise detailed specs: 3nm, 2 PF FP16, 65W, photonic computing, MIPS processor, photonic interconnect, 8-card 16 PF."
 keywords: [Lightmatter, Envise, silicon photonics, optical computing, 2 PF, 65W, 8-card]
 ---
 

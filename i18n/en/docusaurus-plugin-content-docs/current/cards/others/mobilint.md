@@ -2,7 +2,7 @@
 id: mobilint
 title: Mobilint Regulus (South Korea NPU, 2023)
 sidebar_label: Mobilint
-description: Mobilint Regulus detailed specs: 5nm, 32 TOPS INT8, 12W, Edge AI + Data Center, South Korea NPU, competing with H100 inference.
+description: "Mobilint Regulus detailed specs: 5nm, 32 TOPS INT8, 12W, Edge AI + Data Center, South Korea NPU, competing with H100 inference."
 keywords: [Mobilint, Regulus, South Korea NPU, 5nm, 32 TOPS, 12W, Edge AI, South Korea AI chip]
 ---
 

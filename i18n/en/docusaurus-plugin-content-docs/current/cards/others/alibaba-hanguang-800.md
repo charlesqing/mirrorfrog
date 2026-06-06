@@ -2,7 +2,7 @@
 id: alibaba-hanguang-800
 title: Alibaba Hanguang 800 (Internal AI Inference, 2021)
 sidebar_label: Alibaba Hanguang 800
-description: Alibaba Hanguang 800 detailed specs: 12nm, 820 INT8 TOPS, 700 GB/s, 168W, T-Head (Alibaba), Taobao / Alibaba Cloud inference, Alibaba's first-gen AI chip.
+description: "Alibaba Hanguang 800 detailed specs: 12nm, 820 INT8 TOPS, 700 GB/s, 168W, T-Head (Alibaba), Taobao / Alibaba Cloud inference, Alibaba's first-gen AI chip."
 keywords: [Alibaba Hanguang, Hanguang 800, T-Head, Alibaba Cloud, 12nm, 820 TOPS, 168W, Chinese AI chip]
 ---
 

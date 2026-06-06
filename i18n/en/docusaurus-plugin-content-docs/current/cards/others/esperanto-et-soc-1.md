@@ -2,7 +2,7 @@
 id: esperanto-et-soc-1
 title: Esperanto ET-SoC-1 (RISC-V Heterogeneous AI)
 sidebar_label: Esperanto
-description: Esperanto ET-SoC-1 detailed specs: 7nm, 1300+ RISC-V cores, INT8 inference, low-power, ET-Minion + ET-Maxion heterogeneous architecture.
+description: "Esperanto ET-SoC-1 detailed specs: 7nm, 1300+ RISC-V cores, INT8 inference, low-power, ET-Minion + ET-Maxion heterogeneous architecture."
 keywords: [Esperanto, ET-SoC-1, RISC-V AI, heterogeneous AI, ET-Minion, ET-Maxion, 1300 cores]
 ---
 

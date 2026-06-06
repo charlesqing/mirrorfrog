@@ -2,7 +2,7 @@
 id: mediatek-dimensity-9400
 title: MediaTek Dimensity 9400 (Cortex-X925 NPU 890 Agentic AI)
 sidebar_label: Dimensity 9400
-description: MediaTek Dimensity 9400 detailed specs: 3nm N3E 2nd-gen, 8-core All Big Core (Cortex-X925 @ 3.62 GHz), Immortalis-G925 MC12 GPU, NPU 890 8th-gen, Agentic AI, LPDDR5X 10667 Mbps.
+description: "MediaTek Dimensity 9400 detailed specs: 3nm N3E 2nd-gen, 8-core All Big Core (Cortex-X925 @ 3.62 GHz), Immortalis-G925 MC12 GPU, NPU 890 8th-gen, Agentic AI, LPDDR5X 10667 Mbps."
 keywords: [MediaTek Dimensity 9400, Cortex-X925, Immortalis-G925, NPU 890, Agentic AI, on-device LoRA training, on-device video generation]
 ---
 

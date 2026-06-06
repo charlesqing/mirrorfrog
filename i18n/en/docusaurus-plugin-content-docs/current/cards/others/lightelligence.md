@@ -2,7 +2,7 @@
 id: lightelligence
 title: Lightelligence Tianjic (Silicon Photonics AI Accelerator)
 sidebar_label: Lightelligence
-description: Lightelligence Tianjic detailed specs: 7nm, 1.6 PF FP16, 100W, photonic matrix compute, Chinese Academy of Sciences + Tsinghua incubation, photonics Big Three.
+description: "Lightelligence Tianjic detailed specs: 7nm, 1.6 PF FP16, 100W, photonic matrix compute, Chinese Academy of Sciences + Tsinghua incubation, photonics Big Three."
 keywords: [Lightelligence, Tianjic, silicon photonics, optical AI, 1.6 PF, Chinese Academy of Sciences, photonics Big Three]
 ---
 

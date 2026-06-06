@@ -2,7 +2,7 @@
 id: qualcomm-ai-200
 title: Qualcomm AI 200 / AI 300 (Cloud AI Inference, 2025-2026 Est.)
 sidebar_label: Qualcomm AI 200/300
-description: Qualcomm AI 200/300 detailed specs (estimated): 5nm, Cloud AI inference, NPU accelerator, PyTorch + Qualcomm AI Engine, competing with H200.
+description: "Qualcomm AI 200/300 detailed specs (estimated): 5nm, Cloud AI inference, NPU accelerator, PyTorch + Qualcomm AI Engine, competing with H200."
 keywords: [Qualcomm AI 200, Qualcomm AI 300, Cloud AI inference, AI Engine, Snapdragon X, NPU, data center]
 ---
 

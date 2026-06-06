@@ -2,7 +2,7 @@
 id: biren-br104
 title: Biren BR104 (Chinese AI Training/Inference)
 sidebar_label: Biren
-description: Biren Technology BR104 detailed specs: 7nm, 1024 TOPS INT8, 64GB HBM2E, BIRENSUPA software stack, Chinese AI startup Big Five.
+description: "Biren Technology BR104 detailed specs: 7nm, 1024 TOPS INT8, 64GB HBM2E, BIRENSUPA software stack, Chinese AI startup Big Five."
 keywords: [Biren, BR104, Chinese AI chip, BIRENSUPA, domestic substitution, Chinese AI startup Big Five]
 ---
 

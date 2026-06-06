@@ -2,7 +2,7 @@
 id: hbm-pim
 title: Samsung HBM-PIM (Aquabolt-XL, Processing-in-Memory)
 sidebar_label: Samsung HBM-PIM
-description: Samsung HBM-PIM (Processing-in-Memory) detailed specs: Aquabolt-XL, FP16 compute integrated into HBM, 2x performance, efficiency boost.
+description: "Samsung HBM-PIM (Processing-in-Memory) detailed specs: Aquabolt-XL, FP16 compute integrated into HBM, 2x performance, efficiency boost."
 keywords: [Samsung HBM-PIM, Aquabolt, Processing-in-Memory, PIM, HBM-PIM, CXL]
 ---
 

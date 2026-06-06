@@ -2,7 +2,7 @@
 id: moore-threads-mtt-s5000
 title: Moore Threads MTT S5000 (Chinese GPU Training)
 sidebar_label: Moore Threads
-description: Moore Threads MTT S5000 detailed specs: 7nm, 48GB GDDR6, FP32 25 TFLOPS, BF16 50 TFLOPS, MUSA architecture, Chinese GPU training.
+description: "Moore Threads MTT S5000 detailed specs: 7nm, 48GB GDDR6, FP32 25 TFLOPS, BF16 50 TFLOPS, MUSA architecture, Chinese GPU training."
 keywords: [Moore Threads, MTT S5000, MUSA, Chinese GPU, Chinese AI chip]
 ---
 

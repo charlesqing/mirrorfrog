@@ -2,7 +2,7 @@
 id: furiosaai-rngd
 title: FuriosaAI RNGD (South Korea AI Inference, 2024)
 sidebar_label: FuriosaAI RNGD
-description: FuriosaAI RNGD detailed specs: 5nm, 512 GB HBM3, 200K tokens/s LLM inference, KT / Korea Telecom / G42 cloud customers, South Korea AI chip representative.
+description: "FuriosaAI RNGD detailed specs: 5nm, 512 GB HBM3, 200K tokens/s LLM inference, KT / Korea Telecom / G42 cloud customers, South Korea AI chip representative."
 keywords: [FuriosaAI, RNGD, South Korea AI, 5nm, HBM3, 200K tokens/s, KT customer, South Korea AI startup]
 ---
 

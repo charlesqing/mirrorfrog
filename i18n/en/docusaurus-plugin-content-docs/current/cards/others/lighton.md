@@ -2,7 +2,7 @@
 id: lighton
 title: LightOn (France Silicon Photonics AI Inference)
 sidebar_label: LightOn
-description: LightOn detailed specs: silicon photonics AI inference, 1.2 PF FP16, 80W, Alfred platform, one of Europe's photonics Big Three.
+description: "LightOn detailed specs: silicon photonics AI inference, 1.2 PF FP16, 80W, Alfred platform, one of Europe's photonics Big Three."
 keywords: [LightOn, Alfred, silicon photonics, France AI, photonic computing, 1.2 PF, EU AI]
 ---
 

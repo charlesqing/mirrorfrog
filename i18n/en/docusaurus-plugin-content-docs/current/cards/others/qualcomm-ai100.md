@@ -2,7 +2,7 @@
 id: qualcomm-ai100
 title: Qualcomm Cloud AI 100
 sidebar_label: Qualcomm Cloud AI 100
-description: Qualcomm Cloud AI 100 detailed specs: 400 TOPS INT8, AIC100 compiler, low-power data center inference.
+description: "Qualcomm Cloud AI 100 detailed specs: 400 TOPS INT8, AIC100 compiler, low-power data center inference."
 keywords: [Qualcomm Cloud AI 100, Qualcomm AI 100, AIC100, 400 TOPS, data center inference, low power]
 ---
 

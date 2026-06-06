@@ -2,7 +2,7 @@
 id: blaize-xplorer
 title: Blaize Xplorer X1600 (Edge AI, 7K TOPS/W)
 sidebar_label: Blaize Xplorer
-description: Blaize Xplorer X1600 detailed specs: 16nm, 160 TOPS INT8, 22W, 7K TOPS/W efficiency, Graph Streaming Processor architecture, extreme Edge AI efficiency.
+description: "Blaize Xplorer X1600 detailed specs: 16nm, 160 TOPS INT8, 22W, 7K TOPS/W efficiency, Graph Streaming Processor architecture, extreme Edge AI efficiency."
 keywords: [Blaize, Xplorer X1600, Edge AI, GSP, Graph Streaming Processor, 7K TOPS/W, 160 TOPS, 22W]
 ---
 

@@ -2,7 +2,7 @@
 id: ibm-northpole
 title: IBM NorthPole (In-Memory Compute, 2023)
 sidebar_label: IBM NorthPole
-description: IBM NorthPole detailed specs: 22nm, 458 TOPS INT8, 75W, In-Memory Compute, descendant of pioneering TrueNorth, Science 2023 paper.
+description: "IBM NorthPole detailed specs: 22nm, 458 TOPS INT8, 75W, In-Memory Compute, descendant of pioneering TrueNorth, Science 2023 paper."
 keywords: [IBM NorthPole, In-Memory Compute, Neuromorphic, 22nm, 458 TOPS, TrueNorth, IBM Research, Science 2023]
 ---
 

@@ -2,7 +2,7 @@
 id: rebellions-rbln
 title: Rebellions RBLN / ATOM (South Korea AI Inference, 2024)
 sidebar_label: Rebellions
-description: Rebellions RBLN / ATOM detailed specs: 5nm, 16 INT8 TOPS, 15-30W, RDU architecture, KT deployment, South Korea AI duo.
+description: "Rebellions RBLN / ATOM detailed specs: 5nm, 16 INT8 TOPS, 15-30W, RDU architecture, KT deployment, South Korea AI duo."
 keywords: [Rebellions, RBLN, ATOM, South Korea AI, RDU, 5nm, edge AI, KT deployment]
 ---
 
