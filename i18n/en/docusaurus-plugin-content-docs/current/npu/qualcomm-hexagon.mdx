@@ -1,0 +1,132 @@
+---
+title: 'Qualcomm Hexagon NPU - Qualcomm'
+description: "Qualcomm Hexagon NPU integrated in Snapdragon SoCs, providing efficient AI inference acceleration. Accessed through Qualcomm AI Engine Direct and SNPE frameworks, supporting INT8/INT16 quantized inference."
+sidebar_label: 'Qualcomm Hexagon NPU'
+keywords:
+  - 'Qualcomm'
+  - 'Hexagon'
+  - 'NPU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Qualcomm Hexagon NPU
+
+**Vendor**: Qualcomm
+
+**Category**: NPU Neural Processor
+
+**Architecture**: Hexagon (HTA + HVX)
+
+## Introduction
+
+Qualcomm Hexagon NPU integrated in Snapdragon SoCs, providing efficient AI inference acceleration. Accessed through Qualcomm AI Engine Direct and SNPE frameworks, supporting INT8/INT16 quantized inference.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Snapdragon 8 Elite | 45 TOPS (INT8) | LPDDR5X (shared) | Integrated SoC | 10W | 3nm |
+| Snapdragon X Elite | 45 TOPS (INT8) | LPDDR5X (shared) | Integrated SoC | 23W | 4nm |
+
+
+## Official Website
+
+[Visit Official Website](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct)
+## Driver Downloads
+
+### Linux
+
+- [Qualcomm AI Engine Direct SDK](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct)
+
+
+## Related Documentation
+
+- [AI Engine Direct Documentation](https://docs.qualcomm.com/browse/qualcomm_ai_engine_direct)
+- [Qualcomm Neural Processing SDK](https://developer.qualcomm.com/software/qualcomm-neural-processing-sdk)
+- [Snapdragon Developer Resources](https://developer.qualcomm.com/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ (Snapdragon) | ✅ (Android) | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| QNN 2.x | 2024 | Snapdragon 8 Elite support |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Snapdragon 8 Elite | NPU TOPS | 45 TOPS (Hexagon) |
+| Snapdragon X Elite | NPU TOPS | 45 TOPS |
+| Snapdragon 8 Elite | Stable Diffusion Mobile | ~10s/img |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Snapdragon 8 Elite | Provided with SoC | Flagship phone SoC |
+| Snapdragon X Elite | Provided with SoC | Windows on ARM |
+
+## Quick Installation
+
+### Android / Windows on Snapdragon
+
+Hexagon NPU is invoked through Qualcomm AI Engine Direct.
+
+```bash
+# Install QNN SDK (download from Qualcomm Developer Network)
+# Supports TFLite/ONNX model compilation and deployment
+```
+
+## Code Examples
+
+### Python (QNN Runtime)
+
+```python
+# Run compiled model using QNN SDK
+from qnn import QnnRuntime
+
+runtime = QnnRuntime()
+model = runtime.load("model.qnn")
+output = model.run(input_data)
+```
+
+## Architecture Highlights
+
+- **Hexagon DSP + HVX**: Qualcomm scalar/vector DSP architecture, supporting AI inference and signal processing
+- **HTA (Hexagon Tensor Accelerator)**: Dedicated tensor accelerator optimized for Transformer models
+- **AI Engine**: Unified AI software stack covering Hexagon + Adreno GPU + Kryo CPU
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| QNN SDK | ✅ Native | Best support |
+| TFLite | ✅ | NNAPI/Hexagon backend |
+| ONNX | ✅ | QNN compile |
+| Stable Diffusion | ✅ | Mobile-optimized version |
+| Whisper | ✅ | On-device voice |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processor)
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek (NPU Neural Processor)
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm (GPU Graphics Processor)
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel (NPU Neural Processor)
+- [Samsung Gauss AI](/npu/samsung-gauss) — Samsung (NPU Neural Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+

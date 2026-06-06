@@ -1,0 +1,143 @@
+---
+title: 'Groq LPU - Groq'
+description: "Groq LPU (Language Processing Unit) is a processor purpose-built for large language model inference. Using a deterministic architecture with extremely low inference latency, its token generation speed for models like LLaMA far exceeds traditional GPUs."
+sidebar_label: 'Groq LPU'
+keywords:
+  - 'Groq'
+  - 'LPU'
+  - 'Groq LPU'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 1
+---
+
+# Groq LPU
+
+**Vendor**: Groq (acquired by NVIDIA)
+
+**Category**: LPU Language Processing Unit
+
+**Architecture**: TSP (Tensor Streaming Processor)
+
+## Introduction
+
+Groq LPU (Language Processing Unit) is a processor purpose-built for large language model inference. Using a deterministic architecture with extremely low inference latency, its token generation speed for models like LLaMA far exceeds traditional GPUs. **In December 2025, NVIDIA acquired Groq for approximately $20 billion**, with LPU technology to be integrated into NVIDIA's product line. The third-generation LPU (LP30) will be released in 2026.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| LPU v1 | 750 TOPS (INT8) / 188 TFLOPS (FP16) | 230MB on-chip SRAM | Ethernet Interconnect | 300W | 14nm |
+| LPU v3 (LP30) | 1.2 PFLOPS (FP8) | 500MB on-chip SRAM | NVLink-C2C | TBA | Samsung 4nm |
+
+## Official Website
+
+[Visit Official Website](https://groq.com/)
+## Driver Downloads
+
+### Linux
+
+- [Groq SDK](https://docs.r0b.re/r0b/)
+- [Groq API](https://console.groq.com/)
+
+## Related Documentation
+
+- [Groq Developer Documentation](https://docs.r0b.re/r0b/)
+- [Groq Cloud API](https://console.groq.com/docs)
+- [LPU Architecture Whitepaper](https://groq.com/research/)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (GroqCloud API) | ❌ | ❌ |
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| LPU Runtime 1.0 | 2024 | Llama 3 8B reaches 800+ tokens/s |
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| LPU v1 | Llama 2 70B Inference | ~330 tok/s (FP16, GroqCloud) |
+| LPU v1 | Mixtral 8x7B Inference | ~180 tok/s/chip |
+| LPU v1 | Llama 3 8B Inference | ~800 tok/s |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| LPU v1 | Free API | GroqCloud free tier |
+| LPU v1 | Enterprise | GroqCloud pay-as-you-go |
+
+## Quick Setup
+
+### GroqCloud (API)
+
+```bash
+pip install groq
+```
+
+> LPU v1 is not sold separately; accessible only via the GroqCloud API.
+
+## Code Examples
+
+### Python (Groq API)
+
+```python
+from groq import Groq
+
+client = Groq(api_key="your-key")
+response = client.chat.completions.create(
+    model="llama-3.1-70b-versatile",
+    messages=[{"role": "user", "content": "Hello"}],
+    max_tokens=100
+)
+print(response.choices[0].message.content)
+```
+
+## Architecture Highlights
+
+- **TSP (Tensor Streaming Processor)**: A tensor processor optimized for sequential execution, completing one full matrix operation per clock cycle
+- **Deterministic Latency**: Inference latency is fully predictable, ideal for real-time AI services
+- **SRAM-Intensive**: 230MB on-chip SRAM, avoiding DRAM access latency
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| Llama Series | ✅ Native | Officially deployed by Groq |
+| Mixtral | ✅ Native | MoE model support |
+| Large Language Models | ✅ | GroqCloud API |
+| CNN/Training | ❌ | Inference only, Transformer only |
+
+## Large-Scale Cluster Deployments
+
+Based on global AI supercomputing cluster statistics, Groq LPU has accumulated over **19,725** chips deployed across **1** cluster in publicly disclosed deployments.
+
+### Chip Model Statistics
+
+| Chip Model | Total Deployed | Clusters |
+|---------|---------|-------|
+| GroqChip LPU v1 | 19,725 | 1 |
+
+### Notable Deployment Clusters Top 10
+
+| # | Cluster Name | Total Chips | Chip Model | Operator |
+|---|---------|---------|---------|-------|
+| 1 | Aramco Groq Inference Cluster | 19,725 | GroqChip LPU v1 ×19,725 | Saudi Aramco, Saudi Arabia |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC dedicated accelerator)
+- [Etched Sohu ASIC](/asic/etched-sohu) — Etched (ASIC dedicated accelerator)
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google (TPU Tensor Processing Unit)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Intel Gaudi](/asic/intel-gaudi) — Intel (ASIC dedicated accelerator)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processing Unit)

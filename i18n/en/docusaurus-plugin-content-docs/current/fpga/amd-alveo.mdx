@@ -1,0 +1,141 @@
+---
+title: 'AMD Alveo FPGA - AMD'
+description: "AMD Alveo accelerator cards (formerly Xilinx Alveo) are FPGA-based reconfigurable AI acceleration platforms. They support the Vitis AI development workflow, allowing custom hardware logic for specific models, making them suitable for low-latency inference and rapid algorithm iteration scenarios."
+sidebar_label: 'AMD Alveo FPGA'
+keywords:
+  - 'AMD'
+  - 'Alveo'
+  - 'FPGA'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 99
+---
+
+# AMD Alveo FPGA
+
+**Vendor**: AMD
+
+**Category**: FPGA Field-Programmable Gate Array
+
+**Architecture**: Xilinx Versal / UltraScale+
+
+## Introduction
+
+AMD Alveo accelerator cards (formerly Xilinx Alveo) are FPGA-based reconfigurable AI acceleration platforms. They support the Vitis AI development workflow, allowing custom hardware logic for specific models, making them suitable for low-latency inference and rapid algorithm iteration scenarios.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| V70 | 280 TOPS (INT8) | 64GB DDR4 | PCIe 4.0 | 300W | 7nm |
+| V50 | 160 TOPS (INT8) | 32GB DDR4 | PCIe 4.0 | 150W | 7nm |
+| VCK5000 | 100 TOPS (INT8) | 16GB DDR4 | PCIe 4.0 | 75W | 16nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.amd.com/en/products/adaptive-socs-and-fpgas/alveo.html)
+## Driver Downloads
+
+### Linux
+
+- [Alveo Driver (Linux)](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/alveo.html)
+- [Vitis AI Installation](https://docs.xilinx.com/r/en-US/ug1400-vitis-ai/Installation)
+
+
+## Related Documentation
+
+- [Alveo Documentation Center](https://docs.xilinx.com/v/u/en-US/alveo-landing-page)
+- [Vitis AI Development Guide](https://docs.xilinx.com/r/en-US/ug1400-vitis-ai/)
+- [FPGA AI Model Deployment](https://www.xilinx.com/products/acceleration-solutions/alveo.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Vitis AI 3.0 | 2024 | Full Versal ACAP support |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| V70 | AI Inference | 300 TOPS (INT8) |
+| V70 | Video Transcoding | Multi-stream 4K real-time |
+| VCK5000 | Finance/Quant | Low-latency computing |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| V70 | $6,000-10,000 | AI/Video processing |
+| V50 | $4,000-7,000 | Mid-range acceleration |
+| VCK5000 | $3,000-5,000 | Entry-level AI inference |
+
+## Quick Setup
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. Install Xilinx Runtime
+sudo apt install -y xrt
+
+# 2. Flash FPGA bitstream
+xbutil program -k xclbin/v70_ai.xclbin
+
+# 3. Verify
+xbutil examine
+```
+
+> XRT (Xilinx Runtime) and Vitis AI download from [AMD Xilinx](https://www.xilinx.com/).
+
+## Code Examples
+
+### Python (Vitis AI)
+
+```python
+from vart import DpuRunner
+
+# Load DPU task
+runner = DpuRunner("v70_dpu.xclbin")
+input_data = runner.get_input_tensors()[0]
+runner.execute_async([input_data], [output_data])
+runner.wait()
+```
+
+## Architecture Highlights
+
+- **Versal / UltraScale+**: AMD (Xilinx) FPGA architecture, highly flexible programmable logic
+- **Vitis AI**: Xilinx AI inference optimization toolchain, supporting model quantization and deployment
+- **Hardware Reconfigurability**: FPGA circuits can be reconfigured at runtime to adapt to different workloads
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| Vitis AI | ✅ Native | Best support |
+| PYNQ | ✅ | Python FPGA programming |
+| ONNX/TFLite | ✅ | Vitis AI compilation |
+| Quantized Inference | ✅ | INT8 optimized |
+| Custom Logic | ✅ | FPGA's greatest advantage |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [Intel FPGA AI](/fpga/intel-fpga-ai) — Intel (Altera) (FPGA Field-Programmable Gate Array)
+- [Achronix Speedster](/fpga/achronix-speedster) — Achronix (FPGA Field-Programmable Gate Array)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Intel GPU](/gpu/intel-gpu) — Intel (GPU Graphics Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processing Unit)
+

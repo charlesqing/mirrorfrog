@@ -1,0 +1,115 @@
+---
+title: 'Etched Sohu ASIC - Etched'
+description: 'An ASIC chip hard-coded specifically for the Transformer architecture. It removes redundant logic used for graphics rendering and general-purpose computing in GPUs, claiming to be several orders of magnitude faster than the NVIDIA H100 on large models such as Llama.'
+sidebar_label: 'Etched Sohu ASIC'
+keywords:
+  - 'Etched'
+  - 'Sohu'
+  - 'ASIC'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Etched Sohu ASIC
+
+**Vendor**: Etched
+
+**Architecture**: Transformer ASIC
+
+**Category**: ASIC Dedicated Accelerator
+
+## Introduction
+
+An ASIC chip hard-coded specifically for the Transformer architecture. It removes redundant logic used for graphics rendering and general-purpose computing in GPUs, claiming to be several orders of magnitude faster than the NVIDIA H100 on large models such as Llama.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Sohu | Transformer-dedicated (multiple times H100) | External HBM | PCIe 5.0 | TBA | TBA |
+
+
+## Official Website
+
+[Visit Official Website](https://www.etched.com/)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (Etched Cloud API) | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Sohu Pre-release | 2025 | Claims Llama inference speed far exceeds H100 |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Sohu | Llama 2 70B Inference | Ultra-high throughput (official data) |
+| Sohu | Transformer Inference | Dedicated Transformer inference acceleration |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Sohu | Cloud API | Etched Cloud API |
+| Sohu | Contact vendor | Enterprise deployment |
+
+## Quick Installation
+
+### Etched Cloud (API)
+
+```bash
+pip install etched-sdk
+```
+
+> Sohu is a dedicated Transformer ASIC, supporting only Transformer architecture model inference.
+
+## Code Examples
+
+### Python (Etched API)
+
+```python
+from etched import EtchedClient
+
+client = EtchedClient(api_key="your-key")
+response = client.generate(
+    model="llama-3-70b",
+    prompt="Hello",
+    max_tokens=100
+)
+```
+
+## Architecture Highlights
+
+- **Transformer ASIC**: The world's first ASIC designed specifically for the Transformer architecture, implementing attention mechanisms directly in hardware
+- **Extreme Inference**: Bypasses the flexibility overhead of general-purpose computing, pushing Transformer inference efficiency to the limit
+- **Limitations**: Only supports Transformer architecture models; does not support CNNs, graph neural networks, etc.
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| Transformer LLM | ✅ Native | Llama/GPT/Qwen etc. |
+| CNN Models | ❌ | Not supported |
+| Non-Transformer | ❌ | Transformer architecture only |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Groq LPU v1](/lpu/groq-lpu) — Groq (LPU Language Processor)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC Dedicated Accelerator)
+- [Tenstorrent Wormhole](/asic/tenstorrent) — Tenstorrent (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS (ASIC Dedicated Accelerator)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+- [Cambricon Siyuan MLU](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+

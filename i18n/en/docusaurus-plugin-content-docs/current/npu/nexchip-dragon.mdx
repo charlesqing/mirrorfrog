@@ -1,0 +1,122 @@
+---
+title: 'Nexchip Dragon Series - Nexchip'
+description: "Focus on high-end automotive chips. The flagship chip features a high-compute NPU designed specifically for AI inference tasks in smart cockpit and autonomous driving scenarios."
+sidebar_label: 'Nexchip Dragon Series'
+keywords:
+  - 'Nexchip'
+  - 'Dragon'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Nexchip Dragon Series
+
+**Vendor**: Nexchip
+
+**Category**: Edge Computing / Autonomous Driving
+
+**Architecture**: ARM + NPU
+
+## Introduction
+
+Focus on high-end automotive chips. The flagship chip features a high-compute NPU designed specifically for AI inference tasks in smart cockpit and autonomous driving scenarios.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Dragon One | 8 TOPS (INT8) | 8GB LPDDR5 | Automotive-grade SoC | 15W | 7nm |
+| Dragon Two | 16 TOPS (INT8) | 16GB LPDDR5 | Automotive-grade SoC | 20W | 7nm |
+
+## Official Website
+
+[Visit Official Website](https://www.nexchip.com.cn/)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ✅ |
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Dragon One | 2023 | First automotive-grade AI chip, AEC-Q100 certified |
+| Dragon Two | 2025 | NPU compute doubled, supports L4 autonomous driving |
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Dragon One | Smart Cockpit Multimodal Interaction | 8 TOPS, multi-camera support |
+| Dragon Two | Autonomous Driving BEV Perception | 16 TOPS, L4-level support |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Dragon One | Contact vendor | Supplied to automakers (OEM) |
+| Dragon Two | Contact vendor | In mass production 2025 |
+
+## Quick Installation
+
+### Linux (Automotive System)
+
+```bash
+# 1. Download Nexchip SDK (requires registered developer account)
+# Visit https://www.nexchip.com.cn/ to obtain SDK
+
+# 2. Set environment variables
+export NEXCHIP_SDK_PATH=/opt/nexchip-sdk
+
+# 3. Verify NPU
+npu-info
+```
+
+## Code Examples
+
+### C/C++ (Automotive NPU Inference)
+
+```c
+#include <nexchip_npu.h>
+
+// Initialize NPU inference engine
+npu_handle_t handle;
+npu_init(&handle, NPU_MODEL_AUTO);
+
+// Run inference
+npu_tensor_t input = npu_create_tensor(input_data, dims);
+npu_tensor_t output = npu_infer(handle, input);
+
+// Release resources
+npu_release(handle);
+```
+
+## Architecture Highlights
+
+- **ARM + NPU Heterogeneous**: CPU and NPU deeply integrated, low-power real-time inference for automotive
+- **Automotive-Grade Certification**: AEC-Q100 Grade 2 certified, meeting stringent automotive environmental requirements
+- **Unified Memory Architecture**: CPU and NPU share LPDDR5, reducing data transfer overhead
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| TensorFlow Lite | ✅ Native | Primary inference framework |
+| ONNX Runtime | ✅ | Commonly used in automotive |
+| PaddlePaddle Lite | ⚠️ | Under adaptation |
+| Proprietary Quantization Toolchain | ✅ | INT8/INT4 quantization support |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (Cloud Training + Inference)
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (Mobile NPU)
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo (Edge AI Inference)
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processor)
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel (NPU Neural Processor)
+- [Cambricon Siyuan 590](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek (NPU Neural Processor)

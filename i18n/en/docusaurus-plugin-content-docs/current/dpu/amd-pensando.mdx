@@ -1,0 +1,120 @@
+---
+title: 'AMD Pensando DPU - AMD'
+description: "AMD Pensando DPU is AMD's data center DPU product line launched after acquiring Pensando Systems, focused on programmable packet processing, security offloading, and storage acceleration."
+sidebar_label: 'AMD Pensando DPU'
+keywords:
+  - 'AMD'
+  - 'Pensando'
+  - 'DPU'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 99
+---
+
+# AMD Pensando DPU
+
+**Vendor**: AMD
+
+**Category**: DPU Data Processing Unit
+
+**Architecture**: Pensando (P4 Programmable)
+
+## Introduction
+
+AMD Pensando DPU is AMD's data center DPU product line launched after acquiring Pensando Systems, focused on programmable packet processing, security offloading, and storage acceleration.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Pensando DPU | 400 Gbps Networking | 8GB DDR5 | PCIe 5.0 | 35W | 5nm |
+| Pensando Salamander | 200 Gbps Networking | 4GB DDR5 | PCIe 5.0 | 18W | 5nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.amd.com/en/accelerators/pensando.html)
+## Driver Downloads
+
+### Linux
+
+- [Pensando DPU Driver](https://www.amd.com/en/accelerators/pensando.html)
+
+
+## Related Documentation
+
+- [Pensando Product Documentation](https://www.amd.com/en/accelerators/pensando.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| DPUs P4 Studio 1.0 | 2024 | P4 programmable networking |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Pensando DPU | Network Offload | 100Gbps+ line-rate processing |
+| Pensando DPU | Security Offload | P4 programmable data plane |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Pensando DPU | Contact sales | Enterprise data center |
+| Salamander | Contact sales | Next-generation product |
+
+## Quick Setup
+
+### Linux
+
+```bash
+# Install Pensando DPU firmware and driver
+# Obtain from AMD Pensando official
+```
+
+## Code Examples
+
+### P4 (Pensando Data Plane Programming)
+
+```
+// Pensando DPU uses P4 programmable data plane
+match ingress {
+    // Custom network processing logic
+}
+```
+
+## Architecture Highlights
+
+- **P4 Programmable**: Fully programmable data plane, flexibly adapting to different network and security policies
+- **ARM Core Processor**: Independent ARM CPU running the control plane, isolated from the host
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| P4 | ✅ Native | Data plane programming |
+| Kubernetes | ✅ | Service mesh offloading |
+| AI Frameworks | N/A | DPU is not an AI accelerator |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA BlueField DPU](/dpu/nvidia-bluefield) — NVIDIA (DPU Data Processing Unit)
+- [Intel IPU](/dpu/intel-ipu) — Intel (DPU Data Processing Unit)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Intel GPU](/gpu/intel-gpu) — Intel (GPU Graphics Processor)
+

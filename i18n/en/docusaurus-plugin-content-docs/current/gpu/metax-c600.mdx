@@ -1,0 +1,132 @@
+---
+title: 'MetaX Xiyun C500/C600 - MetaX'
+description: 'MetaX domestic GPU. Xiyun C-series focuses on cloud training and inference. Xiyun C600 is based on fully domestic process, integrating large-capacity memory and multi-precision hybrid compute, supporting MetaXLink super-node expansion with built-in ECC/RAS security modules. Cumulative sales exceed 55,000 units, 2025 revenue 1.644 billion RMB.'
+sidebar_label: 'MetaX Xiyun C500/C600'
+keywords:
+  - 'MetaX'
+  - 'Xiyun'
+  - 'C500'
+  - 'C600'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# MetaX Xiyun C500/C600
+
+**Vendor**: MetaX
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: MetaX MACA
+
+## Introduction
+
+MetaX domestic GPU. Xiyun C-series focuses on cloud training and inference. Xiyun C600 is based on fully domestic process, integrating large-capacity memory and multi-precision hybrid compute, supporting MetaXLink super-node expansion with built-in ECC/RAS security modules. Cumulative sales exceed 55,000 units, 2025 revenue 1.644 billion RMB.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Xiyun C600 | TBA (FP8) | 144GB HBM3e | OAM | TBA | 7nm (domestic) |
+| Xiyun C500 | 280 TFLOPS (FP16) / 560 (INT8) | 64GB HBM2e (1.8 TB/s) | OAM | 450W | 7nm |
+| Xisi N100 | 80 TFLOPS (FP16) / 160 (INT8) | 16GB GDDR6 | PCIe 4.0 | 75W | 12nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.metax-tech.com/)
+## Driver Downloads
+
+### Linux
+
+- [MXMACA Driver](https://www.metax-tech.com/sdk)
+- [MXMACA SDK](https://www.metax-tech.com/sdk)
+
+
+## Related Documentation
+
+- [MetaX Developer Center](https://developer.metax-tech.com/)
+- [MXMACA Programming Guide](https://www.metax-tech.com/sdk)
+- [Xiyun C600 Product Page](https://www.metax-tech.com/c600)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| MACA SDK 1.0 | 2024 | First official release, CUDA-idiom compatible |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Xiyun C500 | BF16 Training | Near A100 efficiency (official data) |
+| Xiyun C500 | General AI Inference | INT8 optimized high throughput |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Xiyun C500 | Contact vendor | Enterprise AI training accelerator |
+| Xisi N100 | Contact vendor | Inference dedicated |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# 1. Install MetaX driver and SDK
+sudo rpm -ivh metax-driver-*.rpm
+# 2. Verify
+metax-smi
+```
+
+> Driver and SDK obtained from MetaX official.
+
+## Code Examples
+
+### Python (MetaX)
+
+```python
+import torch
+# MetaX GPU uses CUDA-compatible backend
+assert torch.cuda.is_available()
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+```
+
+## Architecture Highlights
+
+- **MACA Architecture**: MetaX proprietary GPU compute architecture for AI training and inference
+- **CUDA Compatibility**: API-level CUDA programming model compatibility, reducing migration cost
+- **Full-Stack Independence**: Hardware, driver, compiler, and libraries all independently developed
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ⚠️ Compatible | CUDA-compatible backend |
+| General AI | ⚠️ | Ecosystem developing |
+| Large Model Training | ⚠️ | Gradually supporting |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Iluvatar Tianguai 100](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [Hygon Shensuan Z100](/asic/hygon-dcu) — Hygon (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Biren Technology BR100/BR20X](/gpu/biren-br) — Biren Technology (GPU Graphics Processor)
+- [Moore Threads MTT S5000](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Baidu Kunlunxin P800](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Alibaba T-Head Zhenwu PPU](/gpu/t-head-zhenwu) — Alibaba (GPU Graphics Processor)
+

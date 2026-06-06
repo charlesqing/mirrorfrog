@@ -1,0 +1,139 @@
+---
+title: 'Tenstorrent AI Accelerator - Tenstorrent'
+description: "Tenstorrent's AI accelerators (Wormhole/Grayskull/Blackhole) use a unique Tensix architecture combining RISC-V cores with AI tensor compute units. Led by legendary chip architect Jim Keller, with an open-source software stack."
+sidebar_label: 'Tenstorrent AI Accelerator'
+keywords:
+  - 'Tenstorrent'
+  - 'AI'
+  - 'Accelerator'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Tenstorrent AI Accelerator
+
+**Vendor**: Tenstorrent
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: Tensix / RISC-V
+
+## Introduction
+
+Tenstorrent's AI accelerators (Wormhole/Grayskull/Blackhole) use a unique Tensix architecture combining RISC-V cores with AI tensor compute units. Led by legendary chip architect Jim Keller, with an open-source software stack.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Wormhole n300 | 200 TFLOPS (BF16) | 64GB LPDDR5 | PCIe 5.0 + Ethernet | 200W | 6nm |
+| Grayskull e150 | 50 TFLOPS (BF16) | 16GB GDDR6 | PCIe 4.0 | 75W | 12nm |
+
+
+## Official Website
+
+[Visit Official Website](https://tenstorrent.com/)
+## Driver Downloads
+
+### Linux
+
+- [Tenstorrent TT-BUILD](https://github.com/tenstorrent/tt-build)
+- [Tenstorrent TT-Metalium](https://github.com/tenstorrent/tt-metal)
+
+
+## Related Documentation
+
+- [Tenstorrent Developer Documentation](https://docs.tenstorrent.com/)
+- [TT-Metalium Programming Guide](https://docs.tenstorrent.com/tt-metalium/)
+- [TT-MLIR Compiler](https://github.com/tenstorrent/tt-mlir)
+- [Wormhole Architecture Introduction](https://tenstorrent.com/hardware/wormhole)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| TT-Metalium 1.0 | 2024 | RISC-V open-source software stack |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Wormhole n300 | LLM Inference | Medium-scale inference optimized |
+| Grayskull e150 | Edge AI | Entry-level |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Wormhole n300 | ~$699-999 | Developer card |
+| Grayskull e150 | ~$399-599 | Entry-level developer card |
+
+## Quick Installation
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. Install Tenstorrent driver
+pip install tt-torch
+
+# 2. Verify
+tt-smi
+```
+
+> Obtain drivers and tools from [Tenstorrent GitHub](https://github.com/tenstorrent).
+
+## Code Examples
+
+### Python (PyTorch TT)
+
+```python
+import torch
+import tt_lib
+
+# Use Tenstorrent backend
+device = tt_lib.device.CreateDevice()
+tt_lib.device.SetDefaultDevice(device)
+
+# tt-torch provides PyTorch backend
+x = torch.randn(1024, 1024)
+# Automatically routes to Tenstorrent hardware
+```
+
+## Architecture Highlights
+
+- **Tensix Core**: Programmable tensor cores based on RISC-V, each containing a matrix engine and routing engine
+- **Wormhole Interconnect**: High-bandwidth inter-chip/card interconnect supporting mesh topology
+- **Open-Source Path**: Open hardware design and software stack with an active developer community
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ tt-torch | Backend under development |
+| Cerebras NN | ✅ | Similar dataflow architecture |
+| LLM Inference | ⚠️ | Community adaptation in progress |
+| General AI | ⚠️ | Early ecosystem stage |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google (TPU Tensor Processor)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC Dedicated Accelerator)
+- [Etched Sohu ASIC](/asic/etched-sohu) — Etched (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova (ASIC Dedicated Accelerator)
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS (ASIC Dedicated Accelerator)
+

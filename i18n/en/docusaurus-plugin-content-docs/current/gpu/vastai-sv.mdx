@@ -1,0 +1,124 @@
+---
+title: 'Vastai Semiconductor SV Series - Vastai'
+description: "Vastai Semiconductor high-end GPU chips with two generations of proprietary GPU cores. SV series covers three product lines: graphics rendering GPU, data center AI GPU, and edge AI GPU. One of the few domestic vendors with commercial deployment in both general AI and rendering. SV chip deep learning inference throughput reaches 2× that of general-purpose GPUs."
+sidebar_label: 'Vastai Semiconductor SV Series'
+keywords:
+  - 'Vastai'
+  - 'SV'
+  - 'Series'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Vastai Semiconductor SV Series
+
+**Vendor**: Vastai Semiconductor
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: Vastai
+
+## Introduction
+
+Vastai Semiconductor high-end GPU chips with two generations of proprietary GPU cores. SV series covers three product lines: graphics rendering GPU, data center AI GPU, and edge AI GPU. One of the few domestic vendors with commercial deployment in both general AI and rendering. SV chip deep learning inference throughput reaches 2× that of general-purpose GPUs.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| VA12 | 160 TFLOPS (FP16) / 512 (INT8) | 32GB HBM2e | PCIe 4.0 | 250W | 7nm |
+| VA1L | 72 TFLOPS (FP16) / 200 (INT8) | 16GB GDDR6 | PCIe 4.0 | 150W | 7nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.vastaitech.com/)
+## Driver Downloads
+
+### Linux
+
+- [VAST Driver (Linux)](https://www.vastaitech.com/software)
+- [VAST SDK](https://www.vastaitech.com/software)
+
+
+## Related Documentation
+
+- [Vastai Developer Center](https://developer.vastaitech.com/)
+- [SV Series Product Documentation](https://www.vastaitech.com/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| SDK 1.2 | 2023 | Video encoding optimization |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| VA100 | Video Transcoding/AI Inference | INT8 optimized |
+| VA1P | Edge Inference | Low-power scenarios |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| VA100 | Contact vendor | Video processing + AI inference |
+| VA1P | Contact vendor | Edge inference dedicated |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# Install Vastai driver and SDK
+sudo rpm -ivh vastai-driver-*.rpm
+```
+
+## Code Examples
+
+### Python (Vastai VA100)
+
+```python
+import torch
+# Vastai GPU provides CUDA-compatible backend
+assert torch.cuda.is_available()
+```
+
+## Architecture Highlights
+
+- **Vastai Architecture**: Vastai proprietary GPU architecture, focused on video processing and AI inference
+- **Video + AI Dual Capability**: Simultaneously supports video transcoding and AI inference, suitable for streaming media scenarios
+- **VA1P**: Low-power edge inference card
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ⚠️ Compatible | CUDA-compatible backend |
+| Video Transcoding | ✅ | Core capability |
+| AI Inference | ⚠️ | Primary promoted scenario |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Iluvatar Tianguai 100](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [Moore Threads MTT S80](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Biren Technology BR100/BR20X](/gpu/biren-br) — Biren Technology (GPU Graphics Processor)
+- [MetaX Xiyun C500/C600](/gpu/metax-c600) — MetaX (GPU Graphics Processor)
+- [Baidu Kunlunxin P800](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Alibaba T-Head Zhenwu PPU](/gpu/t-head-zhenwu) — Alibaba (GPU Graphics Processor)
+- [Jingjia Micro JM9 Series](/gpu/jingjia-jm9) — Jingjia Micro (GPU Graphics Processor)
+

@@ -1,0 +1,155 @@
+---
+title: 'Intel Gaudi (Habana) - Intel Habana'
+description: 'Intel Gaudi AI accelerator (formerly Habana Labs), purpose-built for AI training and inference optimization. Gaudi 2 and Gaudi 3 excel at LLM training, support PyTorch and TensorFlow, with competitive pricing.'
+sidebar_label: 'Intel Gaudi (Habana)'
+keywords:
+  - 'Intel'
+  - 'Gaudi'
+  - 'Habana'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 1
+---
+
+# Intel Gaudi (Habana)
+
+**Vendor**: Intel Habana
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: Gaudi / Xe HPC
+
+## Introduction
+
+Intel Gaudi AI accelerator (formerly Habana Labs), purpose-built for AI training and inference optimization. Gaudi 2 and Gaudi 3 excel at LLM training, support PyTorch and TensorFlow, with competitive pricing.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Gaudi 3 | 1,678 TFLOPS (FP8) / 1,678 (BF16) | 128GB HBM2e (3.7 TB/s) | OAM + 24x 200GbE | 900W | 5nm |
+| Gaudi 2 | 865 TFLOPS (FP8) / 432 (BF16) | 96GB HBM2e (2.45 TB/s) | OAM + 24x 100GbE | 600W | 7nm |
+
+## Official Website
+
+[Visit Official Website](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html)
+## Driver Downloads
+
+### Linux
+
+- [Habana Drivers & Packages](https://developer.habana.ai/)
+- [SynapseAI SDK](https://developer.habana.ai/synapse-ai/)
+
+## Related Documentation
+
+- [Habana Documentation Center](https://docs.habana.ai/)
+- [Gaudi Installation Guide](https://docs.habana.ai/en/latest/Installation_Guide/index.html)
+- [PyTorch Adapter (HPU)](https://docs.habana.ai/en/latest/PyTorch/index.html)
+- [Gaudi Performance Optimization](https://docs.habana.ai/en/latest/Performance_Optimization/index.html)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| SynapseAI 1.18 | 2025-Q1 | Full Gaudi 3 support |
+| SynapseAI 1.16 | 2024-Q2 | PyTorch 2.1 native integration |
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Gaudi 3 × 8 | GPT-3 175B Training | ~1.2 days (estimated) |
+| Gaudi 3 | Llama 2 70B Inference | ~100 tok/s (FP8) |
+| Gaudi 2 × 8 | BERT-Large Training | ~90% H100 efficiency |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Gaudi 3 | Contact vendor | Available via Intel Developer Cloud or ODMs |
+| Gaudi 2 | $8,000-12,000 | Market price below H100 |
+
+## Quick Installation
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. Install Habana driver
+sudo ./habana-driver-*.run --install
+
+# 2. Install SynapseAI SDK
+sudo ./SynapseAI-*.run --install
+
+# 3. Verify
+hl-smi
+```
+
+> Gaudi 2 can also be trialled for free via [Intel Developer Cloud](https://cloud.intel.com/).
+
+## Code Examples
+
+### Python (PyTorch on HPU)
+
+```python
+import torch
+import habana_frameworks.torch.core as htcore
+
+# Use HPU backend (API consistent with CUDA)
+device = torch.device("hpu")
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"HPU matrix multiply: {y.shape}")
+
+# Habana Graph mode (similar to CUDA Graphs)
+htcore.hpu.graphs()
+```
+
+## Architecture Highlights
+
+- **Gaudi Architecture**: AI accelerator purpose-built for large model training, integrated 24x RoCE 2.0 network interfaces, supporting direct large-cluster interconnect
+- **SynapseAI**: Intel AI software stack, native PyTorch/TensorFlow support
+- **Competitive Pricing**: Gaudi 2 priced at roughly 1/3 of H100, suitable for budget-constrained training scenarios
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ Native | HPU backend, CUDA-API compatible |
+| TensorFlow | ✅ | Habana backend |
+| JAX | ⚠️ | Experimental support |
+| Llama / Qwen and similar LLMs | ✅ | DeepSpeed / FSDP both supported |
+| Stable Diffusion | ✅ | HPU backend |
+
+## Large-Scale Cluster Deployments
+
+Based on global AI supercomputing cluster statistics, Intel Gaudi has accumulated over **4,000** chips deployed across **1** publicly disclosed clusters.
+
+### Chip Model Statistics
+
+| Chip Model | Total Deployed | Cluster Count |
+|---------|---------|-------|
+| Intel Habana Gaudi2 | 4,000 | 1 |
+
+### Notable Deployment Clusters Top 10
+
+| # | Cluster Name | Total Chips | Chip Model | Operator |
+|---|---------|---------|---------|-------|
+| 1 | Intel Stability Gaudi 2 | 4,000 | Intel Habana Gaudi2 ×4,000 | Intel, United States of America |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google (TPU Tensor Processor)
+- [AWS Trainium2 / Inferentia2](/asic/aws-trainium) — Amazon AWS (ASIC Dedicated Accelerator)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC Dedicated Accelerator)
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova (ASIC Dedicated Accelerator)
+- [Cambricon Siyuan MLU](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)

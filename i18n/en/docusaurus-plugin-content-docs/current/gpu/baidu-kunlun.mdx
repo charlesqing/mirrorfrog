@@ -1,0 +1,141 @@
+---
+title: 'Baidu Kunlunxin P800 - Baidu'
+description: "Baidu Kunlunxin AI accelerator chip, incubated from Baidu. P800 series FP16 compute 345 TFLOPS, 2.3× that of NVIDIA H20. January 2026 launched STAR Market IPO, valuation expected at approximately $500 billion. Leveraging 'application-driven' advantages and large-scale cluster technology, it has become a top-tier domestic AI chip. Approximately 116,000 units shipped in 2025."
+sidebar_label: 'Baidu Kunlunxin P800'
+keywords:
+  - 'Kunlunxin'
+  - 'P800'
+  - 'Baidu'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Baidu Kunlunxin P800
+
+**Vendor**: Baidu
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: XPU
+
+## Introduction
+
+Baidu Kunlunxin AI accelerator chip, incubated from Baidu. P800 series FP16 compute 345 TFLOPS, 2.3× that of NVIDIA H20. **January 2026 launched STAR Market IPO, valuation expected at approximately $500 billion**. Leveraging "application-driven" advantages and large-scale cluster technology, it has become a top-tier domestic AI chip. Approximately 116,000 units shipped in 2025.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Kunlunxin Gen 2 | 256 TOPS (INT8) / 128 (FP16) | 32GB GDDR6 (512 GB/s) | PCIe 4.0 | 160W | 7nm |
+| Kunlunxin Gen 3 | 512 TOPS (INT8) / 256 (FP16) | 64GB HBM2e | OAM | 400W | 5nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.kunlunxin.com/)
+## Driver Downloads
+
+### Linux
+
+- [Kunlunxin Driver (Linux)](https://www.kunlunxin.com/)
+- [XPU SDK](https://www.kunlunxin.com/)
+
+
+## Related Documentation
+
+- [Kunlunxin Developer Center](https://developer.kunlunxin.com/)
+- [XPU Programming Guide](https://developer.kunlunxin.com/)
+- [P800 Product Documentation](https://www.kunlunxin.com/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| SDK 3.0 | 2024 | Gen 3 chip support + Paddle integration |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Kunlunxin Gen 3 | Llama 2 7B Inference | ~35 tok/s (INT8) |
+| Kunlunxin Gen 2 | Paddle Model Inference | ~80% GPU efficiency |
+| Kunlunxin Gen 3 | Natural Language Understanding (NLU) | General AI inference |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Kunlunxin Gen 3 | Contact vendor | Enterprise customers |
+| Kunlunxin Gen 2 | Contact vendor | Primarily via Baidu Cloud instances |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# 1. Install XPU driver and SDK
+sudo rpm -ivh kunlun-driver-*.rpm
+tar -xzf xpu-sdk-*.tar.gz && cd xpu-sdk && sudo ./install.sh
+
+# 2. Verify
+xpu-smi
+```
+
+> Driver and SDK downloaded from [Kunlunxin Official](https://www.kunlunxin.com/).
+
+## Code Examples
+
+### Python (PaddlePaddle XPU)
+
+```python
+import paddle
+
+# Check XPU availability
+print(f"XPU available: {paddle.device.is_compiled_with_xpu()}")
+paddle.set_device('xpu')
+
+# Run simple model
+x = paddle.randn([1024, 1024])
+y = paddle.matmul(x, x)
+print(f"XPU matrix multiply: {y.shape}")
+```
+
+## Architecture Highlights
+
+- **XPU Architecture**: Baidu proprietary AI accelerator architecture, purpose-built for deep learning, supporting training and inference
+- **PaddlePilot Deep Integration**: Native acceleration backend for Baidu PaddlePaddle
+- **Kunlunxin Gen 3**: Significantly improved compute and memory, supporting large model training scenarios
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PaddlePaddle | ✅ Native | Best support |
+| PyTorch | ⚠️ | Via XPU adapter plugin |
+| PaddleOCR | ✅ | Officially recommended acceleration |
+| Wenxin Large Models | ✅ | Native support |
+| General Models | ⚠️ | Ecosystem expanding |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Iluvatar Tianguai 100](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [Cambricon Siyuan 590](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [Moore Threads MTT S5000](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Biren Technology BR100/BR20X](/gpu/biren-br) — Biren Technology (GPU Graphics Processor)
+- [MetaX Xiyun C500/C600](/gpu/metax-c600) — MetaX (GPU Graphics Processor)
+- [Alibaba T-Head Zhenwu PPU](/gpu/t-head-zhenwu) — Alibaba (GPU Graphics Processor)
+

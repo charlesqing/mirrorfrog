@@ -1,0 +1,120 @@
+---
+title: 'FuriosaAI RNGD - FuriosaAI'
+description: "South Korean company FuriosaAI's RNGD data center inference chip, based on Tensor Contraction Processor (TCP) architecture, TSMC 5nm process, 180W PCIe design, optimized for large language models and Agentic AI workloads."
+sidebar_label: 'FuriosaAI RNGD'
+keywords:
+  - 'FuriosaAI'
+  - 'RNGD'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# FuriosaAI RNGD
+
+**Vendor**: FuriosaAI (South Korea)
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: TCP (Tensor Contraction Processor)
+
+## Introduction
+
+FuriosaAI RNGD is a data center inference chip from South Korean AI chip company FuriosaAI, based on the proprietary Tensor Contraction Processor (TCP) architecture. RNGD is manufactured using TSMC 5nm process with a 180W PCIe design that can be plugged directly into standard servers without special cooling. FuriosaAI was acquired by NVIDIA in December 2025 for approximately $20 billion.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| RNGD | Inference optimized (FP8/INT8) | HBM | PCIe Gen5 | 180W | TSMC 5nm |
+
+## Official Website
+
+[Visit Official Website](https://www.furiosa.ai/)
+
+## Driver Downloads
+
+### Linux
+
+- [FuriosaAI SDK](https://www.furiosa.ai/)
+
+## Related Documentation
+
+- [FuriosaAI Developer Center](https://www.furiosa.ai/)
+- [RNGD Product Documentation](https://www.furiosa.ai/rngd)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| RNGD | 2024 | TCP architecture, TSMC 5nm, 180W PCIe |
+| 3rd Generation (in development) | 2028 estimated | 2nm, HBM4, Broadcom packaging |
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| RNGD | LLM Inference | High efficiency tokens/watt |
+| RNGD | Agentic AI | Low-latency inference |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| RNGD | Contact vendor | Enterprise data center product |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# Install FuriosaAI SDK
+# See official documentation
+pip install furiosa-sdk
+```
+
+## Code Examples
+
+### Python (FuriosaAI SDK)
+
+```python
+import furiosa
+
+# Initialize device
+model = furiosa.compile_model("model.onnx", target="rngd")
+output = model.run(input_data)
+```
+
+## Architecture Highlights
+
+- **TCP (Tensor Contraction Processor)**: Proprietary tensor contraction processor architecture, purpose-built for inference
+- **180W PCIe Design**: Standard server compatible, no special cooling required
+- **Deterministic Execution**: Compiler-controlled deterministic execution model with predictable latency
+- **Mature SDK**: Inference compiler supporting mainstream AI frameworks
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ | Via compiler conversion |
+| ONNX | ✅ | Native support |
+| Llama Series | ✅ | Inference optimized |
+| Transformer LLM | ✅ | Agentic AI workloads |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Groq LPU v1](/lpu/groq-lpu) — Groq (LPU Language Processor)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC Dedicated Accelerator)
+- [Etched Sohu ASIC](/asic/etched-sohu) — Etched (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS (ASIC Dedicated Accelerator)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova (ASIC Dedicated Accelerator)

@@ -1,0 +1,134 @@
+---
+title: 'Jingjia Micro JM9 Series - Jingjia Micro'
+description: "Jingjia Micro domestic GPU, originating from military industry. JM9 series covers graphics rendering plus lightweight AI acceleration. Jinghong series intelligent computing modules target data centers. Civilian AI acceleration is just starting, while military/industrial control orders are stable."
+sidebar_label: 'Jingjia Micro JM9 Series'
+keywords:
+  - 'Jingjia Micro'
+  - 'JM9'
+  - 'Series'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Jingjia Micro JM9 Series
+
+**Vendor**: Jingjia Micro
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: JM9
+
+## Introduction
+
+Jingjia Micro domestic GPU, originating from military industry. JM9 series covers graphics rendering plus lightweight AI acceleration. Jinghong series intelligent computing modules target data centers. Civilian AI acceleration is just starting, while military/industrial control orders are stable.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| JM9 series | 10 TFLOPS (FP32) | 8GB GDDR6 | PCIe 3.0 | 25W | 28nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.jingjiamicro.com/)
+## Driver Downloads
+
+### Linux
+
+- [JM9 Driver (Linux)](https://www.jingjiamicro.com/driver)
+
+### Windows
+
+- [JM9 Driver (Windows)](https://www.jingjiamicro.com/driver)
+
+
+## Related Documentation
+
+- [Jingjia Micro Developer Center](https://www.jingjiamicro.com/developer)
+- [JM9 Product Documentation](https://www.jingjiamicro.com/jm9)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Driver 1.2 | 2024 | Government/enterprise desktop office scenarios |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| JM9 Series | Graphics Rendering | Domestic GPU graphics processing |
+| JM9 Series | Simple Inference | Limited general-purpose compute capability |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| JM9 Series | Contact vendor | Primarily military/government sector |
+
+## Quick Installation
+
+### Linux / Windows
+
+After installing Jingjia Micro driver and SDK (obtained from official):
+
+```bash
+sudo rpm -ivh jingjia-driver-*.rpm
+```
+
+> JM9 series is primarily oriented toward graphics rendering scenarios. AI compute capability is limited.
+
+## Code Examples
+
+### C (JM9 API)
+
+Jingjia Micro JM9 provides proprietary graphics APIs, primarily used through OpenGL compatibility layer. AI compute support is limited; recommend using Jingjia Micro official SDK documentation.
+
+```c
+// JM9 graphics rendering example (OpenGL compatible)
+#include <GL/gl.h>
+glClear(GL_COLOR_BUFFER_BIT);
+glBegin(GL_TRIANGLES);
+glVertex3f(0.0f, 1.0f, 0.0f);
+glVertex3f(-1.0f, -1.0f, 0.0f);
+glVertex3f(1.0f, -1.0f, 0.0f);
+glEnd();
+```
+
+## Architecture Highlights
+
+- **JM9 Architecture**: Jingjia Micro proprietary GPU architecture, primarily for graphics rendering, OpenGL compatible
+- **Domestic Positioning**: Domestic substitution in military/government sectors, domestic OS adaptation completed
+- **AI Capability**: Limited AI compute capability, not recommended as an AI acceleration solution
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| Graphics Rendering | ✅ | OpenGL/Vulkan compatible |
+| AI Compute | ❌ | Not recommended for AI acceleration |
+| OpenCL | ⚠️ | Limited general-purpose compute support |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Moore Threads MTT S80](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Biren Technology BR100/BR20X](/gpu/biren-br) — Biren Technology (GPU Graphics Processor)
+- [MetaX Xiyun C500/C600](/gpu/metax-c600) — MetaX (GPU Graphics Processor)
+- [Iluvatar BI-150/BI-V150](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [Baidu Kunlunxin P800](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+

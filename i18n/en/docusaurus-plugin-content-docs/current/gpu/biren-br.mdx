@@ -1,0 +1,135 @@
+---
+title: 'Biren Technology BR100/BR20X - Biren'
+description: "Biren Technology high-compute Chiplet GPU. BR100 (INT8 2048 TOPS, PCIe 5.0) is the main product, with BR20X next-gen chip planned for 2026, maintaining training advantages while optimizing inference scenarios. 2,048-card optical-interconnect GPU super-nodes already deployed at national-level computing platforms."
+sidebar_label: 'Biren Technology BR100/BR20X'
+keywords:
+  - 'Biren'
+  - 'BR100'
+  - 'BR20X'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Biren Technology BR100/BR20X
+
+**Vendor**: Biren Technology
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: Biren
+
+## Introduction
+
+Biren Technology high-compute Chiplet GPU. BR100 (INT8 2048 TOPS, PCIe 5.0) is the main product, with BR20X next-gen chip planned for 2026, maintaining training advantages while optimizing inference scenarios. 2,048-card optical-interconnect GPU super-nodes already deployed at national-level computing platforms.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| BR100 | 256 TFLOPS (FP32) / 1,024 (BF16) / 2,048 (INT8) | 64GB HBM2E | OAM (PCIe 5.0) | 550W | 7nm |
+| BR104 | 128 TFLOPS (FP32) / 512 (BF16) / 1,024 (INT8) | 32GB HBM2E | PCIe 4.0 | 250W | 7nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.birentech.com/)
+## Driver Downloads
+
+### Linux
+
+- [BIRENSUPA SDK](https://www.birentech.com/sdk)
+- [Docker Images](https://www.birentech.com/docker)
+
+
+## Related Documentation
+
+- [Biren Developer Center](https://www.birentech.com/developer)
+- [BR100 Product Documentation](https://www.birentech.com/br100)
+- [BIRENSUPA Programming Guide](https://www.birentech.com/sdk)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| BIRENSUPA 1.0 | 2023 | PyTorch/TensorFlow compatible |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| BR100 | BF16 Training | Near A100 level (official data) |
+| BR100 | General AI Inference | High throughput after INT8 optimization |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| BR100 | Contact vendor | Enterprise customers, affected by export controls |
+| BR104 | Contact vendor | Consumer/workstation version |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# 1. Install Biren driver
+sudo rpm -ivh biren-driver-*.rpm
+# or on DEB systems
+sudo dpkg -i biren-driver_*.deb
+
+# 2. Verify
+biren-smi
+```
+
+> Due to export controls, driver and SDK acquisition channels are limited.
+
+## Code Examples
+
+### Python (Biren CUDA Compatible)
+
+```python
+import torch
+# BR100 uses CUDA-compatible backend
+assert torch.cuda.is_available()
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+```
+
+> Biren GPU aims for CUDA programming model compatibility. Check official documentation for specific support levels.
+
+## Architecture Highlights
+
+- **Biren Proprietary Architecture**: Chiplet design with high compute and high-bandwidth interconnect
+- **CUDA Compatibility Strategy**: API-level CUDA compatibility for easy migration of existing CUDA applications
+- **Export Controls**: BR100 is on the US export control list, affecting commercialization
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ⚠️ CUDA Compatible | Compatibility depends on driver version |
+| Deep Learning Inference | ⚠️ | Ecosystem developing |
+| General AI | ⚠️ | Affected by controls, low community activity |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Iluvatar Tianguai 100](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [MetaX Xiyun C500](/gpu/metax-c600) — MetaX (GPU Graphics Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Moore Threads MTT S5000](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Baidu Kunlunxin P800](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Alibaba T-Head Zhenwu PPU](/gpu/t-head-zhenwu) — Alibaba (GPU Graphics Processor)
+- [Jingjia Micro JM9 Series](/gpu/jingjia-jm9) — Jingjia Micro (GPU Graphics Processor)
+

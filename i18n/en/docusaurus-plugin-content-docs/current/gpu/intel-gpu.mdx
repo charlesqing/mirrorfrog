@@ -1,0 +1,143 @@
+---
+title: 'Intel GPU - Intel'
+description: 'Intel integrated and discrete graphics cards, including Arc A-series, Arc B-series (Battlemage), Data Center GPU Max/Flex. Accelerated computing through the Intel oneAPI unified programming model.'
+sidebar_label: 'Intel GPU'
+keywords:
+  - 'Intel'
+  - 'GPU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Intel GPU
+
+**Vendor**: Intel
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: Xe HPC (Ponte Vecchio / Falcon Shores)
+
+## Introduction
+
+Intel integrated and discrete graphics cards, including Arc A-series, Arc B-series (Battlemage), Data Center GPU Max/Flex. Accelerated computing through the Intel oneAPI unified programming model.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Max Series 1550 | 75 TFLOPS (FP32) | 128GB HBM2e | SXM | 300W | Intel 7 |
+| Arc A770 | 20 TFLOPS (FP32) | 16GB GDDR6 | PCIe 4.0 | 225W | Xe HPG |
+
+
+## Official Website
+
+[Visit Official Website](https://www.intel.com/content/www/us/en/download-center/home.html)
+## Driver Downloads
+
+### Windows
+
+- [Intel Arc & Iris Driver (Windows)](https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics.html)
+- [Intel Graphics Control Panel](https://www.intel.com/content/www/us/en/download/18380/intel-graphics-command-center.html)
+
+### Linux
+
+- [Intel GPU Driver (Linux)](https://dgpu-docs.intel.com/)
+- [Intel oneAPI Base Toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html)
+- [Level Zero GPU Runtime](https://dgpu-docs.intel.com/releases/level_zero.html)
+
+
+## Related Documentation
+
+- [Intel GPU Documentation Center](https://dgpu-docs.intel.com/)
+- [oneAPI Programming Guide](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/overview.html)
+- [Intel OpenCL Extensions](https://www.intel.com/content/www/us/en/docs/opencl-sdk/developer-guide-core/2024/overview.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| oneAPI 2024.2 | 2024 | SYCL optimization |
+| Arc Driver 101.5 | 2024-Q2 | Stable release |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Max 1550 | AI Inference | ~200 TOPS (INT8) |
+| Max 1550 | Llama 2 7B Inference | ~20 tok/s (INT8, IPEX) |
+| Arc A770 | Stable Diffusion | ~4s/img (SYCL) |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Max Series 1550 | $3,000-5,000 | Data center inference card |
+| Arc A770 | $299-349 | Consumer graphics card |
+
+## Quick Installation
+
+### Linux (Intel GPU)
+
+```bash
+# 1. Install Intel GPU driver
+sudo apt install -y intel-opencl-icd intel-level-zero-gpu
+
+# 2. Install IPEX (Intel Extension for PyTorch)
+pip install intel-extension-for-pytorch
+
+# 3. Verify
+sycl-ls
+```
+
+## Code Examples
+
+### Python (Intel IPEX)
+
+```python
+import torch
+import intel_extension_for_pytorch as ipex
+
+# Use Intel XPU backend
+x = torch.randn(1024, 1024).xpu()
+y = torch.matmul(x, x)
+print(f"Intel XPU matrix multiply: {y.shape}")
+```
+
+## Architecture Highlights
+
+- **Xe HPC Architecture**: Unified compute architecture supporting AI and HPC scenarios, Falcon Shores is the next-gen product
+- **SYCL/oneAPI**: Intel open programming model, cross-platform alternative to CUDA
+- **IPEX**: Intel PyTorch extension providing XPU backend acceleration
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ IPEX | Official Intel extension |
+| OpenVINO | ✅ Native | Intel inference optimization toolchain |
+| Llama and similar LLMs | ⚠️ | IPEX + bigdl-llm support |
+| Stable Diffusion | ✅ | SYCL backend |
+| Whisper | ✅ | OpenVINO optimized |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Apple Silicon GPU](/gpu/apple-gpu) — Apple (GPU Graphics Processor)
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm (GPU Graphics Processor)
+- [Moore Threads MTT S5000](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+

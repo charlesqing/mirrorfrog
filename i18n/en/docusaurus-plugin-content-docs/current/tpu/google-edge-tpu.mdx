@@ -1,0 +1,147 @@
+---
+title: 'Google Coral Edge TPU - Google'
+description: "Google Coral Edge TPU is a low-power AI accelerator designed specifically for edge devices. Available in multiple form factors including USB accelerator, M.2 module, and Dev Board, for real-time inference of TensorFlow Lite models."
+sidebar_label: 'Google Coral Edge TPU'
+keywords:
+  - 'Google'
+  - 'Coral'
+  - 'Edge'
+  - 'TPU'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 99
+---
+
+# Google Coral Edge TPU
+
+**Vendor**: Google
+
+**Category**: TPU Tensor Processing Unit
+
+**Architecture**: Edge TPU
+
+## Introduction
+
+Google Coral Edge TPU is a low-power AI accelerator designed specifically for edge devices. Available in multiple form factors including USB accelerator, M.2 module, and Dev Board, for real-time inference of TensorFlow Lite models.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Coral Edge TPU | 4 TOPS (INT8) | External DDR | USB 3.0 / M.2 / PCIe | 2W | 9nm |
+| Dev Board Micro | 4 TOPS (INT8) | 512MB DDR | USB-C | 2W | 28nm |
+
+
+## Official Website
+
+[Visit Official Website](https://coral.ai/)
+## Driver Downloads
+
+### Linux
+
+- [Coral Edge TPU Driver (Linux)](https://coral.ai/docs/edgetpu/get-started/#linux)
+- [Mendel Linux (Dev Board)](https://coral.ai/docs/dev-board/get-started/)
+
+
+## Related Documentation
+
+- [Edge TPU Documentation](https://coral.ai/docs/)
+- [TensorFlow Lite on Edge TPU](https://coral.ai/docs/edgetpu/models-intro/)
+- [Edge TPU Performance Guide](https://coral.ai/docs/edgetpu/performance/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ✅ | ✅ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Edge TPU Compiler 16 | 2024 | Model quantization optimization |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Coral Edge TPU | MobileNet V2 | ~400 fps |
+| Coral Edge TPU | YOLOv5s | ~30 fps (quantized) |
+| Dev Board Micro | Multi-model inference | Supports concurrent multi-model |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Coral USB Accelerator | ~$60 | USB 3.0 accelerator dongle |
+| Coral Dev Board | ~$150 | Standalone development board |
+| Coral M.2 | ~$35 | M.2 module |
+
+## Quick Setup
+
+### Linux / Windows / macOS / Raspberry Pi
+
+```bash
+# 1. Install Edge TPU Runtime
+sudo apt-get install -y libedgetpu1-std
+
+# 2. Install Python SDK
+pip install tflite-runtime
+
+# 3. Compile model to TFLite + Edge TPU format
+# Using Edge TPU Compiler
+edgetpu_compiler model.tflite
+```
+
+## Code Examples
+
+### Python (Edge TPU)
+
+```python
+from tflite_runtime.interpreter import Interpreter
+
+# Load Edge TPU compiled model
+interpreter = Interpreter(
+    model_path="model_edgetpu.tflite",
+    experimental_delegates=[load_delegate("libedgetpu.so")]
+)
+interpreter.allocate_tensors()
+
+# Inference
+input_details = interpreter.get_input_details()
+interpreter.set_tensor(input_details[0]['index'], input_data)
+interpreter.invoke()
+output = interpreter.get_tensor(interpreter.get_output_details()[0]['index'])
+```
+
+## Architecture Highlights
+
+- **Edge TPU**: Coprocessor designed specifically for INT8 quantized inference, with only 2W power consumption
+- **Cross-Platform Support**: The only AI accelerator that simultaneously supports Windows/Linux/macOS/Android/Raspberry Pi
+- **Coral Ecosystem**: Google Coral offers a complete hardware lineup (USB/M.2/PCIe/Dev Board) and software toolchain
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| TFLite | ✅ Native | Mainstream format |
+| ONNX | ⚠️ | Use after converting to TFLite |
+| YOLO / MobileNet | ✅ Officially Optimized | Most mature scenario |
+| Image Classification/Detection | ✅ | Official pre-compiled models |
+| LLM | ❌ | Only small models supported |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo (NPU Neural Processing Unit)
+- [TsingMicro TX510](/asic/tsingmicro-rpu) — TsingMicro (ASIC dedicated accelerator)
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel (NPU Neural Processing Unit)
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processing Unit)
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (NPU Neural Processing Unit)
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google (TPU Tensor Processing Unit)
+

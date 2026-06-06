@@ -1,0 +1,122 @@
+---
+title: 'Rebellions REBEL-Quad - Rebellions'
+description: "South Korean company Rebellions' REBEL-Quad data center AI accelerator card, based on UCIe-Advanced 4-chiplet architecture, FP16 compute 1,024 TFLOPS, FP8 compute 2,048 TFLOPS, equipped with 144GB HBM3E memory, targeting large language model training and inference."
+sidebar_label: 'Rebellions REBEL-Quad'
+keywords:
+  - 'Rebellions'
+  - 'REBEL'
+  - 'Quad'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Rebellions REBEL-Quad
+
+**Vendor**: Rebellions (South Korea)
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: UCIe-Advanced Chiplet
+
+## Introduction
+
+Rebellions REBEL-Quad is a data center-grade AI accelerator card from South Korean AI chip company Rebellions, based on a UCIe-Advanced 4-chiplet architecture, specifically designed for cutting-edge large language model training and inference. REBEL-Quad uses unified mixed-precision cores, executing FP8 and FP16 in a single pipeline without requiring separate compute blocks or kernel recompilation.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| REBEL-Quad | 2,048 TFLOPS (FP8) / 1,024 (FP16) | 144GB HBM3E | 2× PCIe Gen5 x16 | 600W | 5nm |
+
+## Official Website
+
+[Visit Official Website](https://rebellions.ai/rebellions-product/rebel-quad/)
+
+## Driver Downloads
+
+### Linux
+
+- [Rebellions SDK](https://rebellions.ai/)
+
+## Related Documentation
+
+- [REBEL-Quad Product Page](https://rebellions.ai/rebellions-product/rebel-quad/)
+- [Rebellions Developer Center](https://rebellions.ai/)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| REBEL-Quad | 2025 | 4-chiplet UCIe-Advanced architecture, 144GB HBM3E |
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| REBEL-Quad | FP8 Inference | 2,048 TFLOPS |
+| REBEL-Quad | FP16 Training | 1,024 TFLOPS |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| REBEL-Quad | Contact vendor | Enterprise data center product |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# Install Rebellions SDK
+# See official documentation
+pip install rebellions-sdk
+```
+
+## Code Examples
+
+### Python (Rebellions SDK)
+
+```python
+import rebellions as rb
+
+# Initialize device
+device = rb.Device(0)
+x = rb.randn((1024, 1024), device=device)
+y = rb.matmul(x, x)
+print(f"REBEL-Quad matrix multiply: {y.shape}")
+```
+
+## Architecture Highlights
+
+- **UCIe-Advanced Chiplet**: 4 homogeneous chiplets interconnected via UCIe, 1TB/s bidirectional bandwidth, 11ns latency
+- **Mixed-Precision Pipeline**: FP8 and FP16 execute in a single pipeline with 2.8× higher compute density than ATOM™
+- **Predictive DMA**: Software-controlled DMA engine with 2.7TB/s effective bandwidth, reducing long-context LLM latency
+- **Full-Mesh Synchronization**: Hardware-accelerated full-mesh synchronization across 256 routers, maintaining high utilization under sparse or imbalanced loads
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch 2.x | ✅ Native support | vLLM and Triton compatible |
+| vLLM | ✅ | Inference optimization |
+| Llama Series | ✅ | Large-scale deployment |
+| Transformer LLM | ✅ | Cutting-edge model training |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA B200 SXM](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD MI300X](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC Dedicated Accelerator)
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS (ASIC Dedicated Accelerator)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova (ASIC Dedicated Accelerator)
+- [Cambricon Siyuan MLU](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)

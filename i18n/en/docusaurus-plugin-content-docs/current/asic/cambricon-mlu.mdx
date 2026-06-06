@@ -1,0 +1,158 @@
+---
+title: 'Cambricon Siyuan MLU - Cambricon'
+description: "Cambricon domestic AI accelerator cards. The Siyuan series covers both training and inference scenarios. Siyuan 590 (MLU590) uses 7nm Chiplet packaging, FP16 compute 256 TFLOPS, INT8 compute 512 TOPS, 96GB HBM2e. The proprietary Bangware software stack achieves CUDA compatibility, accessed via the NeuWare SDK."
+sidebar_label: 'Cambricon Siyuan MLU'
+keywords:
+  - 'Cambricon'
+  - 'Siyuan'
+  - 'MLU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 1
+---
+
+# Cambricon Siyuan MLU
+
+**Vendor**: Cambricon
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: MLUarch
+
+## Introduction
+
+Cambricon domestic AI accelerator cards. The Siyuan series covers both training and inference scenarios. Siyuan 590 (MLU590) uses 7nm Chiplet packaging, FP16 compute 256 TFLOPS, INT8 compute 512 TOPS, 96GB HBM2e. The proprietary Bangware software stack achieves CUDA compatibility, accessed via the NeuWare SDK. In 2025, approximately 116,000 units were shipped, placing it in the domestic third tier.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Siyuan 590 | 256 TFLOPS (FP16) / 512 (INT8) / 80 (FP32) | 96GB HBM2e (2.7 TB/s) | OAM | 350W | 7nm |
+| Siyuan 370 | 128 TOPS (INT8) | 24GB LPDDR5 | PCIe 4.0 | 150W | 12nm |
+| Siyuan 270 | 64 TOPS (INT8) | 8GB DDR4 | PCIe 3.0 | 70W | 16nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.cambricon.com/)
+## Driver Downloads
+
+### Linux
+
+- [Cambricon Driver Package (Linux)](https://developer.cambricon.com/index/document/down.html?ddd=13)
+- [NeuWare SDK](https://developer.cambricon.com/index/document/down.html)
+- [Docker Images](https://developer.cambricon.com/index/document/details/classid/7/cid/13/id/252.html)
+
+
+## Related Documentation
+
+- [Cambricon Developer Community](https://developer.cambricon.com/)
+- [Driver Installation Manual](https://developer.cambricon.com/index/document/details/classid/7/cid/13/id/252.html)
+- [Bang C Developer Manual](https://developer.cambricon.com/index/document/down.html?ddd=13)
+- [NeuWare SDK Documentation](https://developer.cambricon.com/index/document/down.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Neuware 5.0 | 2024 | 590 support + CNN/Transformer dual optimization |
+| BANG C 2.0 | 2023 | CUDA programming model compatibility |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Siyuan 590 | BERT-Large Training | ~80% A100 efficiency (official data) |
+| Siyuan 590 | INT8 Inference | 512 TOPS |
+| Siyuan 370 | Inference Throughput | INT8 optimized |
+| Siyuan 270 | Edge Inference | 64 TOPS, 70W |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Siyuan 590 | Contact vendor | Enterprise training card |
+| Siyuan 370 | Contact vendor | Inference accelerator |
+| Siyuan 270 | Contact vendor | Edge/endpoint |
+
+## Quick Installation
+
+### Linux (Ubuntu 22.04 / Kylin)
+
+```bash
+# 1. Install NeuWare driver
+sudo ./neuware-driver-*.run --install
+
+# 2. Install NeuWare SDK
+sudo ./neuware-sdk-*.run --install
+
+# 3. Verify
+cnmon
+```
+
+> NeuWare is downloaded from the [Cambricon Developer Community](https://developer.cambricon.com/).
+
+## Code Examples
+
+### Python (Cambricon PyTorch)
+
+```python
+import torch
+import torch_cambricon  # Cambricon NPU extension
+
+# Use MLU backend
+device = torch.device("mlu")
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"MLU matrix multiply: {y.shape}")
+```
+
+### Bang C (Cambricon CUDA-compatible)
+
+```c
+// Bang C API is highly compatible with CUDA
+__mlu_entry__ void kernel(float *input, float *output) {
+    int idx = get_thread_id();
+    output[idx] = input[idx] * 2.0f;
+}
+```
+
+## Architecture Highlights
+
+- **MLUarch**: Cambricon proprietary AI accelerator architecture. 590 uses 7nm Chiplet packaging, 96GB HBM2e large memory
+- **Bang C**: CUDA-compatible programming language, enabling low-cost CUDA code migration
+- **NeuWare**: Complete software stack — driver + runtime (CNRT) + operator library (CNBL/CNCL) + compiler
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ torch_cambricon | MLU backend |
+| Bang C | ✅ Native | CUDA-compatible |
+| MindSpore | ⚠️ | Under adaptation |
+| Llama / Qwen and similar LLMs | ⚠️ | Ecosystem gradually maturing |
+| Model Quantization | ✅ | INT8 optimized |
+| Domestic OS | ✅ | Kylin/UOS adapted |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [Kunlunxin Gen 2 / Gen 3](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Hygon Shensuan Z100](/asic/hygon-dcu) — Hygon (ASIC Dedicated Accelerator)
+- [Enflame Blaze T20/T21](/asic/enflame-blaze) — Enflame (ASIC Dedicated Accelerator)
+- [TsingMicro Reconfigurable RPU](/asic/tsingmicro-rpu) — TsingMicro (ASIC Dedicated Accelerator)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+

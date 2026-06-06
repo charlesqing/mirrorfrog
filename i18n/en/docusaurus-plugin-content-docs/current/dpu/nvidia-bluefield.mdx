@@ -1,0 +1,146 @@
+---
+title: 'NVIDIA BlueField DPU - NVIDIA'
+description: "NVIDIA BlueField DPU (Data Processing Unit) is purpose-built for data center infrastructure acceleration. Offloads network, storage, security, telemetry and other tasks, freeing CPU and GPU to focus on computation. Supports DOCA SDK programming."
+sidebar_label: 'NVIDIA BlueField DPU'
+keywords:
+  - 'NVIDIA'
+  - 'BlueField'
+  - 'DPU'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 99
+---
+
+# NVIDIA BlueField DPU
+
+**Vendor**: NVIDIA
+
+**Category**: DPU Data Processing Unit
+
+**Architecture**: Mellanox ConnectX + ARM
+
+## Introduction
+
+NVIDIA BlueField DPU (Data Processing Unit) is purpose-built for data center infrastructure acceleration. Offloads network, storage, security, telemetry and other tasks, freeing CPU and GPU to focus on computation. Supports DOCA SDK programming.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| BlueField-3 | 200 Gbps Networking | 16GB DDR5 + 4GB ARM | PCIe 5.0 / 400GbE | 35W | 5nm |
+| BlueField-2 | 100 Gbps Networking | 8GB DDR4 + 4GB ARM | PCIe 4.0 / 200GbE | 25W | 16nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.nvidia.com/en-us/networking/products/data-processing-unit/)
+## Driver Downloads
+
+### Linux
+
+- [BlueField DPU Driver (Linux)](https://docs.nvidia.com/networking/display/bluefielddpuenteringlinux/installing-doca.html)
+- [DOCA SDK Download](https://developer.nvidia.com/doca-sdk)
+
+
+## Related Documentation
+
+- [BlueField DPU Documentation](https://docs.nvidia.com/networking/display/bluefielddpuenteringlinux/)
+- [DOCA Development Guide](https://docs.nvidia.com/doca/)
+- [DPU Programming Introduction](https://developer.nvidia.com/doca-software)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| DOCA 2.5 | 2024 | Full BlueField-3 feature support |
+| DOCA 2.0 | 2023 | Zero-trust security framework |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| BlueField-3 | Network Offload | 400Gbps line-rate processing |
+| BlueField-3 | Storage Offload | NVMe-oF/RDMA acceleration |
+| BlueField-2 | Security Offload | IPsec/TLS hardware acceleration |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| BlueField-3 DPU | Contact sales | Enterprise data center |
+| BlueField-2 DPU | Contact sales | Widely deployed |
+
+## Quick Setup
+
+### Linux
+
+```bash
+# 1. Install DOCA SDK (NVIDIA DPU Software)
+apt install -y doca-sdk
+
+# 2. Configure BlueField
+bfread -p /dev/mst/mt41686_pciconf0
+
+# 3. Verify
+mst status
+```
+
+> DOCA SDK download from [NVIDIA DOCA](https://developer.nvidia.com/networking/doca).
+
+## Code Examples
+
+### C (DOCA Flow - Network Acceleration)
+
+```c
+#include <doca_flow.h>
+
+// Create flow rules for network packet processing
+doca_flow_port_cfg port_cfg = {0};
+port_cfg.port_id = 0;
+port_cfg.type = DOCA_FLOW_PORT_DPDK_BY_ID;
+
+// Add flow rule: forward to VF
+doca_flow_match match = {0};
+doca_flow_actions actions = {0};
+actions.fwd.type = DOCA_FLOW_FWD_VPORT;
+actions.fwd.port_id = vport_id;
+
+doca_flow_create_rule(port, &match, NULL, &actions, NULL);
+```
+
+## Architecture Highlights
+
+- **Mellanox ConnectX + ARM**: Combination of network controller and ARM cores, capable of running an independent OS
+- **DOCA Software Stack**: NVIDIA's unified DPU programming framework, supporting network, storage, and security offload
+- **Zero-Trust Security**: Hardware-level isolation, running security policies on the DPU without impacting host performance
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| DOCA SDK | ✅ Native | NVIDIA official |
+| DPDK | ✅ | Network acceleration |
+| SPDK | ✅ | Storage acceleration |
+| Kubernetes | ✅ | Container networking |
+| AI Frameworks | N/A | DPU is not an AI accelerator |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [AMD Pensando](/dpu/amd-pensando) — AMD (DPU Data Processing Unit)
+- [Intel IPU](/dpu/intel-ipu) — Intel (DPU Data Processing Unit)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Intel GPU](/gpu/intel-gpu) — Intel (GPU Graphics Processor)
+

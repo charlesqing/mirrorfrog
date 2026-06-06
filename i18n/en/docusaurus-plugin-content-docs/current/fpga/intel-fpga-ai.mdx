@@ -1,0 +1,138 @@
+---
+title: 'Intel FPGA AI Suite - Intel'
+description: "Intel FPGA AI Suite is an AI inference optimization toolkit for Intel Agilex/Arria/Stratix FPGAs. It supports OpenVINO model optimization and can deploy models onto FPGAs for low-latency inference."
+sidebar_label: 'Intel FPGA AI Suite'
+keywords:
+  - 'Intel'
+  - 'FPGA'
+  - 'AI'
+  - 'Suite'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 99
+---
+
+# Intel FPGA AI Suite
+
+**Vendor**: Intel
+
+**Category**: FPGA Field-Programmable Gate Array
+
+**Architecture**: Intel Agilex / Stratix
+
+## Introduction
+
+Intel FPGA AI Suite is an AI inference optimization toolkit for Intel Agilex/Arria/Stratix FPGAs. It supports OpenVINO model optimization and can deploy models onto FPGAs for low-latency inference.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Agilex 9 | 200 TOPS (INT8) | 64GB DDR4 | PCIe 4.0 | 250W | Intel 7 |
+| Agilex 7 | 100 TOPS (INT8) | 32GB DDR4 | PCIe 4.0 | 150W | Intel 7 |
+
+
+## Official Website
+
+[Visit Official Website](https://www.intel.com/content/www/us/en/products/details/fpga.html)
+## Driver Downloads
+
+### Linux
+
+- [Intel FPGA Driver (Linux)](https://www.intel.com/content/www/us/en/support/download-center.html)
+- [Intel FPGA AI Suite](https://www.intel.com/content/www/us/en/software/welcome-to-intel-fpga-ai-suite.html)
+
+
+## Related Documentation
+
+- [Intel FPGA AI Suite Documentation](https://www.intel.com/content/www/us/en/docs/fpga-ai-suite/ug-integrator-title/2024-1/overview.html)
+- [OpenVINO on FPGA](https://docs.openvino.ai/2024/openvino-sample-guides/fpga.html)
+- [FPGA AI Getting Started Guide](https://www.intel.com/content/www/us/en/docs/fpga-ai-suite/ug-overview/2024-1/overview.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Intel FPGA AI Suite 3.0 | 2024 | Agilex 9 support + oneAPI |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Agilex 9 | AI Inference | High throughput INT8 inference |
+| Agilex 7 | Video Processing | Multi-stream real-time processing |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Agilex 9 | $5,000-10,000 | High-end FPGA |
+| Agilex 7 | $2,000-5,000 | Mid-range FPGA |
+
+## Quick Setup
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. Install Intel FPGA Runtime
+sudo apt install -y intel-fpga-runtime
+
+# 2. Program FPGA
+aocl program acl0 kernel.aocx
+
+# 3. Verify
+aocllist
+```
+
+> Intel FPGA SDK download from [Intel FPGA](https://www.intel.com/content/www/us/en/products/programmable.html).
+
+## Code Examples
+
+### C (Intel FPGA OpenCL)
+
+```c
+// FPGA Kernel (OpenCL)
+__kernel void matmul(__global const float *A, __global const float *B, __global float *C) {
+    int i = get_global_id(0);
+    C[i] = A[i] * B[i];
+}
+```
+
+Compile with: `aoc kernel.cl -o kernel.aocx`
+
+## Architecture Highlights
+
+- **Agilex / Stratix**: Intel (Altera) FPGA architecture, supporting AI and signal processing
+- **OneAPI for FPGA**: Unified programming model, supporting SYCL/OpenCL
+- **AI Suite**: Intel FPGA AI inference optimization toolchain
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| OpenVINO | ✅ | Intel FPGA backend |
+| OneAPI/SYCL | ✅ | Unified programming |
+| Custom Logic | ✅ | FPGA core advantage |
+| Quantized Inference | ✅ | INT8 optimized |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [AMD Alveo FPGA](/fpga/amd-alveo) — AMD (Xilinx) (FPGA Field-Programmable Gate Array)
+- [Achronix Speedster](/fpga/achronix-speedster) — Achronix (FPGA Field-Programmable Gate Array)
+- [Intel GPU](/gpu/intel-gpu) — Intel (GPU Graphics Processor)
+- [Intel Gaudi](/asic/intel-gaudi) — Intel (ASIC dedicated accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+

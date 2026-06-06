@@ -1,0 +1,136 @@
+---
+title: 'Graphcore IPU - Graphcore'
+description: "A UK AI chip pioneer. The IPU uses a massively parallel architecture, optimized specifically for sparse computation and graph neural networks, delivering outstanding performance on specific AI workloads."
+sidebar_label: 'Graphcore IPU'
+keywords:
+  - 'Graphcore'
+  - 'IPU'
+  - 'Graphcore IPU'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 99
+---
+
+# Graphcore IPU
+
+**Vendor**: Graphcore
+
+**Category**: Innovative Architecture / Machine Intelligence
+
+**Architecture**: IPU (Intelligence Processing Unit)
+
+## Introduction
+
+A UK AI chip pioneer. The IPU uses a massively parallel architecture, optimized specifically for sparse computation and graph neural networks, delivering outstanding performance on specific AI workloads.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Bow IPU | 350 TFLOPS (FP16) | 900MB on-chip SRAM | IPU-Fabric Interconnect | 350W | 7nm |
+| Mk2 IPU | 250 TFLOPS (FP16) | 900MB on-chip SRAM | IPU-Fabric Interconnect | 275W | 7nm |
+
+
+## Official Website
+
+[Visit Official Website](https://graphcore.ai/)
+## Driver Downloads
+
+### Linux
+
+- [Graphcore Poplar SDK](https://docs.graphcore.ai/projects/poplar-sdk-install/en/latest/)
+- [IPU Driver Installation](https://docs.graphcore.ai/projects/ipu-install/en/latest/)
+
+
+## Related Documentation
+
+- [Graphcore Documentation Center](https://docs.graphcore.ai/)
+- [Poplar Programming Model](https://docs.graphcore.ai/projects/poplar-user-guide/en/latest/)
+- [PyTorch Adaptation (PopTorch)](https://docs.graphcore.ai/projects/poptorch-user-guide/en/latest/)
+- [TensorFlow Adaptation (PopART)](https://docs.graphcore.ai/projects/popart-user-guide/en/latest/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| PopTorch 2.0 | 2024 | PyTorch 2.x compatibility |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Bow IPU | BERT-Large Training | ~85% H100 efficiency |
+| Bow IPU | PopART Graph Training | Supports 1B+ parameter models |
+| Mk2 IPU | General AI | Previous generation product |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Bow IPU | Contact sales | Sold by RapidAI (China subsidiary) |
+| Mk2 IPU | Contact sales | Gradually replaced by Bow |
+
+## Quick Setup
+
+### Linux
+
+```bash
+# 1. Install Poplar SDK (Graphcore programming framework)
+pip install poplar
+pip install popart
+
+# 2. Verify
+gc-info
+```
+
+## Code Examples
+
+### Python (PopART)
+
+```python
+import popart
+import popart.ir as pir
+import torch
+
+# Use PopART IPU backend
+ir = pir.Ir()
+with ir.main_graph:
+    x = pir.ops.host_store(pir.constant([1.0, 2.0]))
+```
+
+## Architecture Highlights
+
+- **IPU (Intelligence Processing Unit)**: A processor designed for large model training, with intensive on-chip communication
+- **Bow Architecture**: Second-generation IPU, introducing memory optimizations and computational efficiency improvements
+- **Poplar + PopART**: Graphcore's unified compiler and runtime framework
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| PopART (PyTorch) | ✅ Native | Best support |
+| TensorFlow | ✅ | PopART backend |
+| PaddlePaddle | ⚠️ | Adaptation in progress |
+| Large Model Training | ✅ | Distributed training support |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google (TPU Tensor Processing Unit)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC dedicated accelerator)
+- [SambaNova SN40L](/asic/sambanova-rdu) — SambaNova (ASIC dedicated accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Intel Gaudi](/asic/intel-gaudi) — Intel (ASIC dedicated accelerator)
+

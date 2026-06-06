@@ -1,0 +1,152 @@
+---
+title: 'Moore Threads MTT S5000 - Moore Threads'
+description: "Moore Threads full-function GPU, using MUSA unified architecture compatible with CUDA ecosystem. Flagship MTT S5000 training-inference unified GPU is in mass production, supporting trillion-parameter large model training. MTT S4000 (FP16 100T, 48GB memory) priced at approximately 30,000 RMB. Listed on STAR Market in December 2025, first quarterly profit in Q1 2026."
+sidebar_label: 'Moore Threads MTT S5000'
+keywords:
+  - 'Moore Threads'
+  - 'MTT'
+  - 'S5000'
+  - 'Moore'
+  - 'Threads'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 4
+---
+
+# Moore Threads MTT S5000
+
+**Vendor**: Moore Threads
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: MUSA
+
+## Introduction
+
+Moore Threads full-function GPU, using MUSA unified architecture compatible with CUDA ecosystem. Flagship MTT S5000 training-inference unified GPU is in mass production, supporting trillion-parameter large model training. MTT S4000 (FP16 100T, 48GB memory) priced at approximately 30,000 RMB. Listed on STAR Market in December 2025, first quarterly profit in Q1 2026.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| MTT S5000 | 1,000 TFLOPS (FP8) | 80GB GDDR6 (1.6 TB/s) | OAM | 350W | 12nm |
+| MTT S4000 | 128 TFLOPS (BF16) / 256 (INT8) | 48GB GDDR6 (768 GB/s) | PCIe 4.0 | 450W | 12nm |
+| MTT S80 | 30 TFLOPS (FP32) | 16GB GDDR6 | PCIe 4.0 | 255W | 12nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.mthreads.com/)
+## Driver Downloads
+
+### Linux
+
+- [MUSA Driver (Linux)](https://www.mthreads.com/driver)
+- [MUSA SDK](https://www.mthreads.com/sdk)
+
+### Windows
+
+- [MUSA Driver (Windows)](https://www.mthreads.com/driver)
+
+
+## Related Documentation
+
+- [Moore Threads Developer Center](https://developer.mthreads.com/)
+- [MUSA Programming Guide](https://developer.mthreads.com/musa)
+- [MTT S5000 Product Page](https://www.mthreads.com/mtt-s5000)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| MUSA 2.0 | 2024 | Domestic graphics rendering + AI compute |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| MTT S5000 | Llama 2 7B Inference | ~40 tok/s (FP16, official data) |
+| MTT S4000 | ResNet-50 Inference | ~5000 img/s |
+| MTT S80 | Rendering/General Compute | Runs in CUDA-compatible mode |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| MTT S5000 | Contact vendor | Training-inference flagship |
+| MTT S4000 | ~¥30,000 | Inference accelerator |
+| MTT S80 | ~¥3,000 | Consumer graphics card |
+
+## Quick Installation
+
+### Linux (Ubuntu 22.04)
+
+```bash
+# 1. Install MUSA driver
+sudo apt update
+sudo dpkg -i mthreads-driver_*.deb
+
+# 2. Install MUSA SDK
+tar -xzf musa-sdk-*.tar.gz
+cd musa-sdk && sudo ./install.sh
+
+# 3. Verify installation
+mthreads-smi
+```
+
+> MUSA SDK is downloaded from [Moore Threads Developer Center](https://developer.mthreads.com/).
+
+## Code Examples
+
+### Python (MUSA PyTorch)
+
+```python
+import torch
+
+# MUDA is Moore Threads' CUDA-compatible backend
+assert torch.cuda.is_available(), "Moore Threads GPU not found"
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+
+# MUDA API is consistent with CUDA, no code changes needed
+x = torch.randn(1024, 1024).cuda()
+y = torch.matmul(x, x)
+print(f"MUSA matrix multiply: {y.shape}")
+```
+
+## Architecture Highlights
+
+- **MUSA Unified Architecture**: Moore Threads proprietary GPU architecture, compatible with CUDA programming model, supporting CUDA source-level porting
+- **S5000 Flagship**: Designed for large model training and inference, OAM interface suitable for cluster deployment
+- **Dual-Track Strategy**: Simultaneously advancing graphics rendering (MUSA Graphics) and AI computing (MUSA Compute)
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ⚠️ MUDA Backend | CUDA-API compatible, requires MUSA PyTorch |
+| TensorFlow | ⚠️ Limited | Via MUDA compatibility layer |
+| Llama and similar LLMs | ⚠️ | Community adaptation in progress, large model support gradually improving |
+| General Inference | ✅ | ResNet/YOLO inference is mature |
+| Graphics Rendering | ✅ | DirectX/Vulkan/OpenGL support |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Jingjia Micro JM9](/gpu/jingjia-jm9) — Jingjia Micro (GPU Graphics Processor)
+- [Vastai VA100](/gpu/vastai-sv) — Vastai Semiconductor (GPU Graphics Processor)
+- [Biren Technology BR100/BR20X](/gpu/biren-br) — Biren Technology (GPU Graphics Processor)
+- [MetaX Xiyun C500/C600](/gpu/metax-c600) — MetaX (GPU Graphics Processor)
+- [Iluvatar BI-150/BI-V150](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [Baidu Kunlunxin P800](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+

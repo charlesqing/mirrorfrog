@@ -1,0 +1,132 @@
+---
+title: 'Hygon Shensuan DCU - Hygon'
+description: "Hygon Shensuan series DCU (GPGPU). The only domestic vendor with both x86 CPU and GPGPU DCU dual-chip products. Shensuan Z100/ZK2 series is compatible with ROCm/CUDA ecosystem, with FP64 double precision at approximately 10 TFLOPS, suitable for HPC+AI hybrid scenarios. Approximately 83,000 units shipped in 2025, market cap of 330 billion RMB."
+sidebar_label: 'Hygon Shensuan DCU'
+keywords:
+  - 'Hygon'
+  - 'Shensuan'
+  - 'DCU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 1
+---
+
+# Hygon Shensuan DCU
+
+**Vendor**: Hygon
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: GPGPU (ROCm-compatible)
+
+## Introduction
+
+Hygon Shensuan series DCU (GPGPU). The only domestic vendor with both x86 CPU and GPGPU DCU dual-chip products. Shensuan Z100/ZK2 series is compatible with ROCm/CUDA ecosystem, with FP64 double precision at approximately 10 TFLOPS, suitable for HPC+AI hybrid scenarios. Approximately 83,000 units shipped in 2025, market cap of 330 billion RMB.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Shensuan II (K100-AI) | 192 TFLOPS (FP16) / 49 (FP32) | 64GB HBM2 | OAM | 300W | 7nm |
+| Shensuan I (Z100) | 21.6 TFLOPS (FP16) / 10.8 (FP32) | 32GB HBM2 | PCIe 4.0 | 250W | 7nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.hygon.cn/)
+## Driver Downloads
+
+### Linux
+
+- [DCU Driver (DTK)](https://developer.hygontools.com/)
+- [ROCm Compatibility Layer](https://www.hygon.cn/)
+
+
+## Related Documentation
+
+- [Hygon Developer Center](https://developer.hygontools.com/)
+- [DCU Technical Documentation](https://www.hygon.cn/)
+- [DTK Development Guide](https://developer.hygontools.com/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ⚠️ (Partial) | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| DTK 3.0 | 2024 | Z200 support + CUDA compatibility optimization |
+| DTK 2.5 | 2023 | PyTorch compatibility layer enhancement |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Shensuan II Z200 | BF16 Training | Near MI250X efficiency |
+| Shensuan I Z100 | General AI Inference | Compatible with ROCm ecosystem |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Z200 | Contact vendor | Domestic alternative to AMD Instinct |
+| Z100 | Contact vendor | In mass production |
+
+## Quick Installation
+
+### Linux (Kylin / UOS / Ubuntu)
+
+```bash
+# Hygon DCU is compatible with ROCm ecosystem
+# Install DCU driver (similar to ROCm)
+sudo ./dcu-driver-*.run --install
+
+# Verify
+dcu-smi
+```
+
+## Code Examples
+
+### Python (Hygon DCU PyTorch)
+
+```python
+import torch
+# Hygon DCU is compatible with ROCm/CUDA backend
+assert torch.cuda.is_available()
+print(f"DCU: {torch.cuda.get_device_name(0)}")
+```
+
+## Architecture Highlights
+
+- **GPGPU Architecture**: Based on AMD Zen architecture license + proprietary DCU design, compatible with ROCm ecosystem
+- **Domestic Substitution**: Independent R&D based on AMD license, targeting the Xinchuang/domestic substitution market
+- **ROCm-like Ecosystem**: Can directly use ROCm toolchain and PyTorch ROCm versions
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ ROCm | ROCm backend compatible |
+| Kylin/UOS | ✅ Native | Domestic OS adaptation |
+| General AI | ⚠️ | Via ROCm ecosystem |
+| Large Model Training | ⚠️ | Gradually improving |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Iluvatar Tianguai 100](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [Cambricon Siyuan MLU](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [Enflame Blaze T20/T21](/asic/enflame-blaze) — Enflame (ASIC Dedicated Accelerator)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+

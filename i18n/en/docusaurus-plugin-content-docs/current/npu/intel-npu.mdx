@@ -1,0 +1,149 @@
+---
+title: 'Intel NPU (AI Boost) - Intel'
+description: "Intel Core Ultra processor built-in NPU (AI Boost) for low-power AI inference acceleration. Supports OpenVINO framework, suitable for AI workloads on thin-and-light laptops and edge devices."
+sidebar_label: 'Intel NPU (AI Boost)'
+keywords:
+  - 'Intel'
+  - 'NPU'
+  - 'AI'
+  - 'Boost'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Intel NPU (AI Boost)
+
+**Vendor**: Intel
+
+**Category**: NPU Neural Processor
+
+**Architecture**: Gaudi NPU Core / Movidius
+
+## Introduction
+
+Intel Core Ultra processor built-in NPU (AI Boost) for low-power AI inference acceleration. Supports OpenVINO framework, suitable for AI workloads on thin-and-light laptops and edge devices.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Core Ultra 200V | 48 TOPS (INT8) | LPDDR5X (shared) | Integrated SoC | 17-45W | Intel 4 |
+| Core Ultra (Meteor Lake) | 12 TOPS (INT8) | LPDDR5X (shared) | Integrated SoC | 28W | Intel 4 |
+| Movidius Myriad X | 4 TOPS (INT8) | 512MB LPDDR4 | USB 3.0 | 1.5W | 16nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.intel.com/content/www/us/en/products/docs/processors/core-ultra/npu-ai.html)
+## Driver Downloads
+
+### Windows
+
+- [Intel NPU Driver (Windows)](https://www.intel.com/content/www/us/en/download-center/home.html)
+
+### Linux
+
+- [Intel NPU Linux Driver](https://github.com/intel/linux-npu-driver)
+
+
+## Related Documentation
+
+- [Intel NPU Acceleration Guide](https://docs.openvino.ai/2024/openvino-workflow/model-optimization-guide/optimizing-use-npu.html)
+- [OpenVINO Documentation](https://docs.openvino.ai/)
+- [Intel AI PC Developer Resources](https://www.intel.com/content/www/us/en/developer/topic-technology/artificial-intelligence/overview.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| OpenVINO 2024.4 | 2024 | Lunar Lake NPU support |
+| OpenVINO 2024.0 | 2024-Q1 | LLM inference optimization |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Core Ultra 200V | NPU TOPS | 48 TOPS |
+| Core Ultra (Meteor Lake) | NPU TOPS | 11 TOPS |
+| Movidius Myriad X | Vision Inference | 4 TOPS, 1.5W |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Core Ultra 200V | Provided with laptop | AI PC laptop |
+| Movidius Myriad X | ~$69-99 | USB accelerator stick |
+
+## Quick Installation
+
+### Windows 11
+
+Intel NPU is automatically used through the OpenVINO runtime with the latest drivers installed.
+
+```powershell
+# Install OpenVINO
+pip install openvino
+
+# Verify NPU availability
+python -c "from openvino import Core; core = Core(); print(core.available_devices)"
+```
+
+## Code Examples
+
+### Python (OpenVINO NPU)
+
+```python
+from openvino import Core
+from openvino.runtime import Model
+
+# Detect NPU device
+core = Core()
+print(f"Available devices: {core.available_devices}")  # Contains 'NPU'
+
+# Load and compile model to NPU
+model = core.read_model("model.xml")
+compiled = core.compile_model(model, "NPU")
+
+# Inference
+output = compiled(input_data)
+```
+
+## Architecture Highlights
+
+- **Intel NPU Core**: Low-power NPU core based on Gaudi technology, oriented toward daily AI tasks on AI PCs
+- **Movidius VPU**: Independent VPU for edge vision inference, suitable for cameras/robots
+- **OpenVINO**: Intel unified inference framework, automatically selecting the best CPU/GPU/NPU backend
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| OpenVINO | ✅ Native | Best support |
+| ONNX | ✅ Convert | OpenVINO direct load |
+| PyTorch | ✅ Export | Convert ONNX → OpenVINO |
+| Small LLMs | ✅ | OpenVINO + NPU acceleration |
+| Speech/Vision | ✅ | Movidius vision optimized |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processor)
+- [Apple Neural Engine](/npu/apple-neural-engine) — Apple (NPU Neural Processor)
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana (ASIC Dedicated Accelerator)
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (NPU Neural Processor)
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo (NPU Neural Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+

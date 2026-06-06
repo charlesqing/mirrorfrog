@@ -1,0 +1,119 @@
+---
+title: 'TsingMicro Reconfigurable RPU - TsingMicro'
+description: "TsingMicro, originating from Tsinghua University, focuses on reconfigurable dataflow AI chips (RPU), referred to as the 'Transformers of the chip world.' Core competitive advantages: high energy efficiency, high flexibility, and low cost. In 2025, it was the only new computing architecture vendor among China's top eight AI accelerator card shippers, with a valuation exceeding 200 billion RMB."
+sidebar_label: 'TsingMicro Reconfigurable RPU'
+keywords:
+  - 'TsingMicro'
+  - 'Reconfigurable'
+  - 'RPU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# TsingMicro Reconfigurable RPU
+
+**Vendor**: TsingMicro
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: Reconfigurable Computing (CGRA)
+
+## Introduction
+
+TsingMicro, originating from Tsinghua University, focuses on reconfigurable dataflow AI chips (RPU), referred to as the "Transformers of the chip world." Core competitive advantages: high energy efficiency, high flexibility, and low cost. In 2025, it was the only new computing architecture vendor among China's top eight AI accelerator card shippers, with a valuation exceeding 200 billion RMB.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| TX510 | 10 TOPS (INT8) | External DDR | PCIe / SoC | 3W | 22nm |
+| TX210 | 3 TOPS (INT8) | External DDR | SoC integration | 0.5W | 22nm |
+
+
+## Official Website
+
+[Visit Official Website](http://www.tsingmicro.com/)
+## Driver Downloads
+
+### Linux
+
+- [RPU Driver (Linux)](http://www.tsingmicro.com/)
+- [TXN SDK](http://www.tsingmicro.com/)
+
+
+## Related Documentation
+
+- [TsingMicro Developer Center](http://www.tsingmicro.com/)
+- [RPU Architecture Documentation](http://www.tsingmicro.com/)
+- [TXN Programming Guide](http://www.tsingmicro.com/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ✅ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| SDK 2.0 | 2024 | Reconfigurable computing optimization |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| TX510 | Edge Inference | RISC-V CGRA acceleration |
+| TX210 | Ultra-low-power Inference | Endpoint scenarios |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| TX510 | Contact vendor | Chip-level (OEM-oriented) |
+| TX210 | Contact vendor | Endpoint solution |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# TsingMicro SDK from official source
+# Supports RISC-V + CGRA programming
+```
+
+## Code Examples
+
+AI development for TsingMicro RPU is primarily through the TSM SDK, supporting CGRA reconfigurable programming. The ecosystem is currently new with limited public documentation.
+
+## Architecture Highlights
+
+- **CGRA (Coarse-Grained Reconfigurable Architecture)**: Coarse-grained reconfigurable architecture, flexibly adapting to different AI algorithms
+- **RISC-V Foundation**: Based on RISC-V processor core + CGRA acceleration units
+- **Endpoint Positioning**: Low-power edge AI inference scenarios
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| Endpoint Models | ⚠️ | TSM SDK support |
+| Speech/NLP | ⚠️ | Scenario-optimized |
+| LLM | ❌ | Not suitable for large models |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Hailo-8 / Hailo-15](/npu/hailo-8l) — Hailo (NPU Neural Processor)
+- [T-Head Xuantie C920](/gpu/t-head-zhenwu) — Alibaba (GPU Graphics Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [Cambricon Siyuan MLU](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [Hygon Shensuan DCU](/asic/hygon-dcu) — Hygon (ASIC Dedicated Accelerator)
+- [Enflame Blaze T20/T21](/asic/enflame-blaze) — Enflame (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+

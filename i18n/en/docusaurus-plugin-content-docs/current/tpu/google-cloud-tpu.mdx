@@ -1,0 +1,187 @@
+---
+title: 'Google Cloud TPU - Google'
+description: "Google's custom Tensor Processing Unit (TPU), delivering extreme acceleration for AI training and inference on frameworks such as TensorFlow/JAX/PyTorch. Current mainstream models include TPU v5e (inference-optimized), TPU v5p (training-optimized), and TPU v4."
+sidebar_label: 'Google Cloud TPU'
+keywords:
+  - 'Google'
+  - 'Cloud'
+  - 'TPU'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 1
+---
+
+# Google Cloud TPU
+
+**Vendor**: Google
+
+**Category**: TPU Tensor Processing Unit
+
+**Architecture**: TPU Matrix
+
+## Introduction
+
+Google's custom Tensor Processing Unit (TPU), delivering extreme acceleration for AI training and inference on frameworks such as TensorFlow/JAX/PyTorch. Current mainstream models include TPU v5e (inference-optimized), TPU v5p (training-optimized), and TPU v4.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| v6e (Trillium) | 918 TFLOPS (BF16) / 1,836 (INT8) | 32GB HBM (per chip, 1,638 GB/s) | ICI 800GB/s | 200W | 5nm |
+| v5p | 459 TFLOPS (BF16) | 95GB HBM2e (per chip, 2,575 GB/s) | ICI 1,200GB/s | 300W | 4nm |
+| v4 | 275 TFLOPS (BF16) | 32GB HBM2 (per chip) | ICI Interconnect | 250W | 7nm |
+
+## Official Website
+
+[Visit Official Website](https://cloud.google.com/tpu)
+## Driver Downloads
+
+### Linux
+
+- [Cloud TPU Environment Setup](https://cloud.google.com/tpu/docs/setup)
+- [TPU VM Quickstart](https://cloud.google.com/tpu/docs/quickstart)
+- [Cloud TPU PyTorch/XLA](https://cloud.google.com/tpu/docs/pytorch-xla)
+
+## Related Documentation
+
+- [Cloud TPU Documentation](https://cloud.google.com/tpu/docs)
+- [TPU v5e Introduction](https://cloud.google.com/tpu/docs/v5e)
+- [TPU v5p Introduction](https://cloud.google.com/tpu/docs/v5p)
+- [JAX on TPU](https://cloud.google.com/tpu/docs/jax-quickstart)
+- [TPU Performance Guide](https://cloud.google.com/tpu/docs/performance-guide)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (GCP) | ❌ | ❌ |
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| TPU v6e | 2025 | Trillium architecture, doubled performance |
+| TPU v5p | 2024 | Pod scaled to 8,960 chips |
+| TPU v4 | 2023 | Native PyTorch/XLA support |
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| v6e Trillium Pod | GPT-3 175B Training | ~1.1 days (Google data) |
+| v5p Pod | Llama 2 70B Inference | ~120 tok/s/chip |
+| v5p Pod | JAX Large-Scale Training | Linear scaling to thousands of chips |
+| v4 Pod | MLPerf Training | Multiple SOTA results |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| v6e Trillium | ~$4.20/chip/h | On-demand billing |
+| v5p | ~$4.20/chip/h | On-demand billing |
+| v4 | ~$2.46/chip/h | Spot pricing lower |
+
+## Quick Setup
+
+### GCP (gcloud CLI)
+
+```bash
+# 1. Create TPU
+gcloud compute tpus create tpu-node \
+  --zone=us-central1-b \
+  --accelerator-type=v5p-8 \
+  --version=tpu-vm-v5-base
+
+# 2. SSH Connection
+gcloud compute tpus tpu-vm ssh tpu-node --zone=us-central1-b
+
+# 3. Verify TPU
+python3 -c "import jax; print(jax.devices())"
+```
+
+## Code Examples
+
+### Python (JAX on TPU)
+
+```python
+import jax
+import jax.numpy as jnp
+
+# Check TPU devices
+print(f"TPU devices: {jax.devices()}")
+
+# Auto-parallel matrix multiplication
+x = jax.random.normal(jax.random.PRNGKey(0), (2048, 2048))
+y = jnp.dot(x, x)
+print(f"TPU matrix multiply: {y.shape}")
+```
+
+### PyTorch/XLA
+
+```python
+import torch
+import torch_xla
+import torch_xla.core.xla_model as xm
+
+# Use TPU backend
+device = xm.xla_device()
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"TPU matrix multiply: {y.shape}")
+```
+
+## Architecture Highlights
+
+- **TPU Matrix Architecture**: Systolic arrays optimized for matrix operations, naturally suited for Transformer models
+- **ICI Interconnect**: Inter-chip interconnect bandwidth of 4.8Tbps (v5p), supporting linear scaling in large-scale Pods (thousands of chips)
+- **Software Stack**: JAX (native best) / PyTorch-XLA / TensorFlow — all supported
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| JAX | ✅ Native Best | Google preferred |
+| PyTorch | ✅ XLA Backend | torch_xla |
+| TensorFlow | ✅ Native | TPU native support |
+| Llama / Qwen and other LLMs | ✅ | Both JAX/PyTorch supported |
+| T5/BERT | ✅ | Google internal models native |
+
+## Large-Scale Cluster Deployments
+
+Based on global AI supercomputing cluster statistics, Google Cloud TPU has accumulated over **94,856** chips deployed across **9** clusters in publicly disclosed deployments.
+
+### Chip Model Statistics
+
+| Chip Model | Total Deployed | Clusters |
+|---------|---------|-------|
+| Google TPU v4 | 71,680 | 4 |
+| Google TPU v5p | 8,960 | 1 |
+| Google TPU v3 | 5,120 | 2 |
+| Google TPU v1 | 5,000 | 1 |
+| Google TPU v2 | 4,096 | 1 |
+
+### Notable Deployment Clusters Top 10
+
+| # | Cluster Name | Total Chips | Chip Model | Operator |
+|---|---------|---------|---------|-------|
+| 1 | Google Oklahoma TPU v4 Pods | 32,768 | Google TPU v4 ×32,768 | Google, United States of America |
+| 2 | Gemini 1.0 Ultra training cluster A | 28,672 | Google TPU v4 ×28,672 | Google, United States of America |
+| 3 | Google Hypercomputer TPU v5p pod | 8,960 | Google TPU v5p ×8,960 | Google |
+| 4 | Paper on PaLM | 6,144 | Google TPU v4 ×6,144 | Google, United States of America |
+| 5 | Paper on AlphaZero | 5,000 | Google TPU v1 ×5,000 | Google, United States of America |
+| 6 | Google TPU v4 Pod | 4,096 | Google TPU v4 ×4,096 | Google, United States of America |
+| 7 | Google MLPerf 0.7 Submission | 4,096 | Google TPU v3 ×4,096 | Google, United States of America |
+| 8 | Google TensorFlow Research Cloud | 4,096 | Google TPU v2 ×4,096 | Google, United States of America |
+| 9 | Google TPUv3 POD Generic | 1,024 | Google TPU v3 ×1,024 | Google |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [AWS Trainium2 / Inferentia2](/asic/aws-trainium) — Amazon AWS (ASIC dedicated accelerator)
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana (ASIC dedicated accelerator)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC dedicated accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processing Unit)
+- [Groq LPU](/lpu/groq-lpu) — Groq (LPU Language Processing Unit)
+- [Google Coral Edge TPU](/tpu/google-edge-tpu) — Google (TPU Tensor Processing Unit)

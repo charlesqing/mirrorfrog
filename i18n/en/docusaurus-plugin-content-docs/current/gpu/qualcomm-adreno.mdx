@@ -1,0 +1,137 @@
+---
+title: 'Qualcomm Adreno GPU - Qualcomm'
+description: "Qualcomm Adreno GPU is built into Snapdragon SoCs, supporting Vulkan, OpenCL, OpenGL ES and other graphics and compute APIs. Suitable for GPU-accelerated computing on mobile and edge devices."
+sidebar_label: 'Qualcomm Adreno GPU'
+keywords:
+  - 'Qualcomm'
+  - 'Adreno'
+  - 'GPU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Qualcomm Adreno GPU
+
+**Vendor**: Qualcomm
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: Adreno
+
+## Introduction
+
+Qualcomm Adreno GPU is built into Snapdragon SoCs, supporting Vulkan, OpenCL, OpenGL ES and other graphics and compute APIs. Suitable for GPU-accelerated computing on mobile and edge devices.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Adreno 830 (SD 8 Elite) | 12 TFLOPS (FP16) | LPDDR5X (shared) | Integrated SoC | 10W | 3nm |
+| Adreno 750 (X Elite) | 8.5 TFLOPS (FP16) | LPDDR5X (shared) | Integrated SoC | 23W | 4nm |
+
+
+## Official Website
+
+[Visit Official Website](https://developer.qualcomm.com/sdsp/)
+## Driver Downloads
+
+### Linux
+
+- [Qualcomm GPU Kernel Driver (Linux)](https://gitlab.freedesktop.org/drm/msm)
+
+
+## Related Documentation
+
+- [Qualcomm Developer Documentation](https://developer.qualcomm.com/)
+- [Qualcomm Neural Processing SDK](https://developer.qualcomm.com/software/qualcomm-neural-processing-sdk)
+- [OpenCL 2.0 Support Documentation](https://developer.qualcomm.com/software/adreno-gpu-sdk)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ (Snapdragon) | ✅ (Android) | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Adreno SDK 3.0 | 2024 | Snapdragon 8 Elite Vulkan 1.3 |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Adreno 830 (SD 8 Elite) | Stable Diffusion Mobile | ~8s/img |
+| Adreno 830 | INT8 Inference | ~45 TOPS |
+| Adreno 750 (X Elite) | AI Inference | ~40 TOPS |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Adreno 830 | Provided with SoC | Snapdragon 8 Elite |
+| Adreno 750 | Provided with SoC | Snapdragon X Elite |
+
+## Quick Installation
+
+### Android (via Qualcomm AI Engine)
+
+```bash
+# Use QNN (Qualcomm Neural Network) SDK
+# Download from Qualcomm Developer Network
+# Compile and deploy TFLite/QNN model
+adb push model.dlc /data/local/tmp/
+adb shell snpe-qlc-run --container /data/local/tmp/model.dlc
+```
+
+### Windows on Snapdragon
+
+Simply install Windows ARM64 drivers to use Adreno GPU.
+
+## Code Examples
+
+### Python (QNN / TFLite)
+
+```python
+# Android: Use TFLite with Adreno GPU acceleration
+import tflite_runtime.interpreter as tflite
+
+interpreter = tflite.Interpreter(
+    model_path="model.tflite",
+    experimental_delegates=[tflite.load_delegate('libGpuDelegate.so')]
+)
+interpreter.allocate_tensors()
+```
+
+## Architecture Highlights
+
+- **Adreno GPU**: Qualcomm mobile/PC GPU integrated in Snapdragon SoCs
+- **Hexagon NPU Co-processing**: Adreno GPU works with Hexagon DSP for AI acceleration
+- **Snapdragon X Elite**: PC-class AI processing for Windows on ARM
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| TFLite | ✅ GPU delegate | Main mobile platform |
+| QNN SDK | ✅ Native | Qualcomm native inference |
+| ONNX Runtime | ✅ | WinML / QNN backend |
+| Stable Diffusion | ⚠️ | Mobile limited |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (NPU Neural Processor)
+- [Apple Silicon GPU](/gpu/apple-gpu) — Apple (GPU Graphics Processor)
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek (NPU Neural Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Intel Data Center GPU](/gpu/intel-gpu) — Intel (GPU Graphics Processor)
+

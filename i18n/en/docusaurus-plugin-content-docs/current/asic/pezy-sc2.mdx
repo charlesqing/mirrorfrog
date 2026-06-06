@@ -1,0 +1,157 @@
+---
+title: 'PEZY-SC2 - PEZY Computing'
+description: 'Japanese MIMD many-core processor with 2,048 processing elements, 16nm process, optimized for HPC and scientific computing, deployed in the Gyoukou supercomputer.'
+sidebar_label: 'PEZY-SC2'
+keywords:
+  - 'PEZY'
+  - 'SC2'
+  - 'Computing'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# PEZY-SC2
+
+**Vendor**: PEZY Computing
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: MIMD Many-Core Processor
+
+## Introduction
+
+PEZY-SC2 is a MIMD (Multiple Instruction Multiple Data) many-core processor developed by Japan's PEZY Computing, optimized for high-performance computing (HPC) and scientific computing. The chip integrates 2,048 processing elements (PEs) using a hierarchical architecture (Prefecture→City→Village→PE), supporting 16,384 concurrent threads. PEZY-SC2 is deployed in the Gyoukou supercomputer, combining immersion liquid cooling for high-density deployment.
+
+## Specifications
+
+| Model | Compute (Peak) | Memory | Interface | TDP | Process |
+|------|-----------|------|------|-----|------|
+| PEZY-SC2 | 4.1 TFLOPS (FP64) / 8.2 TFLOPS (FP32) / 16.4 TFLOPS (FP16) | DDR4 128GB (100 GB/s) | PCIe 3.0/4.0 x16 ×2 | 130W | 16nm FinFET |
+
+### Architecture Highlights
+
+| Feature | Description |
+|------|------|
+| Core Architecture | 2,048 PE, hierarchical interconnect (8 Prefecture → 128 City → 512 Village → 2048 PE) |
+| Thread Concurrency | 16,384 hardware threads (8 threads per PE) |
+| SIMD Support | 64-bit SIMD, single PE simultaneously executes 1×DP / 2×SP / 4×HP |
+| Cache Hierarchy | L1 D-cache 4MB + L2 D-cache 8MB + LLC 40MB + Atomic Cache 16KB |
+| Onboard CPU | MIPS64 R6 (P6600) 6 cores, for host-side management |
+| Interconnect | Prefecture-level X-bar crossbar, 6 levels of synchronization granularity |
+
+## Performance Benchmarks
+
+| Benchmark | Performance | Notes |
+|---------|------|------|
+| FP64 Peak | 4.1 TFLOPS | Double precision floating point |
+| FP32 Peak | 8.2 TFLOPS | Single precision floating point |
+| FP16 Peak | 16.4 TFLOPS | Half precision floating point |
+| Energy Efficiency | ~31.5 GFLOPS/W (FP64) | 130W TDP |
+| Gyoukou HPL | 1.67 PFLOPS | Nov 2018 TOP500 |
+
+## Quick Installation
+
+```bash
+# 1. Install PEZY SDK (requires contacting vendor)
+# Download: https://www.pezy.co.jp/en/products/
+
+# 2. Set environment variables
+export PEZY_HOME=/opt/pezy
+export PATH=$PEZY_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$PEZY_HOME/lib:$LD_LIBRARY_PATH
+
+# 3. Compile sample program
+pzcc -o hello_pz hello_pz.c
+
+# 4. Run
+./hello_pz
+```
+
+## Code Examples
+
+```c
+// PEZY-SC2 OpenCL example: vector addition
+#include <CL/cl.h>
+#include <stdio.h>
+
+int main() {
+    // Get PEZY-SC2 OpenCL platform
+    cl_platform_id platform;
+    clGetPlatformIDs(1, &platform, NULL);
+
+    cl_device_id device;
+    clGetDeviceIDs(platform, CL_DEVICE_TYPE_ACCELERATOR, 1, &device, NULL);
+
+    cl_context ctx = clCreateContext(NULL, 1, &device, NULL, NULL, NULL);
+    cl_command_queue queue = clCreateCommandQueue(ctx, device, 0, NULL);
+
+    printf("PEZY-SC2 device ready\n");
+    printf("Max compute units: query device info for PE count\n");
+
+    clReleaseCommandQueue(queue);
+    clReleaseContext(ctx);
+    return 0;
+}
+```
+
+## Pricing
+
+| Product | Price Range | Notes |
+|------|---------|------|
+| PEZY-SC2 Module | Contact vendor | Requires contacting vendor for quote |
+| PEZY SDK | Free | NDA signing required |
+
+## Model Compatibility
+
+| Model Type | Support | Notes |
+|---------|---------|------|
+| Scientific Computing | ✅ Good | Primary use case (CFD, molecular dynamics, etc.) |
+| Traditional HPC | ✅ Good | Linpack, HPCG and other benchmarks |
+| Deep Learning Inference | ⚠️ Limited | Not a primary design goal, requires adaptation |
+| Deep Learning Training | ❌ Not supported | No CUDA/Tensor Core matrix acceleration |
+| LLM | ❌ Not supported | No targeted optimization |
+
+## OS Support Matrix
+
+| OS | Support | Notes |
+|---------|---------|------|
+| Linux (CentOS/RHEL) | ✅ | Primary support platform |
+| Linux (Ubuntu) | ✅ | Supported |
+| Windows | ❌ | Not supported |
+
+## Version History
+
+| Version | Date | Description |
+|------|------|------|
+| PEZY-SC2 | 2017 | First release, 2,048-core MIMD architecture |
+| Gyoukou Launch | 2017-11 | TOP500 #11, HPL 1.67 PFLOPS |
+| Gyoukou Expansion | 2018-11 | Expanded to 19,856 nodes, TOP500 list |
+
+## Large-Scale Cluster Deployments
+
+Based on global AI supercomputing cluster statistics, PEZY-SC2 has accumulated over **11,600** chips deployed across **1** publicly disclosed cluster.
+
+### Chip Model Statistics
+
+| Chip Model | Total Deployed | Cluster Count |
+|---------|---------|-------|
+| PEZY-SC2 | 11,600 | 1 |
+
+### Notable Deployment Clusters Top 10
+
+| # | Cluster Name | Total Chips | Chip Model | Operator |
+|---|---------|---------|---------|-------|
+| 1 | JAIST Gyoukou | 11,600 | PEZY-SC2 ×11,600 | JAIST, Japan |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (AI Dedicated Accelerator)
+- [Tenstorrent AI Accelerator](/asic/tenstorrent) — Tenstorrent (RISC-V AI Accelerator)
+- [Cerebras Wafer Scale (WSE)](/asic/cerebras-wse) — Cerebras (Wafer-Scale AI Engine)
+- [SambaNova RDU](/asic/sambanova-rdu) — SambaNova (ASIC Dedicated Accelerator)
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS (ASIC Dedicated Accelerator)
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google (TPU Tensor Processor)

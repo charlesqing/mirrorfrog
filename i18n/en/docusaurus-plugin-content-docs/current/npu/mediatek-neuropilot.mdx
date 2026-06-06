@@ -1,0 +1,129 @@
+---
+title: 'MediaTek NeuroPilot - MediaTek'
+description: "MediaTek NeuroPilot AI platform for AI acceleration in Dimensity and Kompanio series SoCs. Supports multi-framework fusion (TensorFlow/PyTorch/ONNX), providing heterogeneous computing capabilities."
+sidebar_label: 'MediaTek NeuroPilot'
+keywords:
+  - 'MediaTek'
+  - 'NeuroPilot'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# MediaTek NeuroPilot
+
+**Vendor**: MediaTek
+
+**Category**: NPU Neural Processor
+
+**Architecture**: APU (AI Processing Unit)
+
+## Introduction
+
+MediaTek NeuroPilot AI platform for AI acceleration in Dimensity and Kompanio series SoCs. Supports multi-framework fusion (TensorFlow/PyTorch/ONNX), providing heterogeneous computing capabilities.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Dimensity 9400 | 40 TOPS (INT8) | LPDDR5X (shared) | Integrated SoC | 10W | 3nm |
+| Dimensity 9300 | 32 TOPS (INT8) | LPDDR5T (shared) | Integrated SoC | 8W | 4nm |
+
+
+## Official Website
+
+[Visit Official Website](https://neuropilot.mediatek.com/)
+## Driver Downloads
+
+### Linux
+
+- [NeuroPilot SDK](https://neuropilot.mediatek.com/)
+
+
+## Related Documentation
+
+- [NeuroPilot Documentation](https://neuropilot.mediatek.com/documentation)
+- [MediaTek AI Framework Support](https://neuropilot.mediatek.com/support)
+- [Dimensity Developer Center](https://developer.mediatek.com/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (Android) | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| NeuroPilot 9.0 | 2024 | On-device large model 7B inference |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Dimensity 9400 | NPU TOPS | ~70 TOPS |
+| Dimensity 9400 | Camera AI | Real-time semantic segmentation |
+| Dimensity 9300 | On-device LLM | 7B quantized inference |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Dimensity 9400 | Provided with SoC | Flagship phone SoC |
+
+## Quick Installation
+
+### Android
+
+MediaTek NeuroPilot is automatically invoked through Android NNAPI. TFLite models directly benefit from NPU acceleration.
+
+```bash
+# Use NeuroPilot SDK for model optimization
+# Obtain from MediaTek Developer Portal
+```
+
+## Code Examples
+
+### Python (TFLite Android)
+
+```python
+import tflite_runtime.interpreter as tflite
+
+# Android: Use Dimensity NPU via NNAPI
+interpreter = tflite.Interpreter(
+    model_path="model.tflite",
+    experimental_delegates=[tflite.load_delegate('libneuropilot_delegate.so')]
+)
+```
+
+## Architecture Highlights
+
+- **APU (AI Processing Unit)**: MediaTek integrated NPU, co-processing AI tasks with CPU/GPU
+- **NeuroPilot SDK**: Developer toolchain supporting model optimization and deployment
+- **On-Device LLM**: Dimensity 9400 supports 7B parameter LLM on-device inference
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| NNAPI | ✅ Native | Android standard |
+| TFLite | ✅ | NeuroPilot optimized |
+| On-Device LLM | ✅ | 7B quantization |
+| Camera AI | ✅ | Best for camera scenarios |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (NPU Neural Processor)
+- [Samsung Gauss NPU](/npu/samsung-gauss) — Samsung (NPU Neural Processor)
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processor)
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel (NPU Neural Processor)
+- [Apple Neural Engine](/npu/apple-neural-engine) — Apple (NPU Neural Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+

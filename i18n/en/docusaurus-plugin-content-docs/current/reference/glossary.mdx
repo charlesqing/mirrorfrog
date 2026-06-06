@@ -1,0 +1,114 @@
+---
+title: 'Glossary of AI Accelerator Chip Terms'
+description: 'Common terminology for AI compute acceleration chips: quick reference for TFLOPS, TOPS, HBM, memory bandwidth, NVLink, Tensor Core, and more.'
+sidebar_label: 'Glossary'
+keywords:
+  - 'AI'
+  - 'accelerator chip glossary'
+  - 'AI chip'
+  - 'compute card'
+sidebar_position: 1
+---
+
+# AI Accelerator Chip Glossary
+
+## Performance Metrics
+
+### TFLOPS (Tera FLOPs)
+
+Trillions of floating-point operations per second, measuring a chip's floating-point computing capability. Common precisions include:
+
+- **FP64** (double precision): Scientific computing, HPC domain
+- **FP32** (single precision): Traditional AI training precision
+- **FP16** (half precision) / **BF16**: Mainstream mixed-precision training formats
+- **FP8**: Next-gen training/inference precision, supported by Blackwell and Hopper
+- **FP4**: Inference optimization precision, introduced with Blackwell architecture
+
+> Example: NVIDIA H100 SXM5 FP8 compute is 1,979 TFLOPS
+
+### TOPS (Tera Operations/s)
+
+Trillions of integer operations per second, typically used for INT8 precision inference scenarios. INT8 compute is usually 2× FP16 and 4× FP32.
+
+> Example: Ascend 910B INT8 compute is 640 TOPS
+
+### Memory and Bandwidth
+
+| Term | Description |
+|------|-------------|
+| **HBM** (High Bandwidth Memory) | High-bandwidth memory using 3D stacking technology for extreme bandwidth. Mainstream: HBM2e / HBM3 / HBM3e |
+| **GDDR** (Graphics DDR) | Graphics-dedicated memory, lower cost than HBM. Common in consumer and professional GPUs (GDDR6 / GDDR7) |
+| **Memory Bandwidth** | Bytes per second the memory can read/write, measured in GB/s. Critical for large model inference |
+| **SRAM** (Static RAM) | On-chip static cache, extremely fast but small capacity. Groq LPU uses 230MB on-chip SRAM instead of DRAM |
+
+> Bandwidth formula: Bandwidth = Memory Frequency × Bus Width ÷ 8
+
+## Interconnect Technologies
+
+| Term | Description |
+|------|-------------|
+| **NVLink** | NVIDIA's proprietary high-speed GPU interconnect. 5th gen reaches 1.8 TB/s bidirectional bandwidth |
+| **NVLink-C2C** | NVIDIA chip-level interconnect for Grace CPU + Hopper GPU superchips |
+| **InfiniBand** | High-performance network interconnect standard used in AI clusters for cross-node communication (400Gb/s NDR mainstream) |
+| **PCIe** (PCI Express) | General peripheral interconnect, main interface between GPU and host. PCIe 5.0 x16 bandwidth ~64 GB/s |
+| **CXL** (Compute Express Link) | New CPU-memory/accelerator interconnect standard, based on PCIe physical layer |
+| **OAM** (OCP Accelerator Module) | Accelerator module form factor standard defined by the Open Compute Project |
+
+## Compute Architectures
+
+| Term | Description |
+|------|-------------|
+| **Tensor Core** | NVIDIA GPU dedicated matrix operation unit, introduced starting with Volta architecture, now the core of AI computing |
+| **Transformer Engine** | Dedicated Transformer acceleration unit in NVIDIA Hopper/Blackwell architectures, automatically managing FP8/FP16 precision switching |
+| **MIG** (Multi-Instance GPU) | NVIDIA A100/H100 GPU virtualization technology, partitioning one physical GPU into multiple independent instances |
+| **3D Cube** | Matrix compute unit in Huawei's Da Vinci architecture, purpose-built for matrix multiplication acceleration |
+| **TSP** (Tensor Streaming Processor) | Groq LPU processor architecture based on deterministic temporal execution, extremely low latency |
+
+## Software Stack
+
+| Term | Description |
+|------|-------------|
+| **CUDA** | NVIDIA's parallel computing platform and programming model, de facto standard in AI computing |
+| **ROCm** | AMD's open source GPU compute platform, compatible with CUDA programming model |
+| **oneAPI** | Intel's unified programming model supporting heterogeneous CPU/GPU/FPGA computing |
+| **CANN** | Huawei Ascend AI computing framework, aligned with CUDA |
+| **MUSA** | Moore Threads GPU compute platform, compatible with CUDA API |
+| **cuDNN** | NVIDIA deep neural network acceleration library, provides optimized implementations for convolution, normalization, and other operators |
+| **TensorRT** | NVIDIA inference optimization engine, supports model quantization, layer fusion, and other optimizations |
+| **vLLM** | High-performance LLM inference engine, supports PagedAttention continuous batching |
+| **llama.cpp** | Lightweight LLM inference framework, supports CPU/GPU hybrid inference, focused on quantized model deployment |
+
+## Deployment Architectures
+
+| Term | Description |
+|------|-------------|
+| **SXM** (Server eXpansion Module) | NVIDIA data center GPU board-mount interface form factor, higher bandwidth than PCIe |
+| **NVL** (NVLink) | NVIDIA multi-GPU configuration connected via NVLink (e.g., H100 NVL dual-card) |
+| **Superchip** | Packing CPU and GPU together via high-speed interconnect (e.g., NVIDIA Grace Hopper, GB200) |
+| **TDP** (Thermal Design Power) | Thermal design power in watts. In AI clusters: H100 ~700W, B200 ~1000W |
+| **HPC** (High Performance Computing) | High performance computing, typically referring to scientific computing rather than AI inference |
+
+## Model-Related
+
+| Term | Description |
+|------|-------------|
+| **LLM** (Large Language Model) | Large language model such as GPT-4, Llama 3, Qwen, etc. |
+| **MoE** (Mixture of Experts) | Mixture of experts architecture, splitting the model into multiple expert sub-networks, activating only relevant experts during inference to reduce computation |
+| **Quantization** | Compressing model weights from FP16 to INT8/FP4/INT4, reducing memory usage and computation |
+| **Distillation** | Training a small model using a large model, retaining most capability while dramatically reducing compute requirements |
+| **Batch** | Processing multiple inference requests simultaneously to improve GPU utilization and throughput |
+| **TTFT** (Time to First Token) | First token latency, key metric for measuring inference response speed |
+| **TPOT** (Time per Output Token) | Time to produce each output token, key metric for measuring inference throughput |
+
+## Chip Classification
+
+| Classification | Full Name | Typical Application |
+|---------------|-----------|---------------------|
+| **GPU** | Graphics Processing Unit | AI training and inference (broadest generality) |
+| **NPU** | Neural Processing Unit | Edge AI inference, edge computing |
+| **TPU** | Tensor Processing Unit | Training and inference within Google ecosystem |
+| **LPU** | Language Processing Unit | Optimized for LLM inference |
+| **IPU** | Intelligence Processing Unit | AI training accelerator designed by Graphcore |
+| **DPU** | Data Processing Unit | Data center networking and data offload |
+| **FPGA** | Field-Programmable Gate Array | Reconfigurable AI inference/signal processing |
+| **ASIC** | Application-Specific IC | Dedicated AI training/inference acceleration |

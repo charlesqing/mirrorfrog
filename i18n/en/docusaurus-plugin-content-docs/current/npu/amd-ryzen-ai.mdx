@@ -1,0 +1,136 @@
+---
+title: 'AMD Ryzen AI NPU - AMD'
+description: 'AMD Ryzen AI is an NPU integrated into AMD Ryzen 7040/8040/9000 series processors. Based on XDNA architecture, it supports ONNX Runtime and DirectML accelerated inference, suitable for AI applications on thin-and-light laptops.'
+sidebar_label: 'AMD Ryzen AI NPU'
+keywords:
+  - 'AMD'
+  - 'Ryzen'
+  - 'AI'
+  - 'NPU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# AMD Ryzen AI NPU
+
+**Vendor**: AMD
+
+**Category**: NPU Neural Processor
+
+**Architecture**: XDNA 2
+
+## Introduction
+
+AMD Ryzen AI is an NPU integrated into AMD Ryzen 7040/8040/9000 series processors. Based on XDNA architecture, it supports ONNX Runtime and DirectML accelerated inference, suitable for AI applications on thin-and-light laptops.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Ryzen AI 300 (Strix) | 50 TOPS (INT8) | LPDDR5X (shared) | Integrated SoC | 15-54W | 4nm |
+| Ryzen AI 200 | 16 TOPS (INT8) | LPDDR5X (shared) | Integrated SoC | 15-28W | 4nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.amd.com/en/products/processors/consumer/ryzen-ai.html)
+## Driver Downloads
+
+### Windows
+
+- [Ryzen AI Driver (Windows)](https://www.amd.com/en/support)
+- [Ryzen AI Software](https://account.amd.com/en/member/ryzen-ai-software-download.html)
+
+### Linux
+
+- [XDNA Linux Driver](https://github.com/amd/xdna-driver)
+
+
+## Related Documentation
+
+- [Ryzen AI Documentation](https://ryzenai.docs.amd.com/)
+- [Ryzen AI Software Platform](https://www.amd.com/en/developer/ryzen-ai-software.html)
+- [Vitis AI Integration](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ⚠️ (Experimental) | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Ryzen AI Software 1.2 | 2024 | NPU Studio graphical tool |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Ryzen AI 300 (Strix) | Windows Studio Effects | Real-time background blur/eye contact |
+| Ryzen AI 300 | NPU TOPS | 50 TOPS |
+| Ryzen AI 300 | Stable Diffusion (local) | ~30s/img |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Ryzen AI 300 (Strix) | Provided with laptop | AI PC laptop |
+| Ryzen AI 200 | Provided with laptop | First-gen AI PC |
+
+## Quick Installation
+
+### Windows 11
+
+Ryzen AI NPU is automatically activated through Windows 11 drivers and ONNX Runtime. No additional installation required. Ensure system is updated.
+
+```powershell
+# Verify NPU availability (via DirectML)
+python -c "import onnxruntime as ort; print(ort.get_available_providers())"
+```
+
+## Code Examples
+
+### Python (ONNX Runtime NPU)
+
+```python
+import onnxruntime as ort
+
+# Use DirectML / NPU backend
+session = ort.InferenceSession("model.onnx", providers=['DmlExecutionProvider'])
+results = session.run(None, {'input': input_data})
+```
+
+## Architecture Highlights
+
+- **XDNA 2 Architecture**: AMD second-gen NPU architecture, 50 TOPS meets Copilot+ PC requirements
+- **AI PC Positioning**: Oriented toward daily AI assistant tasks (background blur, voice enhancement, text generation)
+- **CPU+NPU+GPU Co-processing**: Three compute units working together, NPU handling low-power always-on AI tasks
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| ONNX Runtime | ✅ DirectML | Recommended for Windows AI |
+| PyTorch | ⚠️ | DirectML backend |
+| Windows Studio Effects | ✅ | System-level AI features |
+| Small LLMs (Phi/Granite) | ✅ | CPU+GPU hybrid inference |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel (NPU Neural Processor)
+- [Apple Neural Engine](/npu/apple-neural-engine) — Apple (NPU Neural Processor)
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (NPU Neural Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek (NPU Neural Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Groq LPU](/lpu/groq-lpu) — Groq (LPU Language Processor)
+

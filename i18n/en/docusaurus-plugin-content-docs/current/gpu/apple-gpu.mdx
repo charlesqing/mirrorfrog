@@ -1,0 +1,166 @@
+---
+title: 'Apple Silicon GPU - Apple'
+description: "Apple M-series chips (M1/M2/M3/M4/Pro/Max/Ultra) with built-in GPU, providing GPU accelerated computing through the Metal 3 framework. Unified memory architecture allows CPU and GPU to share memory, ideal for AI inference and machine learning."
+sidebar_label: 'Apple Silicon GPU'
+keywords:
+  - 'Apple'
+  - 'Silicon'
+  - 'GPU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 3
+---
+
+# Apple Silicon GPU
+
+**Vendor**: Apple
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: Apple GPU (Unified Memory Architecture)
+
+## Introduction
+
+Apple M-series chips (M1/M2/M3/M4/Pro/Max/Ultra) with built-in GPU, providing GPU accelerated computing through the Metal 3 framework. Unified memory architecture allows CPU and GPU to share memory, ideal for AI inference and machine learning.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| M4 Ultra | 27 TFLOPS (FP16) | 256GB unified memory | Integrated SoC | 150W | N3E (3nm) |
+| M3 Max | 18 TFLOPS (FP16) | 128GB unified memory | Integrated SoC | 100W | N3B (3nm) |
+| M2 Ultra | 15 TFLOPS (FP16) | 192GB unified memory | Integrated SoC | 100W | N5 (5nm) |
+
+
+## Official Website
+
+[Visit Official Website](https://developer.apple.com/metal/)
+## Driver Downloads
+
+### macOS
+
+- [macOS (built-in driver, updated with system)](https://developer.apple.com/documentation/macos-release-notes)
+- [Metal Developer Tools](https://developer.apple.com/metal/)
+
+### Linux
+
+- [Asahi Linux GPU Driver (M1/M2)](https://asahilinux.org/)
+
+
+## Related Documentation
+
+- [Metal Development Documentation](https://developer.apple.com/metal/)
+- [Metal Performance Optimization Guide](https://developer.apple.com/documentation/metal/perf)
+- [Apple Machine Learning Framework](https://developer.apple.com/machine-learning/)
+- [MLX (Apple ML Framework)](https://ml-explore.github.io/mlx/)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ⚠️ (Asahi Linux) | ✅ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Metal 3 | 2023 | M3 series mesh shading support |
+| Core ML 7 | 2024 | M4 NPU deep integration |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| M4 Ultra | Llama 3 70B Inference (MLX) | ~25 tok/s (quantized) |
+| M3 Max | Llama 3 8B Inference | ~40 tok/s (4-bit) |
+| M2 Ultra | Stable Diffusion XL | ~3.5s/img (batch=1) |
+| M4 | Whisper-large-v3 | ~6× real-time transcription |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| M4 Ultra (Mac Pro/Studio) | ¥49,999 and up | Complete system purchase only |
+| M3 Max (MacBook Pro) | ¥27,999 and up | Laptop form factor |
+| M2 Ultra (Mac Studio) | ¥29,999 and up | Gradually being replaced by M4 |
+
+## Quick Installation
+
+### macOS (MLX Framework)
+
+```bash
+# 1. Install MLX (Apple official ML framework)
+pip install mlx
+
+# 2. Install MLX sample models
+python -m mlx_lm.generate --model mlx-community/Llama-3.2-1B-4bit --max-tokens 50
+```
+
+### macOS (llama.cpp MPS Backend)
+
+```bash
+# 1. Build llama.cpp (automatically enables Metal)
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp && make LLAMA_METAL=1
+
+# 2. Run inference
+./llama-cli -m models/llama-3.2-1b.Q4_K_M.gguf -p "Hello"
+```
+
+## Code Examples
+
+### Python (MLX)
+
+```python
+import mlx.core as mx
+
+# Create tensor on Apple Silicon GPU
+x = mx.random.normal((1024, 1024))
+y = mx.matmul(x, x)
+print(f"Apple GPU matrix multiply: {y.shape}")
+print(f"Device: {mx.default_device()}")
+```
+
+### Python (PyTorch MPS Backend)
+
+```python
+import torch
+
+if torch.backends.mps.is_available():
+    x = torch.randn(1024, 1024, device="mps")
+    y = torch.matmul(x, x)
+    print(f"MPS matrix multiply: {y.shape}")
+```
+
+## Architecture Highlights
+
+- **Unified Memory Architecture (UMA)**: CPU and GPU share the same memory pool, eliminating data copies. Especially beneficial for LLM inference — no VRAM bottleneck when loading models
+- **Metal Framework**: Apple low-level graphics/compute API, performance approaching CUDA
+- **MLX Framework**: Apple official ML framework, optimized for Apple Silicon, supporting lazy loading and unified memory
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ MPS Backend | Some operators may fall back to CPU |
+| MLX | ✅ Native | Apple official framework, recommended |
+| llama.cpp | ✅ Metal Backend | Top choice for local LLM inference |
+| Llama / Qwen and similar LLMs | ✅ | MLX-LM / llama.cpp both work |
+| Stable Diffusion | ✅ | Via MPS / Core ML |
+| Whisper | ✅ | MLX-Whisper |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+- [Intel Data Center GPU](/gpu/intel-gpu) — Intel (GPU Graphics Processor)
+- [Qualcomm Adreno GPU](/gpu/qualcomm-adreno) — Qualcomm (GPU Graphics Processor)
+- [Moore Threads MTT S5000](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+

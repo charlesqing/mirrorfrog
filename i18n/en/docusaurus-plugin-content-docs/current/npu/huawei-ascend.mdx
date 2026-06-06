@@ -1,0 +1,173 @@
+---
+title: 'Huawei Ascend - Huawei'
+description: "Huawei Ascend AI processor series, including training chip Ascend 910B/910 and inference chip Ascend 310P/310. Paired with CANN (Huawei AI Compute Framework) and MindSpore deep learning framework, widely used in domestic AI infrastructure construction."
+sidebar_label: 'Huawei Ascend'
+keywords:
+  - 'Huawei'
+  - 'Ascend'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 1
+---
+
+# Huawei Ascend
+
+**Vendor**: Huawei
+
+**Category**: NPU Neural Processor
+
+**Architecture**: Da Vinci
+
+## Introduction
+
+Huawei Ascend AI processor series, including training chip Ascend 910B/910 and inference chip Ascend 310P/310. Paired with CANN (Huawei AI Compute Framework) and MindSpore deep learning framework, widely used in domestic AI infrastructure construction.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Ascend 910B | 280 TFLOPS (FP16) / 560 TOPS (INT8) | 64GB HBM2e | OAM | 310W | 7nm |
+| Ascend 910 | 256 TFLOPS (FP16) | 32GB HBM2 | PCIe 4.0 | 300W | 7nm |
+| Ascend 310P | 70 TOPS (INT8) | 24GB LPDDR4X | PCIe 4.0 | 75W | 12nm |
+| Ascend 310 | 22 TOPS (INT8) | 8GB LPDDR4 | PCIe 3.0 | 8W | 12nm |
+
+## Official Website
+
+[Visit Official Website](https://e.huawei.com/cn/products/computing/ascend)
+## Driver Downloads
+
+### Linux
+
+- [CANN Package Download](https://www.hiascend.com/en/software/cann)
+- [Ascend Driver & Firmware](https://www.hiascend.com/en/hardware/firmware-drivers)
+- [MindSpore Installation](https://www.mindspore.cn/install)
+
+## Related Documentation
+
+- [Ascend Documentation Center](https://www.hiascend.com/en/documentation)
+- [CANN Installation Guide](https://www.hiascend.com/document/detail/en/canncom/80/quickstart/quickstart/quickstart_18_0005.html)
+- [Ascend NPU PyTorch Adapter (torch_npu)](https://gitee.com/ascend/pytorch)
+- [MindSpore Tutorials](https://www.mindspore.cn/tutorials)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| CANN 8.0 | 2024-Q4 | 910B comprehensive optimization + MindSpore 2.x |
+| CANN 7.0 | 2024-Q1 | torch_npu PyTorch native adaptation |
+| CANN 6.0 | 2023-Q1 | 3D Cube architecture deep optimization |
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Ascend 910B × 8 | GPT-3 175B Training | ~1.5 days (official data) |
+| Ascend 910B | Llama 2 70B Inference | ~80 tok/s (FP16) |
+| Ascend 310P | Image Classification/Detection | ~2000 img/s (ResNet-50) |
+| Ascend 310 | Edge Inference | 8W ultra-low power |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Ascend 910B | Contact vendor | Primarily sold through Atlas product line |
+| Ascend 310P | Contact vendor | Atlas 300I Pro |
+| Ascend 310 | Contact vendor | Atlas 200 DK developer kit |
+
+## Quick Installation
+
+### Linux (Ubuntu 22.04 / EulerOS)
+
+```bash
+# 1. Install Ascend driver and firmware
+sudo ./Ascend-cann-npu-driver_*.run --install
+
+# 2. Install CANN toolkit
+sudo ./Ascend-cann-toolkit_*.run --install
+
+# 3. Set environment variables
+source /usr/local/Ascend/ascend-toolkit/set_env.sh
+
+# 4. Verify installation
+npu-smi info
+```
+
+## Code Examples
+
+### Python (torch_npu)
+
+```python
+import torch
+import torch_npu  # Ascend NPU extension
+
+# Use NPU backend
+device = torch.device("npu:0")
+x = torch.randn(1024, 1024, device=device)
+y = torch.matmul(x, x)
+print(f"NPU matrix multiply: {y.shape}")
+print(f"NPU device: {torch.npu.get_device_name(0)}")
+```
+
+### MindSpore (Ascend Native Framework)
+
+```python
+import mindspore as ms
+
+# MindSpore automatically uses Ascend NPU
+context.set_context(device_target="Ascend")
+x = ms.Tensor(np.random.randn(1024, 1024), ms.float32)
+y = ms.ops.matmul(x, x)
+print(f"MindSpore NPU multiply: {y.shape}")
+```
+
+## Architecture Highlights
+
+- **Da Vinci Architecture**: 3D Cube compute unit, optimized for matrix multiplication; Cube units accelerate Transformer attention computation
+- **CANN Full Stack**: Compute Architecture for Neural Networks — complete software stack from driver to compiler to operator library
+- **torch_npu**: PyTorch's Ascend NPU backend, API highly consistent with CUDA backend, low migration cost
+- **MindSpore**: Huawei proprietary full-scenario AI framework, automatic differentiation + distributed training
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| MindSpore | ✅ Native | Best support |
+| PyTorch | ✅ torch_npu | CUDA-API compatible |
+| TensorFlow | ⚠️ | Via CANN adaptation |
+| Llama / Qwen and similar LLMs | ✅ | MindIE / torch_npu both supported |
+| PaddlePaddle | ⚠️ | Under adaptation |
+| Speech/Vision Models | ✅ | ModelScope support |
+
+## Large-Scale Cluster Deployments
+
+Based on global AI supercomputing cluster statistics, Huawei Ascend has accumulated over **6,000** chips deployed across **1** publicly disclosed cluster.
+
+### Chip Model Statistics
+
+| Chip Model | Total Deployed | Cluster Count |
+|---------|---------|-------|
+| Huawei Ascend 910B | 6,000 | 1 |
+
+### Notable Deployment Clusters Top 10
+
+| # | Cluster Name | Total Chips | Chip Model | Operator |
+|---|---------|---------|---------|-------|
+| 1 | Huawei Pangu Ultra MoE 910Bs | 6,000 | Huawei Ascend 910B ×6,000 |  |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Cambricon Siyuan 590](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [Kunlunxin Gen 2 / Gen 3](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Groq LPU v1](/lpu/groq-lpu) — Groq (LPU Language Processor)
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana (ASIC Dedicated Accelerator)
+- [Nexchip Dragon Series](/npu/nexchip-dragon) — Nexchip (NPU Neural Processor)

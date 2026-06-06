@@ -1,0 +1,134 @@
+---
+title: 'Iluvatar BI-150/BI-V150 - Iluvatar'
+description: "Iluvatar domestic GPU. BI-150 is a cloud training-inference card, BI-V150 is the next-gen product. Supports CUDA-compatible ecosystem, 2025 revenue 1.034 billion RMB, listed on Hong Kong Stock Exchange."
+sidebar_label: 'Iluvatar BI-150/BI-V150'
+keywords:
+  - 'Iluvatar'
+  - 'BI'
+  - '150'
+  - 'V150'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Iluvatar BI-150/BI-V150
+
+**Vendor**: Iluvatar
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: Tianguai Architecture
+
+## Introduction
+
+Iluvatar domestic GPU. BI-150 is a cloud training-inference card, BI-V150 is the next-gen product. Supports CUDA-compatible ecosystem, 2025 revenue 1.034 billion RMB, listed on Hong Kong Stock Exchange.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Tianguai 150 (BI-V150) | 256 TFLOPS (FP16) / 384 (INT8) | 64GB HBM2e (1.6 TB/s) | OAM | 350W | 7nm |
+| Tianguai 100 (BI-V100) | 147 TFLOPS (FP16) / 295 (INT8) | 32GB HBM2 (1.2 TB/s) | PCIe 4.0 | 250W | 7nm |
+| Zhikai 100 | 200 TOPS (INT8) | 32GB GDDR6 | PCIe 4.0 | 150W | 12nm |
+
+
+## Official Website
+
+[Visit Official Website](http://www.iluvatar.com/)
+## Driver Downloads
+
+### Linux
+
+- [Iluvatar CoreX Driver](https://www.iluvatar.com/driver)
+- [CoreX SDK](https://www.iluvatar.com/sdk)
+
+
+## Related Documentation
+
+- [Iluvatar Developer Center](https://www.iluvatar.com/developer)
+- [CoreX Programming Guide](https://www.iluvatar.com/sdk)
+- [BI-V150 Product Documentation](https://www.iluvatar.com/bi-v150)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| BI-V 2.0 | 2023 | PyTorch compatibility layer |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Tianguai 100 | BF16 Training | Near A100 efficiency |
+| Tianguai 100 | Inference Throughput | INT8 optimized inference |
+| Zhikai 100 | Inference/Compute | Low-power inference scenarios |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Tianguai 100 | Contact vendor | Enterprise AI accelerator |
+| Zhikai 100 | Contact vendor | Inference-dedicated card |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# 1. Install Iluvatar driver
+sudo rpm -ivh iluvatar-driver-*.rpm
+# 2. Install SDK
+tar -xzf iluvatar-sdk-*.tar.gz && sudo ./install.sh
+
+# 3. Verify
+iluvatar-smi
+```
+
+## Code Examples
+
+### Python (Iluvatar BI-ACC)
+
+```python
+import torch
+# Tianguai GPU supports CUDA-compatible mode
+assert torch.cuda.is_available()
+print(f"GPU: {torch.cuda.get_device_name(0)}")
+```
+
+## Architecture Highlights
+
+- **Tianguai Architecture**: Iluvatar proprietary GPGPU architecture, CUDA programming model compatible
+- **Zhikai Series**: Compact accelerator card for low-power inference scenarios
+- **Domestic Ecosystem**: Supports mainstream domestic OS (Kylin / UOS)
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ Compatible | CUDA-compatible backend |
+| PaddlePaddle | ⚠️ | Under adaptation |
+| Large Model Inference | ⚠️ | Ecosystem developing |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Hygon Shensuan Z100](/asic/hygon-dcu) — Hygon (ASIC Dedicated Accelerator)
+- [Kunlunxin Gen 2 / Gen 3](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Biren Technology BR100/BR20X](/gpu/biren-br) — Biren Technology (GPU Graphics Processor)
+- [MetaX Xiyun C500/C600](/gpu/metax-c600) — MetaX (GPU Graphics Processor)
+- [Moore Threads MTT S5000](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Alibaba T-Head Zhenwu PPU](/gpu/t-head-zhenwu) — Alibaba (GPU Graphics Processor)
+

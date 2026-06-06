@@ -1,0 +1,124 @@
+---
+title: 'Enflame Blaze T20/T21 - Enflame'
+description: "Enflame Technology focuses on cloud AI chips with four generations of proprietary architectures and five chips. Blaze T20/T21 are training and inference products covering chips, accelerator cards, intelligent computing clusters, and a complete software platform. In January 2026, the company received STAR Market IPO acceptance."
+sidebar_label: 'Enflame Blaze T20/T21'
+keywords:
+  - 'Enflame'
+  - 'Blaze'
+  - 'T20'
+  - 'T21'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Enflame Blaze T20/T21
+
+**Vendor**: Enflame Technology
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: Enflame DTU
+
+## Introduction
+
+Enflame Technology focuses on cloud AI chips with four generations of proprietary architectures and five chips. Blaze T20/T21 are training and inference products covering chips, accelerator cards, intelligent computing clusters, and a complete software platform. In January 2026, the company received STAR Market IPO acceptance.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| T21 | 128 TFLOPS (FP16) / 256 (INT8) | 32GB HBM2E (1.6 TB/s) | OAM | 300W | 7nm |
+| T20 | 134.4 TFLOPS (FP16) / 268.8 (INT8) | 32GB HBM2E (1.6 TB/s) | PCIe 4.0 | 300W | 7nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.enflame-tech.com/)
+## Driver Downloads
+
+### Linux
+
+- [Blaze Drivers (Linux)](https://www.enflame-tech.com/driver)
+- [TopsRider SDK](https://www.enflame-tech.com/sdk)
+
+
+## Related Documentation
+
+- [Enflame Developer Center](https://developer.enflame-tech.com/)
+- [TopsRider Programming Guide](https://www.enflame-tech.com/sdk)
+- [Blaze T20 Product Documentation](https://www.enflame-tech.com/t20)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| SDK 2.0 | 2024 | Training + inference dual scenarios |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| T21 | Training/Inference | Near A100 level (official data) |
+| T20 | Inference | INT8 optimized |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| T21 | Contact vendor | Enterprise customers |
+| T20 | Contact vendor | In mass production |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# Install Enflame driver and SDK
+sudo rpm -ivh enflame-driver-*.rpm
+```
+
+## Code Examples
+
+### Python (Enflame)
+
+```python
+import torch
+# Enflame GPU provides CUDA-compatible backend
+assert torch.cuda.is_available()
+```
+
+## Architecture Highlights
+
+- **DTU Architecture**: Enflame proprietary AI accelerator architecture designed for unified training and inference
+- **Complete Software Stack**: Deep learning compiler + runtime + operator library
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ⚠️ Compatible | CUDA-compatible backend |
+| General AI | ⚠️ | Ecosystem developing |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Cambricon Siyuan 590](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [Kunlunxin Gen 2 / Gen 3](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [Hygon Shensuan DCU](/asic/hygon-dcu) — Hygon (ASIC Dedicated Accelerator)
+- [TsingMicro Reconfigurable RPU](/asic/tsingmicro-rpu) — TsingMicro (ASIC Dedicated Accelerator)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+

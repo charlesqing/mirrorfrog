@@ -1,0 +1,119 @@
+---
+title: "Alibaba T-Head Zhenwu PPU - Alibaba"
+description: "Alibaba's T-Head Semiconductor subsidiary. Zhenwu 810E PPU (dedicated processor) uses 5nm process, performance comparable to NVIDIA H20. Cumulative shipments of 470,000 units serving 400+ customers. Hanguang 800 AI inference chip is an earlier product. Approximately 265,000 units shipped in 2025, domestic second tier."
+sidebar_label: 'Alibaba T-Head Zhenwu PPU'
+keywords:
+  - 'T-Head'
+  - 'Zhenwu'
+  - 'PPU'
+  - 'Alibaba'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Alibaba T-Head Zhenwu PPU
+
+**Vendor**: Alibaba
+
+**Category**: GPU Graphics Processor
+
+**Architecture**: T-Head RISC-V
+
+## Introduction
+
+Alibaba's T-Head Semiconductor subsidiary. Zhenwu 810E PPU (dedicated processor) uses 5nm process, performance comparable to NVIDIA H20. **Officially launched in January 2026, cumulative shipments of 470,000 units serving 400+ customers**, covering Alibaba's Qwen series model training and inference. Hanguang 800 AI inference chip is an earlier product. Approximately 265,000 units shipped in 2025, domestic second tier.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| C920 | RISC-V AI extensions | External DDR | SoC integration | 5-15W | 7nm |
+
+
+## Official Website
+
+[Visit Official Website](https://www.t-head.cn/)
+## Driver Downloads
+
+### Linux
+
+- [T-Head Driver (Linux)](https://www.t-head.cn/driver)
+- [Hanguang SDK](https://www.t-head.cn/sdk)
+
+
+## Related Documentation
+
+- [T-Head Developer Center](https://developer.t-head.cn/)
+- [Hanguang 800 Technical Documentation](https://www.t-head.cn/hanguang-800)
+- [Zhenwu PPU Product Page](https://www.t-head.cn/zhenwu)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| T-Head SDK 1.0 | 2024 | AI inference acceleration library |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| C920 | Edge Inference | RISC-V AI extension acceleration |
+| C920 | Speech/NLP Inference | Suitable for endpoint scenarios |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| C920 | Provided with SoC | T-Head RISC-V chip |
+
+## Quick Installation
+
+### Linux
+
+```bash
+# T-Head C920 uses RISC-V architecture
+# AI extensions programmed via THead SDK
+# Obtain SDK from T-Head Developer Community
+```
+
+## Code Examples
+
+AI development for T-Head Xuantie C920 is primarily through the THead AI SDK. The ecosystem is currently new with limited examples.
+
+## Architecture Highlights
+
+- **RISC-V + AI Extensions**: T-Head proprietary RISC-V processor with added AI vector extension instructions
+- **Endpoint Positioning**: Primarily for IoT and edge device AI inference
+- **Open-Source Ecosystem**: Leveraging RISC-V open-source ecosystem, THead provides a complete toolchain
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| TFLite Micro | ⚠️ | RISC-V porting in progress |
+| Endpoint Models | ⚠️ | Ecosystem developing |
+| Speech/NLP | ⚠️ | Alibaba scenario-optimized |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Kunlunxin Gen 2 / Gen 3](/gpu/baidu-kunlun) — Baidu (GPU Graphics Processor)
+- [Cambricon Siyuan 590](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [Moore Threads MTT S5000](/gpu/moore-threads) — Moore Threads (GPU Graphics Processor)
+- [Biren Technology BR100/BR20X](/gpu/biren-br) — Biren Technology (GPU Graphics Processor)
+- [MetaX Xiyun C500/C600](/gpu/metax-c600) — MetaX (GPU Graphics Processor)
+- [Iluvatar BI-150/BI-V150](/gpu/iluvatar-bi) — Iluvatar (GPU Graphics Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+

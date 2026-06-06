@@ -1,0 +1,14 @@
+---
+title: 'IPU Intelligence Processing Unit'
+description: "IPU (Intelligence Processing Unit) classification navigation, covering Graphcore IPU, with driver downloads and development documentation for 1 AI accelerator chip/compute card."
+sidebar_position: 0
+sidebar_label: 'Overview'
+---
+
+# IPU Intelligence Processing Unit
+
+The IPU (Intelligence Processing Unit) is Graphcore's original AI accelerator architecture, employing a large number of independent processor cores working in parallel in an MIMD fashion, which is fundamentally different from the GPU's SIMT approach, offering a completely new hardware paradigm for AI computing. Each IPU core has its own independent local SRAM memory, eliminating the need for external DRAM or cache coherence protocols, and completely removing the memory access bottleneck and data movement energy consumption of traditional GPU architectures. The IPU performs exceptionally well in graph neural networks, recommendation systems, and sparse computing scenarios, and also has unique advantages in specific scientific computing and combinatorial optimization problems, particularly excelling at handling irregular data structures that GPUs struggle with. Graphcore provides the Poplar SDK and Paperspace cloud service, supporting PyTorch and TensorFlow frameworks. When purchasing an IPU, you should evaluate its adaptability to your target model and the maturity of its software ecosystem. For teams with special needs in graph computing and sparse models, the IPU offers a compelling alternative beyond GPUs.
+
+This category includes the following AI accelerator chips/compute cards:
+
+- [Graphcore IPU](./graphcore-ipu)

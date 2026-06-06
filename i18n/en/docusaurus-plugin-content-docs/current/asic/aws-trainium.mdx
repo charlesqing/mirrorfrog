@@ -1,0 +1,149 @@
+---
+title: 'AWS Trainium / Inferentia - Amazon AWS'
+description: "AWS custom AI chip series: Trainium (purpose-built for training) and Inferentia (purpose-built for inference). Trainium2 delivers extreme training performance, Inferentia2 provides low-latency, high-throughput inference, offered through Amazon EC2 Trn1/Inf2 instances."
+sidebar_label: 'AWS Trainium / Inferentia'
+keywords:
+  - 'AWS'
+  - 'Trainium'
+  - 'Inferentia'
+  - 'Amazon'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 1
+---
+
+# AWS Trainium / Inferentia
+
+**Vendor**: Amazon AWS
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: NeuronCore
+
+## Introduction
+
+AWS custom AI chip series: Trainium (purpose-built for training) and Inferentia (purpose-built for inference). Trainium2 delivers extreme training performance, Inferentia2 provides low-latency, high-throughput inference, offered through Amazon EC2 Trn1/Inf2 instances.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Trainium2 | 676 TFLOPS (FP8) | 192GB HBM3e | NeuronLink | 500W | 5nm |
+| Inferentia2 | 220 TOPS (FP16) | 64GB HBM2e | NeuronLink | 175W | 5nm |
+
+
+## Official Website
+
+[Visit Official Website](https://aws.amazon.com/machine-learning/)
+## Driver Downloads
+
+### Linux
+
+- [AWS Neuron SDK](https://aws.amazon.com/machine-learning/neuron/)
+- [Neuron Installation Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/general/setup/neuron-setup.html)
+
+
+## Related Documentation
+
+- [Neuron Documentation Center](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/)
+- [Trainium Developer Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/trainium.html)
+- [Inferentia Developer Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/inferentia.html)
+- [PyTorch on Trainium](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/frameworks/torch/torch-setup.html)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ (AWS EC2) | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Neuron SDK 3.0 | 2025-Q1 | Full Trainium2 support |
+| Neuron SDK 2.x | 2024 | Inferentia2 support |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Trainium2 × 16 | Llama 3 405B Training | ~2 days (AWS data) |
+| Inferentia2 | Llama 2 13B Inference | ~500 tok/s |
+| Inferentia2 | Stable Diffusion XL | ~5s/img (batched) |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Trainium2 (Trn2) | ~$5.00/chip/h | EC2 instance on-demand |
+| Inferentia2 (Inf2) | ~$0.96/chip/h | On-demand billing |
+| Inf2 (xlarge) | ~$1.16/h | Smallest instance |
+
+## Quick Installation
+
+### AWS (via EC2)
+
+```bash
+# 1. Launch Trn2 instance
+aws ec2 run-instances --instance-type trn2.48xlarge --region us-east-1
+
+# 2. Install Neuron SDK after connecting
+pip install torch-neuron neuronx-cc
+
+# 3. Verify
+neuron-ls
+```
+
+> Trainium/Inferentia are only available on AWS EC2 and cannot be purchased as standalone cards.
+
+## Code Examples
+
+### Python (Neuron SDK)
+
+```python
+import torch
+import torch_neuronx
+
+# Compile PyTorch model to Neuron format
+model = torch.nn.Linear(1024, 1024)
+model = model.to("xla")  # XLA backend
+
+# Compile
+neuron_model = torch_neuronx.trace(model, example_input)
+
+# Inference
+output = neuron_model(input_data)
+```
+
+## Architecture Highlights
+
+- **NeuronCore**: AWS proprietary AI accelerator architecture. Trainium for training, Inferentia for inference
+- **NeuronLink**: Inter-chip interconnect, supporting large-scale distributed training
+- **Trn2 UltraServers**: 16 Trainium2 chips per node, interconnected via NeuronLink Connect
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| PyTorch | ✅ Neuron SDK | torch-neuronx |
+| TensorFlow | ✅ | neuron-cc |
+| JAX | ✅ | jax-neuronx |
+| Llama / QLM and similar LLMs | ✅ | Inf2 optimal for inference |
+| HuggingFace | ✅ | transformers-neuronx |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Google Cloud TPU](/tpu/google-cloud-tpu) — Google (TPU Tensor Processor)
+- [Intel Gaudi 3](/asic/intel-gaudi) — Intel Habana (ASIC Dedicated Accelerator)
+- [Microsoft Maia 100](/asic/microsoft-maia) — Microsoft (ASIC Dedicated Accelerator)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC Dedicated Accelerator)
+- [Tenstorrent AI Accelerator](/asic/tenstorrent) — Tenstorrent (ASIC Dedicated Accelerator)
+- [Enflame Blaze T20/T21](/asic/enflame-blaze) — Enflame (ASIC Dedicated Accelerator)
+

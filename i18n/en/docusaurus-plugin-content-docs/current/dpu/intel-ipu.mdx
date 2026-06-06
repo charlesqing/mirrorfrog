@@ -1,0 +1,115 @@
+---
+title: 'Intel IPU (Infrastructure) - Intel'
+description: "Intel IPU (Infrastructure Processing Unit) is used for data center infrastructure offloading, similar to a DPU. The E2000 series uses Agilex FPGA architecture, supporting NVMe over Fabrics, virtIO, encryption offload, and more."
+sidebar_label: 'Intel IPU (Infrastructure)'
+keywords:
+  - 'Intel'
+  - 'IPU'
+  - 'Infrastructure'
+  - 'Graphcore IPU'
+  - 'AI Chip'
+  - 'Accelerator Card'
+sidebar_position: 99
+---
+
+# Intel IPU (Infrastructure)
+
+**Vendor**: Intel
+
+**Category**: DPU Data Processing Unit
+
+**Architecture**: Intel IPU (N6000)
+
+## Introduction
+
+Intel IPU (Infrastructure Processing Unit) is used for data center infrastructure offloading, similar to a DPU. The E2000 series uses Agilex FPGA architecture, supporting NVMe over Fabrics, virtIO, encryption offload, and more.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| IPU N6000 | 200 Gbps Networking | 16GB DDR5 | PCIe 5.0 | 30W | Intel 7 |
+| IPU E2100 | 100 Gbps Networking | 8GB DDR4 | PCIe 4.0 | 20W | Intel 7 |
+
+
+## Official Website
+
+[Visit Official Website](https://www.intel.com/content/www/us/en/products/network-io/ipu.html)
+## Driver Downloads
+
+### Linux
+
+- [Intel IPU Driver (Linux)](https://www.intel.com/content/www/us/en/download/19733/intel-ethernet-controller-e810-series-linux-driver.html)
+
+
+## Related Documentation
+
+- [Intel IPU Product Introduction](https://www.intel.com/content/www/us/en/products/network-io/ipu.html)
+- [IPU Development Resources](https://developers.intel.com/ipu)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| IPU Platform 2.0 | 2024 | OVS offload + P4 runtime |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| IPU N6000 | Network Offload | Data center network acceleration |
+| IPU E2100 | Edge DPU | SmartEdge scenarios |
+
+## Pricing Information
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| IPU N6000 | Contact sales | Enterprise data center |
+| IPU E2100 | Contact sales | Edge/Telecom |
+
+## Quick Setup
+
+### Linux
+
+```bash
+# Install Intel IPU driver and SDK
+# Obtain from Intel official
+```
+
+## Code Examples
+
+Intel IPU is primarily used via SR-IOV and virtio interfaces. Development requires the Intel IPU SDK.
+
+## Architecture Highlights
+
+- **Intel IPU Architecture**: FPGA/ASIC-based infrastructure processing unit, aimed at cloud data center network virtualization
+- **SR-IOV**: Standard PCIe virtualization interface, integrating with cloud management platforms
+
+## Model Compatibility
+
+| Model/Framework | Support Status | Notes |
+|-----------|----------|------|
+| OpenStack | ✅ | Virtualization integration |
+| Kubernetes | ✅ | CNI plugin |
+| AI Frameworks | N/A | DPU is not an AI accelerator |
+
+## Related Products
+
+If you are evaluating alternatives, the following products may also fit your scenario:
+
+- [NVIDIA BlueField DPU](/dpu/nvidia-bluefield) — NVIDIA (DPU Data Processing Unit)
+- [AMD Pensando](/dpu/amd-pensando) — AMD (DPU Data Processing Unit)
+- [Intel GPU](/gpu/intel-gpu) — Intel (GPU Graphics Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AMD ROCm / GPU](/gpu/amd-rocm) — AMD (GPU Graphics Processor)
+

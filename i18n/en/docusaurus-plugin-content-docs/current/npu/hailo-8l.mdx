@@ -1,0 +1,142 @@
+---
+title: 'Hailo-8 / Hailo-15 - Hailo'
+description: "Global leader in edge AI computing. Delivers up to 26 TOPS at extremely low power (just a few watts), widely used in autonomous driving, robotics, and smart camera applications."
+sidebar_label: 'Hailo-8 / Hailo-15'
+keywords:
+  - 'Hailo'
+  - '15'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Hailo-8 / Hailo-15
+
+**Vendor**: Hailo
+
+**Architecture**: Dataflow
+
+**Category**: NPU Neural Processor
+
+## Introduction
+
+Global leader in edge AI computing. Delivers up to 26 TOPS at extremely low power (just a few watts), widely used in autonomous driving, robotics, and smart camera applications.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| Hailo-8 | 26 TOPS (INT8) | External DDR | PCIe 2.1 / M.2 | 2.5W | 16nm |
+| Hailo-15 | 42 TOPS (INT8) | Internal SRAM | PCIe 3.0 | 11W | 10nm |
+| Hailo-8L | 13 TOPS (INT8) | External DDR | M.2 | 1.5W | 22nm FDX |
+
+
+## Official Website
+
+[Visit Official Website](https://hailo.ai/)
+## Driver Downloads
+
+### Linux
+
+- [Driver & SDK Downloads](https://hailo.ai/developer-zone/software-downloads/)
+
+## Related Documentation
+
+- [Developer Documentation](https://hailo.ai/developer-zone/documentation/)
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ✅ | ✅ | ❌ | ✅ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| HailoRT 4.x | 2024 | Hailo-15 support + multi-model orchestration |
+| Dataflow Compiler 3.15 | 2024 | YOLOv8 optimization |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| Hailo-8 | YOLOv8 Inference | ~26 TOPS, low latency |
+| Hailo-8 | ResNet-50 | ~700 fps |
+| Hailo-8L | Edge Detection | 13 TOPS, ultra-low power |
+| Hailo-15 | Multi-channel Video Analytics | 20 TOPS, with ISP |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| Hailo-8 | ~$99-149 | Modular accelerator |
+| Hailo-8L | ~$49-79 | Entry-level |
+| Hailo-15 | Contact vendor | Chip-level (ODM-oriented) |
+
+## Quick Installation
+
+### Linux / Raspberry Pi
+
+```bash
+# 1. Install Hailo SDK
+pip install hailo-sdk
+
+# 2. Compile model to Hailo format (HEF)
+hailo compiler model.onnx --output model.hef
+
+# 3. Inference
+hailo run model.hef --input image.jpg
+```
+
+> Hailo-8 can be connected to x86 or ARM devices via M.2 / PCIe accelerator stick.
+
+## Code Examples
+
+### Python (Hailo Runtime)
+
+```python
+from hailo_platform import HailoPlatform
+
+# Initialize Hailo device
+platform = HailoPlatform()
+platform.init()
+
+# Load compiled HEF model
+platform.load_hef("yolov8.hef")
+
+# Inference
+output = platform.run(np_input)
+```
+
+## Architecture Highlights
+
+- **Dataflow Architecture**: Hailo proprietary dataflow processing architecture, optimized for CNN inference, no external DRAM required
+- **Ultra-Low Power**: Hailo-8 only 2.5W, Hailo-8L only 1W, suitable for battery-powered devices
+- **Edge Positioning**: Specializing in edge AI scenarios such as cameras, robots, and drones
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| ONNX | ✅ Compile | Mainstream model format |
+| TensorFlow | ✅ Compile | Compile after ONNX conversion |
+| YOLO Series | ✅ Official Optimized | Most mature use case |
+| Image Classification | ✅ | ResNet/MobileNet |
+| LLM | ❌ | Not suitable for large model inference |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processor)
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel (NPU Neural Processor)
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (NPU Neural Processor)
+- [Google Coral Edge TPU](/tpu/google-edge-tpu) — Google (TPU Tensor Processor)
+- [Cambricon Siyuan 590](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+- [Groq LPU](/lpu/groq-lpu) — Groq (LPU Language Processor)
+- [Nexchip Dragon Series](/npu/nexchip-dragon) — Nexchip (NPU Neural Processor)
+

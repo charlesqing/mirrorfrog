@@ -1,0 +1,130 @@
+---
+title: 'SambaNova RDU - SambaNova'
+description: 'SambaNova SN40 RDU (Reconfigurable Dataflow Unit) features a reconfigurable dataflow architecture supporting large model training and inference. The SN40 integrates 104 billion transistors and 64 reconfigurable nodes.'
+sidebar_label: 'SambaNova RDU'
+keywords:
+  - 'SambaNova'
+  - 'RDU'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# SambaNova RDU
+
+**Vendor**: SambaNova
+
+**Category**: ASIC Dedicated Accelerator
+
+**Architecture**: RDU (Reconfigurable Dataflow Unit)
+
+## Introduction
+
+SambaNova SN40 RDU (Reconfigurable Dataflow Unit) features a reconfigurable dataflow architecture supporting large model training and inference. The SN40 integrates 104 billion transistors and 64 reconfigurable nodes.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| SN40L | 1,024 TFLOPS (FP8) | 64GB on-chip memory | Fabric interconnect | 800W | 5nm |
+| SN30 | 330 TFLOPS (FP16) | 32GB on-chip memory | Fabric interconnect | 400W | 7nm |
+
+
+## Official Website
+
+[Visit Official Website](https://sambanova.ai/)
+## Driver Downloads
+
+### Linux
+
+- [SambaNova Software Platform](https://docs.sambanova.ai/)
+- [SambaNova Suite](https://sambanova.ai/products/sambanova-suite)
+
+
+## Related Documentation
+
+- [SambaNova Documentation Center](https://docs.sambanova.ai/)
+- [RDU Architecture Introduction](https://sambanova.ai/products/sn40)
+- [Developer Resources](https://sambanova.ai/developers)
+
+
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ✅ | ❌ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| SambaFlow 1.5 | 2024 | SN40L support |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| SN40L | Llama 2 70B Inference | ~130 tok/s |
+| SN40L | GPT-3 175B Inference | Pipeline-optimized high throughput |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| SN40L | Cloud API | SambaNova Cloud |
+| SN40L | Contact vendor | Enterprise deployment |
+
+## Quick Installation
+
+### SambaNova Cloud (API)
+
+```bash
+pip install sambanova-sdk
+```
+
+> SN40L is primarily accessed through SambaNova Cloud API or enterprise deployment.
+
+## Code Examples
+
+### Python (SambaNova API)
+
+```python
+from sambanova import SambaNova
+
+# OpenAI API-compatible interface
+client = SambaNova(api_key="your-key")
+response = client.chat.completions.create(
+    model="Meta-Llama-3.1-70B-Instruct",
+    messages=[{"role": "user", "content": "Hello"}]
+)
+```
+
+## Architecture Highlights
+
+- **RDU (Reconfigurable Dataflow Unit)**: Dataflow-reconfigurable architecture where the compiler determines data paths and hardware reorganizes on demand
+- **SN40L**: Supports composite execution of 1.2 trillion parameter models, integrated HBM3e
+- **Compiled Dataflow**: Model hardware dataflow is determined at compile time, zero runtime overhead
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| Llama Series | ✅ Native | Official SambaNova deployment |
+| Large Language Models | ✅ | API inference |
+| Custom Training | ⚠️ | Requires SambaNova contact |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [Cerebras WSE-3](/asic/cerebras-wse) — Cerebras (ASIC Dedicated Accelerator)
+- [Graphcore IPU (Bow Pod)](/ipu/graphcore-ipu) — Graphcore (RapidAI) (IPU Intelligent Processor)
+- [Groq LPU v1](/lpu/groq-lpu) — Groq (LPU Language Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+- [AWS Trainium / Inferentia](/asic/aws-trainium) — Amazon AWS (ASIC Dedicated Accelerator)
+- [Intel Gaudi (Habana)](/asic/intel-gaudi) — Intel (ASIC Dedicated Accelerator)
+- [Cambricon Siyuan MLU](/asic/cambricon-mlu) — Cambricon (ASIC Dedicated Accelerator)
+

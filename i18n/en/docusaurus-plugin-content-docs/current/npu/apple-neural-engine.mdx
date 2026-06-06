@@ -1,0 +1,138 @@
+---
+title: 'Apple Neural Engine - Apple'
+description: "Apple A-series and M-series chips with built-in Neural Engine (ANE), designed specifically for machine learning inference acceleration. Features 16-core architecture with up to 38 TOPS compute. Accessed through the Core ML framework, supporting model compression and deployment."
+sidebar_label: 'Apple Neural Engine'
+keywords:
+  - 'Apple'
+  - 'Neural'
+  - 'Engine'
+  - 'AI Chip'
+  - 'Compute Card'
+sidebar_position: 99
+---
+
+# Apple Neural Engine
+
+**Vendor**: Apple
+
+**Category**: NPU Neural Processor
+
+**Architecture**: Neural Engine (ANE)
+
+## Introduction
+
+Apple A-series and M-series chips with built-in Neural Engine (ANE), designed specifically for machine learning inference acceleration. Features 16-core architecture with up to 38 TOPS compute. Accessed through the Core ML framework, supporting model compression and deployment.
+
+## Specifications
+
+| Model | Compute | Memory | Interface | TDP | Process |
+|------|------|-----------|------|-----|------|
+| A18 Pro ANE | 38 TOPS (INT8) | Unified memory | Integrated SoC | 6W | N3E (3nm) |
+| M4 ANE | 38 TOPS (INT8) | Unified memory | Integrated SoC | 10W | N3E (3nm) |
+| M3 ANE | 18 TOPS (INT8) | Unified memory | Integrated SoC | 10W | N3B (3nm) |
+
+
+## Official Website
+
+[Visit Official Website](https://developer.apple.com/machine-learning/)
+## Driver Downloads
+
+### macOS
+
+- [macOS AI Framework (built-in, updated with system)](https://developer.apple.com/machine-learning/)
+- [Core ML Tools](https://developer.apple.com/documentation/coreml)
+
+
+## Related Documentation
+
+- [Core ML Documentation](https://developer.apple.com/documentation/coreml)
+- [Neural Engine Performance Guide](https://developer.apple.com/metal/performance/)
+- [Create ML Model Training](https://developer.apple.com/documentation/createml)
+- [mlx (Apple ML Framework)](https://ml-explore.github.io/mlx/)
+
+## OS Support
+
+| Windows | Linux | macOS | Android |
+|---------|-------|-------|----------|
+| ❌ | ❌ | ✅ | ❌ |
+
+
+## Version History
+
+| Version | Release Date | Description |
+|------|----------|------|
+| Core ML 7 | 2024 | M4/A18 Pro, enhanced Transformer models |
+| Core ML 6 | 2023 | M3/A17 Pro support |
+
+
+## Performance Benchmarks
+
+| Model | Task | Performance Metric |
+|------|------|----------|
+| A18 Pro ANE | Core ML Inference | 38 TOPS |
+| M4 ANE | Core ML Inference | 38 TOPS |
+| M4 ANE | Stable Diffusion (Core ML) | ~5s/img |
+
+## Pricing
+
+| Model | Reference Price | Notes |
+|------|----------|------|
+| ANE | Provided with Apple SoC | Built into iPhone/iPad/Mac |
+
+## Quick Installation
+
+### macOS / iOS
+
+ANE is automatically invoked through the Core ML framework. No additional installation required.
+
+```bash
+# Install coremltools for model conversion
+pip install coremltools
+```
+
+## Code Examples
+
+### Python (Core ML)
+
+```python
+import coremltools as ct
+import numpy as np
+
+# Convert PyTorch model to Core ML
+traced_model = torch.jit.trace(model, example_input)
+mlmodel = ct.convert(traced_model, inputs=[ct.TensorType(name="input", shape=example_input.shape)])
+mlmodel.save("Model.mlpackage")
+
+# Inference using Apple Neural Engine
+import coremltools as ct
+model = ct.models.MLModel("Model.mlpackage")
+predictions = model.predict({"input": input_array})
+```
+
+## Architecture Highlights
+
+- **Neural Engine (ANE)**: Apple dedicated neural network accelerator, operating independently of CPU and GPU with ultra-low power
+- **Core ML Optimization**: Models automatically routed to ANE execution, supporting neural networks and traditional ML
+- **Unified Memory**: ANE shares memory with CPU/GPU, zero-copy model loading
+
+## Model Compatibility
+
+| Model/Framework | Support | Notes |
+|-----------|----------|------|
+| Core ML | ✅ Native | Best support |
+| PyTorch | ✅ Convert | coremltools conversion |
+| TensorFlow | ✅ Convert | coremltools conversion |
+| Stable Diffusion | ✅ | Core ML version |
+| Small LLMs | ✅ | Sideloading support |
+
+## Related Products
+
+If you're evaluating alternatives, the following products may also fit your scenario:
+
+- [AMD Ryzen AI NPU](/npu/amd-ryzen-ai) — AMD (NPU Neural Processor)
+- [Intel NPU (Neural Processing Unit)](/npu/intel-npu) — Intel (NPU Neural Processor)
+- [Qualcomm Hexagon NPU](/npu/qualcomm-hexagon) — Qualcomm (NPU Neural Processor)
+- [MediaTek NeuroPilot](/npu/mediatek-neuropilot) — MediaTek (NPU Neural Processor)
+- [Huawei Ascend](/npu/huawei-ascend) — Huawei (NPU Neural Processor)
+- [NVIDIA GPU / CUDA](/gpu/nvidia-cuda) — NVIDIA (GPU Graphics Processor)
+
