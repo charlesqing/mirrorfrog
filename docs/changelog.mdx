@@ -1,0 +1,88 @@
+---
+id: changelog
+title: Changelog
+description: MirrorFrog 站点更新日志，记录从上线至今的所有功能更新、数据修正和内容新增。
+sidebar_position: 5
+sidebar_label: 📋 Changelog
+---
+
+# Changelog
+
+## 2026-06-06
+
+### 🎉 全站英文翻译完成
+- 220 页（197 文档 + 23 博客）全部翻译为英文
+- 覆盖所有芯片卡片、架构详解、分类索引、类型指南
+- UI 界面同步双语支持
+
+### 🔗 修复 636 个 Broken Links
+- 旧路由 `/gpu/`, `/asic/`, `/tpu/` 等添加 `/docs/` 前缀
+- 中文版和英文版同步修复
+
+### 📝 README 优化
+- 新增 badges、贡献指南、目录结构、最新更新
+- 添加翻译质量和格式注意事项
+
+### 📋 Changelog 页面上线
+- 即本页
+
+### 🛠️ 自动化
+- 新增博客翻译自动化脚本
+- 新增芯片数据定时校验任务
+
+---
+
+## 2026-06-05
+
+### 🔍 站内搜索上线
+- 安装 `@easyops-cn/docusaurus-search-local`
+- 支持中文分词、离线搜索
+- 导航栏右侧 `/` 键唤出
+
+### 🆕 新增芯片卡片
+- **Intel Crescent Island**: Xe3P 架构，480GB LPDDR5x，350W 推理 GPU
+- **华为 Ascend 950 系列**: 950PR/950DT，1 PFLOPS FP8，自研 HBM
+
+### 📊 数据更新
+- 对比表新增 Crescent Island、950PR/950DT
+- 修正 Trainium 3 FP8 算力、GB200 FP4 稀疏、B300 Ultra 比较表单位
+- GitHub push 认证问题修复
+
+### ✍️ 新博客
+- `2026-06-05-computex-2026-roundup`: Computex 2026 汇总
+- 本文英文版同步翻译
+
+---
+
+## 2026-06-04
+
+### 🔬 数据联网校对
+- **华为 Ascend 910B**: HBM2e → HBM3 修正
+- **华为 Ascend 910C**: 780 TFLOPS BF16 确认，TDP 补充
+- **摩尔线程 MTT S5000**: 算力 50 TFLOPS → 1000 TFLOPS 修正
+- **NVIDIA H100**: FP32 60 → 67 TFLOPS 修正
+- **AMD MI355X**: TDP 750W → 1400W, FP8 4.6 → 5 PFLOPS
+- **AWS Trainium 3**: FP8 362 PFLOPS → 5.7 PFLOPS
+
+### 📝 路线图更新
+- 重新整理时间轴（2025 Q2 → 2026 H2 → 2027）
+- 新增 Vera Rubin 量产、RTX Spark 发布、Ascend 950 交付
+
+### ✍️ 新博客
+- `2026-06-04-huawei-ascend-950-mass-production`: 昇腾 950 与中国芯片生态
+- `2026-06-01-nvidia-rtx-spark`: NVIDIA RTX Spark 发布
+
+---
+
+## 2026-06-03 及更早
+
+### 🏗️ 站点基础建设
+- Docusaurus 3.10 搭建
+- 111 款 AI 算力卡初始数据
+- 博客系统上线（24 篇初始文章）
+- Cloudflare Pages 部署
+- 自定义域名 `mirrorfrog.com`
+- 暗色模式支持
+- 中英文 i18n 架构搭建
+- JSON-LD 结构化数据 / Sitemap SEO 优化
+- `.gitignore` 完整配置

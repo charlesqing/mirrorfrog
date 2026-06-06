@@ -21,6 +21,32 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* Dark mode: table improvements */
+[data-theme='dark'] table {
+  border-collapse: collapse;
+}
+[data-theme='dark'] table th {
+  background: rgba(108, 92, 231, 0.15);
+  border-bottom: 2px solid rgba(108, 92, 231, 0.3);
+}
+[data-theme='dark'] table td {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+[data-theme='dark'] table tr:nth-child(2n) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Dark mode: blockquote */
+[data-theme='dark'] blockquote {
+  background: rgba(108, 92, 231, 0.08);
+  border-left-color: rgba(108, 92, 231, 0.4);
+}
+
+/* Dark mode: code blocks */
+[data-theme='dark'] pre {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 table {
   display: table;
   width: 100%;

@@ -5,6 +5,7 @@ const sidebars: SidebarsConfig = {
     'intro',
     'comparison',
     'roadmap',
+    'changelog',
 
     {
       type: 'category',
