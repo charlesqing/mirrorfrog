@@ -1,0 +1,158 @@
+---
+slug: ai-accelerator-guide-2025
+title: "AI Accelerator Selection Guide 2025: From Training to Inference — How to Choose the Best Chip?"
+authors: [aicomputecards]
+tags: [selection-guide, GPU, NPU, TPU, ASIC, deep-learning]
+date: 2025-06-01
+description: "2025 AI accelerator selection guide. Covers NVIDIA GPU, Huawei Ascend, Google TPU, Groq LPU, and other mainstream chip architectures, analyzing the best choices for training, inference, and edge deployment scenarios."
+---
+
+# AI Accelerator Selection Guide 2025
+
+In 2025, the AI accelerator market has become unprecedentedly rich. From NVIDIA's Blackwell to Huawei Ascend 910B, from Google TPU v6 to Groq LPU, developers face more choices than ever before.
+
+But this is both a blessing and a challenge — picking the wrong card means either wasting money or falling short on performance.
+
+This article helps you sort out the selection logic starting from **actual workloads**.
+
+{/* truncate */}
+
+---
+
+## Step 1: First Figure Out Your Scenario
+
+### 🏋️ Training
+
+Training is the most demanding scenario for chip selection. You need:
+
+- **High FP8/FP16 compute**: the core of training is matrix multiplication — Tensor Core count determines everything
+- **Large memory**: model parameters, gradients, optimizer states all reside in memory. Llama 3 70B full-precision training requires at least 140GB+ of memory
+- **High-bandwidth interconnect**: when multi-card training, inter-card communication bandwidth determines scaling efficiency
+- **Software ecosystem**: whether PyTorch/TensorFlow/JAX supports it natively
+
+**First choice**: NVIDIA H100/H200/B200 (most mature ecosystem, bar none)
+
+**Domestic alternative**: Huawei Ascend 910B (torch_npu well-adapted, but ecosystem gap remains)
+
+**Budget-sensitive**: AMD ROCm (MI300X strong price/performance, but framework support slightly weaker)
+
+### ⚡ Inference
+
+Inference splits into two sub-scenarios:
+
+**Online Inference (Latency-Sensitive)**
+
+Requires extremely low TTFT (Time to First Token), stable throughput. Suitable for:
+
+- **NVIDIA L40S / L4**: inference-optimized Ada Lovelace architecture, FP8 support, great price/performance
+- **Groq LPU**: if you can use GroqCloud, LPU's deterministic latency (800+ tok/s on Llama 3 8B) is a killer feature
+- **Google Cloud TPU v5e**: low-latency option for deploying JAX models on the cloud
+
+**Offline Batch Inference (Throughput-first)**
+
+Don't care about single-request latency, only total throughput and cost:
+
+- **NVIDIA H200**: large memory (141GB HBM3e) means you can fit larger batches, boosting overall throughput
+- **Intel Gaudi 3**: better price/performance than same-gen NVIDIA, suitable for budget-sensitive batch scenarios
+- **Cerebras WSE-3**: wafer-scale chip, can run large models on a single chip, eliminating distributed communication overhead
+
+### 📱 Edge Inference
+
+- **Qualcomm Hexagon NPU**: first choice for Android edge AI inference, supports INT8 quantization
+- **Apple Neural Engine**: CoreML acceleration on iPhone/Mac
+- **AMD Ryzen AI NPU** (XDNA): edge NPU integrated with Ryzen 7040/8040 series, suitable for PC AI applications
+- **Hailo-8L**: standalone NPU for edge devices, excellent price/performance
+
+---
+
+## Step 2: Look at Your Budget
+
+### 🏦 No Budget Constraints (Enterprise Training Clusters)
+
+| Configuration | Estimated Cost | Suitable For |
+|------|---------|------|
+| 8× H100 SXM5 (80GB) | $200,000-280,000 | Large model training first choice |
+| 8× H200 SXM (141GB) | $240,000-320,000 | Training needing more memory |
+| 8× B200 SXM | $240,000-360,000 | Blackwell latest architecture |
+| GB200 NVL (2 GPU + Grace) | $60,000-80,000/unit | Superchip solution |
+
+### 💰 Price/Performance First (Training + Inference)
+
+| Configuration | Estimated Cost | Suitable For |
+|------|---------|------|
+| 4× L40S (48GB) | $30,000-40,000 | Small-to-medium training + inference |
+| 8× L4 (24GB) | $24,000-36,000 | Light training, inference-first |
+| 8× A100 80GB (used) | $80,000-120,000 | Mature solution, abundant used market |
+| AMD MI300X × 8 | ~$100,000-150,000 | If software stack adaptation is good |
+
+### 🆓 Free/Low Cost (Learning + Experimentation)
+
+| Solution | Cost | Suitable For |
+|------|------|------|
+| GroqCloud API | Free credits | LLM inference experiments |
+| Google Colab (T4) | $10/month+ | Small-scale experiments |
+| Hugging Face Spaces | Free | Demo deployment |
+| Oracle OCI (A100) | Pay-as-you-go | Flexible experiment environment |
+
+---
+
+## Step 3: Ecosystem Compatibility
+
+No matter how good the hardware, it's useless without software support. The following matrix reveals the current adaptation status of mainstream frameworks and chips:
+
+### PyTorch Ecosystem
+
+| Chip | Support Status | Notes |
+|------|---------|------|
+| NVIDIA CUDA | ✅ Native | PyTorch official builds default to CUDA backend |
+| AMD ROCm | ✅ Official | PyTorch has ROCm pre-compiled packages |
+| Huawei Ascend | ⚠️ torch_npu | API aligned with CUDA, low migration cost, but community resources not as rich as CUDA |
+| Apple Silicon | ✅ MPS backend | M1/M2/M3/M4 series GPU, PyTorch MPS backend support |
+| Intel GPU | ⚠️ XPU backend | oneAPI supports PyTorch, but maturity limited |
+| Google TPU | ⚠️ JAX required | PyTorch can run on TPU via PJRT, but non-mainstream |
+
+### LLM Inference Frameworks
+
+| Chip | vLLM | TensorRT-LLM | llama.cpp |
+|------|------|-------------|-----------|
+| NVIDIA | ✅ Best | ✅ Strongest optimization | ✅ |
+| AMD ROCm | ✅ | ❌ | ✅ |
+| Huawei Ascend | ⚠️ Community | ❌ | ⚠️ |
+| Apple Silicon | ❌ | ❌ | ✅ Native |
+| Intel GPU | ❌ | ❌ | ✅ |
+
+---
+
+## Recommended Matrix by Model Size
+
+| Model Size | Training Recommendation | Inference Recommendation |
+|---------|---------|---------|
+| &lt;7B (small) | L4 / L40S / A100 | L4 / L40S / T4 / Groq LPU |
+| 7B - 70B (medium) | 4-8× H100 / A100 / Ascend 910B | H200 / L40S / Groq LPU |
+| 70B - 405B (large) | 8-32× H100/B200 / Ascend 910B | H200 (141GB) / Cerebras WSE |
+| &gt;405B (extra-large) | GB200 NVL / DGX super cluster | H200/B200 large-capacity cluster |
+
+---
+
+## Summary: Selection Logic at a Glance
+
+```
+What's your scenario?
+├─ Training large models → NVIDIA CUDA (best ecosystem) → Budget OK? H100/B200; domestic alternative? Ascend 910B
+├─ Training medium models → A100 / L40S / AMD MI300X all work
+├─ Online inference (low latency)
+│  ├─ Self-hosted → L40S / L4 / H200
+│  └─ API → GroqCloud (LLM inference latency king)
+├─ Batch inference (high throughput)
+│  ├─ NVIDIA H200 (large memory, high throughput)
+│  └─ Intel Gaudi 3 / Cerebras (price/performance path)
+├─ Edge inference
+│  ├─ Mobile → Qualcomm / Apple NPU
+│  ├─ PC → AMD Ryzen AI NPU
+│  └─ Edge devices → Hailo-8L / NVIDIA Jetson
+└─ Learning/experimenting → Cloud T4 / L4 / GroqCloud free credits
+```
+
+---
+
+*This site catalogs driver downloads and development documentation links for the vast majority of chips mentioned above. Feel free to browse by category.*

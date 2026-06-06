@@ -1,0 +1,178 @@
+---
+slug: china-ai-chip-landscape-2025
+title: "China AI Chip Landscape 2025: Ascend, Cambricon, Hygon — Who Will Dominate?"
+authors: [aicomputecards]
+tags: [china-chips, ascend, cambricon, hygon, ai-chips, domestic-substitution]
+date: 2025-06-03
+description: "A comprehensive overview of China's domestic AI chips in 2025. In-depth comparison of mainstream chips including Huawei Ascend 910B, Cambricon Siyuan 590, Hygon DCU, Enflame T21, and more, analyzed across compute, ecosystem, and deployment scale."
+---
+
+# China AI Chip Landscape 2025
+
+Escalating U.S. export controls are forcing China's AI chip industry to accelerate self-reliance. By 2025, the discussion around domestic Chinese AI chips has shifted from "are they usable?" to "which one should I choose?"
+
+This article systematically reviews the **major players, core products, and actual deployment status** of domestic AI chips, helping developers and procurement decision-makers understand the competitive landscape.
+
+{/* truncate */}
+
+---
+
+## Tier 1: Huawei Ascend
+
+**Products**: Ascend 910B (training), Ascend 310P/310 (inference)
+
+**Architecture**: Da Vinci — 3D Cube matrix compute units
+
+**Core Specifications**:
+
+| Metric | Ascend 910B | Ascend 310P | Ascend 310 |
+|------|----------|----------|---------|
+| FP16 compute | 400 TFLOPS | — | — |
+| INT8 compute | 640 TOPS | 70 TOPS | 22 TOPS |
+| Memory | 64GB HBM2e | 24GB LPDDR4X | 8GB LPDDR4 |
+| TDP | 310W | 75W | 8W |
+| Process | 7nm | 12nm | 12nm |
+
+**Ecosystem Status**:
+
+- **CANN software stack**: analogous to CUDA, a complete stack from drivers to compilers
+- **torch_npu**: PyTorch's Ascend backend, with API highly consistent with CUDA
+- **MindSpore**: Huawei's indigenous framework, but with limited market acceptance
+- **LLM adaptation**: mainstream models such as Llama, Qwen all adapted
+
+**Actual Deployment**: According to public data, Ascend 910B has been deployed in **6,000+** chips within Huawei's Pangu large model cluster.
+
+**Overall Assessment**: The undisputed leader among domestic AI chips. The most complete software ecosystem, highest market share in government and enterprise. Training performance approaches 60-70% of H100, with competitive inference price/performance.
+
+---
+
+## Tier 2: Cambricon & Hygon
+
+### Cambricon Siyuan MLU
+
+**Products**: Siyuan 590, Siyuan 370
+
+**Positioning**: AI training + inference
+
+**Key Information**:
+
+- Siyuan 590 compute targets A100 (FP32 ~30 TFLOPS, INT8 ~300 TOPS)
+- Proprietary MLUarch architecture + BangC programming language
+- PyTorch/TensorFlow adaptation already available
+- Primarily deployed in smart cities, security, research, and other fields
+
+**Current Status**: Cambricon was once the most-watched AI chip unicorn, but has faced commercialization difficulties and persistent losses in recent years. Product iteration pace lags behind Ascend, with market share being squeezed.
+
+### Hygon DCU (Deep Computing Unit)
+
+**Product**: ShenSuan Z100
+
+**Architecture**: CUDA-compatible (based on AMD ROCm path)
+
+**Key Information**:
+
+- ShenSuan No. 1 FP32 compute ~15 TFLOPS
+- Biggest selling point: compatible with CUDA API, low migration cost
+- Primarily deployed in supercomputing centers, financial institutions, and other Xinchuang scenarios
+- Process constrained by foundry limitations
+
+**Current Status**: Hygon's compatibility path lowers software migration costs in the short term, but long-term is constrained by AMD's ecosystem development.
+
+---
+
+## Tier 3: Startups and Cross-Industry Players
+
+### Enflame Tech YunSui T21
+
+- Targeting cloud AI training
+- Proprietary GCU architecture + YuSuan software stack
+- PyTorch adaptation available
+- Won orders from multiple telecom operators and government projects
+
+### Biren Technology BR100/BR20X
+
+- BR100 claims FP16 compute of 1,000+ TFLOPS (theoretical peak)
+- But actual deployment progress lags behind claims
+- Pivoted to a more pragmatic product path after 2024
+
+### Moore Threads MTT S5000
+
+- Full-function GPU (graphics + compute + AI)
+- MUSA architecture compatible with CUDA API
+- Driver and software stack maturity improving, but still some distance from production-grade AI training
+- Better suited for inference and small-scale training
+
+### Baidu Kunlun P800
+
+- Baidu's indigenous AI chip
+- Deployed in internal scenarios such as Baidu Search, Intelligent Cloud, autonomous driving
+- Limited public technical details, but internally validated at scale
+
+---
+
+## Domestic AI Chip Cross-Comparison
+
+| Chip | FP16 Compute (TFLOPS) | Memory (GB) | CUDA Compatible | Training Capability | Deployment Scale |
+|------|-------------------|----------|-----------|---------|---------|
+| Ascend 910B | 400 | 64 HBM2e | ❌ CANN | ✅ Strong | 6,000+ |
+| Cambricon 590 | ~300 | — | ❌ BangC | ⚠️ | 1,000s |
+| Hygon DCU Z100 | ~30 (FP32) | — | ⚠️ ROCm path | ⚠️ | 1,000s |
+| Enflame T21 | ~200 | 32 HBM2e | ❌ Proprietary | ✅ | 100s |
+| Biren BR100 | ~1,000 (claimed) | — | ⚠️ | ⚠️ | Limited |
+| Baidu Kunlun P800 | — | — | ❌ Proprietary | ⚠️ | Internal |
+| Moore Threads MTT S5000 | ~100 | 32 GDDR6 | ⚠️ MUSA | ❌ Inference-first | — |
+
+---
+
+## Software Ecosystem Comparison (Key Decision Factor)
+
+| Chip | PyTorch | vLLM Inference | Hugging Face | CUDA Code Migration Cost |
+|------|---------|----------|-------------|-----------------|
+| Ascend 910B | ⚠️ torch_npu | ⚠️ Community | ⚠️ Partial | Medium (need device name change + operator adaptation) |
+| Hygon DCU | ⚠️ ROCm backend | ⚠️ | ⚠️ | Low (compatible with CUDA API) |
+| Cambricon 590 | ⚠️ | ❌ | ❌ | High (BangC language) |
+| Enflame T21 | ⚠️ | ❌ | ❌ | High |
+| Moore Threads MTT | ⚠️ | ❌ | ❌ | Medium (MUSA compatible with CUDA) |
+
+---
+
+## Selection Recommendations
+
+### Government / Xinchuang Projects
+
+**Ascend 910B first choice**. Reasons:
+
+- Most complete software ecosystem, strongest community support
+- Ascend + Kylin/UOS combination is the Xinchuang standard
+- CANN toolchain maturity leads other domestic solutions by 2-3 years
+- Huawei's technical support and documentation are the most comprehensive
+
+### CUDA Legacy Code Migration
+
+If you don't want to rewrite large amounts of code:
+
+- **Hygon DCU** (ROCm compatibility path) has the lowest migration cost
+- **Moore Threads MTT** (MUSA compatibility path) suitable for inference scenarios
+- Ascend's torch_npu has medium migration cost, but the best long-term ecosystem return
+
+### Pure Inference Scenarios
+
+- **Ascend 310P**: most cost-effective domestic inference card
+- **Moore Threads MTT S5000**: if the requirement is a domestically produced full-function GPU
+- **Cambricon 370**: has existing strength in specific scenarios (vision, security)
+
+---
+
+## 2025-2026 Outlook
+
+1. **Ascend 920 is coming**: the next generation Ascend will use more advanced process, targeting FP8 compute to match H200
+2. **EDA tool domestication**: indigenous substitution of chip design tools will help more startups accelerate iteration
+3. **CUDA compatibility becoming standard**: all domestic chips will at least provide a CUDA API compatibility layer
+4. **Inference market share accelerating**: domestic chips will be the first to reach NVIDIA-replacement level in inference scenarios
+5. **At-scale deployment validation**: more "10,000-card cluster" domestic solutions will land in telecom and financial industries
+
+**Key judgment**: Chinese domestic AI chips will transition from "usable" to "good" in 2025-2026. The training performance gap remains (1-2 generations behind), but inference scenarios already meet replacement conditions.
+
+---
+
+*On MirrorFrog you can find driver downloads, development documentation, and detailed specifications for all the above domestic chips.*
