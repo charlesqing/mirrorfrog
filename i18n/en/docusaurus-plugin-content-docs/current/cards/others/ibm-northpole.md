@@ -133,9 +133,9 @@ IBM NorthPole:
 - ✅ **Ultra-low-power AI** (75W, 3-25x GPU efficiency)
 - ✅ **Government/research HPC** (US DARPA, NASA, DOE)
 - ✅ **Neuromorphic AI research** (next-gen AI architecture)
-- ✅ **Small model inference** (7B-13B <70GB fits 224MB as pure SRAM)
+- ✅ **Small model inference** (7B-13B &lt;70GB fits 224MB as pure SRAM)
 - ❌ **AI training** (NorthPole inference only)
-- ❌ **Large model training** (<224MB SRAM limit)
+- ❌ **Large model training** (&lt;224MB SRAM limit)
 - ❌ **Commercial purchase** (IBM not commercialized)
 - ❌ **CUDA compatibility** (proprietary ISA)
 
