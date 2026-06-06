@@ -122,3 +122,33 @@ AI芯片:
   label: 新闻
   description: AI 算力卡行业新闻动态
   permalink: /tags/news
+
+selection-guide:
+  label: Selection Guide
+  description: AI chip selection guides and recommendations
+  permalink: /tags/selection-guide
+
+deep-learning:
+  label: Deep Learning
+  description: Deep learning and AI training
+  permalink: /tags/deep-learning
+
+announcement:
+  label: Announcement
+  description: Site announcements and notices
+  permalink: /tags/announcement
+
+site-update:
+  label: Site Update
+  description: Site feature updates and maintenance
+  permalink: /tags/site-update
+
+new-feature:
+  label: New Feature
+  description: New feature introductions and guides
+  permalink: /tags/new-feature
+
+新闻:
+  label: 新闻
+  description: AI 算力卡行业新闻动态
+  permalink: /tags/news

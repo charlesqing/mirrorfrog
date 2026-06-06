@@ -1,6 +1,6 @@
 ---
 slug: huawei-ascend-920-3x-h20-domestic-substitution
-title: 'Huawei Ascend 920: China's Highest Bandwidth at 4 Tbps + 3× H20 Compute for Domestic Substitution'
+title: "Huawei Ascend 920: China's Highest Bandwidth at 4 Tbps + 3× H20 Compute for Domestic Substitution"
 authors: [aicomputecards]
 tags: [product-launch, strategy, news]
 description: "Huawei Ascend 920 is the next-gen Ascend chip entering mass production in 2025 H2: SMIC 6nm domestic process, 4 Tbps HBM bandwidth, 900+ BF16 TFLOPS = 3× NVIDIA H20 compute. A key victory for Chinese domestic substitution."
