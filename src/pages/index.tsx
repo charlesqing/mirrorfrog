@@ -7,8 +7,8 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
-import { ZH_CONTENT, type HomeContent, type HotChip } from './home-content.zh';
-import { EN_CONTENT } from './home-content.en';
+import { ZH_CONTENT, type HomeContent, type HotChip } from '../data/home-content.zh';
+import { EN_CONTENT } from '../data/home-content.en';
 
 type Chip = {
   id: string;
