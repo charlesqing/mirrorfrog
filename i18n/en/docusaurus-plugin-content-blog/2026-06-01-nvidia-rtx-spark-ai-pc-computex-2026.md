@@ -2,7 +2,7 @@
 slug: nvidia-rtx-spark-ai-pc-computex-2026
 title: "NVIDIA Launches RTX Spark: AI Compute Enters the Personal Computer Era"
 authors: aicomputecards
-tags: [news, GPU, AI-chip, product-launch, news]
+tags: [news, GPU, ai-chip, product-launch]
 date: 2026-06-01
 description: "NVIDIA officially launches RTX Spark at Computex 2026, featuring a 20-core Grace CPU + Blackwell GPU with 1 PFLOPS AI compute, redefining the personal AI computer."
 ---

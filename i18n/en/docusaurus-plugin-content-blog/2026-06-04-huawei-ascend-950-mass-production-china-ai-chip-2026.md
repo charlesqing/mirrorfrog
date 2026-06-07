@@ -2,7 +2,7 @@
 slug: huawei-ascend-950-mass-production-china-ai-chip-2026
 title: "Huawei Ascend 950 Mass Production and the Full Picture of China's AI Chip Ecosystem"
 authors: aicomputecards
-tags: [news, AI-chip, domestic-chips, ascend, news]
+tags: [news, ai-chip, domestic-chips, ascend]
 date: 2026-06-04
 description: "Huawei Ascend 950PR/950DT enters mass production, self-developed HBM breakthrough, China's AI chip industry forms a tri-polar landscape of Huawei, Cambricon, and Moore Threads in 2026."
 ---
