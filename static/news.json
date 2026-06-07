@@ -1,5 +1,34 @@
 [
   {
+    "title": "AI硬件进入"落地纪元"丨2026年五大变革与生存法则",
+    "date": "2026-06-07",
+    "slug": "2026-ai-hardware-inflection-point",
+    "url": "/blog/2026-ai-hardware-inflection-point",
+    "description": "2026年AI硬件市场呈现五大核心趋势：算力架构向推理倾斜、边缘AI与端侧部署爆发、专用芯片与异构计算崛起、能效与散热成为关键瓶颈、AI原生硬件生态重构。",
+    "tags": [
+      "AI硬件",
+      "推理算力",
+      "边缘AI",
+      "专用芯片",
+      "能效散热",
+      "news"
+    ]
+  },
+  {
+    "title": "2026全球AI算力报告及算力产业十大趋势重磅发布",
+    "date": "2026-06-01",
+    "slug": "2026-global-ai-computing-report-2026",
+    "url": "/blog/2026-global-ai-computing-report-2026",
+    "description": "2026年5月29日天津举办的2026世界智能产业博览会期间，由中国智能计算产业联盟、国家超级计算天津中心等机构联合发布《2026全球AI算力发展研究报告》，揭示算力产业十大趋势。",
+    "tags": [
+      "AI算力",
+      "产业报告",
+      "算力趋势",
+      "智算驱动",
+      "news"
+    ]
+  },
+  {
     "title": "Computex 2026 会后观察：AI PC 芯片大战开启，NVIDIA RTX Spark 六月上市",
     "date": "2026-06-06",
     "slug": "computex-2026-wrapup-ai-pc-rtx-spark-market-impact",
@@ -38,32 +67,6 @@
       "AI芯片",
       "国产芯片",
       "昇腾",
-      "news"
-    ]
-  },
-  {
-    "title": "2026 H2 顶级 AI 芯片选型指南：从 H100 到 Rubin、MI400、TPU 8t、TPU 8i",
-    "date": "2026-06-01",
-    "slug": "2026-h2-top-ai-chip-selection-guide",
-    "url": "/blog/2026-h2-top-ai-chip-selection-guide",
-    "description": "2026 H2 顶级 AI 芯片完整选型指南：NVIDIA Rubin R200、AMD MI400、TPU 8t/8i、Trainium 3、Ascend 920、Groq 3 LPX。从训练到推理、从 LLM 70B 到 1T+ 模型的",
-    "tags": [
-      "selection",
-      "benchmarks",
-      "cloud-pricing"
-    ]
-  },
-  {
-    "title": "NVIDIA 发布 RTX Spark：AI 算力进入个人电脑时代",
-    "date": "2026-06-01",
-    "slug": "nvidia-rtx-spark-ai-pc-computex-2026",
-    "url": "/blog/nvidia-rtx-spark-ai-pc-computex-2026",
-    "description": "NVIDIA 在 Computex 2026 正式发布 RTX Spark，20 核 Grace CPU + Blackwell GPU，AI 算力 1 PFLOPS，重新定义个人 AI 计算机。",
-    "tags": [
-      "新闻",
-      "GPU",
-      "AI芯片",
-      "product-launch",
       "news"
     ]
   }
