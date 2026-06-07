@@ -93,7 +93,7 @@ keywords: [昆仑芯 M100, Kunlun M100, 百度, AI推理, MoE, 2026, 国产AI芯
 ## 相关卡
 
 - [Kunlun 昆仑芯 P800](/docs/cards/others/kunlun-p800) — 训推一体前代
-- [NVIDIA L20](/docs/cards/nvidia/l20) — 国际推理卡对标
+- NVIDIA L20 — 国际推理卡对标（页面待创建）
 - [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) — 国产推理卡
 - [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — 国产 GPGPU
 - [MetaX C600](/docs/cards/others/metax-c600) — 全国产 GPU

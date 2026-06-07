@@ -120,5 +120,5 @@ keywords: [海光 DCU K100, Hygon DCU K100, 深算三号, GPGPU, x86, 192 TFLOPS
 - [MetaX 曦云 C600](/docs/cards/others/metax-c600) — 全国产 GPU
 - [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 国产 AI 训练卡
 - [Enflame 云燧 T20](/docs/cards/others/enflame-t20) — 国产 AI 训练卡
-- [NVIDIA H20](/docs/cards/nvidia/h20) — 直接对标产品
+- [NVIDIA H200](/docs/cards/nvidia/h200) — 直接对标产品
 - [AMD Instinct MI300X](/docs/cards/amd/mi300x) — GPGPU 生态对标

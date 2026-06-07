@@ -125,5 +125,5 @@ keywords: [MetaX C600, 沐曦, 曦云C600, XCORE 1.5, 7nm, 144GB HBM3e, FP8 1000
 - [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 国产 AI 训练卡
 - [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — 国产 GPU
 - [NVIDIA H100](/docs/cards/nvidia/h100) — FP8 对标产品
-- [NVIDIA H20](/docs/cards/nvidia/h20) — 中国特供对标
+- [NVIDIA H200](/docs/cards/nvidia/h200) — FP8 对标产品
 - [Enflame 云燧 T20](/docs/cards/others/enflame-t20) — 国产 AI 训练卡

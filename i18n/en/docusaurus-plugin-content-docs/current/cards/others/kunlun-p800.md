@@ -89,7 +89,7 @@ keywords: [昆仑芯 P800, Kunlun P800, 百度, XPU-P, 345 TFLOPS, FP16, 国产 
 ## 相关卡
 
 - [Kunlun 昆仑芯 M100](/docs/cards/others/kunlun-m100) — 下一代推理专用
-- [NVIDIA H20](/docs/cards/nvidia/h20) — FP16 对标（P800 2.3×）
+- [NVIDIA H200](/docs/cards/nvidia/h200) — FP16 对标（P800 2.3×）
 - [NVIDIA H100](/docs/cards/nvidia/h100) — 国际旗舰对标
 - [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) — 国产 AI 竞品
 - [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 国产 AI 训练卡
