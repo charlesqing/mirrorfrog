@@ -52,6 +52,46 @@ sidebar_label: 📋 Changelog
 - 访问路径：`/compare`（中文）、`/en/compare`（英文）
 - **提交**：`6c012d6`
 
+### 🔗 修复 Broken Links（H20/H800 文档）
+- 创建 NVIDIA H20 芯片文档：
+  - 中文：`docs/cards/nvidia/h20.mdx`
+  - 英文：`i18n/en/docusaurus-plugin-content-docs/current/cards/nvidia/h20.md`
+  - 规格：Hopper 架构出口合规版，FP16 148 TFLOPS，96GB HBM3，4.0 TB/s，2024 年发布
+- 创建 NVIDIA H800 芯片文档：
+  - 中文：`docs/cards/nvidia/h800.mdx`
+  - 英文：`i18n/en/docusaurus-plugin-content-docs/current/cards/nvidia/h800.md`
+  - 规格：H100 中国特供版（2022），FP8 1,979 TFLOPS，80GB HBM3，3.35 TB/s，2022 年发布
+- 修正链接（H200 → H20，正确对标）：
+  - `docs/cards/others/hygon-dcu-k100.md` — 相关卡
+  - `docs/cards/others/kunlun-p800.md` — 相关卡
+  - 英文版同步修正
+- 更新 `docs/gpu/nvidia-cuda.mdx`（中英文）添加 H800 页面链接
+- **提交**：`c13db84`（H20）、`8167da0`（H800）
+
+### 🏷️ 定义博客标签（tags.yml）
+- **问题**：`blog/tags.yml` 中缺少多个博客使用的标签，导致构建警告 "not defined"
+- **修复**：
+  - 添加中文标签 key（`新闻`、`AI芯片`、`国产芯片`、`昇腾`、`推理算力`、`产业报告`、`算力趋势`、`智算驱动`、`AI硬件`、`边缘AI`、`专用芯片`、`能效散热`）
+  - 每个 key 使用唯一 permalink（加 `-zh` 后缀避免冲突）
+  - 添加英文标签 key（`selection-guide`、`deep-learning`、`announcement`、`site-update`、`new-feature`、`architecture-comparison`、`inference`、`domestic-chips`、`domestic-substitution`、`ai-chips`、`ai-chip`、`selection` 等）
+  - 修正英文博客 tag key 大小写（`AI-chip` → `ai-chip`，YAML key 大小写敏感）
+  - 去掉英文博客重复的 `news` tag
+- **提交**：`7a6b5b2`
+
+### 💻 添加更多芯片数据（Vera CPU & SN50）
+- 创建 NVIDIA Vera CPU 文档（2026-03-18 GTC 发布）：
+  - 中文：`docs/cards/nvidia/vera-cpu.md`
+  - 英文：`i18n/en/docusaurus-plugin-content-docs/current/cards/nvidia/vera-cpu.md`
+  - 规格：88 核 Armv9.2 自研架构，176 线程，1.5TB LPDDR5X，1.2 TB/s，NVLink-C2C 1.8 TB/s，全球首款原生支持 FP8 的 CPU
+- 更新 SambaNova SN50 文档（覆盖旧版本）：
+  - 中文：`docs/cards/others/sn50.md`
+  - 英文：`i18n/en/docusaurus-plugin-content-docs/current/cards/others/sn50.md`
+  - 规格：第五代 RDU，10T+ 参数模型，10M+ 上下文，5× 推理速度（Llama 3.3 70B: 895 vs B200 184 tokens/s），3× TCO 优势，与 Intel 战略合作，2026-02-24 发布
+- 更新 `static/chips.json`：
+  - 添加 `vera-cpu` 条目（121 款芯片）
+  - 更新 `sn50` 条目为准确数据（从推测更新为官方数据）
+- **提交**：`849df78`
+
 ---
 
 ## 2026-06-06
