@@ -1209,6 +1209,38 @@
     }
   },
   {
+    "id": "h20",
+    "title": "NVIDIA H20 (2024)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/h20",
+    "description": "NVIDIA H20 详尽规格：针对中国市场的出口合规版 Hopper 架构 AI 加速卡，FP16 148 TFLOPS，96GB HBM3，4.0 TB/s，2024 年发布",
+    "keywords": [
+      "NVIDIA H20",
+      "H20",
+      "Hopper",
+      "出口合规",
+      "中国市场",
+      "96GB HBM3",
+      "FP16 148 TFLOPS",
+      "国产替代"
+    ],
+    "specs": {
+      "architecture": "Hopper（出口合规削减版）",
+      "process": "TSMC 4N (4nm)",
+      "compute": {
+        "fp8": "296 TFLOPS",
+        "fp16": "148 TFLOPS",
+        "fp32": "24 TFLOPS",
+        "int8": "296 TOPS"
+      },
+      "memory": {
+        "bandwidth": "4.0 TB/s"
+      },
+      "tdp": "400W",
+      "release": "2024 年初"
+    }
+  },
+  {
     "id": "h200",
     "title": "NVIDIA H200 SXM",
     "vendor": "nvidia",
