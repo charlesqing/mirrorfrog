@@ -1,0 +1,283 @@
+/* compare.module.css - Interactive Comparison Tool styles */
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1.2rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-content);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 2rem;
+}
+
+/* 芯片选择区 */
+.selectorSection {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.selectorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.selectorItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.selectorLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-content-secondary);
+}
+
+.selectorSelect {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.selectorSelect:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+.selectorSelect:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.15);
+}
+
+.clearButton {
+  align-self: flex-end;
+  background: none;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--ifm-color-content-secondary);
+  padding: 0.2rem 0.5rem;
+  transition: all 0.2s;
+}
+
+.clearButton:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-red);
+}
+
+.clearAllButton {
+  background: none;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--ifm-color-content-secondary);
+  padding: 0.45rem 1rem;
+  transition: all 0.2s;
+}
+
+.clearAllButton:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-red);
+}
+
+/* 对比表格 */
+.tableSection {
+  margin-bottom: 3rem;
+}
+
+.tableTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: var(--ifm-color-content);
+}
+
+.compareTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.compareTable th,
+.compareTable td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.compareTable thead th {
+  background: var(--ifm-color-emphasis-50);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ifm-color-content);
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.specHeader {
+  min-width: 140px;
+  background: var(--ifm-color-emphasis-50) !important;
+  font-weight: 700;
+  color: var(--ifm-color-content-secondary);
+}
+
+.chipHeader {
+  text-align: center;
+  background: var(--ifm-color-emphasis-50) !important;
+}
+
+.chipLink {
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.chipLink:hover {
+  text-decoration: underline;
+}
+
+.vendorLabel {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ifm-color-content-secondary);
+}
+
+.specName {
+  font-weight: 600;
+  color: var(--ifm-color-content-secondary);
+  background: var(--ifm-background-surface-color);
+  width: 140px;
+}
+
+.specValue {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--ifm-color-content);
+}
+
+.compareTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.compareTable tbody tr:hover {
+  background: var(--ifm-color-emphasis-50);
+}
+
+/* 提示信息 */
+.hint {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+  color: var(--ifm-color-content-secondary);
+  background: var(--ifm-background-surface-color);
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+/* 暗色模式 */
+[data-theme='dark'] .selectorSection {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .selectorSelect {
+  background: var(--ifm-background-color);
+  border-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .compareTable th,
+[data-theme='dark'] .compareTable td {
+  border-bottom-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .compareTable thead th {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-bottom-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .specHeader,
+[data-theme='dark'] .chipHeader {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme='dark'] .specName {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme='dark'] .compareTable tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .hint {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-200);
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .selectorGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .compareTable {
+    font-size: 0.85rem;
+  }
+
+  .compareTable th,
+  .compareTable td {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .specHeader,
+  .specName {
+    min-width: 100px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .selectorGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .compareTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
