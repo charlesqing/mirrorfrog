@@ -1267,6 +1267,37 @@
     }
   },
   {
+    "id": "h800",
+    "title": "NVIDIA H800 (2023)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/h800",
+    "description": "NVIDIA H800 详尽规格：针对中国市场的初版出口合规 Hopper 架构 AI 加速卡，FP16 1979 TFLOPS（稀疏），80GB HBM3，2023 年发布，2023 年 10 月后停产",
+    "keywords": [
+      "NVIDIA H800",
+      "H800",
+      "Hopper",
+      "中国特供",
+      "出口合规",
+      "80GB HBM3",
+      "FP16 1979 TFLOPS"
+    ],
+    "specs": {
+      "architecture": "Hopper GH100（出口合规削减版）",
+      "process": "TSMC 4N (4nm)",
+      "compute": {
+        "fp8": "3,958 TFLOPS（稀疏）",
+        "fp16": "1,979 TFLOPS（稀疏）",
+        "fp32": "67 TFLOPS",
+        "int8": "3,958 TOPS（稀疏）"
+      },
+      "memory": {
+        "bandwidth": "3.35 TB/s"
+      },
+      "tdp": "350W（SXM5）",
+      "release": "2023 年初"
+    }
+  },
+  {
     "id": "jetson-orin",
     "title": "NVIDIA Jetson Orin",
     "vendor": "nvidia",
