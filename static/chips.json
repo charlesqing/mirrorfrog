@@ -1627,6 +1627,29 @@
     }
   },
   {
+    "id": "vera-cpu",
+    "title": "NVIDIA Vera CPU (2026)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/vera-cpu",
+    "description": "NVIDIA Vera CPU 详尽规格：88 核 Armv9.2 自研架构，176 线程，LPDDR5X 1.5TB 内存，1.2 TB/s 带宽，NVLink-C2C 1.8 TB/s，专为 Agentic AI 推理设计，2026 年 3 月发布",
+    "keywords": [
+      "NVIDIA Vera",
+      "Vera CPU",
+      "Rubin platform",
+      "Armv9.2",
+      "NVLink-C2C",
+      "Agentic AI",
+      "FP8",
+      "LPDDR5X",
+      "88 cores",
+      "1.5TB memory"
+    ],
+    "specs": {
+      "architecture": "NVIDIA 自研 Arm 架构，兼容 Armv9.2 指令集",
+      "release": "2026 年 3 月（GTC 2026）"
+    }
+  },
+  {
     "id": "akida-2",
     "title": "BrainChip Akida 2 (类脑神经形态芯片)",
     "vendor": "others",
@@ -2919,28 +2942,24 @@
   },
   {
     "id": "sn50",
-    "title": "SambaNova SN50 (RDU 第三代, 2026 推测)",
+    "title": "SambaNova SN50 (2026)",
     "vendor": "others",
     "slug": "/docs/cards/others/sn50",
-    "description": "SambaNova SN50 详尽规格（推测）：3nm、256GB HBM3E、SN40L 2× 性能、Dataflow 架构、SN40L 继任者。",
+    "description": "SambaNova SN50 详尽规格：第五代 RDU 可重构数据流单元，10T+ 参数模型，10M+ 上下文，5× 推理速度，3× TCO 优势，2026 年 2 月发布",
     "keywords": [
       "SambaNova SN50",
-      "RDU 第三代",
-      "Dataflow",
-      "3nm",
-      "256GB HBM3E",
-      "SN40L 继任"
+      "RDU Gen-5",
+      "Agentic AI",
+      "inference",
+      "5x speedup",
+      "3x TCO",
+      "Intel Xeon",
+      "10T parameters",
+      "10M context"
     ],
     "specs": {
-      "architecture": "SambaNova RDU 第三代",
-      "process": "TSMC 3nm (N3)",
-      "memory": {
-        "bandwidth": "~5.5 TB/s（SN40L 3.2 TB/s）"
-      },
-      "compute": {
-        "int8": "6 POPS（推测）"
-      },
-      "tdp": "~700 W"
+      "architecture": "第五代 RDU（Reconfigurable Data Unit）",
+      "release": "2026 年 2 月 24 日"
     }
   },
   {
