@@ -89,3 +89,4 @@ scripts/temp/
 # 备份文件
 *.backup
 *.bak~
+.workbuddy/

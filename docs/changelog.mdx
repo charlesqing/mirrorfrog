@@ -8,6 +8,52 @@ sidebar_label: 📋 Changelog
 
 # Changelog
 
+## 2026-06-07
+
+### 🏠 首页排名算法优化（组合方案 A+B+C）
+- **方案 A**：权重分配 60%/40% → 50%/50%（算力权重提升，排名更注重实际性能）
+- **方案 B**：华为厂商权重 0.85 → 0.9（与 AMD 持平，体现国产芯片地位提升）
+- **方案 C**：推理类别权重 0.8 → 0.9（反映 2026 年推理需求超过训练的市场趋势）
+- 修改文件：`src/pages/index.tsx`、`src/data/home-content.zh.ts`、`src/data/home-content.en.ts`
+
+### 🔧 修复 Cloudflare Pages 构建失败
+- **问题**：`src/pages/home-content.zh.ts` 和 `home-content.en.ts` 被 Docusaurus 当作页面组件处理，导致构建失败（缺少 default export）
+- **修复**：将数据文件从 `src/pages/` 移到 `src/data/`，更新 `index.tsx` 中的 import 路径
+- **提交**：`6632b88`
+
+### 📝 修复博客文章构建错误
+- **问题 1**：所有 4 个新博客文章的 `authors: [mirrorfrog]` 字段无效（合法作者是 `aicomputecards`）
+- **问题 2**：`blog/2026-06-07-ai-hardware-inflection-point-2026.mdx` 的标题包含未转义的双引号，导致 YAML 解析失败
+- **修复**：将所有 `authors: [mirrorfrog]` 改为 `authors: [aicomputecards]`；将标题用单引号包裹
+- **提交**：`7bf64fa`
+
+### 📰 添加行业动态博客文章
+- 添加 2 篇中文博客文章：
+  - `2026-06-01-global-ai-computing-report-2026.mdx` — 2026全球AI算力报告及算力产业十大趋势重磅发布
+  - `2026-06-07-ai-hardware-inflection-point-2026.mdx` — AI硬件进入"落地纪元"丨2026年五大变革与生存法则
+- 添加 2 篇英文博客文章（对应中文版）
+- 更新 `static/news.json`，让首页"最新动态"显示这 2 篇新文章
+- **提交**：`c93aefd`
+
+### 💻 添加 NVIDIA Rubin 芯片文档
+- 创建中文文档：`docs/cards/nvidia/rubin.mdx`
+- 创建英文文档：`i18n/en/docusaurus-plugin-content-docs/cards/nvidia/rubin.mdx`
+- 规格参数：336B 晶体管、288GB HBM4、50 PFLOPS FP16、计划 2026 年 Q3/Q4 量产
+- **提交**：`aacc6c7`
+
+### 🔄 创建交互式芯片对比工具
+- 创建 `src/pages/compare.tsx` — 交互式芯片对比页面
+- 创建 `src/pages/compare.module.css` — 对比工具样式
+- 功能：
+  - 支持选择 2-4 款 AI 芯片进行并排对比
+  - 从 `/chips.json` 获取芯片数据
+  - 显示规格：厂商、架构、制程、发布时间、算力（FP8/FP16/FP32/INT8）、内存（类型/容量/带宽）、功耗（TDP）
+  - 双语支持（中文/英文）通过 `useDocusaurusContext()` 实现
+- 访问路径：`/compare`（中文）、`/en/compare`（英文）
+- **提交**：`6c012d6`
+
+---
+
 ## 2026-06-06
 
 ### 🎉 全站英文翻译完成
