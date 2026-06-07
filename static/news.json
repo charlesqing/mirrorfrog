@@ -1,6 +1,6 @@
 [
   {
-    "title": "AI硬件进入"落地纪元"丨2026年五大变革与生存法则",
+    "title": "AI硬件进入\"落地纪元\"丨2026年五大变革与生存法则",
     "date": "2026-06-07",
     "slug": "2026-ai-hardware-inflection-point",
     "url": "/blog/2026-ai-hardware-inflection-point",
@@ -10,22 +10,7 @@
       "推理算力",
       "边缘AI",
       "专用芯片",
-      "能效散热",
-      "news"
-    ]
-  },
-  {
-    "title": "2026全球AI算力报告及算力产业十大趋势重磅发布",
-    "date": "2026-06-01",
-    "slug": "2026-global-ai-computing-report-2026",
-    "url": "/blog/2026-global-ai-computing-report-2026",
-    "description": "2026年5月29日天津举办的2026世界智能产业博览会期间，由中国智能计算产业联盟、国家超级计算天津中心等机构联合发布《2026全球AI算力发展研究报告》，揭示算力产业十大趋势。",
-    "tags": [
-      "AI算力",
-      "产业报告",
-      "算力趋势",
-      "智算驱动",
-      "news"
+      "能效散热"
     ]
   },
   {
@@ -68,6 +53,18 @@
       "国产芯片",
       "昇腾",
       "news"
+    ]
+  },
+  {
+    "title": "2026 H2 顶级 AI 芯片选型指南：从 H100 到 Rubin、MI400、TPU 8t、TPU 8i",
+    "date": "2026-06-01",
+    "slug": "2026-h2-top-ai-chip-selection-guide",
+    "url": "/blog/2026-h2-top-ai-chip-selection-guide",
+    "description": "2026 H2 顶级 AI 芯片完整选型指南：NVIDIA Rubin R200、AMD MI400、TPU 8t/8i、Trainium 3、Ascend 920、Groq 3 LPX。从训练到推理、从 LLM 70B 到 1T+ 模型的",
+    "tags": [
+      "selection",
+      "benchmarks",
+      "cloud-pricing"
     ]
   }
 ]
