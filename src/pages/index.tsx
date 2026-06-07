@@ -45,7 +45,7 @@ function rankScore(c: HotChip, content: HomeContent): number {
   const recency = Math.max(0.3, Math.pow(0.85, yearsOld));
   const importance = vw * cw * recency;
   const compute = Math.min(c.fp16Tflops, 5000) / 2000;
-  return importance * 0.6 + compute * 0.4;
+  return importance * 0.5 + compute * 0.5;
 }
 
 function sortChips(chips: HotChip[], content: HomeContent): HotChip[] {

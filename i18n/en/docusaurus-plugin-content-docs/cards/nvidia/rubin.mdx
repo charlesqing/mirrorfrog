@@ -1,0 +1,145 @@
+---
+title: "NVIDIA Rubin"
+authors: [aicomputecards]
+tags: [GPU, Training, Inference, NVIDIA, Rubin, 2026]
+date: 2026-01-07
+description: "NVIDIA Rubin GPU officially launched at CES 2026, built on TSMC 3nm process, dual compute die + dual I/O die MCM design, 288GB HBM4, FP4 compute 50 PFLOPS, single card power 1800W-2300W."
+---
+
+# NVIDIA Rubin
+
+NVIDIA Rubin GPU was officially launched at **CES 2026** (January 2026), succeeding Blackwell as NVIDIA's next-generation AI accelerator chip. It features a novel **six-chip architecture** (Vera CPU + Rubin GPU + NVLink 6 + BlueField-4 DPU + ConnectX-9 SuperNIC + Spectrum-6 Ethernet Switch), forming a complete unified AI system.
+
+## Core Specifications
+
+| Parameter | Specification |
+|-----------|---------------|
+| **Architecture** | Rubin Architecture (Blackwell Successor) |
+| **Process** | TSMC 3nm (N3/N3P) |
+| **Transistor Count** | 336 billion |
+| **Chip Design** | Dual compute chiplet + Dual I/O chiplet MCM design |
+| **Announcement** | January 2026 (CES 2026) |
+| **Mass Production** | Q3/Q4 2026 (sample delivery), Q1 2027 (volume production) |
+
+## Memory Specifications
+
+| Parameter | Specification |
+|-----------|---------------|
+| **Memory Type** | HBM4 |
+| **Memory Capacity** | 288GB |
+| **Memory Bandwidth** | 22 TB/s |
+| **Per-stack Bandwidth** | >3.0 TB/s |
+| **Per-pin Data Rate** | >11 Gbps |
+| **HBM4 Stack Count** | 8 stacks |
+| **Interface Width** | 2048-bit/stack (2x HBM3e) |
+
+## Compute Performance
+
+| Precision | Performance |
+|------------|--------------|
+| **FP4** (Inference) | 50 PFLOPS |
+| **FP4** (Training) | 35 PFLOPS |
+| **FP8** | TBD |
+| **FP16** | TBD |
+| **FP32** | TBD |
+| **INT8** | TBD |
+
+## Power and Cooling
+
+| Parameter | Specification |
+|-----------|---------------|
+| **Single GPU Power** | 1800W - 2300W |
+| **Cooling Solution** | 100% Liquid Cooling (no air cooling option) |
+| **NVL72 Rack Power** | 120-130 kW |
+| **NVL144 CPX Rack Power** | ~260 kW |
+| **NVL576 Rack Power** | ~600 kW |
+
+## Interconnect Technology
+
+| Parameter | Specification |
+|-----------|---------------|
+| **NVLink Version** | NVLink 6 |
+| **Single GPU NVLink Bandwidth** | 3.6 TB/s (2x Blackwell NVLink 5) |
+| **CPU-GPU Interconnect** | NVLink-C2C, 1.8 TB/s bandwidth |
+| **Network** | ConnectX-9 SuperNIC + Spectrum-6 Ethernet Switch |
+
+## Architecture Features
+
+### 1. Third-Generation Transformer Engine
+- Supports **NVFP4 adaptive compression**
+- Automatically optimizes precision format without manual tuning
+- Balances performance and accuracy
+
+### 2. Simultaneous Multithreading (SMT)
+- Single GPU supports **176 threads**
+- Enhanced parallel processing capability
+
+### 3. Full-Stack AI Factory Solution
+The Rubin platform features 6 chips co-designed:
+- **Vera CPU**: Control plane
+- **Rubin GPU**: Compute core
+- **NVLink 6**: High-speed GPU-to-GPU interconnect
+- **BlueField-4 DPU**: Data center infrastructure processing
+- **ConnectX-9 SuperNIC**: Network connectivity
+- **Spectrum-6 Ethernet Switch**: Network switching
+
+All components are **co-designed**, eliminating bottlenecks in multi-vendor deployments.
+
+### 4. Dynamo Inference Scheduling Framework
+- Supports inference task splitting
+- **Prefill stage**: Assigned to Vera CPU / Rubin NVL144 CPX rack
+- **Decode stage**: Assigned to Rubin GPU
+- Significantly improves inference energy efficiency
+
+### 5. Heterogeneous Collaboration with Groq 3 LPU
+- Connected via Spectrum X networking
+- Offloads decode tasks for trillion-parameter models to LPU without CUDA code modifications
+- Inference task scheduling automatically handled by Dynamo layer
+
+## System Configurations
+
+### Rubin NVL72
+- **GPU Count**: 72 Rubin GPUs
+- **Rack Power**: 120-130 kW
+- **Use Case**: Large-scale training, inference
+
+### Rubin NVL144 CPX
+- **GPU Count**: 144 Rubin GPUs
+- **Rack Power**: ~260 kW
+- **Use Case**: Ultra-large-scale inference
+
+### Rubin NVL576
+- **GPU Count**: 576 Rubin GPUs
+- **Rack Power**: ~600 kW
+- **Use Case**: Ultra-large-scale AI factory
+
+## Comparison with Blackwell
+
+| Parameter | Blackwell (B200) | Rubin (Rubin GPU) |
+|-----------|-------------------|---------------------|
+| **Process** | TSMC 4nm | TSMC 3nm |
+| **Transistors** | 208 billion | 336 billion |
+| **HBM** | HBM3e 192GB | HBM4 288GB |
+| **HBM Bandwidth** | 8 TB/s | 22 TB/s |
+| **FP4 Performance** | ? PFLOPS | 50 PFLOPS |
+| **TDP** | 1000W | 1800W-2300W |
+| **NVLink** | NVLink 5 (1.8 TB/s) | NVLink 6 (3.6 TB/s) |
+
+## Availability Timeline
+
+| Stage | Timeline |
+|-------|----------|
+| **Announcement** | January 2026 (CES 2026) |
+| **Sample Delivery** | Q4 2026 |
+| **Volume Production** | Q1 2027 |
+| **Early Customer Delivery** | Second Half 2026 |
+
+## References
+
+- [NVIDIA Official Blog: Inside the NVIDIA Rubin Platform](https://developer.nvidia.com/blog/inside-the-nvidia-rubin-platform-six-new-chips-one-ai-supercomputer/)
+- [TechInsider: NVIDIA Rubin GPU Analysis](https://tech-insider.org/nvidia-gtc-2026-rubin-gpu-analysis/)
+- [Baidu Baike: Rubin GPU](https://baike.baidu.com/item/Rubin%20GPU/65759237)
+
+---
+
+**Tags**: `GPU` `Training` `Inference` `NVIDIA` `Rubin` `2026` `HBM4` `NVLink 6`

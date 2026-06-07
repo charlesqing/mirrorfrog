@@ -1,0 +1,145 @@
+---
+title: "NVIDIA Rubin"
+authors: [aicomputecards]
+tags: [GPU, Training, Inference, NVIDIA, Blackwell, 2026]
+date: 2026-01-07
+description: "NVIDIA Rubin GPU 在 CES 2026 正式发布，采用 TSMC 3nm 工艺，双计算 die + 双 I/O die MCM 设计，288GB HBM4，FP4 算力 50 PFLOPS，单卡功耗 1800W-2300W。"
+---
+
+# NVIDIA Rubin
+
+NVIDIA Rubin GPU 在 **CES 2026**（2026年1月）正式发布，是 NVIDIA 继 Blackwell 之后的新一代 AI 加速芯片，采用全新**六芯片架构**（Vera CPU + Rubin GPU + NVLink 6 + BlueField-4 DPU + ConnectX-9 SuperNIC + Spectrum-6 以太网交换机），构成完整统一的 AI 系统。
+
+## 核心规格
+
+| 参数 | 规格 |
+|------|------|
+| **架构** | Rubin 架构（Blackwell 继任者） |
+| **制程工艺** | TSMC 3nm（N3/N3P） |
+| **晶体管数量** | 3360亿个 |
+| **芯片设计** | 双计算 chiplet + 双 I/O chiplet MCM 设计 |
+| **发布时间** | 2026年1月（CES 2026） |
+| **量产时间** | 2026年Q3/Q4（样品交付），2027年Q1（规模量产） |
+
+## 显存规格
+
+| 参数 | 规格 |
+|------|------|
+| **显存类型** | HBM4 |
+| **显存容量** | 288GB |
+| **显存带宽** | 22 TB/s |
+| **单栈带宽** | >3.0 TB/s |
+| **单引脚速率** | >11 Gbps |
+| **HBM4 栈数量** | 8 个 |
+| **接口宽度** | 2048 位/栈（较 HBM3e 翻倍） |
+
+## 算力规格
+
+| 精度 | 算力 |
+|------|------|
+| **FP4**（推理） | 50 PFLOPS |
+| **FP4**（训练） | 35 PFLOPS |
+| **FP8** | 待公布 |
+| **FP16** | 待公布 |
+| **FP32** | 待公布 |
+| **INT8** | 待公布 |
+
+## 功耗与散热
+
+| 参数 | 规格 |
+|------|------|
+| **单 GPU 功耗** | 1800W - 2300W |
+| **散热方案** | 100% 液冷（无风冷配置） |
+| **NVL72 机架功耗** | 120-130 kW |
+| **NVL144 CPX 机架功耗** | ~260 kW |
+| **NVL576 机架功耗** | ~600 kW |
+
+## 互联技术
+
+| 参数 | 规格 |
+|------|------|
+| **NVLink 版本** | NVLink 6 |
+| **单 GPU NVLink 带宽** | 3.6 TB/s（是 Blackwell NVLink 5 的 2 倍） |
+| **CPU-GPU 互联** | NVLink-C2C，带宽 1.8 TB/s |
+| **网络** | ConnectX-9 SuperNIC + Spectrum-6 以太网交换机 |
+
+## 架构特点
+
+### 1. 第三代 Transformer 引擎
+- 支持 **NVFP4 自适应压缩**
+- 无需手动调整即可自动优化精度格式
+- 兼顾性能和精度
+
+### 2. 同步多线程（SMT）
+- 单 GPU 支持 **176 线程**
+- 提升并行处理能力
+
+### 3. 全栈 AI 工厂方案
+Rubin 平台由 6 款芯片协同设计：
+- **Vera CPU**：控制平面
+- **Rubin GPU**：计算核心
+- **NVLink 6**：GPU 间高速互联
+- **BlueField-4 DPU**：数据中心基础设施处理
+- **ConnectX-9 SuperNIC**：网络连接
+- **Spectrum-6 以太网交换机**：网络交换
+
+所有组件为**协同设计**，消除多厂商部署的瓶颈。
+
+### 4. Dynamo 推理调度框架
+- 支持推理任务拆分
+- **预填充阶段**：分配给 Vera CPU / Rubin NVL144 CPX 机架
+- **解码阶段**：分配给 Rubin GPU
+- 大幅提升推理能效
+
+### 5. 与 Groq 3 LPU 异构协同
+- 通过 Spectrum X 网络互联
+- 无需修改 CUDA 代码即可将万亿参数模型的解码任务卸载到 LPU
+- 推理任务调度由 Dynamo 层自动完成
+
+## 系统配置
+
+### Rubin NVL72
+- **GPU 数量**：72 个 Rubin GPU
+- **机架功耗**：120-130 kW
+- **适用场景**：大规模训练、推理
+
+### Rubin NVL144 CPX
+- **GPU 数量**：144 个 Rubin GPU
+- **机架功耗**：~260 kW
+- **适用场景**：超大规模推理
+
+### Rubin NVL576
+- **GPU 数量**：576 个 Rubin GPU
+- **机架功耗**：~600 kW
+- **适用场景**：超大规模 AI 工厂
+
+## 与 Blackwell 对比
+
+| 参数 | Blackwell（B200） | Rubin（Rubin GPU） |
+|------|-------------------|---------------------|
+| **制程** | TSMC 4nm | TSMC 3nm |
+| **晶体管** | 2080亿 | 3360亿 |
+| **HBM** | HBM3e 192GB | HBM4 288GB |
+| **HBM 带宽** | 8 TB/s | 22 TB/s |
+| **FP4 算力** | ？ PFLOPS | 50 PFLOPS |
+| **TDP** | 1000W | 1800W-2300W |
+| **NVLink** | NVLink 5（1.8 TB/s） | NVLink 6（3.6 TB/s） |
+
+## 发布时间与可用性
+
+| 阶段 | 时间 |
+|------|------|
+| **发布** | 2026年1月（CES 2026） |
+| **样品交付** | 2026年Q4 |
+| **规模量产** | 2027年Q1 |
+| **早期客户交付** | 2026年下半年 |
+
+## 参考链接
+
+- [NVIDIA 官方博客：Inside the NVIDIA Rubin Platform](https://developer.nvidia.com/blog/inside-the-nvidia-rubin-platform-six-new-chips-one-ai-supercomputer/)
+- [TechInsider：NVIDIA Rubin GPU Analysis](https://tech-insider.org/nvidia-gtc-2026-rubin-gpu-analysis/)
+- [百度百科：Rubin GPU](https://baike.baidu.com/item/Rubin%20GPU/65759237)
+
+---
+
+**标签**：`GPU` `Training` `Inference` `NVIDIA` `Rubin` `2026` `HBM4` `NVLink 6`

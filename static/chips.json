@@ -1496,6 +1496,18 @@
     }
   },
   {
+    "id": "rubin",
+    "title": "NVIDIA Rubin",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rubin",
+    "description": "NVIDIA Rubin GPU 在 CES 2026 正式发布，采用 TSMC 3nm 工艺，双计算 die + 双 I/O die MCM 设计，288GB HBM4，FP4 算力 50 PFLOPS，单卡功耗 1800W-2300W。",
+    "keywords": [],
+    "specs": {
+      "architecture": "Rubin 架构（Blackwell 继任者）",
+      "release": "2026年1月（CES 2026）"
+    }
+  },
+  {
     "id": "rubin-r200",
     "title": "NVIDIA Rubin R200 (Vera Rubin Platform)",
     "vendor": "nvidia",
