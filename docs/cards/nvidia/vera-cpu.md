@@ -90,4 +90,3 @@ Vera CPU 与 Rubin GPU 采用 **共同封装（CoWoS-L）**设计：
 
 - [NVIDIA Rubin R100](/docs/cards/nvidia/rubin) — Vera Rubin 平台的 GPU 部分
 - [NVIDIA Rubin R200 Ultra](/docs/cards/nvidia/rubin-r200) — Rubin Ultra 版本
-- [NVIDIA NVLink 6 Switch](/docs/cards/nvidia/nvlink-6) — 平台互连交换机

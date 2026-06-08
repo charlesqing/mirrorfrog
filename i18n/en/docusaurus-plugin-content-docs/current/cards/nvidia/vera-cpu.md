@@ -90,4 +90,3 @@ Vera CPU and Rubin R100 GPU use **coWoS-L (Chip-on-Wafer-on-Substrate with LSI)*
 
 - [NVIDIA Rubin R100](/en/docs/cards/nvidia/rubin) — GPU part of the Vera Rubin platform
 - [NVIDIA Rubin R200 Ultra](/en/docs/cards/nvidia/rubin-r200) — Rubin Ultra version
-- [NVIDIA NVLink 6 Switch](/en/docs/cards/nvidia/nvlink-6) — Platform interconnect switch

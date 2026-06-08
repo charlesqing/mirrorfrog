@@ -1,190 +1,190 @@
 product-launch:
   label: Product Launch
   description: Official releases and first reviews of new AI chips / GPUs / ASICs
-  permalink: /blog/tags/product-launch
+  permalink: /product-launch
 
 strategy:
   label: Vendor Strategy
   description: AI chip vendor strategy, M&A, IPO, ecosystem partnerships
-  permalink: /blog/tags/strategy
+  permalink: /strategy
 
 tech-deep-dive:
   label: Tech Deep Dive
   description: Deep analysis of AI chip architecture, HBM, interconnect, packaging
-  permalink: /blog/tags/tech-deep-dive
+  permalink: /tech-deep-dive
 
 selection-guide:
   label: Selection Guide
   description: AI chip selection recommendations and comparisons for different scenarios
-  permalink: /blog/tags/selection-guide
+  permalink: /selection-guide
 
 news:
   label: Industry News
   description: Major events and market dynamics in the AI compute card industry
-  permalink: /blog/tags/news
+  permalink: /news
 
 benchmarks:
   label: Benchmarks
   description: LLM training / inference performance benchmarks and comparisons
-  permalink: /blog/tags/benchmarks
+  permalink: /benchmarks
 
 cloud-pricing:
   label: Cloud Pricing
   description: AI cloud instance pricing and per-token cost analysis
-  permalink: /blog/tags/cloud-pricing
+  permalink: /cloud-pricing
 
 GPU:
   label: GPU
   description: GPU accelerators related articles
-  permalink: /blog/tags/GPU
+  permalink: /GPU
 
 NPU:
   label: NPU
   description: NPU neural network processors
-  permalink: /blog/tags/NPU
+  permalink: /NPU
 
 TPU:
   label: TPU
   description: Google TPU related articles
-  permalink: /blog/tags/TPU
+  permalink: /TPU
 
 ASIC:
   label: ASIC
   description: ASIC custom chip architecture
-  permalink: /blog/tags/ASIC
+  permalink: /ASIC
 
 deep-learning:
   label: Deep Learning
   description: Deep learning and AI training
-  permalink: /blog/tags/deep-learning
+  permalink: /deep-learning
 
 announcement:
   label: Announcement
   description: Site announcements and notices
-  permalink: /blog/tags/announcement
+  permalink: /announcement
 
 site-update:
   label: Site Update
   description: Site feature updates and maintenance records
-  permalink: /blog/tags/site-update
+  permalink: /site-update
 
 new-feature:
   label: New Feature
   description: New feature introduction and usage guide
-  permalink: /blog/tags/new-feature
+  permalink: /new-feature
 
 architecture-comparison:
   label: Architecture Comparison
   description: AI chip architecture comparison and analysis
-  permalink: /blog/tags/architecture-comparison
+  permalink: /architecture-comparison
 
 inference:
   label: Inference
   description: AI inference acceleration and optimization
-  permalink: /blog/tags/inference
+  permalink: /inference
 
 domestic-chips:
   label: Domestic Chips
   description: Chinese domestic AI chip development
-  permalink: /blog/tags/domestic-chips
+  permalink: /domestic-chips
 
 ascend:
   label: Ascend
   description: Huawei Ascend series AI chips
-  permalink: /blog/tags/ascend
+  permalink: /ascend
 
 cambricon:
   label: Cambricon
   description: Cambricon AI chips and accelerators
-  permalink: /blog/tags/cambricon
+  permalink: /cambricon
 
 hygon:
   label: Hygon
   description: Hygon DCU accelerators
-  permalink: /blog/tags/hygon
+  permalink: /hygon
 
 ai-chip:
   label: AI Chip
   description: AI chip industry dynamics and trends
-  permalink: /blog/tags/ai-chip
+  permalink: /ai-chip
 
 domestic-substitution:
   label: Domestic Substitution
   description: AI chip domestic substitution process
-  permalink: /blog/tags/domestic-substitution
+  permalink: /domestic-substitution
 
 ai-chips:
   label: AI Chips
   description: AI chip industry dynamics and trends
-  permalink: /blog/tags/ai-chips
+  permalink: /ai-chips
 
 # ========== 中文标签 key（博客实际使用）==========
 AI算力:
   label: AI算力
   description: AI 算力技术与产业发展
-  permalink: /blog/tags/ai-compute-zh
+  permalink: /ai-compute-zh
 
 产业报告:
   label: 产业报告
   description: AI 产业研究报告与趋势分析
-  permalink: /blog/tags/industry-report-zh
+  permalink: /industry-report-zh
 
 算力趋势:
   label: 算力趋势
   description: AI 算力发展趋势与预测
-  permalink: /blog/tags/compute-trend-zh
+  permalink: /compute-trend-zh
 
 智算驱动:
   label: 智算驱动
   description: 智能计算驱动产业变革
-  permalink: /blog/tags/ai-computing-zh
+  permalink: /ai-computing-zh
 
 新闻:
   label: 新闻
   description: AI 算力卡行业新闻动态
-  permalink: /blog/tags/news-zh
+  permalink: /news-zh
 
 AI芯片:
   label: AI芯片
   description: AI 芯片行业动态
-  permalink: /blog/tags/ai-chip-zh
+  permalink: /ai-chip-zh
 
 国产芯片:
   label: 国产芯片
   description: 中国国产 AI 芯片发展动态
-  permalink: /blog/tags/domestic-chips-zh
+  permalink: /domestic-chips-zh
 
 昇腾:
   label: 昇腾
   description: 华为昇腾系列 AI 芯片
-  permalink: /blog/tags/ascend-zh
+  permalink: /ascend-zh
 
 推理算力:
   label: 推理算力
   description: AI 推理算力技术优化
-  permalink: /blog/tags/inference-compute-zh
+  permalink: /inference-compute-zh
 
 AI硬件:
   label: AI硬件
   description: AI 硬件技术与发展趋势
-  permalink: /blog/tags/ai-hardware-zh
+  permalink: /ai-hardware-zh
 
 边缘AI:
   label: 边缘AI
   description: 边缘 AI 与端侧推理
-  permalink: /blog/tags/edge-ai-zh
+  permalink: /edge-ai-zh
 
 专用芯片:
   label: 专用芯片
   description: ASIC / NPU 等专用 AI 芯片
-  permalink: /blog/tags/specialized-chip-zh
+  permalink: /specialized-chip-zh
 
 能效散热:
   label: 能效散热
   description: AI 芯片能效与散热技术
-  permalink: /blog/tags/energy-efficiency-zh
+  permalink: /energy-efficiency-zh
 
 selection:
   label: Selection Guide
   description: AI chip selection recommendations and comparisons
-  permalink: /blog/tags/selection
+  permalink: /selection
