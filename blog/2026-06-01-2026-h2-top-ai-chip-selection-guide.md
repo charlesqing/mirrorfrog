@@ -2,7 +2,7 @@
 slug: 2026-h2-top-ai-chip-selection-guide
 title: '2026 H2 顶级 AI 芯片选型指南：从 H100 到 Rubin、MI400、TPU 8t、TPU 8i'
 authors: [aicomputecards]
-tags: [selection, benchmarks, cloud-pricing]
+tags: [selection-guide, benchmarks, cloud-pricing]
 description: 2026 H2 顶级 AI 芯片完整选型指南：NVIDIA Rubin R200、AMD MI400、TPU 8t/8i、Trainium 3、Ascend 920、Groq 3 LPX。从训练到推理、从 LLM 70B 到 1T+ 模型的完整选型树。
 ---
 

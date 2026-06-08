@@ -176,7 +176,7 @@
       "compute": {
         "fp32": "115 TFLOPS"
       },
-      "tdp": "~1400 W（典型板卡功耗）（典型板卡功耗）"
+      "tdp": "1400 W（典型板卡功耗）"
     }
   },
   {
@@ -1055,12 +1055,12 @@
       "process": "TSMC 4NP",
       "memory": {
         "capacity": "288 GB HBM3e（12-Hi 堆叠）",
-        "bandwidth": "8 TB/s"
+        "bandwidth": "12 TB/s"
       },
       "compute": {
         "int8": "7,000 TOPS"
       },
-      "tdp": "1,400 W（液冷必需）",
+      "tdp": "1,200 W（液冷必需）",
       "release": "2026-01 正式出货"
     }
   },

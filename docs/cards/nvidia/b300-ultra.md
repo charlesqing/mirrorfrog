@@ -22,14 +22,14 @@ keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4,
 | **制程** | TSMC 4NP |
 | **GPU 芯片** | 2 颗 Blackwell Die（CoWoS-L 封装） |
 | **显存** | **288 GB HBM3e**（12-Hi 堆叠） |
-| **显存带宽** | **8 TB/s** |
-| **FP8 Tensor Core（密集）** | **7 PFLOPS** |
-| **FP8 Tensor Core（稀疏）** | **14 PFLOPS** |
-| **FP4 Tensor Core（密集）** | **7 PFLOPS** |
-| **FP4 Tensor Core（稀疏）** | **14 PFLOPS** |
-| **FP16 Tensor Core（密集）** | **3.5 PFLOPS** |
+| **显存带宽** | **12 TB/s** |
+| **FP8 Tensor Core（密集）** | **8 PFLOPS** |
+| **FP8 Tensor Core（稀疏）** | **16 PFLOPS** |
+| **FP4 Tensor Core（密集）** | **16 PFLOPS** |
+| **FP4 Tensor Core（稀疏）** | **32 PFLOPS** |
+| **FP16 Tensor Core（密集）** | **4 PFLOPS** |
 | **INT8** | **7,000 TOPS** |
-| **TDP** | **1,400 W**（**液冷必需**） |
+| **TDP** | **1,200 W**（**液冷必需**） |
 | **NVLink 带宽** | **1.8 TB/s**（第 5 代） |
 | **PCIe** | Gen 6（首次） |
 | **DC 网络** | **ConnectX-8, 1.6 Tbps** |

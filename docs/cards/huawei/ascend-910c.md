@@ -10,7 +10,7 @@ keywords: [Huawei Ascend 910C, 昇腾 910C, CloudMatrix 384, 国产 AI 芯片, �
 
 ## 产品概述
 
-Huawei Ascend 910C 于 **2025 年 4 月**开始大规模量产，**双小芯片（dual-chiplet）设计**，将两颗 910B 计算芯片封装在一起。**780 BF16 TFLOPS** 算力（约为 H100 的 60%）。在 **CloudMatrix 384** 系统中，384 颗 Ascend 910C 组成 16 机柜的超级系统，**总 BF16 算力超过 NVIDIA GB200 NVL72**。
+Huawei Ascend 910C 于 **2025 年 4 月**开始大规模量产，**双小芯片（dual-chiplet）设计**，将两颗 910B 计算芯片封装在一起。**800 FP16 TFLOPS** 算力（约为 H100 的 60%）。在 **CloudMatrix 384** 系统中，384 颗 Ascend 910C 组成 16 机柜的超级系统，**总 BF16 算力超过 NVIDIA GB200 NVL72**。
 
 ## 核心规格
 
@@ -20,7 +20,7 @@ Huawei Ascend 910C 于 **2025 年 4 月**开始大规模量产，**双小芯片�
 | **制程** | 7nm 级（含 SMIC 国产化） |
 | **小芯片数** | 2×（2× Ascend 910B 计算芯片） |
 | **HBM** | 8× HBM2E 模块 |
-| **BF16 算力** | **780 TFLOPS**（~H100 的 60%） |
+| **BF16 算力** | **800 TFLOPS**（~H100 的 60%） |
 | **总内存容量** | ~128 GB（双芯片） |
 | **TDP** | ~310 W（双芯片，仅约 H100 的 45%） |
 
