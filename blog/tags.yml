@@ -188,3 +188,70 @@ selection:
   label: Selection Guide
   description: AI chip selection recommendations and comparisons
   permalink: /selection
+
+# ========== 新增标签：2026-06-10 博客使用 ==========
+
+huawei-ascend:
+  label: 华为昇腾
+  description: 华为昇腾系列AI芯片技术详解
+  permalink: /huawei-ascend-zh
+
+ascend-910c:
+  label: Ascend 910C
+  description: 华为昇腾910C芯片详细规格与部署
+  permalink: /ascend-910c-zh
+
+domestic-compute:
+  label: 国产算力
+  description: 国产AI算力芯片发展动态
+  permalink: /domestic-compute-zh
+
+cloudmatrix:
+  label: CloudMatrix
+  description: 华为CloudMatrix超节点解决方案
+  permalink: /cloudmatrix-zh
+
+kunlun-p800:
+  label: 昆仑芯P800
+  description: 百度昆仑芯P800性能数据与架构创新
+  permalink: /kunlun-p800-zh
+
+baidu:
+  label: 百度
+  description: 百度AI芯片与昆仑芯技术
+  permalink: /baidu-zh
+
+xpu-p:
+  label: XPU-P
+  description: 百度XPU-P架构与天池超节点
+  permalink: /xpu-p-zh
+
+tianchi-supernode:
+  label: 天池超节点
+  description: 百度天池超节点解决方案
+  permalink: /tianchi-supernode-zh
+
+domestic-ai-chip:
+  label: 国产AI芯片
+  description: 中国国产AI芯片全产业链进展
+  permalink: /domestic-ai-chip-zh
+
+ascend-950:
+  label: 华为昇腾950
+  description: 华为昇腾950PR/950DT芯片技术详解
+  permalink: /ascend-950-zh
+
+kunlun-m100:
+  label: 昆仑芯M100
+  description: 百度昆仑芯M100/M300新一代芯片
+  permalink: /kunlun-m100-zh
+
+alibaba-yitian-m890:
+  label: 阿里平头哥M890
+  description: 阿里平头哥M890芯片技术详解
+  permalink: /alibaba-yitian-m890-zh
+
+2026-progress:
+  label: 2026进展
+  description: 2026年国产AI芯片最新进展
+  permalink: /2026-progress-zh
