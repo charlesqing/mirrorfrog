@@ -268,8 +268,6 @@ const config: Config = {
         },
         {to: '/docs/comparison', label: '对比表', position: 'left'},
         {to: '/docs/roadmap', label: '路线图', position: 'left'},
-        {to: '/docs/tools', label: '工具', position: 'left'},
-        {to: '/docs/about', label: '关于', position: 'left'},
         {
           label: '行业动态',
           position: 'left',
@@ -300,6 +298,8 @@ const config: Config = {
             {label: 'Neuromorphic 神经形态', to: '/docs/architectures/arch-neuromorphic'},
           ],
         },
+        {to: '/docs/tools', label: '工具', position: 'left'},
+        {to: '/docs/about', label: '关于', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
