@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   // ========== 基础信息 ==========
-  title: 'AI 算力卡百科 | 100+ 款 AI 芯片规格对比',
+  title: 'AI Compute Cards Wiki | 100+ AI Chips Specs Compared',
   titleDelimiter: ' | ',
   tagline: '100+ 款 AI 算力卡完整规格对比 · NVIDIA / AMD / 华为昇腾 · 2025-2026 行业洞察',
   favicon: 'img/favicon.ico',
@@ -110,6 +110,36 @@ const config: Config = {
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png'}},
     {tagName: 'link', attributes: {rel: 'apple-touch-icon', sizes: '180x180', href: '/img/apple-touch-icon.png'}},
     {tagName: 'link', attributes: {rel: 'manifest', href: '/manifest.json'}},
+
+    // ---- i18n 动态标题脚本 ----
+    {
+      tagName: 'script',
+      attributes: {type: 'text/javascript'},
+      innerHTML: `
+        (function() {
+          function updateTitle() {
+            var path = window.location.pathname;
+            var isEnglish = path.startsWith('/en/') || path.startsWith('/en');
+            var defaultTitles = {
+              zh: 'AI 算力卡百科 | 100+ 款 AI 芯片规格对比',
+              en: 'AI Compute Cards Wiki | 100+ AI Chips Specs Compared'
+            };
+            var currentTitle = document.title;
+            if (currentTitle === defaultTitles.zh || currentTitle === defaultTitles.en || currentTitle.includes('AI 算力卡百科') || currentTitle.includes('AI Compute Cards Wiki')) {
+              document.title = isEnglish ? defaultTitles.en : defaultTitles.zh;
+            }
+          }
+          // 初始加载时执行
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateTitle);
+          } else {
+            updateTitle();
+          }
+          // 监听 Docusaurus 客户端路由切换
+          window.addEventListener('docusaurus-router-outlet', updateTitle);
+        })();
+      `,
+    },
 
     // ---- 基础 SEO Meta ----
     {tagName: 'meta', attributes: {name: 'description', content: '完整收录 100+ 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI400、华为昇腾910B/950/960/970、寒武纪 MLU370 等主流 AI 芯片，提供算力卡选型参考。'}},
