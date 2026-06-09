@@ -287,35 +287,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
 
-    // ===== 行业动态 =====
-    {
-      type: 'category',
-      label: '📰 行业动态',
-      collapsed: true,
-      items: [
-        {
-          type: 'link',
-          label: '博客首页',
-          href: '/blog',
-        },
-        {
-          type: 'link',
-          label: '最新动态',
-          href: '/blog/tags/news',
-        },
-        {
-          type: 'link',
-          label: '技术深度',
-          href: '/blog/tags/tech-deep-dive',
-        },
-        {
-          type: 'link',
-          label: '产品发布',
-          href: '/blog/tags/product-launch',
-        },
-      ],
-    },
-
     // ===== 架构详解 =====
     {
       type: 'category',
