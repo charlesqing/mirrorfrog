@@ -306,12 +306,12 @@ const sidebars: SidebarsConfig = {
         {
           type: 'link',
           label: '技术深度',
-          href: '/blog/tags/deep-dive',
+          href: '/blog/tags/tech-deep-dive',
         },
         {
           type: 'link',
-          label: '市场分析',
-          href: '/blog/tags/market',
+          label: '产品发布',
+          href: '/blog/tags/product-launch',
         },
       ],
     },
