@@ -33,7 +33,7 @@ const config: Config = {
     ],
   ],
 
-  onBrokenLinks: 'warn',
+      onBrokenLinks: 'warn',
   markdown: {
     hooks: {onBrokenMarkdownLinks: 'warn'},
   },
@@ -82,6 +82,13 @@ const config: Config = {
           archiveBasePath: 'archive',
           onUntruncatedBlogPosts: 'ignore',
         },
+
+        // ========== Google Analytics 4 (GA4) ==========
+        gtag: {
+          trackingID: 'G-9VCJT24QHZ',
+          anonymizeIP: true, // GDPR 合规
+        },
+
         sitemap: {
           lastmod: 'date',
           changefreq: 'weekly',

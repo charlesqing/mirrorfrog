@@ -1,5 +1,47 @@
 [
   {
+    "title": "2026年国产AI芯片新进展：华为昇腾950、昆仑芯M100、阿里平头哥M890全面解析",
+    "date": "2026-06-10",
+    "slug": "2026-domestic-chip-progress",
+    "url": "/blog/2026-domestic-chip-progress",
+    "description": "全面解析2026年国产AI芯片新进展：华为昇腾950PR/950DT规格与超节点部署、昆仑芯M100推理专用芯片、阿里平头哥M890性能突破，以及寒武纪、沐曦、燧原等厂商的最新动态。",
+    "tags": [
+      "国产AI芯片",
+      "华为昇腾950",
+      "昆仑芯M100",
+      "阿里平头哥M890",
+      "2026进展"
+    ]
+  },
+  {
+    "title": "华为昇腾910C深度解析：规格、部署与性能全览",
+    "date": "2026-06-10",
+    "slug": "ascend-910c-specs-and-deployment",
+    "url": "/blog/ascend-910c-specs-and-deployment",
+    "description": "深度解析华为昇腾910C的详细规格参数、部署案例（CloudMatrix 384超节点、DeepSeek-V4-Pro训练）、性能对比及市场定位，全面展现国产AI芯片的突破进展。",
+    "tags": [
+      "华为昇腾",
+      "Ascend 910C",
+      "AI芯片",
+      "国产算力",
+      "CloudMatrix"
+    ]
+  },
+  {
+    "title": "昆仑芯P800深度解析：性能数据、架构创新与超节点部署",
+    "date": "2026-06-10",
+    "slug": "kunlun-p800-performance",
+    "url": "/blog/kunlun-p800-performance",
+    "description": "深度解析昆仑芯P800的详细性能数据、三大架构创新、天池256/512超节点配置、DeepSeek大模型适配能力及市场定位，全面展现百度第三代AI加速卡的突破进展。",
+    "tags": [
+      "昆仑芯P800",
+      "百度",
+      "国产AI芯片",
+      "XPU-P",
+      "天池超节点"
+    ]
+  },
+  {
     "title": "AI硬件进入\"落地纪元\"丨2026年五大变革与生存法则",
     "date": "2026-06-07",
     "slug": "2026-ai-hardware-inflection-point",
@@ -26,45 +68,6 @@
       "国产芯片",
       "news",
       "product-launch"
-    ]
-  },
-  {
-    "title": "Computex 2026 AI 算力卡大事件：DGX Station for Windows、Intel Crescent Island 等重磅发布",
-    "date": "2026-06-05",
-    "slug": "computex-2026-ai-chip-roundup-dgx-station-crescent-island",
-    "url": "/blog/computex-2026-ai-chip-roundup-dgx-station-crescent-island",
-    "description": "Computex 2026 圆满收官：NVIDIA DGX Station for Windows（20 PFLOPS，748GB 内存）、Intel Crescent Island AI GPU（480GB LPDDR5x）、RTX Sp",
-    "tags": [
-      "新闻",
-      "AI芯片",
-      "product-launch",
-      "news"
-    ]
-  },
-  {
-    "title": "华为昇腾 950 量产与中国 AI 芯片生态全貌",
-    "date": "2026-06-04",
-    "slug": "huawei-ascend-950-mass-production-china-ai-chip-2026",
-    "url": "/blog/huawei-ascend-950-mass-production-china-ai-chip-2026",
-    "description": "华为昇腾 950PR/950DT 正式量产，自研 HBM 突破，中国 AI 芯片产业在 2026 年形成华为、寒武纪、摩尔线程三极格局。",
-    "tags": [
-      "新闻",
-      "AI芯片",
-      "国产芯片",
-      "昇腾",
-      "news"
-    ]
-  },
-  {
-    "title": "2026 H2 顶级 AI 芯片选型指南：从 H100 到 Rubin、MI400、TPU 8t、TPU 8i",
-    "date": "2026-06-01",
-    "slug": "2026-h2-top-ai-chip-selection-guide",
-    "url": "/blog/2026-h2-top-ai-chip-selection-guide",
-    "description": "2026 H2 顶级 AI 芯片完整选型指南：NVIDIA Rubin R200、AMD MI400、TPU 8t/8i、Trainium 3、Ascend 920、Groq 3 LPX。从训练到推理、从 LLM 70B 到 1T+ 模型的",
-    "tags": [
-      "selection-guide",
-      "benchmarks",
-      "cloud-pricing"
     ]
   }
 ]
