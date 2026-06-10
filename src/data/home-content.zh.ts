@@ -35,6 +35,9 @@ export interface HomeContent {
   ctaBlog: string;
   ctaContribute: string;
   metaDescription: string;
+  loadingText: string;
+  errorText: string;
+  retryText: string;
   hotChips: HotChip[];
   categoryColors: Record<string, string>;
   vendorWeight: Record<string, number>;
@@ -67,7 +70,10 @@ export const ZH_CONTENT: HomeContent = {
   ctaRoadmap: '未来路线图',
   ctaBlog: '行业动态',
   ctaContribute: '提交数据',
-  metaDescription: '全球最全面的 AI 算力卡信息百科：NVIDIA H100/H200/B200、AMD MI300X/MI355X、Google TPU v7、AWS Trainium 3、Huawei Ascend 910C/920/950 等 100+ 款芯片的详尽规格、对比、动态',
+  metaDescription: '全球最全面的 AI 算力卡信息百科：NVIDIA H100/H200/B200、AMD MI300X/MI355X、Google TPU v7、AWS Trainium 3、华为昇腾 910C/920/950 等 100+ 款芯片的详尽规格、对比、动态',
+  loadingText: '加载中...',
+  errorText: '加载失败',
+  retryText: '重试',
   rankDesc: '按"重要性 + 时效性 + 算力"综合排序',
   footerArrow: '→',
   hotChips: [

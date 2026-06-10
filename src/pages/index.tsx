@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { useEffect, useState, useRef, useMemo } from 'react';
+import { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -9,6 +9,7 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import { ZH_CONTENT, type HomeContent, type HotChip } from '../data/home-content.zh';
 import { EN_CONTENT } from '../data/home-content.en';
+import { rankScore, sortChips } from '../utils/chip-utils';
 
 type Chip = {
   id: string;
@@ -61,7 +62,14 @@ function Bar({ ratio, color }: { ratio: number; color: string }) {
   const pct = Math.max(0, Math.min(100, Math.round(ratio * 100)));
   return (
     <span className={styles.barWrap}>
-      <span className={styles.barTrack}>
+      <span
+        className={styles.barTrack}
+        role="progressbar"
+        aria-valuenow={pct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={`${pct}%`}
+      >
         <span className={styles.barFill} style={{ width: `${pct}%`, backgroundColor: color }} />
       </span>
     </span>
@@ -73,8 +81,12 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   const [results, setResults] = useState<Chip[]>([]);
   const [fuse, setFuse] = useState<any>(null);
   const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const debounceTimerRef = useRef<number | null>(null);
 
+  // 初始化 Fuse.js
   useEffect(() => {
     if (chips.length === 0) return;
     import('fuse.js').then(({ default: Fuse }) => {
@@ -96,14 +108,65 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
     });
   }, [chips]);
 
+  // 防抖搜索
+  const debouncedQueryRef = useRef('');
+  
   useEffect(() => {
-    if (!fuse || !query.trim()) {
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    
+    if (!query.trim()) {
       setResults([]);
+      setSelectedIndex(-1);
       return;
     }
-    const r = fuse.search(query.trim()).slice(0, 8).map((x: any) => x.item);
-    setResults(r);
+    
+    debounceTimerRef.current = window.setTimeout(() => {
+      if (fuse) {
+        const r = fuse.search(query.trim()).slice(0, 8).map((x: any) => x.item);
+        setResults(r);
+        setSelectedIndex(r.length > 0 ? 0 : -1);
+      }
+    }, 200);
+    
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
   }, [query, fuse]);
+
+  // 键盘导航
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (!open || results.length === 0) return;
+    
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setSelectedIndex(prev => (prev + 1) % results.length);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setSelectedIndex(prev => (prev - 1 + results.length) % results.length);
+        break;
+      case 'Enter':
+        if (selectedIndex >= 0 && selectedIndex < results.length) {
+          e.preventDefault();
+          const chip = results[selectedIndex];
+          window.location.href = chip.slug;
+        }
+        break;
+      case 'Escape':
+        e.preventDefault();
+        setOpen(false);
+        setQuery('');
+        setResults([]);
+        setSelectedIndex(-1);
+        inputRef.current?.blur();
+        break;
+    }
+  }, [open, results, selectedIndex]);
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -120,13 +183,18 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
       <div className={styles.searchBox}>
         <span className={styles.searchIcon} aria-hidden>⌕</span>
         <input
+          ref={inputRef}
           type="search"
           className={styles.searchInput}
           placeholder={content.searchPlaceholder}
           value={query}
           onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
           onFocus={() => setOpen(true)}
+          onKeyDown={handleKeyDown}
           aria-label={content.searchLabel}
+          aria-autocomplete="list"
+          aria-expanded={open && query}
+          aria-activedescendant={selectedIndex >= 0 ? `search-result-${selectedIndex}` : undefined}
         />
         {query && (
           <button
@@ -147,10 +215,14 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
               <Link to="/docs/comparison" onClick={() => setOpen(false)}>{content.searchEmptyLink}</Link>
             </div>
           ) : (
-            <ul className={styles.searchList}>
-              {results.map((chip) => (
-                <li key={`${chip.vendor}-${chip.id}`}>
-                  <Link to={chip.slug} className={styles.searchItem} onClick={() => setOpen(false)}>
+            <ul className={styles.searchList} role="listbox" aria-label={content.searchLabel}>
+              {results.map((chip, index) => (
+                <li key={`${chip.vendor}-${chip.id}`} role="option" id={`search-result-${index}`} aria-selected={index === selectedIndex}>
+                  <Link 
+                    to={chip.slug} 
+                    className={`${styles.searchItem} ${index === selectedIndex ? styles.searchItemSelected : ''}`}
+                    onClick={() => setOpen(false)}
+                  >
                     <span className={styles.searchItemTitle}>{chip.title}</span>
                     <span className={styles.searchItemMeta}>
                       <span className={styles.searchVendor}>{chip.vendor}</span>
@@ -310,17 +382,52 @@ export default function Home(): ReactNode {
 
   const [news, setNews] = useState<News[]>([]);
   const [chips, setChips] = useState<Chip[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/chips.json')
-      .then((r) => r.json())
-      .then((data) => setChips(Array.isArray(data) ? data : []))
-      .catch(() => setChips([]));
-    fetch('/news.json')
-      .then((r) => r.json())
-      .then((data) => setNews(Array.isArray(data) ? data : []))
-      .catch(() => setNews([]));
+    Promise.all([
+      fetch('/chips.json').then(r => {
+        if (!r.ok) throw new Error('Failed to load chips data');
+        return r.json();
+      }),
+      fetch('/news.json').then(r => {
+        if (!r.ok) throw new Error('Failed to load news data');
+        return r.json();
+      }),
+    ]).then(([chipsData, newsData]) => {
+      setChips(Array.isArray(chipsData) ? chipsData : []);
+      setNews(Array.isArray(newsData) ? newsData : []);
+      setLoading(false);
+    }).catch((err) => {
+      setError(err.message);
+      setLoading(false);
+    });
   }, []);
+
+  if (loading) {
+    return (
+      <Layout title={isEn ? 'AI Compute Cards Wiki' : undefined} description={content.metaDescription}>
+        <div className={styles.loadingContainer}>
+          <div className={styles.loadingSpinner} />
+          <p className={styles.loadingText}>{content.loadingText || 'Loading...'}</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (error) {
+    return (
+      <Layout title={isEn ? 'AI Compute Cards Wiki' : undefined} description={content.metaDescription}>
+        <div className={styles.errorContainer}>
+          <p className={styles.errorText}>{content.errorText || 'Failed to load data'}: {error}</p>
+          <button className={styles.retryButton} onClick={() => { setLoading(true); setError(null); window.location.reload(); }}>
+            {content.retryText || 'Retry'}
+          </button>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout

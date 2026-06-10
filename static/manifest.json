@@ -1,0 +1,31 @@
+{
+  "name": "ACCW - AI 算力卡百科",
+  "short_name": "ACCW",
+  "description": "100+ 款 AI 芯片规格对比、深度分析、选型指南",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5b4cdb",
+  "icons": [
+    {
+      "src": "/img/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/og-cover.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ]
+}

@@ -13,10 +13,11 @@
 }
 
 .heroTitle {
-  font-size: 2.5rem;
+  font-size: var(--mf-font-4xl);
   font-weight: 700;
   margin-bottom: 0.25rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--mf-letter-tight);
+  line-height: var(--mf-line-tight);
 }
 
 .heroSubtitle {
@@ -132,6 +133,12 @@
 
 .searchItem:hover {
   background: var(--ifm-color-emphasis-100);
+}
+
+.searchItemSelected {
+  background: var(--ifm-color-primary-lightest);
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
 }
 
 .searchItemTitle {
@@ -408,6 +415,63 @@
 
 .ctaBtn {
   min-width: 140px;
+}
+
+/* ---------- Loading & Error ---------- */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--ifm-color-emphasis-200);
+  border-top-color: var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.errorText {
+  font-size: 1rem;
+  color: var(--ifm-color-danger);
+}
+
+.retryButton {
+  padding: 0.5rem 1.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.retryButton:hover {
+  opacity: 0.9;
 }
 
 @media (max-width: 600px) {

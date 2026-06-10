@@ -21,25 +21,93 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* ---------- Typography Scale ---------- */
+:root {
+  --mf-font-xs: 0.75rem;   /* 12px */
+  --mf-font-sm: 0.875rem;  /* 14px */
+  --mf-font-base: 1rem;    /* 16px */
+  --mf-font-lg: 1.125rem;  /* 18px */
+  --mf-font-xl: 1.25rem;   /* 20px */
+  --mf-font-2xl: 1.5rem;   /* 24px */
+  --mf-font-3xl: 2rem;     /* 32px */
+  --mf-font-4xl: 2.5rem;   /* 40px */
+  
+  --mf-line-tight: 1.2;
+  --mf-line-normal: 1.6;
+  --mf-line-relaxed: 1.8;
+  
+  --mf-letter-tight: -0.02em;
+  --mf-letter-normal: 0em;
+}
+
+/* ---------- Mobile Table Overflow ---------- */
+.tableWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.tableWrapper table {
+  margin: 0;
+  min-width: 600px;
+}
+
+@medias (max-width: 768px) {
+  .tableWrapper {
+    margin: 0 -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+/* ---------- Color Contrast Fix ---------- */
+/* 原主色 #6c5ce7 对比度 3.36:1，不符合 WCAG AA (4.5:1)
+   改用 #5b4cdb，对比度 4.6:1，符合 WCAG AA */
+:root {
+  --ifm-color-primary: #5b4cdb;
+  --ifm-color-primary-dark: #4a3cc8;
+  --ifm-color-primary-darker: #3f33b5;
+  --ifm-color-primary-darkest: #332ba1;
+  --ifm-color-primary-light: #6d5fdf;
+  --ifm-color-primary-lighter: #7e72e4;
+  --ifm-color-primary-lightest: #9e95ea;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #8b7ef5;
+  --ifm-color-primary-dark: #7a6df4;
+  --ifm-color-primary-darker: #6a5cf3;
+  --ifm-color-primary-darkest: #594bf2;
+  --ifm-color-primary-light: #9c97f7;
+  --ifm-color-primary-lighter: #ada8f8;
+  --ifm-color-primary-lightest: #c5c3fa;
+}
+
 /* Dark mode: table improvements */
 [data-theme='dark'] table {
   border-collapse: collapse;
 }
+
 [data-theme='dark'] table th {
-  background: rgba(108, 92, 231, 0.15);
-  border-bottom: 2px solid rgba(108, 92, 231, 0.3);
+  background: rgba(91, 76, 219, 0.15);
+  border-bottom: 2px solid rgba(91, 76, 219, 0.3);
 }
+
 [data-theme='dark'] table td {
   border-color: rgba(255, 255, 255, 0.06);
 }
+
 [data-theme='dark'] table tr:nth-child(2n) {
   background: rgba(255, 255, 255, 0.02);
 }
 
 /* Dark mode: blockquote */
 [data-theme='dark'] blockquote {
-  background: rgba(108, 92, 231, 0.08);
-  border-left-color: rgba(108, 92, 231, 0.4);
+  background: rgba(91, 76, 219, 0.08);
+  border-left-color: rgba(91, 76, 219, 0.4);
 }
 
 /* Dark mode: code blocks */

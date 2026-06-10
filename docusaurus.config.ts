@@ -105,6 +105,12 @@ const config: Config = {
   // ========== 注入到 <head> 的标签 ==========
   // 说明：canonical 由 Docusaurus 根据 url/baseUrl 自动生成，无需手写
   headTags: [
+    // ---- GA4 gtag guard（防止 dev 模式下 gtag 未加载就调用）----
+    {
+      tagName: 'script',
+      attributes: {type: 'text/javascript'},
+      innerHTML: 'window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments);}',
+    },
     // ---- Favicon & App Icons ----
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png'}},
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png'}},
