@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   // ========== 基础信息 ==========
-  title: 'AI Compute Cards Wiki | 100+ AI Chips Specs Compared',
+  title: 'AI 算力卡百科 | 100+ 款 AI 芯片规格对比',
   titleDelimiter: ' | ',
   tagline: '100+ 款 AI 算力卡完整规格对比 · NVIDIA / AMD / 华为昇腾 · 2025-2026 行业洞察',
   favicon: 'img/favicon.ico',
