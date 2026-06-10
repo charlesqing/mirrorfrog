@@ -11,6 +11,10 @@
     "message": "AI Compute Cards",
     "description": "Navbar item with label AI 计算卡目录"
   },
+  "item.label.AI 算力卡": {
+    "message": "Cards",
+    "description": "Navbar item with label AI 算力卡"
+  },
   "item.label.对比表": {
     "message": "Comparison",
     "description": "Navbar item with label 对比表"
@@ -24,7 +28,7 @@
     "description": "Navbar item with label 行业动态"
   },
   "item.label.芯片架构": {
-    "message": "Chip Architectures",
+    "message": "AI Cards",
     "description": "Navbar item with label 芯片架构"
   },
   "item.label.工具": {
