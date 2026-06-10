@@ -9,7 +9,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '📊 数据中心 AI 训练',
-      collapsed: false,
+      collapsed: true,
       items: [
         'types/training-gpu',
         'types/training-asic',
@@ -19,7 +19,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '📈 数据中心 AI 推理',
-      collapsed: false,
+      collapsed: true,
       items: [
         'types/inference-gpu',
         'types/inference-asic',
@@ -290,7 +290,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '🔬 芯片架构详解',
-      collapsed: false,
+      collapsed: true,
       items: [
         {
           type: 'category',
