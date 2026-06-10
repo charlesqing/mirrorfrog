@@ -56,18 +56,13 @@ table th:first-child {
   width: 200px;
 }
 
-/* 修复导航栏下拉菜单与搜索框的层级冲突 */
-/* 提高整个导航栏的层级 */
+/* Docusaurus navbar 默认 z-index: 200，下拉菜单 z-index: 100 */
+/* 覆盖默认值确保下拉菜单在页面内容之上 */
+
 .navbar {
-  z-index: 9999 !important;
+  z-index: 200;
 }
 
-/* 下拉菜单使用超高层级，确保显示在所有元素之上 */
 .dropdown__menu {
-  z-index: 2147483647 !important;
-}
-
-/* 确保下拉容器也保持正确层级 */
-.dropdown {
-  z-index: 10000;
+  z-index: 300;
 }

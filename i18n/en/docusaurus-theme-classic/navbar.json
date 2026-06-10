@@ -1,15 +1,11 @@
 {
   "title": {
-    "message": "AI Compute Cards Wiki",
+    "message": "ACCW",
     "description": "The title in the navbar"
   },
   "logo.alt": {
     "message": "AI Compute Cards Logo",
     "description": "The alt text of navbar logo"
-  },
-  "item.label.AI 计算卡目录": {
-    "message": "AI Compute Cards",
-    "description": "Navbar item with label AI 计算卡目录"
   },
   "item.label.AI 算力卡": {
     "message": "Cards",
@@ -31,17 +27,9 @@
     "message": "Chip Architectures",
     "description": "Navbar item with label 芯片架构"
   },
-  "item.label.工具": {
-    "message": "Tools",
-    "description": "Navbar item with label 工具"
-  },
   "item.label.关于": {
     "message": "About",
     "description": "Navbar item with label 关于"
-  },
-  "item.label.GitHub": {
-    "message": "GitHub",
-    "description": "Navbar item with label GitHub"
   },
   "item.label.所有文章": {
     "message": "All Posts",

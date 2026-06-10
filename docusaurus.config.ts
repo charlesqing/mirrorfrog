@@ -350,7 +350,6 @@ const config: Config = {
             {label: '完整对比表', to: '/docs/comparison'},
             {label: '未来路线图', to: '/docs/roadmap'},
             {label: '行业动态', to: '/blog'},
-            {label: 'GitHub', href: 'https://github.com/anomalyco/mirrorfrog'},
           ],
         },
       ],

@@ -297,14 +297,6 @@ function CTASection({ content }: { content: HomeContent }) {
           <Link className={clsx('button button--outline button--lg', styles.ctaBtn)} to="/blog">
             {content.ctaBlog}
           </Link>
-          <a
-            className={clsx('button button--outline button--lg', styles.ctaBtn)}
-            href="https://github.com/anomalyco/mirrorfrog/issues"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {content.ctaContribute}
-          </a>
         </div>
       </div>
     </section>
