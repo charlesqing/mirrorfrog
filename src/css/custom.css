@@ -57,11 +57,17 @@ table th:first-child {
 }
 
 /* 修复导航栏下拉菜单与搜索框的层级冲突 */
-.dropdown__menu {
-  z-index: 300 !important;
+/* 提高整个导航栏的层级 */
+.navbar {
+  z-index: 9999 !important;
 }
 
-/* 确保导航栏整体层级高于页面内容 */
-.navbar {
-  z-index: 250;
+/* 下拉菜单使用超高层级，确保显示在所有元素之上 */
+.dropdown__menu {
+  z-index: 2147483647 !important;
+}
+
+/* 确保下拉容器也保持正确层级 */
+.dropdown {
+  z-index: 10000;
 }
