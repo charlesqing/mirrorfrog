@@ -303,11 +303,6 @@ const config: Config = {
           type: 'localeDropdown',
           position: 'right',
         },
-        {
-          href: 'https://github.com/anomalyco/mirrorfrog',
-          label: 'GitHub',
-          position: 'right',
-        },
       ],
     },
 

@@ -55,3 +55,13 @@ table {
 table th:first-child {
   width: 200px;
 }
+
+/* 修复导航栏下拉菜单与搜索框的层级冲突 */
+.dropdown__menu {
+  z-index: 300 !important;
+}
+
+/* 确保导航栏整体层级高于页面内容 */
+.navbar {
+  z-index: 250;
+}
