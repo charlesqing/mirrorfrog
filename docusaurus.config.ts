@@ -254,9 +254,9 @@ const config: Config = {
     },
 
     navbar: {
-      title: 'AI Compute Cards Wiki',
+      title: 'ACCW',
       logo: {
-        alt: 'AI Compute Cards Logo',
+        alt: 'ACCW Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -264,23 +264,10 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'aiCardsSidebar',
           position: 'left',
-          label: 'AI 计算卡目录',
+          label: 'AI 算力卡',
         },
         {to: '/docs/comparison', label: '对比表', position: 'left'},
         {to: '/docs/roadmap', label: '路线图', position: 'left'},
-        {
-          label: '行业动态',
-          position: 'left',
-          items: [
-            {label: '所有文章', to: '/blog'},
-            {label: '产品发布', to: '/blog/tags/product-launch'},
-            {label: '厂商战略', to: '/blog/tags/strategy'},
-            {label: '技术深度', to: '/blog/tags/tech-deep-dive'},
-            {label: '选型指南', to: '/blog/tags/selection'},
-            {label: '行业新闻', to: '/blog/tags/news'},
-            {label: '归档', to: '/blog/archive'},
-          ],
-        },
         {
           label: '芯片架构',
           position: 'left',
@@ -298,7 +285,19 @@ const config: Config = {
             {label: 'Neuromorphic 神经形态', to: '/docs/architectures/arch-neuromorphic'},
           ],
         },
-        {to: '/docs/tools', label: '工具', position: 'left'},
+        {
+          label: '行业动态',
+          position: 'left',
+          items: [
+            {label: '所有文章', to: '/blog'},
+            {label: '产品发布', to: '/blog/tags/product-launch'},
+            {label: '厂商战略', to: '/blog/tags/strategy'},
+            {label: '技术深度', to: '/blog/tags/tech-deep-dive'},
+            {label: '选型指南', to: '/blog/tags/selection'},
+            {label: '行业新闻', to: '/blog/tags/news'},
+            {label: '归档', to: '/blog/archive'},
+          ],
+        },
         {to: '/docs/about', label: '关于', position: 'left'},
         {
           type: 'localeDropdown',
