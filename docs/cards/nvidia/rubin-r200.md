@@ -28,7 +28,7 @@ Vera Rubin 平台还包含**双独立 ConnectX-9 NIC**（每 GPU 28.8 TB/s 聚�
 | **FP8 稀疏** | **25 PFLOPS** |
 | **FP16/BF16 密集** | **12.5 PFLOPS** |
 | **NVLink 6** | **3.5 TB/s/GPU**（第 6 代，2× 上一代） |
-| **DC 网络** | **ConnectX-9, 28.8 TB/s/GPU**（双 14.4 TB/s 端口） |
+| **DC 网络** | **ConnectX-9, 28.8 Tbps/GPU**（双 14.4 Tbps 端口） |
 | **TDP** | ~1,800 W（**液冷必需**） |
 | **首发** | **2026 H2** |
 
@@ -75,7 +75,7 @@ Vera Rubin 平台还包含**双独立 ConnectX-9 NIC**（每 GPU 28.8 TB/s 聚�
 | 项目 | 参数 |
 |------|------|
 | **每 GPU 端口** | **2 × 14.4 Tbps**（独立 NIC） |
-| **每 GPU 聚合** | **28.8 TB/s** |
+| **每 GPU 聚合** | **28.8 Tbps** |
 | **机柜级** | 9,216 端口（Rubin NVL576） |
 | **网络拓扑** | 3D Torus / 全互联 |
 

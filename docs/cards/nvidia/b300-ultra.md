@@ -2,7 +2,7 @@
 id: b300-ultra
 title: NVIDIA B300 Ultra (Blackwell Ultra)
 sidebar_label: NVIDIA B300 Ultra
-description: NVIDIA Blackwell Ultra B300 详尽规格：288GB HBM3e、7 PFLOPS FP8 密集、14 PFLOPS FP4 稀疏、DeepSeek R1 实测 22,476 TGS。
+description: NVIDIA Blackwell Ultra B300 详尽规格：288GB HBM3e、7 PFLOPS FP8 密集、30 PFLOPS FP4 稀疏、DeepSeek R1 实测 22,476 TGS。
 keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4, 14 PFLOPS FP4, 代际性能 8x]
 ---
 
@@ -10,7 +10,7 @@ keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4,
 
 ## 产品概述
 
-**NVIDIA B300 / B300 Ultra**（代号 **Miranda / GB300**）是 Blackwell 架构的**中期升级版本**，**2026-01 正式出货**。最大升级是显存从 192GB → **288GB HBM3e**，FP4 稀疏算力达 **14 PFLOPS**，TDP **1,400W**（必须液冷）。
+**NVIDIA B300 / B300 Ultra**（代号 **Miranda / GB300**）是 Blackwell 架构的**中期升级版本**，**2026-01 正式出货**。最大升级是显存从 192GB → **288GB HBM3e**，FP4 稀疏算力达 **30 PFLOPS**，TDP **1,400W**（必须液冷）。
 
 **专为超大 LLM 推理时代设计** —— 288GB 显存可单卡加载 70B 模型（FP16），剩余 100GB+ 空间用于 KV Cache。在 DeepSeek R1 实测中，**Prefill 吞吐量 22,476 TGS**，相比 H200 提升 **8 倍**。
 
@@ -22,14 +22,14 @@ keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4,
 | **制程** | TSMC 4NP |
 | **GPU 芯片** | 2 颗 Blackwell Die（CoWoS-L 封装） |
 | **显存** | **288 GB HBM3e**（12-Hi 堆叠） |
-| **显存带宽** | **12 TB/s** |
-| **FP8 Tensor Core（密集）** | **8 PFLOPS** |
-| **FP8 Tensor Core（稀疏）** | **16 PFLOPS** |
-| **FP4 Tensor Core（密集）** | **16 PFLOPS** |
-| **FP4 Tensor Core（稀疏）** | **32 PFLOPS** |
+| **显存带宽** | **8 TB/s** |
+| **FP8 Tensor Core（密集）** | **7 PFLOPS** |
+| **FP8 Tensor Core（稀疏）** | **14 PFLOPS** |
+| **FP4 Tensor Core（密集）** | **15 PFLOPS** |
+| **FP4 Tensor Core（稀疏）** | **30 PFLOPS** |
 | **FP16 Tensor Core（密集）** | **4 PFLOPS** |
 | **INT8** | **7,000 TOPS** |
-| **TDP** | **1,200 W**（**液冷必需**） |
+| **TDP** | **1,400 W**（**液冷必需**） |
 | **NVLink 带宽** | **1.8 TB/s**（第 5 代） |
 | **PCIe** | Gen 6（首次） |
 | **DC 网络** | **ConnectX-8, 1.6 Tbps** |
