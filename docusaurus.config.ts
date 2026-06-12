@@ -304,7 +304,6 @@ const config: Config = {
             {label: '归档', to: '/blog/archive'},
           ],
         },
-        {to: '/docs/about', label: '关于', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
