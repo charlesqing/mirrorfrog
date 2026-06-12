@@ -90,6 +90,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'cards/nvidia/rtx-spark',
             'cards/nvidia/rtx-6000-ada',
+            'cards/nvidia/rtx-pro-6000-blackwell',
             'cards/nvidia/rtx-4090',
             'cards/nvidia/rtx-5080',
             'cards/nvidia/rtx-5090',
@@ -137,6 +138,14 @@ const sidebars: SidebarsConfig = {
         'cards/intel/flex-series',
         'cards/intel/jaguar-shores',
         'cards/intel/core-ultra-2',
+        {
+          type: 'category',
+          label: '专业显卡',
+          items: [
+            'cards/intel/arc-pro-b60',
+            'cards/intel/arc-pro-b50',
+          ],
+        },
       ],
     },
     {
@@ -284,6 +293,15 @@ const sidebars: SidebarsConfig = {
         'cards/others/hailo',
         'cards/others/hailo-15',
         'cards/others/blaize-xplorer',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🏢 数据中心 AI 推理芯片',
+      collapsed: true,
+      items: [
+        'cards/others/qualcomm-ai200',
+        'cards/others/qualcomm-ai250',
       ],
     },
     {
