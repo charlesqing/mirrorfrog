@@ -177,6 +177,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: '🟢 Meta',
+      collapsed: true,
+      items: [
+        'cards/meta/mtia-v3',
+      ],
+    },
+    {
+      type: 'category',
       label: '🔴 华为昇腾',
       collapsed: true,
       items: [
@@ -237,10 +245,12 @@ const sidebars: SidebarsConfig = {
         'cards/others/biren-br104',
         'cards/others/kunlun-p800',
         'cards/others/kunlun-m100',
+        'cards/others/kunlun-m300',
         'cards/others/hygon-dcu-k100',
         'cards/others/metax-c600',
         'cards/others/enflame-t20',
         'cards/others/alibaba-hanguang-800',
+        'cards/others/alibaba-ppu',
       ],
     },
     {
