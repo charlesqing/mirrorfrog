@@ -251,6 +251,7 @@ const sidebars: SidebarsConfig = {
         'cards/others/groq-lpu',
         'cards/others/groq-lpu-v2',
         'cards/others/d-matrix-corsair',
+        'cards/others/etched-sohu',
         'cards/others/sambanova-sn40l',
         'cards/others/sn50',
         'cards/others/tenstorrent-blackhole',
