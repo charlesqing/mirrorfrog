@@ -81,6 +81,7 @@ const sidebars: SidebarsConfig = {
             'cards/nvidia/l4',
             'cards/nvidia/l40s',
             'cards/nvidia/groq-3-lpx',
+            'cards/nvidia/rubin-cpx',
           ],
         },
         {
@@ -174,7 +175,7 @@ const sidebars: SidebarsConfig = {
         'cards/huawei/ascend-910c',
         'cards/huawei/ascend-910d',
         'cards/huawei/ascend-920',
-        'cards/huawei/ascend-950',
+        'cards/huawei/ascend-950pr',
       ],
     },
     {
