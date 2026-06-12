@@ -146,7 +146,8 @@
         "bandwidth": "8 TB/s"
       },
       "compute": {
-        "fp64": "72.1 TFLOPS"
+        "fp64": "72.1 TFLOPS",
+        "fp32": "157.3 TFLOPS"
       },
       "tdp": "750 W"
     }
@@ -333,14 +334,14 @@
     "title": "AWS Trainium 3 (Trn3)",
     "vendor": "aws",
     "slug": "/docs/cards/aws/trainium-3",
-    "description": "AWS Trainium 3 详尽规格：3nm 工艺、5.7 PFLOPS FP8 dense、4.4× Trainium 2 算力、4× 能效、Trn3 UltraServer 144 芯片，2025-12-02 re:Invent GA。",
+    "description": "AWS Trainium 3 详尽规格：3nm 工艺、2.52 PFLOPS FP8 dense、4.4× Trainium 2 算力、4× 能效、Trn3 UltraServer 144 芯片，2025-12-02 re:Invent GA。",
     "keywords": [
       "AWS Trainium 3",
       "Trainium3",
       "NeuronCore-v4",
       "Trn3 UltraServer",
       "3nm",
-      "5.7 PFLOPS",
+      "2.52 PFLOPS",
       "144 chips",
       "re:Invent 2025"
     ],
@@ -713,6 +714,110 @@
     }
   },
   {
+    "id": "ascend-950dt",
+    "title": "Huawei Ascend 950DT (昇腾 950DT)",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-950dt",
+    "description": "Huawei Ascend 950DT 详尽规格：Da Vinci v5 架构、144GB HiZQ 2.0 HBM、4TB/s 带宽、2TB/s 互联、FP8 1 PFLOPS、2026年8月上线华为云。",
+    "keywords": [
+      "Ascend 950DT",
+      "昇腾 950DT",
+      "HiZQ 2.0",
+      "Da Vinci v5",
+      "FP8",
+      "MXFP4",
+      "华为云",
+      "Decode 推理"
+    ],
+    "specs": {
+      "architecture": "Da Vinci v5（第四代昇腾）",
+      "process": "SMIC N+2（等效 7nm 改良）"
+    }
+  },
+  {
+    "id": "ascend-950pr",
+    "title": "华为昇腾 950PR",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-950pr",
+    "description": "华为昇腾 950PR 详尽规格：1.56 PFLOPS FP4、112GB HiBL HBM、1.4 TB/s 带宽、中芯国际 N+3、单片式设计、2026 Q1 出货。",
+    "keywords": [
+      "华为昇腾 950PR",
+      "Ascend 950PR",
+      "昇腾950",
+      "HiBL HBM",
+      "中芯国际 N+3",
+      "单片式",
+      "CANN Next",
+      "长上下文推理"
+    ],
+    "specs": {
+      "architecture": "昇腾 950（单片式设计）",
+      "process": "中芯国际 SMIC N+3（等效 5nm 级）",
+      "compute": {
+        "fp16": "未公开（推测 ~780 TFLOPS）"
+      },
+      "tdp": "600 W（Atlas 350 加速卡）"
+    }
+  },
+  {
+    "id": "arc-pro-b50",
+    "title": "Intel Arc Pro B50",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/arc-pro-b50",
+    "description": "Intel Arc Pro B50 入门级专业显卡：Xe2 架构、16GB GDDR6、70W TDP、无供电接口、紧凑型设计。",
+    "keywords": [
+      "Intel Arc Pro B50",
+      "Xe2",
+      "Battlemage",
+      "入门级专业显卡",
+      "低功耗",
+      "70W TDP"
+    ],
+    "specs": {
+      "architecture": "Intel Xe2 (Battlemage)",
+      "process": "TSMC 4nm（预估）",
+      "compute": {
+        "fp32": "~10 TFLOPS（预估）",
+        "int8": "~150 TOPS（预估）"
+      },
+      "memory": {
+        "capacity": "16 GB GDDR6",
+        "bandwidth": "~256 GB/s（预估）"
+      },
+      "tdp": "70W",
+      "release": "2025 年 5 月"
+    }
+  },
+  {
+    "id": "arc-pro-b60",
+    "title": "Intel Arc Pro B60",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/arc-pro-b60",
+    "description": "Intel Arc Pro B60 专业显卡：Xe2 架构、24GB GDDR6、12.28 TFLOPS FP32、197 TOPS INT8、200W TDP、AI 工作站性价比之选。",
+    "keywords": [
+      "Intel Arc Pro B60",
+      "Xe2",
+      "Battlemage",
+      "专业显卡",
+      "AI 工作站",
+      "24GB 显存"
+    ],
+    "specs": {
+      "architecture": "Intel Xe2 (Battlemage)",
+      "process": "TSMC 4nm（预估）",
+      "compute": {
+        "fp32": "12.28 TFLOPS",
+        "int8": "197 TOPS"
+      },
+      "memory": {
+        "capacity": "24 GB GDDR6",
+        "bandwidth": "456 GB/s（192-bit）"
+      },
+      "tdp": "200W",
+      "release": "2025 年 5 月"
+    }
+  },
+  {
     "id": "core-ultra-2",
     "title": "Intel Core Ultra Series 2 (Lunar Lake NPU 48 TOPS AI PC)",
     "vendor": "intel",
@@ -949,6 +1054,54 @@
     }
   },
   {
+    "id": "mtia-v3",
+    "title": "Meta MTIA v3 (Iris/MTIA 400)",
+    "vendor": "meta",
+    "slug": "/docs/cards/meta/mtia-v3",
+    "description": "Meta 第三代自研 AI 训练/推理芯片（Iris/MTIA 400），RISC-V 架构、超 1000 核心、>200 TFLOPS，2026 Q3 量产，与博通合作设计。",
+    "keywords": [
+      "Meta MTIA v3",
+      "Iris",
+      "MTIA 400",
+      "RISC-V",
+      "自研芯片",
+      "博通",
+      "2026 Q3"
+    ],
+    "specs": {
+      "architecture": "MTIA v3（Iris）",
+      "process": "TSMC 5nm（推测）",
+      "tdp": "~200-300W（推测）",
+      "release": "2026 Q3 量产"
+    }
+  },
+  {
+    "id": "maia-200",
+    "title": "Microsoft Maia 200 (微软第二代 AI 推理加速器)",
+    "vendor": "microsoft",
+    "slug": "/docs/cards/microsoft/maia-200",
+    "description": "Microsoft Maia 200 详尽规格：TSMC 3nm、216GB HBM3e、7TB/s 带宽、10+ PFLOPS FP4、750W TDP、2026年1月发布、Azure 部署。",
+    "keywords": [
+      "Maia 200",
+      "Microsoft AI chip",
+      "Azure",
+      "TSMC 3nm",
+      "FP4",
+      "HBM3e",
+      "推理加速器",
+      "自研芯片"
+    ],
+    "specs": {
+      "architecture": "Maia 200 SoC（Tile-Cluster-SoC 三级分层架构）",
+      "process": "TSMC 3nm（N3P）",
+      "compute": {
+        "fp8": "5+ PFLOPS（原生张量核心）"
+      },
+      "tdp": "750 W（SoC）",
+      "release": "2026年1月26日"
+    }
+  },
+  {
     "id": "a100",
     "title": "NVIDIA A100",
     "vendor": "nvidia",
@@ -1039,7 +1192,7 @@
     "title": "NVIDIA B300 Ultra (Blackwell Ultra)",
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/b300-ultra",
-    "description": "NVIDIA Blackwell Ultra B300 详尽规格：288GB HBM3e、7 PFLOPS FP8 密集、14 PFLOPS FP4 稀疏、DeepSeek R1 实测 22,476 TGS。",
+    "description": "NVIDIA Blackwell Ultra B300 详尽规格：288GB HBM3e、7 PFLOPS FP8 密集、30 PFLOPS FP4 稀疏、DeepSeek R1 实测 22,476 TGS。",
     "keywords": [
       "NVIDIA B300",
       "Blackwell Ultra",
@@ -1055,12 +1208,12 @@
       "process": "TSMC 4NP",
       "memory": {
         "capacity": "288 GB HBM3e（12-Hi 堆叠）",
-        "bandwidth": "12 TB/s"
+        "bandwidth": "8 TB/s"
       },
       "compute": {
         "int8": "7,000 TOPS"
       },
-      "tdp": "1,200 W（液冷必需）",
+      "tdp": "1,400 W（液冷必需）",
       "release": "2026-01 正式出货"
     }
   },
@@ -1114,13 +1267,13 @@
     "title": "NVIDIA GB300 (Grace Blackwell 300, 2025 H2)",
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/gb300",
-    "description": "NVIDIA GB300 Grace Blackwell 300 详尽规格：72-GPU NVL72 机柜、ConnectX-9 1.6T 网络、Arm Vera CPU、B300 Ultra GPU。",
+    "description": "NVIDIA GB300 Grace Blackwell 300 详尽规格：72-GPU NVL72 机柜、ConnectX-9 1.6T 网络、Arm Grace CPU、B300 Ultra GPU。",
     "keywords": [
       "NVIDIA GB300",
       "Grace Blackwell 300",
       "NVL72",
       "ConnectX-9",
-      "Vera CPU",
+      "Grace CPU",
       "B300 Ultra",
       "机柜级 AI"
     ],
@@ -1508,6 +1661,34 @@
     }
   },
   {
+    "id": "rtx-5090-d-v2",
+    "title": "NVIDIA RTX 5090 D v2 (中国特供版)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-5090-d-v2",
+    "description": "NVIDIA RTX 5090 D v2 详尽规格：Blackwell 架构、24GB GDDR7、21,760 CUDA 核心、575W TDP、中国特供合规版。",
+    "keywords": [
+      "RTX 5090 D v2",
+      "Blackwell",
+      "中国特供",
+      "24GB GDDR7",
+      "出口管制",
+      "AI TOPS",
+      "合规版"
+    ],
+    "specs": {
+      "architecture": "Blackwell (GB202)",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "24 GB GDDR7",
+        "bandwidth": "1,344 GB/s"
+      },
+      "compute": {
+        "fp32": "~105 TFLOPS"
+      },
+      "tdp": "575 W"
+    }
+  },
+  {
     "id": "rtx-6000-ada",
     "title": "NVIDIA RTX 6000 Ada",
     "vendor": "nvidia",
@@ -1532,6 +1713,34 @@
         "fp8": "1,458 TFLOPS（稀疏）"
       },
       "tdp": "300 W"
+    }
+  },
+  {
+    "id": "rtx-pro-6000-blackwell",
+    "title": "NVIDIA RTX Pro 6000 Blackwell",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-pro-6000-blackwell",
+    "description": "NVIDIA RTX Pro 6000 Blackwell 专业显卡：Blackwell 架构、96GB GDDR7 ECC、125 TFLOPS FP32、600W TDP、AI 工作站首选。",
+    "keywords": [
+      "RTX Pro 6000 Blackwell",
+      "Blackwell",
+      "专业显卡",
+      "GDDR7",
+      "AI 工作站",
+      "ECC 显存"
+    ],
+    "specs": {
+      "architecture": "NVIDIA Blackwell 2.0 (GB202)",
+      "process": "TSMC 4nm",
+      "compute": {
+        "fp32": "125 TFLOPS"
+      },
+      "memory": {
+        "capacity": "96 GB GDDR7 ECC",
+        "bandwidth": "1.79 TB/s（512-bit）"
+      },
+      "tdp": "600W（服务器版）/ 300W（Max-Q 版）",
+      "release": "2025 年 3 月"
     }
   },
   {
@@ -1568,6 +1777,33 @@
     "specs": {
       "architecture": "Rubin 架构（Blackwell 继任者）",
       "release": "2026年1月（CES 2026）"
+    }
+  },
+  {
+    "id": "rubin-cpx",
+    "title": "NVIDIA Rubin CPX (Context Processing Unit)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rubin-cpx",
+    "description": "NVIDIA Rubin CPX 详尽规格：128GB GDDR7、30 PFLOPS FP4、2 TB/s 带宽、长上下文推理专用、Vera Rubin NVL144 CPX 平台、2026 H2 出货。",
+    "keywords": [
+      "NVIDIA Rubin CPX",
+      "CPX",
+      "Context Processing Unit",
+      "长上下文推理",
+      "GDDR7",
+      "Vera Rubin",
+      "NVL144",
+      "推理专用 GPU"
+    ],
+    "specs": {
+      "architecture": "Rubin（CPX 专用变体）",
+      "process": "TSMC 3NP（推测）",
+      "memory": {
+        "capacity": "128 GB GDDR7（消费级显存，非 HBM）",
+        "bandwidth": "2 TB/s"
+      },
+      "tdp": "~500–600W（推测，待官方确认）",
+      "release": "2025-09-09（发布）"
     }
   },
   {
@@ -1699,6 +1935,31 @@
         "fp16": "128 TFLOPS"
       },
       "tdp": "168W"
+    }
+  },
+  {
+    "id": "alibaba-ppu",
+    "title": "Alibaba PPU（含光800 下一代）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/alibaba-ppu",
+    "description": "阿里巴巴平头哥新一代 AI 推理芯片（含光800 下一代），96GB HBM2e、700GB/s、400W，2023年台积电流片，2025年测试，综合性能接近 H20。",
+    "keywords": [
+      "Alibaba PPU",
+      "平头哥",
+      "T-Head",
+      "含光800下一代",
+      "HBM2e",
+      "96GB",
+      "400W",
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "平头哥自研 NPU 架构",
+      "process": "7nm（推测，受制裁后转国内代工）",
+      "memory": {
+        "bandwidth": "700 GB/s"
+      },
+      "tdp": "400W"
     }
   },
   {
@@ -2256,6 +2517,33 @@
     }
   },
   {
+    "id": "cambricon-mlu-590",
+    "title": "寒武纪 MLU590 (思元590)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/cambricon-mlu-590",
+    "description": "寒武纪 MLU590 详尽规格（2024 发布）：256 TFLOPS FP16、512 TOPS INT8、128 NPU 核心、7nm、MLU-Link、推理+训练全能卡。",
+    "keywords": [
+      "寒武纪 MLU590",
+      "思元590",
+      "Cambricon MLU590",
+      "7nm",
+      "256 TFLOPS FP16",
+      "512 TOPS INT8",
+      "MLU-Link",
+      "国产 AI 芯片"
+    ],
+    "specs": {
+      "architecture": "第三代 MLU 架构（ Da Vinci 类）",
+      "process": "7nm（TSMC，推测）",
+      "compute": {
+        "fp16": "256 TFLOPS",
+        "fp32": "~64 TFLOPS（推测，FP16 的 1/4）",
+        "int8": "512 TOPS"
+      },
+      "tdp": "250 W（典型） / 300 W（最大）"
+    }
+  },
+  {
     "id": "cambricon-mlu-690",
     "title": "Cambricon 寒武纪 MLU 690 (2025-2026 推测)",
     "vendor": "others",
@@ -2280,6 +2568,33 @@
         "int8": "4 POPS"
       },
       "tdp": "~500W"
+    }
+  },
+  {
+    "id": "d-matrix-corsair",
+    "title": "d-Matrix CORSair (数字存内计算推理加速卡)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/d-matrix-corsair",
+    "description": "d-Matrix CORSair 详尽规格：数字存内计算（DIMC）架构、2400 TFLOPS FP8、256GB LPDDR5X、150TB/s 带宽、PCIe Gen5、2025年Q2上市。",
+    "keywords": [
+      "d-Matrix",
+      "CORSair",
+      "DIMC",
+      "存内计算",
+      "LPDDR5X",
+      "SRAM",
+      "AI 推理",
+      "Chiplet",
+      "DMX Link"
+    ],
+    "specs": {
+      "architecture": "DIMC（数字存内计算）+ Chiplet",
+      "memory": {
+        "bandwidth": "150 TB/s（DIMC 架构）"
+      },
+      "tdp": "未公开（风冷/液冷均支持）",
+      "process": "未公开（Chiplet 多芯片封装）",
+      "release": "2024年11月19日（SC24）"
     }
   },
   {
@@ -2341,6 +2656,28 @@
         "fp32": "10.5 TFLOPS"
       },
       "tdp": "~75 W"
+    }
+  },
+  {
+    "id": "etched-sohu",
+    "title": "Etched Sohu (Transformer 专用 ASIC)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/etched-sohu",
+    "description": "Etched Sohu 详尽规格：Transformer 专用 ASIC、144GB HBM3E、6TB/s 带宽、62500 tokens/秒（Llama 70B）、2024年6月发布、不可编程。",
+    "keywords": [
+      "Etched",
+      "Sohu",
+      "Transformer ASIC",
+      "专用芯片",
+      "HBM3E",
+      "不可编程",
+      "推理加速"
+    ],
+    "specs": {
+      "architecture": "Transformer 专用 ASIC（不可编程）",
+      "process": "TSMC 4nm（推测）",
+      "tdp": "未公开",
+      "release": "2024年6月"
     }
   },
   {
@@ -2596,6 +2933,28 @@
       },
       "tdp": "未公开",
       "release": "2025 年 11 月 13 日（百度世界大会）"
+    }
+  },
+  {
+    "id": "kunlun-m300",
+    "title": "Kunlun 昆仑芯 M300 (2027)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/kunlun-m300",
+    "description": "昆仑芯 M300：2025-11 百度世界大会发布，面向超大规模多模态大模型训练与推理，2027 年初上市，性能强于 M100。",
+    "keywords": [
+      "昆仑芯 M300",
+      "Kunlun M300",
+      "百度",
+      "AI训练",
+      "多模态",
+      2027,
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "自研架构（具体代号未公开）",
+      "process": "未公开",
+      "tdp": "未公开",
+      "release": "2025-11-13 发布"
     }
   },
   {
@@ -2863,6 +3222,66 @@
         "bandwidth": "51.2 GB/s（16GB）/ 102.4 GB/s（64GB）"
       },
       "tdp": "75 W（标准）/ 150 W（高性能模式）"
+    }
+  },
+  {
+    "id": "qualcomm-ai200",
+    "title": "Qualcomm AI200",
+    "vendor": "others",
+    "slug": "/docs/cards/others/qualcomm-ai200",
+    "description": "Qualcomm AI200 数据中心 AI 推理芯片：768GB LPDDR 内存、低 TCO、机架级部署、2026 年商用。",
+    "keywords": [
+      "Qualcomm AI200",
+      "数据中心",
+      "AI 推理",
+      "768GB 内存",
+      "低 TCO",
+      "机架级"
+    ],
+    "specs": {
+      "architecture": "Qualcomm 自研 AI 架构",
+      "process": "未公开（预估 4nm 或 3nm）",
+      "compute": {
+        "fp16": "未公开",
+        "fp8": "未公开",
+        "int8": "未公开"
+      },
+      "memory": {
+        "capacity": "768 GB LPDDR（单卡）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开",
+      "release": "2025 年 10 月"
+    }
+  },
+  {
+    "id": "qualcomm-ai250",
+    "title": "Qualcomm AI250",
+    "vendor": "others",
+    "slug": "/docs/cards/others/qualcomm-ai250",
+    "description": "Qualcomm AI250 数据中心 AI 推理芯片：近存计算架构、内存带宽提升超 10 倍、2027 年规模化应用。",
+    "keywords": [
+      "Qualcomm AI250",
+      "近存计算",
+      "数据中心",
+      "AI 推理",
+      "内存带宽",
+      "2027 年"
+    ],
+    "specs": {
+      "architecture": "近存计算（Near-Memory Computing）",
+      "process": "未公开（预估 3nm）",
+      "compute": {
+        "fp16": "未公开",
+        "fp8": "未公开",
+        "int8": "未公开"
+      },
+      "memory": {
+        "capacity": "未公开（预估 1-2 TB）",
+        "bandwidth": "提升超 10 倍（vs 传统架构）"
+      },
+      "tdp": "未公开（但显著降低）",
+      "release": "2025 年 10 月"
     }
   },
   {

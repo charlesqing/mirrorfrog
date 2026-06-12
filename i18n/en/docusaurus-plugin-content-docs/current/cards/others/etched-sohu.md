@@ -85,7 +85,7 @@ Sohu has **no general-purpose compute units** — all compute resources are dedi
 ### ✅ Suitable Scenarios#
 
 - **Dense Transformer inference**: Llama, Qwen, Mistral, and other standard Transformer models#
-- **Real-time interactive AI**: Batch size=1 latency extremely low (<10ms)#
+- **Real-time interactive AI**: Batch size=1 latency extremely low (&lt;10ms)#
 - **High-concurrency inference service**: 8-chip server can reach 500,000 tokens/sec#
 
 ### ❌ Unsuitable Scenarios#

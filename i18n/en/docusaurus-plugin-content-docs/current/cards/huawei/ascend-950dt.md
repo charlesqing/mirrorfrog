@@ -2,7 +2,7 @@
 id: ascend-950dt
 title: Huawei Ascend 950DT
 sidebar_label: Ascend 950DT
-description: Huawei Ascend 950DT detailed specs: Da Vinci v5 architecture, 144GB HiZQ 2.0 HBM, 4TB/s bandwidth, 2TB/s interconnect, FP8 1 PFLOPS, launching on Huawei Cloud in August 2026.
+description: "Huawei Ascend 950DT detailed specs: Da Vinci v5 architecture, 144GB HiZQ 2.0 HBM, 4TB/s bandwidth, 2TB/s interconnect, FP8 1 PFLOPS, launching on Huawei Cloud in August 2026."
 keywords: [Ascend 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, Huawei Cloud, Decode inference]
 ---
 

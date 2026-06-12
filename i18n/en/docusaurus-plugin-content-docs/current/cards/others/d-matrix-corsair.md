@@ -75,7 +75,7 @@ keywords: [d-Matrix, CORSair, DIMC, in-memory computing, LPDDR5X, SRAM, AI infer
 | FP8 Compute | 2,400 TFLOPS | 1,970 TFLOPS | 4,500 TFLOPS | ~1,000 TFLOPS (estimated) |
 | Memory Capacity | **256GB LPDDR5X** | 141GB HBM3e | 192GB HBM3e | ~100GB (estimated) |
 | Memory Bandwidth | **150TB/s** (DIMC) | 4.8TB/s | 8TB/s | ~10TB/s (SRAM) |
-| Inference Latency | **1-2 ms/token** | 5-10 ms/token | 3-5 ms/token | **<1 ms/token** |
+| Inference Latency | **1-2 ms/token** | 5-10 ms/token | 3-5 ms/token | **&lt;1 ms/token** |
 | TDP | Not disclosed | 700W | 1,000W | ~500W (estimated) |
 | Cost | **Low** (LPDDR5X vs HBM) | High | High | Medium |
 | Positioning | **Inference (in-memory compute)** | Training+inference | Training+inference | Inference (SRAM) |

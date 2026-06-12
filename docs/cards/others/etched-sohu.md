@@ -85,7 +85,7 @@ Sohu **无任何通用计算单元**，所有计算资源专用于 Transformer �
 ### ✅ 适用场景
 
 - **密集 Transformer 推理**：Llama、Qwen、Mistral 等标准 Transformer 模型
-- **实时交互 AI**：batch size=1 延迟极低（<10ms）
+- **实时交互 AI**：batch size=1 延迟极低（&lt;10ms）
 - **高并发推理服务**：8 芯片服务器可达 500,000 tokens/秒
 
 ### ❌ 不适用场景

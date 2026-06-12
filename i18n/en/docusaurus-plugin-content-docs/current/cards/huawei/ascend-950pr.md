@@ -2,7 +2,7 @@
 id: ascend-950pr
 title: Huawei Ascend 950PR
 sidebar_label: Ascend 950PR
-description: Huawei Ascend 950PR detailed specs: 1.56 PFLOPS FP4, 112GB HiBL HBM, 1.4 TB/s bandwidth, SMIC N+3, monolithic design, shipping Q1 2026.
+description: "Huawei Ascend 950PR detailed specs: 1.56 PFLOPS FP4, 112GB HiBL HBM, 1.4 TB/s bandwidth, SMIC N+3, monolithic design, shipping Q1 2026."
 keywords: [Huawei Ascend 950PR, Ascend 950PR, Ascend 950, HiBL HBM, SMIC N+3, monolithic, CANN Next, long context inference]
 ---
 

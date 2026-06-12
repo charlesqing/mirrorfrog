@@ -75,7 +75,7 @@ keywords: [d-Matrix, CORSair, DIMC, 存内计算, LPDDR5X, SRAM, AI 推理, Chip
 | FP8 算力 | 2,400 TFLOPS | 1,970 TFLOPS | 4,500 TFLOPS | ~1,000 TFLOPS（估算） |
 | 内存容量 | **256GB LPDDR5X** | 141GB HBM3e | 192GB HBM3e | ~100GB（估算） |
 | 内存带宽 | **150TB/s**（DIMC） | 4.8TB/s | 8TB/s | ~10TB/s（SRAM） |
-| 推理延迟 | **1-2 ms/token** | 5-10 ms/token | 3-5 ms/token | **<1 ms/token** |
+| 推理延迟 | **1-2 ms/token** | 5-10 ms/token | 3-5 ms/token | **\&lt;1 ms/token** |
 | TDP | 未公开 | 700W | 1,000W | ~500W（估算） |
 | 成本 | **低**（LPDDR5X vs HBM） | 高 | 高 | 中 |
 | 定位 | **推理（存内计算）** | 训练+推理 | 训练+推理 | 推理（SRAM） |
