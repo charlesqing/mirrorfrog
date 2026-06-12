@@ -93,6 +93,7 @@ const sidebars: SidebarsConfig = {
             'cards/nvidia/rtx-4090',
             'cards/nvidia/rtx-5080',
             'cards/nvidia/rtx-5090',
+            'cards/nvidia/rtx-5090-d-v2',
           ],
         },
         {
@@ -168,6 +169,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: '🟣 Microsoft Azure',
+      collapsed: true,
+      items: [
+        'cards/microsoft/maia-200',
+      ],
+    },
+    {
+      type: 'category',
       label: '🔴 华为昇腾',
       collapsed: true,
       items: [
@@ -176,6 +185,7 @@ const sidebars: SidebarsConfig = {
         'cards/huawei/ascend-910d',
         'cards/huawei/ascend-920',
         'cards/huawei/ascend-950pr',
+        'cards/huawei/ascend-950dt',
       ],
     },
     {
