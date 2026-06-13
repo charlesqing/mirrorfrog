@@ -1065,6 +1065,69 @@
       "last_updated": "2026-06-01",
       "source": "预测价格",
       "note": "整机架系统，非单卡"
+    },
+    "iluvatar-mr100": {
+      "official_msrp": 45000,
+      "market_price": 42000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "天数智芯官网/渠道估算"
+    },
+    "iluvatar-tg100": {
+      "official_msrp": 65000,
+      "market_price": 60000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "天数智芯官网/渠道估算"
+    },
+    "iluvatar-tg150": {
+      "official_msrp": 85000,
+      "market_price": 78000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "天数智芯官网/渠道估算"
+    },
+    "enflame-t21": {
+      "official_msrp": 70000,
+      "market_price": 65000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "燧原科技官网/渠道估算"
+    },
+    "enflame-i20": {
+      "official_msrp": 45000,
+      "market_price": 42000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "燧原科技官网/渠道估算"
+    },
+    "metax-c500": {
+      "official_msrp": 55000,
+      "market_price": 52000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "沐曦官网/渠道估算（C500约3.89万元/卡）"
+    },
+    "moore-threads-mtt-s4000": {
+      "official_msrp": 60000,
+      "market_price": 55000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "摩尔线程官网/渠道估算"
+    },
+    "moore-threads-mtt-s3000": {
+      "official_msrp": 50000,
+      "market_price": 46000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "摩尔线程官网/渠道估算"
+    },
+    "tsingmicro-tx81": {
+      "official_msrp": 55000,
+      "market_price": 50000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "清微智能官网/渠道估算"
     }
   }
 }

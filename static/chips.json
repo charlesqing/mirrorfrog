@@ -2650,6 +2650,36 @@
     }
   },
   {
+    "id": "enflame-i20",
+    "title": "燧原科技 云燧i20 (2022)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/enflame-i20",
+    "description": "燧原科技 云燧i20 详尽规格：邃思2.5芯片，12nm，推理加速卡，PCIe形态，2022年发布，面向计算机视觉、NLP等推理场景",
+    "keywords": [
+      "燧原科技",
+      "云燧i20",
+      "Enflame",
+      "邃思2.5",
+      "12nm",
+      "推理卡",
+      "AI推理",
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "邃思2.5（燧原自研）",
+      "process": "12nm（成熟工艺，成本优势）",
+      "compute": {
+        "fp16": "未公开（推测 ~100 TFLOPS）",
+        "int8": "未公开（推测 ~200 TOPS）"
+      },
+      "memory": {
+        "bandwidth": "未公开"
+      },
+      "tdp": "200 W（推测）",
+      "release": "2022 年"
+    }
+  },
+  {
     "id": "enflame-t20",
     "title": "Enflame 燧原 云燧 T20 (2021)",
     "vendor": "others",
@@ -2679,6 +2709,37 @@
       },
       "release": "2021 年 7 月 7 日（WAIC 2021）",
       "tdp": "未公开"
+    }
+  },
+  {
+    "id": "enflame-t21",
+    "title": "燧原科技 云燧T21 (2022)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/enflame-t21",
+    "description": "燧原科技 云燧T21 详尽规格：邃思2.0芯片，OAM模组，400W TDP，TF32 160 TFLOPS，HBM2E显存，PCIe Gen4，2022年发布",
+    "keywords": [
+      "燧原科技",
+      "云燧T21",
+      "Enflame",
+      "邃思2.0",
+      "OAM",
+      "400W",
+      "TF32 160 TFLOPS",
+      "HBM2E",
+      "国产AI训练卡"
+    ],
+    "specs": {
+      "architecture": "邃思2.0（燧原自研）",
+      "process": "7nm（推测 TSMC）",
+      "compute": {
+        "fp16": "未公开（推测 ~320 TFLOPS）",
+        "int8": "未公开（推测 ~640 TOPS）"
+      },
+      "memory": {
+        "bandwidth": "未公开（推测 ~1.6 TB/s）"
+      },
+      "tdp": "400 W（板级功耗）",
+      "release": "2022 年"
     }
   },
   {
@@ -2974,6 +3035,100 @@
     }
   },
   {
+    "id": "iluvatar-mr100",
+    "title": "天数智芯 智铠100 (MR100)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/iluvatar-mr100",
+    "description": "天数智芯 智铠100 (MR100/MR-V100) 详尽规格：7nm，32GB HBM2E，FP32 24 TFLOPS，FP16 96 TFLOPS，INT8 192 TOPS，128路1080P视频解码，PCIe Gen4，2022年发布",
+    "keywords": [
+      "天数智芯",
+      "智铠100",
+      "MR100",
+      "MR-V100",
+      "Iluvatar CoreX",
+      "7nm",
+      "32GB HBM2E",
+      "推理GPU",
+      "通用GPU"
+    ],
+    "specs": {
+      "architecture": "天数智芯自研通用 GPU 架构",
+      "process": "7nm",
+      "compute": {
+        "fp32": "24 TFLOPS",
+        "fp16": "96 TFLOPS",
+        "int8": "192 TOPS"
+      },
+      "memory": {
+        "bandwidth": "未公开（推测 ~1 TB/s）"
+      },
+      "tdp": "275 W（推测）",
+      "release": "2022 年"
+    }
+  },
+  {
+    "id": "iluvatar-tg100",
+    "title": "天数智芯 天垓100 (BI-V100)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/iluvatar-tg100",
+    "description": "天数智芯 天垓100 (BI-V100) 详尽规格：7nm，32GB HBM2，板级功耗250W，FP16 128 TFLOPS，INT8 256 TOPS，PCIe Gen4，2021年发布，国产首款全自研云端训练GPU",
+    "keywords": [
+      "天数智芯",
+      "天垓100",
+      "BI-V100",
+      "Iluvatar CoreX",
+      "7nm",
+      "32GB HBM2",
+      "250W",
+      "训练GPU",
+      "通用GPU",
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "天数智芯自研通用 GPU 架构",
+      "process": "7nm（推测 TSMC）",
+      "compute": {
+        "fp16": "128 TFLOPS",
+        "int8": "256 TOPS"
+      },
+      "memory": {
+        "bandwidth": "未公开（推测 ~1 TB/s）"
+      },
+      "tdp": "250 W（板级功耗）",
+      "release": "2021 年 3 月"
+    }
+  },
+  {
+    "id": "iluvatar-tg150",
+    "title": "天数智芯 天垓150 (BI-V150)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/iluvatar-tg150",
+    "description": "天数智芯 天垓150 (BI-V150) 训练GPU规格：天垓100升级版，FP16算力提升，兼容CUDA生态，2023年发布，支持混合精度训练",
+    "keywords": [
+      "天数智芯",
+      "天垓150",
+      "BI-V150",
+      "Iluvatar CoreX",
+      "训练GPU",
+      "通用GPU",
+      "国产AI芯片",
+      "混合精度训练"
+    ],
+    "specs": {
+      "architecture": "天数智芯自研通用 GPU 架构（天垓100升级版）",
+      "process": "7nm（推测，与天垓100相同）",
+      "compute": {
+        "fp16": "未公开（推测 150–200 TFLOPS）",
+        "int8": "未公开（推测 300–400 TOPS）"
+      },
+      "memory": {
+        "bandwidth": "未公开"
+      },
+      "tdp": "275 W（推测）",
+      "release": "2023 年"
+    }
+  },
+  {
     "id": "kunlun-m100",
     "title": "Kunlun 昆仑芯 M100 (2026)",
     "vendor": "others",
@@ -3162,6 +3317,38 @@
     }
   },
   {
+    "id": "metax-c500",
+    "title": "MetaX 沐曦 曦云 C500 (2022)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-c500",
+    "description": "沐曦 曦云C500 详尽规格：自研XCORE 1.0架构，64GB HBM2e，FP32 54 TFLOPS，TF32 140 TFLOPS，FP16 280 TFLOPS，INT8 560 TOPS，MetaXLink，PCIe Gen5，2022年发布",
+    "keywords": [
+      "MetaX C500",
+      "沐曦",
+      "曦云C500",
+      "XCORE 1.0",
+      "64GB HBM2e",
+      "FP16 280 TFLOPS",
+      "国产GPU",
+      "MXMACA",
+      "CUDA兼容"
+    ],
+    "specs": {
+      "architecture": "自研 XCORE 1.0（数十个核心 IP）",
+      "process": "未公开（推测 7nm）",
+      "compute": {
+        "fp32": "54 TFLOPS（矢量 18 + 矩阵 36）",
+        "fp16": "280 TFLOPS",
+        "int8": "560 TOPS"
+      },
+      "memory": {
+        "bandwidth": "未公开（推测 ~1.6 TB/s）"
+      },
+      "tdp": "350 W（推测）",
+      "release": "2022 年"
+    }
+  },
+  {
     "id": "metax-c600",
     "title": "MetaX 沐曦 曦云 C600 (2025)",
     "vendor": "others",
@@ -3221,6 +3408,68 @@
         "fp16": "16 TFLOPS"
       },
       "tdp": "12 W"
+    }
+  },
+  {
+    "id": "moore-threads-mtt-s3000",
+    "title": "Moore Threads 摩尔线程 MTT S3000 (2023)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/moore-threads-mtt-s3000",
+    "description": "摩尔线程 MTT S3000 全功能服务器GPU规格：春晓芯片，第二代MUSA架构，48GB GDDR6（推测），PCIe 4.0/5.0，2023年发布，兼容CUDA生态",
+    "keywords": [
+      "摩尔线程",
+      "MTT S3000",
+      "Moore Threads",
+      "春晓芯片",
+      "第二代MUSA",
+      "全功能GPU",
+      "服务器GPU",
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "自研 春晓芯片（第二代 MUSA 内核架构）",
+      "process": "未公开（推测 7nm）",
+      "compute": {
+        "fp32": "未公开（推测 ~20 TFLOPS）",
+        "int8": "未公开（推测 ~160 TOPS）",
+        "fp16": "支持（具体数值未公开）"
+      },
+      "memory": {
+        "bandwidth": "未公开（推测 ~700 GB/s）"
+      },
+      "tdp": "400 W（推测）",
+      "release": "2023 年"
+    }
+  },
+  {
+    "id": "moore-threads-mtt-s4000",
+    "title": "Moore Threads 摩尔线程 MTT S4000 (2023)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/moore-threads-mtt-s4000",
+    "description": "摩尔线程 MTT S4000 详尽规格：第三代MUSA架构，曲院GPU，48GB GDDR6，768 GB/s，FP32 25 TFLOPS，TF32 50 TFLOPS，INT8 200 TOPS，PCIe 5.0，MTLink，2023年12月发布",
+    "keywords": [
+      "摩尔线程",
+      "MTT S4000",
+      "Moore Threads",
+      "第三代MUSA",
+      "曲院GPU",
+      "48GB GDDR6",
+      "大模型智算加速卡",
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "自研 曲院 GPU（第三代 MUSA 内核架构）",
+      "process": "未公开（推测 7nm/6nm）",
+      "compute": {
+        "fp32": "25 TFLOPS",
+        "int8": "200 TOPS",
+        "fp16": "支持（具体数值未公开）"
+      },
+      "memory": {
+        "bandwidth": "768 GB/s"
+      },
+      "tdp": "450 W",
+      "release": "2023 年 12 月"
     }
   },
   {
@@ -3561,6 +3810,29 @@
       "architecture": "Tesla D1 第二代",
       "process": "TSMC 3nm (N3)",
       "tdp": "~150 kW"
+    }
+  },
+  {
+    "id": "tsingmicro-tx81",
+    "title": "清微智能 TX81 (2024)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/tsingmicro-tx81",
+    "description": "清微智能 TX81 详尽规格：可重构RPU架构，C2C算力网格技术，支持万亿参数大模型，能效比GPU提升3倍，成本降低50%，2024年发布",
+    "keywords": [
+      "清微智能",
+      "TX81",
+      "Tsingmicro",
+      "RPU",
+      "可重构计算",
+      "C2C算力网格",
+      "云端AI芯片",
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "自研 RPU（Reconfigurable Processing Unit），可重构计算架构",
+      "process": "未公开（推测 7nm/6nm）",
+      "tdp": "300 W（推测）",
+      "release": "2024 年（量产）"
     }
   }
 ]
