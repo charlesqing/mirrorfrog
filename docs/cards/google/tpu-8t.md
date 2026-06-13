@@ -29,6 +29,7 @@ TPU 8t 是 **Google Gemini 3 / Gemini 4 frontier 模型**的核心训练芯片�
 | **集成 CPU** | **Arm Axion（Google 自研，64 核）** |
 | **Pod 规模** | **9,216 芯片**（推测） |
 | **拓扑** | 3D Torus |
+| **TDP** | 180 W |
 | **首发** | **2026-04-22 公布** |
 
 > 📌 **8t 命名**：TPU 8 代 + **t = training（训练）**。8t 与 8i 同代，**仅用于训练**。
@@ -63,7 +64,7 @@ TPU 8t 是 **Google Gemini 3 / Gemini 4 frontier 模型**的核心训练芯片�
 | 项目 | 参数 |
 |------|------|
 | **架构** | Arm Neoverse V2（64 核） |
-| **TDP** | ~100 W |
+| **TDP** | 180 W |
 | **作用** | Host CPU + 数据加载 + 预处理 + 推理调度 |
 | **意义** | **Google 自研 Arm CPU 首次进入 TPU 节点** |
 

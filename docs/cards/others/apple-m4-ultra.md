@@ -36,7 +36,7 @@ keywords: [Apple M4 Ultra, M4 Ultra, 256GB UMA, Apple Silicon, Mac Studio, Apple
 | **FP32 GPU** | ~35.6 TFLOPS |
 | **FP16 GPU** | ~71.2 TFLOPS |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/AV1 |
-| **TDP** | ~200 W（推测） |
+| **TDP** | 200 W |
 | **Mac Studio M4 Ultra 256GB 推测价** | **$7,500 - $8,500** |
 | **预期发布** | **2025-Q4 至 2026-Q1** |
 

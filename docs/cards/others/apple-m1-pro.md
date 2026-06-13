@@ -28,7 +28,7 @@ keywords: [Apple M1 Pro, M1 Pro, 10 核 CPU, 16 核 GPU, 200 GB/s, MacBook Pro 2
 | **FP32 GPU** | ~4.5 TFLOPS（14 核） / ~5.2 TFLOPS（16 核） |
 | **FP16 GPU** | ~9.0 TFLOPS（14 核） / ~10.4 TFLOPS（16 核） |
 | **媒体引擎** | **ProRes 编码/解码专用引擎**（首次）、H.264/HEVC |
-| **TDP** | ~30W（笔记本） |
+| **TDP** | 30 W |
 | **接口** | **Thunderbolt 4**（40 Gb/s）、USB 4、HDMI 2.0、Wi-Fi 6、Bluetooth 5.0 |
 | **首发设备** | MacBook Pro 14" 2021、MacBook Pro 16" 2021 |
 | **首发日期** | **2021-10-26** |

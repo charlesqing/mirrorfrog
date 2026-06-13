@@ -26,7 +26,7 @@ keywords: [Apple M3 Ultra, M3 Ultra, 80 核 GPU, 192GB UMA, 本地 LLM, Mac Stud
 | **FP32 GPU** | ~28 TFLOPS |
 | **FP16 GPU** | ~56 TFLOPS |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/AV1 |
-| **TDP** | 90-215 W（取决于负载） |
+| **TDP** | 90 W |
 | **首发价** | Mac Studio M3 Ultra 192GB: **$5,899** |
 | **首发日期** | 2023-12 |
 

@@ -27,7 +27,7 @@ keywords: [Tenstorrent Blackhole, RISC-V 2nd gen, Tensix, 120 核, 8GB SRAM, 16 
 | **内存带宽** | 307 GB/s（LPDDR4X）|
 | **BF16** | 单卡 1.2 PFLOPS（8 卡 = **16 PFLOPS**） |
 | **INT8** | 单卡 4.8 POPS（推测）|
-| **TDP** | **~300W** |
+| **TDP** | 300 W |
 | **板卡形态** | PCIe Gen5 ×16 |
 | **互连** | **Ethernet**（标准，开放）|
 | **量产** | 2024 H2 |

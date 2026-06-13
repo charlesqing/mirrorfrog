@@ -23,7 +23,7 @@ AWS Trainium 是 Amazon Annapurna Labs 设计的 AI 训练 ASIC，2021 年推出
 | **FP8 算力** | 191 TFLOPS |
 | **BF16/FP16** | 191 TFLOPS |
 | **FP32** | 48 TFLOPS |
-| **TDP** | 约 350 W |
+| **TDP** | 350 W |
 | **NeuronLink** | NeuronLink-v2 |
 | **形式** | Trn1 实例（AWS） |
 

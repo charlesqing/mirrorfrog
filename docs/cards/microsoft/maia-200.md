@@ -28,7 +28,7 @@ keywords: [Maia 200, Microsoft AI chip, Azure, TSMC 3nm, FP4, HBM3e, 推理加�
 | **HBM 带宽** | **7 TB/s** |
 | **片上 SRAM** | **272 MB** |
 | **Scale-up 带宽** | **2.8 TB/s**（单加速器双向） |
-| **TDP** | **750 W**（SoC） |
+| **TDP** | 750 W |
 | **集群规模** | 最多 **6,144** 个加速器 |
 | **网络** | 基于标准以太网的两层 scale-up 网络 |
 | **发布时间** | **2026年1月26日** |

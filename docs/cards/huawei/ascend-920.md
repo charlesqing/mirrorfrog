@@ -27,7 +27,7 @@ Ascend 920 是 **Huawei CloudMatrix 384 / CloudMatrix 384 Ultra** 的核心，�
 | **BF16 算力** | **900+ TFLOPS** |
 | **FP16 算力** | 1,800 TFLOPS（推测） |
 | **INT8 算力** | 3,600 TOPS（推测） |
-| **TDP** | ~400 W |
+| **TDP** | 400 W |
 | **互联** | HCCS（Huawei Cache Coherence System） |
 | **首发** | **2025 H2 量产（路线图）** |
 

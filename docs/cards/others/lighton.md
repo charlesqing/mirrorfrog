@@ -27,7 +27,7 @@ keywords: [LightOn, Alfred, 硟光, 法国 AI, photonic computing, 1.2 PF, EU AI
 | **FP16** | **1.2 PFLOPS** |
 | **FP32** | ~0.6 PFLOPS |
 | **INT8** | 2.4 POPS |
-| **TDP** | **~80 W** |
+| **TDP** | 80 W |
 | **能效** | **15 TOPS/W** |
 | **板卡形态** | PCIe Gen4 ×16 |
 | **互连** | LightOn Photonic Link |

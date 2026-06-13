@@ -32,7 +32,7 @@ keywords: [Apple M3 Max, M3 Max, 40 核 GPU, 128GB UMA, 400 GB/s, 18 TOPS NE, Ma
 | **FP32 GPU** | ~14.2 TFLOPS |
 | **FP16 GPU** | ~28.4 TFLOPS |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/AV1 解码 |
-| **TDP** | 56-78 W（笔记本） / 100-150 W（Mac Studio） |
+| **TDP** | 56 W |
 | **MacBook Pro 16" M3 Max 128GB** | **$5,799** |
 | **Mac Studio M3 Max 128GB** | $3,499 |
 | **首发日期** | 2023-10-30 |

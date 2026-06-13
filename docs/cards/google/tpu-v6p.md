@@ -32,7 +32,7 @@ keywords: [Google TPU v6p, TPU v6p, Trillium 训练, Pathway, JAX, TPU 6P]
 | **BF16 dense** | **1,350 TFLOPS** |
 | **INT8** | 2.7 POPS |
 | **稀疏性** | 2:4 结构化稀疏（2× 加速） |
-| **TDP** | **~450 W**（v6e 同） |
+| **TDP** | 450 W |
 | **板卡形态** | Cloud TPU v6p pod slice |
 | **Pod 规模** | 9,216 芯片（v6e 仅 256） |
 | **Pod 算力** | **24.9 EF FP8 dense**（v6e 仅 0.4 EF） |

@@ -29,7 +29,7 @@ keywords: [Ascend 950DT, 昇腾 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为
 | **FP4 算力** | **2 PFLOPS**（MXFP4 格式） |
 | **BF16/FP16 算力** | ~500 TFLOPS |
 | **INT8 算力** | ~2,000 TOPS |
-| **TDP** | ~500 W |
+| **TDP** | 500 W |
 | **PCIe** | Gen 5 ×16 |
 | **发布时间** | **2026年8月**（华为云上线） |
 | **价格** | ~¥12-15 万/卡（推测） |

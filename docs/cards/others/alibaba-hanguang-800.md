@@ -27,7 +27,7 @@ keywords: [Alibaba 含光, Hanguang 800, 平头哥, T-Head, 阿里云, 12nm, 820
 | **INT8** | **820 TOPS** |
 | **BF16** | **128 TFLOPS**（**业界领先推理 BF16 之一**） |
 | **FP16** | 128 TFLOPS |
-| **TDP** | **168W** |
+| **TDP** | 168 W |
 | **板卡形态** | PCIe Gen3 ×16 |
 | **互连** | PCIe + 自研 RLLink |
 | **量产** | 2021-Q3 |

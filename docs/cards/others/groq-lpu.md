@@ -22,7 +22,7 @@ Groq LPU（Language Processing Unit）是 Groq 自研的**确定性 LLM 推理�
 | **INT8 算力（估算）** | 1,000 TOPS |
 | **FP16** | 188 TFLOPS（官方） |
 | **互联** | GroqSync（确定性互联） |
-| **TDP** | 300 W（系统级） |
+| **TDP** | 300 W |
 | **形式** | GroqRack（8 颗 GroqChip） |
 
 ## 厂商信息

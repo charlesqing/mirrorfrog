@@ -28,6 +28,7 @@ Google TPU v6e（代号 **Trillium**）于 2024 年 12 月 GA（General Availabi
 | **vCPU（4 芯片 VM）** | 180 |
 | **DRAM（4 芯片 VM）** | 720 GB |
 | **提供方式** | 仅 Google Cloud |
+| **TDP** | 200 W |
 
 ## Trillium vs v5p 对比
 

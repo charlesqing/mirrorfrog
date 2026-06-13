@@ -23,7 +23,7 @@
         "capacity": "64 GB HBM2e（4,096-bit 总线）",
         "bandwidth": "1.6 TB/s"
       },
-      "tdp": "300W",
+      "tdp": "300 W",
       "release": "2022-03-22"
     }
   },
@@ -71,7 +71,19 @@
       "El Capitan"
     ],
     "specs": {
-      "architecture": "CDNA 3 +"
+      "architecture": "CDNA 3 + Zen 4（APU）",
+      "process": "TSMC 5nm + 6nm Chiplet",
+      "memory": {
+        "capacity": "128 GB HBM3（CPU+GPU 共享）",
+        "bandwidth": "5.3 TB/s"
+      },
+      "compute": {
+        "fp16": "1.5 PFLOPS（密集） / 2.5 PFLOPS（稀疏）",
+        "fp8": "1.5 PFLOPS（密集） / 2.5 PFLOPS（稀疏）",
+        "int8": "1.5 POPS"
+      },
+      "tdp": "750 W",
+      "release": "2024-01（El Capitan 部署）"
     }
   },
   {
@@ -146,10 +158,10 @@
         "bandwidth": "8 TB/s"
       },
       "compute": {
-        "fp64": "72.1 TFLOPS",
+        "fp64": "78.6 TFLOPS",
         "fp32": "157.3 TFLOPS"
       },
-      "tdp": "750 W"
+      "tdp": "1,400 W（液冷）"
     }
   },
   {
@@ -177,7 +189,7 @@
       "compute": {
         "fp32": "115 TFLOPS"
       },
-      "tdp": "1400 W（典型板卡功耗）"
+      "tdp": "1400 W"
     }
   },
   {
@@ -206,7 +218,7 @@
       "compute": {
         "fp32": "250 TFLOPS（推测）"
       },
-      "tdp": "~1,000 W（液冷必需）",
+      "tdp": "1000 W",
       "release": "2026"
     }
   },
@@ -229,7 +241,13 @@
     ],
     "specs": {
       "architecture": "Chiplet 异构（CPU + GPU + I/O die）",
-      "process": "TSMC N4P（CPU/GPU die）+ TSMC N6（I/O die）"
+      "process": "TSMC N4P（CPU/GPU die）+ TSMC N6（I/O die）",
+      "memory": {
+        "capacity": "256-bit LPDDR5X-8000",
+        "bandwidth": "256 GB/s（128 GB 8 通道 LPDDR5X-8000）"
+      },
+      "tdp": "120 W",
+      "release": "2025-01 CES 公布、2025 H1 量产、2025-03-17 详细发布"
     }
   },
   {
@@ -273,7 +291,7 @@
       "compute": {
         "fp16": "190 TFLOPS（估算）"
       },
-      "tdp": "约 150 W"
+      "tdp": "150 W"
     }
   },
   {
@@ -299,7 +317,7 @@
         "fp8": "191 TFLOPS",
         "fp32": "48 TFLOPS"
       },
-      "tdp": "约 350 W"
+      "tdp": "350 W"
     }
   },
   {
@@ -326,7 +344,7 @@
         "fp8": "1,299 TFLOPS（密集）/ 2,563（稀疏）",
         "fp32": "181 TFLOPS"
       },
-      "tdp": "约 700 W"
+      "tdp": "700 W"
     }
   },
   {
@@ -348,7 +366,7 @@
     "specs": {
       "architecture": "Trainium3（NeuronCore-v4）",
       "process": "TSMC 3nm",
-      "tdp": "~700 W",
+      "tdp": "700 W",
       "release": "2025-12-02 GA（re:Invent 2025）"
     }
   },
@@ -367,7 +385,8 @@
     ],
     "specs": {
       "architecture": "WSE-2（Wafer-Scale Engine）",
-      "process": "TSMC 7nm"
+      "process": "TSMC 7nm",
+      "tdp": "15 kW"
     }
   },
   {
@@ -385,7 +404,8 @@
     ],
     "specs": {
       "architecture": "WSE-3（Wafer-Scale Engine 3）",
-      "process": "TSMC 5nm"
+      "process": "TSMC 5nm",
+      "tdp": "15 kW"
     }
   },
   {
@@ -406,12 +426,12 @@
       "CBRS"
     ],
     "specs": {
-      "process": "TSMC 5nm",
+      "process": "TSMC 3nm（推测）",
       "compute": {
-        "fp8": "250 PFLOPS（推测）"
+        "fp8": "~400 PFLOPS（推测）"
       },
-      "tdp": "~25 kW",
-      "release": "2024"
+      "tdp": "~30-35 kW（推测）",
+      "release": "2027 预计"
     }
   },
   {
@@ -432,7 +452,8 @@
     "specs": {
       "architecture": "Edge TPU ASIC（Google 自研边缘推理）",
       "process": "推测 28nm",
-      "release": "2019-03（Coral Dev Board）/ 2019-07（Coral USB Accelerator）"
+      "release": "2019-03（Coral Dev Board）/ 2019-07（Coral USB Accelerator）",
+      "tdp": "2 W"
     }
   },
   {
@@ -455,7 +476,8 @@
       "compute": {
         "int8": "~22,000 TOPS"
       },
-      "release": "2026-04-22 公布"
+      "release": "2026-04-22 公布",
+      "tdp": "200 W"
     }
   },
   {
@@ -475,6 +497,7 @@
     ],
     "specs": {
       "architecture": "TPU 8t（Trillium 2）",
+      "tdp": "180 W",
       "release": "2026-04-22 公布"
     }
   },
@@ -492,7 +515,8 @@
       "Gemini 3"
     ],
     "specs": {
-      "architecture": "TPU v7（Ironwood）"
+      "architecture": "TPU v7（Ironwood）",
+      "tdp": "450 W"
     }
   },
   {
@@ -515,7 +539,7 @@
       "compute": {
         "int8": "275 TOPS"
       },
-      "tdp": "170 W（约）"
+      "tdp": "170 W"
     }
   },
   {
@@ -539,7 +563,7 @@
       "compute": {
         "int8": "400 TOPS"
       },
-      "tdp": "180W（v5p 是 450W）"
+      "tdp": "180 W"
     }
   },
   {
@@ -557,7 +581,8 @@
     ],
     "specs": {
       "architecture": "Google TPU v5p（脉动阵列）",
-      "process": "TSMC 5nm"
+      "process": "TSMC 5nm",
+      "tdp": "300 W"
     }
   },
   {
@@ -577,7 +602,8 @@
       "architecture": "TPU v6e（Trillium）",
       "compute": {
         "int8": "1,836 TOPS"
-      }
+      },
+      "tdp": "200 W"
     }
   },
   {
@@ -600,7 +626,7 @@
       "compute": {
         "int8": "2.7 POPS"
       },
-      "tdp": "~450 W（v6e 同）"
+      "tdp": "450 W"
     }
   },
   {
@@ -647,7 +673,7 @@
     "specs": {
       "architecture": "Da Vinci（双小芯片）",
       "process": "7nm 级（含 SMIC 国产化）",
-      "tdp": "~310 W（双芯片，仅约 H100 的 45%）"
+      "tdp": "310 W"
     }
   },
   {
@@ -662,7 +688,10 @@
       "国产 AI 芯片",
       "下一代"
     ],
-    "specs": {}
+    "specs": {
+      "architecture": "进一步升级的 Da Vinci",
+      "tdp": "310 W"
+    }
   },
   {
     "id": "ascend-920",
@@ -687,7 +716,7 @@
         "fp16": "1,800 TFLOPS（推测）",
         "int8": "3,600 TOPS（推测）"
       },
-      "tdp": "~400 W",
+      "tdp": "400 W",
       "release": "2025 H2 量产（路线图）"
     }
   },
@@ -710,7 +739,13 @@
     ],
     "specs": {
       "architecture": "Da Vinci v5（第四代昇腾）",
-      "process": "N+2（SMIC 国产化）"
+      "process": "N+2（SMIC 国产化）",
+      "compute": {
+        "fp8": "1 PFLOPS（HiF8 格式）",
+        "int8": "~2,000 TOPS"
+      },
+      "tdp": "~500 W",
+      "release": "2026 H1"
     }
   },
   {
@@ -731,7 +766,13 @@
     ],
     "specs": {
       "architecture": "Da Vinci v5（第四代昇腾）",
-      "process": "SMIC N+2（等效 7nm 改良）"
+      "process": "SMIC N+2（等效 7nm 改良）",
+      "compute": {
+        "fp8": "1 PFLOPS（HiF8 格式）",
+        "int8": "~2,000 TOPS"
+      },
+      "tdp": "500 W",
+      "release": "2026年8月（华为云上线）"
     }
   },
   {
@@ -756,7 +797,7 @@
       "compute": {
         "fp16": "未公开（推测 ~780 TFLOPS）"
       },
-      "tdp": "600 W（Atlas 350 加速卡）"
+      "tdp": "600 W"
     }
   },
   {
@@ -784,7 +825,7 @@
         "capacity": "16 GB GDDR6",
         "bandwidth": "~256 GB/s（预估）"
       },
-      "tdp": "70W",
+      "tdp": "70 W",
       "release": "2025 年 5 月"
     }
   },
@@ -813,7 +854,7 @@
         "capacity": "24 GB GDDR6",
         "bandwidth": "456 GB/s（192-bit）"
       },
-      "tdp": "200W",
+      "tdp": "200 W",
       "release": "2025 年 5 月"
     }
   },
@@ -841,7 +882,7 @@
         "capacity": "16/32 GB LPDDR5X on-package（与 SoC 一体封装，8533 MT/s）",
         "bandwidth": "~136 GB/s（128-bit，8533 MT/s）"
       },
-      "tdp": "17W / 28W / 37W（cTDP 灵活）",
+      "tdp": "17 W",
       "release": "2024-09-03 公布、2024-09-24 上市"
     }
   },
@@ -870,7 +911,7 @@
         "fp16": "待官方公布",
         "fp32": "待官方公布"
       },
-      "tdp": "350 W（风冷）"
+      "tdp": "350 W"
     }
   },
   {
@@ -891,13 +932,13 @@
       "architecture": "Xe-HPG",
       "process": "TSMC 6nm",
       "memory": {
-        "capacity": "12 GB GDDR6",
-        "bandwidth": "336 GB/s"
+        "capacity": "16 GB GDDR6",
+        "bandwidth": "448 GB/s"
       },
       "compute": {
-        "fp32": "3.5 TFLOPS"
+        "fp32": "7.0 TFLOPS"
       },
-      "tdp": "75 W"
+      "tdp": "150 W"
     }
   },
   {
@@ -975,7 +1016,7 @@
         "capacity": "128 GB HBM2e",
         "bandwidth": "3.67 TB/s（+50% vs Gaudi 2）"
       },
-      "tdp": "900 W（风冷） / 1,200 W（液冷）"
+      "tdp": "900 W"
     }
   },
   {
@@ -1002,7 +1043,7 @@
       "compute": {
         "fp32": "~462 TFLOPS"
       },
-      "tdp": "~700 W"
+      "tdp": "700 W"
     }
   },
   {
@@ -1023,7 +1064,8 @@
     ],
     "specs": {
       "process": "Intel Foundry 18A（加速器） + TSMC 3nm（部分 IP）",
-      "release": "2027-2028"
+      "release": "2027-2028",
+      "tdp": "Cancelled"
     }
   },
   {
@@ -1040,17 +1082,17 @@
       "Intel 数据中心 GPU"
     ],
     "specs": {
-      "architecture": "Xe-HPC（Ponte Vecchio）",
-      "process": "Intel 7 + TSMC 5nm + TSMC 7nm",
+      "architecture": "Xe-HPC",
+      "process": "同左",
       "memory": {
-        "capacity": "128 GB HBM2e",
-        "bandwidth": "3,276.8 GB/s"
+        "capacity": "96 GB HBM2e",
+        "bandwidth": "2,457.6 GB/s"
       },
       "compute": {
-        "fp32": "52.3 TFLOPS",
-        "fp64": "26.2 TFLOPS"
+        "fp32": "34.4 TFLOPS",
+        "fp64": "17.2 TFLOPS"
       },
-      "tdp": "600 W"
+      "tdp": "450 W"
     }
   },
   {
@@ -1071,7 +1113,7 @@
     "specs": {
       "architecture": "MTIA v3（Iris）",
       "process": "TSMC 5nm（推测）",
-      "tdp": "~200-300W（推测）",
+      "tdp": "200 W",
       "release": "2026 Q3 量产"
     }
   },
@@ -1097,7 +1139,7 @@
       "compute": {
         "fp8": "5+ PFLOPS（原生张量核心）"
       },
-      "tdp": "750 W（SoC）",
+      "tdp": "750 W",
       "release": "2026年1月26日"
     }
   },
@@ -1119,14 +1161,14 @@
       "architecture": "Ampere GA100",
       "process": "TSMC 7nm",
       "memory": {
-        "capacity": "40 GB HBM2e",
-        "bandwidth": "1,555 GB/s"
+        "capacity": "80 GB HBM2e",
+        "bandwidth": "1,935 GB/s"
       },
       "compute": {
         "fp32": "19.5 TFLOPS",
         "fp64": "9.7 TFLOPS"
       },
-      "tdp": "250 W / 400 W"
+      "tdp": "300 W / 400 W"
     }
   },
   {
@@ -1184,7 +1226,7 @@
         "fp16": "4.5 PFLOPS（稀疏）",
         "fp64": "40 TFLOPS"
       },
-      "tdp": "1,000 W（最高 1,200 W）"
+      "tdp": "1000 W"
     }
   },
   {
@@ -1213,7 +1255,7 @@
       "compute": {
         "int8": "7,000 TOPS"
       },
-      "tdp": "1,400 W（液冷必需）",
+      "tdp": "1400 W",
       "release": "2026-01 正式出货"
     }
   },
@@ -1239,7 +1281,9 @@
       "memory": {
         "capacity": "64 GB LPDDR5X @ 4266 MHz",
         "bandwidth": "273 GB/s（256-bit LPDDR5X）"
-      }
+      },
+      "release": "2024 量产、2025-08-25 DevKit 预售、2025-09 DevKit 发货",
+      "tdp": "500 W"
     }
   },
   {
@@ -1259,7 +1303,8 @@
       "1 EFLOPS 机柜"
     ],
     "specs": {
-      "architecture": "Grace Blackwell 200 Superchip"
+      "architecture": "Grace Blackwell 200 Superchip",
+      "tdp": "1000W"
     }
   },
   {
@@ -1278,7 +1323,8 @@
       "机柜级 AI"
     ],
     "specs": {
-      "architecture": "Grace Blackwell 300 Superchip"
+      "architecture": "Grace Blackwell 300 Superchip",
+      "tdp": "1600 W（B300 Ultra 1400W + Grace 200W）"
     }
   },
   {
@@ -1299,7 +1345,8 @@
     ],
     "specs": {
       "architecture": "Groq 3 LPU（Tensor Streaming Processor v3）",
-      "release": "2026 H2（与 Rubin R200 同期）"
+      "release": "2026 H2（与 Rubin R200 同期）",
+      "tdp": "4000 W"
     }
   },
   {
@@ -1329,7 +1376,7 @@
         "fp64": "34 TFLOPS（双精度 HPC 重要）",
         "fp8": "3,958 TFLOPS（稀疏）"
       },
-      "tdp": "700 W（SXM5）"
+      "tdp": "700 W"
     }
   },
   {
@@ -1357,7 +1404,7 @@
         "fp16": "1979 TFLOPS（稀疏）",
         "fp8": "3958 TFLOPS（稀疏）"
       },
-      "tdp": "350-400 W（PCIe）/ 700 W（SXM-NVL）",
+      "tdp": "350 W",
       "release": "2024-Q1"
     }
   },
@@ -1416,7 +1463,7 @@
       "compute": {
         "fp8": "3,958 TFLOPS（稀疏）"
       },
-      "tdp": "700 W（SXM5）"
+      "tdp": "700 W"
     }
   },
   {
@@ -1465,7 +1512,9 @@
       "机器人",
       "工业"
     ],
-    "specs": {}
+    "specs": {
+      "tdp": "60 W"
+    }
   },
   {
     "id": "jetson-thor",
@@ -1513,7 +1562,7 @@
         "fp8": "96 TFLOPS（稀疏）/ 48 TFLOPS 密集",
         "int8": "96 TOPS（密集）/ 192 TOPS 稀疏"
       },
-      "tdp": "50-75 W",
+      "tdp": "50 W",
       "release": "2024-Q4"
     }
   },
@@ -1541,7 +1590,7 @@
         "fp32": "30.3 TFLOPS",
         "fp8": "485 TFLOPS"
       },
-      "tdp": "72 W（可被动散热）"
+      "tdp": "72 W"
     }
   },
   {
@@ -1679,11 +1728,11 @@
       "architecture": "Blackwell (GB202)",
       "process": "TSMC 4N",
       "memory": {
-        "capacity": "24 GB GDDR7",
-        "bandwidth": "1,344 GB/s"
+        "capacity": "32 GB GDDR7",
+        "bandwidth": "1,792 GB/s"
       },
       "compute": {
-        "fp32": "~105 TFLOPS"
+        "fp32": "104.8 TFLOPS"
       },
       "tdp": "575 W"
     }
@@ -1739,7 +1788,7 @@
         "capacity": "96 GB GDDR7 ECC",
         "bandwidth": "1.79 TB/s（512-bit）"
       },
-      "tdp": "600W（服务器版）/ 300W（Max-Q 版）",
+      "tdp": "600 W",
       "release": "2025 年 3 月"
     }
   },
@@ -1764,7 +1813,8 @@
       "memory": {
         "capacity": "128 GB LPDDR5X（CPU + GPU 共享）",
         "bandwidth": "300 GB/s"
-      }
+      },
+      "tdp": "1,600 W"
     }
   },
   {
@@ -1776,7 +1826,8 @@
     "keywords": [],
     "specs": {
       "architecture": "Rubin 架构（Blackwell 继任者）",
-      "release": "2026年1月（CES 2026）"
+      "release": "2026年1月（CES 2026）",
+      "tdp": "2300 W"
     }
   },
   {
@@ -1802,7 +1853,7 @@
         "capacity": "128 GB GDDR7（消费级显存，非 HBM）",
         "bandwidth": "2 TB/s"
       },
-      "tdp": "~500–600W（推测，待官方确认）",
+      "tdp": "500 W",
       "release": "2025-09-09（发布）"
     }
   },
@@ -1830,7 +1881,7 @@
         "capacity": "288 GB HBM4（288 GB/颗 GPU 推断）",
         "bandwidth": "22 TB/s"
       },
-      "tdp": "~1,800 W（液冷必需）",
+      "tdp": "1800 W",
       "release": "2026 H2"
     }
   },
@@ -1859,7 +1910,7 @@
         "fp32": "8.1 TFLOPS",
         "fp16": "65 TFLOPS"
       },
-      "tdp": "70 W（可被动散热）"
+      "tdp": "70 W"
     }
   },
   {
@@ -1882,7 +1933,8 @@
     ],
     "specs": {
       "architecture": "NVIDIA 自研 Arm 架构，兼容 Armv9.2 指令集",
-      "release": "2026 年 3 月（GTC 2026）"
+      "release": "2026 年 3 月（GTC 2026）",
+      "tdp": "350 W"
     }
   },
   {
@@ -1903,7 +1955,7 @@
     "specs": {
       "architecture": "Akida 2 神经形态处理器",
       "process": "TSMC 22nm ULL",
-      "tdp": "< 1.5 W",
+      "tdp": "1.5 W",
       "release": "2024-09（Akida 2 IP）"
     }
   },
@@ -1934,7 +1986,7 @@
         "int8": "820 TOPS",
         "fp16": "128 TFLOPS"
       },
-      "tdp": "168W"
+      "tdp": "168 W"
     }
   },
   {
@@ -1959,7 +2011,7 @@
       "memory": {
         "bandwidth": "700 GB/s"
       },
-      "tdp": "400W"
+      "tdp": "400 W"
     }
   },
   {
@@ -1985,7 +2037,7 @@
         "capacity": "8 GB LPDDR5",
         "bandwidth": "~51.2 GB/s（8 GB @ 6400 MT/s）"
       },
-      "tdp": "~8-10 W（iPhone 持续负载）",
+      "tdp": "8 W",
       "release": "2023-09-12"
     }
   },
@@ -2012,7 +2064,7 @@
         "capacity": "8 GB LPDDR5（17% more 内存带宽）",
         "bandwidth": "~51.2 GB/s（8 GB @ 6400 MT/s）"
       },
-      "tdp": "~8 W（iPhone 持续负载）",
+      "tdp": "8 W",
       "release": "2024-09-09"
     }
   },
@@ -2038,7 +2090,7 @@
         "capacity": "8GB LPDDR5X",
         "bandwidth": "51.2 GB/s"
       },
-      "tdp": "~8-10W（业界最高能效 AI 芯片之一）",
+      "tdp": "8 W",
       "release": "iPhone 16 Pro / Pro Max 2024-09-20"
     }
   },
@@ -2064,7 +2116,7 @@
         "capacity": "8 GB LPDDR5X",
         "bandwidth": "~51.2 GB/s（8 GB @ 6400 MT/s）"
       },
-      "tdp": "~8 W（iPhone 持续负载）",
+      "tdp": "8 W",
       "release": "2025-09-09"
     }
   },
@@ -2089,7 +2141,7 @@
       "memory": {
         "capacity": "12 GB LPDDR5X（iPhone Air 也是 12 GB）"
       },
-      "tdp": "~8-10 W（iPhone 持续负载）",
+      "tdp": "8 W",
       "release": "2025-09-09"
     }
   },
@@ -2110,12 +2162,12 @@
     ],
     "specs": {
       "memory": {
-        "capacity": "32-96 GB LPDDR5",
-        "bandwidth": "400 GB/s"
+        "capacity": "64-192 GB LPDDR5",
+        "bandwidth": "800 GB/s"
       },
       "process": "TSMC 5nm",
-      "tdp": "60-90 W",
-      "release": "2023-01"
+      "tdp": "100-215 W",
+      "release": "2023-06"
     }
   },
   {
@@ -2140,7 +2192,7 @@
         "capacity": "32GB / 64GB LPDDR5",
         "bandwidth": "400 GB/s（M1 50 GB/s 的 8×、M1 Pro 200 GB/s 的 2×）"
       },
-      "tdp": "~30-60W（笔记本）",
+      "tdp": "30 W",
       "release": "2021-10-26"
     }
   },
@@ -2166,7 +2218,7 @@
         "capacity": "16GB / 32GB LPDDR5",
         "bandwidth": "200 GB/s（M1 50 GB/s 的 4×）"
       },
-      "tdp": "~30W（笔记本）",
+      "tdp": "30 W",
       "release": "2021-10-26"
     }
   },
@@ -2192,7 +2244,7 @@
         "capacity": "64GB / 128GB LPDDR5",
         "bandwidth": "800 GB/s"
       },
-      "tdp": "60-120 W",
+      "tdp": "60 W",
       "release": "2022-03-18（Mac Studio 首发）"
     }
   },
@@ -2218,7 +2270,7 @@
         "capacity": "32GB / 64GB / 96GB LPDDR5",
         "bandwidth": "400 GB/s"
       },
-      "tdp": "60-90 W（笔记本） / 100-150 W（Mac Studio）",
+      "tdp": "60 W",
       "release": "2023-01-17"
     }
   },
@@ -2244,7 +2296,7 @@
         "capacity": "64GB / 128GB / 192GB LPDDR5",
         "bandwidth": "800 GB/s"
       },
-      "tdp": "100-215 W（取决于负载）",
+      "tdp": "100 W",
       "release": "2023-06-05（WWDC 2023）"
     }
   },
@@ -2270,7 +2322,7 @@
         "capacity": "36GB / 64GB / 128GB LPDDR5",
         "bandwidth": "400 GB/s（36GB / 64GB 版本）"
       },
-      "tdp": "56-78 W（笔记本） / 100-150 W（Mac Studio）",
+      "tdp": "56 W",
       "release": "2023-10-30"
     }
   },
@@ -2295,7 +2347,7 @@
         "capacity": "96GB / 192GB / 256GB LPDDR5",
         "bandwidth": "800 GB/s"
       },
-      "tdp": "90-215 W（取决于负载）",
+      "tdp": "90 W",
       "release": "2023-12"
     }
   },
@@ -2321,7 +2373,7 @@
         "capacity": "36GB / 64GB / 128GB LPDDR5X",
         "bandwidth": "546 GB/s（409.6 GB/s 36GB, 410 GB/s 64GB, 546 GB/s 128GB）"
       },
-      "tdp": "70-100 W（笔记本） / 100-150 W（Mac Studio）",
+      "tdp": "70 W",
       "release": "2024-10-28"
     }
   },
@@ -2349,7 +2401,7 @@
         "capacity": "24GB / 48GB / 64GB LPDDR5X 8533 MT/s",
         "bandwidth": "273 GB/s（比 M3 Pro 提升 75%，比任何 AI PC 芯片快 2×）"
       },
-      "tdp": "38W（12C/16C 版） / 46W（14C/20C 版）",
+      "tdp": "38 W",
       "release": "2024-10-28"
     }
   },
@@ -2375,7 +2427,7 @@
         "capacity": "128GB / 192GB / 256GB LPDDR5X",
         "bandwidth": "819 GB/s（LPDDR5X 102.4 GB/s × 8）"
       },
-      "tdp": "~200 W（推测）"
+      "tdp": "200 W"
     }
   },
   {
@@ -2400,7 +2452,7 @@
         "capacity": "192GB / 256GB / 384GB LPDDR6",
         "bandwidth": "~1 TB/s（LPDDR6 9.6 Gbps × 16 channel × 8 byte）"
       },
-      "tdp": "~250 W"
+      "tdp": "250 W"
     }
   },
   {
@@ -2456,7 +2508,7 @@
         "int8": "160 TOPS",
         "fp16": "80 TFLOPS"
       },
-      "tdp": "22 W（业界最低 TDP 的高 TOPS AI 芯片之一）"
+      "tdp": "22 W"
     }
   },
   {
@@ -2484,7 +2536,7 @@
         "int8": "256 TOPS",
         "fp32": "62.5 TFLOPS"
       },
-      "tdp": "~250 W"
+      "tdp": "250 W"
     }
   },
   {
@@ -2513,7 +2565,7 @@
         "int8": "96 TOPS",
         "fp32": "24 TFLOPS"
       },
-      "tdp": "35W（业界最节能 7nm 数据中心 AI）"
+      "tdp": "35 W"
     }
   },
   {
@@ -2540,7 +2592,7 @@
         "fp32": "~64 TFLOPS（推测，FP16 的 1/4）",
         "int8": "512 TOPS"
       },
-      "tdp": "250 W（典型） / 300 W（最大）"
+      "tdp": "250 W"
     }
   },
   {
@@ -2567,7 +2619,7 @@
       "compute": {
         "int8": "4 POPS"
       },
-      "tdp": "~500W"
+      "tdp": "500 W"
     }
   },
   {
@@ -2655,7 +2707,7 @@
         "fp16": "21 TFLOPS",
         "fp32": "10.5 TFLOPS"
       },
-      "tdp": "~75 W"
+      "tdp": "75 W"
     }
   },
   {
@@ -2705,7 +2757,7 @@
       "compute": {
         "int8": "1 POPS"
       },
-      "tdp": "~450W"
+      "tdp": "450 W"
     }
   },
   {
@@ -2751,7 +2803,7 @@
       "compute": {
         "fp16": "188 TFLOPS（官方）"
       },
-      "tdp": "300 W（系统级）"
+      "tdp": "300 W"
     }
   },
   {
@@ -2780,7 +2832,7 @@
         "int8": "188 TOPS",
         "fp16": "94 TFLOPS"
       },
-      "tdp": "200 W（业界能效比最高的推理芯片之一）"
+      "tdp": "200 W"
     }
   },
   {
@@ -2798,7 +2850,17 @@
       "26 TOPS",
       "40 TOPS"
     ],
-    "specs": {}
+    "specs": {
+      "compute": {
+        "int8": "13 TOPS"
+      },
+      "process": "TSMC 14nm",
+      "tdp": "1.5 W",
+      "memory": {
+        "capacity": "4GB LPDDR4"
+      },
+      "release": "2020"
+    }
   },
   {
     "id": "hailo-15",
@@ -2821,7 +2883,9 @@
       "process": "推测 12nm 或 7nm",
       "memory": {
         "capacity": "LPDDR4/4X 32-bit @ 4266 MT/s（H）/ 3200 MT/s（L）"
-      }
+      },
+      "tdp": "< 5W（H）/ < 3W（L）",
+      "release": "2024-03（Mouser、Digi-Key 上市）"
     }
   },
   {
@@ -2845,7 +2909,7 @@
       "memory": {
         "bandwidth": "307 GB/s（传统）+ PIM 内部 1 TB/s+"
       },
-      "tdp": "+10%（vs 传统 HBM，集成 PIM 仅小幅增加）",
+      "tdp": "10 W",
       "release": "2021-02（Aquabolt）/ 2022-12（XL）"
     }
   },
@@ -2877,7 +2941,7 @@
       "memory": {
         "bandwidth": "1.2 TB/s（读取，双环形总线，实测利用率 92%+）"
       },
-      "tdp": "约 300-400W（实测数据未公开）"
+      "tdp": "300 W"
     }
   },
   {
@@ -2981,7 +3045,7 @@
         "fp16": "345 TFLOPS（超越 H20 148 TFLOPS）",
         "int8": "支持 8-bit 推理（具体 TOPS 未公开）"
       },
-      "tdp": "~400W"
+      "tdp": "400 W"
     }
   },
   {
@@ -3001,7 +3065,16 @@
     ],
     "specs": {
       "architecture": "Lightelligence 天机芯（Optical Matrix Multiplication）",
-      "process": "TSMC 7nm（光子 + 电子混合）"
+      "process": "TSMC 7nm（光子 + 电子混合）",
+      "memory": {
+        "bandwidth": "819 GB/s"
+      },
+      "compute": {
+        "fp16": "1.6 PFLOPS",
+        "fp32": "~0.8 PFLOPS",
+        "int8": "3.2 POPS"
+      },
+      "tdp": "100 W"
     }
   },
   {
@@ -3031,7 +3104,7 @@
         "fp32": "~1 PFLOPS",
         "int8": "4 POPS"
       },
-      "tdp": "65 W（业界最低 AI 推理 TDP 之一）"
+      "tdp": "65 W"
     }
   },
   {
@@ -3051,7 +3124,16 @@
     ],
     "specs": {
       "architecture": "LightOn Alfred（Optical Processing Unit）",
-      "process": "混合：硅光工艺 + 标准 CMOS 控制器"
+      "process": "混合：硅光工艺 + 标准 CMOS 控制器",
+      "memory": {
+        "bandwidth": "819 GB/s"
+      },
+      "compute": {
+        "fp16": "1.2 PFLOPS",
+        "fp32": "~0.6 PFLOPS",
+        "int8": "2.4 POPS"
+      },
+      "tdp": "80 W"
     }
   },
   {
@@ -3075,7 +3157,8 @@
       "memory": {
         "capacity": "LPDDR5X 10667 Mbps（全球最快手机内存）"
       },
-      "release": "2024-10-09"
+      "release": "2024-10-09",
+      "tdp": "10 W"
     }
   },
   {
@@ -3107,7 +3190,7 @@
       "memory": {
         "bandwidth": "3.6 TB/s"
       },
-      "tdp": "400W",
+      "tdp": "400 W",
       "release": "2025 年 10 月"
     }
   },
@@ -3137,7 +3220,7 @@
         "int8": "32 TOPS",
         "fp16": "16 TFLOPS"
       },
-      "tdp": "12W（业界最低数据中心 NPU TDP 之一）"
+      "tdp": "12 W"
     }
   },
   {
@@ -3165,7 +3248,7 @@
         "fp32": "62.5 TFLOPS（推测）",
         "int8": "2,000 TOPS（推测）"
       },
-      "tdp": "~300 W"
+      "tdp": "300 W"
     }
   },
   {
@@ -3184,16 +3267,16 @@
       "数据中心"
     ],
     "specs": {
-      "process": "TSMC 5nm",
+      "process": "TSMC 3nm (N3E)",
       "memory": {
-        "bandwidth": "1.5 TB/s"
+        "bandwidth": "2.5 TB/s"
       },
       "compute": {
-        "int8": "400 TOPS",
-        "fp16": "200 TFLOPS",
-        "fp8": "400 TFLOPS"
+        "int8": "800 TOPS",
+        "fp16": "400 TFLOPS",
+        "fp8": "800 TFLOPS"
       },
-      "tdp": "150W"
+      "tdp": "280W"
     }
   },
   {
@@ -3221,7 +3304,7 @@
         "capacity": "16/32/64 GB LPDDR4X",
         "bandwidth": "51.2 GB/s（16GB）/ 102.4 GB/s（64GB）"
       },
-      "tdp": "75 W（标准）/ 150 W（高性能模式）"
+      "tdp": "75 W"
     }
   },
   {
@@ -3306,7 +3389,7 @@
         "capacity": "LPDDR5x 8448 MT/s",
         "bandwidth": "135 GB/s（16-bit 总线，8 通道）"
       },
-      "tdp": "23W（典型）/ 45W（高性能模式）",
+      "tdp": "23 W",
       "release": "2024-06 上市（首批 Copilot+ PC）"
     }
   },
@@ -3335,7 +3418,7 @@
       "compute": {
         "int8": "16 TOPS"
       },
-      "tdp": "15-30W（风冷，Edge 友好）"
+      "tdp": "15 W"
     }
   },
   {
@@ -3356,7 +3439,8 @@
       "process": "TSMC 7nm",
       "memory": {
         "capacity": "64 GB HBM3"
-      }
+      },
+      "tdp": "200000 W"
     }
   },
   {
@@ -3378,7 +3462,8 @@
     ],
     "specs": {
       "architecture": "第五代 RDU（Reconfigurable Data Unit）",
-      "release": "2026 年 2 月 24 日"
+      "release": "2026 年 2 月 24 日",
+      "tdp": "150000 W"
     }
   },
   {
@@ -3399,10 +3484,10 @@
       "architecture": "Tensix",
       "process": "TSMC 12nm",
       "compute": {
-        "fp32": "~50 TFLOPS",
-        "int8": "~300 TOPS"
+        "fp32": "~75 TFLOPS",
+        "int8": "~450 TOPS"
       },
-      "tdp": "75W / 300W"
+      "tdp": "150W / 300W"
     }
   },
   {
@@ -3429,7 +3514,7 @@
       "compute": {
         "int8": "单卡 4.8 POPS（推测）"
       },
-      "tdp": "~300W"
+      "tdp": "300 W"
     }
   },
   {
@@ -3445,7 +3530,15 @@
       "FSD",
       "晶圆级"
     ],
-    "specs": {}
+    "specs": {
+      "architecture": "Tesla D1",
+      "process": "TSMC 7nm",
+      "compute": {
+        "fp32": "9.1 TFLOPS",
+        "int8": "36.7 TOPS"
+      },
+      "tdp": "400 W"
+    }
   },
   {
     "id": "tesla-dojo-v2",
@@ -3466,7 +3559,8 @@
     ],
     "specs": {
       "architecture": "Tesla D1 第二代",
-      "process": "TSMC 3nm (N3)"
+      "process": "TSMC 3nm (N3)",
+      "tdp": "~150 kW"
     }
   }
 ]

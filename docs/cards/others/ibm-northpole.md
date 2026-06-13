@@ -28,7 +28,7 @@ keywords: [IBM NorthPole, In-Memory Compute, 神经形态, 22nm, 458 TOPS, TrueN
 | **内存带宽** | **2.5 TB/s**（片上 SRAM） |
 | **INT8** | **458 TOPS** |
 | **FP16** | ~110 TFLOPS |
-| **TDP** | **75 W** |
+| **TDP** | 75 W |
 | **能效** | **6.1 TOPS/W**（H100 ~2.16, **3× 优势**） |
 | **延迟** | **5-10ms**（存内计算 0 数据搬运） |
 | **量产** | **未商业化**（研究原型） |

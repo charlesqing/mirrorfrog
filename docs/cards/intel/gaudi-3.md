@@ -26,7 +26,7 @@ Intel Gaudi 3 于 2024 年 4 月发布（Intel Vision 大会），是 Gaudi 2 �
 | **BF16 Matrix** | **1,835 TFLOPS**（4× Gaudi 2） |
 | **FP8 Matrix** | **1,835 TFLOPS** |
 | **BF16 Vector** | 28.7 TFLOPS |
-| **TDP** | **900 W（风冷）** / 1,200 W（液冷） |
+| **TDP** | 900 W |
 | **网络** | **24× 200GbE RoCE**（集成网卡） |
 | **PCIe** | Gen 5 x16 |
 | **形式** | OAM 2.0 (HL-325L) / PCIe Add-in Card (HL-338) |

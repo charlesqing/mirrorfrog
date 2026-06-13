@@ -27,7 +27,7 @@ keywords: [FuriosaAI, RNGD, 韩国 AI, 5nm, HBM3, 200K tokens/s, KT 客户, 韩�
 | **BF16 dense** | **512 TFLOPS** |
 | **FP16 dense** | 512 TFLOPS |
 | **INT8** | 1 POPS |
-| **TDP** | **~450W** |
+| **TDP** | 450 W |
 | **板卡形态** | OAM / PCIe Gen5 ×16 |
 | **互连** | FuriosaLink（自研，类 NVLink 3）|
 | **量产** | **2024-Q3** |

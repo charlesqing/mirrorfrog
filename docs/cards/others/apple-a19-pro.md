@@ -30,7 +30,7 @@ keywords: [Apple A19 Pro, A19 Pro, iPhone 17 Pro, Neural Engine 35 TOPS, Apple I
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/ProRes RAW/AV1 解码、硬件光线追踪 |
 | **接口** | USB 3.2 Gen 2 (10 Gbps) |
 | **散热** | **Apple 激光焊接蒸汽腔**（vapor chamber 铝合金一体成型） |
-| **TDP** | ~8-10 W（iPhone 持续负载） |
+| **TDP** | 8 W |
 | **首发设备** | iPhone 17 Pro / Pro Max（6 核 GPU）、iPhone Air（5 核 GPU） |
 | **首发日期** | **2025-09-09** |
 | **iPhone 17 Pro 256GB** | **$1,099** |

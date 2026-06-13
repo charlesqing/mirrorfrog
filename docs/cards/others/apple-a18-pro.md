@@ -35,7 +35,7 @@ keywords: [Apple A18 Pro, A18 Pro, 35 TOPS, iPhone 16 Pro, Apple Intelligence, �
 | **显示引擎** | **ProMotion 120Hz** + **永远显示** |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/AV1 **编码 + 解码** |
 | **ISP** | **第二代 48MP** + ProRAW |
-| **TDP** | **~8-10W**（**业界最高能效 AI 芯片之一**） |
+| **TDP** | 8 W |
 | **首发** | iPhone 16 Pro / Pro Max 2024-09-20 |
 | **价格（iPhone 16 Pro 256GB）** | **$1,099** |
 

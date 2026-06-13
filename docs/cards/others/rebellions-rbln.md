@@ -26,7 +26,7 @@ keywords: [Rebellions, RBLN, ATOM, 韩国 AI, RDU, 5nm, 边缘 AI, KT 部署]
 | **内存带宽** | **102 GB/s** |
 | **INT8** | **16 TOPS** |
 | **BF16** | 8 TFLOPS |
-| **TDP** | **15-30W**（**风冷，Edge 友好**） |
+| **TDP** | 15 W |
 | **板卡形态** | M.2 / PCIe Gen4 / OAM |
 | **互连** | PCIe Gen4 |
 | **量产** | 2024-Q2 |

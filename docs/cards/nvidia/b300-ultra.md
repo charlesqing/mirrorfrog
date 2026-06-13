@@ -29,7 +29,7 @@ keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, DeepSeek R1, NVFP4,
 | **FP4 Tensor Core（稀疏）** | **30 PFLOPS** |
 | **FP16 Tensor Core（密集）** | **4 PFLOPS** |
 | **INT8** | **7,000 TOPS** |
-| **TDP** | **1,400 W**（**液冷必需**） |
+| **TDP** | 1400 W |
 | **NVLink 带宽** | **1.8 TB/s**（第 5 代） |
 | **PCIe** | Gen 6（首次） |
 | **DC 网络** | **ConnectX-8, 1.6 Tbps** |

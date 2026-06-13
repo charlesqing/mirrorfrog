@@ -31,7 +31,7 @@ keywords: [AMD Ryzen AI Max, Strix Halo, XDNA 2, 50 TOPS, 128GB UMA, 96GB VRAM, 
 | **可分配 VRAM** | **96 GB**（AMD Variable Graphics Memory） |
 | **内存带宽** | **256 GB/s**（128 GB 8 通道 LPDDR5X-8000） |
 | **PCIe** | PCIe Gen 4（16 lanes） |
-| **TDP** | **55W / 85W / 120W**（cTDP 灵活） |
+| **TDP** | 120 W |
 | **Wi-Fi** | Wi-Fi 7 |
 | **首发型号** | Ryzen AI Max 390、Ryzen AI Max+ 395、Ryzen AI Max+ 388、PRO 系列 |
 | **首发日期** | **2025-01 CES 公布、2025 H1 量产、2025-03-17 详细发布** |

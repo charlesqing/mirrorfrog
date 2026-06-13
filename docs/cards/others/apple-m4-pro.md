@@ -29,7 +29,7 @@ keywords: [Apple M4 Pro, M4 Pro, 14 核 CPU, 20 核 GPU, 64GB UMA, 273 GB/s, Thu
 | **FP32 GPU** | ~9.4 TFLOPS（16 核） / ~11.8 TFLOPS（20 核） |
 | **FP16 GPU** | ~18.8 TFLOPS（16 核） / ~23.5 TFLOPS（20 核） |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/ProRes RAW/AV1 解码 |
-| **TDP** | 38W（12C/16C 版） / 46W（14C/20C 版） |
+| **TDP** | 38 W |
 | **接口** | **Thunderbolt 5**（120 Gb/s）、USB 4、HDMI 2.1、Wi-Fi 6E、Bluetooth 5.3 |
 | **首发设备** | Mac mini 2024、MacBook Pro 14"/16" 2024 |
 | **首发日期** | **2024-10-28** |

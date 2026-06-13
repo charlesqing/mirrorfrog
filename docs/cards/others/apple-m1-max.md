@@ -27,7 +27,7 @@ keywords: [Apple M1 Max, M1 Max, 32 核 GPU, 400 GB/s, 64GB UMA, MacBook Pro 16 
 | **FP32 GPU** | ~7.8 TFLOPS（24 核） / ~10.4 TFLOPS（32 核） |
 | **FP16 GPU** | ~15.6 TFLOPS（24 核） / ~20.8 TFLOPS（32 核） |
 | **媒体引擎** | **2 个 ProRes 编码 + 2 个 ProRes 解码**（M1 Pro 1+1 的 2×）、H.264/HEVC |
-| **TDP** | ~30-60W（笔记本） |
+| **TDP** | 30 W |
 | **接口** | **Thunderbolt 4**（40 Gb/s）、USB 4、HDMI 2.0、Wi-Fi 6、Bluetooth 5.0 |
 | **首发设备** | MacBook Pro 14"/16" 2021 |
 | **首发日期** | **2021-10-26** |

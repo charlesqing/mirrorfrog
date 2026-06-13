@@ -37,7 +37,7 @@ keywords: [Apple M5 Ultra, M5 Ultra, 2nm, 384GB UMA, 1 TB/s, Apple Silicon 第�
 | **FP32 GPU** | ~42 TFLOPS |
 | **FP16 GPU** | ~84 TFLOPS |
 | **FP8 GPU** | **~168 TFLOPS**（M5 新增，**Apple 首次 FP8**） |
-| **TDP** | **~250 W** |
+| **TDP** | 250 W |
 | **Mac Studio M5 Ultra 384GB 推测价** | **$8,500 - $10,000** |
 | **预期发布** | **2026 H2 至 2027 H1** |
 

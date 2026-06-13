@@ -26,7 +26,7 @@ keywords: [Apple M4 Max, M4 Max, 40 核 GPU, 128GB UMA, 546 GB/s, Apple Intellig
 | **FP32 GPU** | ~17.8 TFLOPS |
 | **FP16 GPU** | ~35.6 TFLOPS |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/AV1 |
-| **TDP** | 70-100 W（笔记本） / 100-150 W（Mac Studio） |
+| **TDP** | 70 W |
 | **MacBook Pro 16" M4 Max 128GB** | **$6,399** |
 | **Mac Studio M4 Max 128GB** | $3,999 |
 | **首发日期** | 2024-10-28 |

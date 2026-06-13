@@ -25,7 +25,7 @@ keywords: [Samsung HBM-PIM, Aquabolt, Processing-in-Memory, PIM, 存算一体, H
 | **集成算力** | **1.2 TFLOPS FP16**（每 HBM 堆叠） |
 | **能耗提升** | **2.5×**（vs 传统 HBM + GPU） |
 | **内存带宽** | 307 GB/s（传统）+ PIM 内部 1 TB/s+ |
-| **TDP** | +10%（vs 传统 HBM，集成 PIM 仅小幅增加） |
+| **TDP** | 10 W |
 | **接口** | HBM 接口（兼容现有 GPU 插槽） |
 | **首发** | 2021-02（Aquabolt）/ 2022-12（XL） |
 

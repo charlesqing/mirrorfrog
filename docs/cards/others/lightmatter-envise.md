@@ -27,7 +27,7 @@ keywords: [Lightmatter, Envise, 硅光, silicon photonics, 光学计算, 2 PF, 6
 | **FP16** | **2 PFLOPS** |
 | **FP32** | ~1 PFLOPS |
 | **INT8** | 4 POPS |
-| **TDP** | **65 W**（**业界最低 AI 推理 TDP 之一**） |
+| **TDP** | 65 W |
 | **能效比** | **30 TOPS/W**（H100 ~3 TOPS/W，**10× 优势**） |
 | **板卡形态** | OAM |
 | **互连** | **Lightmatter Passage 光互连**（PCIe + 光纤） |

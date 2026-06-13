@@ -24,7 +24,7 @@ AWS Trainium 2 于 **2024 年 12 月 3 日**在 re:Invent 2024 大会上 GA，�
 | **FP8 算力** | **1,299 TFLOPS**（密集）/ 2,563（稀疏） |
 | **BF16/FP16/TF32** | 667 TFLOPS |
 | **FP32** | 181 TFLOPS |
-| **TDP** | 约 700 W |
+| **TDP** | 700 W |
 | **NeuronLink** | NeuronLink-v3（1.28 TB/s 双向） |
 | **DMA 带宽** | 3.5 TB/s |
 

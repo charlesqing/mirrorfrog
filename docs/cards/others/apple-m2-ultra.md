@@ -26,7 +26,7 @@ keywords: [Apple M2 Ultra, M2 Ultra, 76 核 GPU, 192GB UMA, 800 GB/s, 本地 LLM
 | **FP32 GPU** | ~27.2 TFLOPS |
 | **FP16 GPU** | ~54.4 TFLOPS |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes |
-| **TDP** | 100-215 W（取决于负载） |
+| **TDP** | 100 W |
 | **首发价** | Mac Studio M2 Ultra 192GB: **$5,499** |
 | **首发日期** | 2023-06-05（WWDC 2023） |
 

@@ -29,7 +29,7 @@ keywords: [Groq LPU v2, Groq Language Processing Unit, 4nm, 80GB SRAM, 15 TB/s, 
 | **INT8** | **188 TOPS** |
 | **BF16** | 94 TFLOPS |
 | **FP16** | 94 TFLOPS |
-| **TDP** | **200 W**（**业界能效比最高的推理芯片之一**）|
+| **TDP** | 200 W |
 | **板卡形态** | PCIe Gen5 ×16 |
 | **互连** | GroqLink（自研，类 NVLink）|
 | **GroqLink 带宽** | 900 GB/s（4 卡域内）|

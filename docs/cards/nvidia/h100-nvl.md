@@ -28,7 +28,7 @@ keywords: [H100 NVL, 双 die, 94GB HBM3, 188GB HBM3e, LLM 推理, PCIe Gen5]
 | **显存带宽** | 3.35 TB/s（HBM3）/ 7.0 TB/s（HBM3e） |
 | **FP16 Tensor** | 1979 TFLOPS（稀疏） |
 | **FP8 Tensor** | 3958 TFLOPS（稀疏） |
-| **TDP** | 350-400 W（PCIe）/ 700 W（SXM-NVL） |
+| **TDP** | 350 W |
 | **接口** | PCIe Gen5 ×16 |
 | **首发** | 2024-Q1 |
 | **价格** | $30,000-$40,000（OEM） |

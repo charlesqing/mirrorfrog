@@ -25,7 +25,7 @@ keywords: [Cambricon, 寒武纪, MLU 590, 国产 AI 芯片, MindSpore, 科创板
 | **INT8 算力** | **256 TOPS** |
 | **BF16 算力** | **125 TFLOPS** |
 | **FP32 算力** | **62.5 TFLOPS** |
-| **TDP** | **~250 W** |
+| **TDP** | 250 W |
 | **PCIe** | PCIe 4.0 ×16 |
 | **互联** | MLU-Link（自研，类 NVLink） |
 | **板卡形态** | PCIe / OAM 模块 |

@@ -29,7 +29,7 @@ keywords: [Apple A17 Pro, A17 Pro, iPhone 15 Pro, 3nm N3B, hardware ray tracing,
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/ProRes RAW/AV1 解码 |
 | **ProRes** | **首次在 iPhone 硬件加速 ProRes 编码/解码** |
 | **接口** | **USB 3**（10 Gbps，告别 Lightning USB 2.0） |
-| **TDP** | ~8-10 W（iPhone 持续负载） |
+| **TDP** | 8 W |
 | **首发设备** | iPhone 15 Pro / Pro Max（$999/$1,199 起） |
 | **首发日期** | **2023-09-12** |
 | **iPhone 15 Pro 128GB** | **$999** |

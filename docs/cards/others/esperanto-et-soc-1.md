@@ -31,7 +31,7 @@ keywords: [Esperanto, ET-SoC-1, RISC-V AI, 异构 AI, ET-Minion, ET-Maxion, 1300
 | **INT8** | **42 TOPS** |
 | **FP16** | 21 TFLOPS |
 | **FP32** | 10.5 TFLOPS |
-| **TDP** | **~75 W** |
+| **TDP** | 75 W |
 | **板卡形态** | PCIe Gen4 ×16 |
 | **互连** | 自研互联（PCIe + Ethernet） |
 | **量产** | 2023-Q2 |

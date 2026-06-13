@@ -1,0 +1,1070 @@
+{
+  "nvidia": {
+    "h100": {
+      "official_msrp": 30000,
+      "market_price": 28000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价 / 市场均价"
+    },
+    "h200": {
+      "official_msrp": 40000,
+      "market_price": 38000,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "NVIDIA 官方指导价 / 市场均价"
+    },
+    "b100": {
+      "official_msrp": 38000,
+      "market_price": 35000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "b200": {
+      "official_msrp": 45000,
+      "market_price": 42000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "b300-ultra": {
+      "official_msrp": 55000,
+      "market_price": 52000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "gb200": {
+      "official_msrp": 65000,
+      "market_price": 62000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "gb300": {
+      "official_msrp": 75000,
+      "market_price": 72000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "rubin-r200": {
+      "official_msrp": 85000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    },
+    "l40s": {
+      "official_msrp": 7000,
+      "market_price": 6500,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "NVIDIA 官方指导价"
+    },
+    "l4": {
+      "official_msrp": 2500,
+      "market_price": 2300,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "rtx-4090": {
+      "official_msrp": 1600,
+      "market_price": 1500,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "rtx-5080": {
+      "official_msrp": 1200,
+      "market_price": 1100,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "rtx-5090": {
+      "official_msrp": 2000,
+      "market_price": 1900,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "rtx-5090-d-v2": {
+      "official_msrp": 2000,
+      "market_price": 2100,
+      "currency": "USD",
+      "last_updated": "2026-08-01",
+      "source": "预测价格"
+    },
+    "rtx-pro-6000-blackwell": {
+      "official_msrp": 6800,
+      "market_price": 6500,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "a100": {
+      "official_msrp": 15000,
+      "market_price": 28000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "二手市场均价"
+    },
+    "h100-nvl": {
+      "official_msrp": 40000,
+      "market_price": 38000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "h20": {
+      "official_msrp": 14000,
+      "market_price": 13000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "NVIDIA 中国特供版指导价"
+    },
+    "l2": {
+      "official_msrp": 2500,
+      "market_price": 2300,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "t4": {
+      "official_msrp": 2500,
+      "market_price": 1800,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "二手市场均价"
+    },
+    "rtx-6000-ada": {
+      "official_msrp": 4500,
+      "market_price": 4200,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "NVIDIA 官方指导价"
+    },
+    "drive-thor": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "不单独销售",
+      "note": "车规级平台，仅通过NVIDIA DRIVE提供"
+    },
+    "jetson-orin": {
+      "official_msrp": 400,
+      "market_price": 380,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "NVIDIA 官方指导价（模组）"
+    },
+    "jetson-thor": {
+      "official_msrp": 800,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格（模组）"
+    }
+  },
+  "amd": {
+    "mi210": {
+      "official_msrp": 9000,
+      "market_price": 8500,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "AMD 官方指导价"
+    },
+    "mi250x": {
+      "official_msrp": 15000,
+      "market_price": 14000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "AMD 官方指导价"
+    },
+    "mi300x": {
+      "official_msrp": 15000,
+      "market_price": 13500,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "AMD 官方指导价 / 市场均价"
+    },
+    "mi325x": {
+      "official_msrp": 18000,
+      "market_price": 16500,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "AMD 官方指导价"
+    },
+    "mi350x": {
+      "official_msrp": 20000,
+      "market_price": 18500,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "AMD 官方指导价"
+    },
+    "mi355x": {
+      "official_msrp": 22000,
+      "market_price": 20500,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "AMD 官方指导价"
+    },
+    "mi400": {
+      "official_msrp": 55000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    },
+    "mi250": {
+      "official_msrp": 12000,
+      "market_price": 10000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "二手市场均价"
+    },
+    "mi300a": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "不单独销售",
+      "note": "APU，仅通过超算系统（如El Capitan）提供"
+    },
+    "mi350": {
+      "official_msrp": 40000,
+      "market_price": 37000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "AMD 官方指导价"
+    }
+  },
+  "intel": {
+    "gaudi-2": {
+      "official_msrp": 12000,
+      "market_price": 11000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Intel 官方指导价"
+    },
+    "gaudi-3": {
+      "official_msrp": 18000,
+      "market_price": 16500,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Intel 官方指导价"
+    },
+    "gaudi-4": {
+      "official_msrp": 25000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    },
+    "max-1550": {
+      "official_msrp": 3500,
+      "market_price": 3200,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Intel 官方指导价"
+    },
+    "flex-170": {
+      "official_msrp": 900,
+      "market_price": 850,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Intel 官方指导价"
+    },
+    "arc-pro-b60": {
+      "official_msrp": 500,
+      "market_price": 480,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Intel 官方指导价"
+    },
+    "arc-pro-b50": {
+      "official_msrp": 350,
+      "market_price": 330,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Intel 官方指导价"
+    },
+    "max-series": {
+      "official_msrp": 4000,
+      "market_price": 3700,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Intel 官方指导价"
+    },
+    "flex-series": {
+      "official_msrp": 1000,
+      "market_price": 900,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Intel 官方指导价"
+    },
+    "gaudi-1": {
+      "official_msrp": 8000,
+      "market_price": 7000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Intel 官方指导价（已停产）"
+    }
+  },
+  "google": {
+    "tpu-v4": {
+      "official_msrp": 25000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Google Cloud 定价",
+      "note": "仅通过 Google Cloud 提供，按小时计费"
+    },
+    "tpu-v5e": {
+      "official_msrp": 18000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Google Cloud 定价",
+      "note": "仅通过 Google Cloud 提供，按小时计费"
+    },
+    "tpu-v5p": {
+      "official_msrp": 35000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Google Cloud 定价",
+      "note": "仅通过 Google Cloud 提供，按小时计费"
+    },
+    "tpu-v6e": {
+      "official_msrp": 22000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Google Cloud 定价",
+      "note": "仅通过 Google Cloud 提供，按小时计费"
+    },
+    "tpu-v6p": {
+      "official_msrp": 40000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Google Cloud 定价",
+      "note": "仅通过 Google Cloud 提供，按小时计费"
+    },
+    "tpu-ironwood": {
+      "official_msrp": 45000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格",
+      "note": "仅通过 Google Cloud 提供，按小时计费"
+    },
+    "tpu-8i": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Google Cloud提供",
+      "note": "TPU v4的工业版，按小时计费"
+    },
+    "tpu-8t": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Google Cloud提供",
+      "note": "TPU v5e的工业版，按小时计费"
+    }
+  },
+  "aws": {
+    "trainium": {
+      "official_msrp": 15000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "AWS 定价",
+      "note": "仅通过 AWS 提供，按小时计费"
+    },
+    "trainium-2": {
+      "official_msrp": 22000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "AWS 定价",
+      "note": "仅通过 AWS 提供，按小时计费"
+    },
+    "trainium-3": {
+      "official_msrp": 30000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "AWS 定价",
+      "note": "仅通过 AWS 提供，按小时计费"
+    },
+    "inferentia": {
+      "official_msrp": 8000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "AWS 定价",
+      "note": "仅通过 AWS 提供，按小时计费"
+    },
+    "inferentia-2": {
+      "official_msrp": 12000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "AWS 定价",
+      "note": "仅通过 AWS 提供，按小时计费"
+    }
+  },
+  "huawei": {
+    "ascend-910b": {
+      "official_msrp": 12000,
+      "market_price": 10500,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "华为官方指导价 / 市场均价"
+    },
+    "ascend-910c": {
+      "official_msrp": 16000,
+      "market_price": 14500,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "华为官方指导价"
+    },
+    "ascend-920": {
+      "official_msrp": 25000,
+      "market_price": 23000,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "华为官方指导价"
+    },
+    "ascend-950pr": {
+      "official_msrp": 18000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    },
+    "ascend-950dt": {
+      "official_msrp": 22000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    },
+    "ascend-910d": {
+      "official_msrp": 18000,
+      "market_price": 16000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "华为官方指导价"
+    },
+    "ascend-950": {
+      "official_msrp": 22000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    }
+  },
+  "others": {
+    "cambricon-mlu-590": {
+      "official_msrp": 9000,
+      "market_price": 8000,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "寒武纪官方指导价 / 市场均价"
+    },
+    "cerebras-wse-3": {
+      "official_msrp": 5000000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Cerebras 官方指导价",
+      "note": "整机架系统，非单卡"
+    },
+    "groq-lpu": {
+      "official_msrp": 30000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-05-01",
+      "source": "Groq 官方指导价"
+    },
+    "etched-sohu": {
+      "official_msrp": 35000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    },
+    "biren-br104": {
+      "official_msrp": 10000,
+      "market_price": 9000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "壁仞官方指导价"
+    },
+    "cambricon-mlu": {
+      "official_msrp": 10000,
+      "market_price": 9000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "寒武纪官方指导价"
+    },
+    "cambricon-mlu-370": {
+      "official_msrp": 8000,
+      "market_price": 7000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "寒武纪官方指导价"
+    },
+    "cambricon-mlu-690": {
+      "official_msrp": 15000,
+      "market_price": 13000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "寒武纪官方指导价"
+    },
+    "kunlun-m100": {
+      "official_msrp": 12000,
+      "market_price": 10000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "百度官方指导价"
+    },
+    "kunlun-m300": {
+      "official_msrp": 18000,
+      "market_price": 16000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "百度官方指导价"
+    },
+    "kunlun-p800": {
+      "official_msrp": 22000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格"
+    },
+    "metax-c600": {
+      "official_msrp": 10000,
+      "market_price": 9000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "沐曦官方指导价"
+    },
+    "hygon-dcu-k100": {
+      "official_msrp": 12000,
+      "market_price": 10000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "海光官方指导价"
+    },
+    "moore-threads-mtt-s5000": {
+      "official_msrp": 3000,
+      "market_price": 2800,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "摩尔线程官方指导价"
+    },
+    "enflame-t20": {
+      "official_msrp": 8000,
+      "market_price": 7000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "燧原科技官方指导价"
+    },
+    "furiosaai-rngd": {
+      "official_msrp": 12000,
+      "market_price": 10000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "FuriosaAI 官方指导价"
+    },
+    "hailo": {
+      "official_msrp": 300,
+      "market_price": 280,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Hailo 官方指导价（模组价格）",
+      "note": "边缘AI芯片，模组形式"
+    },
+    "hailo-15": {
+      "official_msrp": 500,
+      "market_price": 450,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Hailo 官方指导价（模组价格）"
+    },
+    "tenstorrent": {
+      "official_msrp": 15000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Tenstorrent 官方指导价",
+      "note": "主要通过云提供"
+    },
+    "tenstorrent-blackhole": {
+      "official_msrp": 20000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Tenstorrent 官方指导价",
+      "note": "主要通过云提供"
+    },
+    "sambanova-sn40l": {
+      "official_msrp": 200000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "SambaNova 官方指导价",
+      "note": "整机系统，非单卡"
+    },
+    "sn50": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "已停产",
+      "note": "SambaNova旧型号，已停产"
+    },
+    "graphcore-ipu": {
+      "official_msrp": 15000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "Graphcore 官方指导价",
+      "note": "IPU PCIe卡，需配合IPU-M2000系统等"
+    },
+    "wse-2": {
+      "official_msrp": 3000000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "Cerebras 官方指导价",
+      "note": "整机架系统，非单卡"
+    },
+    "qualcomm-ai-100": {
+      "official_msrp": 8000,
+      "market_price": 7000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "高通官方指导价"
+    },
+    "qualcomm-ai200": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格",
+      "note": "未正式发布"
+    },
+    "qualcomm-ai250": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格",
+      "note": "未正式发布"
+    },
+    "qualcomm-snapdragon-x-elite": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "不单独销售",
+      "note": "仅通过笔记本/PC平台提供"
+    },
+    "mediatek-dimensity-9400": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "移动SoC，不单独销售",
+      "note": "仅通过手机设备提供"
+    },
+    "apple-a17-pro": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "移动SoC，不单独销售",
+      "note": "仅通过iPhone 15 Pro/Pro Max提供"
+    },
+    "apple-a18": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "移动SoC，不单独销售",
+      "note": "仅通过iPhone 16提供"
+    },
+    "apple-a18-pro": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "移动SoC，不单独销售",
+      "note": "仅通过iPhone 16 Pro/Pro Max提供"
+    },
+    "apple-a19": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "移动SoC，不单独销售"
+    },
+    "apple-a19-pro": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "移动SoC，不单独销售"
+    },
+    "apple-m-series": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m1-max": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m1-pro": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m1-ultra": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m2-max": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m2-ultra": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m3-max": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m3-ultra": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m4-max": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m4-pro": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m4-ultra": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Apple Silicon，不单独销售",
+      "note": "仅通过Mac设备提供"
+    },
+    "apple-m5-ultra": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "Apple Silicon，不单独销售"
+    },
+    "alibaba-hanguang-800": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过阿里云提供",
+      "note": "云端AI加速芯片，不单独销售"
+    },
+    "alibaba-ppu": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过阿里云提供",
+      "note": "云端AI推理芯片，不单独销售"
+    },
+    "akida-2": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过BrainChip提供",
+      "note": "神经形态芯片，不单独销售"
+    },
+    "blaize-xplorer": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Blaize提供",
+      "note": "边缘AI芯片，不单独销售"
+    },
+    "core-ultra-2": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Intel，不单独销售",
+      "note": "仅通过Intel NUC等设备提供"
+    },
+    "crescent-island": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "未发布，规格未知"
+    },
+    "d-matrix-corsair": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "存算一体芯片，未正式发布"
+    },
+    "edge-tpu": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Google，不单独销售",
+      "note": "仅通过Coral开发板提供"
+    },
+    "esperanto-et-soc-1": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Esperanto提供",
+      "note": "RISC-V AI芯片，不单独销售"
+    },
+    "groq-3-lpx": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "未正式发布"
+    },
+    "groq-lpu-v2": {
+      "official_msrp": 35000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Groq 官方指导价",
+      "note": "仅通过Groq Cloud提供"
+    },
+    "hbm-pim": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "SK海力士，不单独销售",
+      "note": "HBM-PIM是内存技术，非独立芯片"
+    },
+    "ibm-northpole": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "研究原型",
+      "note": "IBM研究原型，不商业化"
+    },
+    "jaguar-shores": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Intel，已取消",
+      "note": "Intel Falcon Shores已取消"
+    },
+    "lightelligence": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "光计算芯片，未正式商用"
+    },
+    "lightmatter-envise": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "光计算芯片，未正式商用"
+    },
+    "lighton": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "光计算芯片，未正式商用"
+    },
+    "maia-200": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Azure提供",
+      "note": "Microsoft自研，仅Azure云提供"
+    },
+    "mobilint": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "边缘AI芯片，未正式发布"
+    },
+    "mtia-v3": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Meta内部使用",
+      "note": "Meta自研，不对外销售"
+    },
+    "rebellions-rbln": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "Rebellions，不单独销售",
+      "note": "韩国AI芯片，主要通过云提供"
+    },
+    "rtx-spark": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "未知",
+      "note": "可能是概念产品，未正式发布"
+    },
+    "rubin": {
+      "official_msrp": 85000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格",
+      "note": "NVIDIA Rubin，2026年发布"
+    },
+    "rubin-cpx": {
+      "official_msrp": 90000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格",
+      "note": "NVIDIA Rubin CPX，2026年发布"
+    },
+    "ryzen-ai-max": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "AMD，不单独销售",
+      "note": "仅通过AMD Ryzen台式机提供"
+    },
+    "tesla-doj": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Tesla内部使用",
+      "note": "Tesla自研，不对外销售"
+    },
+    "tesla-dojo-v2": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "仅通过Tesla内部使用",
+      "note": "Tesla自研，不对外销售"
+    },
+    "vera-cpu": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测",
+      "note": "未正式发布"
+    },
+    "wse-3": {
+      "official_msrp": 5000000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-13",
+      "source": "Cerebras 官方指导价",
+      "note": "整机架系统，非单卡"
+    },
+    "wse-4": {
+      "official_msrp": 8000000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "预测价格",
+      "note": "整机架系统，非单卡"
+    }
+  }
+}

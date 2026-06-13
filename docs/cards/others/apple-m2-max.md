@@ -33,7 +33,7 @@ keywords: [Apple M2 Max, M2 Max, 38 核 GPU, 96GB UMA, 400 GB/s, 15.8 TOPS NE, M
 | **FP32 GPU** | ~13.6 TFLOPS |
 | **FP16 GPU** | ~27.2 TFLOPS |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes |
-| **TDP** | 60-90 W（笔记本） / 100-150 W（Mac Studio） |
+| **TDP** | 60 W |
 | **MacBook Pro 16" M2 Max 96GB** | **$4,999** |
 | **Mac Studio M2 Max 96GB** | $2,999 |
 | **首发日期** | 2023-01-17 |

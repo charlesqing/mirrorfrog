@@ -27,7 +27,7 @@ keywords: [BrainChip Akida 2, 神经形态, neuromorphic, event-driven, spiking 
 | **能效** | **1.5W 典型**（< 1W 空闲） |
 | **数据精度** | 1/2/4/8-bit 权重 |
 | **片上学习** | **支持**（TAML - Temporal Addressable Memory Learning） |
-| **TDP** | < 1.5 W |
+| **TDP** | 1.5 W |
 | **接口** | SPI / I2C / USB / MIPI / PCIe |
 | **首发** | 2024-09（Akida 2 IP） |
 | **目标价** | $30-$100（IP 授权 / 芯片） |

@@ -26,7 +26,7 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 | **FP32** | **62.5 TFLOPS**（推测） |
 | **BF16 / FP16** | **500 TFLOPS**（推测） |
 | **INT8** | **2,000 TOPS**（推测） |
-| **TDP** | **~300 W** |
+| **TDP** | 300 W |
 | **PCIe** | PCIe 4.0 ×16 |
 | **互联** | MUSA Link（自研，类 NVLink） |
 | **板卡形态** | OAM / PCIe |

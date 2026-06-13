@@ -41,6 +41,7 @@ keywords: [MediaTek Dimensity 9400, Cortex-X925, Immortalis-G925, NPU 890, Agent
 | **首发设备** | Vivo X200 Pro（2024-10）、OPPO Find X8、Xiaomi 15 |
 | **首发日期** | **2024-10-09** |
 | **Vivo X200 Pro 价格** | **~$900-$1,100** |
+| **TDP** | 10 W |
 
 ## 与 Snapdragon 8 Gen 3 / Dimensity 9300 对比
 

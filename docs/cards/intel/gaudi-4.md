@@ -30,7 +30,7 @@ keywords: [Intel Gaudi 4, Gaudi 4, Intel AI, 3nm, HBM3E, SynapseAI, 对标 H200]
 | **BF16 dense** | **1.85 PFLOPS** |
 | **FP16 dense** | 1.85 PFLOPS |
 | **FP32** | ~462 TFLOPS |
-| **TDP** | **~700 W** |
+| **TDP** | 700 W |
 | **板卡形态** | OAM / PCIe Gen5 ×16 |
 | **互联** | 24× 200GbE RoCE v2（Gaudi 3 同款，扩展性极佳） |
 | **量产时间** | **2026-Q2**（从 2025-Q4 推迟） |

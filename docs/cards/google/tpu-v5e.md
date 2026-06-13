@@ -31,7 +31,7 @@ keywords: [Google TPU v5e, TPU v5e, 5nm, 16GB HBM2, 400 TF FP8, 训练-Lite, 推
 | **FP8 dense** | **400 TFLOPS**（v5p 是 1.89 PF）|
 | **BF16 dense** | 200 TFLOPS |
 | **INT8** | 400 TOPS |
-| **TDP** | **180W**（v5p 是 450W）|
+| **TDP** | 180 W |
 | **板卡形态** | Cloud TPU v5e pod slice |
 | **Pod 规模** | **256 芯片**（v5p 是 8,960）|
 | **Pod 算力** | 102 TF FP8 dense（v5p 是 16.9 EF）|

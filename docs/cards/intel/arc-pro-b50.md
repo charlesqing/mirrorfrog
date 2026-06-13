@@ -27,7 +27,7 @@ keywords: [Intel Arc Pro B50, Xe2, Battlemage, 入门级专业显卡, 低功耗,
 | **显存** | **16 GB GDDR6** |
 | **显存位宽** | 128-bit |
 | **显存带宽** | ~256 GB/s（预估） |
-| **TDP** | 70W |
+| **TDP** | 70 W |
 | **PCIe** | Gen 5 x16（预估） |
 | **供电接口** | 无（从 PCIe 插槽取电） |
 | **ECC** | 不支持 |

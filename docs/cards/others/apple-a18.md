@@ -29,7 +29,7 @@ keywords: [Apple A18, A18, iPhone 16, 5-core GPU, 8 GB RAM, 3nm N3E, Apple Intel
 | **内存带宽** | ~51.2 GB/s（8 GB @ 6400 MT/s） |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/ProRes RAW/AV1 解码 |
 | **接口** | USB 2.0（Lightning 端口限制，$1,099+ USB 3 限制） |
-| **TDP** | ~8 W（iPhone 持续负载） |
+| **TDP** | 8 W |
 | **首发设备** | iPhone 16（5 核 GPU）、iPhone 16 Plus（5 核 GPU）、iPhone 16e（4 核 GPU，2025-02 上市）、MacBook Neo（5 核 GPU，2025-02 上市） |
 | **首发日期** | **2024-09-09** |
 | **iPhone 16 128GB** | **$799** |

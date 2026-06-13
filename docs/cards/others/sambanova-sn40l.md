@@ -23,6 +23,7 @@ SambaNova SN40L 是基于**可重构数据流（RDU - Reconfigurable Dataflow Un
 | **INT8 算力（估算）** | 200 TOPS |
 | **系统** | SN40L-8（8 节点） |
 | **互联** | SambaNova 自研（Coherent Memory） |
+| **TDP** | 200000 W |
 
 ## 厂商信息
 

@@ -34,7 +34,11 @@ const KEY_MAP = {
   'fp32': 'compute.fp32', 'fp32 算力': 'compute.fp32',
   'fp64': 'compute.fp64',
   'int8': 'compute.int8', 'int8 算力': 'compute.int8', 'int8 tensor': 'compute.int8',
-  'tdp': 'tdp', '功耗': 'tdp', 'power': 'tdp', 'power consumption': 'tdp',
+  'tdp': 'tdp',
+  'tdp（系统）': 'tdp', 'tdp(系统)': 'tdp',
+  'tdp（单 superchip）': 'tdp', 'tdp(单superchip)': 'tdp', 'tdp(superchip)': 'tdp', 'tdp（superchip）': 'tdp',
+  'tdp（exapod）': 'tdp', 'tdp(exapod)': 'tdp',
+  '功耗': 'tdp', 'power': 'tdp', 'power consumption': 'tdp',
   '发布': 'release', '发布时间': 'release', '首发': 'release', '首发日期': 'release',
   'release': 'release', 'release date': 'release', 'launch': 'release', 'launch date': 'release',
 };
@@ -73,9 +77,15 @@ function walk(dir, exts) {
 
 function parseSpecsTable(markdown) {
   const result = {};
-  const m = markdown.match(/^##\s+核心规格[^\n]*\n([\s\S]*?)(?=^##\s+|\Z)/m);
-  if (!m) return result;
-  const block = m[1];
+  // 找到第一个 "## 核心规格" / "## Specifications" / "## 关键规格" 等标题
+  // 也支持 D1 芯片核心规格、产品线对比 等变体
+  const headerRe = /^##\s+(?:核心规格|核心规格表|Specifications?|Core\s+Specs?|Key\s+Specs?|D1\s*芯片核心规格|产品线对比|关键规格|核心参数|技术规格)[^\n]*$/m;
+  const headerMatch = markdown.match(headerRe);
+  if (!headerMatch) return result;
+  // 从标题结束开始截取到下一个 ## 标题之前
+  const after = markdown.substring(headerMatch.index + headerMatch[0].length);
+  const nextHeader = after.search(/^##\s+/m);
+  const block = nextHeader === -1 ? after : after.substring(0, nextHeader);
   const lines = block.split('\n');
   let inTable = false;
   for (const line of lines) {
@@ -88,7 +98,15 @@ function parseSpecsTable(markdown) {
     if (/^\|[\s-:|]+\|$/.test(trimmed)) continue;
     const cells = trimmed.split('|').map(s => s.trim()).filter(Boolean);
     if (cells.length < 2) continue;
-    const [rawKey, rawVal] = cells;
+    // 2 列：标准 spec 表 (key, value)
+    // 3+ 列：对比表，识别 "Rubin"、"本型号"、"当前型号" 等行后第二列作为值
+    let rawKey, rawVal;
+    if (cells.length === 2) {
+      [rawKey, rawVal] = cells;
+    } else {
+      // 对比表：cells[0] 是项目，cells[1] 是当前型号（rubin），cells[2+] 是对比
+      [rawKey, , rawVal] = cells;
+    }
     const normKey = normalizeKey(rawKey);
     if (!normKey) continue;
     const value = rawVal.replace(/[*_`]/g, '').trim();

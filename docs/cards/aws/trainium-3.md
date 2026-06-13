@@ -25,7 +25,7 @@ Trainium 3 是 AWS **"AI 工厂"战略**的核心 —— Amazon 内部 Bedrock�
 | **HBM 带宽** | ~4.5 TB/s（推测） |
 | **FP8 算力（密集）** | **2.52 PFLOPS** |
 | **BF16/FP16** | 1,260 TFLOPS（推测，FP8 一半） |
-| **TDP** | ~700 W |
+| **TDP** | 700 W |
 | **NeuronLink** | NeuronLink-v4 |
 | **首发** | **2025-12-02 GA**（re:Invent 2025） |
 

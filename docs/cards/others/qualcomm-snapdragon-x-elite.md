@@ -30,7 +30,7 @@ keywords: [Qualcomm Snapdragon X Elite, Oryon, 12 核 CPU, 4.3 GHz, 45 TOPS NPU,
 | **最大内存** | 64 GB |
 | **内存带宽** | 135 GB/s（16-bit 总线，8 通道） |
 | **存储** | NVMe SSD over PCIe Gen 4、UFS 4.0、SD v3.0 |
-| **TDP** | 23W（典型）/ 45W（高性能模式） |
+| **TDP** | 23 W |
 | **Wi-Fi** | **Wi-Fi 7**（Qualcomm FastConnect 7800） |
 | **Bluetooth** | Bluetooth 5.4 |
 | **视频编码** | 4K60 10-bit H.264/HEVC/AV1 |

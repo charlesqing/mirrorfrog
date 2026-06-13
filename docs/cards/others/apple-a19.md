@@ -30,7 +30,7 @@ keywords: [Apple A19, A19, iPhone 17, 5-core GPU, 8 GB RAM, 3nm N3P, Apple Intel
 | **内存带宽** | ~51.2 GB/s（8 GB @ 6400 MT/s） |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes/ProRes RAW/AV1 解码、硬件光线追踪 |
 | **接口** | USB 2.0（Lightning 端口限制） |
-| **TDP** | ~8 W（iPhone 持续负载） |
+| **TDP** | 8 W |
 | **首发设备** | iPhone 17（5 核 GPU，$799 起）、iPhone 17e（4 核 GPU，$599 起） |
 | **首发日期** | **2025-09-09** |
 | **iPhone 17 256GB** | **$799** |

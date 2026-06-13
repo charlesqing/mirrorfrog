@@ -32,7 +32,7 @@ keywords: [Cambricon MLU 370, 寒武纪 思元 370, 7nm, 48GB HBM2, 96 TOPS, 35W
 | **INT8** | **96 TOPS** |
 | **BF16** | **48 TFLOPS** |
 | **FP32** | 24 TFLOPS |
-| **TDP** | **35W**（**业界最节能 7nm 数据中心 AI**） |
+| **TDP** | 35 W |
 | **板卡形态** | PCIe Gen4 ×16 |
 | **互联** | MLU-Link 200 GB/s |
 | **量产** | 2021-Q4 |

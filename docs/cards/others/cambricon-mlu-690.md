@@ -30,7 +30,7 @@ keywords: [Cambricon MLU 690, 寒武纪, 5nm, FP8, HBM3E, 国产下一代, 2025-
 | **FP8 dense** | **2 PFLOPS** |
 | **FP16 / BF16 dense** | 1 PFLOPS |
 | **INT8** | 4 POPS |
-| **TDP** | **~500W** |
+| **TDP** | 500 W |
 | **板卡形态** | OAM / PCIe Gen5 ×16 |
 | **互联** | **MLU-Link 1.2 TB/s**（类 NVLink 5） |
 | **量产** | **2025 H2 - 2026 H1** |

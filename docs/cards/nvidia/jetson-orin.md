@@ -12,6 +12,12 @@ keywords: [Jetson Orin, 边缘 AI, 嵌入式, AGX Orin, Orin Nano, 机器人, �
 
 NVIDIA Jetson Orin 是面向边缘 AI 和机器人应用的 SoM（System-on-Module）系列。基于 **Ampere 架构 GPU + ARM Cortex-A78AE CPU**，提供从 67 TOPS 到 275 TOPS 的 AI 算力范围。Orin 系列包括 **Orin Nano**、**Orin NX** 和 **AGX Orin** 三个子系列。
 
+## 核心规格
+
+| 项目 | 参数 |
+|------|------|
+| **TDP** | 60 W |
+
 ## Orin Nano 系列
 
 | 规格 | Orin Nano 4GB | Orin Nano 8GB |

@@ -28,7 +28,7 @@ keywords: [Mobilint, Regulus, 韩国 NPU, 5nm, 32 TOPS, 12W, Edge AI, 韩国 AI 
 | **INT8** | **32 TOPS** |
 | **FP16** | 16 TFLOPS |
 | **BF16** | 16 TFLOPS |
-| **TDP** | **12W**（**业界最低数据中心 NPU TDP 之一**）|
+| **TDP** | 12 W |
 | **能效** | **2.67 TOPS/W** |
 | **板卡形态** | M.2 / PCIe Gen4 ×4 / OAM |
 | **互连** | PCIe Gen4 |

@@ -29,7 +29,7 @@ Vera Rubin 平台还包含**双独立 ConnectX-9 NIC**（每 GPU 28.8 TB/s 聚�
 | **FP16/BF16 密集** | **12.5 PFLOPS** |
 | **NVLink 6** | **3.5 TB/s/GPU**（第 6 代，2× 上一代） |
 | **DC 网络** | **ConnectX-9, 28.8 Tbps/GPU**（双 14.4 Tbps 端口） |
-| **TDP** | ~1,800 W（**液冷必需**） |
+| **TDP** | 1800 W |
 | **首发** | **2026 H2** |
 
 > ⚠️ **数据约定**：NVIDIA Blackwell 之后继续采用 **sparse（稀疏）算力** 为官方标准，与 AMD/Google **dense（密集）** 算力不可直接比较。本页 FP4 50 PF / FP8 25 PF 均为稀疏。

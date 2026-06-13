@@ -304,6 +304,7 @@ const config: Config = {
             {label: '归档', to: '/blog/archive'},
           ],
         },
+        {to: '/docs/tco-calculator', label: 'TCO 计算器', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',

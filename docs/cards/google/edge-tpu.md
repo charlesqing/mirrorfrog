@@ -39,6 +39,7 @@ keywords: [Google Edge TPU, Edge TPU, Coral, 4 TOPS, 2 TOPS/W, M.2 Accelerator, 
 | **Coral Mini PCIe Accelerator** | **$24.99** |
 | **Coral Dual Edge TPU M.2** | **$49.99** |
 | **Coral Dev Board** | **$149.99**（已停产，2024） |
+| **TDP** | 2 W |
 
 ## 与 NVIDIA Jetson Nano 对比
 

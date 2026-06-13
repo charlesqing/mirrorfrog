@@ -27,7 +27,7 @@ keywords: [Lightelligence, 天机芯, 硟光, 光学 AI, 1.6 PF, 中科院, 硟�
 | **FP16** | **1.6 PFLOPS** |
 | **FP32** | ~0.8 PFLOPS |
 | **INT8** | 3.2 POPS |
-| **TDP** | **~100 W** |
+| **TDP** | 100 W |
 | **能效比** | **16 TOPS/W**（H100 ~3 TOPS/W，**5× 优势**） |
 | **板卡形态** | PCIe Gen4 ×16 |
 | **互连** | 自研光互连（PCIe + 光纤）|

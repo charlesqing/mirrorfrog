@@ -29,7 +29,7 @@ keywords: [Intel Core Ultra Series 2, Lunar Lake, LNL, NPU 4.0, 48 TOPS, Xe2 GPU
 | **内存** | **16/32 GB LPDDR5X on-package**（与 SoC 一体封装，8533 MT/s） |
 | **内存带宽** | ~136 GB/s（128-bit，8533 MT/s） |
 | **PCIe** | 4× PCIe Gen 5 + 4× PCIe Gen 4 |
-| **TDP** | **17W / 28W / 37W**（cTDP 灵活） |
+| **TDP** | 17 W |
 | **Wi-Fi** | Wi-Fi 7 (BE201) |
 | **Bluetooth** | Bluetooth 5.4 |
 | **首发型号** | Core Ultra 5 226V / 228V / 236V / 238V、Core Ultra 7 256V / 258V / 266V / 268V、Core Ultra 9 288V |

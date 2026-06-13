@@ -28,7 +28,7 @@ keywords: [Apple M1 Ultra, M1 Ultra, 64 核 GPU, 128GB UMA, UltraFusion 1.0, 800
 | **FP32 GPU** | 21 TFLOPS |
 | **FP16 GPU** | 42 TFLOPS |
 | **媒体引擎** | 硬件 H.264/HEVC/ProRes |
-| **TDP** | 60-120 W |
+| **TDP** | 60 W |
 | **首发价** | Mac Studio M1 Ultra 128GB: **$5,999**（2022-03 首发价）|
 | **首发日期** | 2022-03-18（Mac Studio 首发）|
 | **停产** | 2023-06（M2 Ultra 替代）|

@@ -28,7 +28,7 @@ keywords: [Intel Arc Pro B60, Xe2, Battlemage, 专业显卡, AI 工作站, 24GB 
 | **INT8** | 197 TOPS |
 | **显存** | **24 GB GDDR6** |
 | **显存带宽** | 456 GB/s（192-bit） |
-| **TDP** | 200W |
+| **TDP** | 200 W |
 | **PCIe** | Gen 5 x16（预估） |
 | **ECC** | 不支持 |
 | **发布时间** | 2025 年 5 月 |

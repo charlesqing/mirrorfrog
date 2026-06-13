@@ -26,7 +26,7 @@ keywords: [Blaize, Xplorer X1600, Edge AI, GSP, Graph Streaming Processor, 7K TO
 | **内存带宽** | 51.2 GB/s |
 | **INT8** | **160 TOPS** |
 | **FP16** | 80 TFLOPS |
-| **TDP** | **22 W**（**业界最低 TDP 的高 TOPS AI 芯片之一**） |
+| **TDP** | 22 W |
 | **能效** | **7.27 TOPS/W**（H100 ~2.16, Hailo-8 ~1.4） |
 | **板卡形态** | M.2 / PCIe / SoM（System on Module）|
 | **互连** | PCIe Gen3 ×4 / USB 3.0 |

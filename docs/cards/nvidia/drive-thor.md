@@ -43,6 +43,7 @@ keywords: [NVIDIA DRIVE Thor, DRIVE Thor, Blackwell 自动驾驶, 1000 TOPS INT8
 | **首发 OEM** | **ZEEKR 极氪**（2025 H2 量产）、Volvo EX90（2025-2026） |
 | **首发日期** | **2024 量产、2025-08-25 DevKit 预售、2025-09 DevKit 发货** |
 | **DevKit 价格** | **$5,499**（DRIVE AGX Thor Developer Kit） |
+| **TDP** | 500 W |
 
 ## 与 Orin 对比
 

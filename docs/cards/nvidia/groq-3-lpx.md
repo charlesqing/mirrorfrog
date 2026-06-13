@@ -30,6 +30,7 @@ Groq 3 LPX 是 **NVIDIA Vera Rubin 平台**的**推理加速 co-processor** —�
 | **TDP（机柜）** | ~80 kW |
 | **perf/W（推理）** | **35× H100**（官方） |
 | **首发** | **2026 H2**（与 Rubin R200 同期） |
+| **TDP** | 4000 W |
 
 > 📌 **40 PB/s 片上 SRAM 带宽 ≈ 5,000× H100 HBM 带宽**（H100 80GB HBM3 = 3.35 TB/s）。这是 Groq LPU **极致低延迟**的核心秘密。
 

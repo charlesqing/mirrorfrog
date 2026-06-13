@@ -27,6 +27,7 @@ Google TPU v5p（v5 **P**remium）是 Google 第五代 **Premium TPU**，2023 �
 | **Pod 规模** | **8,960 芯片**（4×4×4×140 3D Torus） |
 | **散热** | 液冷 |
 | **提供方式** | 仅 Google Cloud |
+| **TDP** | 300 W |
 
 ## TPU v5p vs v5e vs v4
 

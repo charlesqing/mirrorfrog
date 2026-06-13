@@ -26,7 +26,7 @@ keywords: [Google TPU v4, TPU v4 Pod, 2D torus, 32GB HBM, 4096 chips, AI 训练]
 | **BF16 算力（密集）** | 275 TFLOPS |
 | **INT8 算力** | 275 TOPS |
 | **SparseCore** | 第二代（嵌入加速） |
-| **TDP** | 170 W（约） |
+| **TDP** | 170 W |
 | **形态** | 4 芯片板卡（v4 board） |
 | **互联** | **2D Torus, ICI 800 GB/s** |
 | **Pod 规模** | **4,096 chips** |
