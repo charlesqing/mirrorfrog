@@ -73,9 +73,9 @@ MTT S2000是摩尔线程面向数据中心和服务器市场的首款全功能GP
 
 ## 相关产品
 
-- [MTT S3000](./moore-threads-mtt-s3000.md) — 全功能服务器GPU（升级版）
-- [MTT S4000](./moore-threads-mtt-s4000.md) — 大模型智算加速卡
-- [MTT S5000](./moore-threads-mtt-s5000.md) — 训推一体全功能GPU
+- [MTT S3000](./moore-threads-mtt-s3000) — 全功能服务器GPU（升级版）
+- [MTT S4000](./moore-threads-mtt-s4000) — 大模型智算加速卡
+- [MTT S5000](./moore-threads-mtt-s5000) — 训推一体全功能GPU
 
 ---
 

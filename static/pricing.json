@@ -1170,6 +1170,41 @@
       "currency": "CNY",
       "last_updated": "2026-06-13",
       "source": "摩尔线程京东官方首发价¥2,999"
+    },
+    "enflame-s60": {
+      "official_msrp": 35000,
+      "market_price": 32000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "燧原科技渠道估算（第三代推理卡，300W）"
+    },
+    "enflame-l600": {
+      "official_msrp": 70000,
+      "market_price": 65000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "燧原科技渠道估算（第四代训推一体，144GB HBM3）"
+    },
+    "metax-c550": {
+      "official_msrp": 45000,
+      "market_price": 42000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "沐曦渠道估算（C500迭代，FP16 22.4 TFLOPS）"
+    },
+    "metax-c588": {
+      "official_msrp": 55000,
+      "market_price": 50000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "沐曦渠道估算（C500旗舰迭代，XCORE 1.5）"
+    },
+    "metax-g100": {
+      "official_msrp": 1999,
+      "market_price": 1800,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "沐曦渠道估算（曦彩G系列首款，图形渲染，研发中）"
     }
   }
 }

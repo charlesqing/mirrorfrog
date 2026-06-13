@@ -59,7 +59,7 @@ MTIA v3 is the core product of Meta's two-year four-generation self-developed ch
 
 ## Related Products#
 
-- [Meta MTIA v4](/docs/cards/meta/mtia-v4) - Next generation (early 2027)
+- Meta MTIA v4 (Planned, early 2027) - Next generation
 - [AWS Trainium 3](/docs/cards/aws/trainium-3) - Same-period training chip
 - [Google TPU v7 Ironwood](/docs/cards/google/tpu-ironwood) - Same-generation ASIC
 - [Full comparison table](/docs/comparison)

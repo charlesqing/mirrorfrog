@@ -2702,6 +2702,47 @@
     }
   },
   {
+    "id": "enflame-l600",
+    "title": "燧原科技 燧原 L600",
+    "vendor": "others",
+    "slug": "/docs/cards/others/enflame-l600",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "邃思400（DTU 数据流架构）",
+      "process": "国产工艺（未公开具体节点）",
+      "tdp": "400 W（预估）",
+      "compute": {
+        "fp8": "支持原生 FP8（具体 TFLOPS 未公开）",
+        "fp32": "未公开（预估 30–50 TFLOPS）",
+        "int8": "未公开（预估 400–800 TOPS）"
+      },
+      "release": "2025-07-27（WAIC 2025）"
+    }
+  },
+  {
+    "id": "enflame-s60",
+    "title": "燧原科技 云燧 S60",
+    "vendor": "others",
+    "slug": "/docs/cards/others/enflame-s60",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "GCU320（邃思320）",
+      "process": "7 nm（预估）",
+      "tdp": "300 W（典型）",
+      "memory": {
+        "capacity": "48 GB HBM2e（预估）",
+        "bandwidth": "1.6 TB/s（预估）"
+      },
+      "compute": {
+        "fp32": "25 TFLOPS（预估）",
+        "int8": "200 TOPS（预估）"
+      },
+      "release": "2024-03"
+    }
+  },
+  {
     "id": "enflame-t10",
     "title": "燧原科技 云燧 T10",
     "vendor": "others",
@@ -3393,6 +3434,50 @@
     }
   },
   {
+    "id": "metax-c550",
+    "title": "沐曦 曦云 C550",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-c550",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "XCORE 1.0（曦云架构，C500迭代）",
+      "process": "7 nm（预估）",
+      "tdp": "300 W（预估）",
+      "memory": {
+        "capacity": "64 GB HBM2e（同C500）",
+        "bandwidth": "~1600–1800 GB/s"
+      },
+      "compute": {
+        "fp32": "15 TFLOPS（同C500，预估）",
+        "int8": "44.8 TOPS（预估）"
+      },
+      "release": "2024-06（预估）"
+    }
+  },
+  {
+    "id": "metax-c588",
+    "title": "沐曦 曦云 C588",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-c588",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "XCORE 1.5（曦和架构迭代）",
+      "process": "12 nm（中芯国际国产工艺）",
+      "tdp": "350 W（预估）",
+      "memory": {
+        "capacity": "64–96 GB HBM2e（预估）",
+        "bandwidth": "~1800–2000 GB/s（预估）"
+      },
+      "compute": {
+        "fp32": "18 TFLOPS（预估）",
+        "int8": "70 TOPS（预估）"
+      },
+      "release": "2024-09（预估）"
+    }
+  },
+  {
     "id": "metax-c600",
     "title": "MetaX 沐曦 曦云 C600 (2025)",
     "vendor": "others",
@@ -3423,6 +3508,27 @@
       },
       "tdp": "400 W",
       "release": "2025 年 10 月"
+    }
+  },
+  {
+    "id": "metax-g100",
+    "title": "沐曦 曦彩 G100",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-g100",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "XCORE 2.0（曦彩架构）",
+      "process": "14 nm",
+      "tdp": "150 W（预估）",
+      "memory": {
+        "capacity": "8 GB GDDR6（预估）",
+        "bandwidth": "256 GB/s（预估）"
+      },
+      "compute": {
+        "fp32": "5 TFLOPS（预估）"
+      },
+      "release": "2025-12（预估）"
     }
   },
   {

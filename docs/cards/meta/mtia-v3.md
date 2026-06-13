@@ -59,7 +59,7 @@ MTIA v3 是 Meta 两年四代自研芯片战略的核心产品，旨在缩小模
 
 ## 相关产品
 
-- [Meta MTIA v4](/docs/cards/meta/mtia-v4) - 下一代（2027 初）
+- Meta MTIA v4（规划中，2027 年初发布） — 下一代
 - [AWS Trainium 3](/docs/cards/aws/trainium-3) - 同期训练芯片
 - [Google TPU v7 Ironwood](/docs/cards/google/tpu-ironwood) - 同代 ASIC
 - [完整对比表](/docs/comparison)
