@@ -1128,6 +1128,48 @@
       "currency": "CNY",
       "last_updated": "2026-06-13",
       "source": "清微智能官网/渠道估算"
+    },
+    "enflame-t10": {
+      "official_msrp": 40000,
+      "market_price": 38000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "燧原科技渠道估算（2019年计划售价约000/卡）"
+    },
+    "enflame-i10": {
+      "official_msrp": 25000,
+      "market_price": 23000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "燧原科技渠道估算（单槽推理卡）"
+    },
+    "metax-n100": {
+      "official_msrp": 15000,
+      "market_price": 14000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "沐曦渠道估算（INT8 160 TOPS推理卡）"
+    },
+    "moore-threads-mtt-s2000": {
+      "official_msrp": 25000,
+      "market_price": 23000,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "摩尔线程官网估算（2022年发布，12nm，32GB显存）"
+    },
+    "moore-threads-mtt-s70": {
+      "official_msrp": 1999,
+      "market_price": 1800,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "摩尔线程京东渠道估算（消费级游戏显卡）"
+    },
+    "moore-threads-mtt-s80": {
+      "official_msrp": 2999,
+      "market_price": 2800,
+      "currency": "CNY",
+      "last_updated": "2026-06-13",
+      "source": "摩尔线程京东官方首发价¥2,999"
     }
   }
 }

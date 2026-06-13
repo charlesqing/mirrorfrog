@@ -2650,6 +2650,28 @@
     }
   },
   {
+    "id": "enflame-i10",
+    "title": "燧原科技 云燧 i10",
+    "vendor": "others",
+    "slug": "/docs/cards/others/enflame-i10",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "邃思1.0（DTU 数据流架构）",
+      "process": "格芯 12nm FinFET",
+      "tdp": "150 W",
+      "memory": {
+        "capacity": "16 GB HBM2（预估）",
+        "bandwidth": "512 GB/s（预估）"
+      },
+      "compute": {
+        "fp32": "17.6 TFLOPS",
+        "int8": "140.8 TOPS（预估）"
+      },
+      "release": "2020-12-21"
+    }
+  },
+  {
     "id": "enflame-i20",
     "title": "燧原科技 云燧i20 (2022)",
     "vendor": "others",
@@ -2677,6 +2699,28 @@
       },
       "tdp": "200 W（推测）",
       "release": "2022 年"
+    }
+  },
+  {
+    "id": "enflame-t10",
+    "title": "燧原科技 云燧 T10",
+    "vendor": "others",
+    "slug": "/docs/cards/others/enflame-t10",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "邃思1.0（DTU 数据流架构）",
+      "process": "格芯 12nm FinFET",
+      "tdp": "225 W",
+      "memory": {
+        "capacity": "32 GB HBM2",
+        "bandwidth": "512 GB/s"
+      },
+      "compute": {
+        "fp32": "20 TFLOPS",
+        "int8": "160 TOPS（预估）"
+      },
+      "release": "2019-12-11"
     }
   },
   {
@@ -3382,6 +3426,29 @@
     }
   },
   {
+    "id": "metax-n100",
+    "title": "沐曦 曦思 N100",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-n100",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "MXN100 异构 GPGPU（MetaX 自研）",
+      "process": "7 nm（台积电，预估）",
+      "tdp": "75 W（预估）",
+      "memory": {
+        "capacity": "8 GB HBM2E",
+        "bandwidth": "410 GB/s（预估）"
+      },
+      "compute": {
+        "fp32": "未公开",
+        "fp16": "80 TFLOPS",
+        "int8": "160 TOPS"
+      },
+      "release": "2023-06-07（量产）"
+    }
+  },
+  {
     "id": "mobilint",
     "title": "Mobilint Regulus (韩国 NPU, 2023)",
     "vendor": "others",
@@ -3408,6 +3475,29 @@
         "fp16": "16 TFLOPS"
       },
       "tdp": "12 W"
+    }
+  },
+  {
+    "id": "moore-threads-mtt-s2000",
+    "title": "摩尔线程 MTT S2000",
+    "vendor": "others",
+    "slug": "/docs/cards/others/moore-threads-mtt-s2000",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "MUSA（Moore Threads Unified System Architecture）",
+      "process": "12 nm",
+      "tdp": "200 W（预估）",
+      "memory": {
+        "capacity": "32 GB GDDR6",
+        "bandwidth": "448 GB/s"
+      },
+      "compute": {
+        "fp32": "12 TFLOPS",
+        "fp16": "48 TFLOPS（预估）",
+        "int8": "96 TOPS（预估）"
+      },
+      "release": "2022-07-05"
     }
   },
   {
@@ -3498,6 +3588,52 @@
         "int8": "2,000 TOPS（推测）"
       },
       "tdp": "300 W"
+    }
+  },
+  {
+    "id": "moore-threads-mtt-s70",
+    "title": "摩尔线程 MTT S70",
+    "vendor": "others",
+    "slug": "/docs/cards/others/moore-threads-mtt-s70",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "MUSA（春晓芯片）",
+      "process": "7 nm",
+      "tdp": "200 W（预估）",
+      "memory": {
+        "capacity": "7 GB GDDR6",
+        "bandwidth": "224 GB/s（预估）"
+      },
+      "compute": {
+        "fp32": "11.5 TFLOPS",
+        "fp16": "46 TFLOPS（预估）",
+        "int8": "92 TOPS（预估）"
+      },
+      "release": "2024-05-01（预估）"
+    }
+  },
+  {
+    "id": "moore-threads-mtt-s80",
+    "title": "摩尔线程 MTT S80",
+    "vendor": "others",
+    "slug": "/docs/cards/others/moore-threads-mtt-s80",
+    "description": "",
+    "keywords": [],
+    "specs": {
+      "architecture": "MUSA（春晓芯片）",
+      "process": "7 nm",
+      "tdp": "255 W",
+      "memory": {
+        "capacity": "16 GB GDDR6",
+        "bandwidth": "448 GB/s"
+      },
+      "compute": {
+        "fp32": "14.4 TFLOPS",
+        "fp16": "57.6 TFLOPS（预估）",
+        "int8": "115.2 TOPS（预估）"
+      },
+      "release": "2023-11-11"
     }
   },
   {
