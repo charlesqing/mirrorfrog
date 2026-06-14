@@ -678,7 +678,7 @@
     "title": "Huawei Ascend 910B",
     "vendor": "huawei",
     "slug": "/docs/cards/huawei/ascend-910b",
-    "description": "Huawei Ascend 910B 详尽规格：64GB HBM3、320 TFLOPS FP16、640 TOPS INT8、310W TDP，国产 AI 训练 GPU。",
+    "description": "Huawei Ascend 910B 详尽规格：64GB HBM2e、256 TFLOPS FP16、512 TOPS INT8、310W TDP，国产 AI 训练 GPU。",
     "keywords": [
       "Huawei Ascend 910B",
       "昇腾 910B",
@@ -690,13 +690,13 @@
       "architecture": "Da Vinci（华为自研）",
       "process": "TSMC 7nm+（含 SMIC 国产化努力）",
       "memory": {
-        "capacity": "64 GB HBM3",
-        "bandwidth": "1,224 GB/s"
+        "capacity": "64 GB HBM2e（B1/B2）/ HBM3e（B3）",
+        "bandwidth": "600 GB/s（B1/B2）/ 1,200 GB/s（B3）"
       },
       "compute": {
-        "fp32": "64 TFLOPS",
-        "fp16": "320 TFLOPS",
-        "int8": "640 TOPS"
+        "fp32": "51.2 TFLOPS",
+        "fp16": "256 TFLOPS",
+        "int8": "512 TOPS"
       },
       "tdp": "310 W"
     }

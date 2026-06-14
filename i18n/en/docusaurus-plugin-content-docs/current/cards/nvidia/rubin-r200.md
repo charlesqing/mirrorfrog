@@ -1,153 +1,104 @@
 ---
-id: rubin-r200
-title: NVIDIA Rubin R200 (Vera Rubin Platform)
-sidebar_label: NVIDIA Rubin R200
-description: "NVIDIA Vera Rubin platform: Rubin GPU + Vera CPU 6-die CoWoS-L package, 288GB HBM4, 22 TB/s, 50 PF FP4 sparse, ConnectX-9 28.8 TB/s, shipping H2 2026."
-keywords: [NVIDIA Rubin, Vera Rubin, R200, HBM4, 50 PFLOPS FP4, NVLink 6, ConnectX-9, 6-die package, Vera CPU]
+title: "NVIDIA Rubin R200"
+description: "NVIDIA Rubin R200 GPU, based on 3nm process, 336 billion transistors, 288GB HBM4 memory, 50 PFLOPS FP4 compute, next-generation AI training and inference GPU released at GTC 2026"
+slug: "nvidia-rubin-r200"
+date: "2026-03-17"
+vendor: "nvidia"
+category: "Data Center GPU"
 ---
 
-# NVIDIA Rubin R200 (Vera Rubin Platform)
+# NVIDIA Rubin R200
 
-## Product Overview
+NVIDIA Rubin R200 is NVIDIA's next-generation AI GPU announced at GTC 2026, built on TSMC 3nm process with 336 billion transistors, equipped with 288GB HBM4 memory, delivering 50 PFLOPS FP4 inference compute, succeeding the Blackwell architecture.
 
-**NVIDIA Rubin R200** (codename **Vera Rubin**, honoring dark matter astronomer Vera Rubin) is the **next-generation flagship platform** after Blackwell, **shipping H2 2026**. It features the **industry's first 6-die CoWoS-L package** — 1 Vera CPU + 2 Rubin GPU dies + I/O / HBM base dies — with each Rubin GPU delivering **288GB HBM4**, **22 TB/s bandwidth**, and **50 PFLOPS FP4 sparse** compute.
+## Key Specifications
 
-The Vera Rubin platform also includes **dual independent ConnectX-9 NICs** (28.8 TB/s aggregate per GPU) and **next-gen NVLink 6** (3.5 TB/s/GPU). **Rubin NVL72 rack** = 576 Rubin GPUs + 288 Vera CPUs = **28.8 EF FP4 sparse / 1.5 ExaFLOPS FP8** compute.
+| **Specification** | **Value** |
+|-------------------|------------|
+| **GPU Architecture** | Rubin Architecture (MCM multi-chip module design) |
+| **Process Node** | TSMC 3nm (4NP custom process) |
+| **Transistor Count** | 336 billion |
+| **FP4 Inference Compute** | 50 PFLOPS |
+| **FP8 Training Compute** | 35 PFLOPS |
+| **FP16 Compute** | Estimated ~25 PFLOPS |
+| **FP32 Compute** | 130 TFLOPS |
+| **FP64 Compute** | 200 TFLOPS |
+| **INT8 Compute** | Estimated ~100 PFLOPS |
+| **Memory Capacity** | 288 GB |
+| **Memory Type** | HBM4 |
+| **Memory Bandwidth** | 22 TB/s |
+| **Interconnect** | NVLink 6 (3.6 TB/s unidirectional) |
+| **TDP** | 1,800-2,300W (liquid cooling required) |
+| **Release Date** | March 17, 2026 |
+| **Mass Production** | Second half of 2026 |
+| **Pricing** | $350-400M per NVL72 rack |
 
-## Core Specifications (per GPU)
+## Architecture & Specifications
 
-| Parameter | Value |
-|-----------|-------|
-| **Architecture** | Rubin (Vera Rubin platform) |
-| **Process Node** | TSMC 3NP / 4NP (hybrid) |
-| **Package** | **6-die CoWoS-L** (1× Vera CPU + 2× Rubin die + 3× I/O/HBM) |
-| **Transistor Count** | ~340 billion (per GPU) |
-| **Memory** | **288 GB HBM4** (288 GB/GPU inferred) |
-| **Memory Bandwidth** | **22 TB/s** |
-| **FP4 Sparse** | **50 PFLOPS** (**industry's first 50 PF-class**) |
-| **FP8 Sparse** | **25 PFLOPS** |
-| **FP16/BF16 Dense** | **12.5 PFLOPS** |
-| **NVLink 6** | **3.5 TB/s/GPU** (6th Gen, 2× previous gen) |
-| **DC Networking** | **ConnectX-9, 28.8 TB/s/GPU** (dual 14.4 TB/s ports) |
-| **TDP** | ~1,800 W (**liquid cooling required**) |
-| **Launch** | **H2 2026** |
+Rubin R200 adopts a **multi-chip module (MCM) design**, with the core comprising:
+- **2 compute dies (GPU dies)**
+- **2 I/O dies** (handling HBM controllers and NVLink physical layer)
+- **8 HBM4 memory stacks**
 
-> :warning: **Data convention**: NVIDIA continues using **sparse** compute as the official standard after Blackwell. Not directly comparable with AMD/Google **dense** compute figures. All FP4 50 PF / FP8 25 PF on this page are sparse.
+### Key Technical Innovations
 
-## Rubin R200 vs B300 Ultra Generational Upgrade
+1. **Third-Generation Transformer Engine**
+   - Supports hardware-level adaptive precision compression
+   - Dynamically switches precision without rewriting model code (FP4/FP6/FP8/FP16/BF16/TF32/FP32/FP64)
 
-| Metric | B300 Ultra | **Rubin R200** | Improvement |
-|--------|------------|----------------|-------------|
-| Architecture | Blackwell Ultra | **Rubin** | Next-gen |
-| Process Node | TSMC 4NP | **TSMC 3NP** | More advanced |
-| Package | 2 die (CoWoS-L) | **6 die (CoWoS-L)** | **3× die count** |
-| Memory | 288 GB HBM3e | **288 GB HBM4** | HBM3e → HBM4 |
-| Memory Bandwidth | 8 TB/s | **22 TB/s** | **2.75×** |
-| FP4 Sparse | 14 PFLOPS | **50 PFLOPS** | **3.6×** |
-| NVLink | 1.8 TB/s (Gen 5) | **3.5 TB/s (Gen 6)** | 2× |
-| DC Networking | ConnectX-8 1.6 Tbps | **ConnectX-9 28.8 Tbps** | **18×** |
-| TDP | 1,400 W | ~1,800 W | +29% |
-| Release | 2026-01 | **H2 2026** | — |
+2. **NVLink 6 Interconnect**
+   - Single GPU full interconnect bandwidth of 3.6 TB/s (bidirectional)
+   - NVL72 rack total bandwidth of 260 TB/s
 
-## Vera CPU (First Integrated ARM CPU)
+3. **HBM4 Memory**
+   - 288GB capacity (1.5× increase over Blackwell B200's 192GB HBM3e)
+   - 22 TB/s bandwidth (2.75× increase over Blackwell B200's 8 TB/s)
 
-| Parameter | Value |
-|-----------|-------|
-| **Architecture** | Vera (ARM-compatible Olympus cores) |
-| **Core Count** | **88 Olympus cores** (estimated) |
-| **Process Node** | TSMC 3NP |
-| **GPU Pairing** | 1:1 (**1 Vera : 2 Rubin GPU dies**) |
-| **Key Role** | Host CPU + interconnect controller + prefetcher |
+## Performance Comparison
 
-> **Naming origin**: At GTC 2024, NVIDIA named the next-generation platform "Vera Rubin" in honor of astronomer **Vera Florence Cooper Rubin** (1928–2016), whose galaxy rotation curve research confirmed the existence of **dark matter** — a philosophical echo of an "invisible AI compute revolution."
+| **Comparison** | **Blackwell B200** | **Rubin R200** | **Improvement** |
+|-----------------|-------------------|----------------|---------------|
+| Transistor Count | 208 billion | 336 billion | 1.6× |
+| Memory Capacity | 192GB HBM3e | 288GB HBM4 | 1.5× |
+| Memory Bandwidth | 8 TB/s | 22 TB/s | 2.75× |
+| NVLink Bandwidth | 1.8 TB/s | 3.6 TB/s | 2× |
+| FP4 Inference | ~10 PFLOPS | 50 PFLOPS | 5× |
+| TDP | 1,000W | 1,800-2,300W | 1.8-2.3× |
 
-## NVLink 6 Interconnect (Rack-Scale)
+## Platform Configurations
 
-| Parameter | Value |
-|-----------|-------|
-| **Per-GPU Bandwidth** | **3.5 TB/s** (bidirectional) |
-| **GPU-to-GPU Hops** | 1 (**fully-connected NVLink switch**) |
-| **GPUs per Rack** | **72** (Vera Rubin NVL72) |
-| **Total GPU Bandwidth per Rack** | 252 TB/s NVLink aggregate |
+### Vera Rubin NVL72
+- **72×** Rubin R200 GPUs
+- **36×** Vera CPUs
+- **Total Compute**: ~3.6 EFLOPS FP4
+- **Total Memory**: 20.7 TB HBM4
+- **Total Bandwidth**: 1.58 PB/s
+- **TDP**: ~180kW (full liquid cooling required)
+- **Pricing**: $3.5-4M
 
-## ConnectX-9 Networking
+### Vera Rubin NVL144 (Planned)
+- **144×** Rubin R200 GPUs
+- **72×** Vera CPUs
+- **Total Compute**: ~7.2 EFLOPS FP4
+- **LLM Inference Cost**: Reduced to 1/10 of Blackwell platform
 
-| Parameter | Value |
-|-----------|-------|
-| **Ports per GPU** | **2 × 14.4 Tbps** (independent NICs) |
-| **Aggregate per GPU** | **28.8 TB/s** |
-| **Rack-Scale** | 9,216 ports (Rubin NVL576) |
-| **Network Topology** | 3D Torus / fully connected |
+## Mass Production & Delivery
 
-> **Dual ConnectX-9 = 28.8 TB/s means the GPU will never be the network bottleneck** — this is the ultimate form of in-network computing.
+- **Mass Production**: Second half of 2026
+- **First Customers**: AWS, Azure, Google Cloud, Oracle Cloud
+- **On-Premises Users**: Q1 2027 availability
+- **Partner Products**: Market delivery in second half of 2026
 
-## Rubin NVL72 / NVL576 Racks
+## Application Scenarios
 
-| Config | NVL72 | NVL576 |
-|--------|-------|--------|
-| **GPU Count** | 72 | 576 |
-| **CPU Count** | 36 | 288 |
-| **Total HBM** | 20.7 TB HBM4 | 165 TB HBM4 |
-| **NVLink Aggregate** | 252 TB/s | 2,016 TB/s |
-| **FP4 Sparse Compute** | 3.6 EFLOPS | **28.8 EFLOPS** |
-| **FP8 Sparse Compute** | 1.8 EFLOPS | 14.4 EFLOPS |
-| **Rack TDP** | ~130 kW | ~1 MW |
-| **Networking** | ConnectX-9 | ConnectX-9 × 1152 ports |
+Rubin R200 targets **data center and supercomputing scenarios**, suitable for:
+- Trillion-parameter LLM training
+- High-performance AI inference (low latency, high throughput)
+- Reinforcement learning (RL) and agentic AI
+- Scientific computing and AI factories
 
-> **Rubin NVL576 = 28.8 EFLOPS FP4** = 1.5 ExaFLOPS FP8 = **world's most powerful AI supernode** (vs GB300 NVL72 at ~0.5 EF FP8, a **5.7× improvement**).
+## References
 
-## Recommended Deployment Configurations
-
-| Scenario | Recommended Config |
-|----------|-------------------|
-| **100B+ model training** | Rubin NVL72 (**single rack runs 100B models**) |
-| **1T+ giant model training** | Rubin NVL576 + NVLink Quantum-2 / Quantum-3 |
-| **Ultra-low latency inference** | Rubin R200 + FP4 + inference optimization software |
-| **Multimodal long context** | Rubin R200 (288GB HBM4 fully retains KV) |
-| **Scientific computing** | Vera CPU + massive CPU cores + Rubin GPU acceleration |
-
-## Cooling & Infrastructure
-
-- **TDP ~1,800 W/GPU** — **liquid cooling required (Direct Liquid Cooling, DLC)**
-- 30% higher than B300 Ultra (1,400 W); data center replanning needed
-- **Rubin NVL72 = 130 kW/rack** (~2× GB300 NVL72)
-- **Rubin NVL576 = 1 MW/rack** — requires dedicated 1MW liquid-cooled rack
-
-## Software Ecosystem
-
-- **CUDA 13.x** (new Rubin microarchitecture support)
-- **cuDNN 10.x**
-- **TensorRT-LLM 1.0+** (FP4 / NVFP4 fully optimized)
-- **vLLM 0.8+** (Vera Rubin optimized)
-- **NCCL 2.21+** (ConnectX-9 + NVLink 6 support)
-- **NVFP4** (inherited from Blackwell Ultra, 2nd gen)
-
-## Use Cases
-
-- ✅ **Ultra-large-scale LLM training** (100B+ parameters, 10K+ GPU clusters)
-- ✅ **Ultra-low-latency giant model inference** (1T+ parameters real-time response)
-- ✅ **Scientific research** (climate simulation, biopharma, cryptography)
-- ✅ **Multimodal generation** (text-to-video, 4D content creation)
-- ❌ Small-to-medium model training (cost-prohibitive; B300 Ultra more economical)
-- ❌ Edge deployment (power/size not feasible)
-
-## Vendor Information
-
-| Parameter | Value |
-|-----------|-------|
-| **Vendor** | NVIDIA Corporation |
-| **Official Announcement** | First disclosed at GTC 2024-03 |
-| **Product Page** | https://www.nvidia.com/en-us/data-center/ |
-| **Launch** | **H2 2026** |
-| **Generation Naming** | Vera Rubin (honoring dark matter astronomer) |
-| **Generation Cadence** | Blackwell (2024–2026) → **Vera Rubin (2026–2028)** → Feynman (2028+) |
-
-## Related Products
-
-- [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) — Previous Blackwell Ultra generation
-- [NVIDIA B200](/docs/cards/nvidia/b200) — Previous flagship
-- [NVIDIA H200](/docs/cards/nvidia/h200) — Previous workhorse
-- [AMD MI400](/docs/cards/amd/mi400) — Same-generation competitor
-- [Google TPU v7 Ironwood](/docs/cards/google/tpu-ironwood) — Inference ASIC counterpart
-- [AWS Trainium 3](/docs/cards/aws/trainium-3) — Training ASIC counterpart
-- [Full Comparison Table](/docs/comparison)
+- [NVIDIA Official News](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx)
+- [NVIDIA Rubin GPU Deep Dive](https://lucy.suiyan.cc/blog/2026-06-01_nvidia-vera-rubin-gpu/)
+- [NVIDIA GTC 2026 Major Preview](https://www.163.com/dy/article/KNMD49PM0556GROA.html)

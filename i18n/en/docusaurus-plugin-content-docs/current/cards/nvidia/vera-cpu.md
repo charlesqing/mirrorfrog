@@ -1,92 +1,115 @@
 ---
-id: vera-cpu
-title: NVIDIA Vera CPU (2026)
-sidebar_label: NVIDIA Vera CPU
-description: "NVIDIA Vera CPU full specs: 88-core custom Armv9.2, 176 threads, 1.5TB LPDDR5X, 1.2 TB/s bandwidth, NVLink-C2C 1.8 TB/s, purpose-built for Agentic AI inference, released March 2026"
-keywords: [NVIDIA Vera, Vera CPU, Rubin platform, Armv9.2, NVLink-C2C, Agentic AI, FP8, LPDDR5X, 88 cores, 1.5TB memory]
+title: "NVIDIA Vera CPU"
+description: "NVIDIA Vera CPU, 88 custom Olympus cores, ARMv9.2 instruction set, 1.5TB LPDDR5X memory, 1.2TB/s bandwidth, AI-specific CPU released at GTC 2026"
+slug: "nvidia-vera-cpu"
+date: "2026-03-17"
+vendor: "nvidia"
+category: "Data Center CPU"
 ---
 
-# NVIDIA Vera CPU (2026)
+# NVIDIA Vera CPU
 
-The **Vera CPU** is NVIDIA's second-generation custom Arm CPU, officially launched at **GTC 2026 (March 2026)** as the central processor of the **Vera Rubin** supercomputing platform. It is the world's first CPU with **native FP8 support**, purpose-built for **Agentic AI** inference and reinforcement learning workloads.
+NVIDIA Vera CPU is NVIDIA's AI-specific CPU announced at GTC 2026, featuring 88 custom Olympus cores, supporting ARMv9.2 instruction set, equipped with up to 1.5TB LPDDR5X memory and 1.2TB/s bandwidth, serving as the host CPU for the Vera Rubin platform, responsible for data movement scheduling, memory management, and system control orchestration.
 
 ## Key Specifications
 
-| Item | Specification |
-|------|---------------|
-| **Architecture** | NVIDIA custom Arm, compatible with Armv9.2 ISA |
-| **Cores** | 88 cores |
-| **Threads** | 176 threads (NVIDIA Spatial Multithreading) |
-| **Release** | March 2026 (GTC 2026) |
-| **Production** | Q3 2026 (shipping with Rubin platform) |
-
-## Memory & Bandwidth
-
-| Item | Specification |
-|------|---------------|
-| **Memory Type** | LPDDR5X |
-| **Max Capacity** | 1.5 TB (per CPU) |
+| **Specification** | **Value** |
+|-------------------|------------|
+| **CPU Architecture** | ARM architecture (Olympus cores) |
+| **Instruction Set** | ARMv9.2 (fully compatible) |
+| **Core Count** | 88 Olympus cores |
+| **Thread Count** | 176 threads (spatial multithreading) |
+| **Single-Core Performance** | 2× previous generation |
+| **Max Memory Capacity** | 1.5 TB (LPDDR5X) |
 | **Memory Bandwidth** | 1.2 TB/s |
-| **Vera Rubin NVL72 Total** | 36 Vera CPUs = 54 TB LPDDR5X system memory |
+| **Interconnect** | NVLink-C2C (1.8 TB/s) |
+| **On-Chip Interconnect** | 2nd-gen NVIDIA SCF (3.4 TB/s bisection bandwidth) |
+| **TDP** | Not disclosed (estimated 350-500W) |
+| **Release Date** | March 17, 2026 |
+| **Mass Production** | Second half of 2026 |
 
-## CPU-GPU Interconnect
+## Architecture & Specifications
 
-| Item | Specification |
-|------|---------------|
-| **Interconnect** | NVLink-C2C (2nd gen) |
-| **Coherent Bandwidth** | 1.8 TB/s (CPU↔GPU) |
-| **vs PCIe Gen6** | 7× the bandwidth of PCIe Gen6 |
-| **Architecture** | Unified virtual address space (CPU + GPU) |
+Vera CPU adopts a **monolithic compute chip design**, avoiding cross-chiplet communication latency, maintaining stable latency and throughput under all-core load, with predictable performance.
 
-## AI Inference Performance
+### Key Technical Innovations
 
-Vera CPU is heavily optimized for the **AI inference pipeline**:
+1. **88 Custom Olympus Cores**
+   - Supports spatial multithreading (176 threads)
+   - Single-core performance 2× previous generation
+   - Industry-leading energy efficiency
 
-- **World's first native FP8 CPU**: 6× 128-bit SVE2 SIMD units per core
-- **Data processing**: **2×** the performance of previous-gen Grace CPU
-- **Agentic inference**: Single rack of 256 liquid-cooled Vera CPUs can run **22,500 concurrent CPU sandboxes**
-- **Long context**: 1.5 TB large memory cache for 1M+ token contexts
+2. **World's First CPU Supporting FP8 Precision**
+   - Fully compatible with ARMv9.2 instruction set
+   - Hardware-level FP8 compute support
 
-## Vera Rubin Platform Integration
+3. **2nd-Gen NVIDIA SCF (Scalable Coherent Fabric)**
+   - Provides 3.4 TB/s bisection bandwidth
+   - On-chip mesh + unified cache
+   - Latency-free scaling to 88 cores
 
-Vera CPU and Rubin R100 GPU use **coWoS-L (Chip-on-Wafer-on-Substrate with LSI)** packaging:
+4. **NVLink-C2C Interconnect**
+   - Coherent bandwidth up to 1.8 TB/s
+   - Enables seamless data sharing between CPUs and between CPU and GPU
+   - Supports unified memory system
 
-```
-┌─────────────────────────────────────────────┐
-│        Vera Rubin NVL72 Rack (1 rack)      │
-├─────────────────────────────────────────────┤
-│  36 × Vera CPU  +  72 × Rubin R100 GPU   │
-│  NVLink-C2C 1.8 TB/s full interconnect   │
-│  Total: 54 TB LPDDR5X + 576 GB HBM4    │
-└─────────────────────────────────────────────┘
-```
+5. **Full Confidential Computing**
+   - Supports hardware-enforced security isolation
+   - Protects sensitive data and code
 
-## Use Cases
+## Memory Subsystem
 
-| Scenario | Description |
-|----------|-------------|
-| **Agentic AI Inference** | Multi-step reasoning, tool use, environment interaction |
-| **Reinforcement Learning** | High-throughput CPU sandbox parallel simulation |
-| **LLM Training** | MoE model training — same performance as Blackwell with **¼ the GPU count** |
-| **Data Preprocessing** | Data compression/decompression, tokenization, feature engineering |
+- **Max Memory Capacity**: 1.5 TB (3× previous generation)
+- **Memory Type**: LPDDR5X
+- **Memory Bandwidth**: 1.2 TB/s (2× bandwidth, 1/2 power vs traditional CPU)
 
-## Competitive Comparison
+## Companion Platform
 
-| Feature | Vera CPU | Grace CPU (prev-gen) | AMD EPYC 9005 |
-|---------|-----------|----------------------|---------------|
-| Cores | 88 | 72 | 192 |
-| Architecture | Custom Armv9.2 | Custom Armv9 | x86-64 (Zen 5) |
-| Memory | LPDDR5X 1.5TB | LPDDR5X 960GB | DDR5 6TB |
-| Memory Bandwidth | 1.2 TB/s | 1.0 TB/s | ~0.6 TB/s |
-| CPU-GPU Interconnect | NVLink-C2C 1.8 TB/s | NVLink-C2C 900 GB/s | PCIe Gen6 256 GB/s |
+### Vera Rubin NVL72
+- **72×** Rubin R200 GPUs
+- **36×** Vera CPUs
+- **Total Memory**: 54 TB LPDDR5X
+- **TDP**: ~180kW (full liquid cooling required)
+
+### HGX Rubin NVL8
+- **8×** Rubin R200 GPUs
+- **2×** Vera CPUs
+- For small-to-medium scale AI training and inference
+
+## Deployment Formats
+
+1. **High-Density Liquid-Cooled Vera CPU Rack**
+   - Based on NVIDIA MGX
+   - Supports up to 256 Vera CPUs
+   - Supports over 22,500 concurrent environments
+   - For AI factory-scale reinforcement learning and agentic AI
+
+2. **Standard Server Configuration**
+   - Supports dual-socket and single-socket standard configurations
+   - Adaptable to general data center needs
+
+3. **Independent CPU Platform**
+   - Can be used as high-performance independent CPU
+   - Supports hyperscale cloud, data analytics, storage, enterprise workloads, HPC
+
+## Performance Advantages
+
+- **Software environment runtime speed**: Up to 50% faster than traditional architecture CPUs
+- **Efficiency**: 2× traditional architecture CPUs
+- **RL evaluation cycle**: Can be shortened by 50% under full load
+- **AI workflow**: Seamless collaboration with NVIDIA GPUs, ensuring full-speed AI workflow
+
+## Application Scenarios
+
+Vera CPU is designed for the **AI era**, suitable for:
+- Reinforcement learning (RL) and agentic AI
+- Data center host CPU (data movement scheduling, memory management, system control orchestration)
+- Hyperscale cloud
+- Data analytics and storage
+- Enterprise workloads and HPC
 
 ## References
 
-- [NVIDIA Official News: Vera Rubin Platform Unveiled](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx)
-- [Tech Insider: Vera Rubin Platform Analysis](https://tech-insider.org/nvidia-vera-rubin-platform-gtc-2026-rubin-r100-gpu/)
-- [Baidu Baike: Vera CPU](https://baike.baidu.com/item/Vera%20CPU/65759277)
-
-## Related Chips
-
-- [NVIDIA Rubin R100](/en/docs/cards/nvidia/rubin) — GPU part of the Vera Rubin platform
-- [NVIDIA Rubin R200 Ultra](/en/docs/cards/nvidia/rubin-r200) — Rubin Ultra version
+- [NVIDIA Official Vera CPU Page](https://www.nvidia.cn/data-center/vera-cpu/)
+- [NVIDIA Rubin Platform Deep Dive](https://lucy.suiyan.cc/blog/2026-06-01_nvidia-vera-rubin-gpu/)
+- [NVIDIA GTC 2026 Major Preview](https://www.163.com/dy/article/KNMD49PM0556GROA.html)
