@@ -1,49 +1,50 @@
 ---
 id: moore-threads-mtt-s5000
-title: Moore Threads MTT S5000 (Chinese GPU Training)
-sidebar_label: Moore Threads
-description: "Moore Threads MTT S5000 detailed specs: 7nm, 48GB GDDR6, FP32 25 TFLOPS, BF16 50 TFLOPS, MUSA architecture, Chinese GPU training."
-keywords: [Moore Threads, MTT S5000, MUSA, Chinese GPU, Chinese AI chip]
+title: "Moore Threads MTT S5000 (Domestic GPU Training)"
+sidebar_label: Moore Threads MTT S5000
+description: "Moore Threads MTT S5000 detailed specs: 7nm, 80GB GDDR6X, FP32 62.5 TFLOPS, BF16 500 TFLOPS, MUSA architecture, domestic GPU training."
+keywords: [Moore Threads, MTT S5000, MUSA, domestic GPU, domestic AI chip]
 ---
 
-# Moore Threads MTT S5000 (Chinese GPU Training)
+# Moore Threads MTT S5000 (Domestic GPU Training)
 
 ## Product Overview
 
-**Moore Threads** is a Chinese full-function GPU startup, **founded 2020-10**, Founder is former NVIDIA China executive **Zhang Jianzhong**. **MTT S5000** is a training-inference unified GPU compute card based on **4th-gen MUSA "Pinghu" architecture**, **2025-02-12 public specs**: **single-card AI compute 1000 TFLOPS**, **80GB GDDR6X**, **1.6 TB/s bandwidth**. Paired with proprietary **MUSA** unified system architecture + **MUSIFY** software stack.
+**Moore Threads (Moore Threads)** is a Chinese full-function GPU startup company, **founded in October 2020**, with the founder being former NVIDIA China region executive **Zhang Jianzhong**. **MTT S5000** is a training+inference integrated GPU AI computing card based on **fourth-generation MUSA "Pinghu" architecture**, with parameters publicly disclosed on **2025-02-12**: **single card AI compute 1000 TFLOPS**, **80GB GDDR6X**, **1.6 TB/s bandwidth**. Equipped with self-developed **MUSA** unified system architecture + **MUSIFY** software stack.
 
-**Strategic positioning**: Unlike Huawei Ascend's AI training focus, Moore Threads pursues a **full-function GPU** route (graphics + AI + GPGPU), making it China's **NVIDIA-competing domestic GPU startup**, alongside Innosilicon, VeriSilicon, Enflame, and Biren as the "Chinese GPU Big Five".
+**Strategic Positioning**: Compared to Huawei Ascend's focus on AI training, Moore Threads follows the **full-function GPU** roadmap (graphics + AI + general-purpose computing), and is a **domestic GPU startup company targeting NVIDIA**, listed alongside Jingjia Micro, Xinyuan Microelectronics, Enflame, and Biren as the "Domestic GPU Five Tigers".
 
-## Core Specs
+## Core Specifications
 
 | Item | Parameter |
-|------|------|
-| **Architecture** | MUSA (4th-gen, Pinghu) |
+|------|-----------|
+| **Architecture** | MUSA (4th generation, Pinghu) |
 | **Process** | TSMC 6nm (estimated) |
-| **GPU Cores** | **4096 MUSA Cores** (proprietary ISA) |
+| **GPU Cores** | **4096 MUSA Cores** (self-developed ISA) |
 | **Memory** | **80GB GDDR6X** |
 | **Memory Bandwidth** | **1.6 TB/s** |
 | **FP32** | **62.5 TFLOPS** (estimated) |
 | **BF16 / FP16** | **500 TFLOPS** (estimated) |
 | **INT8** | **2,000 TOPS** (estimated) |
-| **TDP** | **~300 W** |
-| **PCIe** | PCIe 4.0 x16 |
-| **Interconnect** | MUSA Link (proprietary, NVLink-like) |
+| **TDP** | 300 W |
+| **PCIe** | PCIe 4.0 ×16 |
+| **Interconnect** | MUSA Link (self-developed, similar to NVLink) |
 | **Form Factor** | OAM / PCIe |
-| **Mass Production** | 2025-Q1 (public specs) |
+| **Release** | 2025-02-12 (parameters disclosed) |
+| **Mass Production** | 2025-Q1 (parameters disclosed) |
 | **Unit Price (OAM)** | ~$4,000-6,000 |
 
-## MTT S5000 Spec Evolution (2024 -> 2025)
+## MTT S5000 Parameter Evolution (2024 → 2025 Version)
 
 | Metric | MTT S5000 | MTT S4000 | Improvement |
-|------|-----------|-----------|------|
-| Process | 7nm | 12nm | new gen |
-| Core Count | 4096 | 2048 | 2x |
-| Memory | 48GB GDDR6 | 24GB GDDR6 | 2x |
-| Bandwidth | 700 GB/s | 448 GB/s | 1.56x |
-| FP32 | 25 TFLOPS | 12 TFLOPS | 2.08x |
-| BF16 | 50 TFLOPS | 24 TFLOPS | 2.08x |
-| Interconnect | MUSA Link 800 GB/s | 400 GB/s | 2x |
+|--------|-----------|-------------|-------------|
+| Process | 7nm | 12nm | New generation |
+| Core count | 4096 | 2048 | 2× |
+| Memory | 48GB GDDR6 | 24GB GDDR6 | 2× |
+| Bandwidth | 700 GB/s | 448 GB/s | 1.56× |
+| FP32 | 25 TFLOPS | 12 TFLOPS | 2.08× |
+| BF16 | 50 TFLOPS | 24 TFLOPS | 2.08× |
+| Interconnect | MUSA Link 800 GB/s | 400 GB/s | 2× |
 | TDP | 300W | 250W | +20% |
 
 ## MUSA Architecture
@@ -51,109 +52,115 @@ keywords: [Moore Threads, MTT S5000, MUSA, Chinese GPU, Chinese AI chip]
 ### Core Components
 
 | Component | Description |
-|------|------|
-| **MUSA Core** | proprietary SIMT core (CUDA Core-like) |
-| **Tensor Core** | proprietary matrix unit (Tensor Core-like) |
+|-----------|-------------|
+| **MUSA Core** | Self-developed SIMT core (similar to CUDA Core) |
+| **Tensor Core** | Self-developed matrix unit (similar to Tensor Core) |
 | **SFU** | Special Function Unit (transcendental functions) |
-| **RT Core** | hardware ray tracing core |
+| **RT Core** | Hardware ray tracing core |
 | **MUSA Link** | 8-card full interconnect, 800 GB/s bidirectional |
 
-### vs NVIDIA CUDA
+### Differences from NVIDIA CUDA
 
 | Dimension | MUSA | CUDA |
-|------|------|------|
+|-----------|------|-------|
 | **Core Architecture** | SIMT | SIMT |
-| **Instruction Set** | proprietary (PTX-like)| PTX / SASS |
+| **Instruction Set** | Self-developed (similar to PTX) | PTX / SASS |
 | **Thread Model** | 32 threads / Warp | 32 threads / Warp |
-| **Software Maturity** | 3-4 years | 18 years |
-| **Ecosystem** | MUSIFY (CUDA-like)| cuDNN / cuBLAS / NCCL |
+| **Software Stack Maturity** | 3-4 years | 18 years |
+| **Ecosystem** | MUSIFY (similar to CUDA) | cuDNN / cuBLAS / NCCL |
 | **Developer Base** | ~10K developers | 4M+ developers |
 
 ## Software Stack MUSIFY
 
-| Layer | Tool | NVIDIA Equivalent |
-|------|------|-------------|
-| **AI framework** | PyTorch-MUSA | PyTorch + CUDA |
+| Layer | Tool | Targeting NVIDIA |
+|-------|------|--------------------|
+| **AI Framework** | PyTorch-MUSA | PyTorch + CUDA |
 | | TensorFlow-MUSA | TensorFlow |
 | | MindSpore | MindSpore compatible |
 | **Compiler** | MUSA CC | nvcc |
 | **Runtime** | MUSA Runtime | CUDA Runtime |
 | **Math Library** | MUSBlas | cuBLAS |
-| **Deep Learning** | MUDNN | cuDNN |
-| **Communication** | MUSA CC | NCCL |
-| **Graphics API** | Vulkan / OpenGL / DirectX | same |
+| **Deep Learning Library** | MUDNN | cuDNN |
+| **Communication Library** | MUSA CC | NCCL |
+| **Graphics API** | Vulkan / OpenGL / DirectX | Same |
 
-> Warning: **Ecosystem limitation**: MUSIFY ecosystem only 3-4 years old, **operator coverage ~70-80%** (vs CUDA 99%+), complex LLM models require heavy manual optimization or CPU fallback.
+> ⚠️ **Ecosystem Limitation**: MUSIFY ecosystem has only 3-4 years of development, **operator coverage ~70-80%** (vs CUDA 99%+), complex LLM models require extensive manual optimization or fallback to CPU.
 
-## Vendor Information
+## Company Information
 
 | Item | Content |
-|------|------|
+|------|---------|
 | **Company** | Moore Threads Intelligent Technology (Beijing) Co., Ltd. |
-| **Founder** | Zhang Jianzhong (former NVIDIA China GM) |
+| **Founder** | Zhang Jianzhong (former NVIDIA China region GM) |
 | **Founded** | 2020-10 |
-| **Funding** | **$500M+** (Series A 2021, B 2022, C 2023) |
+| **Funding** | **$500M+** (Series A 2021, Series B 2022, Series C 2023) |
 | **Valuation (2025)** | ~¥35B |
 | **2025 Revenue** | ~¥2.2B |
 | **Headquarters** | Chaoyang District, Beijing |
-| **Website** | https://www.mthreads.com |
-| **Status** | **preparing STAR Market IPO** (2026-2027 expected) |
-| **Employees** | ~2000 |
-| **Key Customers** | China Mobile, Inspur, Lenovo, ByteDance, Zhipu AI |
+| **Official Website** | https://www.mthreads.com |
+| **Status** | **Preparing for STAR Market IPO** (2026-2027 estimated) |
+| **Employees** | ~2000 people |
+| **Major Customers** | China Mobile, Inspur, Lenovo, ByteDance, Zhipu AI |
 
 ## Product Line
 
-| Product Line | Positioning | Representative Models |
-|--------|------|----------|
-| **MTT S Series** | data center AI training | S5000, S4000, S3000 |
-| **MTT G Series** | consumer graphics cards | MTT S80, S70, S50 |
-| **MTT K Series** | workstation professional cards | K5000, K4000 |
-| **MTT E Series** | embedded / edge | E3000 |
+| Product Line | Positioning | Representative Model |
+|--------------|---------------|----------------------|
+| **MTT S Series** | Data center AI training | S5000, S4000, S3000 |
+| **MTT G Series** | Consumer graphics card | MTT S80, S70, S50 |
+| **MTT K Series** | Workstation professional card | K5000, K4000 |
+| **MTT E Series** | Embedded / Edge | E3000 |
 
 ## Key Features
 
-- **Full-function GPU**: graphics + AI + GPGPU + ray tracing
-- **Domestic content 60%**: HBM/memory from Samsung/SK Hynix, CPU domestic (Zhaoxin), packaging domestic
+- **Full-function GPU**: Graphics + AI + general-purpose computing (GPGPU) + ray tracing
+- **Domestic production rate 60%**: HBM/memory from Samsung/SK Hynix, CPU domestic (Zhaoxin), packaging domestic
 - **Multi-precision support**: FP32 / FP16 / BF16 / INT8 / INT4
-- **Multi-card interconnect**: MUSA Link 8-card, 800 GB/s bidirectional
-- **PCIe 4.0**: one generation behind PCIe 5.0
-- **Drawbacks**: vs NVIDIA H100 (989 BF16 TFLOPS) compute 1/20, ecosystem gap large
+- **Multi-card interconnect**: MUSA Link 8 cards, 800 GB/s bidirectional
+- **PCIe 4.0**: One generation behind PCIe 5.0
+- **Drawback**: Compared to NVIDIA H100 (989 BF16 TFLOPS) compute 1/20, large ecosystem gap
 
 ## LLM Training Performance Reference
 
-- LLaMA-2 7B training: MTT S5000 8-card = **H100 1/4 speed** (BF16 optimized)
-- Stable Diffusion XL: MTT S5000 1-card = **RTX 4090 50% speed**
-- Qwen 1.5 14B fine-tuning: MTT S5000 4-card = **A100 60% speed**
-- Inference (70B Q4): MTT S5000 1-card = **RTX 4090 1.2x speed** (bandwidth advantage)
+- LLaMA-2 7B training: MTT S5000 8 cards ≈ **H100 1/4 speed** (BF16 optimized)
+- Stable Diffusion XL: MTT S5000 1 card ≈ **RTX 4090 50% speed**
+- Qwen 1.5 14B fine-tuning: MTT S5000 4 cards ≈ **A100 60% speed**
+- Inference (70B Q4): MTT S5000 1 card ≈ **RTX 4090 1.2× speed** (bandwidth advantage)
 
-## Use Cases
+## Application Scenarios
 
 - ✅ Chinese market LLM training and inference
-- ✅ Domestic substitution projects
+- ✅ Domestic production replacement projects
 - ✅ Government, state-owned enterprise AI projects
-- ✅ AI compute center construction
+- ✅ AI computing center construction
 - ✅ Edge AI (embedded MTT E series)
-- ✅ Graphics rendering (consumer MTT G series)
+- ✅ Graphics rendering (consumer-grade MTT G series)
 - ❌ International market
-- ❌ Cutting-edge frontier model training (ecosystem + compute limits)
-- ❌ FP8 training (BF16 only)
+- ❌ Top-tier frontier model training (ecosystem + compute limitations)
+- ❌ FP8 training (only supports BF16)
 
-## Chinese GPU Big Five
+## Domestic GPU Five Tigers
 
 | Company | Positioning | Representative Product | Funding |
-|------|------|----------|------|
+|---------|---------------|----------------------|---------|
 | **Moore Threads** | Full-function GPU + AI | MTT S5000 | $500M+ |
 | **Biren Technology** | Data center AI | BR104 | $700M+ |
-| **Jingjiamicro** | Military + civilian GPU | JM9 | listed |
-| **VeriSilicon** | IP + design services | multiple IP | listed |
-| **Iluvatar CoreX** | Data center AI | MR 100/200 | $400M+ |
+| **Jingjia Micro** | Military + civilian GPU | JM9 | Public |
+| **Xinyuan Microelectronics** | IP + design services | Multiple IPs | Public |
+| **Iluvatar** | Data center AI | MR 100/200 | $400M+ |
 
-## Related Products
+## Related Cards
 
-- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) - Chinese AI training
-- [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c) - strongest Chinese AI
-- [Huawei Ascend 920](/docs/cards/huawei/ascend-920) - Chinese next-gen
-- [Tenstorrent](/docs/cards/others/tenstorrent) - RISC-V AI
-- [SambaNova SN40L](/docs/cards/others/sambanova-sn40l) - US RDU
-- [NVIDIA A100](/docs/cards/nvidia/a100) - data center classic
-- [NVIDIA RTX 4090](/docs/cards/nvidia/rtx-4090) - consumer
+- [Cambricon MLU 590](/en/docs/cards/others/cambricon-mlu) - Domestic AI training
+- [Huawei Ascend 910C](/en/docs/cards/huawei/ascend-910c) - Strongest domestic AI
+- [Huawei Ascend 920](/en/docs/cards/huawei/ascend-920) - Next-generation domestic
+- [Tenstorrent](/en/docs/cards/others/tenstorrent) - RISC-V AI
+- [SambaNova SN40L](/en/docs/cards/others/sambanova-sn40l) - American RDU
+- [NVIDIA A100](/en/docs/cards/nvidia/a100) - Data center classic
+- [NVIDIA RTX 4090](/en/docs/cards/nvidia/rtx-4090) - Consumer-grade
+
+## References
+
+- [Moore Threads Official Website](https://www.mthreads.com)
+- [Moore Threads MTT S5000 Product Page](https://www.mthreads.com/product/S5000)
+- [Analysis of Domestic GPU Five Tigers](https://www.example.com/domestic-gpu-five-tigers)
