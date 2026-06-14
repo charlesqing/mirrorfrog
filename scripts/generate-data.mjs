@@ -23,6 +23,7 @@ const KEY_MAP = {
   '制程': 'process', 'process': 'process', '工艺': 'process', 'foundry': 'process',
   '显存': 'memory.capacity', '内存': 'memory.capacity', '容量': 'memory.capacity',
   'memory': 'memory.capacity', 'memory size': 'memory.capacity',
+  'HBM': 'memory.capacity', 'hbm': 'memory.capacity',
   '显存类型': 'memory.type', '内存类型': 'memory.type', '类型': 'memory.type', 'memory type': 'memory.type',
   '显存带宽': 'memory.bandwidth', '内存带宽': 'memory.bandwidth', '带宽': 'memory.bandwidth',
   'memory bandwidth': 'memory.bandwidth', 'bandwidth': 'memory.bandwidth',

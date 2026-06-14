@@ -184,6 +184,7 @@
       "architecture": "AMD CDNA 4（与 MI350 相同架构）",
       "process": "TSMC 3nm (N3)",
       "memory": {
+        "capacity": "288 GB HBM3E（业界最大）",
         "bandwidth": "8 TB/s（业界最高）"
       },
       "compute": {
@@ -536,6 +537,9 @@
     "specs": {
       "architecture": "TPU v4（4 代）",
       "process": "TSMC 7nm",
+      "memory": {
+        "capacity": "32 GB HBM2"
+      },
       "compute": {
         "int8": "275 TOPS"
       },
@@ -560,6 +564,9 @@
     "specs": {
       "architecture": "Google TPU v5（与 v5p 同代）",
       "process": "TSMC 5nm",
+      "memory": {
+        "capacity": "16GB HBM2（v5p 是 96GB）"
+      },
       "compute": {
         "int8": "400 TOPS"
       },
@@ -623,6 +630,9 @@
     "specs": {
       "architecture": "Google TPU v6（与 v6e 同代）",
       "process": "TSMC 5nm（vs v5e 7nm）",
+      "memory": {
+        "capacity": "96 GB HBM2（v6e 仅 32GB）"
+      },
       "compute": {
         "int8": "2.7 POPS"
       },
@@ -673,6 +683,9 @@
     "specs": {
       "architecture": "Da Vinci（双小芯片）",
       "process": "7nm 级（含 SMIC 国产化）",
+      "memory": {
+        "capacity": "8× HBM2E 模块"
+      },
       "tdp": "310 W"
     }
   },
@@ -690,7 +703,10 @@
     ],
     "specs": {
       "architecture": "进一步升级的 Da Vinci",
-      "tdp": "310 W"
+      "tdp": "310 W",
+      "memory": {
+        "capacity": "仍为 HBM2e（比 NVIDIA 落后 2 代）"
+      }
     }
   },
   {
@@ -712,6 +728,9 @@
     "specs": {
       "architecture": "Da Vinci v4",
       "process": "6nm（SMIC N+1 / N+2 国产化）",
+      "memory": {
+        "capacity": "8× HBM3 模块"
+      },
       "compute": {
         "fp16": "1,800 TFLOPS（推测）",
         "int8": "3,600 TOPS（推测）"
@@ -794,6 +813,9 @@
     "specs": {
       "architecture": "昇腾 950（单片式设计）",
       "process": "中芯国际 SMIC N+3（等效 5nm 级）",
+      "memory": {
+        "capacity": "112 GB HiBL 1.0（Atlas 350 加速卡）/ 128 GB（芯片裸片）"
+      },
       "compute": {
         "fp16": "未公开（推测 ~780 TFLOPS）"
       },
@@ -1038,6 +1060,7 @@
       "architecture": "Intel Gaudi 第四代（与 Gaudi 3 同架构演进）",
       "process": "Intel 18A（1.8nm，等效 2nm 级）",
       "memory": {
+        "capacity": "192 GB HBM3E（6 个 stack）",
         "bandwidth": "~5 TB/s（每 HBM3E 819 GB/s × 6）"
       },
       "compute": {
@@ -1980,13 +2003,15 @@
       "architecture": "Hanguang NPU（自研）",
       "process": "TSMC 12nm",
       "memory": {
+        "capacity": "32GB HBM2（4 个 stack）",
         "bandwidth": "700 GB/s"
       },
       "compute": {
         "int8": "820 TOPS",
         "fp16": "128 TFLOPS"
       },
-      "tdp": "168 W"
+      "tdp": "168 W",
+      "release": "2019-09"
     }
   },
   {
@@ -2009,6 +2034,7 @@
       "architecture": "平头哥自研 NPU 架构",
       "process": "7nm（推测，受制裁后转国内代工）",
       "memory": {
+        "capacity": "96 GB HBM2e",
         "bandwidth": "700 GB/s"
       },
       "tdp": "400 W"
@@ -2478,6 +2504,9 @@
         "int8": "2048 TOPS",
         "fp32": "256 TFLOPS"
       },
+      "memory": {
+        "capacity": "32 GB HBM2e"
+      },
       "tdp": "300 W",
       "release": "2022-08"
     }
@@ -2530,6 +2559,7 @@
       "architecture": "Cambricon MLU 第五代（MLUv05）",
       "process": "TSMC 7nm（含部分 SMIC 国产化）",
       "memory": {
+        "capacity": "96 GB HBM2",
         "bandwidth": "600 GB/s"
       },
       "compute": {
@@ -2559,13 +2589,15 @@
       "architecture": "Cambricon MLUv04（第四代）",
       "process": "TSMC 7nm",
       "memory": {
+        "capacity": "48GB HBM2",
         "bandwidth": "614 GB/s"
       },
       "compute": {
         "int8": "96 TOPS",
         "fp32": "24 TFLOPS"
       },
-      "tdp": "35 W"
+      "tdp": "35 W",
+      "release": "2021"
     }
   },
   {
@@ -2585,14 +2617,19 @@
       "国产 AI 芯片"
     ],
     "specs": {
-      "architecture": "第三代 MLU 架构（ Da Vinci 类）",
-      "process": "7nm（TSMC，推测）",
+      "architecture": "第三代 MLU 架构（Da Vinci 类）",
+      "process": "7nm（TSMC）",
+      "memory": {
+        "capacity": "48 GB HBM2e（官方未完整公开，推测）",
+        "bandwidth": "~400 GB/s（推测）"
+      },
       "compute": {
         "fp16": "256 TFLOPS",
         "fp32": "~64 TFLOPS（推测，FP16 的 1/4）",
         "int8": "512 TOPS"
       },
-      "tdp": "250 W"
+      "tdp": "250 W",
+      "release": "2024"
     }
   },
   {
@@ -2614,6 +2651,7 @@
       "architecture": "Cambricon MLUv07（第七代）",
       "process": "TSMC 5nm / SMIC 5nm 国产化（推测）",
       "memory": {
+        "capacity": "192GB HBM3E",
         "bandwidth": "5 TB/s"
       },
       "compute": {
@@ -2712,6 +2750,10 @@
       "architecture": "邃思400（DTU 数据流架构）",
       "process": "国产工艺（未公开具体节点）",
       "tdp": "400 W（预估）",
+      "memory": {
+        "capacity": "144 GB HBM3（预估）",
+        "bandwidth": "3.6 TB/s"
+      },
       "compute": {
         "fp8": "支持原生 FP8（具体 TFLOPS 未公开）",
         "fp32": "未公开（预估 30–50 TFLOPS）",
@@ -2846,6 +2888,7 @@
       "architecture": "Esperanto ET-SoC-1（异构 RISC-V）",
       "process": "TSMC 7nm",
       "memory": {
+        "capacity": "16GB HBM2E（可选 4GB HBM2E）",
         "bandwidth": "410 GB/s"
       },
       "compute": {
@@ -2898,6 +2941,7 @@
       "architecture": "FuriosaAI TCP（Tensor Contraction Processor）",
       "process": "TSMC 5nm",
       "memory": {
+        "capacity": "512GB HBM3（业界最大 HBM 容量之一）",
         "bandwidth": "~6.4 TB/s"
       },
       "compute": {
@@ -3085,9 +3129,11 @@
         "int8": "392 TOPS"
       },
       "memory": {
+        "capacity": "40 GB HBM2e（另有 64GB HBM3 版本传闻）",
         "bandwidth": "1.2 TB/s（读取，双环形总线，实测利用率 92%+）"
       },
-      "tdp": "300 W"
+      "tdp": "300 W",
+      "release": "2024"
     }
   },
   {
@@ -3281,11 +3327,17 @@
     ],
     "specs": {
       "architecture": "自研 XPU-P 架构",
+      "process": "7nm",
+      "memory": {
+        "capacity": "96 GB HBM3",
+        "bandwidth": "2.4 TB/s"
+      },
       "compute": {
         "fp16": "345 TFLOPS（超越 H20 148 TFLOPS）",
         "int8": "支持 8-bit 推理（具体 TOPS 未公开）"
       },
-      "tdp": "400 W"
+      "tdp": "400 W",
+      "release": "2024-03"
     }
   },
   {
@@ -3307,6 +3359,7 @@
       "architecture": "Lightelligence 天机芯（Optical Matrix Multiplication）",
       "process": "TSMC 7nm（光子 + 电子混合）",
       "memory": {
+        "capacity": "32GB HBM2E",
         "bandwidth": "819 GB/s"
       },
       "compute": {
@@ -3337,6 +3390,7 @@
       "architecture": "Lightmatter Passage 硅光（光电混合）",
       "process": "TSMC 3nm",
       "memory": {
+        "capacity": "64GB HBM3",
         "bandwidth": "1.6 TB/s"
       },
       "compute": {
@@ -3366,6 +3420,7 @@
       "architecture": "LightOn Alfred（Optical Processing Unit）",
       "process": "混合：硅光工艺 + 标准 CMOS 控制器",
       "memory": {
+        "capacity": "32GB HBM2E（数字部分）",
         "bandwidth": "819 GB/s"
       },
       "compute": {

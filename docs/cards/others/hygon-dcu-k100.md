@@ -28,12 +28,13 @@ keywords: [海光 DCU K100, Hygon DCU K100, 深算三号, GPGPU, x86, 192 TFLOPS
 | **TF32** | 96 TFLOPS |
 | **FP16 / BF16** | **192 TFLOPS** |
 | **INT8** | **392 TOPS** |
-| **显存容量** | **40GB HBM2e**（另有 64GB HBM3 版本传闻） |
+| **显存** | 40 GB HBM2e（另有 64GB HBM3 版本传闻） |
 | **显存带宽** | **1.2 TB/s**（读取，双环形总线，实测利用率 92%+） |
 | **总线拓扑** | 双环形 HBM2e 总线（读写分离，避免冲突） |
 | **调度器** | 统一张量调度器，动态感知 Attention QKV 矩阵 |
 | **TDP** | 300 W |
 | **板卡形态** | PCIe 全高全长双宽卡 |
+| **发布** | 2024 |
 | **软件生态** | **DTK（DCU Toolkit）**，基于 ROCm，兼容 CUDA |
 
 ## DTK 软件生态
