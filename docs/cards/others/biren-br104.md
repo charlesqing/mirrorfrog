@@ -31,6 +31,7 @@ keywords: [Biren, 壁仞, BR100, BR104, 国产 AI 芯片, BIRENSUPA, 国产替�
 | **INT8 算力** | **2048 TOPS** |
 | **FP32 算力** | 256 TFLOPS |
 | **HBM** | 64GB HBM2e（4 个芯粒） |
+| **显存带宽** | **2.3 TB/s** |
 | **片间带宽** | 800 GB/s（BLink 互联） |
 | **TDP** | 300 W |
 | **发布** | 2022-08 |

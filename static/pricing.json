@@ -1205,6 +1205,20 @@
       "currency": "CNY",
       "last_updated": "2026-06-13",
       "source": "沐曦渠道估算（曦彩G系列首款，图形渲染，研发中）"
+    },
+    "vastai-va10": {
+      "official_msrp": 25000,
+      "market_price": 23000,
+      "currency": "CNY",
+      "last_updated": "2026-06-14",
+      "source": "瀚博半导体渠道估算（2022年发布，INT8 400 TOPS，150W）"
+    },
+    "vastai-sg100": {
+      "official_msrp": 35000,
+      "market_price": 32000,
+      "currency": "CNY",
+      "last_updated": "2026-06-14",
+      "source": "瀚博半导体渠道估算（2023年发布，7nm全功能GPU）"
     }
   }
 }

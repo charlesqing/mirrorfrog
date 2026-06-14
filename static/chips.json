@@ -2037,7 +2037,8 @@
         "capacity": "96 GB HBM2e",
         "bandwidth": "700 GB/s"
       },
-      "tdp": "400 W"
+      "tdp": "400 W",
+      "release": "2023（流片）/ 2025（测试）"
     }
   },
   {
@@ -2505,7 +2506,8 @@
         "fp32": "256 TFLOPS"
       },
       "memory": {
-        "capacity": "32 GB HBM2e"
+        "capacity": "32 GB HBM2e",
+        "bandwidth": "2.3 TB/s"
       },
       "tdp": "300 W",
       "release": "2022-08"
@@ -2657,7 +2659,8 @@
       "compute": {
         "int8": "4 POPS"
       },
-      "tdp": "500 W"
+      "tdp": "500 W",
+      "release": "2025（预计 H2）"
     }
   },
   {
@@ -3302,8 +3305,12 @@
     ],
     "specs": {
       "architecture": "自研架构（具体代号未公开）",
-      "process": "未公开",
-      "tdp": "未公开",
+      "process": "未公开（推测 5nm/4nm）",
+      "memory": {
+        "capacity": "未公开（推测 96-192GB HBM3E）",
+        "bandwidth": "未公开（推测 3-5 TB/s）"
+      },
+      "tdp": "未公开（推测 500-700W）",
       "release": "2025-11-13 发布"
     }
   },
@@ -3748,7 +3755,8 @@
         "fp32": "62.5 TFLOPS（推测）",
         "int8": "2,000 TOPS（推测）"
       },
-      "tdp": "300 W"
+      "tdp": "300 W",
+      "release": "2025-02-12（公开参数）"
     }
   },
   {
@@ -4128,8 +4136,66 @@
     "specs": {
       "architecture": "自研 RPU（Reconfigurable Processing Unit），可重构计算架构",
       "process": "未公开（推测 7nm/6nm）",
+      "memory": {
+        "capacity": "未公开（推测 32-64GB HBM2e/HBM3）",
+        "bandwidth": "未公开（推测 1-2 TB/s）"
+      },
       "tdp": "300 W（推测）",
       "release": "2024 年（量产）"
+    }
+  },
+  {
+    "id": "vastai-sg100",
+    "title": "瀚博半导体 乾元SG100 (2023)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/vastai-sg100",
+    "description": "瀚博半导体乾元SG100：7nm全功能GPU，渲染+AI+视频一体化，2023年7月发布，国产全功能GPU突破。",
+    "keywords": [
+      "瀚博半导体",
+      "乾元SG100",
+      "Vastai Tech",
+      "7nm",
+      "全功能GPU",
+      "渲染",
+      "AI",
+      "视频",
+      "国产GPU"
+    ],
+    "specs": {
+      "architecture": "瀚博第二代GPU架构（乾元系列）",
+      "process": "7nm（TSMC）",
+      "compute": {
+        "fp32": "未公开（推测 ~20 TFLOPS）"
+      },
+      "tdp": "未公开（推测 200-300W）",
+      "release": "2023-07-06（2023世界人工智能大会）"
+    }
+  },
+  {
+    "id": "vastai-va10",
+    "title": "瀚博半导体 载天VA10 (2022)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/vastai-va10",
+    "description": "瀚博半导体载天VA10：7nm、INT8 400 TOPS、150W、2022年9月发布，首款国产AI推理加速卡，搭载SV100芯片。",
+    "keywords": [
+      "瀚博半导体",
+      "载天VA10",
+      "Vastai Tech",
+      "SV100",
+      "7nm",
+      "INT8 400 TOPS",
+      "AI推理",
+      "国产AI芯片"
+    ],
+    "specs": {
+      "architecture": "瀚博统一计算架构 VUCA（SV100 芯片）",
+      "process": "7nm",
+      "compute": {
+        "int8": "400 TOPS",
+        "fp16": "未公开（推测 ~200 TFLOPS）"
+      },
+      "tdp": "150 W",
+      "release": "2022-09-03（2022世界人工智能大会）"
     }
   }
 ]

@@ -30,6 +30,7 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 | **PCIe** | PCIe 4.0 ×16 |
 | **互联** | MUSA Link（自研，类 NVLink） |
 | **板卡形态** | OAM / PCIe |
+| **发布** | 2025-02-12（公开参数）|
 | **量产时间** | 2025-Q1（公开参数） |
 | **单价（OAM）** | ~$4,000-6,000 |
 
