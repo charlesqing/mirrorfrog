@@ -651,12 +651,20 @@
       "source": "Cerebras 官方指导价",
       "note": "整机架系统，非单卡"
     },
-    "qualcomm-ai-100": {
+    "qualcomm-ai100": {
       "official_msrp": 8000,
       "market_price": 7000,
       "currency": "USD",
       "last_updated": "2026-06-01",
       "source": "高通官方指导价"
+    },
+    "qualcomm-ai-200": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-14",
+      "source": "预测价格",
+      "note": "推测芯片，尚未发布"
     },
     "qualcomm-ai200": {
       "official_msrp": null,
@@ -1026,7 +1034,7 @@
       "source": "AMD，不单独销售",
       "note": "仅通过AMD Ryzen台式机提供"
     },
-    "tesla-doj": {
+    "tesla-dojo": {
       "official_msrp": null,
       "market_price": null,
       "currency": "USD",
