@@ -171,6 +171,22 @@
     }
   },
   "amd": {
+    "mi455x": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-14",
+      "source": "预测价格",
+      "note": "2026年下半年量产，定价未公开"
+    },
+    "epyc-venice": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-06-14",
+      "source": "预测价格",
+      "note": "2026年5月量产，定价未公开"
+    },
     "mi210": {
       "official_msrp": 9000,
       "market_price": 8500,

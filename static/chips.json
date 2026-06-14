@@ -1,5 +1,17 @@
 [
   {
+    "id": "epyc-venice",
+    "title": "AMD EPYC Venice",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/epyc-venice",
+    "description": "AMD EPYC Venice (Zen 6)，全球首款2nm数据中心CPU，最多256个Zen 6C核心，1GB L3缓存，1.6TB/s带宽，2026年CES发布",
+    "keywords": [],
+    "specs": {
+      "tdp": "未公开（推测 500-700W）",
+      "release": "2026 年 1 月 6 日"
+    }
+  },
+  {
     "id": "mi210",
     "title": "AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)",
     "vendor": "amd",
@@ -221,6 +233,28 @@
       },
       "tdp": "1000 W",
       "release": "2026"
+    }
+  },
+  {
+    "id": "mi455x",
+    "title": "AMD MI455X",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi455x",
+    "description": "AMD Instinct MI455X GPU，基于CDNA 5架构，2nm与3nm混合制程，432GB HBM4显存，FP4算力40 PFLOPS，2026年CES发布的AI训练与推理GPU",
+    "keywords": [],
+    "specs": {
+      "compute": {
+        "fp8": "20 PFLOPS",
+        "fp16": "推测 ~10 PFLOPS",
+        "fp32": "推测 ~5 TFLOPS",
+        "int8": "推测 ~80 PFLOPS"
+      },
+      "memory": {
+        "type": "HBM4",
+        "bandwidth": "19.6 TB/s"
+      },
+      "tdp": "未公开（推测 1500-2000W）",
+      "release": "2026 年 1 月 6 日"
     }
   },
   {
@@ -1882,30 +1916,23 @@
   },
   {
     "id": "rubin-r200",
-    "title": "NVIDIA Rubin R200 (Vera Rubin Platform)",
+    "title": "NVIDIA Rubin R200",
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/rubin-r200",
-    "description": "NVIDIA Vera Rubin 平台：Rubin GPU + Vera CPU 6 芯片封装，288GB HBM4、22 TB/s、50 PF FP4 稀疏，ConnectX-9 28.8 TB/s，2026 H2 出货。",
-    "keywords": [
-      "NVIDIA Rubin",
-      "Vera Rubin",
-      "R200",
-      "HBM4",
-      "50 PFLOPS FP4",
-      "NVLink 6",
-      "ConnectX-9",
-      "6 芯片封装",
-      "Vera CPU"
-    ],
+    "description": "NVIDIA Rubin R200 GPU，基于3nm制程，3360亿晶体管，288GB HBM4显存，FP4算力50 PFLOPS，2026年GTC发布的新一代AI训练与推理GPU",
+    "keywords": [],
     "specs": {
-      "architecture": "Rubin（Vera Rubin 平台）",
-      "process": "TSMC 3NP / 4NP（混合）",
+      "compute": {
+        "fp16": "推测 ~25 PFLOPS",
+        "fp32": "130 TFLOPS",
+        "int8": "推测 ~100 PFLOPS"
+      },
       "memory": {
-        "capacity": "288 GB HBM4（288 GB/颗 GPU 推断）",
+        "type": "HBM4",
         "bandwidth": "22 TB/s"
       },
-      "tdp": "1800 W",
-      "release": "2026 H2"
+      "tdp": "1800-2300W（必须液冷）",
+      "release": "2026 年 3 月 17 日"
     }
   },
   {
@@ -1938,26 +1965,17 @@
   },
   {
     "id": "vera-cpu",
-    "title": "NVIDIA Vera CPU (2026)",
+    "title": "NVIDIA Vera CPU",
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/vera-cpu",
-    "description": "NVIDIA Vera CPU 详尽规格：88 核 Armv9.2 自研架构，176 线程，LPDDR5X 1.5TB 内存，1.2 TB/s 带宽，NVLink-C2C 1.8 TB/s，专为 Agentic AI 推理设计，2026 年 3 月发布",
-    "keywords": [
-      "NVIDIA Vera",
-      "Vera CPU",
-      "Rubin platform",
-      "Armv9.2",
-      "NVLink-C2C",
-      "Agentic AI",
-      "FP8",
-      "LPDDR5X",
-      "88 cores",
-      "1.5TB memory"
-    ],
+    "description": "NVIDIA Vera CPU，88个自研Olympus核心，支持Armv9.2指令集，1.5TB LPDDR5X内存，1.2TB/s带宽，2026年GTC发布的AI专用CPU",
+    "keywords": [],
     "specs": {
-      "architecture": "NVIDIA 自研 Arm 架构，兼容 Armv9.2 指令集",
-      "release": "2026 年 3 月（GTC 2026）",
-      "tdp": "350 W"
+      "memory": {
+        "bandwidth": "1.2 TB/s"
+      },
+      "tdp": "未公开（推测 350-500W）",
+      "release": "2026 年 3 月 17 日"
     }
   },
   {
