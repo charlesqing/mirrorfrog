@@ -4230,19 +4230,28 @@
   },
   {
     "id": "zhonghao-tpu",
-    "title": "���оӢ ���� TPU (AI ѵ��/����)",
+    "title": "中昊芯英 国产 TPU (AI 训练/推理)",
     "vendor": "others",
     "slug": "/docs/cards/others/zhonghao-tpu",
-    "description": "���оӢ ���� TPU �꾡���400W/512 TOPS��1.28 TOPS/W ��Ч��2.3�� H100����ǧ����Ⱥǧ�ڲ�����2026-05 ��������������ƶ�����������Ͷ�ˡ�",
+    "description": "中昊芯英 自研 TPU 详尽规格：400W/512 TOPS、1.28 TOPS/W 能效（2.3× H100）、千卡集群千亿参数、2026-05 量产交付、天津移动智算中心已投运。",
     "keywords": [
-      "���оӢ",
-      "���� TPU",
-      "���� TPU",
-      "AI оƬ",
-      "��Ч��",
-      "����ƶ���������",
+      "中昊芯英",
+      "国产 TPU",
+      "自研 TPU",
+      "AI 芯片",
+      "能效比",
+      "天津移动智算中心",
       2026
     ],
-    "specs": {}
+    "specs": {
+      "architecture": "自研 TPU（纯 ASIC，无图形渲染）",
+      "process": "7nm（推测）",
+      "compute": {
+        "int8": "512 TOPS",
+        "fp32": "128 TFLOPS（推测）"
+      },
+      "tdp": "400 W",
+      "release": "2026 年 5 月"
+    }
   }
 ]
