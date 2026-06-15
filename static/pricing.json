@@ -384,17 +384,17 @@
       "official_msrp": null,
       "market_price": null,
       "currency": "USD",
-      "last_updated": "2026-06-01",
-      "source": "仅通过Google Cloud提供",
-      "note": "TPU v4的工业版，按小时计费"
+      "last_updated": "2026-06-15",
+      "source": "仅通过Google Cloud提供，按小时计费",
+      "note": "TPU 8代推理专用，2027年底量产"
     },
     "tpu-8t": {
       "official_msrp": null,
       "market_price": null,
       "currency": "USD",
-      "last_updated": "2026-06-01",
-      "source": "仅通过Google Cloud提供",
-      "note": "TPU v5e的工业版，按小时计费"
+      "last_updated": "2026-06-15",
+      "source": "仅通过Google Cloud提供，按小时计费",
+      "note": "TPU 8代训练专用，2027年底量产"
     }
   },
   "aws": {
@@ -584,11 +584,11 @@
       "source": "海光官方指导价"
     },
     "moore-threads-mtt-s5000": {
-      "official_msrp": 3000,
-      "market_price": 2800,
-      "currency": "USD",
-      "last_updated": "2026-06-01",
-      "source": "摩尔线程官方指导价"
+      "official_msrp": 80000,
+      "market_price": 75000,
+      "currency": "CNY",
+      "last_updated": "2026-06-15",
+      "source": "摩尔线程渠道估算（2026 Q1量产）"
     },
     "enflame-t20": {
       "official_msrp": 8000,
@@ -1138,6 +1138,14 @@
       "currency": "CNY",
       "last_updated": "2026-06-13",
       "source": "摩尔线程官网/渠道估算"
+    },
+    "zhonghao-tpu": {
+      "official_msrp": 50000,
+      "market_price": null,
+      "currency": "CNY",
+      "last_updated": "2026-06-15",
+      "source": "渠道估算（2026-05量产）",
+      "note": "中昊芯英自研TPU，千卡集群交付"
     },
     "moore-threads-mtt-s3000": {
       "official_msrp": 50000,

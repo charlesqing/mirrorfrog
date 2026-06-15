@@ -10,7 +10,7 @@ keywords: [Google TPU Ironwood, TPU v7, 第七代 TPU, AI 推理 TPU, Gemini 3]
 
 ## 产品概述
 
-Google TPU v7（代号 **Ironwood**）是 2025 年发布的最新一代 TPU，**专为推理时代设计**。BF16 算力 **2,307 TFLOPS**（每芯片），HBM 容量 **192GB**（与 NVIDIA H200 / MI300X 同级），带宽 **7,380 GB/s**。Ironwood 是首批以推理为先的 TPU，**FP8 算力 4,614 TFLOPS**（每芯片）。
+Google TPU v7（代号 **Ironwood**）是 2025 Hot Chips 大会上发布的第七代 TPU，**Google 首款推理专用 TPU** 架构。BF16 算力 **2,307 TFLOPS**（每芯片），HBM 容量 **192GB**（与 NVIDIA H200 / MI300X 同级），带宽 **7,380 GB/s**。配备 **128 MB 片上 SRAM** 和 4× SparseCore，为超长上下文推理和 MoE 模型优化。
 
 ## 核心规格
 
@@ -26,9 +26,11 @@ Google TPU v7（代号 **Ironwood**）是 2025 年发布的最新一代 TPU，**
 | **TensorCores** | 2/芯片 |
 | **SparseCores** | 4/芯片 |
 | **Pod 规模** | **9,216 芯片** |
-| **TDP（每芯片）** | **1,000 W** |
+ | **TDP（每芯片）** | **1,000 W** |
 | **拓扑** | 3D Torus |
-| **TDP** | 450 W |
+| **片上 SRAM** | **128 MB** |
+| **宣布时间** | 2025 Hot Chips（推理专用首发） |
+| **云服务开放** | 2026 年（Google Cloud） |
 
 ## 历代 TPU 对比
 
@@ -62,8 +64,9 @@ Google TPU v7（代号 **Ironwood**）是 2025 年发布的最新一代 TPU，**
 
 ## 关键特性
 
-- **推理优先**：相比前代侧重训练，Ironwood 优化推理
+- **推理优先**：Google 首款推理专用 TPU 架构
 - **超大内存容量**：192GB 可加载 70B+ 模型单芯片
+- **128 MB 片上 SRAM**：加速超长上下文 KV Cache
 - **FP8 双倍 BF16**：现代推理算力
 - **3D Torus 9,216 芯片 Pod**
 

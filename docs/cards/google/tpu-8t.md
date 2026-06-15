@@ -1,36 +1,38 @@
 ---
 id: tpu-8t
-title: Google Cloud TPU 8t (Trillium 2)
+title: Google Cloud TPU 8t (训练专用)
 sidebar_label: Google TPU 8t
-description: Google TPU 8t 训练专用 ASIC：216GB HBM、6,528 GB/s 带宽，专为 frontier 模型训练设计，2026-04-22 公布，Arm Axion CPU 集成。
-keywords: [Google TPU 8t, Trillium 2, training TPU, 216GB HBM, 6528 GB/s, Arm Axion, 2026]
+description: Google TPU 8t 训练专用 ASIC：TSMC 2nm、双计算Die、8×HBM3e 12层、9,600 芯片 Pod、121 EFLOPS FP4、2026-04-22 Cloud Next '26 公布。
+keywords: [Google TPU 8t, Trillium 2, 训练 TPU, TSMC 2nm, 9600芯片Pod, 121 EFLOPS FP4, Arm Axion, Cloud Next 2026]
 ---
 
-# Google Cloud TPU 8t (Trillium 2 / 训练专用)
+# Google Cloud TPU 8t (训练专用)
 
 ## 产品概述
 
-**Google TPU 8t**（代号 **Trillium 2**）是 2026-04-22 公布的**最新一代训练专用 TPU**（与同期公布的 TPU 8i 推理专用形成 8t + 8i 拆分架构）。配备 **216GB HBM**（比 TPU v7 Ironwood 多 12%）、**6,528 GB/s 带宽**、**集成 Arm Axion CPU**（Google 自研 64 核 Arm）。
+**Google TPU 8t** 是 2026-04-22 **Google Cloud Next '26** 公布的**最新一代训练专用 TPU**，与同期公布的 TPU 8i 推理专用形成 **8t + 8i 拆分架构**。采用 **TSMC 2nm** 制程、**双计算 Die** 设计、**8×HBM3e 12层** 显存堆栈。单 Pod 集成 **9,600 芯片**，HBM 总量 **2 PB**，总算力 **121 EFLOPS FP4**（Ironwood 的 3×）。继承与 **Broadcom（博通）** 的长期合作。
 
-TPU 8t 是 **Google Gemini 3 / Gemini 4 frontier 模型**的核心训练芯片，相比 TPU v7 Ironwood 主要改进是**训练范式优化**（MoE 训练、long-context 训练、RLHF 后训练）。
+TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，集成 **Arm Axion CPU**（Google 自研 64 核 Arm Neoverse V2）实现 TPU + CPU 协同。配备 **SparseCore** 加速 MoE 路由和推荐系统。量产目标 **2027 年底**。
 
 ## 核心规格
 
 | 项目 | 参数 |
 |------|------|
-| **架构** | TPU 8t（Trillium 2） |
-| **形态** | **训练专用**（区别于 8i 推理专用） |
-| **BF16 算力（密集）** | ~3,500 TFLOPS（推测，比 Ironwood 2,307 TFLOPS 高 50%） |
-| **FP8 算力（密集）** | ~7,000 TFLOPS |
-| **HBM 容量** | **216 GB** |
-| **HBM 带宽** | **6,528 GB/s** |
-| **ICI 互联** | 1,400 GB/s（双向） |
-| **DCN 带宽** | 200 Gbps（推测） |
-| **集成 CPU** | **Arm Axion（Google 自研，64 核）** |
-| **Pod 规模** | **9,216 芯片**（推测） |
-| **拓扑** | 3D Torus |
-| **TDP** | 180 W |
-| **首发** | **2026-04-22 公布** |
+| **架构** | TPU 8t（训练专用） |
+| **制程** | **TSMC 2nm** |
+| **Die 设计** | **双计算 Die** |
+| **显存** | 8× **HBM3e 12层**（单芯片推测 ~256GB） |
+| **HBM 带宽** | ~7 TB/s（推测每芯片） |
+| **Pod 芯片数** | **9,600 芯片** |
+| **Pod HBM 总量** | **2 PB** |
+| **Pod FP4 算力** | **121 EFLOPS**（3× Ironwood） |
+| **集成 CPU** | **Arm Axion（Google 自研，64 核 Neoverse V2）** |
+| **SparseCore** | 加速 MoE / 推荐系统 |
+| **互联** | ICI 3D Torus |
+| **散热** | 第4代液冷 |
+| **代工合作伙伴** | **Broadcom（博通）** |
+| **公布时间** | 2026-04-22（Google Cloud Next '26） |
+| **量产目标** | **2027 年底** |
 
 > 📌 **8t 命名**：TPU 8 代 + **t = training（训练）**。8t 与 8i 同代，**仅用于训练**。
 
@@ -38,16 +40,15 @@ TPU 8t 是 **Google Gemini 3 / Gemini 4 frontier 模型**的核心训练芯片�
 
 | 指标 | TPU v7 Ironwood | **TPU 8t** | 提升 |
 |------|-----------------|------------|------|
-| 形态 | 训练 + 推理通用 | **训练专用** | 形态拆分 |
-| BF16 算力 | 2,307 TFLOPS | **~3,500 TFLOPS**（推测） | 1.5× |
-| FP8 算力 | 4,614 TFLOPS | ~7,000 TFLOPS | 1.5× |
-| HBM 容量 | 192 GB | **216 GB** | 1.13× |
-| HBM 带宽 | 7,380 GB/s | **6,528 GB/s** | 略降 |
-| ICI 互联 | 1,200 GB/s | **1,400 GB/s** | 1.17× |
+| 形态 | 推理为主 | **训练专用** | 形态拆分 |
+| 制程 | — | **TSMC 2nm** | 新一代 |
+| Die 设计 | — | **双计算 Die** | 架构升级 |
+| 显存 | 8× HBM3（192GB） | **8× HBM3e 12层** | 升级 |
+| Pod 芯片数 | 9,216 | **9,600** | +4% |
+| Pod HBM | — | **2 PB** | 远超 |
+| Pod FP4 算力 | ~42 EFLOPS（推测） | **121 EFLOPS** | ~3× |
 | 集成 CPU | 无 | **Arm Axion 64 核** | 新增 |
-| 发布时间 | 2025-11 | **2026-04-22** | — |
-
-> 💡 **TPU 8t 带宽略降（7,380 → 6,528 GB/s）但算力提升 50%**，说明 Google 在 8t 牺牲部分带宽换取更高算力（更适合训练中以算力为主的阶段：dense FFN、attention 计算）。
+| 量产 | 已开放 | **2027 年底** | — |
 
 ## TPU 8t 训练范式优化
 

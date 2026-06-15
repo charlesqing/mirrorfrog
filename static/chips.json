@@ -207,23 +207,26 @@
   },
   {
     "id": "mi400",
-    "title": "AMD Instinct MI400 (CDNA Next)",
+    "title": "AMD Instinct MI400 系列 (CDNA 5)",
     "vendor": "amd",
     "slug": "/docs/cards/amd/mi400",
-    "description": "AMD Instinct MI400 详尽规格：CDNA Next 架构、432GB HBM4、19.6 TB/s 带宽、40 PF FP4，Helios 72-GPU 机柜 260 TB/s scale-up，2026 出货。",
+    "description": "AMD Instinct MI400 系列详尽规格：CDNA 5 架构、TSMC N2 制程、432GB HBM4、19.6 TB/s 带宽、40 PF FP4（MI455X），Helios 72-GPU 机柜 260 TB/s scale-up，2026 H2 量产。",
     "keywords": [
       "AMD MI400",
-      "CDNA Next",
+      "MI455X",
+      "CDNA 5",
+      "TSMC N2",
       "HBM4",
       "19.6 TB/s",
       "40 PFLOPS FP4",
       "Helios",
       "260 TB/s",
-      "Ultra Accelerator Link"
+      "Ultra Accelerator Link",
+      "CES 2026"
     ],
     "specs": {
-      "architecture": "CDNA Next",
-      "process": "TSMC 3nm / 2nm（推测）",
+      "architecture": "CDNA 5",
+      "process": "TSMC N2 (2nm) 计算芯粒 + 3nm 辅助芯粒",
       "memory": {
         "capacity": "432 GB HBM4",
         "bandwidth": "19.6 TB/s"
@@ -231,8 +234,8 @@
       "compute": {
         "fp32": "250 TFLOPS（推测）"
       },
-      "tdp": "1000 W",
-      "release": "2026"
+      "tdp": "1200–1500 W",
+      "release": "CES 2026（1月5日发布），2026 H2 量产"
     }
   },
   {
@@ -493,47 +496,53 @@
   },
   {
     "id": "tpu-8i",
-    "title": "Google Cloud TPU 8i (Trillium 2 Inference)",
+    "title": "Google Cloud TPU 8i (推理专用)",
     "vendor": "google",
     "slug": "/docs/cards/google/tpu-8i",
-    "description": "Google TPU 8i 推理专用 ASIC：288GB HBM、8,601 GB/s 带宽、~5,500 TFLOPS BF16，专为超低延迟推理设计，2026-04-22 公布。",
+    "description": "Google TPU 8i 推理专用 ASIC：TSMC 2nm、双张量核心 + CAE、384MB SRAM、1,152 芯片 Pod、11.6 EFLOPS FP8、MediaTek 合作、2026-04-22 Cloud Next '26 公布。",
     "keywords": [
       "Google TPU 8i",
       "Trillium 2",
-      "inference TPU",
-      "288GB HBM",
-      "8601 GB/s",
-      "ultra-low latency",
-      2026
+      "推理 TPU",
+      "TSMC 2nm",
+      "384MB SRAM",
+      "1152芯片Pod",
+      "11.6 EFLOPS FP8",
+      "MediaTek",
+      "CAE",
+      "Cloud Next 2026"
     ],
     "specs": {
-      "architecture": "TPU 8i（Trillium 2）",
-      "compute": {
-        "int8": "~22,000 TOPS"
-      },
-      "release": "2026-04-22 公布",
-      "tdp": "200 W"
+      "architecture": "TPU 8i（推理专用）",
+      "process": "TSMC 2nm",
+      "memory": {
+        "capacity": "~288GB HBM（推测每芯片）",
+        "bandwidth": "~8.6 TB/s（推测）"
+      }
     }
   },
   {
     "id": "tpu-8t",
-    "title": "Google Cloud TPU 8t (Trillium 2)",
+    "title": "Google Cloud TPU 8t (训练专用)",
     "vendor": "google",
     "slug": "/docs/cards/google/tpu-8t",
-    "description": "Google TPU 8t 训练专用 ASIC：216GB HBM、6,528 GB/s 带宽，专为 frontier 模型训练设计，2026-04-22 公布，Arm Axion CPU 集成。",
+    "description": "Google TPU 8t 训练专用 ASIC：TSMC 2nm、双计算Die、8×HBM3e 12层、9,600 芯片 Pod、121 EFLOPS FP4、2026-04-22 Cloud Next '26 公布。",
     "keywords": [
       "Google TPU 8t",
       "Trillium 2",
-      "training TPU",
-      "216GB HBM",
-      "6528 GB/s",
+      "训练 TPU",
+      "TSMC 2nm",
+      "9600芯片Pod",
+      "121 EFLOPS FP4",
       "Arm Axion",
-      2026
+      "Cloud Next 2026"
     ],
     "specs": {
-      "architecture": "TPU 8t（Trillium 2）",
-      "tdp": "180 W",
-      "release": "2026-04-22 公布"
+      "architecture": "TPU 8t（训练专用）",
+      "process": "TSMC 2nm",
+      "memory": {
+        "capacity": "8× HBM3e 12层（单芯片推测 ~256GB）"
+      }
     }
   },
   {
@@ -550,8 +559,7 @@
       "Gemini 3"
     ],
     "specs": {
-      "architecture": "TPU v7（Ironwood）",
-      "tdp": "450 W"
+      "architecture": "TPU v7（Ironwood）"
     }
   },
   {
@@ -2562,31 +2570,35 @@
   },
   {
     "id": "cambricon-mlu",
-    "title": "Cambricon 寒武纪 MLU 590 (国产 AI 训练/推理)",
+    "title": "Cambricon 寒武纪 思元 590 (国产 AI 训练/推理)",
     "vendor": "others",
     "slug": "/docs/cards/others/cambricon-mlu",
-    "description": "寒武纪 MLU 590 详尽规格：7nm、256 TOPS INT8、96GB HBM2、MindSpore 框架、科创板上市、AI 国家队主力。",
+    "description": "寒武纪 思元 590 详尽规格：7nm Chiplet、512 TOPS INT8、96GB HBM2、MLUarch05 架构、MLU-Link 互联，科创板上市，AI 国家队主力。",
     "keywords": [
       "Cambricon",
       "寒武纪",
+      "思元590",
       "MLU 590",
+      "Chiplet",
+      "512 TOPS",
       "国产 AI 芯片",
       "MindSpore",
       "科创板",
       "AI 国家队"
     ],
     "specs": {
-      "architecture": "Cambricon MLU 第五代（MLUv05）",
-      "process": "TSMC 7nm（含部分 SMIC 国产化）",
+      "architecture": "Cambricon MLUarch05（第五代）",
+      "process": "TSMC 7nm + Chiplet 封装",
       "memory": {
         "capacity": "96 GB HBM2",
         "bandwidth": "600 GB/s"
       },
       "compute": {
-        "int8": "256 TOPS",
-        "fp32": "62.5 TFLOPS"
+        "int8": "512 TOPS",
+        "fp16": "256 TFLOPS",
+        "fp32": "128 TFLOPS"
       },
-      "tdp": "250 W"
+      "tdp": "350 W"
     }
   },
   {
@@ -3824,6 +3836,36 @@
     }
   },
   {
+    "id": "moore-threads-s5000",
+    "title": "摩尔线程 MTT S5000 (国产 AI 训练/推理)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/moore-threads-s5000",
+    "description": "摩尔线程 MTT S5000 详尽规格：MUSA 架构、兼容 CUDA、国产 AI 芯片、DeepSeek V4 推理 1,650 tok/s、2026 Q1 量产。",
+    "keywords": [
+      "摩尔线程",
+      "Moore Threads",
+      "MTT S5000",
+      "MUSA",
+      "国产 GPU",
+      "兼容 CUDA",
+      "DeepSeek V4",
+      "AI 推理"
+    ],
+    "specs": {
+      "architecture": "MUSA（对标 CUDA）",
+      "process": "7nm（推测）",
+      "memory": {
+        "capacity": "64–96 GB HBM2e（推测）",
+        "bandwidth": "~1.2 TB/s（推测）"
+      },
+      "compute": {
+        "fp16": "~200 TFLOPS（推测）",
+        "int8": "~400 TOPS（推测）"
+      },
+      "tdp": "~300 W"
+    }
+  },
+  {
     "id": "qualcomm-ai-200",
     "title": "Qualcomm AI 200 / AI 300 (Cloud AI Inference, 2025-2026 推测)",
     "vendor": "others",
@@ -4214,6 +4256,32 @@
       },
       "tdp": "150 W",
       "release": "2022-09-03（2022世界人工智能大会）"
+    }
+  },
+  {
+    "id": "zhonghao-tpu",
+    "title": "中昊芯英 国产 TPU (AI 训练/推理)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/zhonghao-tpu",
+    "description": "中昊芯英 自研 TPU 详尽规格：400W/512 TOPS、1.28 TOPS/W 能效（2.3× H100）、千卡集群千亿参数、2026-05 量产交付、天津移动智算中心已投运。",
+    "keywords": [
+      "中昊芯英",
+      "国产 TPU",
+      "自研 TPU",
+      "AI 芯片",
+      "能效比",
+      "天津移动智算中心",
+      2026
+    ],
+    "specs": {
+      "architecture": "自研 TPU（纯 ASIC，无图形渲染）",
+      "process": "7nm（推测）",
+      "compute": {
+        "int8": "512 TOPS",
+        "fp32": "128 TFLOPS（推测）"
+      },
+      "tdp": "400 W",
+      "release": "2026 年 5 月"
     }
   }
 ]
