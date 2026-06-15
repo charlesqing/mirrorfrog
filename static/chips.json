@@ -3836,36 +3836,6 @@
     }
   },
   {
-    "id": "moore-threads-s5000",
-    "title": "摩尔线程 MTT S5000 (国产 AI 训练/推理)",
-    "vendor": "others",
-    "slug": "/docs/cards/others/moore-threads-s5000",
-    "description": "摩尔线程 MTT S5000 详尽规格：MUSA 架构、兼容 CUDA、国产 AI 芯片、DeepSeek V4 推理 1,650 tok/s、2026 Q1 量产。",
-    "keywords": [
-      "摩尔线程",
-      "Moore Threads",
-      "MTT S5000",
-      "MUSA",
-      "国产 GPU",
-      "兼容 CUDA",
-      "DeepSeek V4",
-      "AI 推理"
-    ],
-    "specs": {
-      "architecture": "MUSA（对标 CUDA）",
-      "process": "7nm（推测）",
-      "memory": {
-        "capacity": "64–96 GB HBM2e（推测）",
-        "bandwidth": "~1.2 TB/s（推测）"
-      },
-      "compute": {
-        "fp16": "~200 TFLOPS（推测）",
-        "int8": "~400 TOPS（推测）"
-      },
-      "tdp": "~300 W"
-    }
-  },
-  {
     "id": "qualcomm-ai-200",
     "title": "Qualcomm AI 200 / AI 300 (Cloud AI Inference, 2025-2026 推测)",
     "vendor": "others",
@@ -4260,28 +4230,19 @@
   },
   {
     "id": "zhonghao-tpu",
-    "title": "中昊芯英 国产 TPU (AI 训练/推理)",
+    "title": "���оӢ ���� TPU (AI ѵ��/����)",
     "vendor": "others",
     "slug": "/docs/cards/others/zhonghao-tpu",
-    "description": "中昊芯英 自研 TPU 详尽规格：400W/512 TOPS、1.28 TOPS/W 能效（2.3× H100）、千卡集群千亿参数、2026-05 量产交付、天津移动智算中心已投运。",
+    "description": "���оӢ ���� TPU �꾡���400W/512 TOPS��1.28 TOPS/W ��Ч��2.3�� H100����ǧ����Ⱥǧ�ڲ�����2026-05 ��������������ƶ�����������Ͷ�ˡ�",
     "keywords": [
-      "中昊芯英",
-      "国产 TPU",
-      "自研 TPU",
-      "AI 芯片",
-      "能效比",
-      "天津移动智算中心",
+      "���оӢ",
+      "���� TPU",
+      "���� TPU",
+      "AI оƬ",
+      "��Ч��",
+      "����ƶ���������",
       2026
     ],
-    "specs": {
-      "architecture": "自研 TPU（纯 ASIC，无图形渲染）",
-      "process": "7nm（推测）",
-      "compute": {
-        "int8": "512 TOPS",
-        "fp32": "128 TFLOPS（推测）"
-      },
-      "tdp": "400 W",
-      "release": "2026 年 5 月"
-    }
+    "specs": {}
   }
 ]

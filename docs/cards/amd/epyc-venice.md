@@ -1,7 +1,7 @@
 ---
 title: "AMD EPYC Venice"
 description: "AMD EPYC Venice (Zen 6)，全球首款2nm数据中心CPU，最多256个Zen 6C核心，1GB L3缓存，1.6TB/s带宽，2026年CES发布"
-slug: "amd-epyc-venice"
+id: epyc-venice
 date: "2026-01-06"
 vendor: "amd"
 category: "数据中心CPU"

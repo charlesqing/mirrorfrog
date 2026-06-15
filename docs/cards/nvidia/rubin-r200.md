@@ -1,7 +1,7 @@
 ---
 title: "NVIDIA Rubin R200"
 description: "NVIDIA Rubin R200 GPU，基于3nm制程，3360亿晶体管，288GB HBM4显存，FP4算力50 PFLOPS，2026年GTC发布的新一代AI训练与推理GPU"
-slug: "nvidia-rubin-r200"
+id: rubin-r200
 date: "2026-03-17"
 vendor: "nvidia"
 category: "数据中心GPU"

@@ -1,7 +1,7 @@
 ---
+id: rubin-r200
 title: "NVIDIA Rubin R200"
 description: "NVIDIA Rubin R200 GPU, based on 3nm process, 336 billion transistors, 288GB HBM4 memory, 50 PFLOPS FP4 compute, next-generation AI training and inference GPU released at GTC 2026"
-slug: "nvidia-rubin-r200"
 date: "2026-03-17"
 vendor: "nvidia"
 category: "Data Center GPU"

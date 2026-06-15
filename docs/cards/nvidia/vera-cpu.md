@@ -1,7 +1,7 @@
 ---
 title: "NVIDIA Vera CPU"
 description: "NVIDIA Vera CPU，88个自研Olympus核心，支持Armv9.2指令集，1.5TB LPDDR5X内存，1.2TB/s带宽，2026年GTC发布的AI专用CPU"
-slug: "nvidia-vera-cpu"
+id: vera-cpu
 date: "2026-03-17"
 vendor: "nvidia"
 category: "数据中心CPU"

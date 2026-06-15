@@ -1,7 +1,7 @@
 ---
+id: epyc-venice
 title: "AMD EPYC Venice"
 description: "AMD EPYC Venice (Zen 6), world's first 2nm data center CPU, up to 256 Zen 6C cores, 1GB L3 cache, 1.6TB/s bandwidth, released at CES 2026"
-slug: "amd-epyc-venice"
 date: "2026-01-06"
 vendor: "amd"
 category: "Data Center CPU"

@@ -1,7 +1,7 @@
 ---
+id: vera-cpu
 title: "NVIDIA Vera CPU"
 description: "NVIDIA Vera CPU, 88 custom Olympus cores, ARMv9.2 instruction set, 1.5TB LPDDR5X memory, 1.2TB/s bandwidth, AI-specific CPU released at GTC 2026"
-slug: "nvidia-vera-cpu"
 date: "2026-03-17"
 vendor: "nvidia"
 category: "Data Center CPU"
