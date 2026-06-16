@@ -17,6 +17,7 @@ keywords: [Rebellions, RBLN, ATOM, 韩国 AI, RDU, 5nm, 边缘 AI, KT 部署]
 ## 核心规格（RBLN 当前）
 
 | 项目 | 参数 |
+| **发布** | 2024-Q2（推测） |
 |------|------|
 | **架构** | Rebellions RDU（Reconfigurable Dataflow） |
 | **制程** | **TSMC 5nm** |

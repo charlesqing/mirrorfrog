@@ -64,7 +64,8 @@
         "fp32": "47.9 TFLOPS",
         "fp64": "47.9 TFLOPS（矢量）"
       },
-      "tdp": "500 W"
+      "tdp": "500 W",
+      "release": "2021-11-08"
     }
   },
   {
@@ -123,7 +124,8 @@
         "fp32": "65.3 TFLOPS",
         "fp64": "32.6 TFLOPS"
       },
-      "tdp": "750 W"
+      "tdp": "750 W",
+      "release": "2023-06-13"
     }
   },
   {
@@ -145,7 +147,8 @@
         "capacity": "256 GB HBM3e",
         "bandwidth": "6.48 TB/s"
       },
-      "tdp": "750 W"
+      "tdp": "750 W",
+      "release": "2024-10-10"
     }
   },
   {
@@ -164,6 +167,7 @@
       "AI 训练 GPU 2025"
     ],
     "specs": {
+      "release": "2025 年 6 月 12 日",
       "architecture": "CDNA 4",
       "memory": {
         "capacity": "288 GB HBM3e",
@@ -193,6 +197,7 @@
       "UALoF"
     ],
     "specs": {
+      "release": "2025 H2（与 MI355X 同步）",
       "architecture": "AMD CDNA 4（与 MI350 相同架构）",
       "process": "TSMC 3nm (N3)",
       "memory": {
@@ -306,7 +311,8 @@
         "int8": "128 TOPS",
         "fp16": "64 TFLOPS"
       },
-      "tdp": "35 W"
+      "tdp": "35 W",
+      "release": "2019-12-03"
     }
   },
   {
@@ -322,6 +328,7 @@
       "AI 推理 ASIC"
     ],
     "specs": {
+      "release": "2022-10-13",
       "architecture": "Inferentia 2（NeuronCore-v2）",
       "memory": {
         "capacity": "32 GB HBM2e"
@@ -346,6 +353,7 @@
       "AI 训练 ASIC"
     ],
     "specs": {
+      "release": "2020-12-01",
       "architecture": "Trainium（第一代）",
       "memory": {
         "capacity": "32 GB HBM",
@@ -372,6 +380,7 @@
       "Trn2 UltraServer"
     ],
     "specs": {
+      "release": "2024 年 12 月 3 日 GA",
       "architecture": "Trainium2（NeuronCore-v3）",
       "process": "TSMC 4nm（推测）",
       "memory": {
@@ -424,7 +433,8 @@
     "specs": {
       "architecture": "WSE-2（Wafer-Scale Engine）",
       "process": "TSMC 7nm",
-      "tdp": "15 kW"
+      "tdp": "15 kW",
+      "release": "2021-08-24"
     }
   },
   {
@@ -441,6 +451,7 @@
       "5nm"
     ],
     "specs": {
+      "release": "2024 年 3 月",
       "architecture": "WSE-3（Wafer-Scale Engine 3）",
       "process": "TSMC 5nm",
       "tdp": "15 kW"
@@ -513,12 +524,14 @@
       "Cloud Next 2026"
     ],
     "specs": {
+      "release": "2026-04-22",
       "architecture": "TPU 8i（推理专用）",
       "process": "TSMC 2nm",
       "memory": {
         "capacity": "~288GB HBM（推测每芯片）",
         "bandwidth": "~8.6 TB/s（推测）"
-      }
+      },
+      "tdp": "1,300 W"
     }
   },
   {
@@ -538,11 +551,13 @@
       "Cloud Next 2026"
     ],
     "specs": {
+      "release": "2026-04-22",
       "architecture": "TPU 8t（训练专用）",
       "process": "TSMC 2nm",
       "memory": {
         "capacity": "8× HBM3e 12层（单芯片推测 ~256GB）"
-      }
+      },
+      "tdp": "1,300 W"
     }
   },
   {
@@ -559,7 +574,9 @@
       "Gemini 3"
     ],
     "specs": {
-      "architecture": "TPU v7（Ironwood）"
+      "release": "2025 年",
+      "architecture": "TPU v7（Ironwood）",
+      "tdp": "1,000 W"
     }
   },
   {
@@ -577,6 +594,7 @@
       "AI 训练"
     ],
     "specs": {
+      "release": "2020-07-15",
       "architecture": "TPU v4（4 代）",
       "process": "TSMC 7nm",
       "memory": {
@@ -604,6 +622,7 @@
       "推理优化"
     ],
     "specs": {
+      "release": "2023-08-29",
       "architecture": "Google TPU v5（与 v5p 同代）",
       "process": "TSMC 5nm",
       "memory": {
@@ -629,6 +648,7 @@
       "脉动阵列"
     ],
     "specs": {
+      "release": "2023-12-05",
       "architecture": "Google TPU v5p（脉动阵列）",
       "process": "TSMC 5nm",
       "tdp": "300 W"
@@ -648,6 +668,7 @@
       "AI 训练 ASIC"
     ],
     "specs": {
+      "release": "2024 年 12 月 GA",
       "architecture": "TPU v6e（Trillium）",
       "compute": {
         "int8": "1,836 TOPS"
@@ -670,6 +691,7 @@
       "TPU 6P"
     ],
     "specs": {
+      "release": "2024-12-03",
       "architecture": "Google TPU v6（与 v6e 同代）",
       "process": "TSMC 5nm（vs v5e 7nm）",
       "memory": {
@@ -695,6 +717,7 @@
       "CANN"
     ],
     "specs": {
+      "release": "2022-11-08",
       "architecture": "Da Vinci（华为自研）",
       "process": "TSMC 7nm+（含 SMIC 国产化努力）",
       "memory": {
@@ -723,6 +746,7 @@
       "双小芯片"
     ],
     "specs": {
+      "release": "2024-04-24（推测）",
       "architecture": "Da Vinci（双小芯片）",
       "process": "7nm 级（含 SMIC 国产化）",
       "memory": {
@@ -744,6 +768,7 @@
       "下一代"
     ],
     "specs": {
+      "release": "未发布（传闻）",
       "architecture": "进一步升级的 Da Vinci",
       "tdp": "310 W",
       "memory": {
@@ -853,6 +878,7 @@
       "长上下文推理"
     ],
     "specs": {
+      "release": "2025-09（推测）",
       "architecture": "昇腾 950（单片式设计）",
       "process": "中芯国际 SMIC N+3（等效 5nm 级）",
       "memory": {
@@ -965,6 +991,7 @@
       "Computex 2026"
     ],
     "specs": {
+      "release": "未发布（2026 推测）",
       "architecture": "Xe3P",
       "memory": {
         "capacity": "高达 480 GB LPDDR5x",
@@ -1002,7 +1029,8 @@
       "compute": {
         "fp32": "7.0 TFLOPS"
       },
-      "tdp": "150 W"
+      "tdp": "150 W",
+      "release": "2022-09-20"
     }
   },
   {
@@ -1029,7 +1057,8 @@
         "fp16": "270 TFLOPS（密集） / 540 TFLOPS（稀疏）",
         "int8": "270 TOPS"
       },
-      "tdp": "250 W"
+      "tdp": "250 W",
+      "release": "2019-06-19"
     }
   },
   {
@@ -1057,7 +1086,8 @@
         "fp8": "865 TFLOPS（AMD 估算）",
         "int8": "865 TOPS"
       },
-      "tdp": "600 W"
+      "tdp": "600 W",
+      "release": "2022-05-10"
     }
   },
   {
@@ -1074,6 +1104,7 @@
       "性价比 GPU"
     ],
     "specs": {
+      "release": "2024 年 4 月（OEM Q2，PCIe 卡 Q4）",
       "architecture": "Gaudi 3（Habana 5 代）",
       "process": "TSMC 5nm",
       "memory": {
@@ -1099,6 +1130,7 @@
       "对标 H200"
     ],
     "specs": {
+      "release": "2026-Q2（推测）",
       "architecture": "Intel Gaudi 第四代（与 Gaudi 3 同架构演进）",
       "process": "Intel 18A（1.8nm，等效 2nm 级）",
       "memory": {
@@ -1147,6 +1179,7 @@
       "Intel 数据中心 GPU"
     ],
     "specs": {
+      "release": "2023 年（Aurora 部署）",
       "architecture": "Xe-HPC",
       "process": "同左",
       "memory": {
@@ -1223,6 +1256,7 @@
       "AI 训练 GPU"
     ],
     "specs": {
+      "release": "2020 年 6 月 GTC",
       "architecture": "Ampere GA100",
       "process": "TSMC 7nm",
       "memory": {
@@ -1261,7 +1295,8 @@
         "fp8": "7 PFLOPS（稀疏）",
         "fp16": "3.5 PFLOPS（稀疏）"
       },
-      "tdp": "700 W"
+      "tdp": "700 W",
+      "release": "2024-03-18"
     }
   },
   {
@@ -1280,6 +1315,7 @@
       "LLM 训练"
     ],
     "specs": {
+      "release": "2024 年 GTC，2025 年大规模量产",
       "architecture": "Blackwell GB100（双 die）",
       "process": "TSMC 4NP",
       "memory": {
@@ -1368,6 +1404,7 @@
       "1 EFLOPS 机柜"
     ],
     "specs": {
+      "release": "2024-03-18",
       "architecture": "Grace Blackwell 200 Superchip",
       "tdp": "1000W"
     }
@@ -1389,7 +1426,8 @@
     ],
     "specs": {
       "architecture": "Grace Blackwell 300 Superchip",
-      "tdp": "1600 W（B300 Ultra 1400W + Grace 200W）"
+      "tdp": "1600 W（B300 Ultra 1400W + Grace 200W）",
+      "release": "2025-01-07"
     }
   },
   {
@@ -1430,6 +1468,7 @@
       "NVLink"
     ],
     "specs": {
+      "release": "2022 年 3 月 GTC 大会",
       "architecture": "Hopper GH100",
       "process": "TSMC 4N（定制 5nm）",
       "memory": {
@@ -1519,6 +1558,7 @@
       "Hopper refresh"
     ],
     "specs": {
+      "release": "2024 年 11 月（首批出货）",
       "architecture": "Hopper GH100（refresh）",
       "process": "TSMC 4N",
       "memory": {
@@ -1578,6 +1618,7 @@
       "工业"
     ],
     "specs": {
+      "release": "2022-2023 年陆续发布",
       "tdp": "60 W"
     }
   },
@@ -1596,6 +1637,7 @@
       "T4000"
     ],
     "specs": {
+      "release": "2025 年 8 月（GA）",
       "memory": {
         "capacity": "128 GB LPDDR5X",
         "bandwidth": "273 GB/s"
@@ -1645,6 +1687,7 @@
       "T4 继任者"
     ],
     "specs": {
+      "release": "2023 年 3 月 GTC",
       "architecture": "Ada Lovelace AD104",
       "process": "TSMC 4N",
       "memory": {
@@ -1672,6 +1715,7 @@
       "vGPU"
     ],
     "specs": {
+      "release": "2023 年 8 月",
       "architecture": "Ada Lovelace AD102",
       "process": "TSMC 4N",
       "memory": {
@@ -1700,6 +1744,7 @@
       "本地 LLM"
     ],
     "specs": {
+      "release": "2022 年 9 月",
       "architecture": "Ada Lovelace AD102",
       "process": "TSMC 4N",
       "memory": {
@@ -1771,7 +1816,7 @@
         "int8": "1,676 TOPS"
       },
       "tdp": "575 W",
-      "release": "2025-01-30"
+      "release": "2025-01-07"
     }
   },
   {
@@ -1799,7 +1844,8 @@
       "compute": {
         "fp32": "104.8 TFLOPS"
       },
-      "tdp": "575 W"
+      "tdp": "575 W",
+      "release": "2025-05（推测）"
     }
   },
   {
@@ -1816,6 +1862,7 @@
       "专业显卡"
     ],
     "specs": {
+      "release": "2022 年 12 月",
       "architecture": "Ada Lovelace AD102",
       "process": "TSMC 4N",
       "memory": {
@@ -1879,7 +1926,8 @@
         "capacity": "128 GB LPDDR5X（CPU + GPU 共享）",
         "bandwidth": "300 GB/s"
       },
-      "tdp": "1,600 W"
+      "tdp": "1,600 W",
+      "release": "2025-01-07（Project DIGITS）"
     }
   },
   {
@@ -1958,6 +2006,7 @@
       "虚拟化"
     ],
     "specs": {
+      "release": "2018 年 9 月",
       "architecture": "Turing TU104",
       "process": "TSMC 12nm",
       "memory": {
@@ -2474,6 +2523,7 @@
       "本地 LLM"
     ],
     "specs": {
+      "release": "2025-Q4（推测）",
       "architecture": "Apple Silicon (M4 Max × 2, UltraFusion)",
       "process": "TSMC 第二代 3nm (N3E)",
       "memory": {
@@ -2499,6 +2549,7 @@
       "2026 推测"
     ],
     "specs": {
+      "release": "2026-Q3（推测）",
       "architecture": "Apple Silicon (M5 Max × 2, UltraFusion)",
       "process": "TSMC 2nm (N2)",
       "memory": {
@@ -2556,6 +2607,7 @@
       "22W"
     ],
     "specs": {
+      "release": "未发布（2025 推测）",
       "architecture": "Blaize GSP（Graph Streaming Processor）",
       "process": "TSMC 16nm",
       "memory": {
@@ -2587,6 +2639,7 @@
       "AI 国家队"
     ],
     "specs": {
+      "release": "2021（推测）",
       "architecture": "Cambricon MLUarch05（第五代）",
       "process": "TSMC 7nm + Chiplet 封装",
       "memory": {
@@ -2918,6 +2971,7 @@
       "1300 核"
     ],
     "specs": {
+      "release": "2022-Q3（推测）",
       "architecture": "Esperanto ET-SoC-1（异构 RISC-V）",
       "process": "TSMC 7nm",
       "memory": {
@@ -2971,6 +3025,7 @@
       "韩国 AI 创业"
     ],
     "specs": {
+      "release": "2024-Q2（推测）",
       "architecture": "FuriosaAI TCP（Tensor Contraction Processor）",
       "process": "TSMC 5nm",
       "memory": {
@@ -3004,7 +3059,8 @@
         "fp16": "350 TFLOPS",
         "int8": "700 TOPS"
       },
-      "tdp": "185 W"
+      "tdp": "185 W",
+      "release": "2022-09-13"
     }
   },
   {
@@ -3021,6 +3077,7 @@
       "GroqCloud"
     ],
     "specs": {
+      "release": "2023-07-19",
       "architecture": "Tensor Streaming Processor (TSP)",
       "process": "TSMC 14nm",
       "compute": {
@@ -3045,6 +3102,7 @@
       "GroqCloud"
     ],
     "specs": {
+      "release": "2024-Q4（推测）",
       "architecture": "Groq LPU v2（deterministic dataflow）",
       "process": "TSMC 4nm",
       "memory": {
@@ -3186,6 +3244,7 @@
       "Science 2023"
     ],
     "specs": {
+      "release": "2023-10-19",
       "architecture": "IBM NorthPole（In-Memory Compute）",
       "process": "IBM 22nm SOI（Samsung/Samsung 11nm 推测 2026）",
       "memory": {
@@ -3393,6 +3452,7 @@
       "硟光三巨头"
     ],
     "specs": {
+      "release": "未发布（2025 推测）",
       "architecture": "Lightelligence 天机芯（Optical Matrix Multiplication）",
       "process": "TSMC 7nm（光子 + 电子混合）",
       "memory": {
@@ -3424,6 +3484,7 @@
       "8 卡"
     ],
     "specs": {
+      "release": "2023-Q4（推测）",
       "architecture": "Lightmatter Passage 硅光（光电混合）",
       "process": "TSMC 3nm",
       "memory": {
@@ -3454,6 +3515,7 @@
       "EU AI"
     ],
     "specs": {
+      "release": "2022-Q2（推测）",
       "architecture": "LightOn Alfred（Optical Processing Unit）",
       "process": "混合：硅光工艺 + 标准 CMOS 控制器",
       "memory": {
@@ -3663,6 +3725,7 @@
       "韩国 AI 芯片"
     ],
     "specs": {
+      "release": "2023-Q3（推测）",
       "architecture": "Mobilint Aries NPU",
       "process": "TSMC 5nm",
       "memory": {
@@ -3851,6 +3914,7 @@
       "数据中心"
     ],
     "specs": {
+      "release": "2025-Q4（推测）",
       "process": "TSMC 3nm (N3E)",
       "memory": {
         "bandwidth": "2.5 TB/s"
@@ -3888,7 +3952,8 @@
         "capacity": "16/32/64 GB LPDDR4X",
         "bandwidth": "51.2 GB/s（16GB）/ 102.4 GB/s（64GB）"
       },
-      "tdp": "75 W"
+      "tdp": "75 W",
+      "release": "2023 年 9 月（官方宣布）"
     }
   },
   {
@@ -3994,6 +4059,7 @@
       "KT 部署"
     ],
     "specs": {
+      "release": "2024-Q2（推测）",
       "architecture": "Rebellions RDU（Reconfigurable Dataflow）",
       "process": "TSMC 5nm",
       "memory": {
@@ -4019,6 +4085,7 @@
       "AI 一体机"
     ],
     "specs": {
+      "release": "2023-09-19",
       "architecture": "RDU（可重构数据流）",
       "process": "TSMC 7nm",
       "memory": {
@@ -4071,7 +4138,8 @@
         "fp32": "~75 TFLOPS",
         "int8": "~450 TOPS"
       },
-      "tdp": "150W / 300W"
+      "tdp": "150W / 300W",
+      "release": "2022-Q4（推测）"
     }
   },
   {
@@ -4090,6 +4158,7 @@
       "Jim Keller"
     ],
     "specs": {
+      "release": "2024-Q3（推测）",
       "architecture": "Tenstorrent Tensix + RISC-V",
       "process": "TSMC 6nm（vs Wormhole 12nm）",
       "memory": {
@@ -4115,6 +4184,7 @@
       "晶圆级"
     ],
     "specs": {
+      "release": "2021-08-19",
       "architecture": "Tesla D1",
       "process": "TSMC 7nm",
       "compute": {
@@ -4144,7 +4214,8 @@
     "specs": {
       "architecture": "Tesla D1 第二代",
       "process": "TSMC 3nm (N3)",
-      "tdp": "~150 kW"
+      "tdp": "~150 kW",
+      "release": "2025-Q4（推测）"
     }
   },
   {
@@ -4244,14 +4315,14 @@
       2026
     ],
     "specs": {
+      "release": "2026 年 5 月",
       "architecture": "自研 TPU（纯 ASIC，无图形渲染）",
       "process": "7nm（推测）",
       "compute": {
         "int8": "512 TOPS",
         "fp32": "128 TFLOPS（推测）"
       },
-      "tdp": "400 W",
-      "release": "2026 年 5 月"
+      "tdp": "400 W"
     }
   }
 ]

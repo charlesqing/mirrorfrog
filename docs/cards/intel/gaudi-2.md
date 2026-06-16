@@ -30,6 +30,7 @@ Intel Gaudi 2 由 Intel 收购的 **Habana Labs** 开发，是面向深度学习
 | **网络** | **24× 100GbE RDMA**（集成网卡） |
 | **PCIe** | Gen 4 x16 |
 | **形式** | OAM (HL-225H) / PCIe |
+| **发布** | 2022-05-10 |
 
 ## 厂商信息
 

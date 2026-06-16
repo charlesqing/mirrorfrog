@@ -15,6 +15,7 @@ AWS Inferentia 2 于 2022 年发布，是第二代 AWS 自研推理 ASIC。**最
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2022-10-13 |
 |------|------|
 | **架构** | Inferentia 2（NeuronCore-v2） |
 | **NeuronCore** | 4 颗/芯片 |

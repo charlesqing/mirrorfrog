@@ -15,6 +15,7 @@ NVIDIA Jetson Thor 是 2025 年发布的下一代边缘 AI 模组，基于 **Bla
 ## 核心规格
 
 | 规格 | Jetson AGX Thor Developer Kit | Jetson T5000 | Jetson T4000 |
+| **发布** | 2025 年 8 月（GA） |
 |------|------------------------------|--------------|--------------|
 | **AI 算力 (FP4 稀疏)** | **2,070 TFLOPS** | 2,070 TFLOPS | 1,200 TFLOPS |
 | **GPU** | 2,560-core Blackwell + 第五代 Tensor Core | 2,560-core Blackwell + 第五代 Tensor Core | 1,536-core Blackwell + 第五代 Tensor Core |
@@ -36,7 +37,6 @@ NVIDIA Jetson Thor 是 2025 年发布的下一代边缘 AI 模组，基于 **Bla
 |------|------|
 | **制造商** | NVIDIA Corporation |
 | **官网** | https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/ |
-| **发布** | 2025 年 8 月（GA） |
 | **生态** | Isaac GR00T N1（人形机器人基础模型）、VSS（视频搜索与摘要）、Holoscan Sensor Bridge |
 
 ## 关键特性

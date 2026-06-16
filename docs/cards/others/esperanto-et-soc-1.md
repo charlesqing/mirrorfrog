@@ -19,6 +19,7 @@ keywords: [Esperanto, ET-SoC-1, RISC-V AI, 异构 AI, ET-Minion, ET-Maxion, 1300
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2022-Q3（推测） |
 |------|------|
 | **架构** | Esperanto ET-SoC-1（异构 RISC-V） |
 | **制程** | TSMC 7nm |

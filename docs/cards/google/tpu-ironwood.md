@@ -15,6 +15,7 @@ Google TPU v7（代号 **Ironwood**）是 2025 Hot Chips 大会上发布的第�
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2025 年 |
 |------|------|
 | **架构** | TPU v7（Ironwood） |
 | **BF16 算力（每芯片）** | **2,307 TFLOPS** |
@@ -26,7 +27,7 @@ Google TPU v7（代号 **Ironwood**）是 2025 Hot Chips 大会上发布的第�
 | **TensorCores** | 2/芯片 |
 | **SparseCores** | 4/芯片 |
 | **Pod 规模** | **9,216 芯片** |
- | **TDP（每芯片）** | **1,000 W** |
+ | **TDP** | 1,000 W |
 | **拓扑** | 3D Torus |
 | **片上 SRAM** | **128 MB** |
 | **宣布时间** | 2025 Hot Chips（推理专用首发） |
@@ -59,7 +60,7 @@ Google TPU v7（代号 **Ironwood**）是 2025 Hot Chips 大会上发布的第�
 | **制造商** | Google LLC |
 | **官网** | https://cloud.google.com/tpu |
 | **产品页** | https://cloud.google.com/tpu/docs/tpu7x |
-| **发布** | 2025 年 |
+
 | **提供方式** | 仅 Google Cloud |
 
 ## 关键特性

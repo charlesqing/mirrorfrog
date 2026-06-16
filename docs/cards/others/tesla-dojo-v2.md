@@ -37,6 +37,7 @@ keywords: [Tesla Dojo v2, Dojo 2, 3nm, FP8, D1 芯片, 自研, FSD, Robotaxi, 20
 | **TDP（ExaPod）** | **~150 kW** |
 | **量产** | **2025 H2** |
 | **价格（ExaPod）** | **~$5-10M**（推测）|
+| **发布** | 2025-Q4（推测） |
 
 ## Tesla Dojo 演进
 

@@ -15,6 +15,7 @@ Groq LPU（Language Processing Unit）是 Groq 自研的**确定性 LLM 推理�
 ## 核心规格（GroqChip v1）
 
 | 项目 | 参数 |
+| **发布** | 2023-07-19 |
 |------|------|
 | **架构** | Tensor Streaming Processor (TSP) |
 | **制程** | TSMC 14nm |

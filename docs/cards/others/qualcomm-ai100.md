@@ -27,6 +27,7 @@ Qualcomm **Cloud AI 100**（开发代号 **AIC100**）是 Qualcomm 面向**数�
 | **内存** | 16/32/64 GB LPDDR4X |
 | **内存带宽** | 51.2 GB/s（16GB）/ 102.4 GB/s（64GB） |
 | **TDP** | 75 W |
+| **发布** | 2023 年 9 月（官方宣布） |
 | **形式** | PCIe Gen4 x16 双槽卡 / M.2 / HHHL |
 | **互联** | PCIe Gen4 |
 

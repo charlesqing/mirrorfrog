@@ -17,6 +17,7 @@ keywords: [Cambricon, 寒武纪, 思元590, MLU 590, Chiplet, 512 TOPS, 国产 A
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2021（推测） |
 |------|------|
 | **架构** | Cambricon MLUarch05（第五代） |
 | **制程** | TSMC 7nm + Chiplet 封装 |

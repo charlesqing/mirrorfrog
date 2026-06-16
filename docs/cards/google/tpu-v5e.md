@@ -21,6 +21,7 @@ keywords: [Google TPU v5e, TPU v5e, 5nm, 16GB HBM2, 400 TF FP8, 训练-Lite, 推
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2023-08-29 |
 |------|------|
 | **代号** | Trillium-Lite（Google 内部称 v5e） |
 | **架构** | Google TPU v5（与 v5p 同代） |

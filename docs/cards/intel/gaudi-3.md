@@ -15,6 +15,7 @@ Intel Gaudi 3 于 2024 年 4 月发布（Intel Vision 大会），是 Gaudi 2 �
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2024 年 4 月（OEM Q2，PCIe 卡 Q4） |
 |------|------|
 | **架构** | Gaudi 3（Habana 5 代） |
 | **制程** | TSMC 5nm |
@@ -51,7 +52,7 @@ Intel Gaudi 3 于 2024 年 4 月发布（Intel Vision 大会），是 Gaudi 2 �
 | **官网** | https://habana.ai |
 | **产品页** | https://habana.ai/products/gaudi3/ |
 | **白皮书** | https://www.intel.com/content/www/us/en/content-details/817486/intel-gaudi-3-ai-accelerator-white-paper.html |
-| **发布** | 2024 年 4 月（OEM Q2，PCIe 卡 Q4） |
+
 
 ## 关键特性
 

@@ -20,6 +20,7 @@ keywords: [Groq LPU v2, Groq Language Processing Unit, 4nm, 80GB SRAM, 15 TB/s, 
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2024-Q4（推测） |
 |------|------|
 | **架构** | Groq LPU v2（deterministic dataflow） |
 | **制程** | **TSMC 4nm** |

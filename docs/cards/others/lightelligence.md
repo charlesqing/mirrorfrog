@@ -17,6 +17,7 @@ keywords: [Lightelligence, 天机芯, 硟光, 光学 AI, 1.6 PF, 中科院, 硟�
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 未发布（2025 推测） |
 |------|------|
 | **架构** | Lightelligence 天机芯（Optical Matrix Multiplication） |
 | **制程** | TSMC 7nm（光子 + 电子混合）|

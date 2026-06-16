@@ -15,6 +15,7 @@ SambaNova SN40L 是基于**可重构数据流（RDU - Reconfigurable Dataflow Un
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2023-09-19 |
 |------|------|
 | **架构** | RDU（可重构数据流） |
 | **制程** | TSMC 7nm |

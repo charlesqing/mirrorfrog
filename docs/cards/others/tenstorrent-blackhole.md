@@ -17,6 +17,7 @@ keywords: [Tenstorrent Blackhole, RISC-V 2nd gen, Tensix, 120 核, 8GB SRAM, 16 
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2024-Q3（推测） |
 |------|------|
 | **架构** | Tenstorrent Tensix + RISC-V |
 | **制程** | **TSMC 6nm**（vs Wormhole 12nm）|

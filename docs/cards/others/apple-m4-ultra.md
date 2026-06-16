@@ -25,6 +25,7 @@ keywords: [Apple M4 Ultra, M4 Ultra, 256GB UMA, Apple Silicon, Mac Studio, Apple
 ## 核心规格（推测）
 
 | 项目 | 参数 |
+| **发布** | 2025-Q4（推测） |
 |------|------|
 | **架构** | Apple Silicon (M4 Max × 2, UltraFusion) |
 | **制程** | TSMC 第二代 3nm (N3E) |

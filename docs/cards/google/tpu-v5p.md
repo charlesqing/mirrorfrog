@@ -15,6 +15,7 @@ Google TPU v5p（v5 **P**remium）是 Google 第五代 **Premium TPU**，2023 �
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2023-12-05 |
 |------|------|
 | **架构** | Google TPU v5p（脉动阵列） |
 | **制程** | TSMC 5nm |

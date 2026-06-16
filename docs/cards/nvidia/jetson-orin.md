@@ -15,6 +15,7 @@ NVIDIA Jetson Orin 是面向边缘 AI 和机器人应用的 SoM（System-on-Modu
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2022-2023 年陆续发布 |
 |------|------|
 | **TDP** | 60 W |
 
@@ -60,7 +61,6 @@ NVIDIA Jetson Orin 是面向边缘 AI 和机器人应用的 SoM（System-on-Modu
 | **制造商** | NVIDIA Corporation |
 | **官网** | https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/ |
 | **生态** | JetPack SDK, Isaac (机器人), Metropolis (视频 AI), Holoscan (传感器) |
-| **发布** | 2022-2023 年陆续发布 |
 
 ## 关键特性
 

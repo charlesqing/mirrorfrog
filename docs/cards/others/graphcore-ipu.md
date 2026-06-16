@@ -26,6 +26,7 @@ Graphcore IPU（Intelligence Processing Unit）是采用 **MIMD（多指令多�
 | **TDP** | 185 W |
 | **互联** | IPU-Link（PCIe 4.0） |
 | **形式** | PCIe 4.0 x16 |
+| **发布** | 2022-09-13 |
 
 ## 厂商信息
 

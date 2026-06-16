@@ -15,6 +15,7 @@ AWS Trainium 2 于 **2024 年 12 月 3 日**在 re:Invent 2024 大会上 GA，�
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2024 年 12 月 3 日 GA |
 |------|------|
 | **架构** | Trainium2（NeuronCore-v3） |
 | **制程** | TSMC 4nm（推测） |
@@ -56,7 +57,7 @@ AWS Trainium 2 于 **2024 年 12 月 3 日**在 re:Invent 2024 大会上 GA，�
 | **官网** | https://aws.amazon.com/machine-learning/trainium/ |
 | **产品页** | https://aws.amazon.com/ec2/instance-types/trn2/ |
 | **SDK** | https://awsdocs-neuron.readthedocs-hosted.com/ |
-| **发布** | 2024 年 12 月 3 日 GA |
+
 
 ## 关键特性
 

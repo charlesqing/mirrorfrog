@@ -15,6 +15,7 @@ NVIDIA RTX 6000 Ada 是面向专业工作站的高端 GPU，2022 年发布。基
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2022 年 12 月 |
 |------|------|
 | **架构** | Ada Lovelace AD102 |
 | **制程** | TSMC 4N |
@@ -36,7 +37,6 @@ NVIDIA RTX 6000 Ada 是面向专业工作站的高端 GPU，2022 年发布。基
 | **制造商** | NVIDIA Corporation |
 | **官网** | https://www.nvidia.com |
 | **产品页** | https://www.nvidia.com/en-us/design-visualization/rtx-6000-ada/ |
-| **发布** | 2022 年 12 月 |
 | **价格** | 约 $6,800 |
 
 ## 适用场景

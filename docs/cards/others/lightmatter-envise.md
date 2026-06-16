@@ -17,6 +17,7 @@ keywords: [Lightmatter, Envise, 硅光, silicon photonics, 光学计算, 2 PF, 6
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2023-Q4（推测） |
 |------|------|
 | **架构** | Lightmatter Passage 硅光（光电混合） |
 | **制程** | TSMC 3nm |

@@ -15,6 +15,7 @@ Cerebras WSE-3 于 **2024 年 3 月**发布，是第三代晶圆级 AI 芯片。
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2024 年 3 月 |
 |------|------|
 | **架构** | WSE-3（Wafer-Scale Engine 3） |
 | **制程** | TSMC 5nm |
@@ -42,7 +43,6 @@ Cerebras WSE-3 于 **2024 年 3 月**发布，是第三代晶圆级 AI 芯片。
 | **制造商** | Cerebras Systems |
 | **官网** | https://www.cerebras.net |
 | **产品页** | https://www.cerebras.net/product-cs-3/ |
-| **发布** | 2024 年 3 月 |
 | **云端租赁** | https://cerebras.net/ai-cloud/ |
 
 ## 关键特性

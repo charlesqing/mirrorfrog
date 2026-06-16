@@ -22,6 +22,7 @@ AWS Inferentia 是 Amazon Annapurna Labs 设计的 **AI 推理 ASIC**，2019 年
 | **FP16/BF16** | 64 TFLOPS |
 | **TDP** | 35 W |
 | **形式** | Inf1 实例 |
+| **发布** | 2019-12-03 |
 
 ## 厂商信息
 

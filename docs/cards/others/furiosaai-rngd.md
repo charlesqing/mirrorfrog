@@ -17,6 +17,7 @@ keywords: [FuriosaAI, RNGD, 韩国 AI, 5nm, HBM3, 200K tokens/s, KT 客户, 韩�
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2024-Q2（推测） |
 |------|------|
 | **架构** | FuriosaAI TCP（Tensor Contraction Processor） |
 | **制程** | **TSMC 5nm** |

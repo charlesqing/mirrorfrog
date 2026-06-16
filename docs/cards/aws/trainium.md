@@ -15,6 +15,7 @@ AWS Trainium 是 Amazon Annapurna Labs 设计的 AI 训练 ASIC，2021 年推出
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2020-12-01 |
 |------|------|
 | **架构** | Trainium（第一代） |
 | **NeuronCore** | 32 颗/芯片（NeuronCore-v2） |

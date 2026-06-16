@@ -17,6 +17,7 @@ keywords: [Blaize, Xplorer X1600, Edge AI, GSP, Graph Streaming Processor, 7K TO
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 未发布（2025 推测） |
 |------|------|
 | **架构** | Blaize GSP（Graph Streaming Processor） |
 | **制程** | TSMC 16nm |

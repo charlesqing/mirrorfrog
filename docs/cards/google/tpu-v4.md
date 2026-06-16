@@ -17,6 +17,7 @@ keywords: [Google TPU v4, TPU v4 Pod, 2D torus, 32GB HBM, 4096 chips, AI 训练]
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2020-07-15 |
 |------|------|
 | **架构** | TPU v4（4 代） |
 | **制程** | TSMC 7nm |

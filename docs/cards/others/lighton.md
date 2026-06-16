@@ -17,6 +17,7 @@ keywords: [LightOn, Alfred, 硟光, 法国 AI, photonic computing, 1.2 PF, EU AI
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2022-Q2（推测） |
 |------|------|
 | **架构** | LightOn Alfred（Optical Processing Unit） |
 | **制程** | 混合：硅光工艺 + 标准 CMOS 控制器 |

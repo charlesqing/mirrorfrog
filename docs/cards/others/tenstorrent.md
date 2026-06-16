@@ -24,6 +24,7 @@ Tenstorrent 由传奇架构师 **Jim Keller** 领导，基于**RISC-V** 架构�
 | **INT8** | ~300 TOPS | ~450 TOPS |
 | **互联** | PCIe 4.0 | 8× 100GbE RDMA |
 | **TDP** | 75W / 300W | 150W / 300W |
+| **发布** | 2022-Q4（推测） |
 
 ## 厂商信息
 

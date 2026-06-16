@@ -1,5 +1,12 @@
 {
   "nvidia": {
+    "h20": {
+      "official_msrp": 14000,
+      "market_price": 13000,
+      "currency": "USD",
+      "last_updated": "2026-06-01",
+      "source": "NVIDIA 中国特供版指导价"
+    },
     "h100": {
       "official_msrp": 30000,
       "market_price": 28000,
@@ -119,13 +126,6 @@
       "last_updated": "2026-06-01",
       "source": "NVIDIA 官方指导价"
     },
-    "h20": {
-      "official_msrp": 14000,
-      "market_price": 13000,
-      "currency": "USD",
-      "last_updated": "2026-06-01",
-      "source": "NVIDIA 中国特供版指导价"
-    },
     "l2": {
       "official_msrp": 2500,
       "market_price": 2300,
@@ -168,6 +168,13 @@
       "currency": "USD",
       "last_updated": "2026-06-01",
       "source": "预测价格（模组）"
+    },
+    "h800": {
+      "official_msrp": 280000,
+      "market_price": 250000,
+      "currency": "CNY",
+      "last_updated": "2026-06-15",
+      "source": "中国市场价格（2023年数据，受出口管制影响）"
     }
   },
   "amd": {
@@ -194,13 +201,6 @@
       "last_updated": "2026-05-01",
       "source": "AMD 官方指导价"
     },
-    "mi250x": {
-      "official_msrp": 15000,
-      "market_price": 14000,
-      "currency": "USD",
-      "last_updated": "2026-05-01",
-      "source": "AMD 官方指导价"
-    },
     "mi300x": {
       "official_msrp": 15000,
       "market_price": 13500,
@@ -211,13 +211,6 @@
     "mi325x": {
       "official_msrp": 18000,
       "market_price": 16500,
-      "currency": "USD",
-      "last_updated": "2026-06-13",
-      "source": "AMD 官方指导价"
-    },
-    "mi350x": {
-      "official_msrp": 20000,
-      "market_price": 18500,
       "currency": "USD",
       "last_updated": "2026-06-13",
       "source": "AMD 官方指导价"
@@ -280,20 +273,6 @@
       "currency": "USD",
       "last_updated": "2026-06-01",
       "source": "预测价格"
-    },
-    "max-1550": {
-      "official_msrp": 3500,
-      "market_price": 3200,
-      "currency": "USD",
-      "last_updated": "2026-05-01",
-      "source": "Intel 官方指导价"
-    },
-    "flex-170": {
-      "official_msrp": 900,
-      "market_price": 850,
-      "currency": "USD",
-      "last_updated": "2026-05-01",
-      "source": "Intel 官方指导价"
     },
     "arc-pro-b60": {
       "official_msrp": 500,
@@ -497,14 +476,6 @@
       "currency": "USD",
       "last_updated": "2026-06-13",
       "source": "寒武纪官方指导价 / 市场均价"
-    },
-    "cerebras-wse-3": {
-      "official_msrp": 5000000,
-      "market_price": null,
-      "currency": "USD",
-      "last_updated": "2026-05-01",
-      "source": "Cerebras 官方指导价",
-      "note": "整机架系统，非单卡"
     },
     "groq-lpu": {
       "official_msrp": 30000,

@@ -17,6 +17,7 @@ TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，�
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2026-04-22 |
 |------|------|
 | **架构** | TPU 8t（训练专用） |
 | **制程** | **TSMC 2nm** |
@@ -30,6 +31,7 @@ TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，�
 | **SparseCore** | 加速 MoE / 推荐系统 |
 | **互联** | ICI 3D Torus |
 | **散热** | 第4代液冷 |
+| **TDP** | 1,300 W |
 | **代工合作伙伴** | **Broadcom（博通）** |
 | **公布时间** | 2026-04-22（Google Cloud Next '26） |
 | **量产目标** | **2027 年底** |

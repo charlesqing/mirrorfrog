@@ -15,6 +15,7 @@ Google TPU v6e（代号 **Trillium**）于 2024 年 12 月 GA（General Availabi
 ## 核心规格
 
 | 项目 | 参数 |
+| **发布** | 2024 年 12 月 GA |
 |------|------|
 | **架构** | TPU v6e（Trillium） |
 | **BF16 算力** | **918 TFLOPS**（4.7× v5e） |
@@ -50,7 +51,7 @@ Google TPU v6e（代号 **Trillium**）于 2024 年 12 月 GA（General Availabi
 | **制造商** | Google LLC |
 | **官网** | https://cloud.google.com/tpu |
 | **产品页** | https://cloud.google.com/tpu/docs/v6e |
-| **发布** | 2024 年 12 月 GA |
+
 | **训练过** | Gemini 2.0 |
 
 ## 关键特性

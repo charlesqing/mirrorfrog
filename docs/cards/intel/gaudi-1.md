@@ -28,6 +28,7 @@ keywords: [Intel Gaudi 1, Habana Labs, HL-2000, V100 替代, 性价比]
 | **TDP** | 250 W |
 | **接口** | PCIe Gen4 ×16 |
 | **首发价** | $8,000-$10,000 |
+| **发布** | 2019-06-19 |
 
 ## Gaudi 1 vs V100 vs A100
 
