@@ -1,0 +1,187 @@
+---
+slug: google-tpu-8i-8t-cloud-next-2026
+title: '谷歌TPU 8i/8t 正式发布：训练与推理首次分家，2nm工艺赋能智能体时代'
+authors: [aicomputecards]
+tags: [google, tpu, tpu-8i, tpu-8t, cloud-next, agentic-ai, 2nm]
+date: 2026-06-16
+description: '2026年4月22日，谷歌在Cloud Next 2026大会上正式发布第八代TPU：TPU 8i（推理专用）和TPU 8t（训练专用）。这是谷歌史上首次将AI训练与推理任务拆分至两款独立芯片，采用TSMC 2nm制程，2027年底量产。'
+---
+
+# 谷歌TPU 8i/8t 正式发布：训练与推理首次分家，2nm工艺赋能智能体时代
+
+2026年4月22日，在拉斯维加斯举行的**Google Cloud Next '26**大会上，谷歌正式发布了**第八代张量处理器（TPU）**。这是谷歌史上首次将AI训练与推理任务拆分至两款独立芯片：
+
+- **TPU 8t**：专为模型训练设计
+- **TPU 8i**：专注高并发推理任务
+
+此次发布未引入新的物理概念，而是聚焦于解决AI数据中心的核心痛点：**万卡集群扩展效率**、**智能体AI工作负载优化**、**每瓦性能提升**。
+
+## TPU 8i（推理专用）：消除"等待室效应"
+
+TPU 8i是谷歌和**联发科（MediaTek）**首次合作设计的推理专用芯片，旨在消除"等待室效应"——即用户请求被有意排队或延迟以实现硬件利用率最大化的情况。
+
+### TPU 8i 核心规格（推测）
+
+| 参数 | TPU 8i | TPU v7 Ironwood |
+|------|--------|-------------------|
+| **定位** | 推理专用 | 推理为主 |
+| **制程** | TSMC 2nm | — |
+| **Die设计** | 双计算Die（推测） | — |
+| **显存** | 8× HBM3e 12层（推测 ~192GB） | 8× HBM3（192GB） |
+| **显存带宽** | ~7 TB/s（推测） | 7,380 GB/s |
+| **FP8 算力** | ~4,614 TFLOPS（推测） | 4,614 TFLOPS |
+| **TDP（每芯片）** | **1,300 W** | 1,000 W |
+| **互联** | ICI 3D Torus | ICI 3D Torus |
+| **集成CPU** | Arm Axion（64核） | 无 |
+| **散热** | 风冷/液冷均可 | 第4代液冷 |
+| **公布时间** | 2026-04-22 | 2025-08-25 |
+| **量产时间** | **2027年底** | 2026年 |
+
+**关键特性**：
+- ✅ **高并发推理优化**：专为Agentic AI设计，支持数千个步骤的推理链条
+- ✅ **Arm Axion CPU集成**：64核Neoverse V2，Host CPU + 数据预处理协同
+- ✅ **低延迟**：消除"等待室效应"，首Token延迟（TTFT）极低
+- ✅ **每瓦性能提升117%**：相比Ironwood（同等价格）
+
+## TPU 8t（训练专用）：Gemini 3/4的"发动机"
+
+TPU 8t专为**Google Gemini 3 / Gemini 4等frontier模型训练**设计，是谷歌与**博通（Broadcom）**长期合作的延续。
+
+### TPU 8t 核心规格
+
+| 参数 | TPU 8t | TPU v7 Ironwood | 提升 |
+|------|--------|-------------------|------|
+| **定位** | 训练专用 | 推理为主 | 形态拆分 |
+| **制程** | **TSMC 2nm** | — | 新一代 |
+| **Die设计** | **双计算Die** | — | 架构升级 |
+| **显存** | 8× **HBM3e 12层**（单芯片推测 ~256GB） | 8× HBM3（192GB） | 升级 |
+| **显存带宽** | ~7 TB/s（推测每芯片） | 7,380 GB/s | 持平 |
+| **Pod芯片数** | **9,600芯片** | 9,216 | +4% |
+| **Pod HBM总量** | **2 PB** | — | 远超 |
+| **Pod FP4算力** | **121 EFLOPS** | ~42 EFLOPS（推测） | **~3×** |
+| **集成CPU** | **Arm Axion（64核）** | 无 | 新增 |
+| **TDP（每芯片）** | **1,300 W** | 1,000 W | +30% |
+| **量产时间** | **2027年底** | 2026年 | — |
+
+**关键特性**：
+- ✅ **MoE训练原生支持**：Expert Parallel优化（DeepSeek / Mixtral风格）
+- ✅ **Long-context训练**：1M+ token上下文训练优化
+- ✅ **RLHF/后训练**：Online RL（DPO/PPO/GRPO）原生优化
+- ✅ **Arm Axion CPU协同**：数据预处理/权重初始化Offload到CPU
+- ✅ **SparseCore加速**：MoE路由和推荐系统
+
+## 第八代TPU的战略意义
+
+### 1. 训练与推理首次分家
+
+此前，谷歌的TPU设计理念是"一个架构兼顾训练和推理"（如TPU v5p、v6e）。但智能体AI时代的到来改变了这一点：
+
+- **训练工作负载**：大规模矩阵乘法、长时序反向传播、稀疏化MoE
+- **推理工作负载**：高并发、低延迟、KV Cache密集型、动态批处理
+
+这两种工作负载对芯片架构的要求截然不同。拆分后：
+- TPU 8t可以专注优化**计算密度**和**显存容量**
+- TPU 8i可以专注优化**推理吞吐**和**每瓦性能**
+
+### 2. 与博通、联发科的双线合作
+
+- **博通（Broadcom）**：继续合作设计TPU 8t（训练），延续自TPU v1以来的长期伙伴关系
+- **联发科（MediaTek）**：首次合作设计TPU 8i（推理），引入移动芯片低功耗设计经验
+
+这种"双线合作"策略使谷歌能够：
+- 在训练芯片上追求**极致性能**（与博通的高端ASIC经验结合）
+- 在推理芯片上追求**极致能效**（与联发科的移动芯片经验结合）
+
+### 3. 对标NVIDIA Vera Rubin
+
+| 对比 | Google TPU 8t + 8i | NVIDIA Vera Rubin |
+|------|---------------------|---------------------|
+| **策略** | 训练/推理拆分 | 统一架构（GPU+CPU） |
+| **制程** | TSMC 2nm | TSMC 3nm（推测） |
+| **生态** | 仅Google Cloud | 全球可用 |
+| **软件** | JAX / PyTorch/XLA | CUDA / PyTorch |
+| **量产** | 2027年底 | 2026年秋季 |
+| **优势** | 与Gemini深度集成 | 生态最成熟 |
+
+## 技术深度解析
+
+### TSMC 2nm：为何选择2nm？
+
+谷歌是**首家在AI加速器上采用TSMC 2nm制程的厂商**（NVIDIA Rubin用的是3nm）。2nm（N2）工艺相比3nm（N3E）：
+
+- **晶体管密度提升**：~15-20%
+- **功耗降低**：~25-30%（同等性能）
+- **性能提升**：~10-15%（同等功耗）
+
+对于功耗已达1,300W的TPU 8t/8i来说，**2nm是必须的**——否则4nm/3nm无法在合理功耗内集成双计算Die和8×HBM3e。
+
+### Arm Axion CPU：Google自研CPU首次进入TPU节点
+
+此前，TPU节点使用Intel Xeon或AMD EPYC作为Host CPU。TPU 8t/8i首次集成**Google自研的Arm Axion CPU**（64核Neoverse V2）：
+
+**意义**：
+1. **数据预处理Offload**：Tokenization、数据增强等可以完全在Axion上完成，不占用TPU算力
+2. **权重初始化**：大模型训练的权重初始化可以在CPU上完成，加速训练启动
+3. **推理调度**：多模型推理时，Axion负责请求调度和负载均衡
+
+这标志着TPU节点向"**超节点**"演进：不再是纯加速器，而是**TPU + Axion CPU协同系统**，对标NVIDIA Vera CPU。
+
+### 第4代液冷：1,300W的散热挑战
+
+TPU 8t/8i的TDP达到**1,300W**（相比Ironwood的1,000W提升30%），这给数据中心散热带来巨大挑战。
+
+谷歌采用**第4代液冷方案**：
+- **冷板液冷**：直接冷却GPU Die和HBM
+- **浸没式液冷**：可选方案（超高密度部署）
+- **智能温控**：根据工作负载动态调整泵速和风扇转速
+
+## 量产时间表与应用场景
+
+| 时间 | 事件 |
+|------|------|
+| 2026-04-22 | Cloud Next '26正式公布 |
+| 2026年下半年 | 内部测试（Google DeepMind优先使用） |
+| **2027年底** | **正式量产，Google Cloud开放 |
+| 2028年 | 下一代TPU（可能为TPU 9） |
+
+**目标应用场景**：
+- ✅ **Frontier模型训练**（Gemini 3/4、外部客户）
+- ✅ **MoE大模型推理**（高并发、低延迟）
+- ✅ **多模态AI**（ViT + LLM同步推理）
+- ✅ **智能体AI**（Agentic AI工作负载）
+
+## 与竞品对比
+
+| 厂商 | 产品 | 制程 | TDP | 量产时间 |
+|------|------|------|-----|----------|
+| **Google** | TPU 8i（推理） | TSMC 2nm | 1,300W | 2027年底 |
+| **Google** | TPU 8t（训练） | TSMC 2nm | 1,300W | 2027年底 |
+| **NVIDIA** | Rubin GPU | TSMC 3nm（推测） | ~1,000W | 2026年秋季 |
+| **NVIDIA** | Vera CPU | TSMC 3nm（推测） | ~500W | 2026年秋季 |
+| **AMD** | MI455X（MI400） | TSMC 3nm（推测） | ~700W | 2026年 |
+| **华为** | 昇腾950PR | — | ~500W | 2026年Q1 |
+
+## 行业影响
+
+1. **AI芯片进入2nm时代**：谷歌率先采用TSMC 2nm，NVIDIA、AMD必然跟进
+2. **训练/推理拆分成为新趋势**：其他厂商（如NVIDIA、AMD）可能会效仿
+3. **自研CPU成为标配**：Google（Axion）、NVIDIA（Vera）、华为（鲲鹏）都在做CPU+加速器的协同设计
+4. **液冷成为必然选择**：1,300W的TDP意味着风冷已经无法满足
+
+## 相关芯片
+
+- [Google TPU 8i](/docs/cards/google/tpu-8i) - 推理专用TPU详细规格
+- [Google TPU 8t](/docs/cards/google/tpu-8t) - 训练专用TPU详细规格
+- [Google TPU v7 Ironwood](/docs/cards/google/tpu-ironwood) - 上一代推理TPU
+- [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - 同代竞品
+- [NVIDIA Vera CPU](/docs/cards/nvidia/vera-cpu) - Google Axion的对标产品
+
+## 参考资料
+
+- [Google博客：Introducing new TPUs at Cloud Next '26](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/tpus-8t-8i-cloud-next/)
+- [谷歌Cloud Next '26大会回放](https://cloud.withgoogle.com/next/)
+- [腾讯新闻：谷歌第八代TPU详解](https://news.qq.com/rain/a/20260423A02VCI00)
+
+---
+
+*本文基于Google官方公告及公开资料整理，部分规格为推测值，以官方最终发布为准。*

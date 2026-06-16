@@ -1,0 +1,209 @@
+---
+slug: intel-gaudi-4-jaguar-shores-2026
+title: 'Intel Gaudi 4 / Jaguar Shores 最新进展：重返AI竞赛，HBM4内存加持'
+authors: [aicomputecards]
+tags: [intel, gaudi-4, jaguar-shores, ai-accelerator, habana, custom-chip]
+date: 2026-06-16
+description: '2026年3月18日，Intel正式发布Habana Gaudi 4 AI加速卡，采用TSMC 5nm制程、64GB HBM3e显存，专为大规模模型训练设计。同时，Intel下一代Jaguar Shores GPU（采用HBM4内存）正在研发中，预计2027年发布。本文详解Intel重返AI竞赛的最新进展。'
+---
+
+# Intel Gaudi 4 / Jaguar Shores 最新进展：重返AI竞赛，HBM4内存加持
+
+2026年3月18日，Intel在**Intel AI Summit**上正式发布：**Habana Gaudi 4定制AI加速卡**。这是Intel在Gaudi 3（2024年4月发布）之后的最新一代AI训练/推理芯片，专为**大规模模型训练**设计。
+
+同时，Intel确认下一代**Jaguar Shores GPU**（数据中心GPU）正在研发中，将采用**HBM4内存**，预计**2027年发布**。这标志着Intel正式重返AI芯片竞赛。
+
+## 核心亮点
+
+- **Gaudi 4**：2026年3月发布，TSMC 5nm、64GB HBM3e、专为大规模训练
+- **Jaguar Shores**：2027年发布（预计），采用HBM4、对标NVIDIA Rubin
+- **Crescent Island**：Intel首款通用GPU（2026年发布），采用Xe3架构
+- **软件生态**：Intel AI Stack（包含oneAPI、BigDL、Gaudi Software Suite）
+- **代工合作伙伴**：TSMC（Gaudi 4、Jaguar Shores）、Intel Foundry（Crescent Island）
+
+## Gaudi 4 详细规格
+
+Gaudi 4是Intel旗下**Habana Labs**（2019年收购）设计的第四代AI加速卡。
+
+| 参数 | Gaudi 4 | Gaudi 3（2024） | NVIDIA B200 |
+|------|---------|-------------------|-------------------|
+| **架构** | Habana 4 | Habana 3 | Blackwell |
+| **制程** | TSMC 5nm | TSMC 7nm | TSMC 4NP |
+| **FP8算力** | ~2,000 TFLOPS（推测） | 1,000 TFLOPS | 4,500 TFLOPS（稀疏） |
+| **显存** | 64GB HBM3e | 128GB HBM2e（推测） | 192GB HBM3e |
+| **显存带宽** | ~3 TB/s（推测） | ~2 TB/s（推测） | 8 TB/s |
+| **TDP** | ~500W（推测） | ~400W | 700-1000W |
+| **互联** | RoCE v3（以太网） | RoCE v2 | NVLink 5.0 |
+| **发布时间** | **2026年3月** | 2024年4月 | 2024年3月 |
+| **量产时间** | 2026年Q3（推测） | 2024年Q4 | 2024年Q4 |
+
+> 📌 **注**：Gaudi 4具体规格尚未完全公开，上表部分为推测值。
+
+### Gaudi 4的关键特性
+
+1. **以太网原生支持**：采用**RoCE v3**（RDMA over Converged Ethernet），无需专用互联协议（如NVLink）
+2. **大规模扩展优化**：万卡集群扩展效率优于InfiniBand（成本更低）
+3. **稀疏化加速**：MoE模型原生支持
+4. **多精度支持**：FP8/FP16/FP32/INT8/INT4
+5. **开放生态**：支持PyTorch、TensorFlow、JAX（通过第三方适配）
+
+## Jaguar Shores：Intel的下一代GPU
+
+**Jaguar Shores**是Intel首款**真正意义上**的数据中心GPU（不是Gaudi那样的ASIC）。
+
+### 为什么叫"Jaguar Shores"？
+
+- **Jaguar**：美洲豹，代表"速度"和"敏捷"
+- **Shores**：海岸，代表"开放"和"连接"（对标NVIDIA的"海岸"命名风格？）
+
+### Jaguar Shores 推测规格
+
+| 参数 | Jaguar Shores（推测） | NVIDIA Rubin | AMD MI455X |
+|------|---------------------------|-------------------|-------------------|
+| **架构** | Xeu 3（推测） | Rubin | CDNA 4 |
+| **制程** | TSMC 3nm（推测） | TSMC 3nm | TSMC 3nm |
+| **显存** | **HBM4**（确认） | HBM4 | HBM4 |
+| **显存容量** | 288GB（推测） | 288GB | 288GB |
+| **FP8算力** | ~4,000 TFLOPS（推测） | ~6,000 TFLOPS | 6,000 TFLOPS |
+| **TDP** | ~800W（推测） | ~1,000W | ~800W |
+| **发布时间** | **2027年**（预计） | 2026年Q3 | 2026年Q3 |
+
+**关键确认**：
+- ✅ **HBM4内存**：Intel已确认Jaguar Shores将采用SK海力士的HBM4内存
+- ✅ **TSMC代工**：Jaguar Shores将由TSMC生产（不是Intel Foundry）
+- ✅ **oneAPI原生支持**：Jaguar Shores将原生支持oneAPI编程模型
+
+## Crescent Island：Intel的首款通用GPU
+
+**Crescent Island**是Intel在2025年10月公布的**首款通用数据中心GPU**，采用**Xe3架构**（Xe-HPG的升级版）。
+
+| 参数 | Crescent Island（推测） | Intel Data Center GPU Max | NVIDIA L40S |
+|------|-------------------------------|---------------------------|-------------------|
+| **架构** | Xeu 3 | Xeu 2（Ponte Vecchio） | Ada Lovelace |
+| **定位** | 通用计算+AI推理 | HPC+AI训练 | AI推理+图形 |
+| **制程** | TSMC 5nm（推测） | Intel 7 + TSMC 5nm | TSMC 4N |
+| **显存** | 48GB HBM3（推测） | 128GB HBM2e | 48GB GDDR6 |
+| **TDP** | ~300W（推测） | 600W | 350W |
+| **发布时间** | **2026年**（预计） | 2023年1月 | 2023年3月 |
+
+**定位**：
+- ✅ **通用GPU**：既能做AI推理，也能做科学计算（HPC）
+- ✅ **低成本**：价格比Gaudi 4更低，对标NVIDIA L40S
+- ✅ **开放标准**：支持oneAPI、SYCL、Level Zero
+
+## Intel AI芯片路线图（2024-2027）
+
+| 时间 | 产品 | 类型 | 制程 | 备注 |
+|------|------|------|------|------|
+| 2024年Q4 | Gaudi 3 | AI ASIC | TSMC 7nm | 当前主力 |
+| **2026年Q2** | **Crescent Island** | **通用GPU** | **TSMC 5nm** | **新发布** |
+| **2026年Q3** | **Gaudi 4** | **AI ASIC** | **TSMC 5nm** | **新发布** |
+| 2027年 | Jaguar Shores | 数据中心GPU | TSMC 3nm | 下一代旗舰 |
+| 2027年 | Gaudi 5（推测） | AI ASIC | TSMC 3nm | 下一代 |
+
+## 与竞品对比
+
+### Gaudi 4 vs NVIDIA B200
+
+| 指标 | Gaudi 4 | NVIDIA B200 |
+|------|---------|-------------------|
+| **FP8算力** | ~2,000 TFLOPS | 4,500 TFLOPS |
+| **显存** | 64GB HBM3e | 192GB HBM3e |
+| **互联** | 以太网（RoCE v3） | NVLink 5.0 |
+| **软件生态** | Gaudi Software Suite | CUDA |
+| **价格** | 推测 ~$20,000 | ~$45,000 |
+| **优势** | 以太网成本低、开放 | 生态最成熟、性能最强 |
+| **劣势** | 软件生态弱、算力低 | 价格昂贵 |
+
+**结论**：Gaudi 4的定位是**"性价比训练方案"**，适合对成本敏感、且愿意投入软件适配的客户。
+
+### Jaguar Shores vs NVIDIA Rubin
+
+| 指标 | Jaguar Shores（推测） | NVIDIA Rubin |
+|------|---------------------------|-------------------|
+| **FP8算力** | ~4,000 TFLOPS | ~6,000 TFLOPS |
+| **显存** | 288GB HBM4 | 288GB HBM4 |
+| **软件生态** | oneAPI | CUDA |
+| **量产时间** | 2027年 | 2026年Q3 |
+| **优势** | 开放标准、可能更便宜 | 生态成熟、先发优势 |
+| **劣势** | 生态弱、晚1年 | 价格昂贵 |
+
+**结论**：Jaguar Shores如果能按时发布，且oneAPI生态有足够改善，可以成为**NVIDIA的第三选择**（仅次于NVIDIA和AMD）。
+
+## 软件生态：oneAPI的进步与挑战
+
+### oneAPI是什么？
+
+**oneAPI**是Intel推出的**开放、跨架构编程模型**：
+- 支持CPU、GPU、FPGA、AI加速器
+- 基于SYCL标准（类似CUDA的C++扩展）
+- 开源实现（Intel oneAPI Base Toolkit）
+
+### Intel AI Stack
+
+| 组件 | 用途 | 对标 |
+|------|------|------|
+| **oneAPI** | 跨架构编程模型 | CUDA |
+| **BigDL** | 分布式深度学习框架 | PyTorch Distributed |
+| **Gaudi Software Suite** | Gaudi专用软件栈 | NVIDIA GPU Cloud (NGC) |
+| **Intel Extension for PyTorch** | PyTorch在Intel硬件上的优化 | NVIDIA PyTorch |
+| **Intel Optimization for TensorFlow** | TensorFlow在Intel硬件上的优化 | NVIDIA TensorFlow |
+
+### ✅ 进步
+
+- **PyTorch 2.5+**：Intel Extension已集成到PyTorch主线
+- **Hugging Face Transformers**：官方支持Intel GPU（通过optimum-intel）
+- **vLLM**：实验性支持Gaudi（性能待验证）
+
+### ⚠️ 挑战
+
+- **开发者习惯**：全球AI开发者都用CUDA，oneAPI学习曲线陡峭
+- **算子覆盖率**：很多PyTorch算子还没有oneAPI优化版本
+- **性能**：same功耗下，Gaudi 4性能只有B200的50%左右
+
+## 行业影响
+
+### 1. Intel能否重返AI竞赛？
+
+**挑战**：
+- ❌ **生态劣势**：CUDA护城河太深，oneAPI难以撼动
+- ❌ **性能劣势**：Gaudi 4性能只有B200的50%
+- ❌ **时间劣势**：Jaguar Shores比Rubin晚1年
+
+**机会**：
+- ✅ **开放标准**：不依赖CUDA，适合"反NVIDIA垄断"的客户
+- ✅ **以太网优势**：RoCE v3在万卡集群上成本低于InfiniBand
+- ✅ ** Intel Foundry**：如果Jaguar Shores能用Intel自家工艺生产，成本更低
+
+### 2. 对AMD的影响
+
+Intel重返AI竞赛，对**AMD**是坏事：
+- AMD本来是"**NVIDIA唯一替代品**"
+- 现在Intel也回来了，AMD的"替代品"地位受到挑战
+- 但短期内（2026-2027），Intel还无法威胁AMD
+
+### 3. 对国产芯片的影响
+
+Intel Gaudi 4的发布，对**国产芯片**是参考案例：
+- 证明**以太网路线**（RoCE）可行
+- 证明**开放生态**（oneAPI）虽难但有必要
+- 证明**性价比路线**有市场（成本敏感客户）
+
+## 相关芯片
+
+- [Intel Gaudi 3](/docs/cards/intel/gaudi-3) - 上一代产品
+- [Intel Gaudi 4](/docs/cards/intel/gaudi-4) - 本次发布的新品（待创建）
+- [Intel Crescent Island](/docs/cards/intel/crescent-island) - Intel首款通用GPU（待创建）
+- [NVIDIA B200](/docs/cards/nvidia/b200) - 直接竞品
+- [AMD MI455X](/docs/cards/amd/mi455x) - 同代竞品
+
+## 参考资料
+
+- [Intel Newsroom：Gaudi 4发布](https://newsroom.intel.com/)
+- [Tom's Hardware：Intel Jaguar Shores将采用HBM4](https://www.tomshardware.com/)
+- [Wccftech：Intel下一代Jaguar Shores GPU](https://wccftech.com/)
+- [U.S. News：Intel信号重返AI竞赛](https://money.usnews.com/)
+
+---
+
+*本文基于Intel官方公告及公开资料整理，部分规格为推测值，以Intel官方最终发布为准。*

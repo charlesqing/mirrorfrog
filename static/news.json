@@ -1,73 +1,79 @@
 [
   {
-    "title": "2026年国产AI芯片新进展：华为昇腾950、昆仑芯M100、阿里平头哥M890全面解析",
-    "date": "2026-06-10",
-    "slug": "2026-domestic-chip-progress",
-    "url": "/blog/2026-domestic-chip-progress",
-    "description": "全面解析2026年国产AI芯片新进展：华为昇腾950PR/950DT规格与超节点部署、昆仑芯M100推理专用芯片、阿里平头哥M890性能突破，以及寒武纪、沐曦、燧原等厂商的最新动态。",
+    "title": "AMD MI455X CES 2026 震撼发布：4年AI芯片性能涨1000倍",
+    "date": "2026-06-16",
+    "slug": "amd-mi455x-ces-2026-launch",
+    "url": "/blog/amd-mi455x-ces-2026-launch",
+    "description": "2026年1月5日，AMD在CES 2026上震撼发布MI400系列AI加速卡，其中MI455X采用TSMC 3nm制程、288GB HBM4显存、FP8算力达6,000 TFLOPS。苏姿丰宣布：\"4年前MI250的AI性能，现在MI45",
     "tags": [
-      "domestic-ai-chip",
-      "ascend-950",
-      "kunlun-m100",
-      "alibaba-yitian-m890",
-      "2026-progress"
+      "amd",
+      "mi400",
+      "mi455x",
+      "ces-2026",
+      "instinct",
+      "ai-accelerator"
     ]
   },
   {
-    "title": "华为昇腾910C深度解析：规格、部署与性能全览",
-    "date": "2026-06-10",
-    "slug": "ascend-910c-specs-and-deployment",
-    "url": "/blog/ascend-910c-specs-and-deployment",
-    "description": "深度解析华为昇腾910C的详细规格参数、部署案例（CloudMatrix 384超节点、DeepSeek-V4-Pro训练）、性能对比及市场定位，全面展现国产AI芯片的突破进展。",
+    "title": "谷歌TPU 8i/8t 正式发布：训练与推理首次分家，2nm工艺赋能智能体时代",
+    "date": "2026-06-16",
+    "slug": "google-tpu-8i-8t-cloud-next-2026",
+    "url": "/blog/google-tpu-8i-8t-cloud-next-2026",
+    "description": "2026年4月22日，谷歌在Cloud Next 2026大会上正式发布第八代TPU：TPU 8i（推理专用）和TPU 8t（训练专用）。这是谷歌史上首次将AI训练与推理任务拆分至两款独立芯片，采用TSMC 2nm制程，2027年底量产。",
     "tags": [
-      "huawei-ascend",
-      "ascend-910c",
-      "ai-chip",
-      "domestic-compute",
-      "cloudmatrix"
+      "google",
+      "tpu",
+      "tpu-8i",
+      "tpu-8t",
+      "cloud-next",
+      "agentic-ai",
+      "2nm"
     ]
   },
   {
-    "title": "昆仑芯P800深度解析：性能数据、架构创新与超节点部署",
-    "date": "2026-06-10",
-    "slug": "kunlun-p800-performance",
-    "url": "/blog/kunlun-p800-performance",
-    "description": "深度解析昆仑芯P800的详细性能数据、三大架构创新、天池256/512超节点配置、DeepSeek大模型适配能力及市场定位，全面展现百度第三代AI加速卡的突破进展。",
+    "title": "里程碑！华为昇腾910C完成1.6万亿参数大模型全参数训练",
+    "date": "2026-06-16",
+    "slug": "huawei-ascend-910c-deepseek-v4-pro-training",
+    "url": "/blog/huawei-ascend-910c-deepseek-v4-pro-training",
+    "description": "2026年6月5日，深圳河套学院联合哈工大（深圳）、华为等团队，用1000颗华为昇腾910C芯片，成功完成1.6万亿参数DeepSeek-V4-Pro大模型全参数后训练。这是国产AI芯片首次完成万亿级参数模型的全参数训练，标志着国产算力从\"",
     "tags": [
-      "kunlun-p800",
-      "baidu",
-      "domestic-ai-chip",
-      "xpu-p",
-      "tianchi-supernode"
+      "huawei",
+      "ascend",
+      "910c",
+      "deepseek",
+      "training",
+      "1.6-trillion",
+      "breakthrough"
     ]
   },
   {
-    "title": "AI硬件进入\"落地纪元\"丨2026年五大变革与生存法则",
-    "date": "2026-06-07",
-    "slug": "2026-ai-hardware-inflection-point",
-    "url": "/blog/2026-ai-hardware-inflection-point",
-    "description": "2026年AI硬件市场呈现五大核心趋势：算力架构向推理倾斜、边缘AI与端侧部署爆发、专用芯片与异构计算崛起、能效与散热成为关键瓶颈、AI原生硬件生态重构。",
+    "title": "Intel Gaudi 4 / Jaguar Shores 最新进展：重返AI竞赛，HBM4内存加持",
+    "date": "2026-06-16",
+    "slug": "intel-gaudi-4-jaguar-shores-2026",
+    "url": "/blog/intel-gaudi-4-jaguar-shores-2026",
+    "description": "2026年3月18日，Intel正式发布Habana Gaudi 4 AI加速卡，采用TSMC 5nm制程、64GB HBM3e显存，专为大规模模型训练设计。同时，Intel下一代Jaguar Shores GPU（采用HBM4内存）正在研",
     "tags": [
-      "AI硬件",
-      "推理算力",
-      "边缘AI",
-      "专用芯片",
-      "能效散热"
+      "intel",
+      "gaudi-4",
+      "jaguar-shores",
+      "ai-accelerator",
+      "habana",
+      "custom-chip"
     ]
   },
   {
-    "title": "Computex 2026 会后观察：AI PC 芯片大战开启，NVIDIA RTX Spark 六月上市",
-    "date": "2026-06-06",
-    "slug": "computex-2026-wrapup-ai-pc-rtx-spark-market-impact",
-    "url": "/blog/computex-2026-wrapup-ai-pc-rtx-spark-market-impact",
-    "description": "Computex 2026 圆满落幕后业界反应：NVIDIA RTX Spark 笔记本六月上市 $1,399 起，Intel 18A Clearwater Forest 投产，AMD Ryzen AI 400 出货。AI PC 元年正式开",
+    "title": "NVIDIA Vera Rubin 全面投产：智能体AI工厂时代正式开启",
+    "date": "2026-06-16",
+    "slug": "nvidia-vera-rubin-mass-production-2026",
+    "url": "/blog/nvidia-vera-rubin-mass-production-2026",
+    "description": "2026年6月1日，NVIDIA在COMPUTEX 2026上宣布Vera Rubin平台全面投产。本文详解Rubin GPU、Vera CPU、NVLink 6、CX8 SuperNIC等关键技术规格，以及与Blackwell的性能对比。",
     "tags": [
-      "新闻",
-      "AI芯片",
-      "GPU",
-      "国产芯片",
-      "news",
-      "product-launch"
+      "nvidia",
+      "rubin",
+      "vera",
+      "blackwell",
+      "ai-factory",
+      "computex-2026"
     ]
   }
 ]

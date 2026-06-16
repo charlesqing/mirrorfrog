@@ -1,0 +1,141 @@
+---
+slug: nvidia-vera-rubin-mass-production-2026
+title: 'NVIDIA Vera Rubin 全面投产：智能体AI工厂时代正式开启'
+authors: [aicomputecards]
+tags: [nvidia, rubin, vera, blackwell, ai-factory, computex-2026]
+date: 2026-06-16
+description: '2026年6月1日，NVIDIA在COMPUTEX 2026上宣布Vera Rubin平台全面投产。本文详解Rubin GPU、Vera CPU、NVLink 6、CX8 SuperNIC等关键技术规格，以及与Blackwell的性能对比。'
+---
+
+# NVIDIA Vera Rubin 全面投产：智能体AI工厂时代正式开启
+
+2026年6月1日，NVIDIA创始人兼首席执行官黄仁勋在**COMPUTEX 2026**（台北国际电脑展）上正式宣布：**Vera Rubin平台全面投产**。这标志着AI硬件从"离散加速器"向"整体化AI工厂"的根本性范式转变。
+
+## 核心亮点
+
+- **Rubin GPU**：下一代AI计算芯片，FP4算力是Blackwell的**3.6×**
+- **Vera CPU**：88个自定义Arm核心（176线程），替代Grace CPU
+- **NVLink 6**：GPU间互联带宽达**260 TB/s**（相比Blackwell翻倍）
+- **CX8 SuperNIC**：800Gb/s网络，ConnectX-9链路达28.8 TB/s
+- **HBM4显存**：单芯片288GB，带宽**13 TB/s**
+- **智能体吞吐量**：相比Grace Blackwell提升**10×**
+
+## Vera Rubin 平台完整规格
+
+Vera Rubin不是一个单独的GPU，而是一个**完整的AI工厂平台**，包含7款芯片：
+
+| 芯片名称 | 类型 | 用途 |
+|---------|------|------|
+| **Rubin GPU** | 主力AI计算芯片 | 训练+推理 |
+| **Rubin Ultra GPU** | 旗舰版 | 超大尺度推理 |
+| **Vera CPU** | 配合Rubin的CPU | Host CPU + 数据预处理 |
+| **NVLink 6** | 互联芯片 | GPU间高速互联（260 TB/s） |
+| **CX8 SuperNIC** | 网卡 | 800Gb/s网络 |
+| **XDR 800G 交换机** | 数据中心网络 | 跨机架通信 |
+| **Rubin平台POD** | 整机柜 | 预配置的AI工厂（144 GPU） |
+
+## Rubin GPU 详细规格（推测）
+
+| 参数 | Rubin GPU | Rubin Ultra | Blackwell (B200) |
+|------|------------|--------------|-------------------|
+| **架构** | Rubin | Rubin Ultra | Blackwell |
+| **制程** | TSMC 3nm（推测） | TSMC 3nm | TSMC 4NP |
+| **显存** | 288GB HBM4 | 288GB HBM4E（推测） | 192GB HBM3e |
+| **显存带宽** | 13 TB/s | 13+ TB/s | 8 TB/s |
+| **FP4 算力** | ~3,600 TFLOPS（推测） | ~5,000 TFLOPS（推测） | 2,250 TFLOPS |
+| **TDP** | 1,000W（推测） | 1,200W（推测） | 700-1000W |
+| **互联** | NVLink 6（260 TB/s） | NVLink 6 | NVLink 5（1800 GB/s） |
+| **量产时间** | 2026 Q3 | 2027 下半年 | 2024 Q4 |
+
+> 📌 **注**：Rubin具体规格尚未完全公开，上表部分为推测值。
+
+## Vera CPU：替代Grace的新一代Host CPU
+
+Vera CPU是NVIDIA自研的Arm架构CPU，取代此前的Grace CPU：
+
+| 参数 | Vera CPU | Grace CPU |
+|------|----------|------------|
+| **核心数** | 88核（176线程） | 72核（144线程） |
+| **架构** | 自定义Armv9（推测） | Arm Neoverse V2 |
+| **接口** | NVLink 5.0（1.8 TB/s） | NVLink 4.0（900 GB/s） |
+| **TDP** | ~500W（推测） | 350-500W |
+| **用途** | AI工厂Host CPU | 超算/AI Host |
+
+**关键升级**：Vera与Rubin GPU的协同设计，使其在计算、数据加载、预处理上实现**端到端优化**，对标Google TPU 8t的Arm Axion集成。
+
+## 与Blackwell的性能对比
+
+NVIDIA官方宣称，在相同POD配置（144个GPU芯片）下：
+
+| 指标 | Grace Blackwell (GB200 NVL72) | Vera Rubin NVL144 | 提升 |
+|------|---------------------------|-------------------|------|
+| **FP4 算力** | 1.1 PFLOPS | **3.6 PFLOPS** | **3.3×** |
+| **显存容量** | 288GB×72 = 20.7TB | 288GB×144 = 41.4TB | 2× |
+| **显存带宽** | 8 TB/s×72 | 13 TB/s×144 | ~3.3× |
+| **NVLink 带宽** | 1800 GB/s×72 | 260 TB/s（全POD） | ~2× |
+| **智能体吞吐量** | 基准 | **10×** | **10×** |
+| **每瓦性能** | 基准 | **25×**（与单独CPU比） | 25× |
+
+> 💡 **为何是"10×智能体吞吐量"？** 智能体AI（Agentic AI）工作负载与训练/推理不同：一个提示词可能触发包含推理、检索、工具调用、响应生成的多个环节，涉及数千个步骤。Rubin平台专为这种**长链条、高并发**工作负载优化。
+
+## MGX 第三代机架级系统
+
+Vera Rubin采用**MGX第三代**开源机架级系统设计：
+
+- **五机架协同**：Vera Rubin NVL72系统 + Vera CPU + Groq 3 LPX + Vera BlueField-4 STX存储 + Spectrum-6 SPX以太网
+- **全球供应链**：30个国家、350+工厂、数百家合作伙伴（Dell、HPE、Lenovo、Supermicro、Asus、Foxconn等）
+- **Spectrum-X 以太网硅光技术**：全球首款基于CPO（光电一体化封装）、支持200Gb/s SerDes的交换机，现已量产
+
+## 量产时间表
+
+| 时间 | 事件 |
+|------|------|
+| 2026年1月 | CES 2026首次公布Rubin平台 |
+| 2026年6月1日 | COMPUTEX 2026宣布全面投产 |
+| **2026年秋季** | **Vera Rubin正式启动量产并开始出货** |
+| 2027年下半年 | Rubin Ultra发布（HBM4E升级） |
+| 2028年 | Feynman架构（下一代） |
+
+## AI工厂：从卖芯片到卖"智能生产线"
+
+黄仁勋在发布会上说了一句让业界震动的话：
+
+> "Rubin的Agentic AI吞吐量，是Blackwell的**10倍**。Rubin是一个完整的AI工厂平台。"
+
+这标志着NVIDIA商业模式的根本转变：
+- **过去**：卖GPU（H100/B200），客户自己搭建系统
+- **现在**：卖"AI工厂成套解决方案"（Vera Rubin POD），包含GPU、CPU、网络、存储、软件栈
+- **未来**：成为全球AI基础设施的"台积电"（提供智能生产能力）
+
+## 与竞品对比
+
+| 厂商 | 产品 | 定位 | 优势 | 劣势 |
+|------|------|------|------|------|
+| **NVIDIA** | Vera Rubin | AI工厂整体方案 | 生态最完整、软件最成熟 | 价格昂贵、功耗极高 |
+| **AMD** | MI455X（MI400系列） | 训练竞品 | 性价比、开放生态 | 软件生态差距 |
+| **Google** | TPU 8i/8t | 云上训练/推理 | 与Gemini深度集成 | 仅Google Cloud |
+| **华为** | 昇腾910C/950 | 国产替代 | 中国本土化、昇思框架 | 受出口管制影响 |
+
+## 行业影响
+
+1. **AI实验室**：Frontier模型训练时间从"数月"缩短到"数周"
+2. **云服务商**：必须决定是否采购Vera Rubin POD（与自研芯片战略冲突）
+3. **超大规模数据中心**：AI工厂成为新的竞争维度（谁有最强算力，谁就能训练最强模型）
+4. **国产芯片**：昇腾910C/950、寒武纪MLU590等必须在2026-2027年追上Blackwell，否则差距将扩大到Rubin时代
+
+## 相关芯片
+
+- [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - Rubin架构GPU详细规格
+- [NVIDIA Vera CPU](/docs/cards/nvidia/vera-cpu) - Vera CPU详细规格
+- [NVIDIA B200](/docs/cards/nvidia/b200) - 上一代Blackwell架构
+- [AMD MI455X](/docs/cards/amd/mi455x) - 直接竞品（MI400系列）
+
+## 参考资料
+
+- [NVIDIA博客：Vera Rubin全面投产](https://blogs.nvidia.cn/blog/vera-rubin-full-production-agentic-ai-factory/)
+- [COMPUTEX 2026主题演讲](https://www.nvidia.cn/gtc/taipei/computex/)
+- [NVIDIA官方新闻稿](https://news.nvidia.com/)
+
+---
+
+*本文基于NVIDIA官方公告及公开资料整理，部分规格为推测值，以官方最终发布为准。*

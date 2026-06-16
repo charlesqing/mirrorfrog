@@ -255,3 +255,160 @@ alibaba-yitian-m890:
   label: 2026进展
   description: 2026年国产AI芯片最新进展
   permalink: /2026-progress-zh
+
+# ========== 新增标签：2026-06-16 博客使用 =========
+
+nvidia:
+  label: NVIDIA
+  description: NVIDIA AI chips and GPUs
+  permalink: /nvidia
+
+rubin:
+  label: Rubin
+  description: NVIDIA Rubin architecture and Vera CPU
+  permalink: /rubin
+
+vera:
+  label: Vera CPU
+  description: NVIDIA Vera CPU for AI factory
+  permalink: /vera
+
+blackwell:
+  label: Blackwell
+  description: NVIDIA Blackwell architecture
+  permalink: /blackwell
+
+ai-factory:
+  label: AI Factory
+  description: AI factory and datacenter infrastructure
+  permalink: /ai-factory
+
+computex-2026:
+  label: COMPUTEX 2026
+  description: COMPUTEX 2026 highlights
+  permalink: /computex-2026
+
+google:
+  label: Google
+  description: Google AI chips and cloud
+  permalink: /google
+
+tpu:
+  label: TPU
+  description: Google Tensor Processing Unit
+  permalink: /tpu
+
+tpu-8i:
+  label: TPU 8i
+  description: Google TPU 8i inference chip
+  permalink: /tpu-8i
+
+tpu-8t:
+  label: TPU 8t
+  description: Google TPU 8t training chip
+  permalink: /tpu-8t
+
+cloud-next:
+  label: Cloud Next
+  description: Google Cloud Next conference
+  permalink: /cloud-next
+
+agentic-ai:
+  label: Agentic AI
+  description: Agentic AI and autonomous agents
+  permalink: /agentic-ai
+
+2nm:
+  label: 2nm
+  description: TSMC 2nm process technology
+  permalink: /2nm
+
+huawei:
+  label: Huawei
+  description: Huawei AI chips and Ascend series
+  permalink: /huawei
+
+shengteng:
+  label: 昇腾
+  description: 华为昇腾系列AI芯片
+  permalink: /shengteng-zh
+
+910c:
+  label: Ascend 910C
+  description: Huawei Ascend 910C chip
+  permalink: /910c
+
+deepseek:
+  label: DeepSeek
+  description: DeepSeek large language models
+  permalink: /deepseek
+
+training:
+  label: Training
+  description: AI model training and post-training
+  permalink: /training
+
+1.6-trillion:
+  label: 1.6 Trillion
+  description: 1.6 trillion parameter models
+  permalink: /1.6-trillion
+
+breakthrough:
+  label: Breakthrough
+  description: Technical breakthroughs and milestones
+  permalink: /breakthrough
+
+amd:
+  label: AMD
+  description: AMD AI accelerators and Instinct series
+  permalink: /amd
+
+mi400:
+  label: MI400
+  description: AMD Instinct MI400 series
+  permalink: /mi400
+
+mi455x:
+  label: MI455X
+  description: AMD Instinct MI455X chip
+  permalink: /mi455x
+
+ces-2026:
+  label: CES 2026
+  description: CES 2026 highlights
+  permalink: /ces-2026
+
+instinct:
+  label: Instinct
+  description: AMD Instinct AI accelerators
+  permalink: /instinct
+
+ai-accelerator:
+  label: AI Accelerator
+  description: AI accelerators and custom chips
+  permalink: /ai-accelerator
+
+intel:
+  label: Intel
+  description: Intel AI chips and accelerators
+  permalink: /intel
+
+gaudi-4:
+  label: Gaudi 4
+  description: Intel Habana Gaudi 4 AI accelerator
+  permalink: /gaudi-4
+
+jaguar-shores:
+  label: Jaguar Shores
+  description: Intel Jaguar Shores next-gen GPU
+  permalink: /jaguar-shores
+
+habana:
+  label: Habana
+  description: Intel Habana Labs AI chips
+  permalink: /habana
+
+custom-chip:
+  label: Custom Chip
+  description: Custom AI chips and ASICs
+  permalink: /custom-chip
