@@ -4,14 +4,16 @@
     "date": "2026-06-16",
     "slug": "amd-mi455x-ces-2026-launch",
     "url": "/blog/amd-mi455x-ces-2026-launch",
-    "description": "2026年1月5日，AMD在CES 2026上震撼发布MI400系列AI加速卡，其中MI455X采用TSMC 3nm制程、288GB HBM4显存、FP8算力达6,000 TFLOPS。苏姿丰宣布：\"4年前MI250的AI性能，现在MI45",
+    "description": "2026年1月5日，AMD在CES 2026上震撼发布MI400系列AI加速卡，其中MI455X采用2nm+3nm混合制程、432GB HBM4显存、FP4算力达40 PFLOPS（FP8为20 PFLOPS）。苏姿丰宣布：\"4年前MI25",
     "tags": [
       "amd",
       "mi400",
       "mi455x",
       "ces-2026",
       "instinct",
-      "ai-accelerator"
+      "ai-accelerator",
+      "cdna-5",
+      "hbm4"
     ]
   },
   {

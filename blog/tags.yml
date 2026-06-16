@@ -373,6 +373,16 @@ mi455x:
   description: AMD Instinct MI455X chip
   permalink: /mi455x
 
+cdna-5:
+  label: CDNA 5
+  description: AMD CDNA 5 architecture
+  permalink: /cdna-5
+
+hbm4:
+  label: HBM4
+  description: HBM4 high bandwidth memory
+  permalink: /hbm4
+
 ces-2026:
   label: CES 2026
   description: CES 2026 highlights
