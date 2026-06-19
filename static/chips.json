@@ -1179,7 +1179,7 @@
       "Intel 数据中心 GPU"
     ],
     "specs": {
-      "release": "2023 年（Aurora 部署）",
+      "release": "2023 年",
       "architecture": "Xe-HPC",
       "process": "同左",
       "memory": {
@@ -1845,7 +1845,7 @@
         "fp32": "104.8 TFLOPS"
       },
       "tdp": "575 W",
-      "release": "2025-05（推测）"
+      "release": "2025-01（推测）"
     }
   },
   {
@@ -3914,7 +3914,7 @@
       "数据中心"
     ],
     "specs": {
-      "release": "2025-Q4（推测）",
+      "release": "2026-Q2（推测）",
       "process": "TSMC 3nm (N3E)",
       "memory": {
         "bandwidth": "2.5 TB/s"

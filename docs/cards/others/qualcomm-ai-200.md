@@ -25,8 +25,8 @@ keywords: [Qualcomm AI 200, Qualcomm AI 300, Cloud AI 推理, AI Engine, Snapdra
 ## 核心规格（推测）
 
 | 项目 | AI 200 (2025 H2 推测) | AI 300 (2026 H1 推测) |
-| **发布** | 2025-Q4（推测） |
 |------|------------------------|------------------------|
+| **发布** | 2025-Q4（推测） | 2026-Q2（推测） |
 | **制程** | TSMC 5nm | **TSMC 3nm (N3E)** |
 | **Hexagon NPU** | 2 个 NPU tile | 4 个 NPU tile |
 | **Oryon CPU** | 80 核 Oryon | 96 核 Oryon |

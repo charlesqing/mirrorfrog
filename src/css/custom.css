@@ -1,24 +1,26 @@
+/* ========== 主色调：深青色（替换原紫色）========== */
+/* 配色灵感：示波器轨迹色，专业、可信、有技术感 */
 :root {
-  --ifm-color-primary: #6c5ce7;
-  --ifm-color-primary-dark: #5a4bd8;
-  --ifm-color-primary-darker: #4f3fcc;
-  --ifm-color-primary-darkest: #4134a8;
-  --ifm-color-primary-light: #7e70ea;
-  --ifm-color-primary-lighter: #8c80ee;
-  --ifm-color-primary-lightest: #a99ef2;
+  --ifm-color-primary: #0d4a6b;
+  --ifm-color-primary-dark: #0a3a54;
+  --ifm-color-primary-darker: #072c3f;
+  --ifm-color-primary-darkest: #051e2b;
+  --ifm-color-primary-light: #1a6b8a;
+  --ifm-color-primary-lighter: #2f8ba6;
+  --ifm-color-primary-lightest: #e8f4f8;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(13, 74, 107, 0.08);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #a29bfe;
-  --ifm-color-primary-dark: #8c84fd;
-  --ifm-color-primary-darker: #7a71fc;
-  --ifm-color-primary-darkest: #5a4cfb;
-  --ifm-color-primary-light: #b8b2fe;
-  --ifm-color-primary-lighter: #c6c1fe;
-  --ifm-color-primary-lightest: #e0ddff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #2f8ba6;
+  --ifm-color-primary-dark: #1a6b8a;
+  --ifm-color-primary-darker: #0d4a6b;
+  --ifm-color-primary-darkest: #072c3f;
+  --ifm-color-primary-light: #4da6c4;
+  --ifm-color-primary-lighter: #66b8d1;
+  --ifm-color-primary-lightest: #0a1a2a;
+  --docusaurus-highlighted-code-line-bg: rgba(47, 139, 166, 0.15);
 }
 
 /* ---------- Typography Scale ---------- */
@@ -92,8 +94,8 @@
 }
 
 [data-theme='dark'] table th {
-  background: rgba(91, 76, 219, 0.15);
-  border-bottom: 2px solid rgba(91, 76, 219, 0.3);
+  background: rgba(13, 74, 107, 0.15);
+  border-bottom: 2px solid rgba(13, 74, 107, 0.3);
 }
 
 [data-theme='dark'] table td {
@@ -106,8 +108,8 @@
 
 /* Dark mode: blockquote */
 [data-theme='dark'] blockquote {
-  background: rgba(91, 76, 219, 0.08);
-  border-left-color: rgba(91, 76, 219, 0.4);
+  background: rgba(13, 74, 107, 0.08);
+  border-left-color: rgba(13, 74, 107, 0.4);
 }
 
 /* Dark mode: code blocks */

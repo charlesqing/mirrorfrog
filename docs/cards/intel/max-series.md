@@ -15,8 +15,8 @@ Intel Max Series（代号 **Ponte Vecchio**）是 Intel 面向 HPC 的旗舰级 
 ## 核心规格
 
 | 项目 | Max 1550 | Max 1350 |
-| **发布** | 2023 年（Aurora 部署） |
 |------|----------|----------|
+| **发布** | 2023 年（Aurora 部署） | 2023 年 |
 | **架构** | Xe-HPC（Ponte Vecchio） | Xe-HPC |
 | **制程** | Intel 7 + TSMC 5nm + TSMC 7nm | 同左 |
 | **Xe Core** | 512 | 336 |

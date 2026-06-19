@@ -37,6 +37,8 @@ type News = {
   tags: string[];
 };
 
+type Stats = { chips: number; vendors: number; pages: number };
+
 function rankScore(c: HotChip, content: HomeContent): number {
   const vw = content.vendorWeight[c.vendor] ?? 0.7;
   const cw = content.categoryWeight[c.category] ?? 0.3;
@@ -248,7 +250,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   );
 }
 
-function HomepageHeader({ chips, content }: { chips: Chip[]; content: HomeContent }) {
+function HomepageHeader({ chips, content, stats }: { chips: Chip[]; content: HomeContent; stats: Stats }) {
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -261,6 +263,26 @@ function HomepageHeader({ chips, content }: { chips: Chip[]; content: HomeConten
           {content.heroSubtitle}
         </p>
         <SearchBox chips={chips} content={content} />
+        <div className={styles.heroStats}>
+          <span className={styles.statItem}>
+            <span className={styles.statValue}>{stats.chips}</span>
+            <span className={styles.statLabel}>{content.statsChipLabel}</span>
+          </span>
+          <span className={styles.statDivider} />
+          <span className={styles.statItem}>
+            <span className={styles.statValue}>{stats.vendors}+</span>
+            <span className={styles.statLabel}>{content.statsVendorLabel}</span>
+          </span>
+          <span className={styles.statDivider} />
+          <span className={styles.statItem}>
+            <span className={styles.statValue}>{stats.pages}</span>
+            <span className={styles.statLabel}>{content.statsPagesLabel}</span>
+          </span>
+          <span className={styles.statDivider} />
+          <span className={styles.statItem}>
+            <span className={styles.statValue}>{content.statsUpdateLabel}</span>
+          </span>
+        </div>
       </div>
     </header>
   );
@@ -300,6 +322,8 @@ function HotChipsSection({ content }: { content: HomeContent }) {
                     <Bar ratio={c.bwRatio} color={color} />
                     <code className={styles.chipBw}>{c.bw}</code>
                   </span>
+                  <span className={styles.chipFp16}>{c.fp16}</span>
+                  <span className={styles.chipTdp}>{c.tdp}</span>
                   <span
                     className={styles.chipTag}
                     style={{ backgroundColor: color }}
@@ -359,6 +383,8 @@ function CTASection({ content }: { content: HomeContent }) {
   return (
     <section className={styles.ctaSection}>
       <div className="container">
+        <p className={styles.ctaTitle}>{content.ctaTitle}</p>
+        <p className={styles.ctaSubtitle}>{content.ctaSubtitle}</p>
         <div className={styles.ctaRow}>
           <Link className={clsx('button button--primary button--lg', styles.ctaBtn)} to="/docs/comparison">
             {content.ctaFullComparison}
@@ -368,6 +394,9 @@ function CTASection({ content }: { content: HomeContent }) {
           </Link>
           <Link className={clsx('button button--outline button--lg', styles.ctaBtn)} to="/blog">
             {content.ctaBlog}
+          </Link>
+          <Link className={clsx('button button--outline button--lg', styles.ctaBtn)} to="/docs/tco-calculator">
+            {content.ctaTco}
           </Link>
         </div>
       </div>
@@ -384,6 +413,16 @@ export default function Home(): ReactNode {
   const [chips, setChips] = useState<Chip[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const stats: Stats = useMemo(() => {
+    const vendorSet = new Set<string>();
+    chips.forEach(c => vendorSet.add(c.vendor));
+    return {
+      chips: chips.length,
+      vendors: vendorSet.size,
+      pages: 386,
+    };
+  }, [chips]);
 
   useEffect(() => {
     Promise.all([
@@ -434,7 +473,7 @@ export default function Home(): ReactNode {
       title={isEn ? 'AI Compute Cards Wiki' : undefined}
       description={content.metaDescription}
     >
-      <HomepageHeader chips={chips} content={content} />
+      <HomepageHeader chips={chips} content={content} stats={stats} />
       <main>
         <HotChipsSection content={content} />
         <NewsSection news={news} content={content} />
