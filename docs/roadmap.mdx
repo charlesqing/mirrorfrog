@@ -1,15 +1,15 @@
 ---
 id: roadmap
-title: 'AI 算力卡未来路线图 2025-2027 | MirrorFrog'
-description: 'AI 算力卡未来路线图：NVIDIA Vera Rubin R200 全面量产、RTX Spark 发布、华为昇腾 950 交付、AMD MI400 Helios 即将到来。'
-keywords: [AI 算力卡路线图, NVIDIA Rubin R200, RTX Spark, 华为昇腾 950, AMD MI400, Google TPU Ironwood]
+title: 'AI 算力卡未来路线图 2025-2028 | MirrorFrog'
+description: 'AI 算力卡未来路线图：NVIDIA Vera Rubin R200 全面量产、RTX Spark 发布、华为昇腾 950/960/970 时间线、AMD MI400 Helios 即将到来、Qualcomm AI 200/250 加入战局。'
+keywords: [AI 算力卡路线图, NVIDIA Rubin R200, RTX Spark, 华为昇腾 950 960 970, AMD MI400, Google TPU Ironwood, Qualcomm AI 200]
 sidebar_position: 3
 sidebar_label: '未来路线图'
 ---
 
-# AI 算力卡未来路线图（2025-2027）
+# AI 算力卡未来路线图（2025-2028）
 
-> 基于厂商公告、供应链消息和行业分析。**实际发布时间以厂商官方为准**。最后更新：2026-06-04。
+> 基于厂商公告、供应链消息和行业分析。**实际发布时间以厂商官方为准**。最后更新：2026-06-19。
 
 ## 2025 Q2-Q4（已发布 / 已量产）
 
@@ -41,8 +41,12 @@ sidebar_label: '未来路线图'
 |---|---|---|---|
 | 2026-H2 | **NVIDIA Rubin R200 出货** | NVIDIA | 288GB HBM4，50 PFLOPS FP4，NVLink 6 |
 | 2026-H2 | **NVIDIA Rubin NVL72 机柜** | NVIDIA | 72 颗 Rubin + 36 颗 Vera，1.8 EFLOPS FP4 |
-| 2026-H2 | **AMD MI400 + Helios 机柜** | AMD | 432GB HBM4，40 PFLOPS FP4，19.6 TB/s |
+| 2026-H2 | **AMD MI400 系列 + Helios 机柜** | AMD | CDNA 5，TSMC 2nm，三款细分型号 |
+| 2026-H2 | **AMD MI455X（旗舰）** | AMD | 优化 FP4/FP8/BF16，Helios 机架核心 |
+| 2026-H2 | **AMD MI440X（企业）** | AMD | 8-GPU 服务器，兼容现有数据中心 |
+| 2026-H2 | **AMD MI430X（HPC）** | AMD | 支持 FP32/FP64，主权 AI + HPC |
 | 2026-H2 | **Cerebras WSE-4** | Cerebras | 1.4 万亿晶体管，125 PFLOPS FP8 |
+| 2026-H2 | **Qualcomm AI 200** | Qualcomm | 机架级 AI 推理，768GB LPDDR/卡，低 TCO |
 | 2026-Q4 | **华为昇腾 950DT 全面放量** | 华为 | 950DT Decode + 训练量产 |
 | 2026-秋 | **NVIDIA RTX Spark 零售** | NVIDIA | 华硕/戴尔/惠普/联想/微软首发 |
 
@@ -50,11 +54,20 @@ sidebar_label: '未来路线图'
 
 | 时间 | 产品 | 厂商 | 预期方向 |
 |---|---|---|---|
+| 2027-H1 | **Qualcomm AI 250** | Qualcomm | 近存计算架构，10x 有效内存带宽，液冷机架 |
 | 2027 | **NVIDIA Rubin Ultra / Feynman** | NVIDIA | 下下一代架构，可能走向 Wafer-Scale |
 | 2027 | **AMD MI500** | AMD | CDNA 5，HBM4e 或 3D 堆叠 |
 | 2027 | **Google TPU v8 8t/8i** | Google | 训练/推理正式拆分，光学互联 |
 | 2027-Q4 | **华为昇腾 960** | 华为 | FP8 ~2 PFLOPS，N+3 工艺 |
-| 2027 | **Intel Jaguar Shores** | Intel | Xe-HPC + Gaudi 融合架构 |
+| 2027 或之后 | **Intel Jaguar Shores** | Intel | Xe-HPC + Gaudi 融合，18A 制程，可能采用 HBM4E |
+
+## 2028（远景）
+
+| 时间 | 产品 | 厂商 | 预期方向 |
+|---|---|---|---|
+| 2028-Q4 | **华为昇腾 970** | 华为 | 昇腾系列第三代，规格待官方公布 |
+
+> 华为全联接大会 2025 公布的三代芯片路线图：950 系列（2026）→ 960（2027-Q4）→ 970（2028-Q4）。
 
 ## 关键技术趋势
 
@@ -70,6 +83,13 @@ sidebar_label: '未来路线图'
 - **Apple M5 Ultra**：本地 LLM 推理，192GB 统一内存
 - **Qualcomm Snapdragon X Elite 2**：2027，AI PC 持续进化
 - **意义**：AI 算力从数据中心扩展到个人设备
+
+### 数据中心 AI 推理专用芯片（2026 新趋势）
+
+- **Qualcomm AI 200**（2026 年商用）：机架级 AI 推理，768GB LPDDR/卡，低 TCO
+- **Qualcomm AI 250**（2027 年商用）：近存计算架构，10x 有效内存带宽提升
+- **机架规格**：直接液冷，160kW 机架级功耗，Ethernet 互联
+- **意义**：传统移动芯片厂商进入数据中心 AI 市场，推理专用化趋势明显
 
 ### Wafer-Scale / 机架级（2026+）
 
@@ -97,7 +117,7 @@ sidebar_label: '未来路线图'
 
 ```mermaid
 timeline
-    title AI 算力卡发布路线图（2025-2027）
+    title AI 算力卡发布路线图（2025-2028）
     section 2025 H1
         NVIDIA B200          ： 已发布
         AMD MI355X           ： 已发布
@@ -114,22 +134,28 @@ timeline
         寒武纪 MLU690        ： 出货
     section 2026 H2
         Rubin NVL72          ： 出货
-        AMD MI400 Helios     ： 预期 H2
+        AMD MI400 系列       ： MI430X/MI440X/MI455X
+        AMD Helios 机架      ： 预期 H2
         Cerebras WSE-4       ： 预期
+        Qualcomm AI 200      ： 机架推理商用
         RTX Spark 零售       ： 秋季
     section 2027
+        Qualcomm AI 250      ： 近存计算商用
         NVIDIA Feynman       ： 前瞻
         AMD MI500            ： 前瞻
         Google TPU v8        ： 前瞻
         华为昇腾 960         ： 路线图
+        Intel Jaguar Shores  ： 可能延后
+    section 2028
+        华为昇腾 970         ： 路线图 Q4
 ```
 
 ## 数据来源与更新
 
-- 厂商官方公告（NVIDIA GTC Taipei 2026、Computex 2026、AMD Advancing AI、华为全联接大会）
-- 供应链泄露（DigiTimes、Tom's Hardware、ServeTheHome）
+- 厂商官方公告（NVIDIA GTC Taipei 2026、Computex 2026、AMD CES 2026、华为全联接大会 2025、Qualcomm 2025年10月公告）
+- 供应链泄露（DigiTimes、Tom's Hardware、ServeTheHome、超能网、中关村在线）
 - 行业分析师报告（TrendForce、Jon Peddie Research）
-- **最后更新**：2026-06-04，基于 Computex 2026 / GTC Taipei 最新发布
+- **最后更新**：2026-06-19，基于 GTC Taipei 2026 / Computex 2026 / CES 2026 最新发布 + Qualcomm AI 200/250 官方公告
 
 ---
 
