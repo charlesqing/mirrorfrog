@@ -4,3 +4,10 @@ aicomputecards:
   url: https://github.com/anomalyco/mirrorfrog
   imageURL: /img/logo.svg
   page: true
+
+charlesqing:
+  name: Charles Qing
+  title: AI Hardware Analyst
+  url: https://github.com/charlesqing
+  imageURL: /img/authors/charlesqing.jpg
+  page: true

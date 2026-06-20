@@ -1,5 +1,21 @@
 [
   {
+    "title": "2026 H2 AI 芯片路线图重大更新：Qualcomm 入局、AMD MI400 三款型号揭晓、华为三代路线图",
+    "date": "2026-06-20",
+    "slug": "ai-chip-roadmap-h2-2026-update",
+    "url": "/blog/ai-chip-roadmap-h2-2026-update",
+    "description": "2026 年下半年 AI 芯片市场迎来重大变化：Qualcomm 正式进入数据中心 AI 推理市场，AMD 揭晓 MI400 系列三款型号，华为公布三代芯片路线图至 2028 年，Intel Jaguar Shores 时间线存疑。",
+    "tags": [
+      "路线图",
+      "NVIDIA",
+      "AMD",
+      "华为",
+      "Qualcomm",
+      "Intel",
+      "Google"
+    ]
+  },
+  {
     "title": "AMD MI455X CES 2026 震撼发布：4年AI芯片性能涨1000倍",
     "date": "2026-06-16",
     "slug": "amd-mi455x-ces-2026-launch",
@@ -61,21 +77,6 @@
       "ai-accelerator",
       "habana",
       "custom-chip"
-    ]
-  },
-  {
-    "title": "NVIDIA Vera Rubin 全面投产：智能体AI工厂时代正式开启",
-    "date": "2026-06-16",
-    "slug": "nvidia-vera-rubin-mass-production-2026",
-    "url": "/blog/nvidia-vera-rubin-mass-production-2026",
-    "description": "2026年6月1日，NVIDIA在COMPUTEX 2026上宣布Vera Rubin平台全面投产。本文详解Rubin GPU、Vera CPU、NVLink 6、CX8 SuperNIC等关键技术规格，以及与Blackwell的性能对比。",
-    "tags": [
-      "nvidia",
-      "rubin",
-      "vera",
-      "blackwell",
-      "ai-factory",
-      "computex-2026"
     ]
   }
 ]
