@@ -422,3 +422,22 @@ custom-chip:
   label: Custom Chip
   description: Custom AI chips and ASICs
   permalink: /custom-chip
+
+# ========== 新增标签：2026-06-20 博客使用 ==========
+
+路线图:
+  label: 路线图
+  description: AI 芯片未来路线图与发展趋势
+  permalink: /roadmap-zh
+
+qualcomm:
+  label: Qualcomm
+  description: Qualcomm AI chips and datacenter accelerators
+  permalink: /qualcomm
+
+# ========== 中文标签（博客使用）==========
+
+华为:
+  label: 华为
+  description: 华为 AI 芯片与昇腾系列
+  permalink: /huawei-zh

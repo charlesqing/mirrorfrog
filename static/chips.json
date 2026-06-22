@@ -418,6 +418,35 @@
     }
   },
   {
+    "id": "mlu-690",
+    "title": "寒武纪 MLU690 (国产 AI 训练芯片)",
+    "vendor": "cambricon",
+    "slug": "/docs/cards/cambricon/mlu-690",
+    "description": "寒武纪 MLU690 详尽规格：7nm、BF16 330 TFLOPS、显存 64GB HBM3、TDP 300W、国产化 AI 训练芯片。",
+    "keywords": [
+      "寒武纪",
+      "MLU690",
+      "国产 AI 芯片",
+      "AI 训练",
+      "HBM3",
+      "7nm"
+    ],
+    "specs": {
+      "architecture": "MLUarch 04（第四代）",
+      "process": "TSMC 7nm",
+      "memory": {
+        "capacity": "64 GB HBM3",
+        "bandwidth": "2 TB/s（推测）"
+      },
+      "compute": {
+        "fp32": "160 TFLOPS（推测）",
+        "int8": "1,320 TOPS"
+      },
+      "tdp": "300 W",
+      "release": "2025-Q4"
+    }
+  },
+  {
     "id": "wse-2",
     "title": "Cerebras WSE-2 (CS-2)",
     "vendor": "cerebras",
