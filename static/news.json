@@ -15,6 +15,21 @@
     ]
   },
   {
+    "title": "寒武纪 MLU690 vs NVIDIA H100 深度对比：国产 AI 芯片能否替代 H100？",
+    "date": "2026-06-23",
+    "slug": "mlu690-vs-h100-comparison-2026",
+    "url": "/blog/mlu690-vs-h100-comparison-2026",
+    "description": "",
+    "tags": [
+      "寒武纪",
+      "MLU690",
+      "nvidia",
+      "H100",
+      "国产芯片",
+      "对比"
+    ]
+  },
+  {
     "title": "2026 H2 AI 芯片路线图重大更新：Qualcomm 入局、AMD MI400 三款型号揭晓、华为三代路线图",
     "date": "2026-06-20",
     "slug": "ai-chip-roadmap-h2-2026-update",
@@ -61,22 +76,6 @@
       "cloud-next",
       "agentic-ai",
       "2nm"
-    ]
-  },
-  {
-    "title": "里程碑！华为昇腾910C完成1.6万亿参数大模型全参数训练",
-    "date": "2026-06-16",
-    "slug": "huawei-ascend-910c-deepseek-v4-pro-training",
-    "url": "/blog/huawei-ascend-910c-deepseek-v4-pro-training",
-    "description": "2026年6月5日，深圳河套学院联合哈工大（深圳）、华为等团队，用1000颗华为昇腾910C芯片，成功完成1.6万亿参数DeepSeek-V4-Pro大模型全参数后训练。这是国产AI芯片首次完成万亿级参数模型的全参数训练，标志着国产算力从\"",
-    "tags": [
-      "huawei",
-      "ascend",
-      "910c",
-      "deepseek",
-      "training",
-      "1.6-trillion",
-      "breakthrough"
     ]
   }
 ]

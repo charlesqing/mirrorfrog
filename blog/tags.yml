@@ -461,3 +461,15 @@ MTT-S5000:
   label: MTT S5000
   description: 摩尔线程 MTT S5000 全功能 GPU
   permalink: /mtt-s5000-zh
+
+# ========== 新增标签：2026-06-23 博客使用 ==========
+
+H100:
+  label: H100
+  description: NVIDIA H100 GPU detailed analysis
+  permalink: /h100-zh
+
+对比:
+  label: 对比
+  description: AI chip comparison and benchmarking
+  permalink: /comparison-zh
