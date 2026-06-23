@@ -100,7 +100,7 @@ export const ZH_CONTENT: HomeContent = {
     { name: '昇腾 950DT',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '144 GB HiZQ 2.0', bw: '4 TB/s',    fp16: '1000 TFLOPS',  tdp: '400W',  fp16Tflops: 1000, category: '训练', bwRatio: 0.50, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
     { name: '昇腾 950PR',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '128 GB HiBL 1.0', bw: '3 TB/s',    fp16: '1000 TFLOPS',  tdp: '300W',  fp16Tflops: 1000, category: '推理', bwRatio: 0.38, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
     { name: 'WSE-3',         vendor: 'Cerebras', arch: 'WSE-3',          mem: '40 GB SRAM',     bw: '21 PB/s 片上', fp16: '125 TFLOPS',   tdp: '整机系统', fp16Tflops: 125,  category: '晶圆', bwRatio: 1.00, slug: '/docs/cards/cerebras/wse-3',  released: '2024-03-01' },
-    { name: 'MLU690',        vendor: '寒武纪',  arch: 'MLUarch 04',       mem: '64 GB HBM3',    bw: '2 TB/s',     fp16: '330 TFLOPS',   tdp: '300W',  fp16Tflops: 330,  category: '训练', bwRatio: 0.25, slug: '/docs/cards/cambricon/mlu-690', released: '2026-03-01' },
+    { name: 'MLU690',        vendor: '寒武纪',  arch: 'MLUarch 04',       mem: '64 GB HBM3',    bw: '2 TB/s',     fp16: '600 TFLOPS',   tdp: '280W',  fp16Tflops: 600,  category: '训练', bwRatio: 0.25, slug: '/docs/cards/cambricon/mlu-690', released: '2026-03-01' },
     { name: 'MTT S5000',     vendor: '摩尔线程', arch: 'MUSA 4.0',        mem: '80 GB GDDR6X', bw: '1.6 TB/s',  fp16: '1000 TFLOPS', tdp: '350W',  fp16Tflops: 1000, category: '训练', bwRatio: 0.20, slug: '/docs/cards/others/moore-threads-mtt-s5000', released: '2025-02-01' },
   ],
   categoryColors: {

@@ -1222,6 +1222,22 @@
       "currency": "CNY",
       "last_updated": "2026-06-14",
       "source": "瀚博半导体渠道估算（2023年发布，7nm全功能GPU）"
+    },
+    "mtt-s5000": {
+      "market_price": 50000,
+      "official_msrp": 55000,
+      "currency": "CNY",
+      "last_updated": "2026-06-23",
+      "source": "摩尔线程官网/市场均价"
+    }
+  },
+  "cambricon": {
+    "mlu-690": {
+      "market_price": 140000,
+      "official_msrp": 150000,
+      "currency": "CNY",
+      "last_updated": "2026-06-23",
+      "source": "寒武纪官网/市场均价"
     }
   }
 }

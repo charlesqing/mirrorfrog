@@ -441,3 +441,23 @@ qualcomm:
   label: 华为
   description: 华为 AI 芯片与昇腾系列
   permalink: /huawei-zh
+
+寒武纪:
+  label: 寒武纪
+  description: 寒武纪 MLU 系列 AI 训练芯片
+  permalink: /cambricon-zh
+
+摩尔线程:
+  label: 摩尔线程
+  description: 摩尔线程 MTT 系列全功能 GPU
+  permalink: /moore-threads-zh
+
+MLU690:
+  label: MLU690
+  description: 寒武纪 MLU690 芯片详解
+  permalink: /mlu-690-zh
+
+MTT-S5000:
+  label: MTT S5000
+  description: 摩尔线程 MTT S5000 全功能 GPU
+  permalink: /mtt-s5000-zh
