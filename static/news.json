@@ -1,5 +1,19 @@
 [
   {
+    "title": "OpenAI 自研 AI 芯片 Jalapeño 深度解析：9 个月流片，推理成本降低 50%",
+    "date": "2026-06-26",
+    "slug": "openai-jalapeno-custom-ai-chip-2026",
+    "url": "/blog/openai-jalapeno-custom-ai-chip-2026",
+    "description": "",
+    "tags": [
+      "OpenAI",
+      "Jalapeño",
+      "自研芯片",
+      "博通",
+      "推理芯片"
+    ]
+  },
+  {
     "title": "国产 AI 芯片三巨头对比（2026）：昇腾、寒武纪、摩尔线程，谁是中国版 H100？",
     "date": "2026-06-23",
     "slug": "chinese-ai-chip-triopoly-comparison-2026",
@@ -60,22 +74,6 @@
       "ai-accelerator",
       "cdna-5",
       "hbm4"
-    ]
-  },
-  {
-    "title": "谷歌TPU 8i/8t 正式发布：训练与推理首次分家，2nm工艺赋能智能体时代",
-    "date": "2026-06-16",
-    "slug": "google-tpu-8i-8t-cloud-next-2026",
-    "url": "/blog/google-tpu-8i-8t-cloud-next-2026",
-    "description": "2026年4月22日，谷歌在Cloud Next 2026大会上正式发布第八代TPU：TPU 8i（推理专用）和TPU 8t（训练专用）。这是谷歌史上首次将AI训练与推理任务拆分至两款独立芯片，采用TSMC 2nm制程，2027年底量产。",
-    "tags": [
-      "google",
-      "tpu",
-      "tpu-8i",
-      "tpu-8t",
-      "cloud-next",
-      "agentic-ai",
-      "2nm"
     ]
   }
 ]

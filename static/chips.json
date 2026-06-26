@@ -3928,6 +3928,31 @@
     }
   },
   {
+    "id": "openai-jalapeno",
+    "title": "OpenAI Jalapeño (自研 AI 推理芯片)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/openai-jalapeno",
+    "description": "OpenAI Jalapeño 详尽规格：TSMC 3nm、8 堆栈 HBM、推理成本降低 50%、与博通联合开发。",
+    "keywords": [
+      "OpenAI",
+      "Jalapeño",
+      "自研芯片",
+      "AI 推理",
+      "ASIC",
+      "博通",
+      "TSMC 3nm"
+    ],
+    "specs": {
+      "architecture": "Systolic Array（脉动阵列）",
+      "process": "TSMC 3nm",
+      "memory": {
+        "capacity": "8 堆栈（推测 HBM3E 或 HBM4）"
+      },
+      "tdp": "未公开（推测 400-700W）",
+      "release": "2026-06-24"
+    }
+  },
+  {
     "id": "qualcomm-ai-200",
     "title": "Qualcomm AI 200 / AI 300 (Cloud AI Inference, 2025-2026 推测)",
     "vendor": "others",

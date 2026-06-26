@@ -462,6 +462,38 @@ MTT-S5000:
   description: 摩尔线程 MTT S5000 全功能 GPU
   permalink: /mtt-s5000-zh
 
+# ========== 新增标签：2026-06-26 OpenAI Jalapeño 博客使用 ==========
+
+OpenAI:
+  label: OpenAI
+  description: OpenAI AI chips and infrastructure
+  permalink: /openai
+
+Jalapeño:
+  label: Jalapeño
+  description: OpenAI 首款自研 AI 推理芯片
+  permalink: /jalapeno
+
+自研芯片:
+  label: 自研芯片
+  description: 科技巨头自研 AI 芯片（ASIC）
+  permalink: /custom-ai-chip-zh
+
+博通:
+  label: 博通
+  description: Broadcom AI 芯片合作与网络技术
+  permalink: /broadcom-zh
+
+推理芯片:
+  label: 推理芯片
+  description: AI 推理专用芯片与加速器
+  permalink: /inference-chip-zh
+
+AI基础设施:
+  label: AI 基础设施
+  description: AI 全栈基础设施（芯片+系统+网络）
+  permalink: /ai-infrastructure-zh
+
 # ========== 新增标签：2026-06-23 博客使用 ==========
 
 H100:
