@@ -1955,7 +1955,7 @@
         "capacity": "128 GB LPDDR5X（CPU + GPU 共享）",
         "bandwidth": "300 GB/s"
       },
-      "tdp": "1,600 W",
+      "tdp": "~100W（推测）",
       "release": "2025-01-07（Project DIGITS）"
     }
   },

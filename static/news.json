@@ -1,5 +1,21 @@
 [
   {
+    "title": "2026年6月AI芯片重大事件汇总：昇腾910C训练万亿模型、OpenAI自研芯片、RTX Spark发布",
+    "date": "2026-06-28",
+    "slug": "june-2026-ai-chip-major-events",
+    "url": "/blog/june-2026-ai-chip-major-events",
+    "description": "2026年6月AI芯片领域重大事件汇总：华为昇腾910C完成1.6万亿参数DeepSeek V4 Pro训练、OpenAI发布首款自研AI推理芯片Jalapeño、NVIDIA在Computex发布RTX Spark AI PC超级芯片。",
+    "tags": [
+      "月度汇总",
+      "华为",
+      "OpenAI",
+      "nvidia",
+      "ascend-910c",
+      "Jalapeño",
+      "RTX Spark"
+    ]
+  },
+  {
     "title": "OpenAI 自研 AI 芯片 Jalapeño 深度解析：9 个月流片，推理成本降低 50%",
     "date": "2026-06-26",
     "slug": "openai-jalapeno-custom-ai-chip-2026",
@@ -57,23 +73,6 @@
       "qualcomm",
       "intel",
       "google"
-    ]
-  },
-  {
-    "title": "AMD MI455X CES 2026 震撼发布：4年AI芯片性能涨1000倍",
-    "date": "2026-06-16",
-    "slug": "amd-mi455x-ces-2026-launch",
-    "url": "/blog/amd-mi455x-ces-2026-launch",
-    "description": "2026年1月5日，AMD在CES 2026上震撼发布MI400系列AI加速卡，其中MI455X采用2nm+3nm混合制程、432GB HBM4显存、FP4算力达40 PFLOPS（FP8为20 PFLOPS）。苏姿丰宣布：\"4年前MI25",
-    "tags": [
-      "amd",
-      "mi400",
-      "mi455x",
-      "ces-2026",
-      "instinct",
-      "ai-accelerator",
-      "cdna-5",
-      "hbm4"
     ]
   }
 ]

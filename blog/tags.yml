@@ -505,3 +505,15 @@ H100:
   label: 对比
   description: AI chip comparison and benchmarking
   permalink: /comparison-zh
+
+# ========== 新增标签：2026-06-28 月度汇总博客使用 ==========
+
+月度汇总:
+  label: 月度汇总
+  description: AI 芯片产业月度重大事件汇总
+  permalink: /monthly-summary-zh
+
+RTX Spark:
+  label: RTX Spark
+  description: NVIDIA RTX Spark AI PC 超级芯片
+  permalink: /rtx-spark-zh
