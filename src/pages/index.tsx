@@ -307,6 +307,8 @@ function HotChipsSection({ content }: { content: HomeContent }) {
             <span>{content.hotChipsHeader[3]}</span>
             <span>{content.hotChipsHeader[4]}</span>
             <span>{content.hotChipsHeader[5]}</span>
+            <span>{content.hotChipsHeader[6]}</span>
+            <span>{content.hotChipsHeader[7]}</span>
           </li>
           {sortedChips.map((c) => {
             const color = content.categoryColors[c.category] || '#656d76';

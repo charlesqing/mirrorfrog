@@ -920,6 +920,36 @@
     }
   },
   {
+    "id": "bi-v150",
+    "title": "天数智芯 天垓150 (BI-V150)",
+    "vendor": "iluvatar",
+    "slug": "/docs/cards/iluvatar/bi-v150",
+    "description": "天数智芯天垓150（BI-V150）详尽规格：7nm、48 TFLOPS FP32、64GB HBM2e、350W TDP、国产通用GPU训练芯片。",
+    "keywords": [
+      "天数智芯",
+      "天垓150",
+      "BI-V150",
+      "国产AI芯片",
+      "通用GPU",
+      "训练芯片"
+    ],
+    "specs": {
+      "architecture": "ivcore11（第二代通用GPU架构）",
+      "process": "TSMC 7nm",
+      "compute": {
+        "fp32": "48 TFLOPS",
+        "fp16": "~192 TFLOPS（推算）",
+        "int8": "~384 TOPS（推算）"
+      },
+      "memory": {
+        "capacity": "64 GB HBM2e",
+        "bandwidth": "~2 TB/s（推算）"
+      },
+      "tdp": "350 W",
+      "release": "2023年"
+    }
+  },
+  {
     "id": "arc-pro-b50",
     "title": "Intel Arc Pro B50",
     "vendor": "intel",

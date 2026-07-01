@@ -27,7 +27,7 @@ export interface HomeContent {
   searchEmptyLink: string;
   hotChipsTitle: string;
   hotChipsDesc: string;
-  hotChipsHeader: [string, string, string, string, string, string];
+  hotChipsHeader: [string, string, string, string, string, string, string, string];
   viewFullComparison: string;
   latestNewsTitle: string;
   latestNewsDescPrefix: string;
@@ -66,7 +66,7 @@ export const ZH_CONTENT: HomeContent = {
   hotChipsTitle: '🔥 热门芯片',
   hotChipsDesc: '按"重要性 + 时效性 + 算力"综合排序 — 得分越高排名越靠前。',
   hotChipsHeader: ['芯片名称', '厂商', '架构', '显存', '带宽', 'FP16', 'TDP', '分类'],
-  viewFullComparison: '查看完整对比表（163 款）→',
+  viewFullComparison: '查看完整对比表（165 款）→',
   latestNewsTitle: '📰 最新动态',
   latestNewsDescPrefix: '行业新闻、产品发布、技术深度、选型指南。',
   latestNewsDescLink: '查看所有文章 →',
@@ -95,7 +95,7 @@ export const ZH_CONTENT: HomeContent = {
     { name: 'MI300X',        vendor: 'AMD',     arch: 'CDNA 3',          mem: '192 GB HBM3',    bw: '5.3 TB/s',   fp16: '1300 TFLOPS',  tdp: '750W',  fp16Tflops: 1300, category: '训练', bwRatio: 0.66, slug: '/docs/cards/amd/mi300x',          released: '2023-12-01' },
     { name: 'MI355X',        vendor: 'AMD',     arch: 'CDNA 3.5',        mem: '288 GB HBM3e',   bw: '8 TB/s',     fp16: '2600 TFLOPS',  tdp: '1000W', fp16Tflops: 2600, category: '训练', bwRatio: 1.00, slug: '/docs/cards/amd/mi355x',          released: '2025-10-01' },
     { name: 'TPU Ironwood',  vendor: 'Google',  arch: 'TPU v7',          mem: '192 GB HBM',     bw: '5 TB/s',     fp16: '2400 TFLOPS',  tdp: '1000W', fp16Tflops: 2400, category: '训练', bwRatio: 0.63, slug: '/docs/cards/google/tpu-ironwood', released: '2025-11-01' },
-    { name: '昇腾 910C',     vendor: '华为',    arch: 'Da Vinci',        mem: '128 GB HBM2e',   bw: '1.2 TB/s',   fp16: '320 TFLOPS',   tdp: '310W',  fp16Tflops: 320,  category: '训练', bwRatio: 0.15, slug: '/docs/cards/huawei/ascend-910c',  released: '2024-04-01' },
+    { name: '昇腾 910C',     vendor: '华为',    arch: 'Da Vinci 3.0',    mem: '64 GB HBM2e',   bw: '~3.2 TB/s',   fp16: '800 TFLOPS',   tdp: '310W',  fp16Tflops: 800,  category: '训练', bwRatio: 0.40, slug: '/docs/cards/huawei/ascend-910c',  released: '2024-04-01' },
     { name: '昇腾 920',      vendor: '华为',    arch: 'Da Vinci',        mem: '96 GB HBM',      bw: '4 TB/s',     fp16: '800 TFLOPS',   tdp: '400W',  fp16Tflops: 800,  category: '训练', bwRatio: 0.50, slug: '/docs/cards/huawei/ascend-920',   released: '2025-09-01' },
     { name: '昇腾 950DT',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '144 GB HiZQ 2.0', bw: '4 TB/s',    fp16: '1000 TFLOPS',  tdp: '400W',  fp16Tflops: 1000, category: '训练', bwRatio: 0.50, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
     { name: '昇腾 950PR',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '128 GB HiBL 1.0', bw: '3 TB/s',    fp16: '1000 TFLOPS',  tdp: '300W',  fp16Tflops: 1000, category: '推理', bwRatio: 0.38, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
