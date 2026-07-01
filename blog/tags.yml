@@ -517,3 +517,16 @@ RTX Spark:
   label: RTX Spark
   description: NVIDIA RTX Spark AI PC 超级芯片
   permalink: /rtx-spark-zh
+
+# ========== 新增标签：2026-07-01 行业复盘博客使用 ==========
+
+行业复盘:
+  label: 行业复盘
+  description: AI 芯片产业周期复盘与趋势分析
+  permalink: /industry-review-zh
+
+2026H1:
+  label: 2026上半年
+  description: 2026年上半年AI芯片行业重大事件与进展
+  permalink: /2026-h1-zh
+

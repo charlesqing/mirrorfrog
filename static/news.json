@@ -1,5 +1,21 @@
 [
   {
+    "title": "2026年H1 AI芯片行业复盘：Blackwell Ultra、国产三强与推理新时代",
+    "date": "2026-07-01",
+    "slug": "2026-h1-ai-chip-industry-review",
+    "url": "/blog/2026-h1-ai-chip-industry-review",
+    "description": "2026年上半年AI芯片行业重大进展复盘：NVIDIA Blackwell Ultra发布、华为昇腾950PR推理性能超越H20、寒武纪首次年度盈利、Cerebras上市、推理芯片赛道爆发，全面解析产业重心从训练转向推理的深层逻辑。",
+    "tags": [
+      "行业复盘",
+      "nvidia",
+      "huawei",
+      "寒武纪",
+      "推理芯片",
+      "blackwell",
+      "2026H1"
+    ]
+  },
+  {
     "title": "2026年6月AI芯片重大事件汇总：昇腾910C训练万亿模型、OpenAI自研芯片、RTX Spark发布",
     "date": "2026-06-28",
     "slug": "june-2026-ai-chip-major-events",
@@ -57,22 +73,6 @@
       "H100",
       "国产芯片",
       "对比"
-    ]
-  },
-  {
-    "title": "2026 H2 AI 芯片路线图重大更新：Qualcomm 入局、AMD MI400 三款型号揭晓、华为三代路线图",
-    "date": "2026-06-20",
-    "slug": "ai-chip-roadmap-h2-2026-update",
-    "url": "/blog/ai-chip-roadmap-h2-2026-update",
-    "description": "2026 年下半年 AI 芯片市场迎来重大变化：Qualcomm 正式进入数据中心 AI 推理市场，AMD 揭晓 MI400 系列三款型号，华为公布三代芯片路线图至 2028 年，Intel Jaguar Shores 时间线存疑。",
-    "tags": [
-      "路线图",
-      "nvidia",
-      "amd",
-      "华为",
-      "qualcomm",
-      "intel",
-      "google"
     ]
   }
 ]
