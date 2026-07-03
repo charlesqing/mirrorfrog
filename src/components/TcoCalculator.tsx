@@ -293,7 +293,8 @@ function Bars({ data, hoverYear, setHover }: { data: {year:number;procurement:nu
     <div>
       {hoverEntry && (
         <div style={{textAlign:'center',padding:'4px 0',fontSize:'0.78rem',color:'#3578e5',fontWeight:600}}>
-          第 {hoverEntry.year} 年 TCO: {fmt(hoverEntry.procurement+hoverEntry.electricity+hoverEntry.dc+hoverEntry.cooling)}
+          第 {hoverEntry.year} 年成本: {fmt(hoverEntry.procurement+hoverEntry.electricity+hoverEntry.dc+hoverEntry.cooling)}
+          {hoverEntry.year===1 && hoverEntry.procurement>0 && <span style={{fontSize:'0.72rem',color:'#888',fontWeight:400}}> （含采购）</span>}
         </div>
       )}
       <div style={{display:'flex',alignItems:'flex-end',justifyContent:'space-around',height:130,gap:6,padding:'4px 0 0'}}>
@@ -403,8 +404,18 @@ export default function TcoCalculator() {
 
   const pieData = useMemo(()=>[{label:'采购',value:proc,color:COLORS[0]},{label:'电费',value:elec,color:COLORS[1]},{label:'租金',value:dc,color:COLORS[2]},{label:'冷却',value:cool,color:COLORS[3]}].filter(i=>i.value>0),[proc,elec,dc,cool]);
   const barData = useMemo(()=>[1,2,3,4,5].map(y=>{
-    const yec=tdpKW*qty*usage*price*8760*y;
-    return {year:y,procurement:chipPrice*qty,electricity:yec,dc:dcCost*qty*y,cooling:yec*coolRate};
+    const annualElec = tdpKW*qty*usage*price*8760;  // 每年电费（固定）
+    const annualDc = dcCost*qty;  // 每年租金（固定）
+    const annualCool = annualElec*coolRate;  // 每年冷却成本（固定）
+    const firstYearProc = chipPrice*qty;  // 第一年采购成本
+    return {
+      year:y,
+      // 每年显示：采购成本（仅第一年）+ 当年运营成本
+      procurement: y===1 ? firstYearProc : 0,
+      electricity: annualElec,
+      dc: annualDc,
+      cooling: annualCool
+    };
   }),[tdpKW,qty,usage,price,dcCost,coolRate,chipPrice]);
 
   const addCompare = () => {
@@ -486,7 +497,7 @@ export default function TcoCalculator() {
         <div style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:14}}>
           <div style={{flex:'1 1 45%',minWidth:220}}>
             <label style={LABEL}>电价（$/kWh）</label>
-            <input type="number" style={INPUT} min={0.01} max={1} step={0.01} value={price} onChange={e=>setPrice(Number(e.target.value))}/>
+            <input type="number" style={INPUT} min={0.01} max={5} step={0.01} value={price} onChange={e=>setPrice(Number(e.target.value))}/>
             <div style={{display:'flex',gap:6,marginTop:8,flexWrap:'wrap'}}>
               {[{l:'中国 $0.08',v:0.08},{l:'美国 $0.12',v:0.12},{l:'欧洲 $0.20',v:0.20},{l:'中东 $0.04',v:0.04}].map(p=>(
                 <button key={p.l} onClick={()=>setPrice(p.v)} style={{padding:'4px 10px',border:`1px solid ${Math.abs(price-p.v)<0.001?'#3578e5':'#e9ecef'}`,borderRadius:6,background:Math.abs(price-p.v)<0.001?'#3578e5':'#fff',color:Math.abs(price-p.v)<0.001?'#fff':'#888',fontSize:'0.75rem',fontWeight:500,cursor:'pointer'}}>{p.l}</button>
@@ -503,7 +514,7 @@ export default function TcoCalculator() {
         <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
           <div style={{flex:'1 1 45%',minWidth:220}}>
             <label style={LABEL}>单卡年租金（$/年）</label>
-            <input type="number" style={INPUT} min={0} max={5000} step={50} value={dcCost} onChange={e=>setDcCost(Number(e.target.value))}/>
+            <input type="number" style={INPUT} min={0} max={50000} step={50} value={dcCost} onChange={e=>setDcCost(Number(e.target.value))}/>
             <small style={{fontSize:'0.75rem',color:'#888'}}>包含机柜、网络、维护等</small>
           </div>
           <div style={{flex:'1 1 45%',minWidth:220}}>

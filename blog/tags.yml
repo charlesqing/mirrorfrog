@@ -530,3 +530,22 @@ RTX Spark:
   description: 2026年上半年AI芯片行业重大事件与进展
   permalink: /2026-h1-zh
 
+
+
+# ========== English tag keys (for i18n) ==========
+
+industry-review:
+  label: Industry Review
+  description: AI chip industry cycle review and trend analysis
+  permalink: /industry-review
+
+inference-chip:
+  label: Inference Chip
+  description: AI inference dedicated chips and accelerators
+  permalink: /inference-chip
+
+2026-h1:
+  label: 2026 H1
+  description: Major AI chip events and progress in the first half of 2026
+  permalink: /2026-h1
+
