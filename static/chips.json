@@ -418,6 +418,37 @@
     }
   },
   {
+    "id": "r200",
+    "title": "百度昆仑芯 R200 (XPU-R)",
+    "vendor": "baidu",
+    "slug": "/docs/cards/baidu/r200",
+    "description": "百度昆仑芯R200详尽规格：7nm、32 TFLOPS FP32、128 TFLOPS FP16、256 TOPS INT8、16/32GB GDDR6、150W TDP、AI推理加速卡。",
+    "keywords": [
+      "百度",
+      "昆仑芯",
+      "R200",
+      "XPU-R",
+      "国产AI芯片",
+      "推理芯片",
+      "GDDR6"
+    ],
+    "specs": {
+      "architecture": "XPU-R（第二代昆仑芯架构）",
+      "process": "7nm",
+      "compute": {
+        "fp32": "32 TFLOPS",
+        "fp16": "128 TFLOPS",
+        "int8": "256 TOPS"
+      },
+      "memory": {
+        "capacity": "16GB / 32GB GDDR6（可选）",
+        "bandwidth": "512 GB/s"
+      },
+      "tdp": "150W（典型功耗）",
+      "release": "2025年"
+    }
+  },
+  {
     "id": "mlu-690",
     "title": "寒武纪 MLU690 (国产 AI 训练芯片)",
     "vendor": "cambricon",
@@ -510,6 +541,36 @@
       },
       "tdp": "~30-35 kW（推测）",
       "release": "2027 预计"
+    }
+  },
+  {
+    "id": "t21",
+    "title": "燧原科技 云燧T21 (邃思2.0 / DTU 2.0)",
+    "vendor": "enflame",
+    "slug": "/docs/cards/enflame/t21",
+    "description": "燧原科技云燧T21（邃思2.0）详尽规格：12nm、40 TFLOPS FP32、160 TFLOPS TF32、320 TOPS INT8、64GB HBM2E、中国最大AI训练芯片。",
+    "keywords": [
+      "燧原科技",
+      "云燧T21",
+      "邃思2.0",
+      "DTU 2.0",
+      "国产AI芯片",
+      "训练芯片",
+      "GCU-CARA"
+    ],
+    "specs": {
+      "architecture": "GCU-CARA（全域计算架构，第二代）",
+      "process": "格罗方德 12nm FinFET",
+      "compute": {
+        "fp32": "40 TFLOPS",
+        "int8": "320 TOPS"
+      },
+      "memory": {
+        "capacity": "64 GB HBM2E（4颗三星HBM2E）",
+        "bandwidth": "1.8 TB/s（最大）"
+      },
+      "tdp": "~300W（推测，基于T20加速卡）",
+      "release": "2021年7月"
     }
   },
   {
