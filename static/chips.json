@@ -968,7 +968,7 @@
       "长上下文推理"
     ],
     "specs": {
-      "release": "2025-09（推测）",
+      "release": "2026-03-20（正式发布）",
       "architecture": "昇腾 950（单片式设计）",
       "process": "中芯国际 SMIC N+3（等效 5nm 级）",
       "memory": {
@@ -2810,7 +2810,7 @@
     "title": "寒武纪 MLU590 (思元590)",
     "vendor": "others",
     "slug": "/docs/cards/others/cambricon-mlu-590",
-    "description": "寒武纪 MLU590 详尽规格（2024 发布）：256 TFLOPS FP16、512 TOPS INT8、128 NPU 核心、7nm、MLU-Link、推理+训练全能卡。",
+    "description": "寒武纪 MLU590 详尽规格（2024 首次亮相 / 2026-07-01 官方正式发布）：256 TFLOPS FP16、512 TOPS INT8、128 NPU 核心、7nm、MLU-Link、推理+训练全能卡。",
     "keywords": [
       "寒武纪 MLU590",
       "思元590",
@@ -2834,7 +2834,7 @@
         "int8": "512 TOPS"
       },
       "tdp": "250 W",
-      "release": "2024"
+      "release": "2024 首次亮相 / 2026-07-01 官方正式发布"
     }
   },
   {
