@@ -1,0 +1,80 @@
+---
+slug: nvidia-vera-rubin-mass-production-hbm4-july-2026
+title: 'NVIDIA Vera Rubin正式出货：首台VR200 NVL72交付，三星HBM4量产，Rubin Ultra机柜天价'
+date: '2026-07-10'
+authors: aicomputecards
+tags: [新闻, nvidia, rubin, vera, hbm4, AI硬件]
+description: '2026年7月，NVIDIA下一代Vera Rubin平台正式启动出货：CoreWeave联合Dell交付全球首台VR200 NVL72机柜并通过L11诊断，三星7月8日启动HBM4量产，Rubin Ultra机柜预估售价高达2100万美元，HBM成本成为最大推手。'
+---
+
+# NVIDIA Vera Rubin正式出货：从路线图走向实物
+
+> **2026年7月**，NVIDIA 下一代 AI 计算平台 **Vera Rubin** 正式启动首批出货，接替 Blackwell 架构，并计划在 2026 年下半年进入大规模量产。首批客户包括微软、谷歌、亚马逊、Meta、Oracle 等大型云服务商。
+
+## 1. 全球首台 VR200 NVL72 交付（里程碑）
+
+**CoreWeave 联合 Dell** 宣布，全球首台 NVIDIA **Vera Rubin VR200 NVL72** 机柜已正式交付，并一次性通过 **L11 全机柜级硬件诊断测试**。这标志着 Rubin 从路线图走向实物，供应链核心环节（HBM4、先进封装、液冷、超高功率电源）未出现重大卡点。
+
+### VR200 NVL72 核心配置
+
+| 指标 | Vera Rubin VR200 NVL72 |
+|------|------------------------|
+| **机柜代号** | Oberon |
+| **GPU** | 72 块 Rubin GPU |
+| **CPU** | 36 颗 Vera CPU |
+| **单 GPU 显存** | **288 GB HBM4** |
+| **单 CPU 内存** | 1.5 TB LPDDR5X |
+| **整柜 HBM4** | **20.7 TB**（20,736 GB） |
+| **整柜 LPDDR5X** | 54 TB |
+| **互联** | NVLink 6 全互联 |
+| **推理性能** | ~3.6 exaFLOPS 级别 |
+| **散热** | 液冷 |
+| **代际提升** | 单 GPU 计算约 3.5×、内存带宽约 2.8×（对比 Blackwell） |
+
+> **Vera CPU** 集成 88 个定制 Olympus ARM 核心，与 GPU 间互联带宽 1.8 TB/s，可作为 GPU 显存扩展池。NVIDIA 已于 5 月完成对 Anthropic、OpenAI、xAI 及 Oracle Cloud 的首批 Vera CPU 交付。
+
+## 2. 三星 HBM4 量产：关键瓶颈松动
+
+**2026年7月8日**，三星电子正式启动面向 Vera Rubin 平台的 **HBM4 量产**，据报道其 HBM4 量产良率达到 **70%**（超出 60–65% 的初始预期）。这一关键供应链环节的确认，为 Rubin 大规模部署扫清障碍。
+
+| HBM 供应格局（2026 Q1） | 份额 |
+|------------------------|------|
+| SK 海力士 | 45% |
+| 三星 | 40% |
+| 美光 | 15% |
+
+> HBM4 采用 8 层堆叠（12 层设计计划 2028 年），价格约为 HBM3e 的 **2.8 倍**。TrendForce 预测 HBM 供给将年增 65%，到 2027 Q4 HBM4 占总产出的 35%。
+
+## 3. Rubin Ultra 天价：HBM 成本主导
+
+据美国银行全球研究（BofA Global Research）测算，Rubin 一代将把单台服务器成本推向历史新高：
+
+| 成本项 | Rubin VR200（Oberon） | 对比 |
+|--------|----------------------|------|
+| **单柜 HBM4 用量** | 20,736 GB | — |
+| **HBM4 单价** | ~$18.40 / GB | Blackwell（HBM3e）~$11.26 / GB |
+| **仅 HBM4 成本** | **~$38.2 万** | 尚未计入 LPDDR5X |
+| **Rubin Ultra 机柜预估售价** | **~$2,100 万** | IT 之家 / BofA 估算 |
+
+## 产业解读
+
+1. **"Never doubt"时刻兑现**：Rubin 首发交付一次性通过 L11，打消了市场对"Rubin 延期"的疑虑，2026 H2 AI 算力供应确定性提前锁定。
+2. **专为 Agentic AI 设计**：Rubin 面向智能体工作流、超长上下文推理，将进一步压低万亿参数模型的训练/推理成本曲线。
+3. **HBM 是全链条赢家**：单机柜 20.7 TB HBM4 用量巨大，SK 海力士、三星、美光及先进封装（CoWoS-L）、液冷、电力改造全链条受益，同时也成为成本与产能的最大约束。
+
+## 相关链接
+
+- [NVIDIA Rubin R200 规格页](/docs/cards/nvidia/rubin-r200)
+- [NVIDIA Vera CPU 规格页](/docs/cards/nvidia/vera-cpu)
+- [NVIDIA Rubin CPX 规格页](/docs/cards/nvidia/rubin-cpx)
+
+## 参考资料
+
+- [Samsung Starts Mass Production for Nvidia's Vera Rubin AI Platform（2026-07-08）](https://fazen.markets/en/samsung-mass-production-nvidia-vera-rubin-ai-platform-storage)
+- [Rubin 机柜首次交付，CoreWeave 联合 Dell 交付全球首台 VR200 NVL72](https://guba.sina.com.cn/?s=thread&bid=20408&tid=174253)
+- [英伟达 Rubin Ultra 机柜预估售价 2100 万美元 - IT 之家（2026-07-09）](https://www.toutiao.com/article/7660486898866979354/)
+- [NVIDIA Vera Rubin 定档 2026 年 7 月出货 - VendorDeep](https://vendordeep.com/zh/report/nvidia-vera-rubin-platform-slated)
+
+---
+
+**本文持续跟踪 Vera Rubin 量产爬坡与 HBM4 供应链动态。**

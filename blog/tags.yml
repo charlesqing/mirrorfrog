@@ -532,6 +532,33 @@ RTX Spark:
 
 
 
+# ========== 新增标签：2026-07-11 计算卡行业博客使用 ==========
+
+WAIC-2026:
+  label: WAIC 2026
+  description: 2026 世界人工智能大会（上海）
+  permalink: /waic-2026-zh
+
+Atlas-950:
+  label: Atlas 950
+  description: 华为 Atlas 950 SuperPoD 超节点
+  permalink: /atlas-950-zh
+
+mi450:
+  label: MI450
+  description: AMD Instinct MI450 加速器
+  permalink: /mi450
+
+科创板:
+  label: 科创板
+  description: 科创板 AI 芯片企业上市动态
+  permalink: /star-market-zh
+
+IPO:
+  label: IPO
+  description: AI 芯片企业 IPO 与资本市场动态
+  permalink: /ipo-zh
+
 # ========== English tag keys (for i18n) ==========
 
 industry-review:

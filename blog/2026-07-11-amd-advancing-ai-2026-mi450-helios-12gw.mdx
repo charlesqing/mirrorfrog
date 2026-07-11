@@ -1,0 +1,82 @@
+---
+slug: amd-advancing-ai-2026-mi450-helios-12gw
+title: 'AMD Advancing AI 2026前瞻：MI450已送样、Helios机架下半年放量，OpenAI+Meta锁定12GW大单'
+date: '2026-07-11'
+authors: charlesqing
+tags: [新闻, amd, mi450, mi455x, instinct, hbm4]
+description: 'AMD将于7月22-23日举办Advancing AI 2026大会，补全Instinct MI400系列细节：MI450配备432GB HBM4、19.6TB/s带宽、40 PFLOPS FP4，Helios机架单柜72卡达3 exaFLOPS；OpenAI与Meta各签6GW、合计12GW大单，MI400系列2026年营收预计72亿美元。'
+---
+
+# AMD Advancing AI 2026前瞻：追赶NVIDIA的关键一战
+
+> AMD 已确认旗舰 AI 大会 **Advancing AI 2026** 将于 **2026年7月22-23日** 在旧金山 Moscone Center 举行，主题演讲定于 7 月 23 日，由董事长兼 CEO 苏姿丰（Lisa Su）主持。大会将补全 **Instinct MI400 系列** 的可用性时间线、定价与独立基准数据。
+
+## 1. MI450 / MI455X：规格已公开
+
+AMD 已披露 MI400 级别的关键规格，MI450 被定位为其"迄今最先进的加速器"：
+
+| 指标 | MI450 / MI455X | 对比 MI350 |
+|------|----------------|------------|
+| **架构** | CDNA 5 | CDNA 4 |
+| **显存** | **432 GB HBM4** | 288 GB HBM3e（+50%） |
+| **显存带宽** | **19.6 TB/s** | 翻倍以上 |
+| **FP4 算力** | **40 PFLOPS** | 约翻倍 |
+| **FP8 算力** | **20 PFLOPS** | 约翻倍 |
+| **对标** | NVIDIA Vera Rubin | — |
+| **量产节奏** | 2026 年年中送样、下半年放量 | — |
+
+苏姿丰在 2026 Q1 财报会上确认：**已向核心客户送样 MI450 GPU**，客户需求"超过公司对 2027 年的内部预期"。
+
+## 2. Helios 机架：3 exaFLOPS 单柜
+
+AMD 以 **Helios 机架级平台** 切入超大规模市场：
+
+| 指标 | Helios 机架 |
+|------|-------------|
+| **加速器** | 72 × MI455X |
+| **聚合 HBM4** | **31 TB** |
+| **总内存带宽** | **1.4 PB/s** |
+| **单柜算力** | 最高 **3 AI exaFLOPS**（Q3 交付目标） |
+| **目标客户** | 超大规模训练/推理集群 |
+
+## 3. 12GW 大单：OpenAI + Meta 双重背书
+
+AMD 手握两份历史级别的算力协议，合计约 **12 GW**，全生命周期潜在收入或达 **1000 亿美元**：
+
+| 客户 | 规模 | 首批部署 | 结构 |
+|------|------|----------|------|
+| **OpenAI** | 6 GW（多代产品） | 首期 1 GW，2026 H2 用 MI450 | "compute-for-upside"：授予最多 1.6 亿股认股权证，随里程碑与股价目标分阶段归属 |
+| **Meta** | 6 GW | 定制 MI450 芯片，2026 H2 起 | 部署于下一代数据中心 |
+
+### 财务预期
+
+| 指标 | 2026 预测 |
+|------|-----------|
+| **MI400 系列营收** | ~$72 亿（约占数据中心销售 25%） |
+| **数据中心 GPU 营收** | ~$150 亿（同比 +114%） |
+| **数据中心总营收** | 或达 $287 亿（同比 +73%） |
+
+> ⚠️ **执行风险**：AMD 已提示 MI450 于 Q3 量产将拖累毛利率（新品低于公司平均）；先进制程与先进封装（TSMC CoWoS）产能仍是主要约束。
+
+## 产业解读
+
+1. **CUDA 护城河被撬动**：当 Meta、OpenAI 这类构建全球最大训练集群的公司押注 AMD 硅片，AMD 长期 5–7% 的 GPU 份额天花板正被打破。
+2. **内存优势差异化**：432 GB HBM4 / 19.6 TB/s 相较 NVIDIA Rubin 的 288 GB 具备容量优势，对大模型推理（KV Cache 受限场景）尤为关键。
+3. **对标节奏咬紧**：MI450 与 NVIDIA Vera Rubin 同在 2026 H2 放量，两强在 HBM4 供应、CoWoS 产能上正面争夺。
+
+## 相关链接
+
+- [AMD Instinct MI455X 规格页](/docs/cards/amd/mi455x)
+- [AMD Instinct MI400 规格页](/docs/cards/amd/mi400)
+- [AMD Instinct MI350 规格页](/docs/cards/amd/mi350)
+
+## 参考资料
+
+- [AMD sets July date to detail its Instinct MI400 AI accelerators - IT Magazine](https://itmagazineme.com/amd-sets-july-date-to-detail-its-instinct-mi400-ai-accelerators)
+- [苏姿丰：AMD 已向核心客户送样 MI450 GPU - AGI.Space](https://www.agispace.net/news/15593)
+- [AMD 与 OpenAI 宣布策略性合作，部署 6GW AMD GPU - AMD 官方新闻稿](https://www.amd.com/zh-tw/newsroom/press-releases/2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html)
+- [AMD's 12-Gigawatt AI Contract Haul - StocksToday](https://stockstoday.com/amds-12-gigawatt-ai-contract-haul-masks-a-16-pullback-as-execution-hurdles-mount/)
+
+---
+
+**本文将在 Advancing AI 2026（7月22-23日）后更新最终规格、定价与基准数据。**

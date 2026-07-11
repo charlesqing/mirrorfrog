@@ -1,78 +1,79 @@
 [
   {
-    "title": "2026年H1 AI芯片行业复盘：Blackwell Ultra、国产三强与推理新时代",
-    "date": "2026-07-01",
-    "slug": "2026-h1-ai-chip-industry-review",
-    "url": "/blog/2026-h1-ai-chip-industry-review",
-    "description": "2026年上半年AI芯片行业重大进展复盘：NVIDIA Blackwell Ultra发布、华为昇腾950PR推理性能超越H20、寒武纪首次年度盈利、Cerebras上市、推理芯片赛道爆发，全面解析产业重心从训练转向推理的深层逻辑。",
+    "title": "AMD Advancing AI 2026前瞻：MI450已送样、Helios机架下半年放量，OpenAI+Meta锁定12GW大单",
+    "date": "2026-07-11",
+    "slug": "amd-advancing-ai-2026-mi450-helios-12gw",
+    "url": "/blog/amd-advancing-ai-2026-mi450-helios-12gw",
+    "description": "AMD将于7月22-23日举办Advancing AI 2026大会，补全Instinct MI400系列细节：MI450配备432GB HBM4、19.6TB/s带宽、40 PFLOPS FP4，Helios机架单柜72卡达3 exaFL",
     "tags": [
-      "industry-review",
-      "nvidia",
-      "huawei",
-      "cambricon",
-      "inference-chip",
-      "blackwell",
-      "2026H1"
+      "新闻",
+      "amd",
+      "mi450",
+      "mi455x",
+      "instinct",
+      "hbm4"
     ]
   },
   {
-    "title": "2026年6月AI芯片重大事件汇总：昇腾910C训练万亿模型、OpenAI自研芯片、RTX Spark发布",
-    "date": "2026-06-28",
-    "slug": "june-2026-ai-chip-major-events",
-    "url": "/blog/june-2026-ai-chip-major-events",
-    "description": "2026年6月AI芯片领域重大事件汇总：华为昇腾910C完成1.6万亿参数DeepSeek V4 Pro训练、OpenAI发布首款自研AI推理芯片Jalapeño、NVIDIA在Computex发布RTX Spark AI PC超级芯片。",
+    "title": "国产GPU上市潮：四小龙资本市场集结，摩尔线程MTT S5000对标H100",
+    "date": "2026-07-11",
+    "slug": "domestic-gpu-ipo-wave-moore-threads-cambricon-2026",
+    "url": "/blog/domestic-gpu-ipo-wave-moore-threads-cambricon-2026",
+    "description": "2026年国产GPU迎来上市潮：摩尔线程已登陆科创板（发行价114.28元），沐曦、燧原、壁仞IPO推进，四小龙集结；摩尔线程MTT S5000单卡FP8算力1 PFLOPS、显存带宽1.6TB/s对标H100，完成GLM-5全流程验证；国",
     "tags": [
-      "月度汇总",
-      "华为",
-      "OpenAI",
-      "nvidia",
-      "ascend-910c",
-      "Jalapeño",
-      "RTX Spark"
-    ]
-  },
-  {
-    "title": "OpenAI 自研 AI 芯片 Jalapeño 深度解析：9 个月流片，推理成本降低 50%",
-    "date": "2026-06-26",
-    "slug": "openai-jalapeno-custom-ai-chip-2026",
-    "url": "/blog/openai-jalapeno-custom-ai-chip-2026",
-    "description": "",
-    "tags": [
-      "OpenAI",
-      "Jalapeño",
-      "自研芯片",
-      "博通",
-      "推理芯片"
-    ]
-  },
-  {
-    "title": "国产 AI 芯片三巨头对比（2026）：昇腾、寒武纪、摩尔线程，谁是中国版 H100？",
-    "date": "2026-06-23",
-    "slug": "chinese-ai-chip-triopoly-comparison-2026",
-    "url": "/blog/chinese-ai-chip-triopoly-comparison-2026",
-    "description": "深度对比 2026 年中国国产 AI 芯片三巨头：华为昇腾 910C/920/950、寒武纪 MLU690、摩尔线程 MTT S5000。分析算力、显存、能效、软件生态、商用进展，帮助您选择最适合的国产 AI 芯片。",
-    "tags": [
+      "产业报告",
       "国产芯片",
-      "华为",
-      "寒武纪",
       "摩尔线程",
+      "寒武纪",
       "MTT-S5000",
-      "MLU690"
+      "科创板",
+      "IPO"
     ]
   },
   {
-    "title": "寒武纪 MLU690 vs NVIDIA H100 深度对比：国产 AI 芯片能否替代 H100？",
-    "date": "2026-06-23",
-    "slug": "mlu690-vs-h100-comparison-2026",
-    "url": "/blog/mlu690-vs-h100-comparison-2026",
-    "description": "",
+    "title": "WAIC 2026前瞻：华为Atlas 950 SuperPoD真机首展，国产算力\"镇馆之宝\"集结",
+    "date": "2026-07-11",
+    "slug": "waic-2026-preview-ascend-atlas-950-superpod",
+    "url": "/blog/waic-2026-preview-ascend-atlas-950-superpod",
+    "description": "2026世界人工智能大会（WAIC）将于7月17-20日在上海举行，华为Atlas 950 SuperPoD将首次真机亮相，SuperCluster集群扩展至50万卡；摩尔线程、沐曦完成腾讯混元T3 Day-0适配，中昊芯英\"须臾\"TPU、",
     "tags": [
-      "寒武纪",
-      "MLU690",
-      "nvidia",
-      "H100",
+      "新闻",
+      "WAIC-2026",
+      "华为",
+      "昇腾",
       "国产芯片",
-      "对比"
+      "摩尔线程",
+      "Atlas-950"
+    ]
+  },
+  {
+    "title": "华为昇腾950系列产能与订单深度：950PR月产能跳升10倍，字节56亿美元锁定35万片",
+    "date": "2026-07-10",
+    "slug": "huawei-ascend-950-capacity-orders-2026",
+    "url": "/blog/huawei-ascend-950-capacity-orders-2026",
+    "description": "华为昇腾950系列进入大规模放量期：950PR已于2026年4月量产，6月月产能跳升至50-60万片（环比近10倍），全年目标120万片；字节跳动以56亿美元锁定35万片，腾讯/阿里/百度合计锁定40万片，Q4携950PR/950DT进入韩",
+    "tags": [
+      "产业报告",
+      "华为",
+      "昇腾",
+      "ascend-950",
+      "国产芯片",
+      "domestic-substitution"
+    ]
+  },
+  {
+    "title": "NVIDIA Vera Rubin正式出货：首台VR200 NVL72交付，三星HBM4量产，Rubin Ultra机柜天价",
+    "date": "2026-07-10",
+    "slug": "nvidia-vera-rubin-mass-production-hbm4-july-2026",
+    "url": "/blog/nvidia-vera-rubin-mass-production-hbm4-july-2026",
+    "description": "2026年7月，NVIDIA下一代Vera Rubin平台正式启动出货：CoreWeave联合Dell交付全球首台VR200 NVL72机柜并通过L11诊断，三星7月8日启动HBM4量产，Rubin Ultra机柜预估售价高达2100万美元",
+    "tags": [
+      "新闻",
+      "nvidia",
+      "rubin",
+      "vera",
+      "hbm4",
+      "AI硬件"
     ]
   }
 ]
