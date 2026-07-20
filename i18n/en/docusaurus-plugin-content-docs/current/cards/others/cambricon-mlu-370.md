@@ -164,7 +164,7 @@ keywords: [Cambricon MLU 370, Siyuan 370, 7nm, 48GB HBM2, 96 TOPS, 35W, China AI
 ## Related Cards
  
 - [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) - Next generation
-- [Cambricon MLU 690](/docs/cards/others/cambricon-mlu-690) - Speculative next-gen
+- [Cambricon MLU 690](/docs/cards/cambricon/mlu-690) - Speculative next-gen
 - [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) - Contemporary Huawei
 - [Huawei Ascend 310] (no standalone page) - Contemporary Huawei edge
 - [Alibaba Hanguang 800](/docs/cards/others/alibaba-hanguang-800) - Contemporary Alibaba

@@ -165,7 +165,7 @@ keywords: [Cambricon MLU 370, 寒武纪 思元 370, 7nm, 48GB HBM2, 96 TOPS, 35W
 ## 相关卡
 
 - [Cambricon 寒武纪 MLU 590](/docs/cards/others/cambricon-mlu) - 下一代
-- [Cambricon 寒武纪 MLU 690](/docs/cards/others/cambricon-mlu-690) - 推测下一代
+- [Cambricon 寒武纪 MLU 690](/docs/cards/cambricon/mlu-690) - 推测下一代
 - [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) - 同期华为
 - [Huawei Ascend 310] (无独立页) - 同期华为边缘
 - [Alibaba 含光 800](/docs/cards/others/alibaba-hanguang-800) - 同期阿里

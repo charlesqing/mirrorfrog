@@ -249,7 +249,7 @@ const sidebars: SidebarsConfig = {
         'cards/others/cambricon-mlu',
         'cards/others/cambricon-mlu-370',
         'cards/others/cambricon-mlu-590',
-        'cards/others/cambricon-mlu-690',
+        'cards/cambricon/mlu-690',
         'cards/others/moore-threads-mtt-s5000',
         'cards/others/biren-br104',
         'cards/others/kunlun-p800',

@@ -106,7 +106,7 @@ keywords: [Cambricon MLU590, Siyuan 590, Cambricon MLU590, 7nm, 256 TFLOPS FP16,
 ## Related Cards#
 
 - [Cambricon MLU370](/docs/cards/others/cambricon-mlu-370) - Previous generation
-- [Cambricon MLU690](/docs/cards/others/cambricon-mlu-690) - Next generation (estimated)#
+- [Cambricon MLU690](/docs/cards/cambricon/mlu-690) - Next generation (estimated)#
 - [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c) - Domestic competitor
 - [NVIDIA H20](/docs/cards/nvidia/h20) - Compliance-version competitor#
 

@@ -108,4 +108,4 @@ keywords: [Huawei Ascend 950, 昇腾 950, 950PR, 950DT, HiF8, 自研 HBM, FP8, F
 - [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c) - 前代量产
 - [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) - 同代竞品
 - [AMD MI355X](/docs/cards/amd/mi355x) - 同代对比
-- [Cambricon MLU690](/docs/cards/others/cambricon-mlu-690) - 国产竞品
+- [Cambricon MLU690](/docs/cards/cambricon/mlu-690) - 国产竞品

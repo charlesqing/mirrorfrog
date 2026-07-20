@@ -109,7 +109,7 @@ keywords: [寒武纪 MLU590, 思元590, Cambricon MLU590, 7nm, 256 TFLOPS FP16, 
 ## 相关卡
 
 - [寒武纪 MLU370](/docs/cards/others/cambricon-mlu-370) - 上一代
-- [寒武纪 MLU690](/docs/cards/others/cambricon-mlu-690) - 下一代（推测）
+- [寒武纪 MLU690](/docs/cards/cambricon/mlu-690) - 下一代（推测）
 - [华为昇腾 910C](/docs/cards/huawei/ascend-910c) - 国产竞品
 - [NVIDIA H20](/docs/cards/nvidia/h20) - 合规版竞品（如项目有此页）
 

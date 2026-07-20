@@ -81,7 +81,7 @@ keywords: [ASIC, Application-Specific IC, AWS Trainium, AWS Inferentia, Qualcomm
 ### Chinese AI Startups
 - [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) - 2021-Q4 7nm 96 INT8 TOPS 35W (EOL 2023)
 - [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) - 7nm 96GB HBM2 256 INT8 TOPS 250W, STAR Market
-- [Cambricon MLU 690](/docs/cards/others/cambricon-mlu-690) - 2025-2026 estimated 5nm 192GB HBM3E 2 PF FP8
+- [Cambricon MLU 690](/docs/cards/cambricon/mlu-690) - 2025-2026 estimated 5nm 192GB HBM3E 2 PF FP8
 - [Biren BR104](/docs/cards/others/biren-br104) - 7nm 1024 INT8 TOPS 64GB HBM2E dual chiplet 300W $700M+ funding
 - [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) - 7nm 48GB GDDR6 50 BF16 TF MUSA architecture
 - [Alibaba Hanguang 800](/docs/cards/others/alibaba-hanguang-800) - 12nm 820 INT8 TOPS 168W 100K+ deployed

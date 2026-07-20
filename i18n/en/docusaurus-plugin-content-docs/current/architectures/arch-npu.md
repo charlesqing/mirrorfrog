@@ -119,7 +119,7 @@ keywords: [NPU, Neural Processing Unit, Huawei Ascend, Intel Gaudi, Hailo, Apple
 ### Chinese AI Startups (Data Center NPU)
 - [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) - 2021-Q4 7nm 96 INT8 TOPS 35W (EOL 2023)
 - [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) - 7nm 96GB HBM2 256 INT8 TOPS 250W STAR Market
-- [Cambricon MLU 690](/docs/cards/others/cambricon-mlu-690) - 2025-2026 estimated 5nm 192GB HBM3E 2 PF FP8
+- [Cambricon MLU 690](/docs/cards/cambricon/mlu-690) - 2025-2026 estimated 5nm 192GB HBM3E 2 PF FP8
 
 ### Edge NPU
 - [Hailo-15](/docs/cards/others/hailo-15) - 2024-Q4 7-20 TOPS AI-ISP Gen3 vision AI
