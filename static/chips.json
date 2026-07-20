@@ -450,31 +450,34 @@
   },
   {
     "id": "mlu-690",
-    "title": "寒武纪 MLU690 (国产 AI 训练芯片)",
+    "title": "寒武纪 思元690（国产 AI 训练/推理芯片）",
     "vendor": "cambricon",
     "slug": "/docs/cards/cambricon/mlu-690",
-    "description": "寒武纪 MLU690 详尽规格：7nm、BF16 600 TFLOPS、显存 64GB HBM3、TDP 280W、国产化 AI 训练芯片。",
+    "description": "寒武纪思元690旗舰AI芯片：5nm级双die chiplet、FP16 700+ TFLOPS、196GB HBM3、MLU-Link 890Gbps，国产纸面算力天花板。",
     "keywords": [
       "寒武纪",
+      "思元690",
       "MLU690",
       "国产 AI 芯片",
-      "AI 训练",
       "HBM3",
-      "7nm"
+      "5nm",
+      "大模型训练",
+      "推理"
     ],
     "specs": {
-      "architecture": "MLUarch 04（第四代）",
-      "process": "TSMC 7nm",
+      "architecture": "MLUarch（新一代 MLU 架构）",
+      "process": "中芯国际 5nm 级（N+2）",
       "memory": {
-        "capacity": "64 GB HBM3",
-        "bandwidth": "2 TB/s（推测）"
+        "capacity": "196 GB HBM3",
+        "bandwidth": "3.35 TB/s"
       },
       "compute": {
-        "fp32": "150 TFLOPS（推测）",
-        "int8": "1,200 TOPS"
+        "fp16": "700+ TFLOPS",
+        "int8": "2,800+ TOPS",
+        "fp32": "未公开（推测 ~175 TFLOPS）"
       },
-      "tdp": "280 W",
-      "release": "2025-Q4"
+      "tdp": "~500 W（推测）",
+      "release": "2025"
     }
   },
   {
@@ -1111,11 +1114,11 @@
       "Computex 2026"
     ],
     "specs": {
-      "release": "未发布（2026 推测）",
+      "release": "已披露（2026-06 Computex 2026），未量产",
       "architecture": "Xe3P",
       "memory": {
-        "capacity": "高达 480 GB LPDDR5x",
-        "bandwidth": "待官方公布（LPDDR5x 配置）"
+        "capacity": "高达 480 GB LPDDR5x（参考设计 160 GB，伙伴可扩展至 480 GB）",
+        "bandwidth": "推测 ~684 GB/s（10.7 Gbps LPDDR5x, 640-bit 总线，20 颗 LPDDR5X）"
       },
       "compute": {
         "fp8": "待官方公布",
@@ -2112,6 +2115,22 @@
     }
   },
   {
+    "id": "rubin-ultra",
+    "title": "NVIDIA Rubin Ultra (V300)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rubin-ultra",
+    "description": "NVIDIA Rubin Ultra (V300) 预览：Rubin 架构旗舰增强版，原版 4 芯片设计、576GB HBM4e、NVL144 机柜。⚠️ 架构修订中，规格待官方最终确认。",
+    "keywords": [],
+    "specs": {
+      "memory": {
+        "type": "HBM4e",
+        "bandwidth": "推测 >44 TB/s（HBM4e）"
+      },
+      "tdp": "推测 3000W+（必须液冷）",
+      "release": "2026 年 3 月 17 日（GTC 2026 公布）"
+    }
+  },
+  {
     "id": "t4",
     "title": "NVIDIA T4",
     "vendor": "nvidia",
@@ -2835,35 +2854,6 @@
       },
       "tdp": "250 W",
       "release": "2024 首次亮相 / 2026-07-01 官方正式发布"
-    }
-  },
-  {
-    "id": "cambricon-mlu-690",
-    "title": "Cambricon 寒武纪 MLU 690 (2025-2026 推测)",
-    "vendor": "others",
-    "slug": "/docs/cards/others/cambricon-mlu-690",
-    "description": "寒武纪 MLU 690 详尽规格（推测）：5nm、2 PF FP8 dense、192GB HBM3E、MLU 590 2× 性能、国产下一代 AI。",
-    "keywords": [
-      "Cambricon MLU 690",
-      "寒武纪",
-      "5nm",
-      "FP8",
-      "HBM3E",
-      "国产下一代",
-      "2025-2026 推测"
-    ],
-    "specs": {
-      "architecture": "Cambricon MLUv07（第七代）",
-      "process": "TSMC 5nm / SMIC 5nm 国产化（推测）",
-      "memory": {
-        "capacity": "192GB HBM3E",
-        "bandwidth": "5 TB/s"
-      },
-      "compute": {
-        "int8": "4 POPS"
-      },
-      "tdp": "500 W",
-      "release": "2025（预计 H2）"
     }
   },
   {

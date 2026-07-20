@@ -512,13 +512,6 @@
       "last_updated": "2026-06-01",
       "source": "寒武纪官方指导价"
     },
-    "cambricon-mlu-690": {
-      "official_msrp": 15000,
-      "market_price": 13000,
-      "currency": "USD",
-      "last_updated": "2026-06-01",
-      "source": "寒武纪官方指导价"
-    },
     "kunlun-m100": {
       "official_msrp": 12000,
       "market_price": 10000,
@@ -1012,6 +1005,14 @@
       "last_updated": "2026-06-01",
       "source": "预测价格",
       "note": "NVIDIA Rubin CPX，2026年发布"
+    },
+    "rubin-ultra": {
+      "official_msrp": 150000,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-07-20",
+      "source": "预测价格（预发布）",
+      "note": "NVIDIA Rubin Ultra (V300)，GTC 2026 公布，原4芯片设计修订中，规格/价格待官方最终确认"
     },
     "ryzen-ai-max": {
       "official_msrp": null,
