@@ -1,31 +1,29 @@
 ---
 slug: amd-advancing-ai-2026-mi450-helios-12gw
-title: 'AMD Advancing AI 2026前瞻：MI450已送样、Helios机架下半年放量，OpenAI+Meta锁定12GW大单'
+title: 'AMD Advancing AI 2026明日开幕：MI400三款CDNA5齐发，Helios机架3 exaFLOPS，OpenAI+Meta锁定12GW大单'
 date: '2026-07-11'
 authors: charlesqing
 tags: [新闻, amd, mi450, mi455x, instinct, hbm4]
-description: 'AMD将于7月22-23日举办Advancing AI 2026大会，补全Instinct MI400系列细节：MI450配备432GB HBM4、19.6TB/s带宽、40 PFLOPS FP4，Helios机架单柜72卡达3 exaFLOPS；OpenAI与Meta各签6GW、合计12GW大单，MI400系列2026年营收预计72亿美元。'
+description: 'AMD将于7月22-23日（明日）举办Advancing AI 2026大会，补全Instinct MI400系列细节：MI455X（432GB HBM4/40 PFLOPS FP4）、MI440X（企业版）、MI430X（FP64/HPC）三款CDNA5齐发，Helios机架单柜72卡达3 exaFLOPS；OpenAI与Meta各签6GW、合计12GW大单。'
 ---
 
 # AMD Advancing AI 2026前瞻：追赶NVIDIA的关键一战
 
 > AMD 已确认旗舰 AI 大会 **Advancing AI 2026** 将于 **2026年7月22-23日** 在旧金山 Moscone Center 举行，主题演讲定于 7 月 23 日，由董事长兼 CEO 苏姿丰（Lisa Su）主持。大会将补全 **Instinct MI400 系列** 的可用性时间线、定价与独立基准数据。
 
-## 1. MI450 / MI455X：规格已公开
+## 1. Instinct MI400 家族：三款 CDNA 5 加速器
 
-AMD 已披露 MI400 级别的关键规格，MI450 被定位为其"迄今最先进的加速器"：
+AMD 在 CES 2026 已完整公布 MI400 产品矩阵，三款加速器均基于 **CDNA 5 架构、TSMC 2nm 制程**，按精度与场景分工：
 
-| 指标 | MI450 / MI455X | 对比 MI350 |
-|------|----------------|------------|
-| **架构** | CDNA 5 | CDNA 4 |
-| **显存** | **432 GB HBM4** | 288 GB HBM3e（+50%） |
-| **显存带宽** | **19.6 TB/s** | 翻倍以上 |
-| **FP4 算力** | **40 PFLOPS** | 约翻倍 |
-| **FP8 算力** | **20 PFLOPS** | 约翻倍 |
-| **对标** | NVIDIA Vera Rubin | — |
-| **量产节奏** | 2026 年年中送样、下半年放量 | — |
+| 型号 | 定位 | 关键规格 |
+|------|------|----------|
+| **MI455X（旗舰）** | 大规模训练/推理（机架级） | 3200 亿晶体管、12 chiplet、**432 GB HBM4**（12×36GB）、**19.6 TB/s**、FP4 40 PFLOPS / FP8 20 PFLOPS |
+| **MI440X（企业版）** | 本地企业 AI（8 卡节点） | 低精度 AI（FP4/FP8/BF16），可直接替换 MI300/MI350，兼容既有机房供电散热 |
+| **MI430X（HPC/主权 AI）** | 高精度科学计算 + AI | 完整 FP32/FP64，已部署橡树岭 Discovery、法国首台 exascale Alice Recoque |
 
-苏姿丰在 2026 Q1 财报会上确认：**已向核心客户送样 MI450 GPU**，客户需求"超过公司对 2027 年的内部预期"。
+> MI455X 与 MI440X 主攻低精度 AI（FP4/FP8/BF16），MI430X 补齐传统 HPC 高精度需求——通过"按精度裁减执行单元"提升能效与性价比。三者均支持 **UALink**（首批兼容该标准的加速器）与 Infinity Fabric 片间互联，机架扩展走 Ultra Ethernet。
+
+苏姿丰在 2026 Q1 财报会上确认：**已向核心客户送样 MI455X GPU**，客户需求"超过公司对 2027 年的内部预期"。
 
 ## 2. Helios 机架：3 exaFLOPS 单柜
 
@@ -38,6 +36,8 @@ AMD 以 **Helios 机架级平台** 切入超大规模市场：
 | **总内存带宽** | **1.4 PB/s** |
 | **单柜算力** | 最高 **3 AI exaFLOPS**（Q3 交付目标） |
 | **目标客户** | 超大规模训练/推理集群 |
+
+> Helios 采用 AMD 自研 Zen 6 **EPYC Venice** CPU（每机架 18 颗）+ **Pensando Vulcano** 800G NIC，通过开放 ROCm 软件栈整合；AMD 还规划了 **双宽 128 卡 Helios 变体**，单柜算力可推高至 **3 AI exaFLOPS** 上限。更长远的 **MI500 系列（CDNA 6、2nm、HBM4E）** 计划 2027 年推出，官方称相对 MI300X 的 AI 性能提升最高达 **1000 倍**。
 
 ## 3. 12GW 大单：OpenAI + Meta 双重背书
 
@@ -79,4 +79,4 @@ AMD 手握两份历史级别的算力协议，合计约 **12 GW**，全生命周
 
 ---
 
-**本文将在 Advancing AI 2026（7月22-23日）后更新最终规格、定价与基准数据。**
+**本文写于 Advancing AI 2026（7月22-23日，明日开幕）前夕；大会主题演讲定于 7 月 23 日由苏姿丰主持，届时将揭晓 MI400 最终上市时间、定价与独立基准数据，我们将同步更新。**

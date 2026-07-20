@@ -1,10 +1,26 @@
 [
   {
-    "title": "AMD Advancing AI 2026前瞻：MI450已送样、Helios机架下半年放量，OpenAI+Meta锁定12GW大单",
+    "title": "WAIC 2026回顾：华为Atlas 950 SuperPoD真机斩获SAIL大奖，国产算力进入\"系统级\"决战",
+    "date": "2026-07-20",
+    "slug": "waic-2026-preview-ascend-atlas-950-superpod",
+    "url": "/blog/waic-2026-preview-ascend-atlas-950-superpod",
+    "description": "2026世界人工智能大会（WAIC 2026，7月17-20日上海）落幕：华为Atlas 950 SuperPoD 1024卡真机首秀并斩获SAIL最高奖，满配8192卡计划Q4上市；384超节点已商用超750套；摩尔线程展示C256超节点",
+    "tags": [
+      "新闻",
+      "WAIC-2026",
+      "华为",
+      "昇腾",
+      "国产芯片",
+      "摩尔线程",
+      "Atlas-950"
+    ]
+  },
+  {
+    "title": "AMD Advancing AI 2026明日开幕：MI400三款CDNA5齐发，Helios机架3 exaFLOPS，OpenAI+Meta锁定12GW大单",
     "date": "2026-07-11",
     "slug": "amd-advancing-ai-2026-mi450-helios-12gw",
     "url": "/blog/amd-advancing-ai-2026-mi450-helios-12gw",
-    "description": "AMD将于7月22-23日举办Advancing AI 2026大会，补全Instinct MI400系列细节：MI450配备432GB HBM4、19.6TB/s带宽、40 PFLOPS FP4，Helios机架单柜72卡达3 exaFL",
+    "description": "AMD将于7月22-23日（明日）举办Advancing AI 2026大会，补全Instinct MI400系列细节：MI455X（432GB HBM4/40 PFLOPS FP4）、MI440X（企业版）、MI430X（FP64/HPC",
     "tags": [
       "新闻",
       "amd",
@@ -28,22 +44,6 @@
       "MTT-S5000",
       "科创板",
       "IPO"
-    ]
-  },
-  {
-    "title": "WAIC 2026前瞻：华为Atlas 950 SuperPoD真机首展，国产算力\"镇馆之宝\"集结",
-    "date": "2026-07-11",
-    "slug": "waic-2026-preview-ascend-atlas-950-superpod",
-    "url": "/blog/waic-2026-preview-ascend-atlas-950-superpod",
-    "description": "2026世界人工智能大会（WAIC）将于7月17-20日在上海举行，华为Atlas 950 SuperPoD将首次真机亮相，SuperCluster集群扩展至50万卡；摩尔线程、沐曦完成腾讯混元T3 Day-0适配，中昊芯英\"须臾\"TPU、",
-    "tags": [
-      "新闻",
-      "WAIC-2026",
-      "华为",
-      "昇腾",
-      "国产芯片",
-      "摩尔线程",
-      "Atlas-950"
     ]
   },
   {

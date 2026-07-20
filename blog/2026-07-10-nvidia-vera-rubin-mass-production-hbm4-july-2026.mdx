@@ -56,6 +56,16 @@ description: '2026年7月，NVIDIA下一代Vera Rubin平台正式启动出货：
 | **仅 HBM4 成本** | **~$38.2 万** | 尚未计入 LPDDR5X |
 | **Rubin Ultra 机柜预估售价** | **~$2,100 万** | IT 之家 / BofA 估算 |
 
+## 4. Rubin Ultra 设计调整：原 4 芯片方案取消（据 SemiAnalysis）
+
+半导体研究机构 **SemiAnalysis（2026-06-30）** 披露，GTC 2026 发布的原版 **4 芯片 Rubin Ultra GPU 已被取消**，2027 年实际出货的版本规模与性能均缩减约一半：
+
+- **取消原因**：原版在单一 CoWoS-L 封装内集成 4 颗计算 die + 16 颗 HBM4E，基板在 4 die 配置下出现翘曲（warpage），导致计算 die 与基板接触失效、良率崩塌；替代方案 CoPoS 量产要等到 2028 年底以后，赶不上 2027 节点。
+- **新方案**：改为 **双 die（与标准 Rubin 同构）+ HBM4E**，单 GPU 约 **384 GB HBM4E**（高于标准 Rubin 的 288 GB），但总算力与带宽仅为原版一半；为逼近原设计的聚合算力，NVIDIA 预计在 **Kyber 机架内以"2+2"板级配置** 拼出四 die 等效规模。
+- **Kyber 机架延迟**：配套 **Kyber NVL144 机架因中板 PCB 制造难题推迟 12 个月以上至 2028 年**，800V 直流供电方案同样推迟至 2028 年。
+
+> ⚠️ **口径提示**：NVIDIA 未就上述设计调整发表官方评论；X 平台亦有声音认为"芯片数量并未改变、属旧闻翻炒"。本段基于 SemiAnalysis 公开报告整理，最终以 NVIDIA 官方披露为准。我们已在 [Rubin Ultra 预览卡](/docs/cards/nvidia/rubin-ultra) 中标注"规格待官方确认"。
+
 ## 产业解读
 
 1. **"Never doubt"时刻兑现**：Rubin 首发交付一次性通过 L11，打消了市场对"Rubin 延期"的疑虑，2026 H2 AI 算力供应确定性提前锁定。
