@@ -7,9 +7,9 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
-import { ZH_CONTENT, type HomeContent, type HotChip } from '../data/home-content.zh';
+import { ZH_CONTENT, type HomeContent } from '../data/home-content.zh';
 import { EN_CONTENT } from '../data/home-content.en';
-import { rankScore, sortChips } from '../utils/chip-utils';
+import { sortChips } from '../utils/chip-utils';
 
 type Chip = {
   id: string;
@@ -39,27 +39,6 @@ type News = {
 
 type Stats = { chips: number; vendors: number; pages: number };
 
-function rankScore(c: HotChip, content: HomeContent): number {
-  const vw = content.vendorWeight[c.vendor] ?? 0.7;
-  const cw = content.categoryWeight[c.category] ?? 0.3;
-  const releaseDate = new Date(c.released).getTime();
-  const ref = new Date('2026-01-01').getTime();
-  const yearsOld = Math.max(0, (ref - releaseDate) / (1000 * 60 * 60 * 24 * 365.25));
-  const recency = Math.max(0.3, Math.pow(0.85, yearsOld));
-  const importance = vw * cw * recency;
-  const compute = Math.min(c.fp16Tflops, 5000) / 2000;
-  return importance * 0.5 + compute * 0.5;
-}
-
-function sortChips(chips: HotChip[], content: HomeContent): HotChip[] {
-  return [...chips].sort((a, b) => {
-    const sa = rankScore(a, content);
-    const sb = rankScore(b, content);
-    if (Math.abs(sa - sb) > 0.001) return sb - sa;
-    return b.released.localeCompare(a.released);
-  });
-}
-
 function Bar({ ratio, color }: { ratio: number; color: string }) {
   const pct = Math.max(0, Math.min(100, Math.round(ratio * 100)));
   return (
@@ -88,7 +67,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   const inputRef = useRef<HTMLInputElement>(null);
   const debounceTimerRef = useRef<number | null>(null);
 
-  // 初始化 Fuse.js
+  // 初始化 Fuse.js（chips 为空时跳过，数据到达后自动重建）
   useEffect(() => {
     if (chips.length === 0) return;
     import('fuse.js').then(({ default: Fuse }) => {
@@ -111,19 +90,17 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   }, [chips]);
 
   // 防抖搜索
-  const debouncedQueryRef = useRef('');
-  
   useEffect(() => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
-    
+
     if (!query.trim()) {
       setResults([]);
       setSelectedIndex(-1);
       return;
     }
-    
+
     debounceTimerRef.current = window.setTimeout(() => {
       if (fuse) {
         const r = fuse.search(query.trim()).slice(0, 8).map((x: any) => x.item);
@@ -131,7 +108,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
         setSelectedIndex(r.length > 0 ? 0 : -1);
       }
     }, 200);
-    
+
     return () => {
       if (debounceTimerRef.current) {
         clearTimeout(debounceTimerRef.current);
@@ -142,7 +119,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   // 键盘导航
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (!open || results.length === 0) return;
-    
+
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
@@ -195,7 +172,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
           onKeyDown={handleKeyDown}
           aria-label={content.searchLabel}
           aria-autocomplete="list"
-          aria-expanded={open && query}
+          aria-expanded={open && !!query}
           aria-activedescendant={selectedIndex >= 0 ? `search-result-${selectedIndex}` : undefined}
         />
         {query && (
@@ -220,8 +197,8 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
             <ul className={styles.searchList} role="listbox" aria-label={content.searchLabel}>
               {results.map((chip, index) => (
                 <li key={`${chip.vendor}-${chip.id}`} role="option" id={`search-result-${index}`} aria-selected={index === selectedIndex}>
-                  <Link 
-                    to={chip.slug} 
+                  <Link
+                    to={chip.slug}
                     className={`${styles.searchItem} ${index === selectedIndex ? styles.searchItemSelected : ''}`}
                     onClick={() => setOpen(false)}
                   >
@@ -250,7 +227,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   );
 }
 
-function HomepageHeader({ chips, content, stats }: { chips: Chip[]; content: HomeContent; stats: Stats }) {
+function HomepageHeader({ chips, content, stats, statsReady }: { chips: Chip[]; content: HomeContent; stats: Stats; statsReady: boolean }) {
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -265,12 +242,12 @@ function HomepageHeader({ chips, content, stats }: { chips: Chip[]; content: Hom
         <SearchBox chips={chips} content={content} />
         <div className={styles.heroStats}>
           <span className={styles.statItem}>
-            <span className={styles.statValue}>{stats.chips}</span>
+            <span className={styles.statValue}>{statsReady ? stats.chips : '—'}</span>
             <span className={styles.statLabel}>{content.statsChipLabel}</span>
           </span>
           <span className={styles.statDivider} />
           <span className={styles.statItem}>
-            <span className={styles.statValue}>{stats.vendors}+</span>
+            <span className={styles.statValue}>{statsReady ? `${stats.vendors}+` : '—'}</span>
             <span className={styles.statLabel}>{content.statsVendorLabel}</span>
           </span>
           <span className={styles.statDivider} />
@@ -346,8 +323,7 @@ function HotChipsSection({ content }: { content: HomeContent }) {
   );
 }
 
-function NewsSection({ news, content }: { news: News[]; content: HomeContent }) {
-  if (news.length === 0) return null;
+function NewsSection({ news, loading, content }: { news: News[]; loading: boolean; content: HomeContent }) {
   return (
     <section className={styles.section}>
       <div className="container">
@@ -358,24 +334,37 @@ function NewsSection({ news, content }: { news: News[]; content: HomeContent }) 
           {content.latestNewsDescPrefix}
           <Link to="/blog" className={styles.sectionDescLink}>{content.latestNewsDescLink}</Link>
         </p>
-        <ul className={styles.newsList}>
-          {news.map((n) => (
-            <li key={n.slug} className={styles.newsItem}>
-              <Link to={n.url} className={styles.newsLink}>
-                <time className={styles.newsDate}>{n.date}</time>
-                <span className={styles.newsTitle}>{n.title}</span>
-                {n.tags.length > 0 && (
-                  <span className={styles.newsTags}>
-                    {n.tags.slice(0, 2).map((t) => (
-                      <span key={t} className={styles.newsTag}>#{t}</span>
-                    ))}
-                  </span>
-                )}
-                <span className={styles.newsArrow}>→</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {loading ? (
+          <ul className={styles.newsList} aria-hidden>
+            {[0, 1, 2].map((i) => (
+              <li key={i} className={styles.newsItem}>
+                <div className={styles.newsSkeleton}>
+                  <span className={styles.skeletonDate} />
+                  <span className={styles.skeletonTitle} style={{ width: `${75 - i * 12}%` }} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : news.length === 0 ? null : (
+          <ul className={styles.newsList}>
+            {news.map((n) => (
+              <li key={n.slug} className={styles.newsItem}>
+                <Link to={n.url} className={styles.newsLink}>
+                  <time className={styles.newsDate}>{n.date}</time>
+                  <span className={styles.newsTitle}>{n.title}</span>
+                  {n.tags.length > 0 && (
+                    <span className={styles.newsTags}>
+                      {n.tags.slice(0, 2).map((t) => (
+                        <span key={t} className={styles.newsTag}>#{t}</span>
+                      ))}
+                    </span>
+                  )}
+                  <span className={styles.newsArrow}>→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );
@@ -413,7 +402,8 @@ export default function Home(): ReactNode {
 
   const [news, setNews] = useState<News[]>([]);
   const [chips, setChips] = useState<Chip[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [chipsReady, setChipsReady] = useState(false);
+  const [newsReady, setNewsReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const stats: Stats = useMemo(() => {
@@ -427,42 +417,50 @@ export default function Home(): ReactNode {
   }, [chips]);
 
   useEffect(() => {
-    Promise.all([
-      fetch('/chips.json').then(r => {
+    let cancelled = false;
+
+    fetch('/chips.json')
+      .then(r => {
         if (!r.ok) throw new Error('Failed to load chips data');
         return r.json();
-      }),
-      fetch('/news.json').then(r => {
+      })
+      .then((data) => {
+        if (cancelled) return;
+        setChips(Array.isArray(data) ? data : []);
+        setChipsReady(true);
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        setError(err.message);
+      });
+
+    fetch('/news.json')
+      .then(r => {
         if (!r.ok) throw new Error('Failed to load news data');
         return r.json();
-      }),
-    ]).then(([chipsData, newsData]) => {
-      setChips(Array.isArray(chipsData) ? chipsData : []);
-      setNews(Array.isArray(newsData) ? newsData : []);
-      setLoading(false);
-    }).catch((err) => {
-      setError(err.message);
-      setLoading(false);
-    });
+      })
+      .then((data) => {
+        if (cancelled) return;
+        setNews(Array.isArray(data) ? data : []);
+        setNewsReady(true);
+      })
+      .catch(() => {
+        // 新闻加载失败不阻塞首页，静默降级为不显示列表
+        if (cancelled) return;
+        setNewsReady(true);
+      });
+
+    return () => { cancelled = true; };
   }, []);
 
-  if (loading) {
-    return (
-      <Layout title={isEn ? 'AI Compute Cards Wiki' : undefined} description={content.metaDescription}>
-        <div className={styles.loadingContainer}>
-          <div className={styles.loadingSpinner} />
-          <p className={styles.loadingText}>{content.loadingText || 'Loading...'}</p>
-        </div>
-      </Layout>
-    );
-  }
+  const pageTitle = isEn ? 'AI Compute Cards Wiki' : undefined;
 
   if (error) {
     return (
-      <Layout title={isEn ? 'AI Compute Cards Wiki' : undefined} description={content.metaDescription}>
+      <Layout title={pageTitle} description={content.metaDescription}>
         <div className={styles.errorContainer}>
           <p className={styles.errorText}>{content.errorText || 'Failed to load data'}: {error}</p>
-          <button className={styles.retryButton} onClick={() => { setLoading(true); setError(null); window.location.reload(); }}>
+          <button className={styles.retryButton} onClick={() => { setError(null); window.location.reload(); }}>
             {content.retryText || 'Retry'}
           </button>
         </div>
@@ -472,13 +470,13 @@ export default function Home(): ReactNode {
 
   return (
     <Layout
-      title={isEn ? 'AI Compute Cards Wiki' : undefined}
+      title={pageTitle}
       description={content.metaDescription}
     >
-      <HomepageHeader chips={chips} content={content} stats={stats} />
+      <HomepageHeader chips={chips} content={content} stats={stats} statsReady={chipsReady} />
       <main>
         <HotChipsSection content={content} />
-        <NewsSection news={news} content={content} />
+        <NewsSection news={news} loading={!newsReady} content={content} />
         <CTASection content={content} />
       </main>
     </Layout>
