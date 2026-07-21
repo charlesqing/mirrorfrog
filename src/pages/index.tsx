@@ -37,6 +37,8 @@ type News = {
   tags: string[];
 };
 
+type SiteMeta = { docFiles: number; blogFiles: number };
+
 type Stats = { chips: number; vendors: number; pages: number };
 
 function Bar({ ratio, color }: { ratio: number; color: string }) {
@@ -65,9 +67,9 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const wrapRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const listboxId = 'search-listbox';
   const debounceTimerRef = useRef<number | null>(null);
 
-  // 初始化 Fuse.js（chips 为空时跳过，数据到达后自动重建）
   useEffect(() => {
     if (chips.length === 0) return;
     import('fuse.js').then(({ default: Fuse }) => {
@@ -89,18 +91,15 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
     });
   }, [chips]);
 
-  // 防抖搜索
   useEffect(() => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
-
     if (!query.trim()) {
       setResults([]);
       setSelectedIndex(-1);
       return;
     }
-
     debounceTimerRef.current = window.setTimeout(() => {
       if (fuse) {
         const r = fuse.search(query.trim()).slice(0, 8).map((x: any) => x.item);
@@ -108,7 +107,6 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
         setSelectedIndex(r.length > 0 ? 0 : -1);
       }
     }, 200);
-
     return () => {
       if (debounceTimerRef.current) {
         clearTimeout(debounceTimerRef.current);
@@ -116,10 +114,8 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
     };
   }, [query, fuse]);
 
-  // 键盘导航
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (!open || results.length === 0) return;
-
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
@@ -132,8 +128,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
       case 'Enter':
         if (selectedIndex >= 0 && selectedIndex < results.length) {
           e.preventDefault();
-          const chip = results[selectedIndex];
-          window.location.href = chip.slug;
+          window.location.href = results[selectedIndex].slug;
         }
         break;
       case 'Escape':
@@ -157,6 +152,8 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
     return () => document.removeEventListener('mousedown', onClick);
   }, []);
 
+  const hasQuery = !!query;
+
   return (
     <div className={styles.searchWrap} ref={wrapRef}>
       <div className={styles.searchBox}>
@@ -170,10 +167,13 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
           onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
           onFocus={() => setOpen(true)}
           onKeyDown={handleKeyDown}
+          role="combobox"
           aria-label={content.searchLabel}
           aria-autocomplete="list"
-          aria-expanded={open && !!query}
+          aria-expanded={open && hasQuery}
+          aria-controls={listboxId}
           aria-activedescendant={selectedIndex >= 0 ? `search-result-${selectedIndex}` : undefined}
+          autoComplete="off"
         />
         {query && (
           <button
@@ -186,8 +186,8 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
           </button>
         )}
       </div>
-      {open && query && (
-        <div className={styles.searchResults}>
+      {open && hasQuery && (
+        <div className={styles.searchResults} id={listboxId}>
           {results.length === 0 ? (
             <div className={styles.searchEmpty}>
               {content.searchEmptyPrefix}{query}{content.searchEmptySuffix}
@@ -229,7 +229,6 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
 
 function HomepageHeader({ chips, content, stats, statsReady }: { chips: Chip[]; content: HomeContent; stats: Stats; statsReady: boolean }) {
   const { siteConfig } = useDocusaurusContext();
-
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
@@ -252,7 +251,7 @@ function HomepageHeader({ chips, content, stats, statsReady }: { chips: Chip[]; 
           </span>
           <span className={styles.statDivider} />
           <span className={styles.statItem}>
-            <span className={styles.statValue}>{stats.pages}</span>
+            <span className={styles.statValue}>{statsReady ? `${stats.pages}+` : '—'}</span>
             <span className={styles.statLabel}>{content.statsPagesLabel}</span>
           </span>
           <span className={styles.statDivider} />
@@ -267,25 +266,16 @@ function HomepageHeader({ chips, content, stats, statsReady }: { chips: Chip[]; 
 
 function HotChipsSection({ content }: { content: HomeContent }) {
   const sortedChips = useMemo(() => sortChips(content.hotChips, content), [content]);
+  const h = content.hotChipsHeader;
   return (
     <section className={styles.section}>
       <div className="container">
-        <Heading as="h2" className={styles.sectionTitle}>
-          {content.hotChipsTitle}
-        </Heading>
-        <p className={styles.sectionDesc}>
-          {content.hotChipsDesc}
-        </p>
+        <Heading as="h2" className={styles.sectionTitle}>{content.hotChipsTitle}</Heading>
+        <p className={styles.sectionDesc}>{content.hotChipsDesc}</p>
         <ul className={styles.chipList}>
           <li className={styles.chipHeader}>
-            <span>{content.hotChipsHeader[0]}</span>
-            <span>{content.hotChipsHeader[1]}</span>
-            <span>{content.hotChipsHeader[2]}</span>
-            <span>{content.hotChipsHeader[3]}</span>
-            <span>{content.hotChipsHeader[4]}</span>
-            <span>{content.hotChipsHeader[5]}</span>
-            <span>{content.hotChipsHeader[6]}</span>
-            <span>{content.hotChipsHeader[7]}</span>
+            <span>{h[0]}</span><span>{h[1]}</span><span>{h[2]}</span><span>{h[3]}</span>
+            <span>{h[4]}</span><span>{h[5]}</span><span>{h[6]}</span><span>{h[7]}</span>
           </li>
           {sortedChips.map((c) => {
             const color = content.categoryColors[c.category] || '#656d76';
@@ -294,20 +284,16 @@ function HotChipsSection({ content }: { content: HomeContent }) {
               <li key={uniqueKey} className={styles.chipRow}>
                 <Link to={c.slug} className={styles.chipLink}>
                   <span className={styles.chipName}>{c.name}</span>
-                  <span className={styles.chipVendor}>{c.vendor}</span>
-                  <span className={styles.chipArch}>{c.arch}</span>
-                  <span className={styles.chipMem}>{c.mem}</span>
+                  <span className={styles.chipVendor} data-label={h[1]}>{c.vendor}</span>
+                  <span className={styles.chipArch} data-label={h[2]}>{c.arch}</span>
+                  <span className={styles.chipMem} data-label={h[3]}>{c.mem}</span>
                   <span className={styles.chipBar}>
                     <Bar ratio={c.bwRatio} color={color} />
                     <code className={styles.chipBw}>{c.bw}</code>
                   </span>
-                  <span className={styles.chipFp16}>{c.fp16}</span>
-                  <span className={styles.chipTdp}>{c.tdp}</span>
-                  <span
-                    className={styles.chipTag}
-                    style={{ backgroundColor: color }}
-                    title={c.category}
-                  >
+                  <span className={styles.chipFp16} data-label={h[5]}>{c.fp16}</span>
+                  <span className={styles.chipTdp} data-label={h[6]}>{c.tdp}</span>
+                  <span className={styles.chipTag} style={{ backgroundColor: color }} title={c.category}>
                     {c.category}
                   </span>
                 </Link>
@@ -327,9 +313,7 @@ function NewsSection({ news, loading, content }: { news: News[]; loading: boolea
   return (
     <section className={styles.section}>
       <div className="container">
-        <Heading as="h2" className={styles.sectionTitle}>
-          {content.latestNewsTitle}
-        </Heading>
+        <Heading as="h2" className={styles.sectionTitle}>{content.latestNewsTitle}</Heading>
         <p className={styles.sectionDesc}>
           {content.latestNewsDescPrefix}
           <Link to="/blog" className={styles.sectionDescLink}>{content.latestNewsDescLink}</Link>
@@ -404,52 +388,44 @@ export default function Home(): ReactNode {
   const [chips, setChips] = useState<Chip[]>([]);
   const [chipsReady, setChipsReady] = useState(false);
   const [newsReady, setNewsReady] = useState(false);
+  const [metaReady, setMetaReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [pageCount, setPageCount] = useState(0);
 
   const stats: Stats = useMemo(() => {
     const vendorSet = new Set<string>();
     chips.forEach(c => vendorSet.add(c.vendor));
-    return {
-      chips: chips.length,
-      vendors: vendorSet.size,
-      pages: 386,
-    };
-  }, [chips]);
+    return { chips: chips.length, vendors: vendorSet.size, pages: pageCount };
+  }, [chips, pageCount]);
 
   useEffect(() => {
     let cancelled = false;
-
-    fetch('/chips.json')
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load chips data');
-        return r.json();
-      })
-      .then((data) => {
-        if (cancelled) return;
-        setChips(Array.isArray(data) ? data : []);
+    Promise.allSettled([
+      fetch('/chips.json').then(r => { if (!r.ok) throw new Error('Failed to load chips data'); return r.json(); }),
+      fetch('/news.json').then(r => { if (!r.ok) throw new Error('Failed to load news data'); return r.json(); }),
+      fetch('/meta.json').then(r => { if (!r.ok) throw new Error('Failed to load meta'); return r.json(); }),
+    ]).then(([chipsResult, newsResult, metaResult]) => {
+      if (cancelled) return;
+      if (chipsResult.status === 'fulfilled') {
+        setChips(Array.isArray(chipsResult.value) ? chipsResult.value : []);
         setChipsReady(true);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        setError(err.message);
-      });
-
-    fetch('/news.json')
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load news data');
-        return r.json();
-      })
-      .then((data) => {
-        if (cancelled) return;
-        setNews(Array.isArray(data) ? data : []);
-        setNewsReady(true);
-      })
-      .catch(() => {
-        // 新闻加载失败不阻塞首页，静默降级为不显示列表
-        if (cancelled) return;
-        setNewsReady(true);
-      });
-
+      } else {
+        setError(String(chipsResult.reason?.message ?? chipsResult.reason));
+        return;
+      }
+      if (newsResult.status === 'fulfilled') {
+        setNews(Array.isArray(newsResult.value) ? newsResult.value : []);
+      }
+      setNewsReady(true);
+      if (metaResult.status === 'fulfilled') {
+        const meta = metaResult.value as SiteMeta;
+        const estimate = (meta.docFiles ?? 0) * 2 + (meta.blogFiles ?? 0) * 2 + 50;
+        setPageCount(estimate);
+      } else {
+        setPageCount(167 * 2 + 26 * 2 + 50);
+      }
+      setMetaReady(true);
+    });
     return () => { cancelled = true; };
   }, []);
 
@@ -469,11 +445,8 @@ export default function Home(): ReactNode {
   }
 
   return (
-    <Layout
-      title={pageTitle}
-      description={content.metaDescription}
-    >
-      <HomepageHeader chips={chips} content={content} stats={stats} statsReady={chipsReady} />
+    <Layout title={pageTitle} description={content.metaDescription}>
+      <HomepageHeader chips={chips} content={content} stats={stats} statsReady={chipsReady && metaReady} />
       <main>
         <HotChipsSection content={content} />
         <NewsSection news={news} loading={!newsReady} content={content} />

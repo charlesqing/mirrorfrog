@@ -195,6 +195,18 @@ function main() {
   const news = parseNews();
   writeFileSync(join(STATIC, 'news.json'), JSON.stringify(news, null, 2) + '\n', 'utf8');
   console.log(`[data] news.json: ${news.length} 条最新动态`);
+
+  // 页面计数（供首页动态统计使用）
+  const allDocs = walk(join(ROOT, 'docs'), ['.md', '.mdx']).length;
+  const allBlog = walk(join(ROOT, 'blog'), ['.md', '.mdx']).filter(f => {
+    const n = basename(f);
+    return !n.startsWith('_') && n !== 'authors.yml' && n !== 'tags.yml';
+  }).length;
+  writeFileSync(join(STATIC, 'meta.json'), JSON.stringify({
+    docFiles: allDocs,
+    blogFiles: allBlog,
+  }, null, 2) + '\n', 'utf8');
+  console.log(`[data] meta.json: ${allDocs} 文档 + ${allBlog} 博客源文件`);
 }
 
 main();

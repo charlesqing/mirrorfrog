@@ -5,7 +5,7 @@
  */
 
 .heroBanner {
-  padding: 1.25rem 0 1rem;
+  padding: 2rem 0 1.5rem;
   text-align: left;
   position: relative;
   background: linear-gradient(180deg, var(--ifm-background-surface-color) 0%, var(--ifm-background-color) 100%);
@@ -23,7 +23,7 @@
 .heroSubtitle {
   font-size: 1.1rem;
   color: var(--ifm-color-emphasis-700);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .heroStats {
@@ -43,7 +43,7 @@
 }
 
 .statValue {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--ifm-color-primary);
   font-family: var(--ifm-font-family-monospace);
@@ -62,11 +62,11 @@
 }
 
 @media (max-width: 768px) {
-  .heroBanner { padding: 1.25rem 0 1rem; }
+  .heroBanner { padding: 1.5rem 0 1.25rem; }
   .heroTitle { font-size: 1.75rem; }
   .heroSubtitle { font-size: 0.95rem; }
   .heroStats { gap: 1rem; }
-  .statValue { font-size: 1rem; }
+  .statValue { font-size: 1.05rem; }
 }
 
 /* ---------- Search ---------- */
@@ -130,8 +130,7 @@
   top: calc(100% + 0.5rem);
   left: 0;
   right: 0;
-  background: #ffffff !important;
-  background-color: #ffffff !important;
+  background: var(--ifm-background-surface-color);
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
@@ -139,12 +138,7 @@
   max-height: 480px;
   overflow-y: auto;
   isolation: isolate;
-  opacity: 1 !important;
-}
-
-[data-theme='dark'] .searchResults {
-  background: #161b22 !important;
-  background-color: #161b22 !important;
+  opacity: 1;
 }
 
 .searchList {
@@ -384,6 +378,20 @@
   .chipVendor, .chipArch, .chipMem { grid-row: 3; font-size: 0.8rem; }
   .chipFp16 { grid-column: 1; grid-row: 4; font-size: 0.8rem; color: var(--ifm-color-emphasis-600); }
   .chipTdp { grid-column: 2; grid-row: 4; font-size: 0.8rem; text-align: right; }
+
+  /* 移动端列标签（从 data-label 属性读取） */
+  .chipVendor::before, .chipArch::before, .chipMem::before,
+  .chipFp16::before, .chipTdp::before {
+    content: attr(data-label) " ";
+    display: inline;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--ifm-color-emphasis-500);
+  }
+  .chipVendor::before { display: block; margin-bottom: 2px; }
+  .chipArch::before { display: block; margin-bottom: 2px; }
+  .chipMem::before { display: block; margin-bottom: 2px; }
 }
 
 /* ---------- News list ---------- */
