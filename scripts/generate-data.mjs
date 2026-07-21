@@ -117,6 +117,26 @@ function parseSpecsTable(markdown) {
   return result;
 }
 
+function parseTdpW(s) {
+  if (!s || s === 'Cancelled' || s === 'N/A' || s === 'TBD') return 0;
+  const cleaned = String(s).replace(/[–—~～]/g, '-');
+  const matches = cleaned.match(/(\d+(?:[.,]\d+)?)/g);
+  if (!matches) return 0;
+  const max = matches.reduce((m, v) => Math.max(m, parseFloat(v.replace(',', ''))), 0);
+  if (/kw/i.test(s)) return Math.round(max * 1000);
+  return Math.round(max);
+}
+
+function parseTflops(s) {
+  if (!s) return null;
+  const cleaned = String(s).replace(/[–—~～]/g, '-');
+  const matches = cleaned.match(/(\d+(?:[.,]\d+)?)/g);
+  if (!matches) return 0;
+  const max = matches.reduce((m, v) => Math.max(m, parseFloat(v.replace(',', ''))), 0);
+  if (/pflops/i.test(s)) return Math.round(max * 1000);
+  return Math.round(max);
+}
+
 function parseChip(filePath) {
   const raw = readFileSync(filePath, 'utf8');
   const { data, content } = matter(raw);
@@ -125,6 +145,9 @@ function parseChip(filePath) {
   const vendor = parts[1];
   const id = data.id || basename(filePath, extname(filePath));
   const specs = parseSpecsTable(content);
+  // 解析为数字字段供前端直接使用（避免重复解析逻辑）
+  const tdpW = parseTdpW(specs.tdp || '');
+  const fp16 = parseTflops(specs.compute?.fp16);
   return {
     id,
     title: data.title || id,
@@ -132,6 +155,8 @@ function parseChip(filePath) {
     slug: `/docs/cards/${vendor}/${id}`,
     description: data.description || '',
     keywords: Array.isArray(data.keywords) ? data.keywords : [],
+    tdpW,           // 数字（TDP，W）
+    fp16Tflops: fp16, // 数字（FP16 算力，TFLOPS，可为 null）
     specs,
   };
 }

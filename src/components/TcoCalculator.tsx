@@ -1,65 +1,96 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import styles from './TcoCalculator.module.css';
 
-interface Chip { id: string; name: string; vendor: string; tdp: number; }
-interface PricingInfo { official_msrp?: number | null; market_price?: number | null; source: string; note?: string; }
-interface PricingData { [vendor: string]: { [chipId: string]: PricingInfo }; }
-interface CompareItem { chip: Chip; quantity: number; tco: number; procurement: number; electricity: number; dc: number; cooling: number; }
+// ===== 常量与工具 =====
+const CNY_TO_USD = 7.2;            // 人民币兑美元汇率（P0-1）
+const DEFAULT_IDLE_RATIO = 0.15;   // 空闲功耗占 TDP 比例（P1-1）
+const DEFAULT_PUE = 1.3;           // 数据中心 PUE（P1-2；风冷 1.3 / 液冷 1.1 / 极致 1.05）
+const DEFAULT_DISCOUNT = 0.08;     // 折现率（P1-3；8%/年）
 
+interface Chip {
+  id: string; name: string; vendor: string; tdp: number;
+  fp16Tflops?: number | null;
+  currency?: 'USD' | 'CNY' | null;
+  originalPrice?: number;       // 原始币种价格
+  originalPriceLabel?: string;  // 原始币种 + 来源标签
+}
+interface PricingInfo {
+  official_msrp?: number | null;
+  market_price?: number | null;
+  currency?: 'USD' | 'CNY';
+  source: string;
+  note?: string;
+}
+interface PricingData { [vendor: string]: { [chipId: string]: PricingInfo } }
+interface CompareItem {
+  chip: Chip; quantity: number;
+  tco: number; procurement: number; electricity: number; dc: number; cooling: number;
+  tcoPerTflops?: number | null;
+}
+
+const COLORS = ['#3578e5', '#e94b4b', '#f5a623', '#7ed321'];
+
+// ===== 工具函数 =====
 function flatPricing(p: PricingData) {
   const o: Record<string, PricingInfo> = {};
   Object.keys(p).forEach(v => Object.keys(p[v]).forEach(c => o[c] = p[v][c]));
   return o;
 }
-function parseTdp(s: string) {
-  if (!s || s === 'Cancelled' || s === 'N/A' || s === 'TBD') return 0;
-  // 替换各种破折号为普通破折号
-  const cleaned = String(s).replace(/[–—~～]/g, '-');
-  // 提取所有数字（含小数点）
-  const matches = cleaned.match(/(\d+(?:[.,]\d+)?)/g);
-  if (!matches) return 0;
-  // 取最大数字
-  const max = matches.reduce((m, v) => Math.max(m, parseFloat(v.replace(',', ''))), 0);
-  // kW 转 W
-  if (/kw/i.test(s)) return Math.round(max * 1000);
-  return Math.round(max);
+function toUSD(amount: number, currency: 'USD' | 'CNY' | undefined): number {
+  if (amount == null) return 0;
+  if (currency === 'CNY') return amount / CNY_TO_USD;
+  return amount;
 }
 function fmt(n: number) {
-  if (n >= 1e6) return '$' + (n/1e6).toFixed(1) + 'M';
-  if (n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
-  return '$' + n.toLocaleString(undefined,{maximumFractionDigits:0});
+  if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+  return '$' + n.toLocaleString(undefined, { maximumFractionDigits: 0 });
 }
-function fmtFull(n: number) { return '$' + n.toLocaleString(undefined,{maximumFractionDigits:0}); }
+function fmtFull(n: number) { return '$' + n.toLocaleString(undefined, { maximumFractionDigits: 0 }); }
+function fmtOriginal(amount: number, currency: 'USD' | 'CNY' | undefined) {
+  if (currency === 'CNY') return '¥' + amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  return fmtFull(amount);
+}
+function clamp(n: number, min: number, max: number) { return Math.max(min, Math.min(max, n)); }
 
-const COLORS = ['#3578e5','#e94b4b','#f5a623','#7ed321'];
+// ===== URL 状态同步（P2-3）=====
+const URL_KEYS = ['chip', 'qty', 'usage', 'price', 'years', 'dc', 'pue', 'idle', 'dr', 'manual', 'cur'] as const;
+type UrlKey = typeof URL_KEYS[number];
+function readUrlParams(): Partial<Record<UrlKey, string>> {
+  if (typeof window === 'undefined') return {};
+  const u = new URLSearchParams(window.location.search);
+  const out: Partial<Record<UrlKey, string>> = {};
+  URL_KEYS.forEach(k => { const v = u.get(k); if (v != null) out[k] = v; });
+  return out;
+}
+function writeUrlParams(state: Record<UrlKey, string | number | null>) {
+  if (typeof window === 'undefined') return;
+  const u = new URLSearchParams(window.location.search);
+  URL_KEYS.forEach(k => {
+    const v = state[k];
+    if (v == null || v === '' || v === false) u.delete(k);
+    else u.set(k, String(v));
+  });
+  const newQs = u.toString();
+  const newUrl = window.location.pathname + (newQs ? '?' + newQs : '') + window.location.hash;
+  window.history.replaceState(null, '', newUrl);
+}
 
-// 厂商分组标签
+// ===== 厂商/芯片中文名映射（保持原状）=====
 const VENDOR_LABEL: Record<string, string> = {
-  nvidia: '🟢 NVIDIA',
-  amd: '🔴 AMD',
-  intel: '🔵 Intel',
-  huawei: '🔴 华为海思',
-  google: '🟡 Google',
-  aws: '🟠 AWS',
-  cerebras: '🟣 Cerebras',
-  meta: '🔵 Meta',
-  microsoft: '🔵 Microsoft',
-  apple: '⚫ Apple',
-  qualcomm: '🔵 Qualcomm',
-  mediatek: '🟢 MediaTek',
-  others: '🟤 其它',
+  nvidia: '🟢 NVIDIA', amd: '🔴 AMD', intel: '🔵 Intel', huawei: '🔴 华为海思',
+  google: '🟡 Google', aws: '🟠 AWS', cerebras: '🟣 Cerebras', meta: '🔵 Meta',
+  microsoft: '🔵 Microsoft', apple: '⚫ Apple', qualcomm: '🔵 Qualcomm',
+  mediatek: '🟢 MediaTek', others: '🟤 其它',
 };
-
-// 统一芯片中文名称映射
 const ZH_NAMES: Record<string, string> = {
   'a100': 'NVIDIA A100', 'h100': 'NVIDIA H100 SXM', 'h100-nvl': 'NVIDIA H100 NVL',
   'h200': 'NVIDIA H200 SXM', 'h20': 'NVIDIA H20', 'h800': 'NVIDIA H800',
   'b100': 'NVIDIA B100', 'b200': 'NVIDIA B200', 'b300-ultra': 'NVIDIA B300 Ultra',
-  'l2': 'NVIDIA L2', 'l4': 'NVIDIA L4', 'l40s': 'NVIDIA L40S',
-  't4': 'NVIDIA T4',
+  'l2': 'NVIDIA L2', 'l4': 'NVIDIA L4', 'l40s': 'NVIDIA L40S', 't4': 'NVIDIA T4',
   'rtx-4090': 'NVIDIA RTX 4090', 'rtx-5080': 'NVIDIA RTX 5080', 'rtx-5090': 'NVIDIA RTX 5090',
   'rtx-5090-d-v2': 'NVIDIA RTX 5090 D v2', 'rtx-6000-ada': 'NVIDIA RTX 6000 Ada',
-  'rtx-pro-6000-blackwell': 'NVIDIA RTX Pro 6000 Blackwell',
-  'rtx-spark': 'NVIDIA RTX Spark',
+  'rtx-pro-6000-blackwell': 'NVIDIA RTX Pro 6000 Blackwell', 'rtx-spark': 'NVIDIA RTX Spark',
   'gb200': 'NVIDIA GB200', 'gb300': 'NVIDIA GB300',
   'rubin': 'NVIDIA Rubin', 'rubin-cpx': 'NVIDIA Rubin CPX', 'rubin-r200': 'NVIDIA Rubin R200',
   'drive-thor': 'NVIDIA DRIVE Thor', 'jetson-orin': 'NVIDIA Jetson Orin', 'jetson-thor': 'NVIDIA Jetson Thor',
@@ -113,7 +144,7 @@ const ZH_NAMES: Record<string, string> = {
   'blaize-xplorer': 'Blaze Xplorer', 'rebellions-rbln': 'Rebellions RBLN',
   'ibm-northpole': 'IBM NorthPole', 'hbm-pim': 'SK海力士 HBM-PIM',
 };
-function zhName(id: string, fallback: string): string { return ZH_NAMES[id] || fallback.replace(/\([^)]*\)/g,'').trim(); }
+function zhName(id: string, fallback: string): string { return ZH_NAMES[id] || fallback.replace(/\([^)]*\)/g, '').trim(); }
 function vendorLabel(v: string): string { return VENDOR_LABEL[v] || v; }
 
 // ===== 数字滚动动画 Hook =====
@@ -139,18 +170,20 @@ function useCountUp(target: number, duration = 500): number {
   }, [target]);
   return val;
 }
-
-// ===== 带动画的金额组件 =====
 function AnimatedMoney({ value }: { value: number }) {
   const v = useCountUp(value);
-  return <span style={{fontVariantNumeric:'tabular-nums',fontFamily:'monospace'}}>{fmtFull(Math.round(v))}</span>;
+  return <span className={styles.tcoValue}>{fmtFull(Math.round(v))}</span>;
 }
 
-// ===== 自定义下拉框（搜索+分组） =====
-function ChipSelect({ chips, value, onChange }: { chips: Chip[]; value: string; onChange: (v: string) => void; }) {
+// ===== 自定义下拉框（搜索+分组 + P4-1 ARIA + 键盘导航）=====
+function ChipSelect({ chips, value, onChange, id }: {
+  chips: Chip[]; value: string; onChange: (v: string) => void; id?: string;
+}) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState('');
+  const [activeIdx, setActiveIdx] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onDoc = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
@@ -174,109 +207,158 @@ function ChipSelect({ chips, value, onChange }: { chips: Chip[]; value: string; 
     return g;
   }, [filtered]);
 
+  // 把分组扁平化为可键盘导航的列表
+  const flatList = useMemo(() => {
+    const list: Chip[] = [];
+    Object.keys(grouped).sort().forEach(v => list.push(...grouped[v]));
+    return list;
+  }, [grouped]);
+
+  useEffect(() => { if (open) setActiveIdx(0); }, [open, q]);
+
+  // 键盘导航（P4-1）
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (!open) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault(); setOpen(true); return;
+      }
+      return;
+    }
+    if (e.key === 'Escape') { e.preventDefault(); setOpen(false); return; }
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveIdx(i => Math.min(flatList.length - 1, i + 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveIdx(i => Math.max(0, i - 1));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      const c = flatList[activeIdx];
+      if (c) { onChange(c.id); setOpen(false); setQ(''); }
+    }
+  };
+
   const current = chips.find(c => c.id === value);
+  const activeId = flatList[activeIdx]?.id;
 
   return (
-    <div ref={ref} style={{position:'relative'}}>
-      <div onClick={() => setOpen(!open)} style={{
-        width:'100%',padding:'8px 10px',border:'1.5px solid #e9ecef',borderRadius:8,fontSize:'0.92rem',
-        cursor:'pointer',background:'#fff',display:'flex',justifyContent:'space-between',alignItems:'center',
-        userSelect:'none',minHeight:38,
-      }}>
-        <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>
+    <div ref={ref} className={styles.selectWrap} onKeyDown={onKeyDown}>
+      <button
+        type="button"
+        id={id}
+        role="combobox"
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-controls="tco-chip-listbox"
+        aria-activedescendant={open && activeId ? `tco-opt-${activeId}` : undefined}
+        aria-label="选择芯片"
+        onClick={() => setOpen(!open)}
+        className={styles.selectTrigger}
+      >
+        <span className={styles.selectTriggerText}>
           {current ? `${zhName(current.id, current.name)} — ${current.tdp}W` : '— 请选择芯片 —'}
         </span>
-        <span style={{color:'#888',fontSize:'0.8rem',transform:open?'rotate(180deg)':'none',transition:'transform 0.2s'}}>▼</span>
-      </div>
+        <span className={`${styles.selectArrow} ${open ? styles.selectArrowOpen : ''}`}>▼</span>
+      </button>
       {open && (
-        <div style={{
-          position:'absolute',top:'calc(100% + 4px)',left:0,right:0,
-          background:'#fff',border:'1.5px solid #e9ecef',borderRadius:10,
-          boxShadow:'0 8px 24px rgba(0,0,0,0.12)',zIndex:1000,maxHeight:380,overflow:'hidden',
-          display:'flex',flexDirection:'column',
-        }}>
-          <div style={{padding:8,borderBottom:'1px solid #e9ecef'}}>
+        <div className={styles.selectDropdown} role="presentation">
+          <div className={styles.selectSearch}>
             <input
-              autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder="🔍 搜索芯片名称或厂商…"
-              style={{width:'100%',padding:'6px 10px',border:'1px solid #e9ecef',borderRadius:6,fontSize:'0.85rem',boxSizing:'border-box'}}
+              autoFocus
+              value={q}
+              onChange={e => setQ(e.target.value)}
+              placeholder="🔍 搜索芯片名称或厂商…"
+              className={styles.selectSearchInput}
+              aria-label="搜索芯片"
             />
           </div>
-          <div style={{overflowY:'auto',flex:1,padding:4}}>
-            {Object.keys(grouped).length === 0 ? (
-              <div style={{padding:20,textAlign:'center',color:'#888',fontSize:'0.85rem'}}>未找到匹配的芯片</div>
+          <div className={styles.selectList} ref={listRef} role="listbox" id="tco-chip-listbox" aria-label="芯片列表">
+            {flatList.length === 0 ? (
+              <div className={styles.selectEmpty}>未找到匹配的芯片</div>
             ) : Object.keys(grouped).sort().map(v => (
               <div key={v}>
-                <div style={{padding:'6px 8px 4px',fontSize:'0.75rem',fontWeight:700,color:'#888',textTransform:'uppercase',letterSpacing:'0.04em',background:'#f7f8fa',borderRadius:4,marginTop:2}}>
+                <div className={styles.selectGroupHeader}>
                   {vendorLabel(v)} ({grouped[v].length})
                 </div>
-                {grouped[v].map(c => (
-                  <div key={c.id} onClick={() => { onChange(c.id); setOpen(false); setQ(''); }}
-                    style={{
-                      padding:'7px 10px',cursor:'pointer',borderRadius:6,fontSize:'0.88rem',
-                      background: c.id === value ? 'rgba(53,120,229,0.1)' : 'transparent',
-                      color: c.id === value ? '#3578e5' : '#333',
-                      fontWeight: c.id === value ? 600 : 400,
-                      display:'flex',justifyContent:'space-between',alignItems:'center',
-                    }}
-                    onMouseEnter={e => (e.currentTarget.style.background = c.id === value ? 'rgba(53,120,229,0.12)' : '#f7f8fa')}
-                    onMouseLeave={e => (e.currentTarget.style.background = c.id === value ? 'rgba(53,120,229,0.1)' : 'transparent')}
-                  >
-                    <span>{zhName(c.id, c.name)}</span>
-                    <span style={{fontSize:'0.75rem',color:'#888',fontFamily:'monospace'}}>{c.tdp}W</span>
-                  </div>
-                ))}
+                {grouped[v].map(c => {
+                  const flatIdx = flatList.findIndex(x => x.id === c.id);
+                  const isActive = flatIdx === activeIdx;
+                  const isSelected = c.id === value;
+                  return (
+                    <button
+                      type="button"
+                      key={c.id}
+                      id={`tco-opt-${c.id}`}
+                      role="option"
+                      aria-selected={isSelected}
+                      onClick={() => { onChange(c.id); setOpen(false); setQ(''); }}
+                      onMouseEnter={() => setActiveIdx(flatIdx)}
+                      className={`${styles.selectItem} ${isSelected || isActive ? styles.selectItemActive : ''}`}
+                    >
+                      <span>{zhName(c.id, c.name)}</span>
+                      <span className={styles.selectItemTdp}>{c.tdp}W</span>
+                    </button>
+                  );
+                })}
               </div>
             ))}
           </div>
-          <div style={{padding:'6px 10px',borderTop:'1px solid #e9ecef',fontSize:'0.72rem',color:'#888',textAlign:'right'}}>
-            共 {filtered.length} 款芯片
-          </div>
+          <div className={styles.selectFooter}>共 {filtered.length} 款芯片 · ↑↓ 导航 · Enter 确认 · Esc 关闭</div>
         </div>
       )}
     </div>
   );
 }
 
-// ===== 饼图（带 hover） =====
-function Pie({ data, hoverIdx, setHover }: { data: {label:string;value:number;color:string}[]; hoverIdx: number | null; setHover: (i: number | null) => void; }) {
-  const total = data.reduce((s,d)=>s+d.value,0);
-  if (!total) return <div style={{textAlign:'center',padding:40,color:'#888'}}>暂无数据</div>;
-  let acc=0;
-  const segs = data.map(d=>{const s=(acc/total)*360;acc+=d.value;const e=(acc/total)*360;return{...d,s,e};});
-  const cx=80,cy=80,r=70;
-  function pol(a:number){const rad=(a-90)*Math.PI/180;return`${cx+r*Math.cos(rad)},${cy+r*Math.sin(rad)}`;}
+// ===== 饼图（P4-2 加 title/aria-label）=====
+function Pie({ data, hoverIdx, setHover, totalLabel = '总计' }: {
+  data: { label: string; value: number; color: string }[];
+  hoverIdx: number | null;
+  setHover: (i: number | null) => void;
+  totalLabel?: string;
+}) {
+  const total = data.reduce((s, d) => s + d.value, 0);
+  if (!total) return <div className={styles.tcoEmpty}><div className={styles.tcoEmptyEmoji}>📊</div><div>暂无数据</div></div>;
+  let acc = 0;
+  const segs = data.map(d => { const s = (acc / total) * 360; acc += d.value; const e = (acc / total) * 360; return { ...d, s, e }; });
+  const cx = 80, cy = 80, r = 70;
+  function pol(a: number) { const rad = (a - 90) * Math.PI / 180; return `${cx + r * Math.cos(rad)},${cy + r * Math.sin(rad)}`; }
   const active = hoverIdx !== null ? segs[hoverIdx] : null;
   const displayTotal = active ? active.value : total;
-  const displayLabel = active ? active.label : '总计';
+  const displayLabel = active ? active.label : totalLabel;
   return (
-    <div style={{display:'flex',alignItems:'center',gap:16}}>
-      <svg viewBox="0 0 160 160" width={140} height={140} style={{flexShrink:0}}>
-        {segs.map((d,i)=>{
-          const large = d.e-d.s>180?1:0;
-          const isHover = hoverIdx===i;
+    <div className={styles.pieWrap}>
+      <svg viewBox="0 0 160 160" width={140} height={140} style={{ flexShrink: 0 }}
+        role="img" aria-label={`成本构成饼图，共 ${segs.length} 项，总计 ${fmtFull(Math.round(total))}`}>
+        <title>成本构成饼图</title>
+        {segs.map((d, i) => {
+          const large = d.e - d.s > 180 ? 1 : 0;
+          const isHover = hoverIdx === i;
           return (
             <path key={i} d={`M${cx},${cy} L${pol(d.s)} A${r},${r} 0 ${large},1 ${pol(d.e)} Z`}
-              fill={d.color} opacity={hoverIdx===null||isHover?1:0.35}
-              onMouseEnter={()=>setHover(i)} onMouseLeave={()=>setHover(null)}
-              style={{cursor:'pointer',transition:'opacity 0.2s',transform:isHover?'scale(1.04)':'scale(1)',transformOrigin:`${cx}px ${cy}px`}}
-            />
+              fill={d.color} opacity={hoverIdx === null || isHover ? 1 : 0.35}
+              onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(i)} onBlur={() => setHover(null)} tabIndex={-1}
+              style={{ cursor: 'pointer', transition: 'opacity 0.2s', transform: isHover ? 'scale(1.04)' : 'scale(1)', transformOrigin: `${cx}px ${cy}px` }}
+            >
+              <title>{d.label}: {fmtFull(Math.round(d.value))} ({((d.value / total) * 100).toFixed(1)}%)</title>
+            </path>
           );
         })}
-        <circle cx={cx} cy={cy} r={52} fill="#fff"/>
-        <text x={cx} y={cy-4} textAnchor="middle" fontSize="9" fontWeight="700" fill="#888">{displayLabel}</text>
-        <text x={cx} y={cy+14} textAnchor="middle" fontSize="14" fontWeight="800" fill="#3578e5">{fmt(displayTotal)}</text>
+        <circle cx={cx} cy={cy} r={52} className={styles.pieCenter} />
+        <text x={cx} y={cy - 4} textAnchor="middle" className={styles.pieCenterLabel}>{displayLabel}</text>
+        <text x={cx} y={cy + 14} textAnchor="middle" className={styles.pieCenterValue}>{fmt(displayTotal)}</text>
       </svg>
-      <div style={{flex:1,minWidth:0}}>
-        {segs.map((d,i)=> (
-          <div key={i}
-            onMouseEnter={()=>setHover(i)} onMouseLeave={()=>setHover(null)}
-            style={{display:'flex',alignItems:'center',gap:6,marginBottom:5,fontSize:'0.8rem',cursor:'pointer',padding:'2px 0',borderRadius:4,
-              background: hoverIdx===i ? 'rgba(53,120,229,0.06)' : 'transparent'}}
+      <div className={styles.pieLegend} role="list" aria-label="成本图例">
+        {segs.map((d, i) => (
+          <div key={i} role="listitem"
+            onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
+            className={`${styles.pieLegendItem} ${hoverIdx === i ? styles.pieLegendHover : ''}`}
           >
-            <span style={{width:10,height:10,borderRadius:3,background:d.color,flexShrink:0}}/>
-            <span style={{flex:1,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{d.label}</span>
-            <span style={{fontFamily:'monospace',fontWeight:600}}>{fmt(d.value)}</span>
-            <span style={{fontSize:'0.75rem',color:'#888',minWidth:36,textAlign:'right'}}>{((d.value/total)*100).toFixed(1)}%</span>
+            <span className={styles.pieLegendDot} style={{ background: d.color }} aria-hidden="true" />
+            <span className={styles.pieLegendName}>{d.label}</span>
+            <span className={styles.pieLegendValue}>{fmt(d.value)}</span>
+            <span className={styles.pieLegendPct}>{((d.value / total) * 100).toFixed(1)}%</span>
           </div>
         ))}
       </div>
@@ -284,52 +366,152 @@ function Pie({ data, hoverIdx, setHover }: { data: {label:string;value:number;co
   );
 }
 
-// ===== 柱状图（带 hover） =====
-function Bars({ data, hoverYear, setHover }: { data: {year:number;procurement:number;electricity:number;dc:number;cooling:number}[]; hoverYear: number | null; setHover: (y: number | null) => void; }) {
-  const max = Math.max(...data.map(d=>d.procurement+d.electricity+d.dc+d.cooling),1);
-  const c = {procurement:'#3578e5',electricity:'#e94b4b',dc:'#f5a623',cooling:'#7ed321'};
-  const hoverEntry = hoverYear!==null ? data.find(d=>d.year===hoverYear) : null;
+// ===== 柱状图（P4-2）=====
+function Bars({ data, hoverYear, setHover, baseProc }: {
+  data: { year: number; procurement: number; electricity: number; dc: number; cooling: number }[];
+  hoverYear: number | null; setHover: (y: number | null) => void;
+  baseProc: number;
+}) {
+  const max = Math.max(...data.map(d => d.procurement + d.electricity + d.dc + d.cooling), 1);
+  const c = { procurement: COLORS[0], electricity: COLORS[1], dc: COLORS[2], cooling: COLORS[3] };
+  const hoverEntry = hoverYear !== null ? data.find(d => d.year === hoverYear) : null;
   return (
     <div>
-      {hoverEntry && (
-        <div style={{textAlign:'center',padding:'4px 0',fontSize:'0.78rem',color:'#3578e5',fontWeight:600}}>
-          第 {hoverEntry.year} 年成本: {fmt(hoverEntry.procurement+hoverEntry.electricity+hoverEntry.dc+hoverEntry.cooling)}
-          {hoverEntry.year===1 && hoverEntry.procurement>0 && <span style={{fontSize:'0.72rem',color:'#888',fontWeight:400}}> （含采购）</span>}
-        </div>
-      )}
-      <div style={{display:'flex',alignItems:'flex-end',justifyContent:'space-around',height:130,gap:6,padding:'4px 0 0'}}>
-        {data.map(d=>{
-          const t=d.procurement+d.electricity+d.dc+d.cooling;
-          const h=(t/max)*100;
-          const p1=(d.procurement/t)*100,p2=(d.electricity/t)*100,p3=(d.dc/t)*100;
-          const grad=`linear-gradient(to top,${c.procurement} ${p1}%,${c.electricity} ${p1}%,${c.electricity} ${p1+p2}%,${c.dc} ${p1+p2}%,${c.dc} ${p1+p2+p3}%,${c.cooling} ${p1+p2+p3}%)`;
-          const isHover = hoverYear===d.year;
+      <div className={styles.barHoverLabel} aria-live="polite">
+        {hoverEntry ? (
+          <>第 {hoverEntry.year} 年: {fmt(hoverEntry.procurement + hoverEntry.electricity + hoverEntry.dc + hoverEntry.cooling)}
+            {hoverEntry.year === 1 && hoverEntry.procurement > 0 && <span className={styles.barHoverNote}>（含采购 {fmt(baseProc)}）</span>}
+          </>
+        ) : '悬停查看各年成本'}
+      </div>
+      <div className={styles.barArea} role="img" aria-label={`TCO 随年限变化柱状图，共 ${data.length} 年`}>
+        {data.map(d => {
+          const t = d.procurement + d.electricity + d.dc + d.cooling;
+          const h = (t / max) * 100;
+          const p1 = (d.procurement / t) * 100, p2 = (d.electricity / t) * 100, p3 = (d.dc / t) * 100;
+          const grad = `linear-gradient(to top,${c.procurement} ${p1}%,${c.electricity} ${p1}%,${c.electricity} ${p1 + p2}%,${c.dc} ${p1 + p2}%,${c.dc} ${p1 + p2 + p3}%,${c.cooling} ${p1 + p2 + p3}%)`;
+          const isHover = hoverYear === d.year;
           return (
-            <div key={d.year} style={{display:'flex',flexDirection:'column',alignItems:'center',flex:1,maxWidth:55}}
-              onMouseEnter={()=>setHover(d.year)} onMouseLeave={()=>setHover(null)}
+            <div key={d.year} className={styles.barCol}
+              onMouseEnter={() => setHover(d.year)} onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(d.year)} onBlur={() => setHover(null)} tabIndex={-1}
             >
-              <div style={{fontSize:'0.62rem',fontWeight:600,color:isHover?'#3578e5':'#888',marginBottom:3}}>{fmt(t)}</div>
-              <div style={{width:'100%',height:90,display:'flex',alignItems:'flex-end',justifyContent:'center',borderBottom:'2px solid #e9ecef'}}>
-                <div style={{width:'70%',height:`${h}%`,minHeight:4,borderRadius:'4px 4px 0 0',background:grad,
-                  opacity: hoverYear===null||isHover ? 1 : 0.4, transition:'opacity 0.2s', cursor:'pointer'}}/>
+              <div className={`${styles.barTopLabel} ${isHover ? styles.barTopLabelHover : ''}`}>{fmt(t)}</div>
+              <div className={styles.barSlot}>
+                <div className={styles.barFill}
+                  style={{ height: `${h}%`, background: grad, opacity: hoverYear === null || isHover ? 1 : 0.4 }}
+                  role="img" aria-label={`第 ${d.year} 年总计 ${fmtFull(Math.round(t))}`}
+                />
               </div>
-              <div style={{fontSize:'0.72rem',fontWeight:isHover?700:600,color:isHover?'#3578e5':'#888',marginTop:4}}>{d.year}年</div>
+              <div className={`${styles.barBottomLabel} ${isHover ? styles.barBottomLabelHover : ''}`}>{d.year}年</div>
             </div>
           );
         })}
       </div>
-      <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:10,flexWrap:'wrap',fontSize:'0.72rem',color:'#888'}}>
-        <span style={{display:'flex',alignItems:'center',gap:3}}><span style={{width:8,height:8,borderRadius:2,background:c.procurement,display:'inline-block'}}/>采购</span>
-        <span style={{display:'flex',alignItems:'center',gap:3}}><span style={{width:8,height:8,borderRadius:2,background:c.electricity,display:'inline-block'}}/>电费</span>
-        <span style={{display:'flex',alignItems:'center',gap:3}}><span style={{width:8,height:8,borderRadius:2,background:c.dc,display:'inline-block'}}/>租金</span>
-        <span style={{display:'flex',alignItems:'center',gap:3}}><span style={{width:8,height:8,borderRadius:2,background:c.cooling,display:'inline-block'}}/>冷却</span>
+      <div className={styles.barLegend}>
+        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.procurement }} />采购</span>
+        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.electricity }} />电费</span>
+        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.dc }} />租金</span>
+        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.cooling }} />冷却</span>
       </div>
     </div>
   );
 }
 
-// ===== 导出 CSV =====
-function exportCSV(chip: Chip, qty: number, years: number, usage: number, price: number, dcCost: number, coolRate: number, costs: {proc:number;elec:number;dc:number;cool:number;tco:number}, compare: CompareItem[]) {
+// ===== 多芯片对比柱状图（P3-1）=====
+function CompareChart({ compare }: { compare: CompareItem[] }) {
+  if (compare.length === 0) return null;
+  const max = Math.max(...compare.map(c => c.tco), 1);
+  const c = { procurement: COLORS[0], electricity: COLORS[1], dc: COLORS[2], cooling: COLORS[3] };
+  return (
+    <div className={styles.compareChart}>
+      <div className={styles.compareChartTitle}>对比柱状图（堆叠：采购/电费/租金/冷却）</div>
+      <div className={styles.barArea} role="img" aria-label={`${compare.length} 款芯片 TCO 对比柱状图`}>
+        {compare.map(item => {
+          const t = item.tco;
+          const h = (t / max) * 100;
+          const p1 = (item.procurement / t) * 100, p2 = (item.electricity / t) * 100, p3 = (item.dc / t) * 100;
+          const grad = `linear-gradient(to top,${c.procurement} ${p1}%,${c.electricity} ${p1}%,${c.electricity} ${p1 + p2}%,${c.dc} ${p1 + p2}%,${c.dc} ${p1 + p2 + p3}%,${c.cooling} ${p1 + p2 + p3}%)`;
+          return (
+            <div key={item.chip.id} className={styles.barCol}>
+              <div className={styles.barTopLabel}>{fmt(t)}</div>
+              <div className={styles.barSlot}>
+                <div className={styles.barFill} style={{ height: `${h}%`, background: grad }}
+                  role="img" aria-label={`${zhName(item.chip.id, item.chip.name)} TCO ${fmtFull(Math.round(t))}`} />
+              </div>
+              <div className={styles.barBottomLabel} style={{ maxWidth: 80, textAlign: 'center', fontSize: '0.66rem', lineHeight: 1.2, marginTop: 4 }}>
+                {zhName(item.chip.id, item.chip.name).split(' ').pop()}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ===== 敏感性分析（P3-2）=====
+function Sensitivity({ base, params }: {
+  base: number;
+  params: {
+    tdpKW: number; qty: number; usage: number; price: number; years: number; dcCost: number; pue: number; idleRatio: number; discount: number; unitPriceUSD: number;
+  };
+}) {
+  // 计算各参数 ±20% 时 TCO 的变化（用基础公式重算）
+  const calc = (overrides: Partial<typeof params>): number => {
+    const p = { ...params, ...overrides };
+    const tdpKW = p.tdpKW, qty = p.qty, usage = p.usage, price = p.price, years = p.years;
+    const dcCost = p.dcCost, pue = p.pue, idleRatio = p.idleRatio, discount = p.discount, unitPrice = p.unitPriceUSD;
+    const proc = unitPrice * qty;
+    const annualDeviceElec = tdpKW * qty * (idleRatio + (1 - idleRatio) * usage) * 8760 * price;
+    const annualFacilityElec = annualDeviceElec * pue;
+    const annualCooling = annualDeviceElec * (pue - 1);
+    const annualDc = dcCost * qty;
+    // 折现
+    const r = discount;
+    const discountFactor = r > 0 ? (1 - Math.pow(1 + r, -years)) / r : years;
+    const opDiscounted = (annualFacilityElec + annualDc + annualCooling) * discountFactor;
+    return proc + opDiscounted;
+  };
+  const items = [
+    { label: '电价 ±20%', delta: 0.2, params: { price: params.price * 1.2 } },
+    { label: '使用率 ±20%', delta: 0.2, params: { usage: clamp(params.usage * 1.2, 0.1, 1) } },
+    { label: '使用年限 ±1年', delta: 1 / Math.max(params.years, 1), params: { years: params.years + 1 }, relative: false },
+    { label: 'PUE 1.2→1.5', delta: 0.3, params: { pue: 1.5 } },
+    { label: '空闲比率 15%→30%', delta: 0.15, params: { idleRatio: 0.3 } },
+  ];
+  return (
+    <div className={styles.sensitivityBox}>
+      <div className={styles.sensitivityTitle}>🔬 敏感性分析（TCO 对各参数的弹性）</div>
+      <div className={styles.sensitivityGrid}>
+        {items.map(item => {
+          const tcoUp = calc(item.params);
+          const delta = tcoUp - base;
+          const pct = base > 0 ? (delta / base) * 100 : 0;
+          const color = Math.abs(pct) > 20 ? 'var(--ifm-color-danger)' :
+                        Math.abs(pct) > 10 ? 'var(--ifm-color-warning)' : 'var(--ifm-color-success)';
+          return (
+            <div key={item.label} className={styles.sensitivityItem}>
+              <div className={styles.sensitivityLabel}>{item.label}</div>
+              <div className={styles.sensitivityValue} style={{ color }}>
+                {delta >= 0 ? '+' : ''}{fmtFull(Math.round(delta))} ({pct >= 0 ? '+' : ''}{pct.toFixed(1)}%)
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ===== 导出 CSV（含汇率与原币种）=====
+function exportCSV(
+  chip: Chip, qty: number, years: number, usage: number, price: number,
+  dcCost: number, idleRatio: number, pue: number, discount: number,
+  unitPriceUSD: number, originalPrice: number | null, originalCurrency: 'USD' | 'CNY' | null,
+  isManualPrice: boolean, costs: { proc: number; elec: number; dc: number; cool: number; tco: number },
+  compare: CompareItem[]
+) {
   const rows: string[][] = [];
   rows.push(['AI 算力卡 TCO 计算报告']);
   rows.push(['生成时间', new Date().toISOString()]);
@@ -338,297 +520,492 @@ function exportCSV(chip: Chip, qty: number, years: number, usage: number, price:
   rows.push(['芯片', zhName(chip.id, chip.name)]);
   rows.push(['TDP (W)', String(chip.tdp)]);
   rows.push(['数量', String(qty)]);
-  rows.push(['使用率', `${(usage*100).toFixed(0)}%`]);
+  rows.push(['使用率', `${(usage * 100).toFixed(0)}%`]);
   rows.push(['电价 ($/kWh)', String(price)]);
   rows.push(['使用年限', String(years)]);
   rows.push(['单卡年租金 ($)', String(dcCost)]);
-  rows.push(['冷却占比', `${(coolRate*100).toFixed(0)}%`]);
+  rows.push(['空闲功耗比率', `${(idleRatio * 100).toFixed(0)}%`]);
+  rows.push(['PUE', String(pue)]);
+  rows.push(['折现率', `${(discount * 100).toFixed(1)}%`]);
+  rows.push(['单卡价格 ($)', String(Math.round(unitPriceUSD))]);
+  if (originalPrice != null && originalCurrency) {
+    rows.push(['原始价格', `${fmtOriginal(originalPrice, originalCurrency)}（${originalCurrency}）`]);
+    rows.push(['汇率', `1 USD = ${CNY_TO_USD} CNY`]);
+  }
+  rows.push(['价格来源', isManualPrice ? '用户手动输入' : 'pricing.json']);
   rows.push([]);
-  rows.push(['【成本明细】']);
+  rows.push(['【成本明细 (TCO 已折现)】']);
   rows.push(['项目', '金额 ($)', '占比']);
   const t = costs.tco || 1;
-  rows.push(['采购成本', String(Math.round(costs.proc)), `${(costs.proc/t*100).toFixed(1)}%`]);
-  rows.push(['电费成本', String(Math.round(costs.elec)), `${(costs.elec/t*100).toFixed(1)}%`]);
-  rows.push(['数据中心租金', String(Math.round(costs.dc)), `${(costs.dc/t*100).toFixed(1)}%`]);
-  rows.push(['冷却成本', String(Math.round(costs.cool)), `${(costs.cool/t*100).toFixed(1)}%`]);
+  rows.push(['采购成本', String(Math.round(costs.proc)), `${(costs.proc / t * 100).toFixed(1)}%`]);
+  rows.push(['运营电费（折现）', String(Math.round(costs.elec)), `${(costs.elec / t * 100).toFixed(1)}%`]);
+  rows.push(['租金（折现）', String(Math.round(costs.dc)), `${(costs.dc / t * 100).toFixed(1)}%`]);
+  rows.push(['冷却（折现）', String(Math.round(costs.cool)), `${(costs.cool / t * 100).toFixed(1)}%`]);
   rows.push(['TCO 总计', String(Math.round(costs.tco)), '100.0%']);
-  rows.push(['年均 TCO', String(Math.round(costs.tco/years)), '']);
-  rows.push(['每卡年均', String(Math.round(costs.tco/qty/years)), '']);
+  rows.push(['年均 TCO', String(Math.round(costs.tco / years)), '']);
+  rows.push(['每卡年均', String(Math.round(costs.tco / qty / years)), '']);
+  if (chip.fp16Tflops) {
+    rows.push(['FP16 算力 (TFLOPS)', String(chip.fp16Tflops), '']);
+    rows.push(['每 TFLOPS TCO ($)', String(Math.round(costs.tco / (chip.fp16Tflops * qty * years))), '']);
+  }
   rows.push([]);
   if (compare.length > 0) {
     rows.push(['【多芯片对比】']);
-    rows.push(['芯片', '数量', 'TCO ($)', '采购 ($)', '电费 ($)', '租金 ($)', '冷却 ($)']);
+    const header = ['芯片', '数量', 'TCO ($)', '采购 ($)', '电费 ($)', '租金 ($)', '冷却 ($)'];
+    if (compare.some(c => c.tcoPerTflops != null)) header.push('每 TFLOPS TCO');
+    rows.push(header);
     compare.forEach(c => {
-      rows.push([zhName(c.chip.id, c.chip.name), String(c.quantity), String(Math.round(c.tco)),
+      const row: string[] = [zhName(c.chip.id, c.chip.name), String(c.quantity), String(Math.round(c.tco)),
         String(Math.round(c.procurement)), String(Math.round(c.electricity)),
-        String(Math.round(c.dc)), String(Math.round(c.cooling))]);
+        String(Math.round(c.dc)), String(Math.round(c.cooling))];
+      if (c.tcoPerTflops != null) row.push(String(Math.round(c.tcoPerTflops)));
+      rows.push(row);
     });
   }
-  const csv = '\uFEFF' + rows.map(r => r.map(c => `"${(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
+  const csv = '\uFEFF' + rows.map(r => r.map(c => `"${(c || '').replace(/"/g, '""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url; a.download = `TCO_${chip.id}_${qty}卡_${years}年_${new Date().toISOString().slice(0,10)}.csv`;
+  a.href = url; a.download = `TCO_${chip.id}_${qty}卡_${years}年_${new Date().toISOString().slice(0, 10)}.csv`;
   a.click(); URL.revokeObjectURL(url);
 }
 
+// ===== 主组件 =====
 export default function TcoCalculator() {
-  const [chips,setChips]=useState<Chip[]>([]);
-  const [pricing,setPricing]=useState<Record<string, PricingInfo>>({});
-  const [chipId,setChipId]=useState('');
-  const [qty,setQty]=useState(8);
-  const [usage,setUsage]=useState(0.9);
-  const [price,setPrice]=useState(0.10);
-  const [years,setYears]=useState(3);
-  const [dcCost,setDcCost]=useState(500);
-  const [coolRate,setCoolRate]=useState(0.15);
-  const [compare,setCompare]=useState<CompareItem[]>([]);
-  const [pieHover,setPieHover]=useState<number | null>(null);
-  const [barHover,setBarHover]=useState<number | null>(null);
-  const [toast,setToast]=useState('');
+  const [chips, setChips] = useState<Chip[]>([]);
+  const [pricing, setPricing] = useState<Record<string, PricingInfo>>({});
+  const [chipId, setChipId] = useState('');
+  const [qty, setQty] = useState(8);
+  const [usage, setUsage] = useState(0.9);
+  const [price, setPrice] = useState(0.10);
+  const [years, setYears] = useState(3);
+  const [dcCost, setDcCost] = useState(500);
+  const [idleRatio, setIdleRatio] = useState(DEFAULT_IDLE_RATIO);
+  const [pue, setPue] = useState(DEFAULT_PUE);
+  const [discount, setDiscount] = useState(DEFAULT_DISCOUNT);
+  const [manualPrice, setManualPrice] = useState<number | null>(null);
+  const [compare, setCompare] = useState<CompareItem[]>([]);
+  const [pieHover, setPieHover] = useState<number | null>(null);
+  const [barHover, setBarHover] = useState<number | null>(null);
+  const [toast, setToast] = useState('');
 
-  useEffect(()=>{
-    fetch('/chips.json').then(r=>r.json()).then((d:any[])=>setChips(d.map(c=>({id:c.id,name:c.title||c.id,vendor:c.vendor||'unknown',tdp:parseTdp(c.specs?.tdp||'0')}))));
-    fetch('/pricing.json').then(r=>r.json()).then((d:PricingData)=>setPricing(flatPricing(d)));
-  },[]);
+  // 初始加载数据 + 读取 URL
+  const urlLoaded = useRef(false);
+  useEffect(() => {
+    Promise.all([
+      fetch('/chips.json').then(r => r.json()),
+      fetch('/pricing.json').then(r => r.json()),
+    ]).then(([chipsData, pricingData]: [any[], PricingData]) => {
+      setChips(chipsData.map((c: any) => ({
+        id: c.id, name: c.title || c.id, vendor: c.vendor || 'unknown',
+        tdp: c.tdpW || 0, fp16Tflops: c.fp16Tflops || null,
+      })));
+      setPricing(flatPricing(pricingData));
+      // 读取 URL 参数（P2-3）
+      const u = readUrlParams();
+      if (u.chip) setChipId(u.chip);
+      if (u.qty) setQty(Number(u.qty));
+      if (u.usage) setUsage(Number(u.usage));
+      if (u.price) setPrice(Number(u.price));
+      if (u.years) setYears(Number(u.years));
+      if (u.dc) setDcCost(Number(u.dc));
+      if (u.pue) setPue(Number(u.pue));
+      if (u.idle) setIdleRatio(Number(u.idle));
+      if (u.dr) setDiscount(Number(u.dr));
+      if (u.manual) setManualPrice(Number(u.manual));
+      if (u.cur) setCurrencyView(Number(u.cur));  // 0=USD, 1=CNY
+      urlLoaded.current = true;
+    });
+  }, []);
 
-  const chip = chips.find(c=>c.id===chipId);
-  const chipPrice = chip ? (pricing[chipId]?.market_price ?? pricing[chipId]?.official_msrp ?? 0) : 0;
-  const tdpKW = chip ? chip.tdp/1000 : 0;
-  const proc = chipPrice*qty;
-  const elec = tdpKW*qty*usage*price*8760*years;
-  const dc = dcCost*qty*years;
-  const cool = elec*coolRate;
-  const tco = proc+elec+dc+cool;
-  const costs = {proc,elec,dc,cool,tco};
+  // 货币选择（CNY 展示原币种价格，但 TCO 统一用 USD）
+  const [currencyView, setCurrencyView] = useState(0);  // 0=USD, 1=CNY
+  // 当 pricing 加载后才设置 URL
+  useEffect(() => {
+    if (!urlLoaded.current) return;
+    writeUrlParams({
+      chip: chipId || null, qty, usage, price, years, dc: dcCost,
+      pue: pue === DEFAULT_PUE ? null : pue,
+      idle: idleRatio === DEFAULT_IDLE_RATIO ? null : idleRatio,
+      dr: discount === DEFAULT_DISCOUNT ? null : discount,
+      manual: manualPrice,
+      cur: currencyView === 0 ? null : currencyView,
+    });
+  }, [chipId, qty, usage, price, years, dcCost, idleRatio, pue, discount, manualPrice, currencyView]);
 
-  const pieData = useMemo(()=>[{label:'采购',value:proc,color:COLORS[0]},{label:'电费',value:elec,color:COLORS[1]},{label:'租金',value:dc,color:COLORS[2]},{label:'冷却',value:cool,color:COLORS[3]}].filter(i=>i.value>0),[proc,elec,dc,cool]);
-  const barData = useMemo(()=>[1,2,3,4,5].map(y=>{
-    const annualElec = tdpKW*qty*usage*price*8760;  // 每年电费（固定）
-    const annualDc = dcCost*qty;  // 每年租金（固定）
-    const annualCool = annualElec*coolRate;  // 每年冷却成本（固定）
-    const firstYearProc = chipPrice*qty;  // 第一年采购成本
-    return {
-      year:y,
-      // 每年显示：采购成本（仅第一年）+ 当年运营成本
-      procurement: y===1 ? firstYearProc : 0,
-      electricity: annualElec,
-      dc: annualDc,
-      cooling: annualCool
-    };
-  }),[tdpKW,qty,usage,price,dcCost,coolRate,chipPrice]);
+  const chip = chips.find(c => c.id === chipId);
+  const chipPriceInfo = chip ? pricing[chipId] : null;
+  const dbPriceUSD = chipPriceInfo ? toUSD(chipPriceInfo.market_price ?? chipPriceInfo.official_msrp ?? 0, chipPriceInfo.currency) : 0;
+  const dbPriceOriginal = chipPriceInfo?.market_price ?? chipPriceInfo?.official_msrp ?? null;
+  const dbPriceCurrency = chipPriceInfo?.currency ?? null;
+  const unitPriceUSD = manualPrice != null ? manualPrice : dbPriceUSD;
 
-  const addCompare = () => {
-    if (!chip || !tco) return;
-    setCompare(prev=>[...prev.filter(p=>p.chip.id!==chip.id),{chip,quantity:qty,tco,procurement:proc,electricity:elec,dc,cooling:cool}].slice(-4));
+  // 计算 TCO
+  const tdpKW = chip ? chip.tdp / 1000 : 0;
+  const proc = unitPriceUSD * qty;
+  // 设备年电费：考虑空闲功耗
+  const annualDeviceElec = tdpKW * qty * (idleRatio + (1 - idleRatio) * usage) * 8760 * price;
+  const annualFacilityElec = annualDeviceElec * pue;
+  const annualCooling = annualDeviceElec * (pue - 1);
+  const annualDc = dcCost * qty;
+  const annualOp = annualFacilityElec + annualDc + annualCooling;
+  // 折现
+  const discountFactor = discount > 0 ? (1 - Math.pow(1 + discount, -years)) / discount : years;
+  const opDiscounted = annualOp * discountFactor;
+  const elec = annualFacilityElec * discountFactor;
+  const cool = annualCooling * discountFactor;
+  const dc = annualDc * discountFactor;
+  const tco = proc + opDiscounted;
+  const costs = { proc, elec, dc, cool, tco };
+
+  // 每 TFLOPS TCO（P3-3）
+  const tcoPerTflops = chip?.fp16Tflops && chip.fp16Tflops > 0 && qty > 0
+    ? tco / (chip.fp16Tflops * qty * years) : null;
+
+  const pieData = useMemo(() => [
+    { label: '采购', value: proc, color: COLORS[0] },
+    { label: '电费', value: elec, color: COLORS[1] },
+    { label: '租金', value: dc, color: COLORS[2] },
+    { label: '冷却', value: cool, color: COLORS[3] },
+  ].filter(i => i.value > 0), [proc, elec, dc, cool]);
+
+  // P1-4 动态化：跟随 years 滑块
+  const barData = useMemo(() => {
+    return Array.from({ length: years }, (_, i) => i + 1).map(y => {
+      // 折现到第 y 年
+      const yrFactor = discount > 0 ? (1 - Math.pow(1 + discount, -(y))) / discount : y;
+      // 单年折现
+      const singleYrFactor = discount > 0 ? Math.pow(1 + discount, -(y - 1)) : 1;
+      // 每年的运营成本（不折现）
+      const yrElec = annualFacilityElec;
+      const yrDc = annualDc;
+      const yrCool = annualCooling;
+      return {
+        year: y,
+        procurement: y === 1 ? proc : 0,
+        electricity: yrElec * singleYrFactor,
+        dc: yrDc * singleYrFactor,
+        cooling: yrCool * singleYrFactor,
+        // 用于显示：第 y 年的实际现金流（含折现）
+        _factor: yrFactor,
+      };
+    });
+  }, [years, proc, annualFacilityElec, annualDc, annualCooling, discount]);
+
+  const addCompare = useCallback(() => {
+    if (!chip || !tco || !proc) {
+      setToast('⚠️ 请先选择芯片并填写价格');
+      setTimeout(() => setToast(''), 2000);
+      return;
+    }
+    setCompare(prev => [...prev.filter(p => p.chip.id !== chip.id), {
+      chip, quantity: qty, tco, procurement: proc, electricity: elec, dc, cooling: cool,
+      tcoPerTflops,
+    }].slice(-4));
     setToast(`✓ 已将 ${zhName(chip.id, chip.name)} 加入对比`);
     setTimeout(() => setToast(''), 2000);
-  };
-  const removeCompare = (id: string) => {
-    setCompare(p => p.filter(x => x.chip.id !== id));
-  };
+  }, [chip, qty, tco, proc, elec, dc, cool, tcoPerTflops]);
+
+  const removeCompare = (id: string) => setCompare(p => p.filter(x => x.chip.id !== id));
   const clearCompare = () => setCompare([]);
 
-  const CARD = {background:'#fff',border:'1px solid #e9ecef',borderRadius:12,padding:20,marginBottom:16};
-  const LABEL = {display:'block',fontSize:'0.82rem',fontWeight:600,color:'#606770',marginBottom:6};
-  const INPUT = {width:'100%',padding:'8px 10px',border:'1.5px solid #e9ecef',borderRadius:8,fontSize:'0.92rem',boxSizing:'border-box' as const};
+  // 货币切换：用户切到 CNY 时显示原币种价格
+  const displayInCNY = currencyView === 1;
 
   return (
-    <div style={{maxWidth:900,margin:'0 auto',fontFamily:'system-ui,-apple-system,sans-serif',position:'relative'}}>
-      {/* Toast 通知 */}
-      {toast && (
-        <div style={{position:'fixed',top:80,right:24,background:'#3578e5',color:'#fff',padding:'10px 18px',borderRadius:8,fontSize:'0.9rem',fontWeight:600,boxShadow:'0 4px 12px rgba(0,0,0,0.15)',zIndex:9999,animation:'tcoSlideIn 0.3s ease'}}>
-          {toast}
-        </div>
-      )}
-      <style>{`@keyframes tcoSlideIn{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}`}</style>
+    <div className={styles.wrapper}>
+      {toast && <div className={styles.toast} role="status" aria-live="polite">{toast}</div>}
 
       {/* Parameters */}
-      <div style={CARD}>
-        <div style={{fontSize:'1.05rem',fontWeight:700,marginBottom:16,display:'flex',alignItems:'center',gap:8}}>⚙️ 参数设置</div>
+      <div className={styles.card}>
+        <div className={styles.cardTitle}>⚙️ 参数设置</div>
 
-        <div style={{marginBottom:14}}>
-          <label style={LABEL}>选择芯片 <span style={{fontSize:'0.72rem',color:'#888',fontWeight:400,marginLeft:8}}>支持搜索 · 按厂商分组</span></label>
-          <ChipSelect chips={chips} value={chipId} onChange={setChipId} />
+        <div style={{ marginBottom: 14 }}>
+          <label className={styles.label} htmlFor="tco-chip-select">
+            选择芯片 <span className={styles.labelHint}>支持搜索 · 按厂商分组 · 键盘 ↑↓ Enter</span>
+          </label>
+          {chips.length === 0 ? (
+            <div className={styles.loadingPlaceholder}>正在加载芯片数据…</div>
+          ) : (
+            <ChipSelect chips={chips} value={chipId} onChange={(v) => { setChipId(v); setManualPrice(null); }} id="tco-chip-select" />
+          )}
           {chip && chip.tdp > 50000 && (
-            <div style={{marginTop:8,padding:'8px 12px',background:'#fff3cd',borderRadius:8,borderLeft:'3px solid #fa9500',fontSize:'0.85rem',display:'flex',gap:8,alignItems:'center'}}>
-              <span style={{fontSize:'1.1rem'}}>⚠️</span>
-              <span style={{color:'#7a4d00'}}>
-                <strong>整机系统</strong>：此芯片 TDP 为 {fmtFull(chip.tdp)}，是整套机柜功耗而非单卡。TCO 计算结果不适用。
-              </span>
+            <div className={styles.warningBox} role="alert">
+              <span>⚠️</span>
+              <span><strong>整机系统</strong>：此芯片 TDP 为 {fmtFull(chip.tdp)}，是整套机柜功耗而非单卡。TCO 计算结果不适用。</span>
             </div>
           )}
           {chip && (
-            <div style={{marginTop:8,padding:'8px 12px',background:'rgba(53,120,229,0.06)',borderRadius:8,borderLeft:'3px solid #3578e5',fontSize:'0.85rem',display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
-              {pricing[chipId] ? (
+            <div className={styles.priceBox}>
+              {dbPriceUSD > 0 ? (
                 <>
-                  <span style={{fontWeight:700,color:'#3578e5'}}>
-                    {pricing[chipId].market_price!=null ? fmtFull(pricing[chipId].market_price!) : pricing[chipId].official_msrp!=null ? fmtFull(pricing[chipId].official_msrp!) : '暂无定价'}
+                  <span className={styles.priceValue}>
+                    {displayInCNY && dbPriceOriginal != null && dbPriceCurrency === 'CNY'
+                      ? fmtOriginal(dbPriceOriginal, 'CNY')
+                      : fmtFull(Math.round(dbPriceUSD))}
                   </span>
-                  {pricing[chipId].market_price!=null && pricing[chipId].official_msrp!=null && (
-                    <span style={{fontSize:'0.75rem',color:'#888',textDecoration:'line-through'}}>指导价 {fmtFull(pricing[chipId].official_msrp!)}</span>
+                  {dbPriceCurrency === 'CNY' && (
+                    <span className={styles.currencyBadge}>CNY → USD ${Math.round(dbPriceUSD).toLocaleString()}</span>
                   )}
-                  <span style={{marginLeft:'auto',fontSize:'0.7rem',color:'#888',background:'#e9ecef',padding:'2px 6px',borderRadius:4}}>{pricing[chipId].source}</span>
+                  {chipPriceInfo?.market_price != null && chipPriceInfo?.official_msrp != null && (
+                    <span className={styles.priceMsrp}>指导价 {fmtFull(Math.round(toUSD(chipPriceInfo.official_msrp, chipPriceInfo.currency)))}</span>
+                  )}
+                  <span className={styles.priceSource}>{chipPriceInfo?.source}</span>
+                  <button type="button" onClick={() => setCurrencyView(currencyView === 0 ? 1 : 0)}
+                    className={styles.pricePreset} style={{ marginLeft: 4 }} title="切换显示币种">
+                    {displayInCNY ? '¥→$' : '$→¥'}
+                  </button>
                 </>
-              ) : <span style={{color:'#888',fontStyle:'italic'}}>暂无定价信息</span>}
+              ) : (
+                <span className={styles.priceNone}>暂无定价信息 — 请手动输入预估价格</span>
+              )}
             </div>
+          )}
+          {/* P0-2 手动输入价格 */}
+          {chip && (
+            <div className={styles.manualPriceRow}>
+              <span className={styles.manualPriceLabel}>手动价格 ($):</span>
+              <input
+                type="number"
+                className={`${styles.input} ${styles.manualPriceInput}`}
+                min={0}
+                step={100}
+                placeholder="输入预估价格"
+                value={manualPrice ?? ''}
+                onChange={e => setManualPrice(e.target.value === '' ? null : Number(e.target.value))}
+                aria-label="手动输入单卡价格（美元）"
+              />
+              {manualPrice != null && (
+                <button type="button" onClick={() => setManualPrice(null)}
+                  className={styles.pricePreset} title="清除手动价格，恢复数据库价格">
+                  ↺ 恢复
+                </button>
+              )}
+            </div>
+          )}
+          {chip && manualPrice != null && (
+            <div className={styles.manualPriceNote}>✓ 已使用您手动输入的价格（${'$'}{manualPrice.toLocaleString()}），结果将标注为「用户估算」</div>
           )}
         </div>
 
-        <div style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:14}}>
-          <div style={{flex:'1 1 45%',minWidth:220}}>
-            <label style={LABEL}>数量（张）</label>
-            <div style={{display:'flex',gap:6,alignItems:'center'}}>
-              <button onClick={()=>setQty(Math.max(1,qty-1))} style={{width:32,height:32,border:'1.5px solid #e9ecef',borderRadius:8,background:'#fff',fontSize:'1.1rem',fontWeight:700,cursor:'pointer'}}>−</button>
-              <input type="number" style={{...INPUT,textAlign:'center',flex:1}} min={1} value={qty} onChange={e=>setQty(Math.max(1,Number(e.target.value)))}/>
-              <button onClick={()=>setQty(qty+1)} style={{width:32,height:32,border:'1.5px solid #e9ecef',borderRadius:8,background:'#fff',fontSize:'1.1rem',fontWeight:700,cursor:'pointer'}}>+</button>
+        <div className={styles.formRow}>
+          <div className={styles.formCol}>
+            <label className={styles.label} htmlFor="tco-qty">数量（张）</label>
+            <div className={styles.qtyRow}>
+              <button type="button" onClick={() => setQty(Math.max(1, qty - 1))} className={styles.qtyBtn} aria-label="减少数量">−</button>
+              <input id="tco-qty" type="number" className={`${styles.input} ${styles.qtyInput}`} min={1} value={qty} onChange={e => setQty(Math.max(1, Number(e.target.value)))} aria-label="芯片数量"/>
+              <button type="button" onClick={() => setQty(qty + 1)} className={styles.qtyBtn} aria-label="增加数量">+</button>
             </div>
-            <div style={{display:'flex',gap:6,marginTop:8,flexWrap:'wrap'}}>
-              {[1,8,64,256].map(v=>(<button key={v} onClick={()=>setQty(v)} style={{padding:'4px 10px',border:`1px solid ${qty===v?'#3578e5':'#e9ecef'}`,borderRadius:6,background:qty===v?'#3578e5':'#fff',color:qty===v?'#fff':'#888',fontSize:'0.75rem',fontWeight:500,cursor:'pointer'}}>{v===1?'单卡':v+'卡'}</button>))}
-            </div>
-          </div>
-          <div style={{flex:'1 1 45%',minWidth:220}}>
-            <label style={LABEL}>数据中心使用率 <span style={{float:'right',color:'#3578e5',fontWeight:700}}>{(usage*100).toFixed(0)}%</span></label>
-            <input type="range" style={{width:'100%',marginTop:4}} min={0.1} max={1} step={0.05} value={usage} onChange={e=>setUsage(Number(e.target.value))}/>
-            <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.7rem',color:'#888',marginTop:2}}><span>10%</span><span>50%</span><span>100%</span></div>
-          </div>
-        </div>
-
-        <div style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:14}}>
-          <div style={{flex:'1 1 45%',minWidth:220}}>
-            <label style={LABEL}>电价（$/kWh）</label>
-            <input type="number" style={INPUT} min={0.01} max={5} step={0.01} value={price} onChange={e=>setPrice(Number(e.target.value))}/>
-            <div style={{display:'flex',gap:6,marginTop:8,flexWrap:'wrap'}}>
-              {[{l:'中国 $0.08',v:0.08},{l:'美国 $0.12',v:0.12},{l:'欧洲 $0.20',v:0.20},{l:'中东 $0.04',v:0.04}].map(p=>(
-                <button key={p.l} onClick={()=>setPrice(p.v)} style={{padding:'4px 10px',border:`1px solid ${Math.abs(price-p.v)<0.001?'#3578e5':'#e9ecef'}`,borderRadius:6,background:Math.abs(price-p.v)<0.001?'#3578e5':'#fff',color:Math.abs(price-p.v)<0.001?'#fff':'#888',fontSize:'0.75rem',fontWeight:500,cursor:'pointer'}}>{p.l}</button>
+            <div className={styles.qtyPresets}>
+              {[1, 8, 64, 256].map(v => (
+                <button key={v} type="button" onClick={() => setQty(v)} className={`${styles.qtyPreset} ${qty === v ? styles.qtyPresetActive : ''}`}>
+                  {v === 1 ? '单卡' : v + '卡'}
+                </button>
               ))}
             </div>
           </div>
-          <div style={{flex:'1 1 45%',minWidth:220}}>
-            <label style={LABEL}>使用年限（年）<span style={{float:'right',color:'#3578e5',fontWeight:700}}>{years} 年</span></label>
-            <input type="range" style={{width:'100%',marginTop:4}} min={1} max={5} step={1} value={years} onChange={e=>setYears(Number(e.target.value))}/>
-            <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.7rem',color:'#888',marginTop:2}}><span>1年</span><span>3年</span><span>5年</span></div>
+          <div className={styles.formCol}>
+            <label className={styles.label} htmlFor="tco-usage">
+              数据中心使用率 <span className={styles.labelValue}>{(usage * 100).toFixed(0)}%</span>
+            </label>
+            <input id="tco-usage" type="range" className={styles.range} min={0.1} max={1} step={0.05} value={usage}
+              onChange={e => setUsage(Number(e.target.value))} aria-valuetext={`${(usage * 100).toFixed(0)} 百分比`}/>
+            <div className={styles.rangeScale}><span>10%</span><span>50%</span><span>100%</span></div>
           </div>
         </div>
 
-        <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
-          <div style={{flex:'1 1 45%',minWidth:220}}>
-            <label style={LABEL}>单卡年租金（$/年）</label>
-            <input type="number" style={INPUT} min={0} max={50000} step={50} value={dcCost} onChange={e=>setDcCost(Number(e.target.value))}/>
-            <small style={{fontSize:'0.75rem',color:'#888'}}>包含机柜、网络、维护等</small>
+        <div className={styles.formRow}>
+          <div className={styles.formCol}>
+            <label className={styles.label} htmlFor="tco-price">电价（$/kWh）</label>
+            <input id="tco-price" type="number" className={styles.input} min={0.01} max={5} step={0.01} value={price} onChange={e => setPrice(Number(e.target.value))}/>
+            <div className={styles.pricePresets}>
+              {[{ l: '中国 $0.08', v: 0.08 }, { l: '美国 $0.12', v: 0.12 }, { l: '欧洲 $0.20', v: 0.20 }, { l: '中东 $0.04', v: 0.04 }].map(p => (
+                <button key={p.l} type="button" onClick={() => setPrice(p.v)}
+                  className={`${styles.pricePreset} ${Math.abs(price - p.v) < 0.001 ? styles.pricePresetActive : ''}`}>
+                  {p.l}
+                </button>
+              ))}
+            </div>
           </div>
-          <div style={{flex:'1 1 45%',minWidth:220}}>
-            <label style={LABEL}>冷却成本占比 <span style={{float:'right',color:'#3578e5',fontWeight:700}}>{(coolRate*100).toFixed(0)}%</span></label>
-            <input type="range" style={{width:'100%',marginTop:4}} min={0.05} max={0.50} step={0.05} value={coolRate} onChange={e=>setCoolRate(Number(e.target.value))}/>
-            <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.7rem',color:'#888',marginTop:2}}><span>5%</span><span>25%</span><span>50%</span></div>
+          <div className={styles.formCol}>
+            <label className={styles.label} htmlFor="tco-years">
+              使用年限（年）<span className={styles.labelValue}>{years} 年</span>
+            </label>
+            <input id="tco-years" type="range" className={styles.range} min={1} max={8} step={1} value={years}
+              onChange={e => setYears(Number(e.target.value))} aria-valuetext={`${years} 年`}/>
+            <div className={styles.rangeScale}><span>1年</span><span>4年</span><span>8年</span></div>
           </div>
         </div>
+
+        {/* P1-1 / P1-2 / P1-3 高级参数（默认折叠） */}
+        <details style={{ marginBottom: 0 }}>
+          <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--ifm-color-emphasis-700)', fontWeight: 600, padding: '4px 0' }}>
+            ⚙️ 高级参数（空闲功耗 / PUE / 折现）
+          </summary>
+          <div className={styles.formRow} style={{ marginTop: 10 }}>
+            <div className={styles.formCol}>
+              <label className={styles.label} htmlFor="tco-idle">
+                空闲功耗比率 <span className={styles.labelValue}>{(idleRatio * 100).toFixed(0)}%</span>
+              </label>
+              <input id="tco-idle" type="range" className={styles.range} min={0.05} max={0.40} step={0.05} value={idleRatio}
+                onChange={e => setIdleRatio(Number(e.target.value))} aria-valuetext={`${(idleRatio * 100).toFixed(0)} 百分比`}/>
+              <div className={styles.small}>GPU 空闲时约占 TDP 的比例</div>
+            </div>
+            <div className={styles.formCol}>
+              <label className={styles.label} htmlFor="tco-pue">
+                PUE <span className={styles.labelValue}>{pue.toFixed(2)}</span>
+              </label>
+              <input id="tco-pue" type="range" className={styles.range} min={1.05} max={1.6} step={0.05} value={pue}
+                onChange={e => setPue(Number(e.target.value))} aria-valuetext={`PUE ${pue.toFixed(2)}`}/>
+              <div className={styles.pricePresets}>
+                {[{ l: '极致 1.05', v: 1.05 }, { l: '液冷 1.10', v: 1.10 }, { l: '风冷 1.30', v: 1.30 }, { l: '普通 1.50', v: 1.50 }].map(p => (
+                  <button key={p.l} type="button" onClick={() => setPue(p.v)}
+                    className={`${styles.pricePreset} ${Math.abs(pue - p.v) < 0.01 ? styles.pricePresetActive : ''}`}>
+                    {p.l}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formCol}>
+              <label className={styles.label} htmlFor="tco-dc">单卡年租金（$/年）</label>
+              <input id="tco-dc" type="number" className={styles.input} min={0} max={50000} step={50} value={dcCost} onChange={e => setDcCost(Number(e.target.value))}/>
+              <div className={styles.small}>含机柜/网络/维护</div>
+            </div>
+            <div className={styles.formCol}>
+              <label className={styles.label} htmlFor="tco-dr">
+                折现率 <span className={styles.labelValue}>{(discount * 100).toFixed(1)}%</span>
+              </label>
+              <input id="tco-dr" type="range" className={styles.range} min={0} max={0.20} step={0.01} value={discount}
+                onChange={e => setDiscount(Number(e.target.value))} aria-valuetext={`${(discount * 100).toFixed(1)} 百分比`}/>
+              <div className={styles.small}>未来现金流折现到当前（年化）</div>
+            </div>
+          </div>
+        </details>
       </div>
 
       {/* Results */}
-      <div style={CARD}>
-        <div style={{fontSize:'1.05rem',fontWeight:700,marginBottom:16,display:'flex',alignItems:'center',gap:8,flexWrap:'wrap'}}>
+      <div className={styles.card}>
+        <div className={styles.cardTitle}>
           📊 TCO 计算结果
-          {chip && <span style={{marginLeft:'auto',fontSize:'0.8rem',fontWeight:400,color:'#888'}}>{zhName(chip.id, chip.name)} × {qty}，{years} 年</span>}
+          {chip && <span className={styles.resultChip}>{zhName(chip.id, chip.name)} × {qty}，{years} 年{discount > 0 ? '（已折现）' : ''}</span>}
         </div>
 
         {!chip ? (
-          <div style={{textAlign:'center',padding:'40px 16px',color:'#888'}}>
-            <div style={{fontSize:'2.5rem',marginBottom:12}}>🖥️</div>
-            <p style={{fontWeight:700,margin:'0 0 4px',color:'#333'}}>请在上方选择一款芯片开始计算</p>
+          <div className={styles.tcoEmpty}>
+            <div className={styles.tcoEmptyEmoji}>🖥️</div>
+            <p className={styles.tcoEmptyTitle}>请在上方选择一款芯片开始计算</p>
             <small>支持 {chips.length} 款 AI 算力卡</small>
           </div>
-        ) : tco===0 ? (
-          <div style={{textAlign:'center',padding:'40px 16px',color:'#888'}}>
-            <div style={{fontSize:'2.5rem',marginBottom:12}}>💰</div>
-            <p style={{fontWeight:700,margin:'0 0 4px',color:'#333'}}>该芯片暂无定价信息</p>
-            <small>您可以手动估算价格进行计算</small>
+        ) : !unitPriceUSD ? (
+          <div className={styles.tcoEmpty}>
+            <div className={styles.tcoEmptyEmoji}>💰</div>
+            <p className={styles.tcoEmptyTitle}>该芯片暂无定价信息</p>
+            <small>请在上方「手动价格」输入框填写预估价格</small>
           </div>
         ) : (
           <>
-            <div style={{textAlign:'center',padding:'20px 16px',background:'linear-gradient(135deg,rgba(53,120,229,0.06) 0%,rgba(53,120,229,0.02) 100%)',borderRadius:10,marginBottom:16,border:'1px solid rgba(53,120,229,0.1)'}}>
-              <div style={{fontSize:'0.78rem',fontWeight:600,color:'#888',textTransform:'uppercase',letterSpacing:'0.04em',marginBottom:4}}>{years} 年 TCO 总计</div>
-              <div style={{fontSize:'2.2rem',fontWeight:800,color:'#3578e5',lineHeight:1.2}}>
-                <AnimatedMoney value={tco} big />
-              </div>
-              <div style={{fontSize:'0.78rem',color:'#888',marginTop:4}}>
-                年均 <AnimatedMoney value={tco/years} /> · 每卡年均 <AnimatedMoney value={tco/qty/years} />
+            <div className={styles.tcoBox}>
+              <div className={styles.resultHeader}>{years} 年 TCO 总计{discount > 0 ? '（折现）' : ''}</div>
+              <div className={styles.tcoValue}><AnimatedMoney value={tco} /></div>
+              <div className={styles.tcoSub}>
+                年均 <AnimatedMoney value={tco / years} /> · 每卡年均 <AnimatedMoney value={tco / qty / years} />
+                {tcoPerTflops != null && <> · <strong>每 TFLOPS TCO ${tcoPerTflops.toFixed(2)}</strong></>}
               </div>
             </div>
 
-            {[{name:'采购成本',value:proc,color:COLORS[0]},{name:'电费成本',value:elec,color:COLORS[1]},{name:'数据中心租金',value:dc,color:COLORS[2]},{name:'冷却成本',value:cool,color:COLORS[3]}].map(item=>{
-              const pct=tco>0?(item.value/tco)*100:0;
+            {[
+              { name: '采购成本', value: proc, color: COLORS[0] },
+              { name: '电费成本（折现）', value: elec, color: COLORS[1] },
+              { name: '数据中心租金（折现）', value: dc, color: COLORS[2] },
+              { name: '冷却成本（折现）', value: cool, color: COLORS[3] },
+            ].map(item => {
+              const pct = tco > 0 ? (item.value / tco) * 100 : 0;
               return (
-                <div key={item.name} style={{display:'flex',alignItems:'center',gap:10,padding:'10px 12px',borderRadius:8,marginBottom:6,background:'#fff',border:'1px solid #e9ecef',position:'relative',overflow:'hidden'}}>
-                  <div style={{position:'absolute',bottom:0,left:0,height:3,width:`${pct}%`,background:item.color,opacity:0.5}}/>
-                  <span style={{width:10,height:10,borderRadius:'50%',background:item.color,flexShrink:0}}/>
-                  <span style={{fontSize:'0.88rem',fontWeight:500,flex:1,color:'#333'}}>{item.name}</span>
-                  <span style={{fontWeight:700,fontSize:'0.9rem',color:'#333'}}><AnimatedMoney value={item.value} /></span>
-                  <span style={{fontSize:'0.78rem',color:'#888',minWidth:42,textAlign:'right'}}>{pct.toFixed(1)}%</span>
+                <div key={item.name} className={styles.costRow}>
+                  <div className={styles.costRowBar} style={{ width: `${pct}%`, background: item.color }} />
+                  <span className={styles.costDot} style={{ background: item.color }} aria-hidden="true" />
+                  <span className={styles.costName}>{item.name}</span>
+                  <span className={styles.costValue}><AnimatedMoney value={item.value} /></span>
+                  <span className={styles.costPct}>{pct.toFixed(1)}%</span>
                 </div>
               );
             })}
 
-            <div style={{display:'flex',gap:16,flexWrap:'wrap',marginTop:16}}>
-              <div style={{flex:'1 1 45%',minWidth:260,background:'#fff',border:'1px solid #e9ecef',borderRadius:10,padding:14}}>
-                <div style={{fontSize:'0.82rem',fontWeight:700,textAlign:'center',marginBottom:12,color:'#888'}}>成本构成 <span style={{fontSize:'0.7rem',fontWeight:400}}>(hover 查看)</span></div>
+            <div className={styles.chartRow}>
+              <div className={styles.chartCard}>
+                <div className={styles.chartTitle}>成本构成 <span className={styles.chartHint}>(hover/聚焦查看)</span></div>
                 <Pie data={pieData} hoverIdx={pieHover} setHover={setPieHover} />
               </div>
-              <div style={{flex:'1 1 45%',minWidth:260,background:'#fff',border:'1px solid #e9ecef',borderRadius:10,padding:14}}>
-                <div style={{fontSize:'0.82rem',fontWeight:700,textAlign:'center',marginBottom:12,color:'#888'}}>TCO 随年限变化 <span style={{fontSize:'0.7rem',fontWeight:400}}>(hover 查看)</span></div>
-                <Bars data={barData} hoverYear={barHover} setHover={setBarHover} />
+              <div className={styles.chartCard}>
+                <div className={styles.chartTitle}>TCO 随年限变化 <span className={styles.chartHint}>(已折现)</span></div>
+                <Bars data={barData} hoverYear={barHover} setHover={setBarHover} baseProc={proc} />
               </div>
             </div>
 
-            <div style={{background:'rgba(53,120,229,0.04)',border:'1px solid rgba(53,120,229,0.1)',borderRadius:10,padding:'12px 16px',marginTop:16}}>
-              <div style={{fontSize:'0.9rem',fontWeight:700,marginBottom:8,color:'#333'}}>💡 关键洞察</div>
-              <div style={{padding:'5px 0',fontSize:'0.84rem',color:'#333',borderBottom:'1px solid #e9ecef'}}>
+            <div className={styles.insightBox}>
+              <div className={styles.insightTitle}>💡 关键洞察</div>
+              <div className={styles.insightRow}>
                 <strong>采购 vs 电费：</strong>
-                {proc>elec ? <span style={{color:'#00a400',fontWeight:600}}>采购成本占主导，关注性能性价比</span> : <span style={{color:'#fa383e',fontWeight:600}}>电费超过采购成本！建议选择能效更高的芯片</span>}
+                {proc > elec ? <span className={styles.insightGood}>采购成本占主导，关注性能性价比</span> : <span className={styles.insightBad}>电费超过采购成本！建议选择能效更高的芯片</span>}
               </div>
-              <div style={{padding:'5px 0',fontSize:'0.84rem',color:'#333',borderBottom:'1px solid #e9ecef'}}>
-                <strong>每瓦 TCO：</strong> {chip.tdp>0 ? <><AnimatedMoney value={tco/qty/chip.tdp} /> / W</> : '—'}
+              <div className={styles.insightRow}>
+                <strong>每瓦 TCO：</strong> {chip.tdp > 0 ? <><AnimatedMoney value={tco / qty / chip.tdp} /> / W</> : '—'}
               </div>
-              <div style={{padding:'5px 0',fontSize:'0.84rem',color:'#333'}}>
-                <strong>电费年增长率：</strong> {tdpKW>0 ? <><AnimatedMoney value={tdpKW*qty*usage*price*8760} /> / 年</> : '—'}
+              <div className={styles.insightRow}>
+                <strong>电费年增长率：</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualFacilityElec} /> / 年（PUE={pue.toFixed(2)} 已计）</> : '—'}
               </div>
+              {tcoPerTflops != null && (
+                <div className={styles.insightRow}>
+                  <strong>每 TFLOPS TCO：</strong> ${tcoPerTflops.toFixed(2)} / TFLOPS（按 FP16 算力 {chip.fp16Tflops} TFLOPS 归一化）
+                </div>
+              )}
             </div>
 
-            <div style={{display:'flex',gap:8,marginTop:12}}>
-              <button onClick={addCompare} disabled={!chip||!tco} style={{flex:2,padding:'10px',border:'2px dashed #e9ecef',borderRadius:10,background:'transparent',color:'#3578e5',fontSize:'0.9rem',fontWeight:700,cursor:'pointer'}}>➕ 加入对比</button>
-              <button onClick={() => chip && exportCSV(chip, qty, years, usage, price, dcCost, coolRate, costs, compare)} disabled={!chip||!tco} style={{flex:1,padding:'10px',border:'1.5px solid #e9ecef',borderRadius:10,background:'#fff',color:'#3578e5',fontSize:'0.85rem',fontWeight:600,cursor:'pointer'}} title="导出当前计算结果为 CSV">📥 导出 CSV</button>
+            <Sensitivity base={tco} params={{
+              tdpKW, qty, usage, price, years, dcCost, pue, idleRatio, discount, unitPriceUSD,
+            }} />
+
+            <div className={styles.actionRow}>
+              <button type="button" onClick={addCompare} className={styles.btnAdd}>➕ 加入对比</button>
+              <button type="button" onClick={() => chip && exportCSV(
+                chip, qty, years, usage, price, dcCost, idleRatio, pue, discount,
+                unitPriceUSD, dbPriceOriginal, dbPriceCurrency, manualPrice != null, costs, compare
+              )} className={styles.btnCsv} title="导出当前计算结果为 CSV（含汇率与原币种）">📥 导出 CSV</button>
             </div>
           </>
         )}
       </div>
 
       {/* Compare */}
-      {compare.length>0 && (
-        <div style={{marginTop:24}}>
-          <div style={{fontSize:'1.05rem',fontWeight:700,marginBottom:12,display:'flex',alignItems:'center',gap:8,flexWrap:'wrap'}}>
+      {compare.length > 0 && (
+        <div className={styles.compareSection}>
+          <div className={styles.compareHeader}>
             📊 多芯片 TCO 对比
-            <span style={{fontSize:'0.75rem',fontWeight:400,color:'#888'}}>(最多 4 款)</span>
-            <button onClick={clearCompare} style={{marginLeft:'auto',padding:'4px 12px',border:'1px solid #e9ecef',borderRadius:6,background:'#fff',color:'#888',fontSize:'0.75rem',cursor:'pointer'}}>清空全部</button>
+            <span className={styles.compareHint}>(最多 4 款{discount > 0 ? '·已折现' : ''})</span>
+            <button type="button" onClick={clearCompare} className={styles.compareClear}>清空全部</button>
           </div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(240px,1fr))',gap:12}}>
-            {compare.map(entry=> (
-              <div key={entry.chip.id} style={{position:'relative',background:'#fff',border:'1px solid #e9ecef',borderRadius:12,padding:16,transition:'transform 0.2s'}}
-                onMouseEnter={e => e.currentTarget.style.transform='translateY(-2px)'}
-                onMouseLeave={e => e.currentTarget.style.transform='translateY(0)'}
-              >
-                <button onClick={()=>removeCompare(entry.chip.id)} title="删除此对比项" style={{position:'absolute',top:8,right:8,width:24,height:24,border:'none',background:'#fce8e6',color:'#fa383e',borderRadius:'50%',fontSize:'1rem',fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',lineHeight:1}}>×</button>
-                <div style={{fontSize:'0.92rem',fontWeight:700,color:'#333',marginBottom:2,paddingRight:24}}>{zhName(entry.chip.id, entry.chip.name)}</div>
-                <div style={{fontSize:'0.78rem',color:'#888',marginBottom:6}}>× {entry.quantity}</div>
-                <div style={{fontSize:'1.4rem',fontWeight:800,color:'#3578e5',marginBottom:6}}>{fmtFull(entry.tco)}</div>
-                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:3}}>
-                  <span style={{fontSize:'0.72rem',color:'#888'}}>采购 {fmt(entry.procurement)}</span>
-                  <span style={{fontSize:'0.72rem',color:'#888'}}>电费 {fmt(entry.electricity)}</span>
-                  <span style={{fontSize:'0.72rem',color:'#888'}}>租金 {fmt(entry.dc)}</span>
-                  <span style={{fontSize:'0.72rem',color:'#888'}}>冷却 {fmt(entry.cooling)}</span>
+          <div className={styles.compareGrid}>
+            {compare.map(entry => (
+              <div key={entry.chip.id} className={styles.compareCard}>
+                <button type="button" onClick={() => removeCompare(entry.chip.id)} title="删除此对比项" className={styles.compareRemove} aria-label="删除对比项">×</button>
+                <div className={styles.compareName}>{zhName(entry.chip.id, entry.chip.name)}</div>
+                <div className={styles.compareQty}>× {entry.quantity}{entry.chip.fp16Tflops ? ` · ${entry.chip.fp16Tflops} TFLOPS` : ''}</div>
+                <div className={styles.compareTco}>{fmtFull(Math.round(entry.tco))}</div>
+                {entry.tcoPerTflops != null && (
+                  <div className={styles.compareTflops}>${entry.tcoPerTflops.toFixed(2)} / TFLOPS</div>
+                )}
+                <div className={styles.compareCosts}>
+                  <span className={styles.compareCostItem}>采购 {fmt(entry.procurement)}</span>
+                  <span className={styles.compareCostItem}>电费 {fmt(entry.electricity)}</span>
+                  <span className={styles.compareCostItem}>租金 {fmt(entry.dc)}</span>
+                  <span className={styles.compareCostItem}>冷却 {fmt(entry.cooling)}</span>
                 </div>
               </div>
             ))}
           </div>
+          <CompareChart compare={compare} />
         </div>
       )}
     </div>
