@@ -9,123 +9,241 @@ sidebar_label: '完整对比表'
 
 # AI 算力卡完整对比表（100+ 款）
 
-> 数据持续更新中。
+> **最后更新：2026-07-22** · 数据持续更新中。发现错误？[提交 Issue](https://github.com/anomalyco/mirrorfrog/issues)。
 
 ## 快速筛选
 
 | 场景 | 推荐型号 |
 |---|---|
-| 万亿参数训练（GPT-4 级） | NVIDIA Rubin R200, B300 Ultra, AMD MI400, Google TPU Ironwood |
-| 百亿-千亿参数训练 | NVIDIA H100, H200, B200, AMD MI300X, MI325X |
-| 中国市场（国产替代） | 华为昇腾 950, 910C, 920, 寒武纪 MLU690 |
-| 高吞吐推理 | NVIDIA L40S, L4, H200 (推理模式), Intel Crescent Island |
-| 边缘 AI | NVIDIA Jetson Orin, Google Edge TPU, Hailo-8L |
+| 万亿参数训练（GPT-4 级） | [Rubin R200](/docs/cards/nvidia/rubin-r200), [B300 Ultra](/docs/cards/nvidia/b300-ultra), [MI400](/docs/cards/amd/mi400), [TPU Ironwood](/docs/cards/google/tpu-ironwood) |
+| 百亿-千亿参数训练 | [H100](/docs/cards/nvidia/h100), [H200](/docs/cards/nvidia/h200), [B200](/docs/cards/nvidia/b200), [MI300X](/docs/cards/amd/mi300x), [MI325X](/docs/cards/amd/mi325x) |
+| 中国市场（国产替代） | [昇腾 950DT](/docs/cards/huawei/ascend-950dt), [昇腾 910C](/docs/cards/huawei/ascend-910c), [昇腾 920](/docs/cards/huawei/ascend-920), [MLU690](/docs/cards/cambricon/mlu-690) |
+| 高吞吐推理 | [L40S](/docs/cards/nvidia/l40s), [L4](/docs/cards/nvidia/l4), [H200](/docs/cards/nvidia/h200)（推理模式）, [Crescent Island](/docs/cards/intel/crescent-island) |
+| 边缘 AI | [Jetson Orin](/docs/cards/nvidia/jetson-orin), [Edge TPU](/docs/cards/google/edge-tpu), [Hailo-8L](/docs/cards/others/hailo) |
 
 ## 数据中心训练 GPU
 
-| 型号 | FP8 算力 | FP16 算力 | 显存 | 显存带宽 | TDP | 发布时间 |
-|---|---|---|---|---|---|---|
-| NVIDIA Rubin R200 | 50 PFLOPS (FP4) | ~10 PFLOPS | 288GB HBM4 | 22 TB/s | ~1,800W | 2026 H2 |
-| NVIDIA B300 Ultra | 14 PFLOPS | ~7 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 Q4 |
-| NVIDIA B200 | 9 PFLOPS | ~4.5 PFLOPS | 192GB HBM3e | 8 TB/s | 1,000W | 2025 Q2 |
-| NVIDIA B100 | 7 PFLOPS | ~3.5 PFLOPS | 192GB HBM3e | 8 TB/s | 700W | 2024 Q4 |
-| NVIDIA H200 | 3,958 TFLOPS | 1,979 TFLOPS | 141GB HBM3e | 4.8 TB/s | 700W | 2024 Q2 |
-| NVIDIA H100 SXM5 | 3,958 TFLOPS | 1,979 TFLOPS | 80GB HBM3 | 3.35 TB/s | 700W | 2022 Q3 |
-| AMD MI400 | 40 PFLOPS (FP4) | ~10 PFLOPS | 432GB HBM4 | 19.6 TB/s | ~1,000W | 2026 H2 |
-| AMD MI355X | 10.1 PFLOPS (MXFP6) | ~5 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 H2 |
-| AMD MI350X | 9.2 PFLOPS (MXFP6) | ~4.6 PFLOPS | 288GB HBM3e | 8 TB/s | 750W | 2025 H2 |
-| AMD MI325X | 2,614 TFLOPS | 1,307 TFLOPS | 256GB HBM3e | 6.48 TB/s | 750W | 2024 Q4 |
-| AMD MI300X | 2,614 TFLOPS | 1,307 TFLOPS | 192GB HBM3 | 5.3 TB/s | 750W | 2023 Q4 |
-| 华为昇腾 950PR | 1 PFLOPS (FP8) | ~500 TFLOPS | 128GB HiBL (自研) | ~3 TB/s | ~400W | 2026 H1 |
-| 华为昇腾 950DT | 1 PFLOPS (FP8) | ~500 TFLOPS | 144GB HiZQ (自研) | 4 TB/s | ~500W | 2026 H1 |
-| 华为昇腾 920 | 900+ TFLOPS (BF16) | ~450 TFLOPS | ~96GB HBM | 4 Tbps | ~400W | 2025 H2 |
-| 华为昇腾 910C | 780 TFLOPS (BF16) | ~390 TFLOPS | 128GB HBM2e (双芯片) | ~1.2 TB/s | ~310W | 2025 H1 |
-| 华为昇腾 910B | 320 TFLOPS (FP16) | 320 TFLOPS | 64GB HBM2e | 1.2 TB/s | 310W | 2023 |
-| 寒武纪 MLU690 | ~600 TFLOPS (BF16) | ~600 TFLOPS | 64GB HBM3 | 2 TB/s | 280W | 2026 Q1 |
-| 摩尔线程 MTT S5000 | ~1,000 TFLOPS (FP16) | ~500 TFLOPS | 80GB GDDR6X | 1.6 TB/s | ~350W | 2025 Q1 |
+> 算力统一标注精度与稀疏/密集。✅ 已量产 · 🔄 即将发布 · 🔮 前瞻/推测
 
-> **国产芯片说明**：华为昇腾、寒武纪 MLU、摩尔线程 MTT 是中国国产 AI 芯片代表，受美国出口管制影响，主要面向中国市场。
+| 型号 | FP8/FP4 算力 | FP16 算力 | 显存 | 显存带宽 | TDP | 发布 | 状态 |
+|---|---|---|---|---|---|---|---|
+| [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) | 35 PFLOPS (FP4 训练) | ~25 PFLOPS | 288GB HBM4 | 22 TB/s | 1,800-2,300W | 2026 H2 | 🔮 |
+| [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) | 14 PFLOPS (稀疏) | ~7 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2026 Q1 | ✅ |
+| [NVIDIA GB300](/docs/cards/nvidia/gb300) | — | — | 288GB HBM3e | 8 TB/s | 1,600W | 2025 H2 | ✅ |
+| [NVIDIA B200](/docs/cards/nvidia/b200) | 9 PFLOPS (稀疏) | 4.5 PFLOPS (稀疏) | 192GB HBM3e | 8 TB/s | 1,000W | 2025 Q2 | ✅ |
+| [NVIDIA GB200](/docs/cards/nvidia/gb200) | — | — | 192GB HBM3e | 8 TB/s | 1,000W | 2024 Q4 | ✅ |
+| [NVIDIA B100](/docs/cards/nvidia/b100) | 7 PFLOPS (稀疏) | 3.5 PFLOPS (稀疏) | 192GB HBM3e | 8 TB/s | 700W | 2024 Q4 | ✅ |
+| [NVIDIA H200](/docs/cards/nvidia/h200) | 3,958 TFLOPS (稀疏) | 1,979 TFLOPS | 141GB HBM3e | 4.8 TB/s | 700W | 2024 Q2 | ✅ |
+| [NVIDIA H100 SXM](/docs/cards/nvidia/h100) | 3,958 TFLOPS (稀疏) | 1,979 TFLOPS | 80GB HBM3 | 3.35 TB/s | 700W | 2022 Q3 | ✅ |
+| [NVIDIA H20](/docs/cards/nvidia/h20) | 296 TFLOPS | 148 TFLOPS | 96GB HBM3 | 4.0 TB/s | 400W | 2024 Q1 | ✅ |
+| [NVIDIA A100](/docs/cards/nvidia/a100) | — | 312 TFLOPS | 80GB HBM2e | 2.0 TB/s | 300-400W | 2020 Q3 | ✅ |
+| [AMD MI400 系列](/docs/cards/amd/mi400) | 40 PFLOPS (FP4) | ~10 PFLOPS | 432GB HBM4 | 19.6 TB/s | 1,200-1,500W | 2026 H2 | 🔮 |
+| [AMD MI455X](/docs/cards/amd/mi455x) | 20 PFLOPS | ~10 PFLOPS | 432GB HBM4 | 19.6 TB/s | 1,200-1,500W | 2026 H2 | 🔮 |
+| [AMD MI350X](/docs/cards/amd/mi350) | 10.1 PFLOPS (MXFP6) | ~5 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 H2 | 🔄 |
+| [AMD MI325X](/docs/cards/amd/mi325x) | 2,614 TFLOPS | 1,307 TFLOPS | 256GB HBM3e | 6.48 TB/s | 750W | 2024 Q4 | ✅ |
+| [AMD MI300X](/docs/cards/amd/mi300x) | 2,614 TFLOPS | 1,307 TFLOPS | 192GB HBM3 | 5.3 TB/s | 750W | 2023 Q4 | ✅ |
+| [华为昇腾 950PR](/docs/cards/huawei/ascend-950pr) | 1 PFLOPS (FP8) | ~780 TFLOPS | 128GB HiBL | ~3 TB/s | 600W | 2026 H1 | 🔄 |
+| [华为昇腾 950DT](/docs/cards/huawei/ascend-950dt) | 1 PFLOPS (FP8) | ~500 TFLOPS | 144GB HiZQ | 4 TB/s | 500W | 2026 H1 | 🔄 |
+| [华为昇腾 920](/docs/cards/huawei/ascend-920) | — | 1,800 TFLOPS | ~96GB HBM3 | ~4 TB/s | 400W | 2025 H2 | ✅ |
+| [华为昇腾 910C](/docs/cards/huawei/ascend-910c) | 780 TFLOPS (BF16) | ~390 TFLOPS | 128GB HBM2e (双芯片) | ~1.2 TB/s | 310W | 2025 H1 | ✅ |
+| [华为昇腾 910B](/docs/cards/huawei/ascend-910b) | — | 256 TFLOPS | 64GB HBM2e | 1.2 TB/s | 310W | 2023 | ✅ |
+| [寒武纪 MLU690](/docs/cards/cambricon/mlu-690) | — | 700+ TFLOPS | 196GB HBM3 | 3.35 TB/s | ~500W | 2025 | ✅ |
+| [摩尔线程 MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | — | ~63 TFLOPS (FP32) | 80GB GDDR6X | 1.6 TB/s | 300W | 2025 Q1 | ✅ |
+| [沐曦 C600](/docs/cards/others/metax-c600) | 1,000 TFLOPS | — | — | 3.6 TB/s | 400W | 2025 Q4 | 🔄 |
+| [昆仑芯 P800](/docs/cards/others/kunlun-p800) | — | 345 TFLOPS | 96GB HBM3 | — | 400W | 2024 Q1 | ✅ |
+| [天数智芯 BI-V150](/docs/cards/iluvatar/bi-v150) | — | ~192 TFLOPS | 64GB HBM2e | — | 350W | 2023 | ✅ |
 
-## 国产 AI 训练芯片（中国市场）
+> **国产芯片说明**：华为昇腾、寒武纪 MLU、摩尔线程 MTT、沐曦、昆仑芯、天数智芯是中国国产 AI 芯片代表，受美国出口管制影响，主要面向中国市场。MTT S5000 定价以 CNY 结算（¥55,000）。
+
 ## 数据中心推理 GPU
 
-| 型号 | FP8 算力 | INT8 算力 | 显存 | TDP | 适用场景 |
-|---|---|---|---|---|---|
-| NVIDIA L40S | 733 TFLOPS | 1,466 TOPS | 48GB GDDR6 | 350W | 数据中心推理 |
-| NVIDIA L4 | 242 TFLOPS | 485 TOPS | 24GB GDDR6 | 72W | 边缘推理 |
-| NVIDIA L2 | ~203 TFLOPS | ~406 TOPS | 16GB GDDR6 | 75W | 低功耗推理 |
-| NVIDIA RTX 6000 Ada | 1,452 TFLOPS | 2,905 TOPS | 48GB GDDR6 | 300W | 工作站推理 |
-| NVIDIA T4 | 65 TFLOPS | 130 TOPS | 16GB GDDR6 | 70W | 入门推理 |
+| 型号 | FP8 算力 | INT8 算力 | 显存 | TDP | 适用场景 | 状态 |
+|---|---|---|---|---|---|---|
+| [NVIDIA L40S](/docs/cards/nvidia/l40s) | 733 TFLOPS (稀疏) | 1,466 TOPS | 48GB GDDR6 | 350W | 数据中心推理 | ✅ |
+| [NVIDIA RTX 6000 Ada](/docs/cards/nvidia/rtx-6000-ada) | 1,458 TFLOPS (稀疏) | 2,905 TOPS | 48GB GDDR6 | 300W | 工作站推理 | ✅ |
+| [NVIDIA RTX Pro 6000 Blackwell](/docs/cards/nvidia/rtx-pro-6000-blackwell) | — | — | 96GB GDDR7 ECC | 600W | 工作站推理 | ✅ |
+| [NVIDIA L4](/docs/cards/nvidia/l4) | 485 TFLOPS | 970 TOPS | 24GB GDDR6 | 72W | 边缘推理 | ✅ |
+| [NVIDIA L2](/docs/cards/nvidia/l2) | 96 TFLOPS (稀疏) | 193 TOPS | 16GB GDDR6 | 50W | 低功耗推理 | ✅ |
+| [NVIDIA T4](/docs/cards/nvidia/t4) | 65 TFLOPS | 130 TOPS | 16GB GDDR6 | 70W | 入门推理 | ✅ |
+| [Intel Arc Pro B60](/docs/cards/intel/arc-pro-b60) | — | — | 24GB GDDR6 | 200W | 中端推理 | ✅ |
+| [Intel Arc Pro B50](/docs/cards/intel/arc-pro-b50) | — | — | 16GB GDDR6 | 70W | 入门推理 | ✅ |
+| [Qualcomm AI 200](/docs/cards/others/qualcomm-ai-200) | 800 TFLOPS | — | — | 280W | 数据中心推理 | 🔄 |
 
 ## AI 训练 ASIC（TPU / Gaudi / Trainium）
 
-| 型号 | 厂商 | 算力 (BF16) | 内存 | 互联带宽 | 发布时间 |
-|---|---|---|---|---|---|
-| Google TPU v6e (Trillium) | Google | 918 TFLOPS | 32GB HBM | 1.6 Tb/s | 2024 |
-| Google TPU Ironwood (v7) | Google | ~2,000 TFLOPS | 192GB HBM | ~5 Tb/s | 2026 H1 |
-| Google TPU 8t (训练) | Google | ~1,200 TFLOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
-| Google TPU 8i (推理) | Google | ~1,500 TOPS | 64GB+ HBM | ~3 Tb/s | 2026 H1 |
-| Intel Gaudi 3 | Intel | 1,600 TFLOPS | 128GB SRAM | 2.4 Tb/s | 2024 Q2 |
-| Intel Crescent Island | Intel | TBD | 480GB LPDDR5x | TBD | 2026 H2 |
-| AWS Trainium 3 | AWS | ~5.7 PFLOPS | ~144GB | ~4.5 Tb/s | 2025 Q4 |
-| AWS Trainium 2 | AWS | ~1,000 TFLOPS | 64GB | ~1.6 Tb/s | 2024 |
+| 型号 | 厂商 | 算力 (BF16/FP8) | 内存 | 互联带宽 | 发布时间 | 状态 |
+|---|---|---|---|---|---|---|
+| [Google TPU Ironwood (v7)](/docs/cards/google/tpu-ironwood) | Google | ~2,000 TFLOPS | 192GB HBM | ~5 Tb/s | 2026 H1 | 🔄 |
+| [Google TPU v6p](/docs/cards/google/tpu-v6p) | Google | — | 96GB HBM2 | — | 2024 Q4 | ✅ |
+| [Google TPU v6e (Trillium)](/docs/cards/google/tpu-v6e) | Google | 918 TFLOPS | 32GB HBM | 1.6 Tb/s | 2024 Q4 | ✅ |
+| [Google TPU v5p](/docs/cards/google/tpu-v5p) | Google | — | — | — | 2023 Q4 | ✅ |
+| [Google TPU v5e](/docs/cards/google/tpu-v5e) | Google | — | 16GB HBM2 | — | 2023 Q3 | ✅ |
+| [Google TPU v4](/docs/cards/google/tpu-v4) | Google | — | 32GB HBM2 | — | 2020 Q3 | ✅ |
+| [Google TPU 8t (训练)](/docs/cards/google/tpu-8t) | Google | — | — | — | 2026 Q2 | 🔮 |
+| [Google TPU 8i (推理)](/docs/cards/google/tpu-8i) | Google | ~1,500 TOPS | — | — | 2026 Q2 | 🔮 |
+| [Intel Gaudi 3](/docs/cards/intel/gaudi-3) | Intel | 1,600 TFLOPS | 128GB SRAM | 2.4 Tb/s | 2024 Q2 | ✅ |
+| [Intel Gaudi 2](/docs/cards/intel/gaudi-2) | Intel | 865 TFLOPS (FP8) | 96GB HBM2e | 2.4 Tb/s | 2022 Q2 | ✅ |
+| [Intel Gaudi 4](/docs/cards/intel/gaudi-4) | Intel | — | 192GB HBM3e | — | 2026 Q2 | 🔮 |
+| [Intel Crescent Island](/docs/cards/intel/crescent-island) | Intel | TBD | 480GB LPDDR5x | TBD | 2026 H2 | 🔄 |
+| [AWS Trainium 3](/docs/cards/aws/trainium-3) | AWS | ~5.7 PFLOPS | ~144GB | ~4.5 Tb/s | 2025 Q4 | 🔄 |
+| [AWS Trainium 2](/docs/cards/aws/trainium-2) | AWS | 1,299 TFLOPS (密集) | 64GB | ~1.6 Tb/s | 2024 Q4 | ✅ |
+| [AWS Trainium 1](/docs/cards/aws/trainium) | AWS | 191 TFLOPS (FP8) | 32GB HBM | — | 2020 Q4 | ✅ |
+| [AWS Inferentia 2](/docs/cards/aws/inferentia-2) | AWS | 190 TFLOPS (FP16) | 32GB HBM2e | — | 2022 Q4 | ✅ |
+| [AWS Inferentia 1](/docs/cards/aws/inferentia) | AWS | — | — | — | 2019 Q4 | ✅ |
+| [Microsoft Maia 200](/docs/cards/microsoft/maia-200) | Microsoft | 5+ PFLOPS | — | — | 2026 Q1 | 🔄 |
+| [Meta MTIA v3](/docs/cards/meta/mtia-v3) | Meta | — | — | — | 2026 Q3 | 🔮 |
 
 ## 晶圆级训练（Wafer-Scale）
 
-| 型号 | 厂商 | 晶体管数 | 片上内存 | FP16 算力 | 发布时间 |
-|---|---|---|---|---|---|
-| Cerebras WSE-4 | Cerebras | 4 万亿 | 44GB SRAM | 125 PFLOPS | 2026 |
-| Cerebras WSE-3 | Cerebras | 4 万亿 | 40GB SRAM | 125 PFLOPS | 2024 |
-| Cerebras WSE-2 | Cerebras | 2.6 万亿 | 40GB SRAM | 85 PFLOPS | 2022 |
+| 型号 | 厂商 | 晶体管数 | 片上内存 | FP8 算力 | 发布时间 | 状态 |
+|---|---|---|---|---|---|---|
+| [Cerebras WSE-4](/docs/cards/cerebras/wse-4) | Cerebras | ~5-6 万亿 | 44GB SRAM | ~400 PFLOPS | 2027 | 🔮 |
+| [Cerebras WSE-3](/docs/cards/cerebras/wse-3) | Cerebras | 4 万亿 | 40GB SRAM | 125 PFLOPS | 2024 Q1 | ✅ |
+| [Cerebras WSE-2](/docs/cards/cerebras/wse-2) | Cerebras | 2.6 万亿 | 40GB SRAM | 85 PFLOPS | 2021 Q3 | ✅ |
 
 ## 边缘 AI 与端侧 NPU
 
-| 型号 | 厂商 | 算力 (TOPS) | 功耗 | 适用场景 |
-|---|---|---|---|---|
-| NVIDIA Jetson Thor | NVIDIA | 2,070 TOPS | 130W | 机器人 / 自动驾驶 |
-| NVIDIA Jetson Orin AGX | NVIDIA | 275 TOPS | 60W | 边缘推理 |
-| Google Edge TPU (Dev Board) | Google | 4 TOPS | 2W | IoT 端侧推理 |
-| Hailo-8L | Hailo | 13 TOPS | 1.5W | 端侧视觉 AI |
-| 高通 AI 100 | Qualcomm | 70 TOPS | 15W | 数据中心边缘推理 |
-| 华为昇腾 310 | 华为 | 22 TOPS | 8W | 端侧推理 |
+| 型号 | 厂商 | 算力 (TOPS) | 功耗 | 适用场景 | 状态 |
+|---|---|---|---|---|---|
+| [NVIDIA Jetson Thor](/docs/cards/nvidia/jetson-thor) | NVIDIA | 2,070 TOPS | 130W | 机器人 / 自动驾驶 | ✅ |
+| [NVIDIA Jetson Orin AGX](/docs/cards/nvidia/jetson-orin) | NVIDIA | 275 TOPS | 60W | 边缘推理 | ✅ |
+| [Qualcomm AI 100](/docs/cards/others/qualcomm-ai100) | Qualcomm | 70 TOPS | 15W | 数据中心边缘推理 | ✅ |
+| [华为昇腾 310](/docs/cards/huawei/ascend-910b) | 华为 | 22 TOPS | 8W | 端侧推理 | ✅ |
+| [Hailo-8L](/docs/cards/others/hailo) | Hailo | 13 TOPS | 1.5W | 端侧视觉 AI | ✅ |
+| [Google Edge TPU](/docs/cards/google/edge-tpu) | Google | 4 TOPS | 2W | IoT 端侧推理 | ✅ |
 
 ## 创新架构
 
-| 型号 | 架构类型 | 核心特色 | 厂商 |
+| 型号 | 架构类型 | 核心特色 | 厂商 | 状态 |
+|---|---|---|---|---|
+| [Groq LPU v2](/docs/cards/others/groq-lpu-v2) | LPU（语言处理单元） | 极低延迟推理（~500 tok/s） | Groq | ✅ |
+| [Graphcore IPU (Bow)](/docs/cards/others/graphcore-ipu) | IPU（智能处理单元） | 图计算原生，1,400 个 IPU 核心 | Graphcore | ✅ |
+| [Tesla Dojo (D1)](/docs/cards/others/tesla-dojo) | 分布式训练晶圆 | 自动标注 + 模型训练一体化 | Tesla | ✅ |
+| [Apple M5 Ultra](/docs/cards/others/apple-m5-ultra) | SoC + NPU | 端侧 50 TOPS，统一内存 | Apple | 🔮 |
+| [BrainChip Akida 2](/docs/cards/others/akida-2) | 脉冲神经网络 (SNN) | 超低功耗神经形态 | BrainChip | ✅ |
+
+## 价格参考
+
+> 价格随市场供需波动，采购价格受出口管制影响。CNY 标注为国产芯片人民币定价（参考汇率 1 USD ≈ 7.2 CNY）。以上数据仅供参考。
+
+### NVIDIA
+
+| 型号 | 官方指导价 (USD) | 市场均价 (USD) | 备注 |
 |---|---|---|---|
-| Groq LPU (LPU v2) | LPU（语言处理单元） | 极低延迟推理（~500 tok/s） | Groq |
-| Graphcore IPU (Bow POD) | IPU（智能处理单元） | 图计算原生，1,400 个 IPU 核心 | Graphcore |
-| Tesla Dojo (D1) | 分布式训练晶圆 | 自动标注 + 模型训练一体化 | Tesla |
-| Apple M5 Ultra (Neural Engine) | SoC + NPU | 端侧 50 TOPS，统一内存 | Apple |
-| Akida2 (AKD1000) | 脉冲神经网络 (SNN) | 超低功耗神经形态 | BrainChip |
+| [Rubin R200](/docs/cards/nvidia/rubin-r200) | $85,000 | — | 预测价格 |
+| [GB300](/docs/cards/nvidia/gb300) | $75,000 | $72,000 | |
+| [GB200](/docs/cards/nvidia/gb200) | $65,000 | $62,000 | |
+| [B300 Ultra](/docs/cards/nvidia/b300-ultra) | $55,000 | $52,000 | |
+| [B200](/docs/cards/nvidia/b200) | $45,000 | $42,000 | |
+| [B100](/docs/cards/nvidia/b100) | $38,000 | $35,000 | |
+| [H200](/docs/cards/nvidia/h200) | $40,000 | $38,000 | |
+| [H100](/docs/cards/nvidia/h100) | $30,000 | $28,000 | |
+| [H100 NVL](/docs/cards/nvidia/h100) | $40,000 | $38,000 | |
+| [H20](/docs/cards/nvidia/h20) | $14,000 | $13,000 | 中国特供版 |
+| [A100](/docs/cards/nvidia/a100) | $15,000 | $28,000 | 二手市场 |
+| [L40S](/docs/cards/nvidia/l40s) | $7,000 | $6,500 | |
+| [RTX Pro 6000 Blackwell](/docs/cards/nvidia/rtx-pro-6000-blackwell) | $6,800 | $6,500 | |
+| [RTX 6000 Ada](/docs/cards/nvidia/rtx-6000-ada) | $4,500 | $4,200 | |
+| [RTX 5090](/docs/cards/nvidia/rtx-5090) | $2,000 | $1,900 | |
+| [L4](/docs/cards/nvidia/l4) / [L2](/docs/cards/nvidia/l2) | $2,500 | $2,300 | |
+| [T4](/docs/cards/nvidia/t4) | $2,500 | $1,800 | 二手市场 |
+| [Jetson Thor](/docs/cards/nvidia/jetson-thor) | $800 | — | 模组 |
+| [Jetson Orin](/docs/cards/nvidia/jetson-orin) | $400 | $380 | 模组 |
+| H800 | ¥280,000 | ¥250,000 | CNY，中国市场 |
 
-## 价格参考（云平台按需计费）
+### AMD
 
-| 型号 | 按需价格（USD/小时） | 预留价格（USD/小时） | 采购价格（USD） |
+| 型号 | 官方指导价 (USD) | 市场均价 (USD) | 备注 |
 |---|---|---|---|
-| NVIDIA B200 | $8.87 | ~$5.50 | ~$40,000 |
-| NVIDIA H200 | $5.87 | ~$3.80 | ~$30,000 |
-| NVIDIA H100 | $4.20 | ~$2.80 | ~$25,000 |
-| AMD MI300X | — | — | ~$15,000 |
-| 华为昇腾 910C | — | — | 国内定价 |
+| [MI400](/docs/cards/amd/mi400) | $55,000 | — | 预测价格 |
+| [MI350X](/docs/cards/amd/mi350) | $40,000 | $37,000 | |
+| [MI355X](/docs/cards/amd/mi455x) | $22,000 | $20,500 | |
+| [MI325X](/docs/cards/amd/mi325x) | $18,000 | $16,500 | |
+| [MI300X](/docs/cards/amd/mi300x) | $15,000 | $13,500 | |
+| [MI250](/docs/cards/amd/mi300x) | $12,000 | $10,000 | 二手市场 |
+| [MI210](/docs/cards/amd/mi300x) | $9,000 | $8,500 | |
 
-> **注意**：价格随市场供需波动，采购价格受出口管制影响。以上数据仅供参考。
+### Intel
+
+| 型号 | 官方指导价 (USD) | 市场均价 (USD) | 备注 |
+|---|---|---|---|
+| [Gaudi 4](/docs/cards/intel/gaudi-4) | $25,000 | — | 预测价格 |
+| [Gaudi 3](/docs/cards/intel/gaudi-3) | $18,000 | $16,500 | |
+| [Gaudi 2](/docs/cards/intel/gaudi-2) | $12,000 | $11,000 | |
+| [Gaudi 1](/docs/cards/intel/gaudi-2) | $8,000 | $7,000 | 已停产 |
+| [Max Series](/docs/cards/intel/gaudi-2) | $4,000 | $3,700 | |
+| [Flex Series](/docs/cards/intel/gaudi-2) | $1,000 | $900 | |
+| [Arc Pro B60](/docs/cards/intel/arc-pro-b60) | $500 | $480 | |
+| [Arc Pro B50](/docs/cards/intel/arc-pro-b50) | $350 | $330 | |
+
+### 华为昇腾
+
+| 型号 | 官方指导价 (USD) | 市场均价 (USD) | 备注 |
+|---|---|---|---|
+| [昇腾 950DT](/docs/cards/huawei/ascend-950dt) | $22,000 | — | 预测价格 |
+| [昇腾 950PR](/docs/cards/huawei/ascend-950pr) | $18,000 | — | 预测价格 |
+| [昇腾 910D](/docs/cards/huawei/ascend-910c) | $18,000 | $16,000 | |
+| [昇腾 920](/docs/cards/huawei/ascend-920) | $25,000 | $23,000 | |
+| [昇腾 910C](/docs/cards/huawei/ascend-910c) | $16,000 | $14,500 | |
+| [昇腾 910B](/docs/cards/huawei/ascend-910b) | $12,000 | $10,500 | |
+
+### Google TPU / AWS / 云厂商
+
+| 型号 | 官方指导价 (USD) | 市场均价 (USD) | 备注 |
+|---|---|---|---|
+| [TPU Ironwood](/docs/cards/google/tpu-ironwood) | $45,000 | — | 预测价格 |
+| [TPU v6p](/docs/cards/google/tpu-v6p) | $40,000 | — | |
+| [TPU v5p](/docs/cards/google/tpu-v5p) | $35,000 | — | |
+| [TPU v6e](/docs/cards/google/tpu-v6e) | $22,000 | — | |
+| [TPU v5e](/docs/cards/google/tpu-v5e) | $18,000 | — | |
+| [TPU v4](/docs/cards/google/tpu-v4) | $25,000 | — | |
+| [Trainium 3](/docs/cards/aws/trainium-3) | $30,000 | — | |
+| [Trainium 2](/docs/cards/aws/trainium-2) | $22,000 | — | |
+| [Inferentia 2](/docs/cards/aws/inferentia-2) | $12,000 | — | |
+| [Trainium 1](/docs/cards/aws/trainium) | $15,000 | — | |
+| [Inferentia 1](/docs/cards/aws/inferentia) | $8,000 | — | |
+
+### 国产芯片（CNY 定价）
+
+| 型号 | 官方指导价 (CNY) | 市场均价 (CNY) | 折合 USD |
+|---|---|---|---|
+| [寒武纪 MLU690](/docs/cards/cambricon/mlu-690) | ¥150,000 | ¥140,000 | ~$19,444 |
+| [摩尔线程 MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | ¥55,000 | ¥50,000 | ~$6,944 |
+| [天数智芯 TG150](/docs/cards/iluvatar/bi-v150) | ¥85,000 | ¥78,000 | ~$10,833 |
+| [燧原 T21](/docs/cards/enflame/t21) | ¥70,000 | ¥65,000 | ~$9,028 |
+| [沐曦 C500](/docs/cards/others/metax-c600) | ¥55,000 | ¥52,000 | ~$7,222 |
+| [摩尔线程 S4000](/docs/cards/others/moore-threads-mtt-s5000) | ¥60,000 | ¥55,000 | ~$7,639 |
+
+### 其他厂商
+
+| 型号 | 官方指导价 (USD) | 市场均价 (USD) | 备注 |
+|---|---|---|---|
+| [Cerebras WSE-4](/docs/cards/cerebras/wse-4) | $8,000,000 | — | 整机架系统 |
+| [Cerebras WSE-3](/docs/cards/cerebras/wse-3) | $5,000,000 | — | 整机架系统 |
+| [Cerebras WSE-2](/docs/cards/cerebras/wse-2) | $3,000,000 | — | 整机架系统 |
+| [SambaNova SN40L](/docs/cards/others/groq-lpu-v2) | $200,000 | — | 整机系统 |
+| [Groq LPU v2](/docs/cards/others/groq-lpu-v2) | $35,000 | — | |
+| [Rubin Ultra](/docs/cards/nvidia/rubin-r200) | $150,000 | — | 预测价格 |
+| [Graphcore IPU](/docs/cards/others/graphcore-ipu) | $15,000 | — | |
+| [Tenstorrent Blackhole](/docs/cards/others/groq-lpu-v2) | $20,000 | — | |
+| [Qualcomm AI 100](/docs/cards/others/qualcomm-ai100) | $8,000 | $7,000 | |
+| [Hailo-8L](/docs/cards/others/hailo) | $300 | $280 | 模组 |
 
 ## 选型建议
 
 ### 按模型规模选择
 
-- **万亿参数（GPT-4 级）**：NVIDIA B300 Ultra / Rubin R200，AMD MI400（2026 H2）
-- **百亿-千亿参数（Llama 70B, Qwen 72B）**：NVIDIA H100 / H200，AMD MI300X / MI325X
-- **十亿-百亿参数（Llama 7B-13B）**：NVIDIA H100, A100 80GB
-- **小模型 / 推理**：NVIDIA L40S, L4, T4
+- **万亿参数（GPT-4 级）**：[B300 Ultra](/docs/cards/nvidia/b300-ultra) / [Rubin R200](/docs/cards/nvidia/rubin-r200)，[AMD MI400](/docs/cards/amd/mi400)（2026 H2）
+- **百亿-千亿参数（Llama 70B, Qwen 72B）**：[H100](/docs/cards/nvidia/h100) / [H200](/docs/cards/nvidia/h200)，[AMD MI300X](/docs/cards/amd/mi300x) / [MI325X](/docs/cards/amd/mi325x)
+- **十亿-百亿参数（Llama 7B-13B）**：[H100](/docs/cards/nvidia/h100), [A100 80GB](/docs/cards/nvidia/a100)
+- **小模型 / 推理**：[L40S](/docs/cards/nvidia/l40s), [L4](/docs/cards/nvidia/l4), [T4](/docs/cards/nvidia/t4)
 
 ### 按地区选择
 
 - **北美 / 欧洲**：NVIDIA + AMD 自由选择
-- **中国**：华为昇腾 950 / 910C / 920 / 寒武纪 MLU690（国产替代）
+- **中国**：[昇腾 950](/docs/cards/huawei/ascend-950dt) / [910C](/docs/cards/huawei/ascend-910c) / [920](/docs/cards/huawei/ascend-920) / [寒武纪 MLU690](/docs/cards/cambricon/mlu-690)（国产替代）
 - **云端（无硬件偏好）**：任意厂商，按价格选择
 
 ---
 
-[← 返回首页](/docs/intro) | [路线图 →](/docs/roadmap)
+[← 返回首页](/docs/intro) | [路线图 →](/docs/roadmap) | [TCO 计算器 →](/docs/tco-calculator) | [行业动态 →](/blog)
