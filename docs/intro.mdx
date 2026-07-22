@@ -1,30 +1,35 @@
 ---
 title: 'AI 算力卡百科'
-description: '完整收录 100+ 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI350/MI400、华为昇腾910B/950/960/970、寒武纪 MLU370 等主流 AI 芯片，提供算力卡选型参考。'
-keywords: ['AI算力卡', 'GPU', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA B200', 'NVIDIA GB300', 'NVIDIA Rubin', 'AMD MI300X', 'AMD MI350', 'AMD MI400', '华为昇腾910B', '华为昇腾950', '华为昇腾960', '华为昇腾970', '寒武纪MLU370', 'AI芯片对比', '算力卡规格', '大模型训练卡']
+description: '完整收录 160+ 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI350/MI400、华为昇腾910B/920/950/960/970、寒武纪 MLU690、Cerebras WSE-3/WSE-4 等主流 AI 芯片，提供算力卡选型参考。'
+keywords: ['AI算力卡', 'GPU', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA B200', 'NVIDIA GB300', 'NVIDIA Rubin', 'AMD MI300X', 'AMD MI350', 'AMD MI400', '华为昇腾910B', '华为昇腾950', '华为昇腾960', '华为昇腾970', '寒武纪MLU690', 'Cerebras WSE-4', '摩尔线程MTT S5000', 'AI芯片对比', '算力卡规格', '大模型训练卡', 'TCO计算器']
 sidebar_position: 0
 sidebar_label: '首页'
 ---
 
 ## AI 算力卡百科
 
-> 完整收录 **100+ 款** AI 算力卡，覆盖训练、推理、边缘计算全场景。
+> 完整收录 **160+ 款** AI 算力卡，覆盖训练、推理、边缘计算全场景。涵盖 NVIDIA / AMD / Intel / Google / AWS / 华为 / 寒武纪 / Cerebras 等 **14 家厂商**。
 
 ## 快速入口
 
 | 功能 | 说明 | 链接 |
 |---|---|---|
-| **完整对比表** | 100+ 款算力卡并排对比，支持筛选 | [查看对比表](/docs/comparison) |
-| **未来路线图** | 2025-2026 新品发布时间线 | [查看路线图](/docs/roadmap) |
+| **完整对比表** | 160+ 款算力卡并排对比，支持筛选 | [查看对比表](/docs/comparison) |
+| **未来路线图** | 2025-2028 新品发布时间线 | [查看路线图](/docs/roadmap) |
+| **TCO 计算器** | 算力卡总拥有成本估算（电费/PUE/NPV） | [使用计算器](/docs/tco-calculator) |
 | **行业动态** | 最新发布、收购、IPO、深度分析 | [浏览博客](/blog) |
 
 ## 按类型浏览
 
 | 类型 | 说明 | 代表产品 |
 |---|---|---|
-| [数据中心训练](/docs/types/training-gpu) | 大模型训练主力 | H100 / H200 / B200 / MI300X |
-| [数据中心推理](/docs/types/inference-gpu) | 高吞吐在线推理 | L4 / L40S / RTX 6000 Ada |
-| [晶圆级训练](/docs/types/training-wafer) | 超大模型单片方案 | Cerebras WSE-3 / WSE-4 |
+| [数据中心训练 GPU](/docs/types/training-gpu) | 大模型训练主力 | H100 / H200 / B200 / MI300X |
+| [数据中心推理 GPU](/docs/types/inference-gpu) | 高吞吐在线推理 | L4 / L40S / RTX 6000 Ada |
+| [训练 ASIC](/docs/types/training-asic) | 专用训练加速器 | TPU v6e / Trainium 3 / 昇腾 950 |
+| [推理 ASIC](/docs/types/inference-asic) | 专用推理加速器 | TPU 8i / Inferentia 2 / 昇腾 310 |
+| [晶圆级训练](/docs/types/training-wafer) | 超大模型单片方案 | [Cerebras WSE-3](/docs/cards/cerebras/wse-3) / [WSE-4](/docs/cards/cerebras/wse-4) |
+| [工作站 GPU](/docs/types/workstation) | 专业图形 + AI 推理 | RTX 6000 Ada / RTX Pro 6000 |
+| [消费级 GPU](/docs/types/consumer) | 个人 AI 开发与推理 | RTX 5090 / RTX 5080 |
 | [边缘 AI](/docs/types/edge) | 端侧推理加速 | Jetson Orin / Edge TPU |
 | [创新架构](/docs/types/innovative) | 非传统架构探索 | Groq LPU / Graphcore IPU |
 
@@ -33,23 +38,45 @@ sidebar_label: '首页'
 | 厂商 | 主力产品 | 代表型号 |
 |---|---|---|
 | **NVIDIA** | 通用 GPU + CUDA 生态 | [H100](/docs/cards/nvidia/h100) / [B200](/docs/cards/nvidia/b200) / [Rubin R200](/docs/cards/nvidia/rubin-r200) |
-| **AMD** | Instinct 系列 + ROCm | [MI300X](/docs/cards/amd/mi300x) / [MI400](/docs/cards/amd/mi400) |
-| **Intel (Habana)** | Gaudi 系列 + OpenVINO | [Gaudi 3](/docs/cards/intel/gaudi-3) / [Jaguar Shores](/docs/cards/intel/jaguar-shores) |
-| **Google** | TPU 张量处理器 | [TPU v6e](/docs/cards/google/tpu-v6e) / [Ironwood](/docs/cards/google/tpu-ironwood) |
+| **AMD** | Instinct 系列 + ROCm | [MI300X](/docs/cards/amd/mi300x) / [MI400](/docs/cards/amd/mi400) / [MI455X](/docs/cards/amd/mi455x) |
+| **Intel (Habana)** | Gaudi 系列 + OpenVINO | [Gaudi 3](/docs/cards/intel/gaudi-3) / ~~Jaguar Shores~~（已取消） |
+| **Google** | TPU 张量处理器 | [TPU v6e](/docs/cards/google/tpu-v6e) / [TPU 8t](/docs/cards/google/tpu-8t) / [TPU 8i](/docs/cards/google/tpu-8i) |
 | **AWS** | Trainium / Inferentia | [Trainium 3](/docs/cards/aws/trainium-3) |
-| **华为** | 昇腾系列（国产） | [昇腾 910C](/docs/cards/huawei/ascend-910c) / [920](/docs/cards/huawei/ascend-920) |
+| **Cerebras** | 晶圆级引擎 (WSE) | [WSE-3](/docs/cards/cerebras/wse-3) / [WSE-4](/docs/cards/cerebras/wse-4) 🔮 |
+| **华为** | 昇腾系列（国产） | [昇腾 910C](/docs/cards/huawei/ascend-910c) / [920](/docs/cards/huawei/ascend-920) / [950DT](/docs/cards/huawei/ascend-950dt) |
 | **寒武纪** | 思元 MLU 系列 | [MLU370](/docs/cards/others/cambricon-mlu-370) / [MLU690](/docs/cards/cambricon/mlu-690) |
+| **Meta** | MTIA 推理加速器 | [MTIA v3](/docs/cards/meta/mtia-v3) |
+| **Microsoft** | Maia 推理加速器 | [Maia 200](/docs/cards/microsoft/maia-200) |
+| **百度** | 昆仑芯 XPU | [昆仑芯 R200](/docs/cards/baidu/r200) |
+| **摩尔线程** | MTT 系列（国产 GPU） | [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) |
+| **沐曦** | 曦云系列（国产 GPU） | [曦云 C600](/docs/cards/others/metax-c600) |
+| **天数智芯** | 天垓系列（国产 GPU） | [天垓 150](/docs/cards/iluvatar/bi-v150) |
+| **燧原科技** | 云燧系列（国产 DTU） | [云燧 T21](/docs/cards/enflame/t21) |
+
+> 状态标识：✅ 已量产 | 🔄 即将发布 | 🔮 前瞻/推测 | ❌ 已取消
 
 ## 最新发布
 
-- **2026-05** — NVIDIA Rubin R200 规格确认：288GB HBM4，50 PFLOPS FP4
-- **2026-04** — AMD MI400 + Helios 机柜发布：432GB HBM4，260 TB/s UALink
-- **2026-04** — Google TPU 8t (训练) + 8i (推理) 正式拆分架构
-- **2026-04** — Cerebras WSE-4 官宣：1.4 万亿晶体管，125 PFLOPS FP8
-- **2025-11** — 华为昇腾 920 发布：4 Tbps 片间互联，3× H20 算力
+- **2026-07-20** — [WAIC 2026：华为 Atlas 950 SuperPoD 真机首展](/docs/cards/huawei/ascend-950dt)，1024 卡 1 EFLOPS FP8，斩获 SAIL 大奖 ✅
+- **2026-07-11** — [AMD Advancing AI 2026：MI400 三款 SKU 确认](/docs/cards/amd/mi400)，Helios 机柜 225-245kW，OpenAI+Meta 锁定 12GW ✅
+- **2026-07-11** — [摩尔线程 MTT S5000 上市](/docs/cards/others/moore-threads-mtt-s5000)，国产 GPU 对标 H100，¥55,000 ✅
+- **2026-07-10** — [NVIDIA Vera Rubin 正式出货](/docs/cards/nvidia/rubin-r200)，首台 VR200 NVL72 交付，三星 HBM4 量产 ✅
+- **2026-07-10** — [昇腾 950PR 月产能跳升 10 倍](/docs/cards/huawei/ascend-950pr)，字节 56 亿美元锁定 35 万片 🔄
+- **2026-04** — [Google TPU 8t (训练) + 8i (推理)](/docs/cards/google/tpu-8t) 正式拆分架构 ✅
+- **2025-11** — [华为昇腾 920 发布](/docs/cards/huawei/ascend-920)：1,800 TFLOPS FP16，4 Tbps 片间互联 ✅
 
 ## 为什么用 MirrorFrog？
 
-1. **数据全面** — 100+ 款算力卡，规格参数完整收录
+1. **数据全面** — 160+ 款算力卡，14 家厂商，规格参数完整收录
 2. **持续更新** — 紧跟厂商发布节奏，2025-2026 新品第一时间更新
 3. **中立对比** — 不偏向任何厂商，纯数据驱动
+4. **开源透明** — [GitHub 开源](https://github.com/anomalyco/mirrorfrog)，PR 欢迎
+5. **TCO 工具** — 内置[总拥有成本计算器](/docs/tco-calculator)，电费/PUE/NPV 一键估算
+
+## 参与贡献
+
+发现错误或想添加新算力卡？[提交 Issue](https://github.com/anomalyco/mirrorfrog/issues) 或 [发起 PR](https://github.com/anomalyco/mirrorfrog/pulls)！
+
+---
+
+> **最后更新：2026-07-22** | [← 返回首页](/) | [完整对比表 →](/docs/comparison) | [路线图 →](/docs/roadmap) | [TCO 计算器 →](/docs/tco-calculator) | [行业动态 →](/blog)

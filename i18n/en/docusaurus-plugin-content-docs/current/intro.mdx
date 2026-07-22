@@ -1,32 +1,35 @@
 ---
 title: 'AI Compute Card Encyclopedia'
-description: 'Complete catalog of 100+ AI compute cards with specifications and performance comparisons, covering NVIDIA H100/H200/B200/GB300/Rubin, AMD MI300X/MI350/MI400, Huawei Ascend 910B/950/960/970, Cambricon MLU370 and other mainstream AI chips. Your reference for AI accelerator selection.'
-keywords: ['AI compute cards', 'GPU', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA B200', 'NVIDIA GB300', 'NVIDIA Rubin', 'AMD MI300X', 'AMD MI350', 'AMD MI400', 'Huawei Ascend 910B', 'Huawei Ascend 950', 'Huawei Ascend 960', 'Huawei Ascend 970', 'Cambricon MLU370', 'AI chip comparison', 'compute card specs', 'LLM training cards']
+description: 'Complete catalog of 160+ AI compute cards with specifications and performance comparisons, covering NVIDIA H100/H200/B200/GB300/Rubin, AMD MI300X/MI350/MI400, Huawei Ascend 910B/920/950/960/970, Cambricon MLU690, Cerebras WSE-3/WSE-4 and other mainstream AI chips. Your reference for AI accelerator selection.'
+keywords: ['AI compute cards', 'GPU', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA B200', 'NVIDIA GB300', 'NVIDIA Rubin', 'AMD MI300X', 'AMD MI350', 'AMD MI400', 'Huawei Ascend 910B', 'Huawei Ascend 950', 'Huawei Ascend 960', 'Huawei Ascend 970', 'Cambricon MLU690', 'Cerebras WSE-4', 'Moore Threads MTT S5000', 'AI chip comparison', 'compute card specs', 'LLM training cards', 'TCO calculator']
 sidebar_position: 0
 sidebar_label: 'Home'
 ---
 
-# MirrorFrog
-
 ## AI Compute Card Encyclopedia
 
-> A comprehensive catalog of **100+** AI compute cards covering training, inference, and edge computing across all scenarios.
+> A comprehensive catalog of **160+** AI compute cards covering training, inference, and edge computing across all scenarios. Spanning **14 vendors** including NVIDIA, AMD, Intel, Google, AWS, Huawei, Cambricon, Cerebras, and more.
 
 ## Quick Start
 
 | Feature | Description | Link |
 |---|---|---|
-| **Full Comparison Table** | Side-by-side comparison of 100+ compute cards with filtering | [View Table](/en/docs/comparison) |
-| **Future Roadmap** | 2025–2026 product launch timeline | [View Roadmap](/en/docs/roadmap) |
+| **Full Comparison Table** | Side-by-side comparison of 160+ compute cards with filtering | [View Table](/en/docs/comparison) |
+| **Future Roadmap** | 2025–2028 product launch timeline | [View Roadmap](/en/docs/roadmap) |
+| **TCO Calculator** | Total cost of ownership estimation (power/PUE/NPV) | [Use Calculator](/en/docs/tco-calculator) |
 | **Industry News** | Latest releases, acquisitions, IPOs, and in-depth analysis | [Browse Blog](/en/blog) |
 
 ## Browse by Type
 
 | Type | Description | Representative Products |
 |---|---|---|
-| [Datacenter Training](/en/docs/types/training-gpu) | Primary LLM training hardware | H100 / H200 / B200 / MI300X |
-| [Datacenter Inference](/en/docs/types/inference-gpu) | High-throughput online inference | L4 / L40S / RTX 6000 Ada |
-| [Wafer-Scale Training](/en/docs/types/training-wafer) | Single-wafer solutions for massive models | Cerebras WSE-3 / WSE-4 |
+| [Datacenter Training GPU](/en/docs/types/training-gpu) | Primary LLM training hardware | H100 / H200 / B200 / MI300X |
+| [Datacenter Inference GPU](/en/docs/types/inference-gpu) | High-throughput online inference | L4 / L40S / RTX 6000 Ada |
+| [Training ASIC](/en/docs/types/training-asic) | Dedicated training accelerators | TPU v6e / Trainium 3 / Ascend 950 |
+| [Inference ASIC](/en/docs/types/inference-asic) | Dedicated inference accelerators | TPU 8i / Inferentia 2 / Ascend 310 |
+| [Wafer-Scale Training](/en/docs/types/training-wafer) | Single-wafer solutions for massive models | [Cerebras WSE-3](/en/docs/cards/cerebras/wse-3) / [WSE-4](/en/docs/cards/cerebras/wse-4) |
+| [Workstation GPU](/en/docs/types/workstation) | Professional graphics + AI inference | RTX 6000 Ada / RTX Pro 6000 |
+| [Consumer GPU](/en/docs/types/consumer) | Personal AI development & inference | RTX 5090 / RTX 5080 |
 | [Edge AI](/en/docs/types/edge) | On-device inference acceleration | Jetson Orin / Edge TPU |
 | [Innovative Architectures](/en/docs/types/innovative) | Non-traditional architecture exploration | Groq LPU / Graphcore IPU |
 
@@ -35,28 +38,45 @@ sidebar_label: 'Home'
 | Vendor | Flagship Product Line | Representative Models |
 |---|---|---|
 | **NVIDIA** | General-purpose GPU + CUDA ecosystem | [H100](/en/docs/cards/nvidia/h100) / [B200](/en/docs/cards/nvidia/b200) / [Rubin R200](/en/docs/cards/nvidia/rubin-r200) |
-| **AMD** | Instinct series + ROCm | [MI300X](/en/docs/cards/amd/mi300x) / [MI400](/en/docs/cards/amd/mi400) |
-| **Intel (Habana)** | Gaudi series + OpenVINO | [Gaudi 3](/en/docs/cards/intel/gaudi-3) / [Jaguar Shores](/en/docs/cards/intel/jaguar-shores) |
-| **Google** | TPU tensor processors | [TPU v6e](/en/docs/cards/google/tpu-v6e) / [Ironwood](/en/docs/cards/google/tpu-ironwood) |
+| **AMD** | Instinct series + ROCm | [MI300X](/en/docs/cards/amd/mi300x) / [MI400](/en/docs/cards/amd/mi400) / [MI455X](/en/docs/cards/amd/mi455x) |
+| **Intel (Habana)** | Gaudi series + OpenVINO | [Gaudi 3](/en/docs/cards/intel/gaudi-3) / ~~Jaguar Shores~~ (Cancelled) |
+| **Google** | TPU tensor processors | [TPU v6e](/en/docs/cards/google/tpu-v6e) / [TPU 8t](/en/docs/cards/google/tpu-8t) / [TPU 8i](/en/docs/cards/google/tpu-8i) |
 | **AWS** | Trainium / Inferentia | [Trainium 3](/en/docs/cards/aws/trainium-3) |
-| **Huawei** | Ascend series (domestic China) | [Ascend 910C](/en/docs/cards/huawei/ascend-910c) / [920](/en/docs/cards/huawei/ascend-920) |
+| **Cerebras** | Wafer-Scale Engine (WSE) | [WSE-3](/en/docs/cards/cerebras/wse-3) / [WSE-4](/en/docs/cards/cerebras/wse-4) 🔮 |
+| **Huawei** | Ascend series (domestic China) | [Ascend 910C](/en/docs/cards/huawei/ascend-910c) / [920](/en/docs/cards/huawei/ascend-920) / [950DT](/en/docs/cards/huawei/ascend-950dt) |
 | **Cambricon** | Siyuan MLU series | [MLU370](/en/docs/cards/others/cambricon-mlu-370) / [MLU690](/en/docs/cards/cambricon/mlu-690) |
+| **Meta** | MTIA inference accelerator | [MTIA v3](/en/docs/cards/meta/mtia-v3) |
+| **Microsoft** | Maia inference accelerator | [Maia 200](/en/docs/cards/microsoft/maia-200) |
+| **Baidu** | Kunlun XPU | [Kunlun R200](/en/docs/cards/baidu/r200) |
+| **Moore Threads** | MTT series (domestic GPU) | [MTT S5000](/en/docs/cards/others/moore-threads-mtt-s5000) |
+| **MetaX** | Xiyun series (domestic GPU) | [C600](/en/docs/cards/others/metax-c600) |
+| **Iluvatar CoreX** | Tian-gai series (domestic GPU) | [BI-V150](/en/docs/cards/iluvatar/bi-v150) |
+| **Enflame** | T-series (domestic DTU) | [T21](/en/docs/cards/enflame/t21) |
+
+> Status: ✅ Released | 🔄 Upcoming | 🔮 Forward-looking | ❌ Cancelled
 
 ## Latest Releases
 
-- **2026-05** — NVIDIA Rubin R200 specs confirmed: 288GB HBM4, 50 PFLOPS FP4
-- **2026-04** — AMD MI400 + Helios rack revealed: 432GB HBM4, 260 TB/s UALink
-- **2026-04** — Google TPU 8t (training) + 8i (inference) split architecture officially announced
-- **2026-04** — Cerebras WSE-4 announced: 1.4 trillion transistors, 125 PFLOPS FP8
-- **2025-11** — Huawei Ascend 920 launched: 4 Tbps inter-chip interconnect, 3× H20 compute
+- **2026-07-20** — [WAIC 2026: Huawei Atlas 950 SuperPoD live demo](/en/docs/cards/huawei/ascend-950dt), 1024 cards / 1 EFLOPS FP8, wins SAIL Award ✅
+- **2026-07-11** — [AMD Advancing AI 2026: MI400 three SKUs confirmed](/en/docs/cards/amd/mi400), Helios rack 225-245kW, OpenAI+Meta lock 12GW ✅
+- **2026-07-11** — [Moore Threads MTT S5000 launched](/en/docs/cards/others/moore-threads-mtt-s5000), domestic GPU targeting H100, ¥55,000 ✅
+- **2026-07-10** — [NVIDIA Vera Rubin starts shipping](/en/docs/cards/nvidia/rubin-r200), first VR200 NVL72 delivered, Samsung HBM4 in production ✅
+- **2026-07-10** — [Ascend 950PR monthly capacity jumps 10×](/en/docs/cards/huawei/ascend-950pr), ByteDance locks 350K units at $5.6B 🔄
+- **2026-04** — [Google TPU 8t (training) + 8i (inference)](/en/docs/cards/google/tpu-8t) split architecture officially announced ✅
+- **2025-11** — [Huawei Ascend 920 launched](/en/docs/cards/huawei/ascend-920): 1,800 TFLOPS FP16, 4 Tbps inter-chip interconnect ✅
 
 ## Why MirrorFrog?
 
-1. **Comprehensive** — 100+ compute cards with complete specifications
+1. **Comprehensive** — 160+ compute cards, 14 vendors, complete specifications
 2. **Continuously Updated** — Keeping pace with vendor release cadence, 2025–2026 launches updated promptly
 3. **Neutral Comparison** — No vendor bias, purely data-driven
-4. **Open Source** — [Contribute on GitHub](https://github.com/anomalyco/mirrorfrog), PRs welcome
+4. **Open Source** — [Open source on GitHub](https://github.com/anomalyco/mirrorfrog), PRs welcome
+5. **TCO Tool** — Built-in [Total Cost of Ownership calculator](/en/docs/tco-calculator) with power/PUE/NPV estimation
 
 ## Contribute
 
 Found an error or want to add a new card? [Open an Issue](https://github.com/anomalyco/mirrorfrog/issues) or [submit a PR](https://github.com/anomalyco/mirrorfrog/pulls)!
+
+---
+
+> **Last updated: 2026-07-22** | [← Home](/en/) | [Comparison Table →](/en/docs/comparison) | [Roadmap →](/en/docs/roadmap) | [TCO Calculator →](/en/docs/tco-calculator) | [Blog →](/en/blog)
