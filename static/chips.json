@@ -258,7 +258,7 @@
         "fp32": "250 TFLOPS（推测）"
       },
       "tdp": "1200–1500 W",
-      "release": "CES 2026（1月5日发布），2026 H2 量产"
+      "release": "CES 2026（1月5日发布），Advancing AI 2026（7月22日）确认 SKU 矩阵，2026 H2 量产"
     }
   },
   {
@@ -268,7 +268,7 @@
     "slug": "/docs/cards/amd/mi455x",
     "description": "AMD Instinct MI455X GPU，基于CDNA 5架构，2nm与3nm混合制程，432GB HBM4显存，FP4算力40 PFLOPS，2026年CES发布的AI训练与推理GPU",
     "keywords": [],
-    "tdpW": 2000,
+    "tdpW": 1500,
     "fp16Tflops": 10000,
     "specs": {
       "compute": {
@@ -281,7 +281,7 @@
         "type": "HBM4",
         "bandwidth": "19.6 TB/s"
       },
-      "tdp": "未公开（推测 1500-2000W）",
+      "tdp": "推测 1200–1500W",
       "release": "2026 年 1 月 6 日"
     }
   },

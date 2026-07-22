@@ -16,13 +16,15 @@ NVIDIA Rubin R200 是 NVIDIA 在 2026 年 GTC 大会发布的新一代 AI GPU，
 | **规格** | **参数** |
 |---------|---------|
 | **GPU 架构** | Rubin 架构（MCM 多芯片模块设计） |
-| **制程工艺** | 台积电 3nm（4NP 定制工艺） |
+| **制程工艺** | 台积电 3nm N3P（计算 die）+ N5B（I/O die） |
 | **晶体管数量** | 3360 亿 |
-| **FP4 推理算力** | 50 PFLOPS |
-| **FP8 训练算力** | 35 PFLOPS |
+| **SM 数量** | 224 个 |
+| **FP4 推理算力** | 50 PFLOPS（sparse） |
+| **FP4 训练算力** | 35 PFLOPS（sparse） |
+| **FP8/FP6 算力** | 17.5 PFLOPS（sparse） |
 | **FP16 算力** | 推测 ~25 PFLOPS |
 | **FP32 算力** | 130 TFLOPS |
-| **FP64 算力** | 200 TFLOPS |
+| **FP64 算力** | 200 TFLOPS（matrix） |
 | **INT8 算力** | 推测 ~100 PFLOPS |
 | **显存容量** | 288 GB |
 | **显存类型** | HBM4 |
