@@ -286,6 +286,39 @@
     }
   },
   {
+    "id": "mi500",
+    "title": "AMD Instinct MI500 系列 (CDNA 6)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi500",
+    "description": "AMD Instinct MI500 系列预览：CDNA 6 架构、TSMC 2nm 制程、HBM4E 显存，预计 2027 年发布，由 AMD 与 OpenAI 联合定义开发，目标较 MI300X 实现千倍级 AI 性能跃升。",
+    "keywords": [
+      "AMD MI500",
+      "CDNA 6",
+      "TSMC 2nm",
+      "HBM4E",
+      "OpenAI",
+      2027,
+      "Instinct",
+      "Helios"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": 0,
+    "specs": {
+      "architecture": "CDNA 6（新一代，MI400 为 CDNA 5）",
+      "process": "TSMC 2nm",
+      "memory": {
+        "type": "HBM4E（MI400 为 HBM4）",
+        "bandwidth": "待确认（TBD）"
+      },
+      "compute": {
+        "fp8": "待确认（TBD）",
+        "fp16": "待确认（TBD）"
+      },
+      "tdp": "待确认（TBD）",
+      "release": "2027（预计）"
+    }
+  },
+  {
     "id": "ryzen-ai-max",
     "title": "AMD Ryzen AI Max (Strix Halo XDNA 2 50 TOPS 128GB UMA)",
     "vendor": "amd",
