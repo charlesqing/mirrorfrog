@@ -22,7 +22,7 @@ Trainium 3 是 AWS **"AI 工厂"战略**的核心 —— Amazon 内部 Bedrock�
 | **制程** | **TSMC 3nm** |
 | **NeuronCore** | 8 颗/芯片（NeuronCore-v4） |
 | **HBM 容量** | 144 GB（推测，2× Trainium 2） |
-| **HBM 带宽** | ~4.5 TB/s（推测） |
+| **HBM 带宽** | ~4.9 TB/s |
 | **FP8 算力（密集）** | **2.52 PFLOPS** |
 | **BF16/FP16** | 1,260 TFLOPS（推测，FP8 一半） |
 | **TDP** | 700 W |
@@ -38,7 +38,7 @@ Trainium 3 是 AWS **"AI 工厂"战略**的核心 —— Amazon 内部 Bedrock�
 | 工艺 | TSMC 4nm | **TSMC 3nm** | +一代 |
 | NeuronCore | 8 颗 v3 | 8 颗 **v4** | 架构升级 |
 | HBM 容量 | 96 GB | **144 GB**（推测） | 1.5× |
-| HBM 带宽 | 2.9 TB/s | **~4.5 TB/s** | **~1.55×** |
+| HBM 带宽 | 2.9 TB/s | **~4.9 TB/s** | **~1.7×** |
 | FP8 算力（密集） | 1,299 TFLOPS | **5.7 PFLOPS** | **~4.4×** |
 | BF16/FP16 | 667 TFLOPS | 2,850 TFLOPS（推测） | ~4.3× |
 | **每芯片 FP8 算力提升** | — | **4.4×** | 官方数据 |

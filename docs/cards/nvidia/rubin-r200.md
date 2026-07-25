@@ -32,7 +32,7 @@ NVIDIA Rubin R200 是 NVIDIA 在 2026 年 GTC 大会发布的新一代 AI GPU，
 | **互联技术** | NVLink 6（单向 3.6 TB/s） |
 | **TDP** | 1800-2300W（必须液冷） |
 | **发布时间** | 2026 年 3 月 17 日 |
-| **量产时间** | 2026 年下半年 |
+| **量产时间** | 2026 年 6 月（全面量产，HBM4 三家多源供货） |
 | **定价** | 单 NVL72 机柜 350-400 万美元 |
 
 ## 架构与规格
@@ -86,10 +86,14 @@ Rubin R200 采用**多芯片模块（MCM）设计**，核心包含：
 
 ## 量产与交付
 
-- **量产时间**：2026 年下半年开始量产
-- **首批客户**：AWS、Azure、Google Cloud、Oracle 云
+- **量产时间**：2026 年 6 月进入全面量产（三星、SK 海力士、美光三家 HBM4 多源供货）
+- **已交付客户**：CoreWeave、Google Cloud、Microsoft Azure、Oracle Cloud（Vera Rubin NVL72 机柜已交付并扩大部署）
+- **HBM4 供货**：SK 海力士 12 层 HBM4（36GB/堆栈，2.8 TB/s/堆栈，11 Gbps）于 2026 年 7 月启动量产出货
 - **自建机房用户**：2027 年第一季度可采购
 - **合作伙伴产品**：2026 年下半年上市交付
+- **Rubin Ultra 调整**：原规划 4 芯片版 Rubin Ultra 已取消，仅保留 2 芯片版本（规模扩展能力弱于原设计）
+
+> 📌 **七芯片堆栈**（Vera Rubin 平台完整组成）：Vera CPU + Rubin GPU + NVLink 6 交换机 + ConnectX-9 SuperNIC + BlueField-4 DPU + Spectrum-6 以太网交换机 + **Groq 3 LPX**（专为智能体解码阶段设计的低延迟推理加速器）。
 
 ## 应用场景
 

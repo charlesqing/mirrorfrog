@@ -231,7 +231,7 @@
     "title": "AMD Instinct MI400 系列 (CDNA 5)",
     "vendor": "amd",
     "slug": "/docs/cards/amd/mi400",
-    "description": "AMD Instinct MI400 系列详尽规格：CDNA 5 架构、TSMC N2 制程、432GB HBM4、19.6 TB/s 带宽、40 PF FP4（MI455X），Helios 72-GPU 机柜 260 TB/s scale-up，2026 H2 量产。",
+    "description": "AMD Instinct MI400 系列详尽规格：CDNA 5 架构、TSMC N2 制程、432GB HBM4、19.6 TB/s 带宽、40 PFLOPS MXFP4（MI455X）、MI430X 硬件 FP64 288 TFLOPS，Helios 72-GPU 机柜 260 TB/s scale-up，2026 H2 量产。",
     "keywords": [
       "AMD MI400",
       "MI455X",
@@ -716,12 +716,12 @@
       "AI 推理 TPU",
       "Gemini 3"
     ],
-    "tdpW": 1000,
+    "tdpW": 600,
     "fp16Tflops": null,
     "specs": {
       "release": "2025 年",
       "architecture": "TPU v7（Ironwood）",
-      "tdp": "1,000 W"
+      "tdp": "600 W"
     }
   },
   {
