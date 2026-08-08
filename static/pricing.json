@@ -175,6 +175,13 @@
       "currency": "CNY",
       "last_updated": "2026-06-15",
       "source": "中国市场价格（2023年数据，受出口管制影响）"
+    },
+    "l20": {
+      "official_msrp": null,
+      "market_price": 4500,
+      "currency": "USD",
+      "last_updated": "2026-08-08",
+      "source": "无官方 MSRP，2026 年国内市场行情（¥3-4.5 万，受特供合规影响供应不稳）"
     }
   },
   "amd": {
