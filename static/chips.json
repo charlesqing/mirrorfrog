@@ -1966,6 +1966,38 @@
     }
   },
   {
+    "id": "l20",
+    "title": "NVIDIA L20 (Ada 推理加速)",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/l20",
+    "description": "NVIDIA L20 详尽规格：Ada Lovelace 架构、48GB GDDR6 ECC、239 TFLOPS FP8、275W TDP，面向大模型推理与生成式 AI。",
+    "keywords": [
+      "NVIDIA L20",
+      "Ada Lovelace",
+      "48GB GDDR6",
+      "AI 推理",
+      "生成式 AI"
+    ],
+    "tdpW": 275,
+    "fp16Tflops": 239,
+    "specs": {
+      "architecture": "Ada Lovelace (AD102)",
+      "process": "TSMC 4N",
+      "memory": {
+        "capacity": "48 GB GDDR6 ECC",
+        "bandwidth": "864 GB/s"
+      },
+      "compute": {
+        "fp32": "59.8 TFLOPS",
+        "fp16": "119.5 TFLOPS（密集）/ 239 TFLOPS（稀疏）",
+        "fp8": "119.5 TFLOPS（密集）/ 239 TFLOPS（稀疏）",
+        "int8": "119.5 TOPS（密集）/ 239 TOPS（稀疏）"
+      },
+      "tdp": "275 W",
+      "release": "2023-Q4"
+    }
+  },
+  {
     "id": "l4",
     "title": "NVIDIA L4",
     "vendor": "nvidia",

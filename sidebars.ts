@@ -79,6 +79,7 @@ const sidebars: SidebarsConfig = {
             'cards/nvidia/t4',
             'cards/nvidia/l2',
             'cards/nvidia/l4',
+            'cards/nvidia/l20',
             'cards/nvidia/l40s',
             'cards/nvidia/groq-3-lpx',
             'cards/nvidia/rubin-cpx',
