@@ -12,7 +12,7 @@ keywords: [Google TPU 8i, Trillium 2, 推理 TPU, TSMC 2nm, 384MB SRAM, 1152芯�
 
 **Google TPU 8i** 是 2026-04-22 **Google Cloud Next '26** 公布的**最新一代推理专用 TPU**，与同期公布的 TPU 8t 训练专用形成 **8t + 8i 拆分架构**。采用 **TSMC 2nm** 制程，**双张量核心 + CAE**（集合通信加速引擎）设计，片上 SRAM **384 MB**（Ironwood 的 3×），单 Pod 集成 **1,152 芯片**，总算力 **11.6 EFLOPS FP8**。**首次引入联发科（MediaTek）** 作为 TPU 代工合作伙伴（8t 仍由博通代工）。推理性价比提升 **80%**，能效提升 **117%**。
 
-TPU 8i 是 Google **AI 推理规模化**的核心 —— Gemini API、Vertex AI 推理、Anthropic Claude on Vertex、Gemini 3 / 4 在线服务**全部面向 TPU 8i 设计**。量产目标 **2027 年底**。
+TPU 8i 是 Google **AI 推理规模化**的核心 —— Gemini API、Vertex AI 推理、Anthropic Claude on Vertex、Gemini 3 / 4 在线服务**全部面向 TPU 8i 设计**。**2026 H2 上线 Google Cloud**，已向 select 客户直售出货（Q2 2026 起），2027 年底全面量产。
 
 ## 核心规格
 
@@ -23,16 +23,19 @@ TPU 8i 是 Google **AI 推理规模化**的核心 —— Gemini API、Vertex AI 
 | **制程** | **TSMC 2nm** |
 | **核心设计** | **双张量核心 + CAE**（集合通信加速引擎） |
 | **片上 SRAM** | **384 MB**（3× Ironwood） |
-| **显存** | ~288GB HBM（推测每芯片） |
+| **显存** | **288 GB HBM3e**（每芯片） |
 | **显存带宽** | ~8.6 TB/s（推测） |
 | **Pod 芯片数** | **1,152 芯片** |
 | **Pod FP8 算力** | **11.6 EFLOPS** |
+| **单芯片 FP4** | ~10.1 PFLOPS |
 | **CAE 延迟** | 比传统方案降低 **5×** |
 | **散热** | 风冷 / 液冷均可 |
 | **TDP** | 1,300 W |
 | **代工合作伙伴** | **联发科（MediaTek）**（首次） |
 | **公布时间** | 2026-04-22（Google Cloud Next '26） |
-| **量产目标** | **2027 年底** |
+| **出货状态** | **已出货**（Q2 2026 起向 select 客户直售） |
+| **云端上线** | **2026 H2**（Google Cloud） |
+| **全面量产** | **2027 年底** |
 | **性价比** | 比 Ironwood 提升 **80%** |
 | **能效** | 比 Ironwood 提升 **117%** |
 
@@ -124,6 +127,7 @@ TPU 8i 是 Google **AI 推理规模化**的核心 —— Gemini API、Vertex AI 
 | **首次公布** | **2026-04-22**（Google Cloud Next 2026） |
 | **产品页** | https://cloud.google.com/tpu |
 | **云端部署** | 仅 Google Cloud（Vertex AI / Gemini API） |
+| **出货状态** | **已向 select 客户直售**（Q2 2026 起） |
 | **代号** | Trillium 2（推理版） |
 
 ## 相关产品

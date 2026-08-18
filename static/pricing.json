@@ -257,6 +257,20 @@
       "currency": "USD",
       "last_updated": "2026-06-01",
       "source": "AMD 官方指导价"
+    },
+    "mi350p": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-08-18",
+      "source": "预测价格（Advancing AI 2026 发布，对标 RTX PRO 6000）"
+    },
+    "mi430x": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "USD",
+      "last_updated": "2026-08-18",
+      "source": "预测价格（2027 H1 出货，未定价）"
     }
   },
   "intel": {
@@ -474,6 +488,13 @@
       "currency": "USD",
       "last_updated": "2026-06-01",
       "source": "预测价格"
+    },
+    "ascend-960": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "CNY",
+      "last_updated": "2026-08-18",
+      "source": "预测价格（2027-Q4 路线图，未定价）"
     }
   },
   "others": {

@@ -195,6 +195,36 @@
     }
   },
   {
+    "id": "mi350p",
+    "title": "AMD Instinct MI350P (CDNA 4, 风冷 PCIe)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi350p",
+    "description": "AMD Instinct MI350P 风冷 PCIe AI 加速卡：CDNA 4、144GB HBM3E、4TB/s、MXFP4/MXFP6 4.6 PFLOPS、450-600W、4 年来 AMD 首款 PCIe GPU、面向企业存量数据中心升级。",
+    "keywords": [
+      "AMD MI350P",
+      "Instinct MI350P",
+      "CDNA 4",
+      "PCIe",
+      "风冷",
+      "144GB HBM3E",
+      "MXFP4",
+      "MXFP6",
+      "企业 AI"
+    ],
+    "tdpW": 600,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "CDNA 4",
+      "process": "XCD：TSMC 3nm；IOD：TSMC 6nm",
+      "memory": {
+        "capacity": "144 GB HBM3E",
+        "bandwidth": "4 TB/s"
+      },
+      "tdp": "450-600 W",
+      "release": "2026 H2（Advancing AI 2026 发布）"
+    }
+  },
+  {
     "id": "mi355x",
     "title": "AMD Instinct MI355X (288GB HBM3E)",
     "vendor": "amd",
@@ -259,6 +289,41 @@
       },
       "tdp": "1200–1500 W",
       "release": "CES 2026（1月5日发布），Advancing AI 2026（7月22日）确认 SKU 矩阵，2026 H2 量产"
+    }
+  },
+  {
+    "id": "mi430x",
+    "title": "AMD Instinct MI430X (CDNA 5, HPC / 主权 AI)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi430x",
+    "description": "AMD Instinct MI430X HPC/主权 AI 加速卡：CDNA 5、432GB HBM4、23.3TB/s、硬件 FP64 288 TFLOPS（Vera Rubin 的 8.7 倍）、2027 H1 出货，锁定美国 ORNL Discovery 与法国 Alice Recoque 超算。",
+    "keywords": [
+      "AMD MI430X",
+      "Instinct MI430X",
+      "CDNA 5",
+      "HBM4",
+      "432GB",
+      "FP64",
+      "288 TFLOPS",
+      "HPC",
+      "主权 AI",
+      "Discovery",
+      "Alice Recoque"
+    ],
+    "tdpW": 1500,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "CDNA 5",
+      "process": "TSMC N2 (2nm) 计算芯粒 + 3nm 辅助芯粒（与 MI455X 相同）",
+      "memory": {
+        "capacity": "432 GB HBM4",
+        "bandwidth": "23.3 TB/s"
+      },
+      "compute": {
+        "fp32": "~250 TFLOPS（推测）"
+      },
+      "tdp": "推测 1,200-1,500 W",
+      "release": "2027 H1 出货"
     }
   },
   {
@@ -702,7 +767,7 @@
       "architecture": "TPU 8i（推理专用）",
       "process": "TSMC 2nm",
       "memory": {
-        "capacity": "~288GB HBM（推测每芯片）",
+        "capacity": "288 GB HBM3e（每芯片）",
         "bandwidth": "~8.6 TB/s（推测）"
       },
       "tdp": "1,300 W"
@@ -731,7 +796,7 @@
       "architecture": "TPU 8t（训练专用）",
       "process": "TSMC 2nm",
       "memory": {
-        "capacity": "8× HBM3e 12层（单芯片推测 ~256GB）"
+        "capacity": "8× HBM3e 12层（单芯片 ~216GB）"
       },
       "tdp": "1,300 W"
     }
@@ -1090,6 +1155,29 @@
         "fp16": "未公开（推测 ~780 TFLOPS）"
       },
       "tdp": "600 W"
+    }
+  },
+  {
+    "id": "ascend-960",
+    "title": "Huawei Ascend 960 (Atlas 960 SuperPoD)",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-960",
+    "description": "Huawei Ascend 960 (Atlas 960 SuperPoD) 预览卡：数字中国建设峰会披露 15488 张昇腾卡超节点、单芯片推测 FP8 ~2 PFLOPS / N+3 工艺、2027-Q4 路线图。",
+    "keywords": [
+      "Huawei Ascend 960",
+      "昇腾 960",
+      "Atlas 960 SuperPoD",
+      "15488 卡",
+      "灵衢总线",
+      "FP8",
+      "超节点"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "Da Vinci v6（推测）",
+      "process": "N+3（推测）",
+      "release": "2027-Q4（路线图）"
     }
   },
   {

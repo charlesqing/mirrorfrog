@@ -12,7 +12,7 @@ keywords: [Google TPU 8t, Trillium 2, 训练 TPU, TSMC 2nm, 9600芯片Pod, 121 E
 
 **Google TPU 8t** 是 2026-04-22 **Google Cloud Next '26** 公布的**最新一代训练专用 TPU**，与同期公布的 TPU 8i 推理专用形成 **8t + 8i 拆分架构**。采用 **TSMC 2nm** 制程、**双计算 Die** 设计、**8×HBM3e 12层** 显存堆栈。单 Pod 集成 **9,600 芯片**，HBM 总量 **2 PB**，总算力 **121 EFLOPS FP4**（Ironwood 的 3×）。继承与 **Broadcom（博通）** 的长期合作。
 
-TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，集成 **Arm Axion CPU**（Google 自研 64 核 Arm Neoverse V2）实现 TPU + CPU 协同。配备 **SparseCore** 加速 MoE 路由和推荐系统。量产目标 **2027 年底**。
+TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，集成 **Arm Axion CPU**（Google 自研 64 核 Arm Neoverse V2）实现 TPU + CPU 协同。配备 **SparseCore** 加速 MoE 路由和推荐系统。**2026 H2 上线 Google Cloud**，已向 select 客户直售出货（Q2 2026 起），2027 年底全面量产。
 
 ## 核心规格
 
@@ -22,19 +22,21 @@ TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，�
 | **架构** | TPU 8t（训练专用） |
 | **制程** | **TSMC 2nm** |
 | **Die 设计** | **双计算 Die** |
-| **显存** | 8× **HBM3e 12层**（单芯片推测 ~256GB） |
+| **显存** | 8× **HBM3e 12层**（单芯片 ~216GB） |
 | **HBM 带宽** | ~7 TB/s（推测每芯片） |
 | **Pod 芯片数** | **9,600 芯片** |
 | **Pod HBM 总量** | **2 PB** |
 | **Pod FP4 算力** | **121 EFLOPS**（3× Ironwood） |
 | **集成 CPU** | **Arm Axion（Google 自研，64 核 Neoverse V2）** |
 | **SparseCore** | 加速 MoE / 推荐系统 |
-| **互联** | ICI 3D Torus |
+| **互联** | ICI 3D Torus + **Virgo 网络**（单设施 134,000 卡 / 跨站点 100 万+ 卡） |
 | **散热** | 第4代液冷 |
 | **TDP** | 1,300 W |
 | **代工合作伙伴** | **Broadcom（博通）** |
 | **公布时间** | 2026-04-22（Google Cloud Next '26） |
-| **量产目标** | **2027 年底** |
+| **出货状态** | **已出货**（Q2 2026 起向 select 客户直售） |
+| **云端上线** | **2026 H2**（Google Cloud） |
+| **全面量产** | **2027 年底** |
 
 > 📌 **8t 命名**：TPU 8 代 + **t = training（训练）**。8t 与 8i 同代，**仅用于训练**。
 
@@ -50,7 +52,7 @@ TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，�
 | Pod HBM | — | **2 PB** | 远超 |
 | Pod FP4 算力 | ~42 EFLOPS（推测） | **121 EFLOPS** | ~3× |
 | 集成 CPU | 无 | **Arm Axion 64 核** | 新增 |
-| 量产 | 已开放 | **2027 年底** | — |
+| 量产 | 已开放 | **2026 H2 上线云 / 2027 年底全面量产** | — |
 
 ## TPU 8t 训练范式优化
 
@@ -109,6 +111,7 @@ TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，�
 | **首次公布** | **2026-04-22**（Google Cloud Next 2026） |
 | **产品页** | https://cloud.google.com/tpu |
 | **云端部署** | 仅 Google Cloud |
+| **出货状态** | **已向 select 客户直售**（Q2 2026 起） |
 | **代号** | Trillium 2 |
 
 ## 相关产品
