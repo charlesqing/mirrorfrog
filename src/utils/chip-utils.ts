@@ -8,8 +8,8 @@ export interface HotChip {
   arch: string;
   mem: string;
   bw: string;
-  fp16: string;   // FP16 算力显示字符串，如 "989 TFLOPS"
-  tdp: string;    // TDP 显示字符串，如 "700W"
+  fp16?: string;   // FP16 算力显示字符串，如 "989 TFLOPS"
+  tdp?: string;    // TDP 显示字符串，如 "700W"
   fp16Tflops: number;
   category: string;
   bwRatio: number;

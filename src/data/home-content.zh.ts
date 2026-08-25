@@ -11,7 +11,7 @@ export interface HotChip {
   fp16: string;   // FP16 算力，如 "989 TFLOPS"
   tdp: string;    // TDP，如 "700W"
   fp16Tflops: number;
-  category: '训练' | '推理' | '消费' | '边缘' | '晶圆' | '神经形态';
+  category: string;
   bwRatio: number;
   slug: string;
   released: string;
@@ -54,6 +54,7 @@ export interface HomeContent {
   statsVendorLabel: string;
   statsPagesLabel: string;
   statsUpdateLabel: string;
+  [key: string]: unknown;
 }
 
 /**
@@ -94,7 +95,7 @@ export const ZH_CONTENT: HomeContent = {
   hotChipsTitle: '🔥 热门芯片',
   hotChipsDesc: '按"重要性 + 时效性 + 算力"综合排序 — 得分越高排名越靠前。',
   hotChipsHeader: ['芯片名称', '厂商', '架构', '显存', '带宽', 'FP16', 'TDP', '分类'],
-  viewFullComparison: '查看完整对比表（167 款）→',
+  viewFullComparison: '查看完整对比表（172 款）→',
   latestNewsTitle: '📰 最新动态',
   latestNewsDescPrefix: '行业新闻、产品发布、技术深度、选型指南。',
   latestNewsDescLink: '查看所有文章 →',

@@ -68,7 +68,7 @@ function writeUrlParams(state: Record<UrlKey, string | number | null>) {
   const u = new URLSearchParams(window.location.search);
   URL_KEYS.forEach(k => {
     const v = state[k];
-    if (v == null || v === '' || v === false) u.delete(k);
+    if (v == null || v === '') u.delete(k);
     else u.set(k, String(v));
   });
   const newQs = u.toString();
@@ -464,13 +464,12 @@ function Sensitivity({ base, params }: {
     const dcCost = p.dcCost, pue = p.pue, idleRatio = p.idleRatio, discount = p.discount, unitPrice = p.unitPriceUSD;
     const proc = unitPrice * qty;
     const annualDeviceElec = tdpKW * qty * (idleRatio + (1 - idleRatio) * usage) * 8760 * price;
-    const annualFacilityElec = annualDeviceElec * pue;
     const annualCooling = annualDeviceElec * (pue - 1);
     const annualDc = dcCost * qty;
     // 折现
     const r = discount;
     const discountFactor = r > 0 ? (1 - Math.pow(1 + r, -years)) / r : years;
-    const opDiscounted = (annualFacilityElec + annualDc + annualCooling) * discountFactor;
+    const opDiscounted = (annualDeviceElec + annualCooling + annualDc) * discountFactor;
     return proc + opDiscounted;
   };
   const items = [
@@ -645,15 +644,16 @@ export default function TcoCalculator() {
   const proc = unitPriceUSD * qty;
   // 设备年电费：考虑空闲功耗
   const annualDeviceElec = tdpKW * qty * (idleRatio + (1 - idleRatio) * usage) * 8760 * price;
-  const annualFacilityElec = annualDeviceElec * pue;
+  // 冷却为设备电的一部分（PUE 已把冷却计入设施总电，不可再单独相加，否则双重计算）
   const annualCooling = annualDeviceElec * (pue - 1);
   const annualDc = dcCost * qty;
-  const annualOp = annualFacilityElec + annualDc + annualCooling;
+  // 运营成本 = 设备电 + 冷却 + 租金 = 设施总电 + 租金（正确，无重复）
+  const annualOp = annualDeviceElec + annualCooling + annualDc;
   // 折现
   const discountFactor = discount > 0 ? (1 - Math.pow(1 + discount, -years)) / discount : years;
   const opDiscounted = annualOp * discountFactor;
-  const elec = annualFacilityElec * discountFactor;
-  const cool = annualCooling * discountFactor;
+  const elec = annualDeviceElec * discountFactor;   // 电费 = 设备 IT 电
+  const cool = annualCooling * discountFactor;       // 冷却 = 设备电 × (PUE-1)
   const dc = annualDc * discountFactor;
   const tco = proc + opDiscounted;
   const costs = { proc, elec, dc, cool, tco };
@@ -677,7 +677,7 @@ export default function TcoCalculator() {
       // 单年折现
       const singleYrFactor = discount > 0 ? Math.pow(1 + discount, -(y - 1)) : 1;
       // 每年的运营成本（不折现）
-      const yrElec = annualFacilityElec;
+      const yrElec = annualDeviceElec;
       const yrDc = annualDc;
       const yrCool = annualCooling;
       return {
@@ -690,11 +690,16 @@ export default function TcoCalculator() {
         _factor: yrFactor,
       };
     });
-  }, [years, proc, annualFacilityElec, annualDc, annualCooling, discount]);
+  }, [years, proc, annualDeviceElec, annualDc, annualCooling, discount]);
 
   const addCompare = useCallback(() => {
     if (!chip || !tco || !proc) {
       setToast('⚠️ 请先选择芯片并填写价格');
+      setTimeout(() => setToast(''), 2000);
+      return;
+    }
+    if (!chip.tdp || chip.tdp <= 0) {
+      setToast('⚠️ 此芯片缺少单卡 TDP，无法估算电费，暂不支持加入对比');
       setTimeout(() => setToast(''), 2000);
       return;
     }
@@ -733,6 +738,12 @@ export default function TcoCalculator() {
             <div className={styles.warningBox} role="alert">
               <span>⚠️</span>
               <span><strong>整机系统</strong>：此芯片 TDP 为 {fmtFull(chip.tdp)}，是整套机柜功耗而非单卡。TCO 计算结果不适用。</span>
+            </div>
+          )}
+          {chip && (!chip.tdp || chip.tdp <= 0) && (
+            <div className={styles.warningBox} role="alert">
+              <span>⚠️</span>
+              <span><strong>缺少单卡 TDP</strong>：此卡片未提供单卡功耗（如整机超级节点），无法估算电费与冷却成本，TCO 仅含采购与租金。</span>
             </div>
           )}
           {chip && (
@@ -954,7 +965,7 @@ export default function TcoCalculator() {
                 <strong>每瓦 TCO：</strong> {chip.tdp > 0 ? <><AnimatedMoney value={tco / qty / chip.tdp} /> / W</> : '—'}
               </div>
               <div className={styles.insightRow}>
-                <strong>电费年增长率：</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualFacilityElec} /> / 年（PUE={pue.toFixed(2)} 已计）</> : '—'}
+                <strong>电费年增长率：</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} /> / 年（设备电，PUE={pue.toFixed(2)} 已含冷却）</> : '—'}
               </div>
               {tcoPerTflops != null && (
                 <div className={styles.insightRow}>

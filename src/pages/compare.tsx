@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -55,22 +55,36 @@ export default function ComparePage(): ReactNode {
   const [chips, setChips] = useState<Chip[]>([]);
   const [selected, setSelected] = useState<(Chip | null)[]>(Array(MAX_CHIPS).fill(null));
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const loadChips = useCallback(() => {
+    setLoading(true);
+    setError(null);
     fetch('/chips.json')
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then(data => {
         setChips(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        setError(err instanceof Error ? err.message : 'Failed to load chip data');
+        setLoading(false);
+      });
   }, []);
 
+  useEffect(() => {
+    loadChips();
+  }, [loadChips]);
+
   const selectedChips: CompareChip[] = useMemo(() => {
-    return selected.filter(Boolean).map(c => {
-      if (!c) return null;
-      const specs = c.specs || {};
-      return {
+    return selected
+      .filter((c): c is Chip => c !== null)
+      .map(c => {
+        const specs = c.specs || {};
+        return {
         title: c.title,
         vendor: c.vendor,
         slug: c.slug,
@@ -105,6 +119,39 @@ export default function ComparePage(): ReactNode {
   const handleClearAll = () => {
     setSelected(Array(MAX_CHIPS).fill(null));
   };
+
+  if (error) {
+    return (
+      <Layout title={isZh ? '芯片对比' : 'Chip Comparison'}>
+        <main style={{ maxWidth: 800, margin: '0 auto', padding: '2rem 1rem' }}>
+          <div style={{
+            padding: '1.5rem',
+            border: '1px solid var(--ifm-color-danger, #e74c3c)',
+            borderRadius: 8,
+            textAlign: 'center',
+          }}>
+            <p style={{ marginBottom: '1rem' }}>
+              {isZh ? '加载芯片数据失败' : 'Failed to load chip data'}: {error}
+            </p>
+            <button
+              onClick={loadChips}
+              style={{
+                padding: '0.5rem 1.25rem',
+                borderRadius: 6,
+                border: '1px solid var(--ifm-color-primary, #6c5ce7)',
+                background: 'var(--ifm-color-primary, #6c5ce7)',
+                color: '#fff',
+                cursor: 'pointer',
+                fontSize: '0.95rem',
+              }}
+            >
+              {isZh ? '重试' : 'Retry'}
+            </button>
+          </div>
+        </main>
+      </Layout>
+    );
+  }
 
   if (loading) {
     return (

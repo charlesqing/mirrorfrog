@@ -121,7 +121,9 @@ const sidebars: SidebarsConfig = {
         'cards/amd/mi325x',
         'cards/amd/mi350',
         'cards/amd/mi355x',
+        'cards/amd/mi350p',
         'cards/amd/mi400',
+        'cards/amd/mi430x',
         'cards/amd/ryzen-ai-max',
       ],
     },
@@ -204,6 +206,7 @@ const sidebars: SidebarsConfig = {
         'cards/huawei/ascend-920',
         'cards/huawei/ascend-950pr',
         'cards/huawei/ascend-950dt',
+        'cards/huawei/ascend-960',
       ],
     },
     {
