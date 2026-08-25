@@ -1,0 +1,111 @@
+---
+slug: hyperscaler-custom-silicon-2026
+title: '云巨头自研芯片浪潮 2026：OpenAI Jalapeño、Maia 200、MTIA、TPU v8 集体"去英伟达化"'
+date: '2026-08-22'
+authors: aicomputecards
+tags: [产业报告, 自研芯片, OpenAI, 谷歌, google, tpu, 博通, custom-chip, AI基础设施, 推理芯片]
+description: '2026 年云巨头自研 AI 芯片进入爆发期：OpenAI Jalapeño（博通合作，9 个月端到端设计，token 成本目标降 50%，2026 底商用）、微软 Maia 200（1400 亿晶体管，已部署服务 GPT-5.2）、Meta MTIA 300-500（RISC-V，Broadcom）、Google TPU v8（8t/8i 分芯）、亚马逊 Trainium 3、Anthropic 自建团队。Hot Chips 2026 的 ASIC 专场几乎是一场"去英伟达化"阅兵，但 NVIDIA 的回应是全栈而非单芯。'
+---
+
+# 云巨头自研芯片浪潮 2026：OpenAI Jalapeño、Maia 200、MTIA、TPU v8 集体"去英伟达化"
+
+> 2026 年 8 月 Hot Chips 的周二下午 AI 专场，是本届最有历史意义的一场——不是因为某颗芯片多强，而是因为**登台的几乎全是"超算厂商去 NVIDIA 化"的自研 ASIC**：Google 第八代 TPU、OpenAI 首颗自研芯片、微软 Maia、Meta MTIA、Cerebras 晶圆级机架同台。当全球最大的 AI 算力买家开始把 GPU 当作"可选项之一"，AI 硬件的权力结构正在松动。
+
+---
+
+## 1. OpenAI Jalapeño：9 个月造出一颗芯片
+
+OpenAI 于 **2026 年 6 月 24 日**联合博通发布首款自研推理 ASIC **Jalapeño**，是"自研推理芯片俱乐部"的第五个成员。
+
+| 维度 | Jalapeño |
+|------|----------|
+| **合作方** | 博通（Broadcom）+ 台积电制造 |
+| **定位** | 推理专用 ASIC |
+| **设计周期** | 端到端 9 个月（Greg Brockman 称借助 OpenAI 自有模型辅助设计） |
+| **成本目标** | 较通用 GPU 栈 **token 成本降约 50%** |
+| **商用时间** | 2026 年底首批部署，长期目标 10GW 自研芯片 |
+| **合作规模** | 与博通最高 100 亿美元战略合作（2029 年前部署加速器与网络） |
+
+> 演讲标题"You Can Just Build Things … Chips"本身就是信号：最大的 AI 算力买家不再默认 GPU 是唯一路径。
+
+---
+
+## 2. Google TPU v8：十年来最大架构转向——训练/推理分芯
+
+Google 拥有最悠久的自研芯片历史（2016 至今），第八代 TPU 首次**将产品线一分为二**：
+
+| 型号 | 代号 | 合作方 | 定位 | 关键规格 |
+|------|------|--------|------|----------|
+| **TPU 8t** | Sunfish | Broadcom | 训练 | 单 pod 9600 卡、121 FP4 ExaFLOPS、2PB 共享 HBM、ICI 带宽翻倍 |
+| **TPU 8i** | Zebrafish | MediaTek | 推理 | 288GB HBM、384MB 片上 SRAM（3× 上代）、ICI 19.2 Tb/s |
+
+产能方面，摩根士丹利基于供应链访谈估算 **2026 年 Google TPU 产量可能超 300 万颗**（券商预测，非官方目标）。Google 也是唯一实现自研芯片大规模部署并对外销售算力的厂商（Gemini 跑在 TPU 上）。
+
+---
+
+## 3. Meta MTIA：从推荐系统到 GenAI 双使命
+
+Meta 的自研之路起点最清晰——**MTIA 最初为推荐排序硬件而生，正被生成式 AI 拉向双使命**。
+
+- **MTIA 300** 已部署；**400 / 450 / 500** 计划在 2027 年前约每 6 个月推出一款；
+- 基于 **RISC-V**，Meta 称最高 **25× 算力增益**；
+- 节点沿行业节奏演进：100（7nm）→ 200（5nm）→ 300 系列（3nm + CoWoS）；
+- 与 **博通**合作，据称另一颗代号 **Iris** 的芯片已于 2026 年 7 月通过测试；
+- Meta 计划 2026 年 9 月启动其中一款的量产，以将其整体算力翻倍。
+
+---
+
+## 4. 微软 Maia 200/300：部署最领先
+
+微软 **Maia 200** 于 2026 年 1 月 26 日发布，是四家中**部署最先进**的：
+
+| 维度 | Maia 200 |
+|------|----------|
+| **制程** | 台积电 3nm，1400 亿+ 晶体管 |
+| **算力** | 10+ PFLOPS FP4 / 5 PFLOPS FP8 |
+| **显存** | 216GB HBM3E，7 TB/s |
+| **功耗** | 750W |
+| **部署** | 已在得梅因（Des Moines）数据中心运行，服务 OpenAI GPT-5.2 与 Microsoft 365 Copilot |
+
+微软称其在特定基准上约 **3× 亚马逊 Trainium 性能**。短期策略是"自研 Maia + 外购英伟达"双路线并行——自研芯片从设计到量产需要时间，英伟达成熟生态短期内无法替代。
+
+---
+
+## 5. 亚马逊 Trainium 3 与 Anthropic 自建团队
+
+- **亚马逊**：Trainium 系列已商用，累计部署 **140 万颗**（官方披露），是数十亿美元业务；优势在 AWS 客户基数——企业可在英伟达 GPU 与自研芯片间选择。Trainium 3 延续这一路线。
+- **Anthropic**：2026 年 8 月宣布组建**自建芯片团队**，尚无 tape-out 或量产时间表，初期定位为补充（而非取代）与 NVIDIA/AMD/AWS/Google Cloud 的现有合作，目标是为 Claude 架构量身打造、摆脱对单一 GPU 的依赖。
+
+---
+
+## 6. NVIDIA 的回应：不是更快的 GPU，而是全栈
+
+容易把叙事简化成"四家造芯片、英伟达防守 GPU"。但 NVIDIA 在 Hot Chips 拿了 **6 个 slot**：RISC-V 教程、Vera CPU、Rubin GPU、BlueField-4 DPU、Spectrum-X 多平面网络、以及 LPU 加速器。
+
+> 一颗 hyperscaler ASIC 只替换了这五个支柱中的**一个**。如果 CPU、NIC、交换 fabric 与软件都来自同一家供应商，把加速器换掉省下的，比加速器那一行账单暗示的要少得多。Rubin 的打法是一个横跨**七颗芯片、五种机柜**的全栈 AI 工厂平台——竞争回应是"全栈位置"，而非"更快的一颗芯"。
+
+---
+
+## 7. 趋势判断：推理去 GPU 化，训练仍 GPU 主导
+
+- **推理侧**：CUDA 护城河明显变浅。推理在端点层面可并行、可替换，自研 ASIC 通过剪掉通用性税（只实现 LLM 实际执行的操作）换取更低 cost/token。Groq LPU、Cerebras、各家 TPU/ASIC 都在同一指标上竞争。
+- **训练侧**：Foundation model 仍用 GPU 训练，短期内无人认真挑战。NVIDIA 在训练的三道护城河（最快硅 + NVLink + CUDA）依旧牢固。
+- **结论**：自研芯片不是"替代英伟达"，而是**在推理这一最大、增长最快的战场上，给买家一个可信的谈判外部选项**——这本身就足以重塑 AI 基础设施的经济学。
+
+## 相关链接
+
+- [推理加速卡市场 2026](/blog/inference-accelerator-market-2026)
+- [Hot Chips 2026 全景总结](/blog/hot-chips-2026-recap)
+- [Google TPU 8t 规格页](/docs/cards/google/tpu-8t)
+- [Google TPU 8i 规格页](/docs/cards/google/tpu-8i)
+
+## 参考资料
+
+- [Hot Chips 2026: 4 Hyperscalers Put Custom AI Silicon on One Afternoon - Sean Kim](https://blog.imseankim.com/hot-chips-2026-custom-ai-silicon-meta-microsoft-google-openai)
+- [Custom AI inference silicon: why OpenAI built Jalapeño - nexi.fund](https://nexi.fund/custom-ai-inference-silicon-2026)
+- [Anthropic Builds Custom AI Chips for Claude - Studio Global AI](https://www.studioglobal.ai/lv/discover/answers/what-is-anthropic-doing-with-custom-ai-6a82330710551e202b12fc5b)
+- [所有大厂都在做同一件事：自己造芯片，少买英伟达的 - 今日头条](https://www.toutiao.com/article/7673367199922324019)
+
+---
+
+**本文基于 2026 年 8 月 Hot Chips 现场报道、企业公告与行业分析整理。部分产能与性能为券商估算或厂商公布口径，实际以量产产品为准。**

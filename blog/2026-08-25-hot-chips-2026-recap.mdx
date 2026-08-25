@@ -1,0 +1,135 @@
+---
+slug: hot-chips-2026-recap
+title: 'Hot Chips 2026 全景总结：Rubin、MI455X、Crescent Island 同台，AI 算力交付进入"系统级"时代'
+date: '2026-08-25'
+authors: aicomputecards
+tags: [新闻, nvidia, rubin, amd, mi455x, intel, huawei, 华为, 昇腾, AI硬件, TPU, tpu-8t, tpu-8i, 自研芯片, OpenAI]
+description: 'Hot Chips 2026（8月23-25日，斯坦福）落幕：NVIDIA Vera Rubin NVL72、AMD MI455X/Helios、Intel Crescent Island 三大路线正面对决；Google TPU v8（8t/8i 分芯）、OpenAI Jalapeño、微软 Maia 200、Meta MTIA 自研 ASIC 集中亮相。本文全景梳理旗舰架构与"机柜即计算机"的产业转向。'
+---
+
+# Hot Chips 2026 全景总结：Rubin、MI455X、Crescent Island 同台，AI 算力交付进入"系统级"时代
+
+> **2026年8月23日至25日**，第38届 Hot Chips（HC38）在斯坦福纪念礼堂举行。作为全球高性能芯片架构的风向标，本届大会恰好撞上 AI 算力军备竞赛最焦灼的时刻——官方议程共 **48 个条目**，其中 AI 加速器 7 个、存储教程 6 个、CPU 6 个、GPU 与网络各 4 个。如果把各家演讲摆在一起，**一个共识浮出水面：AI 算力的竞争单位，已经从"单颗芯片"变成了"整机柜 / 整个系统"**。
+
+---
+
+## 1. 概览：三天议程，几乎就是 2027 年 AI 机柜市场的预演
+
+周一（8/24）下午的 GPU 专场是全场焦点，四家演讲几乎是 2027 年 AI 机架市场的对撞：
+
+- **NVIDIA Rubin GPU**（"Driving the Era of Agentic AI"）：首个 chiplet 架构 GPU，288GB HBM4、FP4 约 50 PFLOPS，搭配 88 核 Arm 架构 Vera CPU 组成 NVL72 / NVL144 机柜，2026 下半年量产。
+- **AMD Instinct MI400 连讲两场**（架构 + 系统架构）：把"机架级"故事讲透。
+- **Intel Crescent Island**：专为 Agentic AI 推理设计的 350W 风冷卡。
+
+周二（8/25）下午的 AI 专场，则几乎是"超算厂商去 NVIDIA 化"的阅兵式：Google 第八代 TPU、OpenAI 首颗自研芯片、微软 Maia 200、Meta MTIA、Cerebras 晶圆级机架同台。
+
+> 每一个登台厂商，都在开场两页 PPT 内用到了 "Agentic AI"（智能体 AI）这个词——这不是巧合，而是 2026 年 AI 负载设计目标的集体转向。
+
+---
+
+## 2. NVIDIA Rubin：一个机柜，就是一台超级计算机
+
+英伟达在 Hot Chips 上主讲的不是单颗 GPU，而是 **Vera Rubin NVL72 整机柜**——72 颗 Rubin GPU + 36 颗 Vera CPU，18 个计算托盘 + 9 个 NVLink 交换托盘，约 130 万颗组件、近 1300 颗芯片，整柜重约 4000 磅（约 1.8 吨）。
+
+单颗 Rubin GPU 的规格同样惊人：
+
+| 指标 | Rubin GPU | 对比 Blackwell |
+|------|-----------|---------------|
+| **晶体管** | 3360 亿（TSMC 3nm 双 die） | 2080 亿（+61.5%） |
+| **显存** | 288GB HBM4 | — |
+| **带宽** | 22 TB/s | Blackwell 的 2.8 倍 |
+| **NVFP4 推理** | 50 PFLOPS | GB200 的 5 倍 |
+| **训练算力** | 35 PFLOPS | 3.5 倍 |
+
+最颠覆性的设计在计算托盘：**无电缆、无软管、无风扇**，全部通过 PCB 背板互联。英伟达称组装时间从近 2 小时压缩到 5 分钟（快 20 倍），同时提升可维护性。
+
+**英伟达这次卖的不是 FLOPS，而是 tokens per megawatt（每兆瓦 token 数）。** 其引用 SemiAnalysis 基于 DeepSeek-v4-PRO（140K+ 上下文、AgentX 负载）的基准称：Vera Rubin NVL72 在交互强度上升时，较 GB300 NVL72 提供 **10× 至最高 30× 的 tokens/MW**。单柜提供 **3.6 EFLOPS** 推理算力，整柜功耗 **190–230kW**；远期产能目标为 **每天 1000 个 NVL72 机柜**。
+
+---
+
+## 3. AMD MI455X + Helios：显存反超与开放互联
+
+AMD 的答案是与英伟达正面硬刚的 **MI455X + Helios 机架**。MI455X 采用 CDNA 5 架构，8 个 N2 制程加速器 die + N3P 制程互联 die，256 个工作组处理器、192MB 全局 L2。
+
+| 指标 | MI455X | 对比 Rubin |
+|------|--------|-----------|
+| **显存** | 432GB HBM4（12 层堆叠） | 比 Rubin 288GB 高 50% |
+| **带宽** | 23.3 TB/s | 略胜一筹 |
+| **MXFP4 算力** | 40.26 PFLOPS | — |
+| **系统（Helios 72 卡）** | FP4 推理 2.9 ExaFLOPS | — |
+| **报价** | 约 525 万美元/柜 | — |
+
+系统层面，AMD 押注 **UALoE（以太网上的超加速器互联）** 开放标准：每颗 GPU 提供 3.6 TB/s 双向互联带宽，交换托盘内两颗 512 端口 200G UALoE 交换芯片合计 10.8 TB/s——对标 NVLink 的同时把互联协议开放给整个产业。
+
+> 量产节奏：AMD 计划 2026 下半年交付工程样品与小批量系统，2027 年 Q2 大规模放量。此前市场曾传出 Helios 因散热问题延期，AMD 官方未予确认。
+
+---
+
+## 4. Intel Crescent Island：风冷大显存的"性价比异类"
+
+英特尔给出一条完全不同的路：**Crescent Island**——一颗 350W、风冷、标准 PCIe 槽位的推理 GPU，专为 Agentic AI 设计，核心指标是 **tokens per watt**。
+
+| 指标 | Crescent Island | 说明 |
+|------|-----------------|------|
+| **架构** | Xe3P，32 个 Xe 核心，32MB 统一 L2 | Hot Chips 披露 |
+| **内存** | Intel 自牌卡 160GB / ODM 最高 480GB LPDDR5X | 比 Rubin 288GB HBM4 还多 |
+| **形态** | 350W 风冷 PCIe | 直插标准机架，免液冷改造 |
+| **RAS** | ECC、动态页离线、硬封装修复、PCIe 高级错误上报 | 回应"静默数据损坏" |
+
+英特尔的逻辑很清晰：推理场景对**显存容量**的需求远大于带宽，用低成本 LPDDR5X 堆容量、用风冷省掉液冷基础设施，就能把单位 token 成本打下来。配合 Diamond Rapids 至强（256 性能核、1.28GB 缓存、128 条 PCIe Gen6），英特尔试图用"CPU + 推理 GPU + 开放软件栈"从边缘到数据中心全场景围堵。
+
+---
+
+## 5. 自研 ASIC 大集结：Google、OpenAI、微软、Meta 同台
+
+周二下午的 AI 专场，是本届最有历史意义的一场——"超算厂商去 NVIDIA 化"的阅兵：
+
+| 芯片 | 厂商 / 合作 | 定位 | 关键规格 / 进度 |
+|------|------------|------|----------------|
+| **TPU 8t（Sunfish）** | Google × Broadcom | 训练 | 单 pod 9600 卡、121 FP4 ExaFLOPS、2PB 共享 HBM |
+| **TPU 8i（Zebrafish）** | Google × MediaTek | 推理 | 288GB HBM、384MB 片上 SRAM（3× 上代）、ICI 19.2 Tb/s |
+| **Jalapeño** | OpenAI × Broadcom | 推理 | 9 个月端到端设计，目标 token 成本降 ~50%，2026 底商用 |
+| **Maia 200** | 微软（TSMC 3nm） | 推理 | 1400 亿+ 晶体管、10+ PFLOPS FP4、216GB HBM3E，已在得梅因数据中心服务 GPT-5.2 |
+| **MTIA 300–500** | Meta（RISC-V）× Broadcom | 训推双使命 | 最高 25× 算力增益，2027 前每 6 个月一款 |
+
+> Google 首次将 TPU 拆分为训练（8t）与推理（8i）两款专用架构，是其十年来最大的架构转向。Norm Jouppi 亲自登台主讲 TPU v8。
+
+---
+
+## 6. 存储与网络两条暗线：HBM4 元年 + AI 工厂操作系统
+
+除 GPU/ASIC 外，两场暗线同样关键：
+
+- **存储**：三星 HBM Base Die（逻辑工艺做基础裸片）与 SK 海力士先进封装同台，HBM4 时代"基础裸片代工化"产业变局开启；HBF（高带宽闪存）、LPDDR5X-PIM、3D DRAM、CXL 计算存储集中展示"存算一体"从论文走向产品。
+- **网络**：NVIDIA BlueField-4（DPU）与 Spectrum-X Multiplane 架构（Gilad Shainer 主讲）——网络正成为 gigascale AI 的决定性架构，规模从数十万卡向百万卡迈进；博通 Thor Ultra 以太网 NIC 持续进逼；Mojo Vision 展示芯片级光 I/O。
+
+---
+
+## 7. 三条路线，一个共识
+
+同一场大会上，三家给出了三种截然不同的 AI 算力交付哲学：
+
+1. **英伟达：全栈封闭整合**——GPU、CPU、DPU、交换芯片全部自研，用极致软硬件协同把系统性能推到极致，代价是客户被深度绑定。
+2. **AMD：开放标准追赶**——用更大 HBM4 容量 + UALoE 开放互联打"性价比 + 开放"牌，配合 Meta、OpenAI 的 12GW 级订单撕开推理缺口。
+3. **英特尔：风冷性价比**——放弃液冷、放弃 HBM，用 LPDDR5X 大显存 + 标准 PCIe 切入，赌"大多数推理不需要 200kW 机柜"。
+
+但三家的共同结论是：**竞争的单位不再是芯片，而是协同设计的系统（rack / system）**。对采购方而言，2027 年的算力规划，要比对的不是"单卡 PFLOPS"，而是"每兆瓦 token 数、时延、可用性与全周期成本"。
+
+## 相关链接
+
+- [NVIDIA Rubin 规格页](/docs/cards/nvidia/rubin)
+- [AMD MI455X 规格页](/docs/cards/amd/mi455x)
+- [Intel Crescent Island 规格页](/docs/cards/intel/crescent-island)
+- [Google TPU 8t 规格页](/docs/cards/google/tpu-8t)
+- [Google TPU 8i 规格页](/docs/cards/google/tpu-8i)
+
+## 参考资料
+
+- [Hot Chips 2026 三巨头同台：Rubin 3360 亿晶体管、MI455X 432GB、Crescent Island 480GB - IC 芯片行业观察](https://hotchips.org/)
+- [Hot Chips Day 2: Rubin, MI400 and Diamond Rapids Go Head-to-Head - AI2Work](https://ai2.work/blog/hot-chips-day-2-rubin-mi400-and-diamond-rapids-go-head-to-head)
+- [NVIDIA Vera Rubin NVL72 Rack at Hot Chips 2026 - ServeTheHome](https://www.servethehome.com/nvidia-vera-rubin-nvl72-rack-at-hot-chips-2026)
+- [Hot Chips 2026: 4 Hyperscalers Put Custom AI Silicon on One Afternoon - Sean Kim](https://blog.imseankim.com/hot-chips-2026-custom-ai-silicon-meta-microsoft-google-openai)
+
+---
+
+**本文基于 Hot Chips 2026（8月23-25日）官方演讲与 ServeTheHome、SemiAnalysis、TechPowerUp 等现场报道整理。性能数据均为厂商公布口径，实际表现以量产产品为准。**
