@@ -327,27 +327,59 @@
     }
   },
   {
+    "id": "mi440x",
+    "title": "AMD Instinct MI440X (CDNA 5, 企业级 8-GPU)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/mi440x",
+    "description": "AMD Instinct MI440X 企业级 AI GPU：CDNA 5 架构、432GB HBM4、面向标准 8-GPU 服务器（配 EPYC Venice），CES 2026 披露、尚未正式发布。",
+    "keywords": [
+      "AMD MI440X",
+      "Instinct MI440X",
+      "CDNA 5",
+      "HBM4",
+      "432GB",
+      "企业级",
+      "8-GPU",
+      "EPYC Venice",
+      "Helios"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "CDNA 5",
+      "process": "TSMC N2（2nm）计算芯粒 + N3（3nm）辅助芯粒（与 MI455X 同源）",
+      "memory": {
+        "capacity": "432 GB HBM4（沿用 MI400 系列平台）",
+        "bandwidth": "推测 ~19.6–23.3 TB/s"
+      },
+      "compute": {
+        "fp8": "推测 ~20 PFLOPS（MXFP8）"
+      },
+      "tdp": "未公开"
+    }
+  },
+  {
     "id": "mi455x",
     "title": "AMD MI455X",
     "vendor": "amd",
     "slug": "/docs/cards/amd/mi455x",
-    "description": "AMD Instinct MI455X GPU，基于CDNA 5架构，2nm与3nm混合制程，432GB HBM4显存，FP4算力40 PFLOPS，2026年CES发布的AI训练与推理GPU",
+    "description": "AMD Instinct MI455X GPU，基于CDNA 5架构，TSMC N2+N3混合制程，432GB HBM4显存，MXFP4算力40.3 PFLOPS，2026年7月23日 Advancing AI 2026发布的AI训练与推理GPU",
     "keywords": [],
-    "tdpW": 1500,
-    "fp16Tflops": 10000,
+    "tdpW": 0,
+    "fp16Tflops": 10100,
     "specs": {
       "compute": {
-        "fp8": "20 PFLOPS",
-        "fp16": "推测 ~10 PFLOPS",
-        "fp32": "推测 ~5 TFLOPS",
-        "int8": "推测 ~80 PFLOPS"
+        "fp8": "20.1 PFLOPS（MXFP8）",
+        "fp16": "5 PFLOPS（矩阵；含结构化稀疏 10.1 PFLOPS）",
+        "fp32": "315 TFLOPS（向量）",
+        "int8": "5 POPS（矩阵；含稀疏 10.1 POPS）"
       },
       "memory": {
         "type": "HBM4",
-        "bandwidth": "19.6 TB/s"
+        "bandwidth": "23.3 TB/s"
       },
-      "tdp": "推测 1200–1500W",
-      "release": "2026 年 1 月 6 日"
+      "tdp": "未公开（直接液冷 EAM 形态）",
+      "release": "2026 年 7 月 23 日（Advancing AI 2026）"
     }
   },
   {
@@ -1176,7 +1208,7 @@
     "fp16Tflops": null,
     "specs": {
       "architecture": "Da Vinci v6（推测）",
-      "process": "N+3（推测）",
+      "process": "N+3（推测，SMIC 国产化）",
       "release": "2027-Q4（路线图）"
     }
   },
@@ -1322,10 +1354,10 @@
     "fp16Tflops": 0,
     "specs": {
       "release": "已披露（2026-06 Computex 2026），未量产",
-      "architecture": "Xe3P",
+      "architecture": "Xe3P（第三代 Xe，XMX 升级至 16 深度脉动阵列）",
       "memory": {
-        "capacity": "高达 480 GB LPDDR5x（参考设计 160 GB，伙伴可扩展至 480 GB）",
-        "bandwidth": "推测 ~684 GB/s（10.7 Gbps LPDDR5x, 640-bit 总线，20 颗 LPDDR5X）"
+        "capacity": "160 GB LPDDR5X（Intel 参考卡）/ 最高 480 GB（ODM 伙伴版本）",
+        "bandwidth": "推测 ~684 GB/s（160GB / 640-bit 配置；480GB 版本更高）"
       },
       "compute": {
         "fp8": "待官方公布",
@@ -2371,7 +2403,7 @@
     "fp16Tflops": null,
     "specs": {
       "architecture": "Rubin 架构（Blackwell 继任者）",
-      "release": "2026年1月（CES 2026）",
+      "release": "2026年1月（CES 2026 预览）/ GTC 2026 全面投产",
       "tdp": "2300 W"
     }
   },

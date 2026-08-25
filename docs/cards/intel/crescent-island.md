@@ -10,7 +10,7 @@ keywords: [Intel Crescent Island, Xe3P, 480GB LPDDR5x, 数据中心推理 GPU, �
 
 ## 产品概述
 
-**Intel Crescent Island** 于 **2026 年 6 月**在 Computex 2026 上正式披露，是 Intel 面向数据中心 AI 推理负载的新一代 GPU 平台。基于 **Xe3P 架构**，配备高达 **480GB LPDDR5x 内存**，采用 **350W 风冷 PCIe** 形态设计。
+**Intel Crescent Island** 于 **2026 年 6 月 Computex** 首次披露，并在 **2026 年 8 月 Hot Chips 2026** 公布完整架构细节，是 Intel 面向数据中心 AI 推理负载的新一代 GPU 平台。基于 **Xe3P 架构**，配备高达 **480GB LPDDR5x 内存**，采用 **350W 风冷 PCIe** 形态设计。
 
 Crescent Island 定位为 **智能体 AI（Agentic AI）推理** 的高性价比方案——相比使用 HBM 的高端 GPU，LPDDR5x 方案在同等推理负载下成本大幅降低。
 
@@ -19,22 +19,24 @@ Crescent Island 定位为 **智能体 AI（Agentic AI）推理** 的高性价比
 | 项目 | 参数 |
 | **发布** | 已披露（2026-06 Computex 2026），未量产 |
 |------|------|
-| **架构** | Xe3P |
-| **内存** | 高达 **480 GB LPDDR5x**（参考设计 160 GB，伙伴可扩展至 480 GB） |
-| **内存带宽** | 推测 ~684 GB/s（10.7 Gbps LPDDR5x, 640-bit 总线，20 颗 LPDDR5X） |
-| **精度支持** | **原生 FP4 / MXFP4 → FP64**（全精度覆盖） |
+| **架构** | Xe3P（第三代 Xe，XMX 升级至 16 深度脉动阵列） |
+| **计算单元** | 32 个 Xe3P 核心 / 256 个 XMX 矩阵引擎 / 256 个矢量引擎 / 32 MB 统一 L2 |
+| **内存** | **160 GB LPDDR5X**（Intel 参考卡）/ 最高 **480 GB**（ODM 伙伴版本） |
+| **内存带宽** | 推测 ~684 GB/s（160GB / 640-bit 配置；480GB 版本更高） |
+| **精度支持** | **原生 FP8 / FP4**（XMX 16 深度脉动阵列），兼容 BF16/FP16/FP64 |
 | **FP4 算力** | 待官方公布 |
 | **FP8 算力** | 待官方公布 |
 | **FP16/BF16** | 待官方公布 |
 | **FP32** | 待官方公布 |
+| **图形/光追** | 已移除（纯 AI 推理，无 3D / 光线追踪硬件） |
 | **TDP** | 350 W |
-| **形态** | **PCIe**（标准服务器适配） |
+| **形态** | **PCIe Gen5 x16**（标准服务器适配，风冷） |
 | **目标** | **智能体 AI 推理（Agentic Inference）** |
-| **软件** | Intel 开放统一软件栈 |
-| **首发披露** | **2026 年 6 月（Computex 2026）** |
+| **软件** | Intel 开放统一软件栈（OneAPI + vLLM / SGLang / Dynamo） |
+| **首发披露** | **2026 年 6 月（Computex）/ 8 月 Hot Chips 2026 完整架构** |
 | **出货** | **2026 下半年（限量出货）** |
 
-> **注**：Crescent Island 已于 2026 年 6 月 Computex 正式披露，确认 **2026 下半年限量出货**。具体算力值（FP4/FP8/FP16）Intel 尚未公布；内存带宽 ~684 GB/s 为基于 10.7 Gbps LPDDR5X + 640-bit 总线的行业估算值，非官方数据。
+> **注**：Crescent Island 于 2026 年 6 月 Computex 首次披露、8 月 Hot Chips 2026 公布架构细节，确认 **2026 下半年限量出货**。具体算力值（FP4/FP8/FP16）Intel 尚未公布；内存带宽 ~684 GB/s 为基于 160GB / 10.7 Gbps LPDDR5X + 640-bit 总线的行业估算值，非官方数据。
 
 ## 与同类产品对比
 

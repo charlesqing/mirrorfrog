@@ -124,6 +124,7 @@ const sidebars: SidebarsConfig = {
         'cards/amd/mi350p',
         'cards/amd/mi400',
         'cards/amd/mi430x',
+        'cards/amd/mi440x',
         'cards/amd/ryzen-ai-max',
       ],
     },

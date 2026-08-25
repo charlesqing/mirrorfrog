@@ -33,7 +33,7 @@ export const EN_CONTENT: HomeContent = {
   hotChipsTitle: '🔥 Hot Chips',
   hotChipsDesc: 'Ranked by importance, recency, and FP16/BF16 performance — higher score means higher rank.',
   hotChipsHeader: ['Chip', 'Vendor', 'Arch', 'Memory', 'Bandwidth', 'FP16', 'TDP', 'Category'],
-  viewFullComparison: 'View full comparison table (172 chips) →',
+  viewFullComparison: 'View full comparison table (173 chips) →',
   latestNewsTitle: '📰 Latest News',
   latestNewsDescPrefix: 'Industry news, product launches, technical deep-dives, and selection guides.',
   latestNewsDescLink: 'View all articles →',
