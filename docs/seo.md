@@ -307,7 +307,7 @@ Docusaurus 自动为每页生成 `x-default` 和 locale-specific hreflang 标签
 ### 4.1 立即可做（Week 1）
 
 1. **GitHub README Badge**
-   - 在 [anomalyco/mirrorfrog](https://github.com/anomalyco/mirrorfrog) README 添加：
+   - 在 [charlesqing/mirrorfrog](https://github.com/charlesqing/mirrorfrog) README 添加：
      - `[![Website](https://img.shields.io/badge/website-mirrorfrog.com-blue)](https://mirrorfrog.com)`
      - `[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)`
 

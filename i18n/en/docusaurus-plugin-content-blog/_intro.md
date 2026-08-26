@@ -53,7 +53,7 @@ This is the **official blog of the AI Compute Cards Wiki**, focusing on **the la
 
 - **RSS Feed**: [/blog/rss.xml](/blog/rss.xml)
 - **Atom Feed**: [/blog/atom.xml](/blog/atom.xml)
-- **GitHub Watch**: [anomalyco/mirrorfrog](https://github.com/anomalyco/mirrorfrog)
+- **GitHub Watch**: [charlesqing/mirrorfrog](https://github.com/charlesqing/mirrorfrog)
 
 ## Editorial Team
 

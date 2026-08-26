@@ -55,7 +55,7 @@ description: AI 计算卡 Wiki Blog 启动公告：行业动态、深度分析�
 - 📡 **RSS**：[`/blog/rss.xml`](/blog/rss.xml)
 - 📡 **Atom**：[`/blog/atom.xml`](/blog/atom.xml)
 - 🐦 **Twitter / X**：[@aicomputecards](https://twitter.com/aicomputecards)
-- 💻 **GitHub**：[anomalyco/mirrorfrog](https://github.com/anomalyco/mirrorfrog)
+- 💻 **GitHub**：[charlesqing/mirrorfrog](https://github.com/charlesqing/mirrorfrog)
 
 ## 贡献
 
@@ -63,8 +63,8 @@ description: AI 计算卡 Wiki Blog 启动公告：行业动态、深度分析�
 
 如果你发现错误或希望补充内容，欢迎：
 
-- 在 [GitHub Issues](https://github.com/anomalyco/mirrorfrog/issues) 提交反馈
-- 在 [GitHub Discussions](https://github.com/anomalyco/mirrorfrog/discussions) 参与讨论
+- 在 [GitHub Issues](https://github.com/charlesqing/mirrorfrog/issues) 提交反馈
+- 在 [GitHub Discussions](https://github.com/charlesqing/mirrorfrog/discussions) 参与讨论
 - 提交 Pull Request 修正内容
 
 ## 免责声明

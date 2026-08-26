@@ -109,7 +109,7 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/anomalyco/mirrorfrog"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/charlesqing/mirrorfrog"
   },
   "copyright": {
     "message": "Copyright © 2026 AI Compute Cards Wiki. Built with Docusaurus.",

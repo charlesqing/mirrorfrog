@@ -307,7 +307,7 @@ Docusaurus automatically generates `x-default` and locale-specific hreflang tags
 ### 4.1 Immediate (Week 1)
 
 1. **GitHub README Badge**
-   - Add to [anomalyco/mirrorfrog](https://github.com/anomalyco/mirrorfrog) README:
+   - Add to [charlesqing/mirrorfrog](https://github.com/charlesqing/mirrorfrog) README:
      - `[![Website](https://img.shields.io/badge/website-mirrorfrog.com-blue)](https://mirrorfrog.com)`
      - `[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)`
 

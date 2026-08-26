@@ -227,12 +227,12 @@ const config: Config = {
             height: 512,
           },
           sameAs: [
-            'https://github.com/anomalyco/mirrorfrog',
+            'https://github.com/charlesqing/mirrorfrog',
           ],
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'customer support',
-            url: 'https://github.com/anomalyco/mirrorfrog/issues',
+            url: 'https://github.com/charlesqing/mirrorfrog/issues',
           },
         },
         {
