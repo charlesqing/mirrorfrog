@@ -416,6 +416,39 @@
     }
   },
   {
+    "id": "radeon-pro-w7900",
+    "title": "AMD Radeon PRO W7900",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/radeon-pro-w7900",
+    "description": "AMD Radeon PRO W7900 专业工作站显卡：RDNA 3 架构、48GB GDDR6 ECC、864 GB/s 带宽、FP32 61.3 TFLOPS，面向 AI 工作站与专业图形。",
+    "keywords": [
+      "AMD Radeon PRO W7900",
+      "RDNA 3",
+      "GDDR6",
+      "专业显卡",
+      "AI 工作站",
+      "ECC 显存"
+    ],
+    "tdpW": 295,
+    "fp16Tflops": 123,
+    "specs": {
+      "architecture": "AMD RDNA 3",
+      "process": "TSMC 5nm（GCD）/ 6nm（MCD）",
+      "compute": {
+        "fp32": "61.3 TFLOPS",
+        "fp16": "123 TFLOPS",
+        "int8": "123 TOPS"
+      },
+      "memory": {
+        "capacity": "48 GB GDDR6",
+        "type": "GDDR6",
+        "bandwidth": "864 GB/s（384-bit）"
+      },
+      "tdp": "295 W",
+      "release": "2023 年（驱动持续更新至 2025）"
+    }
+  },
+  {
     "id": "ryzen-ai-max",
     "title": "AMD Ryzen AI Max (Strix Halo XDNA 2 50 TOPS 128GB UMA)",
     "vendor": "amd",
@@ -989,6 +1022,100 @@
     }
   },
   {
+    "id": "ascend-310p",
+    "title": "华为 Ascend 310P",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-310p",
+    "description": "华为昇腾 Ascend 310P 边缘 AI 推理芯片：达芬奇架构、INT8 140-176 TOPS、FP16 70 TFLOPS、LPDDR4X 内存、典型功耗 8W（整卡 70W），面向边缘与端侧推理。",
+    "keywords": [
+      "华为 Ascend 310P",
+      "昇腾 310P",
+      "达芬奇架构",
+      "边缘 AI",
+      "INT8",
+      "推理芯片"
+    ],
+    "tdpW": 70,
+    "fp16Tflops": 70,
+    "specs": {
+      "architecture": "达芬奇（DaVinci）",
+      "process": "12nm",
+      "compute": {
+        "fp16": "70 TFLOPS",
+        "int8": "140 TOPS（Atlas 300I Pro）/ 176 TOPS（峰值）"
+      },
+      "memory": {
+        "capacity": "LPDDR4X（24GB / 48GB / 96GB，依板卡）",
+        "type": "LPDDR4X",
+        "bandwidth": "204.8 GB/s"
+      },
+      "tdp": "70 W（整卡；芯片约 8W）",
+      "release": "2022 年"
+    }
+  },
+  {
+    "id": "ascend-510",
+    "title": "华为 Ascend 510",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-510",
+    "description": "华为昇腾 Ascend 510 边缘 AI 推理芯片：达芬奇架构、INT8 256 TOPS，面向边缘与大模型推理场景，昇腾边缘系列主力。",
+    "keywords": [
+      "华为 Ascend 510",
+      "昇腾 510",
+      "达芬奇架构",
+      "边缘 AI",
+      "INT8",
+      "推理芯片"
+    ],
+    "tdpW": 70,
+    "fp16Tflops": 0,
+    "specs": {
+      "architecture": "达芬奇（DaVinci）",
+      "process": "未公开",
+      "compute": {
+        "int8": "256 TOPS",
+        "fp16": "未公开"
+      },
+      "memory": {
+        "capacity": "未公开（依板卡配置）",
+        "type": "未公开"
+      },
+      "tdp": "25-70 W（依板卡，需较好散热）",
+      "release": "2024 年（边缘推理主力）"
+    }
+  },
+  {
+    "id": "ascend-710",
+    "title": "华为 Ascend 710",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-710",
+    "description": "华为昇腾 Ascend 710 边缘 AI 推理芯片：达芬奇 Lite 架构、INT8 35 TOPS，面向轻量边缘与端侧推理场景。",
+    "keywords": [
+      "华为 Ascend 710",
+      "昇腾 710",
+      "达芬奇 Lite",
+      "边缘 AI",
+      "INT8",
+      "推理芯片"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": 0,
+    "specs": {
+      "architecture": "达芬奇 Lite（DaVinci Lite）",
+      "process": "未公开",
+      "compute": {
+        "int8": "35 TOPS",
+        "fp16": "未公开"
+      },
+      "memory": {
+        "capacity": "未公开（依板卡配置）",
+        "type": "未公开"
+      },
+      "tdp": "未公开（低功耗定位）",
+      "release": "未公开（边缘推理产品线）"
+    }
+  },
+  {
     "id": "ascend-910b",
     "title": "Huawei Ascend 910B",
     "vendor": "huawei",
@@ -1242,6 +1369,39 @@
       },
       "tdp": "350 W",
       "release": "2023年"
+    }
+  },
+  {
+    "id": "arc-b580",
+    "title": "Intel Arc B580",
+    "vendor": "intel",
+    "slug": "/docs/cards/intel/arc-b580",
+    "description": "Intel Arc B580 桌面显卡：Xe2 Battlemage 架构、12GB GDDR6、160 XMX AI 引擎、233 TOPS INT8、190W TDP，面向 1440p 游戏与入门 AI。",
+    "keywords": [
+      "Intel Arc B580",
+      "Battlemage",
+      "Xe2",
+      "GDDR6",
+      "XMX",
+      "AI 显卡",
+      "桌面显卡"
+    ],
+    "tdpW": 190,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "Intel Xe2（Battlemage，BMG-G21）",
+      "process": "TSMC N5",
+      "compute": {
+        "int8": "233 TOPS",
+        "fp32": "未公开（游戏卡未标 FP32 TFLOPS）"
+      },
+      "memory": {
+        "capacity": "12 GB GDDR6",
+        "type": "GDDR6",
+        "bandwidth": "456 GB/s（192-bit）"
+      },
+      "tdp": "190 W",
+      "release": "2024 年 Q4"
     }
   },
   {
@@ -1653,6 +1813,39 @@
     }
   },
   {
+    "id": "a800",
+    "title": "NVIDIA A800",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/a800",
+    "description": "NVIDIA A800 80GB：Ampere 架构中国特供版，80GB HBM2e、2.0 TB/s 带宽、FP16 312 TFLOPS、NVLink 400 GB/s，算力与 A100 一致仅互联降速。",
+    "keywords": [
+      "NVIDIA A800",
+      "A800 80GB",
+      "Ampere",
+      "HBM2e",
+      "中国特供",
+      "大模型训练"
+    ],
+    "tdpW": 400,
+    "fp16Tflops": 312,
+    "specs": {
+      "architecture": "NVIDIA Ampere (GA100)",
+      "process": "TSMC 7nm",
+      "compute": {
+        "fp16": "312 TFLOPS",
+        "fp32": "19.5 TFLOPS",
+        "int8": "624 TOPS"
+      },
+      "memory": {
+        "capacity": "80 GB HBM2e",
+        "type": "HBM2e",
+        "bandwidth": "2.0 TB/s"
+      },
+      "tdp": "400 W",
+      "release": "2022 年"
+    }
+  },
+  {
     "id": "b100",
     "title": "NVIDIA B100",
     "vendor": "nvidia",
@@ -1825,6 +2018,41 @@
     }
   },
   {
+    "id": "gh200",
+    "title": "NVIDIA GH200 Grace Hopper",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/gh200",
+    "description": "NVIDIA GH200 Grace Hopper 超级芯片：72 核 Arm Grace CPU + Hopper H200 GPU，NVLink-C2C 900 GB/s，96GB HBM3，整芯片 1000W，面向万亿参数训练与 HPC。",
+    "keywords": [
+      "NVIDIA GH200",
+      "Grace Hopper",
+      "超级芯片",
+      "Arm",
+      "NVLink-C2C",
+      "HBM3",
+      "大模型训练"
+    ],
+    "tdpW": 1000,
+    "fp16Tflops": 1979,
+    "specs": {
+      "architecture": "Grace（Arm Neoverse V2）+ Hopper",
+      "process": "TSMC 4nm",
+      "compute": {
+        "fp8": "3,958 TFLOPS",
+        "fp16": "1,979 TFLOPS",
+        "fp32": "134 TFLOPS",
+        "int8": "3,958 TOPS"
+      },
+      "memory": {
+        "capacity": "96 GB HBM3（高配 144 GB HBM3e）",
+        "type": "HBM3",
+        "bandwidth": "4.8 TB/s（96GB 版）/ 6.35 TB/s（144GB 版）"
+      },
+      "tdp": "1000 W（整芯片，含 CPU+GPU+HBM）",
+      "release": "2023 年发布，2024 年量产"
+    }
+  },
+  {
     "id": "groq-3-lpx",
     "title": "NVIDIA Groq 3 LPX (LPU Rack-Scale)",
     "vendor": "nvidia",
@@ -1973,6 +2201,40 @@
         "fp8": "3,958 TFLOPS（稀疏）"
       },
       "tdp": "700 W"
+    }
+  },
+  {
+    "id": "h200-nvl",
+    "title": "NVIDIA H200 NVL",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/h200-nvl",
+    "description": "NVIDIA H200 NVL：Hopper 架构 PCIe 形态，141GB HBM3e、4.8 TB/s 带宽、FP8 3,341 TFLOPS、TDP 600W，H200 的 PCIe 双插槽版本。",
+    "keywords": [
+      "NVIDIA H200 NVL",
+      "H200 PCIe",
+      "Hopper",
+      "HBM3e",
+      "141GB",
+      "大模型推理"
+    ],
+    "tdpW": 600,
+    "fp16Tflops": 1671,
+    "specs": {
+      "architecture": "NVIDIA Hopper (GH100)",
+      "process": "TSMC 4nm",
+      "compute": {
+        "fp8": "3,341 TFLOPS",
+        "fp16": "1,671 TFLOPS",
+        "fp32": "60 TFLOPS",
+        "int8": "3,341 TOPS"
+      },
+      "memory": {
+        "capacity": "141 GB HBM3e",
+        "type": "HBM3e",
+        "bandwidth": "4.8 TB/s"
+      },
+      "tdp": "最高 600 W（可配置）",
+      "release": "2024 年"
     }
   },
   {
@@ -2332,6 +2594,99 @@
         "fp8": "1,458 TFLOPS（稀疏）"
       },
       "tdp": "300 W"
+    }
+  },
+  {
+    "id": "rtx-pro-4000-blackwell",
+    "title": "NVIDIA RTX Pro 4000 Blackwell",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-pro-4000-blackwell",
+    "description": "NVIDIA RTX Pro 4000 Blackwell 专业工作站显卡：Blackwell 架构、24GB GDDR7 ECC、145W TDP，RTX Pro 系列入门型号（另有 SFF 70W 版）。",
+    "keywords": [
+      "RTX Pro 4000 Blackwell",
+      "Blackwell",
+      "专业显卡",
+      "GDDR7",
+      "AI 工作站",
+      "ECC 显存"
+    ],
+    "tdpW": 145,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "NVIDIA Blackwell 2.0 (GB202)",
+      "process": "TSMC 4nm",
+      "memory": {
+        "capacity": "24 GB GDDR7 ECC",
+        "type": "GDDR7",
+        "bandwidth": "未公开（预计 ~600 GB/s）"
+      },
+      "compute": {
+        "fp32": "未公开（预计 ~50 TFLOPS）"
+      },
+      "tdp": "145 W（SFF 版 70W）",
+      "release": "2025 年"
+    }
+  },
+  {
+    "id": "rtx-pro-4500-blackwell",
+    "title": "NVIDIA RTX Pro 4500 Blackwell",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-pro-4500-blackwell",
+    "description": "NVIDIA RTX Pro 4500 Blackwell 专业工作站显卡：Blackwell 架构、32GB GDDR7 ECC、200W TDP，RTX Pro 系列中端型号。",
+    "keywords": [
+      "RTX Pro 4500 Blackwell",
+      "Blackwell",
+      "专业显卡",
+      "GDDR7",
+      "AI 工作站",
+      "ECC 显存"
+    ],
+    "tdpW": 200,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "NVIDIA Blackwell 2.0 (GB202)",
+      "process": "TSMC 4nm",
+      "memory": {
+        "capacity": "32 GB GDDR7 ECC",
+        "type": "GDDR7",
+        "bandwidth": "未公开（预计 ~900 GB/s）"
+      },
+      "compute": {
+        "fp32": "未公开（预计 ~70 TFLOPS）"
+      },
+      "tdp": "200 W",
+      "release": "2025 年"
+    }
+  },
+  {
+    "id": "rtx-pro-5000-blackwell",
+    "title": "NVIDIA RTX Pro 5000 Blackwell",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/rtx-pro-5000-blackwell",
+    "description": "NVIDIA RTX Pro 5000 Blackwell 专业工作站显卡：Blackwell 架构、48GB GDDR7 ECC、300W TDP，RTX Pro 6000 的精简版，面向本地 AI 与专业图形。",
+    "keywords": [
+      "RTX Pro 5000 Blackwell",
+      "Blackwell",
+      "专业显卡",
+      "GDDR7",
+      "AI 工作站",
+      "ECC 显存"
+    ],
+    "tdpW": 300,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "NVIDIA Blackwell 2.0 (GB202)",
+      "process": "TSMC 4nm",
+      "memory": {
+        "capacity": "48 GB GDDR7 ECC（另有 72GB 版本）",
+        "type": "GDDR7",
+        "bandwidth": "约 1.2 TB/s（厂商未公开，按位宽估算）"
+      },
+      "compute": {
+        "fp32": "未公开（预计 ~100 TFLOPS）"
+      },
+      "tdp": "300 W",
+      "release": "2025 年"
     }
   },
   {

@@ -422,7 +422,7 @@ export default function Home(): ReactNode {
         const estimate = (meta.docFiles ?? 0) * 2 + (meta.blogFiles ?? 0) * 2 + 50;
         setPageCount(estimate);
       } else {
-        setPageCount(173 * 2 + 50 * 2 + 50);
+        setPageCount(184 * 2 + 50 * 2 + 50);
       }
       setMetaReady(true);
     });

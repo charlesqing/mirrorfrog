@@ -182,6 +182,27 @@
       "currency": "USD",
       "last_updated": "2026-08-08",
       "source": "无官方 MSRP，2026 年国内市场行情（¥3-4.5 万，受特供合规影响供应不稳）"
+    },
+    "a800": {
+      "official_msrp": 104000,
+      "market_price": 130000,
+      "currency": "CNY",
+      "last_updated": "2026-08-26",
+      "source": "京东/市场均价（中国特供）"
+    },
+    "gh200": {
+      "official_msrp": 25000,
+      "market_price": 28000,
+      "currency": "USD",
+      "last_updated": "2026-08-26",
+      "source": "市场均价"
+    },
+    "h200-nvl": {
+      "official_msrp": 38000,
+      "market_price": 40000,
+      "currency": "USD",
+      "last_updated": "2026-08-26",
+      "source": "市场均价"
     }
   },
   "amd": {
@@ -271,6 +292,13 @@
       "currency": "USD",
       "last_updated": "2026-08-18",
       "source": "预测价格（2027 H1 出货，未定价）"
+    },
+    "radeon-pro-w7900": {
+      "official_msrp": 3500,
+      "market_price": 3500,
+      "currency": "USD",
+      "last_updated": "2026-08-26",
+      "source": "市场均价"
     }
   },
   "intel": {
@@ -329,6 +357,13 @@
       "currency": "USD",
       "last_updated": "2026-06-01",
       "source": "Intel 官方指导价（已停产）"
+    },
+    "arc-b580": {
+      "official_msrp": 249,
+      "market_price": 249,
+      "currency": "USD",
+      "last_updated": "2026-08-26",
+      "source": "Intel 建议零售价"
     }
   },
   "google": {
