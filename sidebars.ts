@@ -217,6 +217,7 @@ const sidebars: SidebarsConfig = {
       label: '🔴 华为昇腾',
       collapsed: true,
       items: [
+        'cards/huawei/ascend-910',
         'cards/huawei/ascend-910b',
         'cards/huawei/ascend-910c',
         'cards/huawei/ascend-910d',
@@ -225,7 +226,10 @@ const sidebars: SidebarsConfig = {
         'cards/huawei/ascend-950pr',
         'cards/huawei/ascend-950dt',
         'cards/huawei/ascend-960',
+        'cards/huawei/ascend-970',
+        'cards/huawei/ascend-310',
         'cards/huawei/ascend-310p',
+        'cards/huawei/ascend-310b',
         'cards/huawei/ascend-510',
         'cards/huawei/ascend-710',
       ],

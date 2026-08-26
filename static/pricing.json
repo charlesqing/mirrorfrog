@@ -530,6 +530,34 @@
       "currency": "CNY",
       "last_updated": "2026-08-18",
       "source": "预测价格（2027-Q4 路线图，未定价）"
+    },
+    "ascend-910": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "CNY",
+      "last_updated": "2026-08-26",
+      "source": "未公开（2019 初代，随 Atlas 服务器整机）"
+    },
+    "ascend-310": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "CNY",
+      "last_updated": "2026-08-26",
+      "source": "未公开（2018 初代边缘芯片）"
+    },
+    "ascend-310b": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "CNY",
+      "last_updated": "2026-08-26",
+      "source": "未公开（命名复用，两代并存）"
+    },
+    "ascend-970": {
+      "official_msrp": null,
+      "market_price": null,
+      "currency": "CNY",
+      "last_updated": "2026-08-26",
+      "source": "预测价格（2028 Q4 路线图，未定价）"
     }
   },
   "others": {

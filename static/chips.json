@@ -1022,6 +1022,62 @@
     }
   },
   {
+    "id": "ascend-310",
+    "title": "Huawei Ascend 310",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-310",
+    "description": "Huawei Ascend 310 详尽规格：2018 初代边缘推理芯片、12nm 制程、8 TFLOPS FP16、16 TOPS INT8、8W 超低功耗，达芬奇架构开山之作。",
+    "keywords": [
+      "Huawei Ascend 310",
+      "昇腾 310",
+      "达芬奇架构",
+      "边缘推理",
+      "8W 超低功耗",
+      "INT8"
+    ],
+    "tdpW": 8,
+    "fp16Tflops": 8,
+    "specs": {
+      "release": "2018-10（世界互联网大会）",
+      "architecture": "Da Vinci（达芬奇，初代）",
+      "process": "12nm（台积电）",
+      "compute": {
+        "fp16": "8 TFLOPS",
+        "int8": "16 TOPS"
+      },
+      "memory": {
+        "capacity": "LPDDR4x"
+      },
+      "tdp": "8 W（极致低功耗）"
+    }
+  },
+  {
+    "id": "ascend-310b",
+    "title": "Huawei Ascend 310B",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-310b",
+    "description": "Huawei Ascend 310B 昇腾边缘推理衍生芯片：低成本低功耗定位，存在命名复用（早期 12nm 约 16 TOPS vs 2025 新一代 7nm 高算力），本文厘清两代差异。",
+    "keywords": [
+      "Huawei Ascend 310B",
+      "昇腾 310B",
+      "边缘 AI",
+      "低功耗",
+      "命名复用",
+      "INT8"
+    ],
+    "tdpW": 15,
+    "fp16Tflops": 0,
+    "specs": {
+      "release": "2025 年（华为重新命名）",
+      "process": "7nm（SMIC）",
+      "compute": {
+        "int8": "约 120-200 TOPS（第三方资料）",
+        "fp16": "未公开"
+      },
+      "tdp": "约 5-15 W（依板卡）"
+    }
+  },
+  {
     "id": "ascend-310p",
     "title": "华为 Ascend 310P",
     "vendor": "huawei",
@@ -1098,7 +1154,7 @@
       "INT8",
       "推理芯片"
     ],
-    "tdpW": 0,
+    "tdpW": 15,
     "fp16Tflops": 0,
     "specs": {
       "architecture": "达芬奇 Lite（DaVinci Lite）",
@@ -1111,8 +1167,40 @@
         "capacity": "未公开（依板卡配置）",
         "type": "未公开"
       },
-      "tdp": "未公开（低功耗定位）",
+      "tdp": "15 W（推测，低功耗边缘定位）",
       "release": "未公开（边缘推理产品线）"
+    }
+  },
+  {
+    "id": "ascend-910",
+    "title": "Huawei Ascend 910",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-910",
+    "description": "Huawei Ascend 910 详尽规格：2019 初代云端训练芯片、台积电 7nm+ EUV、256 TFLOPS FP16、512 TOPS INT8、350W TDP、32GB HBM2，昇腾 910 家族基石。",
+    "keywords": [
+      "Huawei Ascend 910",
+      "昇腾 910",
+      "达芬奇 Max 架构",
+      "云端训练",
+      "256 TFLOPS",
+      "国产 AI 芯片"
+    ],
+    "tdpW": 350,
+    "fp16Tflops": 256,
+    "specs": {
+      "release": "2019-08（深圳）",
+      "architecture": "Da Vinci Max（达芬奇 Max）",
+      "process": "台积电 7nm+ EUV",
+      "compute": {
+        "fp32": "未公开",
+        "fp16": "256 TFLOPS",
+        "int8": "512 TOPS"
+      },
+      "memory": {
+        "capacity": "32 GB HBM2",
+        "bandwidth": "1.5 TB/s（896 GB/s，依板卡）"
+      },
+      "tdp": "350 W"
     }
   },
   {
@@ -1166,7 +1254,7 @@
       "architecture": "Da Vinci（双小芯片）",
       "process": "7nm 级（含 SMIC 国产化）",
       "memory": {
-        "capacity": "8× HBM2E 模块"
+        "capacity": "8× HBM3 模块"
       },
       "tdp": "310 W"
     }
@@ -1331,12 +1419,45 @@
       "FP8",
       "超节点"
     ],
-    "tdpW": 0,
+    "tdpW": 700,
     "fp16Tflops": null,
     "specs": {
       "architecture": "Da Vinci v6（推测）",
       "process": "N+3（推测，SMIC 国产化）",
+      "tdp": "700 W（推测，路线图）",
       "release": "2027-Q4（路线图）"
+    }
+  },
+  {
+    "id": "ascend-970",
+    "title": "Huawei Ascend 970 (路线图)",
+    "vendor": "huawei",
+    "slug": "/docs/cards/huawei/ascend-970",
+    "description": "Huawei Ascend 970 预览卡：华为全联接大会 2025 公布的 2028 Q4 路线图旗舰，4 PFLOPS FP8 / 8 PFLOPS FP4、288GB HBM、14.4 TB/s 带宽、4 TB/s 互联，瞄准万亿参数 MoE。",
+    "keywords": [
+      "Huawei Ascend 970",
+      "昇腾 970",
+      "路线图",
+      "FP8",
+      "FP4",
+      "万亿参数 MoE",
+      2028
+    ],
+    "tdpW": 800,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "Da Vinci v7（推测，SIMD + SIMT）",
+      "process": "N+3（SMIC 国产化，推测）",
+      "compute": {
+        "fp8": "4 PFLOPS",
+        "int8": "4 POPS（规划）"
+      },
+      "memory": {
+        "capacity": "288 GB HBM（自研）",
+        "bandwidth": "14.4 TB/s（较 910C 的 784 GB/s 提升约 18 倍）"
+      },
+      "tdp": "800 W（推测，路线图）",
+      "release": "2028 Q4（路线图）"
     }
   },
   {

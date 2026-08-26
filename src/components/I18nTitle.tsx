@@ -6,8 +6,8 @@ export default function I18nTitle(): ReactElement | null {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      'zh-Hans': 'AI 算力卡百科 | 184 款 AI 芯片规格对比',
-      'en': 'AI Compute Cards Wiki | 184 AI Chips Specs Compared',
+      'zh-Hans': 'AI 算力卡百科 | 188 款 AI 芯片规格对比',
+      'en': 'AI Compute Cards Wiki | 188 AI Chips Specs Compared',
     };
 
     // 避免覆盖页面自身的标题（由 frontmatter 设置）
