@@ -13,6 +13,9 @@ const config: Config = {
 
   url: 'https://mirrorfrog.com',
   baseUrl: '/',
+  // 统一 URL 尾部斜杠：让 canonical / og:url / sitemap 全部带 "/"，
+  // 与 Cloudflare Pages 实际访问路径一致，消除搜索引擎信号混乱
+  trailingSlash: true,
 
   organizationName: 'MirrorFrog',
   projectName: 'ai-compute-cards-wiki',
