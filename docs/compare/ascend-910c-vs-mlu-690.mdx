@@ -1,0 +1,62 @@
+---
+title: Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）
+description: Huawei Ascend 910C 与 寒武纪 思元690（国产 AI 训练/推理芯片） 规格对比：架构、FP8/FP16/FP32 算力、显存容量与带宽、TDP 功耗、发布时间一览，附关键差异、选型建议与常见问题。
+keywords: [Huawei Ascend 910C, 寒武纪 思元690（国产 AI 训练/推理芯片）, Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）, AI 芯片对比, 算力卡对比, GPU 对比]
+sidebar_label: Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）
+---
+
+import Link from '@docusaurus/Link';
+
+# Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）：规格对比与选型指南
+
+在 AI 基础设施选型中，**Huawei Ascend 910C** 与 **寒武纪 思元690（国产 AI 训练/推理芯片）** 是经常被放在一起比较的两款加速器。本文从架构、算力、显存、功耗到发布节奏做逐项对照，帮助你快速判断哪一款更契合训练或推理工作负载。
+
+## 规格对比表
+
+| 规格 | Huawei Ascend 910C | 寒武纪 思元690（国产 AI 训练/推理芯片） |
+| --- | --- | --- |
+| 厂商 | huawei | cambricon |
+| 架构 | Da Vinci（双小芯片） | MLUarch（新一代 MLU 架构） |
+| 制程 | 7nm 级（含 SMIC 国产化） | 中芯国际 5nm 级（N+2） |
+| 发布时间 | 2024-04-24（推测） | 2025 |
+| FP8 算力 | — | — |
+| FP16 算力 | — | 700+ TFLOPS |
+| FP32 算力 | — | 未公开（推测 ~175 TFLOPS） |
+| INT8 算力 | — | 2,800+ TOPS |
+| 显存类型 | — | — |
+| 显存容量 | 8× HBM3 模块 | 196 GB HBM3 |
+| 显存带宽 | — | 3.35 TB/s |
+| TDP 功耗 | 310 W | ~500 W（推测） |
+
+## 关键差异
+
+- **功耗**：Huawei Ascend 910C 的 TDP 为 310 W，低于 寒武纪 思元690（国产 AI 训练/推理芯片） 的 ~500 W（推测），对数据中心 PUE 与散热更友好。
+- **显存容量**：寒武纪 思元690（国产 AI 训练/推理芯片） 配备 196 GB HBM3，多于 Huawei Ascend 910C 的 8× HBM3 模块，对超大模型单卡承载更从容。
+
+## 选型建议
+
+- 追求极致单卡算力与成熟工具链时优先考虑 Huawei Ascend 910C；若预算、功耗墙或本地化支持是硬约束，寒武纪 思元690（国产 AI 训练/推理芯片） 往往更贴合。建议用本站的 [AI 算力卡对比工具](/compare) 把多款芯片并排验证后再决策。
+
+## 常见问题（FAQ）
+
+### Huawei Ascend 910C 和 寒武纪 思元690（国产 AI 训练/推理芯片） 的主要区别是什么？
+
+核心差异在架构与算力密度：Huawei Ascend 910C 采用 Da Vinci（双小芯片） 架构，FP8 算力约 暂无公开 FP8 算力数据，显存 8× HBM3 模块；寒武纪 思元690（国产 AI 训练/推理芯片） 采用 MLUarch（新一代 MLU 架构） 架构，FP8 算力约 暂无公开 FP8 算力数据，显存 196 GB HBM3。完整参数见上方对比表。
+
+### Huawei Ascend 910C 的功耗（TDP）是多少？
+
+Huawei Ascend 910C 的 TDP 为 310 W，实际整机功耗还需计入服务器主板、风扇与 PUE。
+
+### 哪个更适合大模型训练 / 推理？
+
+训练看重显存容量、带宽与多卡互联；推理看重单卡吞吐与功耗比。结合上方「关键差异」与「选型建议」按你的 batch size、模型参数量与 SLA 取舍。
+
+### Huawei Ascend 910C 与 寒武纪 思元690（国产 AI 训练/推理芯片） 的显存容量差多少？
+
+Huawei Ascend 910C 为 8× HBM3 模块，寒武纪 思元690（国产 AI 训练/推理芯片） 为 196 GB HBM3，差距会直接影响可加载的模型规模与上下文长度。
+
+## 相关页面
+
+- [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c)
+- [寒武纪 思元690（国产 AI 训练/推理芯片）](/docs/cards/cambricon/mlu-690)
+- [AI 算力卡对比工具](/compare) — 在线并排对比 2–4 款芯片

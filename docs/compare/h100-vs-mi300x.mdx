@@ -1,0 +1,62 @@
+---
+title: NVIDIA H100 SXM vs AMD Instinct MI300X
+description: NVIDIA H100 SXM 与 AMD Instinct MI300X 规格对比：架构、FP8/FP16/FP32 算力、显存容量与带宽、TDP 功耗、发布时间一览，附关键差异、选型建议与常见问题。
+keywords: [NVIDIA H100 SXM, AMD Instinct MI300X, NVIDIA H100 SXM vs AMD Instinct MI300X, AI 芯片对比, 算力卡对比, GPU 对比]
+sidebar_label: NVIDIA H100 SXM vs AMD Instinct MI300X
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA H100 SXM vs AMD Instinct MI300X：规格对比与选型指南
+
+在 AI 基础设施选型中，**NVIDIA H100 SXM** 与 **AMD Instinct MI300X** 是经常被放在一起比较的两款加速器。本文从架构、算力、显存、功耗到发布节奏做逐项对照，帮助你快速判断哪一款更契合训练或推理工作负载。
+
+## 规格对比表
+
+| 规格 | NVIDIA H100 SXM | AMD Instinct MI300X |
+| --- | --- | --- |
+| 厂商 | nvidia | amd |
+| 架构 | Hopper GH100 | CDNA 3 |
+| 制程 | TSMC 4N（定制 5nm） | TSMC 5nm + 6nm（混合） |
+| 发布时间 | 2022 年 3 月 GTC 大会 | 2023-06-13 |
+| FP8 算力 | 3,958 TFLOPS（稀疏） | — |
+| FP16 算力 | — | — |
+| FP32 算力 | 67 TFLOPS | 65.3 TFLOPS |
+| INT8 算力 | — | — |
+| 显存类型 | — | — |
+| 显存容量 | 80 GB HBM3 | 192 GB HBM3 |
+| 显存带宽 | 3.35 TB/s（3,352 GB/s） | 5,300 GB/s |
+| TDP 功耗 | 700 W | 750 W |
+
+## 关键差异
+
+- **功耗**：NVIDIA H100 SXM 的 TDP 为 700 W，低于 AMD Instinct MI300X 的 750 W，对数据中心 PUE 与散热更友好。
+- **显存容量**：AMD Instinct MI300X 配备 192 GB HBM3，多于 NVIDIA H100 SXM 的 80 GB HBM3，对超大模型单卡承载更从容。
+
+## 选型建议
+
+- 追求极致单卡算力与成熟工具链时优先考虑 NVIDIA H100 SXM；若预算、功耗墙或本地化支持是硬约束，AMD Instinct MI300X 往往更贴合。建议用本站的 [AI 算力卡对比工具](/compare) 把多款芯片并排验证后再决策。
+
+## 常见问题（FAQ）
+
+### NVIDIA H100 SXM 和 AMD Instinct MI300X 的主要区别是什么？
+
+核心差异在架构与算力密度：NVIDIA H100 SXM 采用 Hopper GH100 架构，FP8 算力约 3,958 TFLOPS（稀疏），显存 80 GB HBM3；AMD Instinct MI300X 采用 CDNA 3 架构，FP8 算力约 暂无公开 FP8 算力数据，显存 192 GB HBM3。完整参数见上方对比表。
+
+### NVIDIA H100 SXM 的功耗（TDP）是多少？
+
+NVIDIA H100 SXM 的 TDP 为 700 W，实际整机功耗还需计入服务器主板、风扇与 PUE。
+
+### 哪个更适合大模型训练 / 推理？
+
+训练看重显存容量、带宽与多卡互联；推理看重单卡吞吐与功耗比。结合上方「关键差异」与「选型建议」按你的 batch size、模型参数量与 SLA 取舍。
+
+### NVIDIA H100 SXM 与 AMD Instinct MI300X 的显存容量差多少？
+
+NVIDIA H100 SXM 为 80 GB HBM3，AMD Instinct MI300X 为 192 GB HBM3，差距会直接影响可加载的模型规模与上下文长度。
+
+## 相关页面
+
+- [NVIDIA H100 SXM](/docs/cards/nvidia/h100)
+- [AMD Instinct MI300X](/docs/cards/amd/mi300x)
+- [AI 算力卡对比工具](/compare) — 在线并排对比 2–4 款芯片

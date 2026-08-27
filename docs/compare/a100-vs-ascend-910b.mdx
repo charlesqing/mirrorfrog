@@ -1,0 +1,62 @@
+---
+title: NVIDIA A100 vs Huawei Ascend 910B
+description: NVIDIA A100 与 Huawei Ascend 910B 规格对比：架构、FP8/FP16/FP32 算力、显存容量与带宽、TDP 功耗、发布时间一览，附关键差异、选型建议与常见问题。
+keywords: [NVIDIA A100, Huawei Ascend 910B, NVIDIA A100 vs Huawei Ascend 910B, AI 芯片对比, 算力卡对比, GPU 对比]
+sidebar_label: NVIDIA A100 vs Huawei Ascend 910B
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA A100 vs Huawei Ascend 910B：规格对比与选型指南
+
+在 AI 基础设施选型中，**NVIDIA A100** 与 **Huawei Ascend 910B** 是经常被放在一起比较的两款加速器。本文从架构、算力、显存、功耗到发布节奏做逐项对照，帮助你快速判断哪一款更契合训练或推理工作负载。
+
+## 规格对比表
+
+| 规格 | NVIDIA A100 | Huawei Ascend 910B |
+| --- | --- | --- |
+| 厂商 | nvidia | huawei |
+| 架构 | Ampere GA100 | Da Vinci（华为自研） |
+| 制程 | TSMC 7nm | TSMC 7nm+（含 SMIC 国产化努力） |
+| 发布时间 | 2020 年 6 月 GTC | 2022-11-08 |
+| FP8 算力 | — | — |
+| FP16 算力 | — | 256 TFLOPS |
+| FP32 算力 | 19.5 TFLOPS | 51.2 TFLOPS |
+| INT8 算力 | — | 512 TOPS |
+| 显存类型 | — | — |
+| 显存容量 | 80 GB HBM2e | 64 GB HBM2e（B1/B2）/ HBM3e（B3） |
+| 显存带宽 | 1,935 GB/s | 600 GB/s（B1/B2）/ 1,200 GB/s（B3） |
+| TDP 功耗 | 300 W / 400 W | 310 W |
+
+## 关键差异
+
+- **功耗**：Huawei Ascend 910B 的 TDP 为 310 W，低于 NVIDIA A100 的 300 W / 400 W，对数据中心 PUE 与散热更友好。
+- **显存容量**：NVIDIA A100 配备 80 GB HBM2e，多于 Huawei Ascend 910B 的 64 GB HBM2e（B1/B2）/ HBM3e（B3），对超大模型单卡承载更从容。
+
+## 选型建议
+
+- 追求极致单卡算力与成熟工具链时优先考虑 NVIDIA A100；若预算、功耗墙或本地化支持是硬约束，Huawei Ascend 910B 往往更贴合。建议用本站的 [AI 算力卡对比工具](/compare) 把多款芯片并排验证后再决策。
+
+## 常见问题（FAQ）
+
+### NVIDIA A100 和 Huawei Ascend 910B 的主要区别是什么？
+
+核心差异在架构与算力密度：NVIDIA A100 采用 Ampere GA100 架构，FP8 算力约 暂无公开 FP8 算力数据，显存 80 GB HBM2e；Huawei Ascend 910B 采用 Da Vinci（华为自研） 架构，FP8 算力约 暂无公开 FP8 算力数据，显存 64 GB HBM2e（B1/B2）/ HBM3e（B3）。完整参数见上方对比表。
+
+### NVIDIA A100 的功耗（TDP）是多少？
+
+NVIDIA A100 的 TDP 为 300 W / 400 W，实际整机功耗还需计入服务器主板、风扇与 PUE。
+
+### 哪个更适合大模型训练 / 推理？
+
+训练看重显存容量、带宽与多卡互联；推理看重单卡吞吐与功耗比。结合上方「关键差异」与「选型建议」按你的 batch size、模型参数量与 SLA 取舍。
+
+### NVIDIA A100 与 Huawei Ascend 910B 的显存容量差多少？
+
+NVIDIA A100 为 80 GB HBM2e，Huawei Ascend 910B 为 64 GB HBM2e（B1/B2）/ HBM3e（B3），差距会直接影响可加载的模型规模与上下文长度。
+
+## 相关页面
+
+- [NVIDIA A100](/docs/cards/nvidia/a100)
+- [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b)
+- [AI 算力卡对比工具](/compare) — 在线并排对比 2–4 款芯片
