@@ -1,0 +1,274 @@
+---
+slug: chinese-ai-chip-triopoly-comparison-2026
+title: 'China''s Domestic AI Chip Triopoly (2026): Ascend, Cambricon, Moore Threads — Who Is the "China H100"?'
+date: '2026-06-23'
+authors:
+  - charlesqing
+tags: [domestic chip, Huawei, Cambricon, Moore Threads, MTT-S5000, MLU690]
+keywords: [domestic AI chip, Huawei Ascend, Cambricon MLU690, Moore Threads MTT S5000, China H100, AI training chip comparison]
+description: 'In-depth 2026 comparison of China''s three domestic AI chip leaders: Huawei Ascend 910C/920/950, Cambricon MLU690, and Moore Threads MTT S5000. Analyzes compute, memory, efficiency, software ecosystem, and commercial progress to help you choose the right domestic AI chip.'
+---
+
+# China's Domestic AI Chip Triopoly (2026): Ascend, Cambricon, Moore Threads — Who Is the "China H100"?
+
+> Against the backdrop of U.S. export controls, China's AI chip market is forming a "three-way standoff." This article compares the technical routes, product specs, software ecosystems, and commercial progress of the three major domestic AI chip vendors: **Huawei Ascend**, **Cambricon MLU**, and **Moore Threads MTT**.
+
+---
+
+## Key Points
+
+- **Huawei Ascend**: leader in domestic AI training chips; Ascend 950 in mass production; most mature software ecosystem
+- **Cambricon MLU690**: the "China H100," compute close to H200, clear efficiency advantage
+- **Moore Threads MTT S5000**: full-function GPU route; achieved Day-0 support for Qwen3.5 and GLM-5.2 in June 2026
+- **Shared challenge**: affected by U.S. export controls, primarily aimed at the Chinese market, limited internationally
+
+---
+
+## I. Vendor Overview
+
+| Vendor | Founded | Founder | Listed | 2025 Revenue | Main Customers |
+|------|------|--------|------|----------|----------|
+| **Huawei Ascend** | 2018 (division) | Ren Zhengfei | private (wholly owned by Huawei) | ~¥20B (est.) | Chinese gov, SOEs, military |
+| **Cambricon** | 2016 | Chen Tianshi (CAS) | 2020-07 (STAR Market 688256) | ~¥5.2B | ByteDance, Alibaba, Baidu |
+| **Moore Threads** | 2020 | Zhang Jianzhong (ex-NVIDIA China) | 2023-12 (STAR Market 688495) | ~¥1.5B (est.) | gov, SOEs, gaming cos. |
+
+### Strategic Positioning
+
+| Vendor | Tech route | Core strength | Main challenge |
+|------|----------|----------|----------|
+| **Huawei Ascend** | **AI-training-specific** (Da Vinci) | co-optimized HW/SW, carrier channels | sanctions, process limits |
+| **Cambricon** | **AI-training-specific** (MLUarch) | high efficiency, competitive price | immature ecosystem |
+| **Moore Threads** | **Full-function GPU** (MUSA) | graphics + AI + general compute, Day-0 support | compute below dedicated AI chips |
+
+---
+
+## II. Flagship Product Comparison
+
+### 1. Huawei Ascend 950DT (2026 flagship)
+
+| Item | Spec |
+|------|----------|
+| **BF16 compute** | 1,000 TFLOPS |
+| **Memory** | 144GB HiZQ 2.0 (in-house HBM) |
+| **Memory bandwidth** | 4 TB/s |
+| **TDP** | 400W |
+| **Process** | N+2 (improved 7nm) |
+| **Released** | 2026-04 |
+| **Mass production** | 2026-Q2 |
+| **Unit price** | ~¥80,000 (est.) |
+
+**Strengths**:
+- ✅ **High large-model inference throughput**: 144GB memory friendly to DeepSeek R1 (671B MoE)
+- ✅ **Most mature ecosystem**: CANN ~85% operator coverage, supports PyTorch, TensorFlow
+- ✅ **Strong carrier channel**: China Mobile, China Telecom large purchases
+
+**Weaknesses**:
+- ❌ **Process limited**: N+2 below TSMC 4nm
+- ❌ **Mediocre efficiency**: 400W TDP, 2.5 TFLOPS/W
+
+---
+
+### 2. Cambricon MLU690 (2026 flagship)
+
+| Item | Spec |
+|------|----------|
+| **BF16 compute** | 600 TFLOPS |
+| **Memory** | 64GB HBM3 |
+| **Memory bandwidth** | 2 TB/s |
+| **TDP** | 280W |
+| **Process** | TSMC 7nm |
+| **Released** | 2025-Q4 |
+| **Mass production** | 2026-Q1 |
+| **Unit price** | ~¥140,000 (est.) |
+
+**Strengths**:
+- ✅ **Best efficiency**: 280W TDP, **2.14 TFLOPS/W** (1.5x H100)
+- ✅ **Competitive price**: ~$20,000, 33% cheaper than H100
+- ✅ **Top-tier customer orders**: ByteDance, Alibaba, Baidu
+
+**Weaknesses**:
+- ❌ **Small memory**: 64GB limits large-model training scale
+- ❌ **Immature ecosystem**: NeuWare ~75–85% coverage; complex LLMs need manual tuning
+
+---
+
+### 3. Moore Threads MTT S5000 (2025 flagship)
+
+| Item | Spec |
+|------|----------|
+| **FP16 compute** | ~1,000 TFLOPS (est.) |
+| **Memory** | 80GB GDDR6X |
+| **Memory bandwidth** | 1.6 TB/s |
+| **TDP** | ~350W |
+| **Process** | TSMC 4nm (est.) |
+| **Released** | 2025-02 |
+| **Mass production** | 2025-Q2 |
+| **Unit price** | ~¥50,000 (est.) |
+
+**Strengths**:
+- ✅ **Full-function GPU**: graphics + AI + general compute, broader scenarios
+- ✅ **Strong Day-0 support**: June 2026 Day-0 support for Qwen3.5, GLM-5.2, MiniMax M3
+- ✅ **Lowest price**: ~¥50,000, high cost-performance
+
+**Weaknesses**:
+- ❌ **Compute below dedicated AI chips**: FP16 ~50% of H100
+- ❌ **Low memory bandwidth**: 1.6 TB/s (48% of H100), limits large-model training
+
+---
+
+## III. Compute Comparison (BF16/FP16)
+
+| Chip | BF16 compute | Memory | Bandwidth | TDP | Efficiency |
+|------|------------|------|------------|-----|----------|
+| **Huawei Ascend 950DT** | 1,000 TFLOPS | 144GB | 4 TB/s | 400W | 2.5 TFLOPS/W |
+| **Cambricon MLU690** | 600 TFLOPS | 64GB | 2 TB/s | 280W | **2.14 TFLOPS/W** |
+| **Moore Threads MTT S5000** | ~1,000 TFLOPS | 80GB | 1.6 TB/s | ~350W | ~2.86 TFLOPS/W |
+| **NVIDIA H100** | 989 TFLOPS | 80GB | 3.35 TB/s | 700W | 1.41 TFLOPS/W |
+| **NVIDIA H200** | 989 TFLOPS | 141GB | 4.8 TB/s | 700W | 1.41 TFLOPS/W |
+
+> **Key insights**:
+> 1. **Ascend 950DT has the highest compute** (1,000 TFLOPS) but mediocre efficiency
+> 2. **Cambricon MLU690 has the best efficiency** (2.14 TFLOPS/W), TDP only 280W
+> 3. **Moore Threads MTT S5000** wins on full-function versatility but low bandwidth
+
+---
+
+## IV. Software Ecosystem
+
+| Vendor | Stack | Framework support | Coverage | Maturity |
+|------|--------|----------|------------|--------|
+| **Huawei Ascend** | CANN | PyTorch, TensorFlow, MindSpore | ~85% | ⭐⭐⭐⭐ (4/5) |
+| **Cambricon** | NeuWare | PyTorch-Cambricon, TensorFlow-Cambricon | ~75–85% | ⭐⭐⭐ (3/5) |
+| **Moore Threads** | MUSIFY | PyTorch, TensorFlow, ONNX | ~70% | ⭐⭐⭐ (3/5) |
+| **NVIDIA** | CUDA | all | ~99% | ⭐⭐⭐⭐⭐ (5/5) |
+
+### Ecosystem Maturity Assessment
+
+**Huawei Ascend CANN**:
+- ✅ Strength: highest operator coverage, supports MindSpore (in-house framework)
+- ❌ Weakness: steep learning curve, incomplete docs
+
+**Cambricon NeuWare**:
+- ✅ Strength: PyTorch/TensorFlow compatible, low migration cost
+- ❌ Weakness: complex LLMs need manual tuning
+
+**Moore Threads MUSIFY**:
+- ✅ Strength: strong Day-0 support, ONNX support
+- ❌ Weakness: lowest operator coverage, dual graphics+AI engine complexity
+
+---
+
+## V. Commercial Progress
+
+| Vendor | 2026 commercial progress | Main customers | Shipments |
+|------|-------------------|----------|--------|
+| **Huawei Ascend** | Ascend 950 mass production; China Mobile large purchase | China Mobile, China Telecom, gov | ~100K/yr (est.) |
+| **Cambricon** | MLU690 mass production; ByteDance, Alibaba orders | ByteDance, Alibaba, Baidu | ~50K/yr (est.) |
+| **Moore Threads** | MTT S5000 mass production; Day-0 Qwen3.5 | gov, SOEs, gaming cos. | ~30K/yr (est.) |
+
+### Latest as of June 2026
+
+**Huawei Ascend**:
+- ✅ Ascend 950DT fully ramping
+- ✅ ¥1B procurement agreement with China Mobile
+
+**Cambricon**:
+- ✅ MLU690 in volume shipment
+- ✅ ByteDance order ~20K units
+
+**Moore Threads**:
+- ✅ Day-0 support for Qwen3.5, GLM-5.2, MiniMax M3
+- ✅ MTT S5000 2nd-gen released
+
+---
+
+## VI. Selection Advice
+
+### Scenario 1: Trillion-parameter training (GPT-4 class)
+
+**Recommended**: **Huawei Ascend 950DT**
+- ✅ 144GB large memory supports super-large models
+- ✅ Most mature ecosystem (~85% coverage)
+- ✅ Strong carrier channel, Chinese government backing
+
+**Alternative**: Cambricon MLU690 (high efficiency, but small memory)
+
+### Scenario 2: Tens-to-hundreds-of-billions parameter training
+
+**Recommended**: **Cambricon MLU690**
+- ✅ Best efficiency (2.14 TFLOPS/W), low TCO
+- ✅ Competitive price (~$20,000)
+- ✅ Validated by top customers (ByteDance, Alibaba)
+
+**Alternative**: Huawei Ascend 920 (more compute, mediocre efficiency)
+
+### Scenario 3: Cloud AI inference
+
+**Recommended**: **Huawei Ascend 950PR** (inference-specific)
+- ✅ Well-optimized inference throughput
+- ✅ 128GB memory friendly to MoE models
+- ✅ Mature stack, low deployment cost
+
+**Alternative**: Moore Threads MTT S5000 (full-function GPU, inference + graphics)
+
+### Scenario 4: Edge AI / on-device inference
+
+**Recommended**: **Moore Threads MTT S5000**
+- ✅ Full-function GPU, graphics + AI
+- ✅ Lowest price (~¥50,000)
+- ✅ Strong Day-0 support
+
+**Alternative**: Huawei Ascend 310 (low power, 8W TDP)
+
+### Scenario 5: Domestic substitution (gov, SOEs)
+
+**Recommended**: **Huawei Ascend 950DT**
+- ✅ Chinese government first choice, carrier bulk buys
+- ✅ Co-optimized HW/SW, stable performance
+- ✅ Supported by national semiconductor fund
+
+**Alternative**: Cambricon MLU690 (high efficiency, competitive price)
+
+---
+
+## VII. Future Roadmap
+
+| Vendor | 2026 H2 | 2027 | 2028 |
+|------|---------|------|------|
+| **Huawei Ascend** | 950DT ramp | 960 (FP8 ~2 PFLOPS) | 970 (N+3 process) |
+| **Cambricon** | MLU690 ramp | MLU790 (5nm, BF16 ~1,000 TFLOPS) | MLU890 (3nm) |
+| **Moore Threads** | MTT S5000 2nd-gen | MTT S6000 (HBM3, FP16 ~1,500 TFLOPS) | MTT S7000 |
+
+---
+
+## VIII. Summary: Who Is the "China H100"?
+
+| Dimension | Ascend 950DT | MLU690 | MTT S5000 |
+|------|-------------------|-------------------|---------------------|
+| **Compute** | ⭐⭐⭐⭐⭐ (5/5) | ⭐⭐⭐ (3/5) | ⭐⭐⭐ (3/5) |
+| **Memory** | ⭐⭐⭐⭐⭐ (5/5) | ⭐⭐ (2/5) | ⭐⭐⭐ (3/5) |
+| **Efficiency** | ⭐⭐⭐ (3/5) | ⭐⭐⭐⭐⭐ (5/5) | ⭐⭐⭐⭐ (4/5) |
+| **Ecosystem** | ⭐⭐⭐⭐ (4/5) | ⭐⭐⭐ (3/5) | ⭐⭐⭐ (3/5) |
+| **Price** | ⭐⭐⭐ (3/5) | ⭐⭐⭐⭐ (4/5) | ⭐⭐⭐⭐⭐ (5/5) |
+| **Overall** | **⭐⭐⭐⭐ (4/5)** | **⭐⭐⭐ (3/5)** | **⭐⭐⭐ (3/5)** |
+
+> **Final conclusion**:
+> - **Huawei Ascend 950DT** is the **domestic AI training chip closest to H100**, strongest overall
+> - **Cambricon MLU690** is the **most efficient domestic AI chip**, lowest TCO
+> - **Moore Threads MTT S5000** is the **cheapest full-function GPU**, suited to edge AI and graphics+AI
+
+---
+
+## References
+
+- [Huawei Ascend 950 series](/docs/cards/huawei/ascend-950) — MirrorFrog detailed specs
+- [Cambricon MLU690](/docs/cards/cambricon/mlu-690) — MirrorFrog detailed specs
+- [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — MirrorFrog detailed specs
+- [Full AI chip comparison table](/docs/comparison) — 100+ chip specs
+- [2026 H2 AI chip roadmap major update](/blog/ai-chip-roadmap-h2-2026-update) — latest roadmap
+
+---
+
+**Disclaimer**: Data based on public sources; actual specs per vendor official. MirrorFrog continuously updates domestic AI chip data — corrections welcome.
+
+**Changelog**: 2026-06-23 initial release

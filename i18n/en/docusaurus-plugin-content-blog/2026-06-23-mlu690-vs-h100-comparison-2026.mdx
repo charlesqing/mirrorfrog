@@ -1,0 +1,230 @@
+---
+slug: mlu690-vs-h100-comparison-2026
+title: 'Cambricon MLU690 vs NVIDIA H100: In-Depth Comparison — Can a Domestic AI Chip Replace the H100?'
+date: '2026-06-23'
+tags: [Cambricon, MLU690, NVIDIA, H100, domestic chip, comparison]
+authors: charlesqing
+---
+
+# Cambricon MLU690 vs NVIDIA H100: In-Depth Comparison — Can a Domestic AI Chip Replace the H100?
+
+> In 2026, against the backdrop of U.S. export controls on AI chips to China, Cambricon's MLU690 has drawn intense attention as a "China-made H100." This article compares the two in depth across compute, memory, power, software ecosystem, measured performance, and price to help you make a selection decision.
+
+## Core Verdict (Read This First)
+
+| Dimension | MLU690 | H100 | Winner | Gap |
+|------|--------|------|------|------|
+| **BF16 compute** | 600 TFLOPS | 989 TFLOPS | H100 | +65% |
+| **Memory capacity** | 64GB HBM3 | 80GB HBM3 | H100 | +25% |
+| **Memory bandwidth** | 2 TB/s | 3.35 TB/s | H100 | +68% |
+| **TDP** | 280W | 700W | MLU690 | -60% |
+| **Energy efficiency** | 2.14 TFLOPS/W | 1.41 TFLOPS/W | MLU690 | +52% |
+| **Software ecosystem** | NeuWare (~75% coverage) | CUDA (100% coverage) | H100 | large gap |
+| **Price** | ~¥140,000 | ~¥200,000 | MLU690 | -30% |
+| **Availability** | domestic spot stock | export-controlled | MLU690 | ✅ |
+
+**One-line summary**: MLU690 delivers roughly **60%** of H100's compute, but at only **40%** of the power and **70%** of the price — a strong fit for AI training and inference in the Chinese market.
+
+---
+
+## 1. Detailed Spec Comparison
+
+### 1.1 Compute
+
+| Precision | MLU690 | H100 SXM5 | H200 SXM5 | Note |
+|------|--------|----------|----------|------|
+| **FP8** | ~300 TFLOPS (est.) | 3,958 TFLOPS | 3,958 TFLOPS | H100 supports FP8; MLU690 likely does not |
+| **BF16/FP16** | **600 TFLOPS** | **989 TFLOPS** | **989 TFLOPS** | H100 leads by 65% |
+| **FP32** | ~150 TFLOPS (est.) | 60 TFLOPS | 60 TFLOPS | MLU690 estimate; H100 actually higher |
+| **INT8** | **1,200 TOPS** | **1,979 TOPS** | **1,979 TOPS** | H100 leads by 65% |
+
+**Key findings**:
+- ✅ MLU690 reaches **60%** of H100's BF16 compute
+- ⚠️ H100 supports FP8 (4-bit); MLU690 likely does not (needs confirmation)
+- ⚠️ H100's higher INT8 compute favors inference scenarios
+
+### 1.2 Memory
+
+| Item | MLU690 | H100 | H200 | Note |
+|------|--------|------|------|------|
+| **Capacity** | 64GB HBM3 | 80GB HBM3 | 141GB HBM3e | H200 largest |
+| **Bandwidth** | 2 TB/s | 3.35 TB/s | 4.8 TB/s | H200 highest |
+| **Type** | HBM3 | HBM3 | HBM3e | H200 uses latest HBM3e |
+
+**Key findings**:
+- ⚠️ MLU690 has **20% less** memory than H100 (64GB vs 80GB)
+- ⚠️ MLU690 bandwidth is **40% lower** than H100 (2 TB/s vs 3.35 TB/s)
+- ❌ When running 70B+ parameter models, MLU690 may run out of memory (model parallelism required)
+
+### 1.3 Power
+
+| Item | MLU690 | H100 | H200 |
+|------|--------|------|------|
+| **TDP** | **280W** | **700W** | **700W** |
+| **Efficiency (FP16/W)** | **2.14 TFLOPS/W** | **1.41 TFLOPS/W** | **1.41 TFLOPS/W** |
+| **8-card server power** | ~3.5kW | ~6kW | ~6kW |
+| **Annual electricity (¥0.6/kWh)** | ~¥18,400 | ~¥36,800 | ~¥36,800 |
+
+**Key findings**:
+- ✅ **MLU690 draws only 40% of H100's power**, sharply cutting data-center electricity cost
+- ✅ **MLU690 leads efficiency by 52%**, better suited to large-scale deployment
+- ✅ For power-sensitive inference, MLU690 has a clear edge
+
+---
+
+## 2. Software Ecosystem
+
+### 2.1 Framework Support
+
+| Framework | MLU690 (NeuWare) | H100 (CUDA) | Note |
+|------|-------------------|-------------|------|
+| **PyTorch** | ✅ (PyTorch-Cambricon) | ✅ native | MLU690 needs an extra plugin |
+| **TensorFlow** | ✅ (TensorFlow-Cambricon) | ✅ native | same |
+| **JAX** | ⚠️ partial | ✅ native | MLU690 limited |
+| **ONNX** | ⚠️ partial | ✅ native | same |
+| **vLLM** | ⚠️ in progress | ✅ native | MLU690 awaits community port |
+
+### 2.2 Operator Coverage
+
+| Category | MLU690 | H100 | Note |
+|------|--------|------|------|
+| **Basic operators** | ✅ 95% | ✅ 100% | conv, matmul, etc. |
+| **Transformer operators** | ✅ 85% | ✅ 100% | Attention, LayerNorm, etc. |
+| **Custom operators** | ⚠️ hand-written | ✅ CUDA C++ | MLU690 harder to develop |
+| **LLM inference opt.** | ⚠️ basic | ✅ mature (FlashAttention, PagedAttention) | H100 leads |
+
+**Key findings**:
+- ⚠️ **NeuWare is only 5–6 years old, with ~75–85% operator coverage**
+- ❌ Complex LLMs (e.g., GPT-4, Claude) may need manual optimization
+- ✅ Common models (Llama, Qwen, GLM) are essentially already supported
+
+---
+
+## 3. Measured Performance
+
+### 3.1 Training
+
+| Model | MLU690 (time) | H100 (time) | Speedup |
+|------|-------------------|-----------------|--------|
+| **Llama 7B** | ~48 h (est.) | ~30 h | 1.6x |
+| **Llama 70B** | ~7 days (est.) | ~4.5 days | 1.6x |
+| **Qwen 72B** | ~8 days (est.) | ~5 days | 1.6x |
+
+**Note**: above figures are estimates; real performance depends on software optimization.
+
+### 3.2 Inference
+
+| Model | MLU690 (tok/s) | H100 (tok/s) | Note |
+|------|----------------|--------------|------|
+| **Llama 7B** | ~80 tok/s (est.) | ~120 tok/s | H100 +50% |
+| **Llama 70B** | ~20 tok/s (est.) | ~35 tok/s | H100 +75% |
+| **Qwen 72B** | ~18 tok/s (est.) | ~30 tok/s | H100 +67% |
+
+**Key findings**:
+- ⚠️ H100 leads inference by **50–75%**
+- ✅ But MLU690 draws only **40%** the power, with better efficiency
+- ✅ For cost-sensitive inference, MLU690 is more economical
+
+---
+
+## 4. Price
+
+### 4.1 Hardware Procurement
+
+| Item | MLU690 | H100 | H200 |
+|------|--------|------|------|
+| **Per-card (domestic)** | ~¥140,000 | ~¥200,000 | ~¥300,000 |
+| **8-card server (turnkey)** | ~¥1,200,000 | ~¥1,800,000 | ~¥2,600,000 |
+| **Cost gap** | - | +50% | +117% |
+
+### 4.2 TCO (3 years)
+
+| Item | MLU690 | H100 | Note |
+|------|--------|------|------|
+| **Hardware** | ¥1,200,000 | ¥1,800,000 | MLU690 33% cheaper |
+| **Electricity (3y)** | ¥55,200 | ¥110,400 | MLU690 50% cheaper |
+| **Facility** | ¥150,000 | ¥250,000 | MLU690 40% cheaper |
+| **TCO (3y)** | **¥1,405,200** | **¥2,160,400** | **MLU690 35% cheaper** |
+
+**Key findings**:
+- ✅ **MLU690's TCO is 35% lower than H100's**
+- ✅ For large-scale deployment (100+ cards), the cost advantage is pronounced
+
+---
+
+## 5. Selection Advice
+
+### 5.1 Choose MLU690 if...
+
+- ✅ Your business is primarily in the Chinese market
+- ✅ You are affected by U.S. export controls and cannot buy H100/H200
+- ✅ You are power-sensitive (edge data centers, high electricity-cost regions)
+- ✅ Your models use common architectures (Llama, Qwen, GLM)
+- ✅ You have domestic-substitution requirements (government, SOEs, military)
+
+### 5.2 Choose H100/H200 if...
+
+- ✅ Your business is global
+- ✅ You need to train frontier models (GPT-4 class)
+- ✅ Your models use complex operators (need the CUDA ecosystem)
+- ✅ You demand extreme performance (low-latency inference)
+- ✅ You can legally procure H100/H200
+
+### 5.3 Hybrid deployment (recommended)
+
+| Scenario | Recommended |
+|------|----------|
+| **Training** | H100 (high perf) + MLU690 (low-cost scale-out) |
+| **Inference** | MLU690 (cost-sensitive) + H100 (low-latency) |
+| **Domestic project** | all MLU690 |
+| **International market** | all H100/H200 |
+
+---
+
+## 6. Outlook
+
+### 6.1 MLU690's weaknesses
+
+- ⚠️ **Immature software ecosystem**: 75–85% operator coverage; complex models need manual tuning
+- ⚠️ **Small memory**: 64GB limits support for 70B+ parameter models
+- ⚠️ **Weak interconnect**: Cambricon Link bandwidth below NVLink
+- ⚠️ **Limited international market**: affected by U.S. export controls
+
+### 6.2 MLU690's improvement path
+
+- 📅 **MLU790** (2027): expected 5nm process, ~2x compute
+- 📅 **Memory upgrade**: next gen may adopt HBM3e, capacity up to 128GB
+- 📅 **Software**: NeuWare ecosystem improving, operator coverage target 95%
+
+---
+
+## 7. Summary
+
+| Dimension | MLU690 | H100 | Recommended scenario |
+|------|--------|------|----------|
+| **Compute** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | H100 for top-tier training |
+| **Memory** | ⭐⭐⭐ | ⭐⭐⭐⭐ | H100 for large models |
+| **Power** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | MLU690 for inference |
+| **Ecosystem** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | H100 for complex models |
+| **Price** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | MLU690 for large-scale deployment |
+| **Domestic** | ⭐⭐⭐⭐⭐ | ❌ | MLU690 for Chinese market |
+
+**Final recommendation**:
+- 🇨🇳 **Chinese market**: prefer MLU690 (domestic + low cost)
+- 🌍 **International market**: prefer H100/H200 (performance + ecosystem)
+- 💡 **Hybrid**: train on H100, infer on MLU690
+
+---
+
+## References
+
+- [Cambricon MLU690 spec page](/docs/cards/cambricon/mlu-690)
+- [NVIDIA H100 spec page](/docs/cards/nvidia/h100)
+- [Full AI chip comparison table](/docs/comparison)
+- [TCO calculator](/docs/tco-calculator)
+
+---
+
+**Disclaimer**: Data in this article is based on public sources and reasonable estimates; actual performance is subject to vendor official testing. MLU690's software ecosystem is evolving rapidly — watch NeuWare updates.
+
+**Last updated**: 2026-06-23
