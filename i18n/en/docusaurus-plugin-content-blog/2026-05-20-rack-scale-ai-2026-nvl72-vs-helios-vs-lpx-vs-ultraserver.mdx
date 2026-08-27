@@ -1,0 +1,234 @@
+---
+slug: rack-scale-ai-2026-nvl72-vs-helios-vs-lpx-vs-ultraserver
+title: 'The Rack-Scale AI Era: NVL72 vs Helios vs Groq 3 LPX vs Trn3 UltraServer — Four-Way Comparison'
+authors: [aicomputecards]
+tags: [tech-deep-dive, selection]
+description: In 2026 AI compute enters the rack-scale era. A deep dive comparing the four major rack-scale solutions — NVIDIA Rubin NVL72 (576 GPUs), AMD Helios (72 MI400), Groq 3 LPX (256 LPUs), and AWS Trn3 UltraServer (144 chips) — plus selection guidance.
+---
+
+**In 2026, AI compute has entered the "rack-scale" era.** Single-chip benchmarking has faded; whole-rack systems are now the main battleground. This article compares in depth the **five major rack-scale solutions: NVIDIA Rubin NVL72/NVL576, AMD Helios, Groq 3 LPX, AWS Trn3 UltraServer, and Google TPU 8t pod**.
+
+{/* truncate */}
+
+## Why the Rack-Scale Era?
+
+### The Limits of Single-Chip Benchmarking
+
+| Single-chip metric | 2018 (V100) | 2024 (H100) | 2026 (Rubin R200) | 2028 (est.) |
+|--------------------|-------------|-------------|-------------------|-------------|
+| Compute | 125 TFLOPS | 989 TFLOPS | 25 PFLOPS | 80 PFLOPS |
+| Memory | 32 GB | 80 GB | 288 GB | 1 TB |
+| TDP | 300 W | 700 W | 1,800 W | 3,000 W |
+
+> **Single-chip TDP is about to break 3,000 W** — physical cooling, power delivery, and interconnect are all hitting their limits.
+
+### Advantages of Rack-Scale
+
+- **Unified cooling**: liquid-cooled whole rack with high cooling efficiency
+- **Unified power**: centralized power delivery with energy-efficiency optimization
+- **Unified interconnect**: NVLink 6 / UALoF / GroqSync / NeuronLink
+- **Unified management**: single-system software stack
+- **Unified procurement**: single-SKU purchase, simplified operations
+
+## The Five Rack-Scale Solutions
+
+### 1. NVIDIA Rubin NVL72 / NVL576
+
+| Item | Rubin NVL72 | **Rubin NVL576** |
+|------|-------------|------------------|
+| GPU count | 72 | **576** |
+| CPU count | 36 | 288 |
+| Total HBM | 20.7 TB HBM4 | 165 TB HBM4 |
+| Memory bandwidth | 1.6 PB/s | 12.7 PB/s |
+| Aggregate NVLink | 252 TB/s | 2,016 TB/s |
+| FP4 sparse compute | 3.6 EFLOPS | **28.8 EFLOPS** |
+| FP8 sparse compute | 1.8 EFLOPS | 14.4 EFLOPS |
+| DC network | ConnectX-9 1152 ports | ConnectX-9 1152 ports |
+| TDP (rack) | ~130 kW | **~1 MW** |
+| Cooling | Liquid | Liquid |
+| Use case | 100B+ model training | **1T+ giant models** |
+| Price | ~$3-5M | **~$25-40M** |
+| Release | 2026 H2 | 2026 H2+ |
+
+> **Rubin NVL576 = 28.8 EFLOPS FP4 = 1.5 ExaFLOPS FP8 = the world's most powerful AI supernode**
+
+### 2. AMD Helios Rack
+
+| Item | Helios |
+|------|--------|
+| GPU count | **72 MI400** |
+| CPU count | 36 EPYC Venice |
+| Total HBM | 31.1 TB HBM4 |
+| Memory bandwidth | 1.4 PB/s |
+| Scale-up interconnect | **UALoF 260 TB/s** (open standard) |
+| Scale-out network | Pensando Vulcano 800G |
+| FP4 dense compute | **2.88 EFLOPS** |
+| FP8 dense compute | 1.44 EFLOPS |
+| TDP (rack) | ~80 kW |
+| Cooling | Liquid |
+| Use case | 700B+ model training |
+| Price | ~$2-3M |
+| Release | 2026 |
+
+> **Helios beats NVIDIA Rubin NVL72 on dense compute** (2.88 vs 1.8 EF FP8 dense)
+
+### 3. NVIDIA Groq 3 LPX Rack (inference-only)
+
+| Item | Groq 3 LPX |
+|------|------------|
+| LPU count | **256 Groq 3 LPUs** |
+| CPU count | None (standalone) |
+| On-chip SRAM | **128 GB aggregate** |
+| SRAM bandwidth | **40 PB/s** (SRAM, not HBM) |
+| Interconnect | GroqSync + NVLink-Network **640 TB/s** |
+| FP8 compute | ~640 PFLOPS |
+| INT8 compute | ~640,000 TOPS |
+| TDP (rack) | ~80 kW |
+| **TTFT (first token latency)** | **< 20ms** |
+| **TPOT** | **< 5ms** |
+| Cooling | Liquid |
+| Use case | **Ultra-low-latency inference** (Agentic AI) |
+| Price | ~$8-10M |
+| Release | 2026 H2 |
+
+> **Groq 3 LPX is the only rack-scale LPU system purpose-built for Agentic AI**
+
+### 4. AWS Trn3 UltraServer
+
+| Item | Trn3 UltraServer |
+|------|------------------|
+| Chip count | **144 Trainium 3** |
+| Total HBM | ~20.7 TB |
+| NeuronLink-v4 | Fully connected, >10 TB/s bidirectional |
+| FP8 dense compute | **52 PFLOPS** |
+| BF16 dense compute | ~187 PFLOPS |
+| TDP (rack) | ~100 kW |
+| Cooling | Liquid |
+| Use case | **400B+ model training** |
+| Price (est.) | ~$3-5M |
+| Release | 2025-12 GA |
+
+> **Trn3 UltraServer = the best price/performance large-scale training solution** (2-3× NVIDIA per dollar)
+
+### 5. Google TPU 8t pod
+
+| Item | TPU 8t pod |
+|------|------------|
+| Chip count | **9,216 TPU 8t** |
+| Total HBM | ~2 PB HBM |
+| Interconnect | 3D Torus |
+| Integrated CPU | Arm Axion (64 cores per node) |
+| BF16 dense compute | **~32 PFLOPS × 9,216 = 295 EFLOPS** |
+| FP8 dense compute | ~590 EFLOPS |
+| Cooling | Liquid |
+| Use case | **Gemini 3/4 training** |
+| Price | Google Cloud only |
+| Release | 2026-04-22 |
+
+> **TPU 8t pod = the world's largest AI training cluster** (9,216 chips × 9 PFLOPS ≈ 83 EFLOPS FP4 dense)
+
+## Five-Way Side-by-Side Comparison
+
+| Metric | NVIDIA NVL72 | AMD Helios | Groq 3 LPX | Trn3 UltraServer | TPU 8t pod |
+|--------|--------------|------------|------------|------------------|------------|
+| **Form** | Training rack | Training rack | Inference rack | Training rack | Training pod |
+| **Chip count** | 72 GPU | 72 GPU | 256 LPU | 144 chip | 9,216 chip |
+| **Total memory** | 20.7 TB HBM | 31.1 TB HBM | 128 GB SRAM | 20.7 TB HBM | ~2 PB HBM |
+| **Interconnect** | NVLink 6 252 TB/s | UALoF 260 TB/s | GroqSync 640 TB/s | NeuronLink-v4 | 3D Torus |
+| **FP4 compute** | 3.6 EF (sparse) | 2.88 EF (dense) | — | — | — |
+| **FP8 compute** | 1.8 EF (sparse) | 1.44 EF (dense) | 640 PF | 52 PF (dense) | 590 EF (dense) |
+| **TDP** | 130 kW | 80 kW | 80 kW | 100 kW | ~10 MW (pod) |
+| **TTFT** | ~100ms | ~100ms | **< 20ms** | ~100ms | ~100ms |
+| **Ecosystem** | CUDA 13 | ROCm 8 | Groq SDK | Neuron 3 | JAX 0.5+ |
+| **Price** | $3-5M | $2-3M | $8-10M | $3-5M | Internal only |
+| **Customers** | All clouds + customers | Customers + clouds | Customers + clouds | AWS Cloud | Google Cloud |
+| **Standardization** | ❌ NVLink closed | ✅ UALoF open | ❌ GroqSync | ❌ NeuronLink | ❌ Torus |
+| **Release** | 2026 H2 | 2026 | 2026 H2 | 2025-12 GA | 2026-04 |
+
+## Selection Guidance
+
+### Large-Scale Training
+
+| Scenario | Recommended | Rationale |
+|----------|-------------|-----------|
+| **100B-700B model training** | NVIDIA Rubin NVL72 | Fits 100B in one rack, strongest FP4 compute |
+| **700B-1T model training** | NVIDIA Rubin NVL576 or AMD Helios | Multi-rack interconnect |
+| **1T+ giant model training** | NVIDIA NVL576 (×8) | 28.8 EFLOPS × 8 = 230 EFLOPS |
+| **Hyperscale (Gemini-class)** | Google TPU 8t pod (9,216 chips) | Google Cloud only |
+| **AWS internal training** | Trn3 UltraServer | Best price/performance |
+| **Open-ecosystem preference** | AMD Helios | UALoF open interconnect |
+
+### Ultra-Low-Latency Inference
+
+| Scenario | Recommended | Rationale |
+|----------|-------------|-----------|
+| **Agentic AI (1000+ calls/sec)** | Groq 3 LPX | TTFT < 20ms, the only choice |
+| **Real-time Code Gen** (Copilot) | Groq 3 LPX | Response within 100ms |
+| **Trillion-parameter inference** | NVIDIA Rubin R200 + Groq 3 LPX co-deployment | GPU training + LPU inference |
+| **70B single-model inference** | TPU 8i (288GB HBM) | Fits FP16 70B on one chip |
+| **Multimodal real-time inference** | TPU 8i (air-cooled) | Flexible cooling |
+
+### Cost-Sensitive Training
+
+| Scenario | Recommended | Rationale |
+|----------|-------------|-----------|
+| **10B-parameter training** | AWS Trn3 UltraServer | 2-3× NVIDIA per dollar |
+| **Hyperscale (outside Gemini)** | AWS Trn3 UltraServer × N | $3-5M/rack |
+| **70B fine-tuning** | AMD Helios single rack | Price/performance + open ecosystem |
+| **100B-parameter training** | Trn3 UltraServer × 3 | 144 × 3 = 432 chips |
+
+## Future Trends in Rack-Scale
+
+### 1. Sustained Growth in Single-Rack Compute
+
+| Year | Single-rack compute | Mainstream solution |
+|------|--------------------|---------------------|
+| 2024 | ~0.2 EFLOPS FP8 | GB200 NVL72 |
+| 2026 | 1.8-3.6 EFLOPS FP8 | Rubin NVL72 / Helios |
+| 2028 | 8-15 EFLOPS FP8 | Rubin Ultra NVL72 / MI500 |
+| 2030 | 30-50 EFLOPS FP8 | Feynman era |
+
+### 2. Multi-Rack Interconnect Standard Competition
+
+| Standard | Vendor | Status |
+|----------|--------|--------|
+| **NVLink Network** | NVIDIA | Closed, 2026 mainstay |
+| **UALoF** | AMD/Broadcom/Intel | Open, debuts with Helios 2026 |
+| **UALink** | Alliance | Evolution of UALoF |
+| **NeuronLink** | AWS | Proprietary |
+| **GroqSync** | Groq (NVIDIA) | Proprietary, ultra-low latency |
+
+### 3. Layered Software Ecosystem
+
+- **Training frameworks**: PyTorch + JAX + Megatron
+- **Inference engines**: vLLM + TensorRT-LLM + SGLang
+- **Resource scheduling**: Slurm + Kubernetes + Ray
+- **Multi-rack management**: NVIDIA Base Command / AMD ROCm RunTime
+
+## Detailed Product Pages
+
+- [NVIDIA Rubin R200 (NVL72 / NVL576)](/en/docs/cards/nvidia/rubin-r200)
+- [NVIDIA Groq 3 LPX](/en/docs/cards/nvidia/groq-3-lpx)
+- [AMD MI400 (Helios rack)](/en/docs/cards/amd/mi400)
+- [AWS Trainium 3 (Trn3 UltraServer)](/en/docs/cards/aws/trainium-3)
+- [Google TPU 8t (9,216 pod)](/en/docs/cards/google/tpu-8t)
+- [Google TPU 8i (inference-only)](/en/docs/cards/google/tpu-8i)
+- [Future Roadmap](/en/docs/roadmap)
+
+## Conclusion
+
+The **main battleground** of AI compute in 2026 is rack-scale solutions:
+
+1. **NVIDIA Rubin NVL72/NVL576** — strongest training, FP4 3.6/28.8 EFLOPS
+2. **AMD Helios** — open ecosystem, leading dense compute
+3. **Groq 3 LPX** — ultra-low-latency inference, TTFT < 20ms
+4. **AWS Trn3 UltraServer** — best price/performance, 2-3× per dollar
+5. **Google TPU 8t pod** — hyperscale, 9,216-chip cluster
+
+**There is no "best," only "most suitable."** Selection depends on:
+- Model scale (100B / 700B / 1T+)
+- Training vs inference
+- Latency requirements (standard vs Agentic)
+- Ecosystem preference (CUDA / ROCm / JAX / Neuron)
+- Budget ($2-10M/rack)
+- Deployment location (self-hosted / cloud)

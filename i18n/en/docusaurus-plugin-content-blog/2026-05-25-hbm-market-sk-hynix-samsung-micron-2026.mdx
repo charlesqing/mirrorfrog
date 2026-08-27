@@ -1,0 +1,316 @@
+---
+slug: hbm-market-sk-hynix-samsung-micron-2026
+title: 'The HBM Three-Way War: SK Hynix / Samsung / Micron Battle for AI Memory Supremacy'
+authors: [aicomputecards]
+tags: [tech-deep-dive, strategy]
+description: An in-depth analysis of the 2026 HBM market landscape — SK Hynix's 70% share / Samsung's HBM4 catch-up / Micron's HBM3e advantage / and how tight capacity constrains AI chip supply.
+---
+
+The bottleneck of AI compute has shifted from **compute itself** to **memory bandwidth and capacity**. **HBM (High Bandwidth Memory)**, a core component of AI chips, will reach a **$80B+ market** in 2026 — yet there are only **3 global suppliers**: **SK Hynix, Samsung, and Micron**. This article analyzes this "memory three-kingdom war" in depth.
+
+{/* truncate */}
+
+## Why HBM Is Critical in the AI Era
+
+### The Memory Wall
+
+AI model size has grown from BERT (340M parameters) in 2018 to Llama 3 (405B) in 2024 and Gemini (est. 1T+ in 2026), with **compute growing 1000×** but **memory bandwidth only growing 10-20×**.
+
+This is the famous **von Neumann bottleneck**:
+
+| Metric | 2018 (V100) | 2024 (H100) | 2026 (Rubin R200) | Growth |
+|--------|-------------|-------------|-------------------|--------|
+| Compute (FP16/BF16) | 125 TFLOPS | 989 TFLOPS | 25 PFLOPS | 200× |
+| Memory capacity | 32 GB | 80 GB | 288 GB | 9× |
+| Memory bandwidth | 900 GB/s | 3.35 TB/s | 22 TB/s | 24× |
+
+> **Compute grows far faster than memory bandwidth**, leaving GPUs frequently "waiting for data." HBM is the core to relieving this bottleneck.
+
+### HBM vs GDDR vs SRAM
+
+| Memory type | Bandwidth (per pin) | Capacity density | Power | Use case |
+|-------------|---------------------|-----------------|-------|----------|
+| **HBM4** | **6.4 Gbps/pin** | High (12-Hi) | Medium | AI training / inference GPU |
+| HBM3e | 4.8 Gbps/pin | High (8-Hi/12-Hi) | Medium | AI training / inference GPU |
+| HBM3 | 4.0 Gbps/pin | Medium | Medium | AI training |
+| HBM2e | 3.2 Gbps/pin | Medium | Medium | AI inference |
+| GDDR6X | 1.6 Gbps/pin | Medium | Medium-high | Consumer GPU |
+| GDDR7 | 2.5 Gbps/pin | Medium | Medium | Consumer / workstation |
+| LPDDR5X | 0.85 Gbps/pin | High | Low | Edge AI / mobile |
+| SRAM (on-chip) | 10+ Gbps/pin | Extremely low | Extremely high | LPU / cache |
+
+> HBM is the best balance of bandwidth and capacity. **SRAM is fastest but too small (100× the cost per GB of HBM)**, while **GDDR has large capacity but insufficient bandwidth**.
+
+## The Three-Vendor Landscape
+
+### 1. SK Hynix: Current HBM Hegemon (70% share)
+
+**SK Hynix** is the **absolute leader** of the HBM market:
+
+| Item | SK Hynix status |
+|------|-----------------|
+| **Market share** | **~70%** (2025 total HBM market) |
+| **HBM4 progress** | **First mass production Q1 2026**, exclusive NVIDIA supply |
+| **HBM3e supply** | Primary NVIDIA supplier (80%), partial AMD |
+| **Core technology** | **Advanced MR-MUF** (Mass Reflow Molded Underfill) |
+| **Capacity** | 2026 plan: **25,000 HBM wafers/month** |
+| **Key customers** | NVIDIA (90%), AMD, partial Google |
+| **2025 HBM revenue** | ~$30B (+80% YoY) |
+| **2025 net margin** | ~35% (far above traditional DRAM business) |
+
+#### SK Hynix Key Advantages
+
+- **Earliest HBM3 mass production (2018)**: first-mover technology
+- **Deep NVIDIA partnership**: HBM3 and HBM3e both debuted with NVIDIA
+- **Advanced MR-MUF process**: leading packaging yield
+- **HBM4 first-mover**: first mass production Q1 2026
+
+#### Key Events
+
+| Time | Event |
+|------|-------|
+| 2014 | Co-developed HBM with AMD |
+| 2018 | First HBM2 mass production (NVIDIA V100) |
+| 2020 | HBM2e mass production |
+| 2022 | HBM3 mass production (NVIDIA H100) |
+| 2024 | HBM3e 12-Hi mass production (NVIDIA B200) |
+| Q1 2026 | **HBM4 first mass production** (NVIDIA Rubin R200) |
+
+### 2. Samsung: HBM4 Challenger (20% share)
+
+**Samsung** is the **challenger** in the HBM market, hampered by yield and NVIDIA certification:
+
+| Item | Samsung status |
+|------|------------------|
+| **Market share** | **~20%** (2025 total HBM market) |
+| **HBM4 progress** | Q2 2026 mass production (one quarter behind SK Hynix) |
+| **HBM3e supply** | Awaiting NVIDIA certification, mainly AMD / Google |
+| **Core technology** | **TC-NCF** (Thermal Compression Non-Conductive Film) |
+| **Capacity** | 2026 plan: 10,000 HBM wafers/month |
+| **Key customers** | AMD (partial MI300X), Google TPU, Cerebras |
+| **2025 HBM revenue** | ~$8B (+150% YoY, but only 1/4 of SK Hynix) |
+| **2025 net margin** | ~5% (low margin due to low yield) |
+
+#### Samsung Key Problems
+
+- **HBM3 NVIDIA certification failed**: multiple sample rejections 2023-2024
+- **Low yield**: HBM3e yield ~50% (SK Hynix ~70%)
+- **Divergent tech路线**: Samsung bet on TC-NCF (vs SK Hynix's MR-MUF)
+- **2024 heavy losses**: huge HBM investment with slow returns
+
+#### Samsung 2025-2026 Breakthroughs
+
+| Time | Event |
+|------|-------|
+| 2024-12 | HBM3e 8-Hi passes AMD certification |
+| 2025-03 | HBM3e 12-Hi passes Google TPU certification |
+| 2025-Q4 | HBM4 trial production, mass production Q2 2026 |
+| 2025-Q4 | NVIDIA HBM3e 12-Hi certification **passed** (partial orders) |
+
+> **At the end of 2025 Samsung finally secured partial NVIDIA HBM3e 12-Hi orders** — a turning point for Samsung's HBM business.
+
+### 3. Micron: HBM Dark Horse (10% share)
+
+**Micron** is the **dark horse** of the HBM market, becoming NVIDIA's second supplier with its **HBM3E 12-Hi 9.2 Gbps speed**:
+
+| Item | Micron status |
+|------|-----------------|
+| **Market share** | **~10%** (2025 total HBM market) |
+| **HBM4 progress** | Q3 2026 mass production (two quarters behind SK Hynix) |
+| **HBM3e supply** | NVIDIA second supplier (~30% share) |
+| **Core technology** | **1znm DRAM** + Advanced Packaging |
+| **Capacity** | 2026 plan: 5,000 HBM wafers/month |
+| **Key customers** | NVIDIA (partial), AMD, Intel |
+| **2025 HBM revenue** | ~$4B (+200% YoY) |
+| **2025 net margin** | ~10% |
+
+#### Micron Key Advantages
+
+- **HBM3E 12-Hi 9.2 Gbps**: industry's highest speed (ahead of SK Hynix's 9 Gbps)
+- **US domestic manufacturing**: Idaho/New York fabs, CHIPS Act compliant
+- **NVIDIA second supplier**: avoids single-source risk
+- **2025 breakthrough**: +200% YoY revenue, fastest growth of the three
+
+#### Micron Key Events
+
+| Time | Event |
+|------|-------|
+| 2024 | First HBM3E 8-Hi mass production |
+| 2025-Q1 | HBM3E 12-Hi mass production (industry first) |
+| 2025-Q2 | **NVIDIA H100/B200 certification** passed |
+| 2025-Q3 | Partial B200 orders (~30% share) |
+| 2026-Q3 | HBM4 expected mass production |
+
+> **Micron is the fastest-growing of the three, +200% YoY in 2025.** But capacity is only 5,000 wafers/month, limiting its share growth.
+
+## HBM Technology Roadmap
+
+### HBM4 Key Specs
+
+| Item | HBM3e | **HBM4** | Improvement |
+|------|-------|----------|-------------|
+| Single-stack capacity | 24 GB (12-Hi) | **36-48 GB** (16-Hi) | 1.5-2× |
+| Single-pin speed | 9.2 Gbps | **12-16 Gbps** | 1.3-1.7× |
+| Single-stack bandwidth | 1.2 TB/s | **1.5-2 TB/s** | 1.3-1.7× |
+| Power | 7W/stack | 8W/stack | Slight increase |
+| Process | 1z/1β DRAM | 1γ/1δ DRAM | Shrink |
+| Packaging | CoWoS-S | **CoWoS-L** | Larger interposer |
+| Mass production | 2024-2025 | **Q1 2026 (SK) / Q2 (Sam) / Q3 (Mic)** | — |
+
+### HBM4E / HBM5 Roadmap
+
+| Year | Model | Capacity | Speed | Process |
+|------|-------|----------|-------|---------|
+| 2026 | **HBM4** | 36-48 GB | 12-16 Gbps | 1γ/1δ |
+| 2027 | **HBM4E** | 48-64 GB | 16-20 Gbps | 1δ |
+| 2028 | **HBM5** | 64-80 GB | 20-24 Gbps | 1ε |
+| 2029 | **HBM5E** | 80-96 GB | 24-28 Gbps | 1ε+ |
+
+## Capacity and Pricing
+
+### HBM Capacity (2026 plan)
+
+| Vendor | 2025 actual | 2026 plan | 2027 plan | Market share |
+|--------|-------------|-----------|-----------|--------------|
+| **SK Hynix** | 18,000 wafers/month | **25,000** | 35,000 | 60-70% |
+| **Samsung** | 6,000 wafers/month | 10,000 | 18,000 | 15-20% |
+| **Micron** | 3,500 wafers/month | 5,000 | 12,000 | 10-15% |
+| **Total** | 27,500 | **40,000** | 65,000 | 100% |
+
+> **2026 HBM capacity is tight**: demand ~50,000 wafers/month vs supply only 40,000 wafers/month — a **20% shortfall**.
+
+### HBM Price (per GB)
+
+| Model | 2024 | 2025 | 2026 | 2027 (E) |
+|-------|------|------|------|----------|
+| **HBM4** | N/A | N/A | **$20-25/GB** | $15-18/GB |
+| HBM3e 12-Hi | $18-22/GB | $15-18/GB | $12-15/GB | $10-12/GB |
+| HBM3e 8-Hi | $14-18/GB | $11-14/GB | $9-11/GB | $8-10/GB |
+| HBM3 8-Hi | $10-12/GB | $8-10/GB | $6-8/GB | $5-7/GB |
+
+> **HBM accounts for 30-50% of AI chip cost.** NVIDIA B200's HBM cost is ~$5,000-8,000 (192GB HBM3e × ~$30/GB).
+
+## HBM's Link to AI Chip Supply
+
+### NVIDIA Rubin R200 HBM Supply Chain
+
+| HBM source | Share | Notes |
+|------------|-------|-------|
+| **SK Hynix HBM4** | **70%** | First batch, exclusive supply Q1-Q2 2026 |
+| **Micron HBM4** | **20%** | From Q3 2026, CHIPS Act benefits |
+| **Samsung HBM4** | **10%** | From Q4 2026 (certification delay) |
+
+> **NVIDIA remains heavily dependent on SK Hynix.** This is a **single-point-of-failure risk** in NVIDIA's supply chain.
+
+### AMD MI400 HBM Supply Chain
+
+| HBM source | Share | Notes |
+|------------|-------|-------|
+| **SK Hynix HBM3e** | 50% | Primary supplier |
+| **Samsung HBM3e** | 30% | Expanded after 2025 breakthrough |
+| **Micron HBM3e** | 20% | Backup supply |
+
+### Google TPU HBM Supply Chain
+
+| HBM source | Share | Notes |
+|------------|-------|-------|
+| **Samsung HBM3e** | 60% | Early partnership |
+| **SK Hynix HBM3e** | 30% | Partial orders |
+| **Micron HBM3e** | 10% | Newly added |
+
+### Huawei Ascend 920 HBM Supply Chain
+
+| HBM source | Share | Notes |
+|------------|-------|-------|
+| **CXMT (ChangXin Memory)** | 70% | Domestic HBM, 4 Tbps |
+| **Samsung HBM3** | 20% | Limited by US export controls |
+| **SK Hynix** | 10% | Limited by US export controls |
+
+> **Huawei is affected by US export controls**, forcing accelerated domestic CXMT HBM substitution.
+
+## Investment Analysis
+
+### 2025-2026 Performance of the Three Vendors
+
+| Vendor | 2025 HBM revenue | YoY | 2026 (E) revenue | Net margin |
+|--------|------------------|-----|------------------|------------|
+| **SK Hynix** | ~$30B | +80% | ~$50B | ~35% |
+| **Samsung** | ~$8B | +150% | ~$15B | ~10% |
+| **Micron** | ~$4B | +200% | ~$10B | ~15% |
+
+### Stock Performance (2025 to date)
+
+| Vendor | 2025 gain | 2026 gain (YTD) |
+|--------|-----------|------------------|
+| **SK Hynix** | +120% | +35% |
+| **Samsung** | +15% | +10% |
+| **Micron** | +90% | +25% |
+| **NVIDIA** | +180% | +40% |
+
+> **SK Hynix is the biggest beneficiary of AI memory**, with a 120% gain in 2025, far exceeding Samsung (only 15%).
+
+## Risks and Challenges
+
+### 1. Tight HBM Capacity
+
+- **2026 shortfall of 20%** (demand 50K wafers vs supply 40K)
+- **NVIDIA Rubin R200 shipments** may be delayed by tight HBM supply
+- **Customer advance deposits** have become the norm
+
+### 2. US Export Controls
+
+- **HBM exports to China** are strictly limited by the US Commerce Department
+- **Samsung, SK Hynix** factories in China are restricted
+- **Huawei** accelerates domestic CXMT HBM substitution
+
+### 3. Divergent Technology Routes
+
+- **SK Hynix**: MR-MUF route, leading
+- **Samsung**: TC-NCF route, behind but catching up
+- **Micron**: somewhere in between
+
+### 4. Competing Technologies
+
+- **Samsung HBM-PIM**: processing unit inside HBM (in-memory compute)
+- **TSMC SoIC**: 3D-stacked SRAM + Logic
+- **Micron HBM-CX**: Compute Express Link integration
+
+## Future Outlook
+
+### Short term (2026-2027)
+
+- **HBM remains tight**: demand > supply
+- **High prices**: HBM4 $20-25/GB
+- **Three vendors coexist**: SK Hynix 70% + Samsung 20% + Micron 10%
+
+### Medium term (2027-2029)
+
+- **HBM4E / HBM5**: capacity 64-96 GB, speed 20-28 Gbps
+- **Domestic HBM rise**: CXMT mass-produces 8-Hi
+- **New entrants**: YMTC (Yangtze Memory) may enter the HBM market
+
+### Long term (2029+)
+
+- **HBM6 / 3D HBM**: more layers stacked, TSV alternatives
+- **PIM-HBM**: processing unit inside HBM
+- **Alternative technologies**: on-chip SRAM capacity breakthroughs (e.g., Cerebras WSE)
+
+## Detailed Product Pages
+
+- [NVIDIA Rubin R200 (HBM4 debut)](/en/docs/cards/nvidia/rubin-r200)
+- [AMD MI400 (CDNA Next + HBM4)](/en/docs/cards/amd/mi400)
+- [Google TPU 8t + 8i (HBM integrated)](/en/docs/cards/google/tpu-8t)
+- [Cerebras WSE-3 (wafer-scale SRAM vs HBM)](/en/docs/cards/cerebras/wse-3)
+- [Full Comparison Table](/en/docs/comparison)
+
+## Conclusion
+
+The HBM three-way war will last 3-5 years:
+
+1. **SK Hynix is unshakable in the short term** — HBM4 debut + deep NVIDIA binding
+2. **Samsung broke through at end of 2025** — HBM3e 12-Hi finally certified by NVIDIA
+3. **Micron is the fastest grower** — HBM3E 9.2 Gbps, industry's fastest
+4. **Capacity remains tight** — 2026 shortfall of 20%
+5. **Domestic HBM rises** — CXMT ChangXin 4 Tbps breakthrough
+
+**HBM is not a supporting act — it is the "water, electricity, and coal" of the AI era.**
