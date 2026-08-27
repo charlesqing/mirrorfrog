@@ -1,0 +1,113 @@
+---
+slug: domestic-ai-chip-triopoly-h2-2026
+title: 'Domestic Big Three 2026 H2: Localization Rate Crosses 40% Toward 60%, Ascend 960 Roadmap, MLU690 and S5000 Ecosystems Ramp Up'
+date: '2026-08-18'
+authors: aicomputecards
+tags: [industry-report, domestic-chip, huawei, ascend, cambricon, moore-threads, domestic-substitution, 2026-progress]
+description: 'In H2 2026, domestic AI chips enter a critical scale-up phase: China AI accelerator localization rate first broke 40%, heading to 60%-70% by 2027; Huawei Ascend 950 series capacity is fully booked with the 960 roadmap disclosed (FP8 4 PFLOPS, 288GB/9.6TB/s, 2027 Q4), Cambricon MLU690 enters mass production in H2, and Moore Threads MTT S5000 breaks in with full-function GPU + MUSA 800K-developer ecosystem. Software and super-nodes are becoming the deciders.'
+---
+
+# Domestic Big Three 2026 H2: Localization Rate Crosses 40% Toward 60%, Ascend 960 Roadmap, MLU690 and S5000 Ecosystems Ramp Up
+
+> In 2026, China's AI chip market landscape has shifted from "NVIDIA unipolar dominance" to "overseas vendors leading, domestic multi-route catch-up." According to industry research, **China's overall AI accelerator market was ~4M units in 2025, of which 1.65M were domestic, with share first breaking 40%**; as products iterate and fabs follow up, the localization rate is expected to rise to **60%-70%** by 2027. This article focuses on the latest H2 2026 progress of Huawei Ascend, Cambricon, and Moore Threads — the domestic "Big Three."
+
+---
+
+## 1. Huawei Ascend: 950 Capacity Fully Booked, 960 Roadmap Unveiled
+
+Ascend's core advantage is "architecture + full-stack ecosystem synergy," with **~800K units shipped in 2025, capturing 50% of the total domestic vendor share**. The product iteration cadence is clear:
+
+| Time | Product | Note |
+|------|------|------|
+| 2025 Q1 | Ascend 910C | Main transitional model |
+| 2026 Q1 | Ascend 950PR | Inference flagship |
+| 2026 Q4 (planned) | Ascend 950DT | Training flagship, drives domestic HBM iteration |
+| 2027-2028 | Ascend 960 / 970 | Roadmap products |
+
+**950 series capacity has entered a "fully booked" state**: 950PR entered mass production in April 2026; June monthly capacity jumped to 500K-600K units (nearly 10x MoM), with a full-year target of 1.2M units at 100% certainty; ByteDance locked in 350K units for $5.6B, while Tencent / Alibaba / Baidu combined locked in 400K units.
+
+**Ascend 960 roadmap specs** (per roadmap disclosure):
+
+| Metric | Ascend 960 |
+|------|----------|
+| **Architecture** | Ascend 6th gen (Da Vinci v6) |
+| **FP8 compute** | ~4 PFLOPS |
+| **Memory** | 288GB |
+| **Memory bandwidth** | 9.6 TB/s |
+| **Super-node** | Atlas 960 SuperPoD, 15,488 cards, Lingqu optical-electrical converged bus |
+| **Debut** | 2027 Q4 (roadmap) |
+
+> The previous-gen Ascend 384 super-node has cumulatively shipped over **750 sets**, deployed across 20+ industries including internet, operators, finance, education, and healthcare — Huawei calls it "the only domestic super-node that has trained a SOTA model."
+
+---
+
+## 2. Cambricon MLU690: H2 Mass Production, Entering ByteDance Bidding Window
+
+Cambricon is the core domestic compute leader in the absence of an Ascend IPO, with the technology gap continuously narrowing:
+
+- **Siyuan 590** (7nm): Performance equivalent to 80% of A100, already supports DeepSeek, continuously adapting to mainstream large models like Qwen 3 and GLM
+- **Siyuan 690 series**: Will **enter mass production in H2 2026**, expected to achieve order scale-up during ByteDance's H2 bidding window
+- **Revenue certainty**: Equity incentive targets show >100% revenue growth for the next 3 years: 2026 revenue target 13.5B RMB, 2027 27B RMB, 2028 60B RMB
+
+> Cambricon fully benefits from the industry dividend of "domestic CSP capex + full adaptation of domestic large models and domestic chips," making it the most direct elasticity play on rising localization rate.
+
+---
+
+## 3. Moore Threads MTT S5000: Full-Function GPU + Ecosystem Breakthrough
+
+Moore Threads takes a differentiated "full-function GPU" route, with the flagship **MTT S5000** based on the 4th-gen "Pinghu" MUSA architecture:
+
+| Metric | MTT S5000 |
+|------|-----------|
+| **Dense AI compute** | 1000 TFLOPS |
+| **Memory** | 80GB |
+| **Memory bandwidth** | 1.6 TB/s |
+| **Inter-card interconnect** | 784 GB/s |
+| **Precision** | FP8 to FP64 full precision (training + inference) |
+| **Security** | First batch to pass national "Safe and Reliable Evaluation" (Level I) |
+
+Its engineering capability is verified: the **Kuae (KUAE) intelligent computing cluster based on S5000 achieves 95% training linear scaling efficiency**, with compute efficiency loss within 5% at ten-thousand-card scale; supports checkpoint-resume training with effective training time ratio >90%; and has trained a MoE-236B base model with >25 trillion tokens of corpus from scratch.
+
+**The ecosystem is Moore Threads' deepest moat**: MUSA has achieved 100% core math library compatibility, 3000+ PyTorch operator compatibility, covers 55 categories of core AI operators, has official vLLM and SGLang support, Day-0 adaptation of mainstream models, and **800K+ developers**. Its PD heterogeneous-disaggregation solution achieves equivalent replacement of international high-end GPUs at a 2:1 ratio with S5000, significantly reducing inference cost.
+
+> The 5th-gen "Huagang" architecture (released 2025-12) supports FP4 to FP64 full precision, with 50% higher compute density and 10x better energy efficiency than the previous gen, supporting 100K+ card clusters; cumulative R&D investment in the "Huashan" (train-infer integrated) and "Lushan" (graphics rendering) new chips based on this architecture exceeds 900M RMB.
+
+---
+
+## 4. Software Ecosystem Decides: Day-0 Adaptation Becomes Routine
+
+Beyond hardware, **software ecosystem realization** is the watershed for domestic compute in 2026:
+
+- Huawei's **CANN heterogeneous computing architecture and MindSeries suite are fully open-sourced**, with the community incubating 67 projects, 12.44M+ lines of code, and 3,500+ monthly active developers
+- The "release-and-adapt" closed loop between domestic large models and domestic chips has basically formed: Tencent Hunyuan T3 (295B), DeepSeek-V4, and GLM-5.2 all completed Day-0 adaptation
+- 2026 is regarded as the "**first year of domestic super-nodes**"; Huatai Securities estimates China's super-node architecture market will reach **341.4B RMB by 2028**, with a 2026-2028 CAGR of **194%**
+
+---
+
+## 5. Industry Judgment: From "Can It Be Built" to "Can It Be Used Well"
+
+The domestic Big Three are converging along three paths:
+
+1. **Huawei**: Locks government/enterprise and internet big customers with super-node system-level capability + full-stack software
+2. **Cambricon**: Impacts the revenue inflection point by narrowing the training-side gap + scaling up via big-customer bidding
+3. **Moore Threads**: Covers cloud-edge-end full scenarios with full-function GPU generality + mature CUDA-compatible ecosystem
+
+The common shortcoming of all three remains **advanced process and HBM supply** — precisely the core link of overseas controls. But as domestic HBM iterates and fabs follow up, a realistic path to 60%-70% localization by 2027 exists.
+
+## Related Links
+
+- [Huawei Ascend 960 spec page](/docs/cards/huawei/ascend-960)
+- [Huawei Ascend 950DT spec page](/docs/cards/huawei/ascend-950dt)
+- [Cambricon MLU690 spec page](/docs/cards/cambricon/mlu690)
+- [Moore Threads MTT S5000 spec page](/docs/cards/others/moore-threads-mtt-s5000)
+
+## References
+
+- [Domestic AI Chip Industry View Update - Robo Datayes](https://robo.datayes.com/v2/details/feed/635000)
+- [Moore Threads, Two Positives in One Day - Eastmoney](https://wap.eastmoney.com/a/202608093835949226.html)
+- [Moore Threads × SiliconFlow: PD Disaggregation Heterogeneous Compute Co-location Whitepaper - EE Focus](https://www.eefocus.com/article/2073170.html)
+- [After Approaching Break-even, Moore Threads Faces Hong Kong "Big Exam" Again - Top News](https://www.topnews.cn/news/145ED3ED40BD4F71)
+
+---
+
+**This article is compiled from public industry research, broker views, and corporate announcements as of August 2026. Some shipment and market-share figures are third-party estimates, not officially confirmed data.**

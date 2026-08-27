@@ -1,0 +1,209 @@
+---
+slug: intel-gaudi-4-jaguar-shores-2026
+title: 'Intel Gaudi 4 / Jaguar Shores Latest Progress: Returning to the AI Race with HBM4 Memory'
+authors: [aicomputecards]
+tags: [intel, gaudi-4, jaguar-shores, ai-accelerator, habana, custom-chip]
+date: 2026-06-16
+description: 'On March 18, 2026, Intel officially launched the Habana Gaudi 4 AI accelerator using TSMC 5nm process and 64GB HBM3e memory, designed for large-scale model training. Meanwhile, Intel''s next-gen Jaguar Shores GPU (with HBM4 memory) is in development, expected in 2027. This article details Intel''s latest progress returning to the AI race.'
+---
+
+# Intel Gaudi 4 / Jaguar Shores Latest Progress: Returning to the AI Race with HBM4 Memory
+
+On March 18, 2026, Intel officially launched at the **Intel AI Summit**: the **Habana Gaudi 4 custom AI accelerator**. This is Intel's latest-gen AI training/inference chip after Gaudi 3 (launched April 2024), designed for **large-scale model training**.
+
+Meanwhile, Intel confirmed its next-gen **Jaguar Shores GPU** (datacenter GPU) is in development, will use **HBM4 memory**, and is expected in **2027**. This marks Intel's formal return to the AI chip race.
+
+## Key Highlights
+
+- **Gaudi 4**: Launched March 2026, TSMC 5nm, 64GB HBM3e, for large-scale training
+- **Jaguar Shores**: Launches 2027 (est.), HBM4, targeting NVIDIA Rubin
+- **Crescent Island**: Intel's first general-purpose GPU (launched 2026), Xe3 architecture
+- **Software ecosystem**: Intel AI Stack (including oneAPI, BigDL, Gaudi Software Suite)
+- **Foundry partners**: TSMC (Gaudi 4, Jaguar Shores), Intel Foundry (Crescent Island)
+
+## Gaudi 4 Detailed Specs
+
+Gaudi 4 is the fourth-gen AI accelerator designed by Intel's **Habana Labs** (acquired 2019).
+
+| Parameter | Gaudi 4 | Gaudi 3 (2024) | NVIDIA B200 |
+|------|---------|-------------------|-------------------|
+| **Architecture** | Habana 4 | Habana 3 | Blackwell |
+| **Process** | TSMC 5nm | TSMC 7nm | TSMC 4NP |
+| **FP8 compute** | ~2,000 TFLOPS (est.) | 1,000 TFLOPS | 4,500 TFLOPS (sparse) |
+| **Memory** | 64GB HBM3e | 128GB HBM2e (est.) | 192GB HBM3e |
+| **Memory bandwidth** | ~3 TB/s (est.) | ~2 TB/s (est.) | 8 TB/s |
+| **TDP** | ~500W (est.) | ~400W | 700-1000W |
+| **Interconnect** | RoCE v3 (Ethernet) | RoCE v2 | NVLink 5.0 |
+| **Launch** | **March 2026** | April 2024 | March 2024 |
+| **Mass production** | 2026 Q3 (est.) | Q4 2024 | Q4 2024 |
+
+> 📌 **Note**: Gaudi 4 exact specs not fully public; some values above are estimates.
+
+### Gaudi 4 Key Features
+
+1. **Native Ethernet support**: Uses **RoCE v3** (RDMA over Converged Ethernet), no dedicated interconnect protocol needed (like NVLink)
+2. **Large-scale scaling optimized**: Ten-thousand-card cluster scaling efficiency better than InfiniBand (lower cost)
+3. **Sparsity acceleration**: Native MoE model support
+4. **Multi-precision support**: FP8/FP16/FP32/INT8/INT4
+5. **Open ecosystem**: Supports PyTorch, TensorFlow, JAX (via third-party adaptation)
+
+## Jaguar Shores: Intel's Next-Gen GPU
+
+**Jaguar Shores** is Intel's first **true** datacenter GPU (not an ASIC like Gaudi).
+
+### Why "Jaguar Shores"?
+
+- **Jaguar**: Symbolizes "speed" and "agility"
+- **Shores**: Symbolizes "openness" and "connection"
+
+### Jaguar Shores Estimated Specs
+
+| Parameter | Jaguar Shores (est.) | NVIDIA Rubin | AMD MI455X |
+|------|---------------------------|-------------------|-------------------|
+| **Architecture** | Xeu 3 (est.) | Rubin | CDNA 4 |
+| **Process** | TSMC 3nm (est.) | TSMC 3nm | TSMC 3nm |
+| **Memory** | **HBM4** (confirmed) | HBM4 | HBM4 |
+| **Memory capacity** | 288GB (est.) | 288GB | 288GB |
+| **FP8 compute** | ~4,000 TFLOPS (est.) | ~6,000 TFLOPS | 6,000 TFLOPS |
+| **TDP** | ~800W (est.) | ~1,000W | ~800W |
+| **Launch** | **2027** (est.) | 2026 Q3 | 2026 Q3 |
+
+**Key confirmations**:
+- ✅ **HBM4 memory**: Intel confirmed Jaguar Shores will use SK hynix HBM4
+- ✅ **TSMC foundry**: Jaguar Shores will be produced by TSMC (not Intel Foundry)
+- ✅ **oneAPI native support**: Jaguar Shores will natively support the oneAPI programming model
+
+## Crescent Island: Intel's First General-Purpose GPU
+
+**Crescent Island** is Intel's **first general-purpose datacenter GPU** announced October 2025, using the **Xe3 architecture** (upgrade of Xe-HPG).
+
+| Parameter | Crescent Island (est.) | Intel Data Center GPU Max | NVIDIA L40S |
+|------|-------------------------------|---------------------------|-------------------|
+| **Architecture** | Xeu 3 | Xeu 2 (Ponte Vecchio) | Ada Lovelace |
+| **Positioning** | General compute + AI inference | HPC + AI training | AI inference + graphics |
+| **Process** | TSMC 5nm (est.) | Intel 7 + TSMC 5nm | TSMC 4N |
+| **Memory** | 48GB HBM3 (est.) | 128GB HBM2e | 48GB GDDR6 |
+| **TDP** | ~300W (est.) | 600W | 350W |
+| **Launch** | **2026** (est.) | Jan 2023 | Mar 2023 |
+
+**Positioning**:
+- ✅ **General-purpose GPU**: Both AI inference and scientific computing (HPC)
+- ✅ **Low cost**: Cheaper than Gaudi 4, targeting NVIDIA L40S
+- ✅ **Open standards**: Supports oneAPI, SYCL, Level Zero
+
+## Intel AI Chip Roadmap (2024-2027)
+
+| Time | Product | Type | Process | Note |
+|------|------|------|------|------|
+| 2024 Q4 | Gaudi 3 | AI ASIC | TSMC 7nm | Current mainstay |
+| **2026 Q2** | **Crescent Island** | **General GPU** | **TSMC 5nm** | **New launch** |
+| **2026 Q3** | **Gaudi 4** | **AI ASIC** | **TSMC 5nm** | **New launch** |
+| 2027 | Jaguar Shores | Datacenter GPU | TSMC 3nm | Next-gen flagship |
+| 2027 | Gaudi 5 (est.) | AI ASIC | TSMC 3nm | Next-gen |
+
+## vs Competitors
+
+### Gaudi 4 vs NVIDIA B200
+
+| Metric | Gaudi 4 | NVIDIA B200 |
+|------|---------|-------------------|
+| **FP8 compute** | ~2,000 TFLOPS | 4,500 TFLOPS |
+| **Memory** | 64GB HBM3e | 192GB HBM3e |
+| **Interconnect** | Ethernet (RoCE v3) | NVLink 5.0 |
+| **Software ecosystem** | Gaudi Software Suite | CUDA |
+| **Price** | est. ~$20,000 | ~$45,000 |
+| **Advantage** | Low Ethernet cost, open | Most mature ecosystem, strongest performance |
+| **Disadvantage** | Weak software ecosystem, lower compute | Expensive |
+
+**Conclusion**: Gaudi 4 is positioned as a **"cost-effective training solution,"** suited for cost-sensitive customers willing to invest in software adaptation.
+
+### Jaguar Shores vs NVIDIA Rubin
+
+| Metric | Jaguar Shores (est.) | NVIDIA Rubin |
+|------|---------------------------|-------------------|
+| **FP8 compute** | ~4,000 TFLOPS | ~6,000 TFLOPS |
+| **Memory** | 288GB HBM4 | 288GB HBM4 |
+| **Software ecosystem** | oneAPI | CUDA |
+| **Mass production** | 2027 | 2026 Q3 |
+| **Advantage** | Open standards, possibly cheaper | Mature ecosystem, first-mover advantage |
+| **Disadvantage** | Weak ecosystem, 1 year late | Expensive |
+
+**Conclusion**: If Jaguar Shores launches on time with sufficient oneAPI ecosystem improvement, it can become **NVIDIA's third choice** (after NVIDIA and AMD).
+
+## Software Ecosystem: oneAPI Progress and Challenges
+
+### What is oneAPI?
+
+**oneAPI** is Intel's **open, cross-architecture programming model**:
+- Supports CPU, GPU, FPGA, AI accelerators
+- Based on SYCL standard (similar to CUDA's C++ extensions)
+- Open-source implementation (Intel oneAPI Base Toolkit)
+
+### Intel AI Stack
+
+| Component | Purpose | Counterpart |
+|------|------|------|
+| **oneAPI** | Cross-architecture programming model | CUDA |
+| **BigDL** | Distributed deep learning framework | PyTorch Distributed |
+| **Gaudi Software Suite** | Gaudi-specific software stack | NVIDIA GPU Cloud (NGC) |
+| **Intel Extension for PyTorch** | PyTorch optimization on Intel hardware | NVIDIA PyTorch |
+| **Intel Optimization for TensorFlow** | TensorFlow optimization on Intel hardware | NVIDIA TensorFlow |
+
+### ✅ Progress
+
+- **PyTorch 2.5+**: Intel Extension integrated into PyTorch mainline
+- **Hugging Face Transformers**: Official Intel GPU support (via optimum-intel)
+- **vLLM**: Experimental Gaudi support (performance TBD)
+
+### ⚠️ Challenges
+
+- **Developer habits**: Global AI developers use CUDA; oneAPI has a steep learning curve
+- **Operator coverage**: Many PyTorch operators lack oneAPI-optimized versions
+- **Performance**: At same power, Gaudi 4 performance is only ~50% of B200
+
+## Industry Impact
+
+### 1. Can Intel Return to the AI Race?
+
+**Challenges**:
+- ❌ **Ecosystem disadvantage**: CUDA moat too deep, oneAPI hard to shake
+- ❌ **Performance disadvantage**: Gaudi 4 only ~50% of B200
+- ❌ **Timing disadvantage**: Jaguar Shores 1 year later than Rubin
+
+**Opportunities**:
+- ✅ **Open standards**: Not dependent on CUDA, suited for "anti-NVIDIA-monopoly" customers
+- ✅ **Ethernet advantage**: RoCE v3 cheaper than InfiniBand at ten-thousand-card scale
+- ✅ **Intel Foundry**: If Jaguar Shores uses Intel's own process, lower cost
+
+### 2. Impact on AMD
+
+Intel's return to the AI race is bad for **AMD**:
+- AMD was the "**only NVIDIA alternative**"
+- Now Intel is back too; AMD's "alternative" status is challenged
+- But in the short term (2026-2027), Intel cannot yet threaten AMD
+
+### 3. Impact on Domestic Chips
+
+Intel Gaudi 4's launch is a reference case for **domestic chips**:
+- Proves the **Ethernet route** (RoCE) is viable
+- Proves **open ecosystem** (oneAPI) is hard but necessary
+- Proves the **cost-effective route** has a market (cost-sensitive customers)
+
+## Related Chips
+
+- [Intel Gaudi 3](/docs/cards/intel/gaudi-3) - Previous-gen product
+- [Intel Gaudi 4](/docs/cards/intel/gaudi-4) - New launch (to be created)
+- [Intel Crescent Island](/docs/cards/intel/crescent-island) - Intel's first general GPU (to be created)
+- [NVIDIA B200](/docs/cards/nvidia/b200) - Direct competitor
+- [AMD MI455X](/docs/cards/amd/mi455x) - Same-gen competitor
+
+## References
+
+- [Intel Newsroom: Gaudi 4 Launch](https://newsroom.intel.com/)
+- [Tom's Hardware: Intel Jaguar Shores to use HBM4](https://www.tomshardware.com/)
+- [Wccftech: Intel Next-Gen Jaguar Shores GPU](https://wccftech.com/)
+- [U.S. News: Intel Signals Return to AI Race](https://money.usnews.com/)
+
+---
+
+*This article is compiled from Intel official announcements and public materials. Some specs are estimates, subject to final Intel release.*

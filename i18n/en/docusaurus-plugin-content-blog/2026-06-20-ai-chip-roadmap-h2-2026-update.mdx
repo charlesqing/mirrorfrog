@@ -1,0 +1,313 @@
+---
+slug: ai-chip-roadmap-h2-2026-update
+title: '2026 H2 AI Chip Roadmap Major Update: Qualcomm Enters, AMD MI400 Three Models Unveiled, Huawei Three-Generation Roadmap'
+date: '2026-06-20'
+authors: [charlesqing]
+tags: [roadmap, nvidia, amd, huawei, qualcomm, intel, google]
+keywords: [AI chip roadmap, Qualcomm AI 200, AMD MI400, Huawei Ascend 970, NVIDIA Rubin R200, Intel Jaguar Shores]
+description: 'The second half of 2026 brings major shifts to the AI chip market: Qualcomm officially enters the datacenter AI inference market, AMD unveils three MI400-series models, Huawei publishes a three-generation roadmap through 2028, and Intel Jaguar Shores timeline looks uncertain.'
+---
+
+# 2026 H2 AI Chip Roadmap Major Update: Qualcomm Enters, AMD MI400 Three Models Unveiled, Huawei Three-Generation Roadmap
+
+> June 2026 update — the AI compute card market is undergoing its most dramatic reshuffling in years. This article walks through the latest roadmap developments.
+
+---
+
+## Key Takeaways
+
+- **Qualcomm AI 200/250** officially enters the datacenter AI inference market, targeting NVIDIA H200
+- **AMD MI400 series** unveils three models: MI430X (HPC), MI440X (enterprise), MI455X (flagship)
+- **Huawei** publishes a three-generation roadmap: 950 (2026) → 960 (2027-Q4) → 970 (2028-Q4)
+- **Intel Jaguar Shores** timeline uncertain, possibly delayed to 2027 or later
+- **NVIDIA Rubin R200** is in full mass production; the Vera CPU + Rubin GPU combination is now shipping
+
+---
+
+## 1. Qualcomm: Mobile Giant Moves Into Datacenter AI
+
+### AI 100 → AI 200 → AI 250
+
+Qualcomm officially launched the **AI 200** datacenter inference chip in October 2025, marking the mobile giant's formal entry into the datacenter AI market.
+
+| Model | Launch | Availability | Key Features |
+|------|----------|----------|----------|
+| AI 100 | 2025-10 | 2026 H2 | Rack-scale AI inference, 768GB LPDDR per card |
+| AI 250 | 2025-10 | 2027 H1 | Near-memory computing architecture, 10x effective memory bandwidth |
+
+### Why Qualcomm Can Succeed
+
+1. **Low TCO**: LPDDR memory is far cheaper than HBM
+2. **Energy efficiency**: Mobile chip design heritage, excellent power control
+3. **Inference-focused**: Not chasing training performance, focused on inference scenarios
+4. **Rack form factor**: Direct liquid cooling, 160kW rack-level power, Ethernet interconnect
+
+### Market Impact
+
+- **Takes on NVIDIA H200**: AI 200 inference performance approaches H200 but with 30-40% lower TCO
+- **Pressures NVIDIA**: May push NVIDIA to launch inference-specific chips (e.g., Rubin CPX)
+- **Diversifies choice**: Breaks NVIDIA's monopoly in the inference market
+
+---
+
+## 2. AMD MI400 Series: Three Models, Precise Positioning
+
+At CES 2026 (January 2026), AMD officially unveiled the three models of the **MI400 series**, precisely covering different markets:
+
+### MI430X (HPC + Sovereign AI)
+
+| Feature | Spec |
+|--------|------|
+| **Positioning** | HPC + sovereign AI |
+| **FP32/FP64** | Supported (key differentiator) |
+| **Use cases** | Scientific computing, climate simulation, national AI infrastructure |
+| **Competitor** | NVIDIA does not make FP64 AI cards |
+
+### MI440X (Enterprise Servers)
+
+| Feature | Spec |
+|--------|------|
+| **Positioning** | Enterprise 8-GPU servers |
+| **Compatibility** | Works with existing datacenter infrastructure |
+| **Use cases** | Enterprise AI, private cloud, edge inference |
+| **Advantage** | Cheaper and easier to deploy than MI455X |
+
+### MI455X (Flagship AI Training)
+
+| Feature | Spec |
+|--------|------|
+| **Positioning** | Flagship AI training + inference |
+| **Optimized precision** | FP4/FP8/BF16 |
+| **Helios rack** | Core component |
+| **Competitor** | NVIDIA Rubin R200 |
+
+### Helios Rack-Scale Solution
+
+AMD also launched the **Helios** rack-scale AI solution at CES 2026:
+
+- **18 Zen 6 CPUs** (2nm process)
+- **72 MI455X GPUs**
+- **Direct liquid cooling**
+- **Shipment expected in 2026 H2**
+
+---
+
+## 3. Huawei Three-Generation Roadmap: 950 → 960 → 970
+
+Huawei unveiled its three-generation chip roadmap at HC 2025 (September 2025) with a very clear timeline:
+
+### Ascend 950 Series (2026)
+
+| Model | Launch | Key Features |
+|------|----------|----------|
+| 950PR | 2026-Q1 | PR (inference-optimized), already in mass production |
+| 950DT | 2026-Q4 | DT (Decode + training), expected to scale up |
+
+**Technical highlights**:
+- Added FP8/MXFP8/MXFP4 support
+- Interconnect bandwidth 2TB/s (2.5x over 910C)
+
+### Ascend 960 (2027-Q4)
+
+- **Doubled compute**: All specs double versus the 950 series
+- **FP8**: ~2 PFLOPS expected
+- **Process**: N+3 (equivalent to 5nm)
+- **Positioning**: Targets NVIDIA B200
+
+### Ascend 970 (2028-Q4)
+
+- **Third-generation flagship**: Only timeline announced, specs TBD
+- **Significance**: Huawei's first complete generation-spanning roadmap
+- **Signal**: China's domestic AI chips have entered a "roadmap-driven" phase
+
+---
+
+## 4. Intel Jaguar Shores: Timeline Uncertain
+
+### Original Plan
+
+- **Launch**: 2026
+- **Architecture**: Xe-HPC + Gaudi fusion
+- **Process**: 18A (Intel's most advanced)
+- **Memory**: Possibly HBM4E (instead of originally planned HBM4)
+
+### Latest Developments
+
+- **Possible delay**: Some sources suggest a slip to 2027
+- **Competitors**: AMD MI400 already unveiled, NVIDIA Rubin in mass production
+- **Market pressure**: Intel is losing ground in the AI chip market; Jaguar Shores is its last chance
+
+### Impact on Roadmap
+
+If Jaguar Shores slips to 2027, Intel will essentially be out of the AI chip market.
+
+---
+
+## 5. NVIDIA Rubin Platform: Full Mass Production
+
+### Rubin R200 (2026-Q2 full mass production)
+
+| Feature | Spec |
+|--------|------|
+| **HBM** | 288GB HBM4 |
+| **Compute** | 50 PFLOPS FP4 |
+| **NVLink** | NVLink 6 (1800 GB/s) |
+| **Process** | TSMC 4NP |
+
+### Rubin NVL72 Cabinet (2026 H2 shipment)
+
+- **72 Rubin GPUs**
+- **36 Vera CPUs**
+- **1.8 EFLOPS FP4**
+- **Direct liquid cooling**
+
+### Vera CPU (Debut)
+
+- **Architecture**: Custom CPU replacing Grace
+- **Positioning**: Deep co-design with Rubin GPU
+- **Significance**: NVIDIA's transformation from a GPU company into a computing platform company
+
+---
+
+## 6. Google TPU v8: Training/Inference Officially Split
+
+### TPU 8t (training) + TPU 8i (inference)
+
+At Cloud Next 2026, Google announced TPU v8 would officially split into training and inference versions:
+
+| Feature | TPU 8t (training) | TPU 8i (inference) |
+|--------|------------------|-----------------|
+| **Optimization** | High compute, high bandwidth | Low latency, low cost |
+| **Interconnect** | Optical interconnect | Ethernet |
+| **Launch** | 2027 | 2027 |
+
+### Significance
+
+- **Industry trend**: Specialization of training/inference chips
+- **Followers**: Qualcomm AI 200 is also inference-only
+- **NVIDIA pressure**: Does it need an inference-specific chip?
+
+---
+
+## 7. Cerebras WSE-4: Wafer-Scale Engine Evolves
+
+### Core Specs
+
+| Feature | Spec |
+|--------|------|
+| **Transistors** | 1.4 trillion |
+| **Compute** | 125 PFLOPS FP8 |
+| **Launch** | 2026 H2 |
+| **Process** | TSMC 5nm |
+
+### Competitive Advantages
+
+- **Massive model training**: A single WSE-4 can train 10T+ parameter models
+- **Low-latency inference**: Entire model on one chip, no communication overhead
+- **Mature software stack**: Cerebras stack already supports PyTorch, TensorFlow
+
+---
+
+## 8. Market Landscape Analysis
+
+### Training Market
+
+| Rank | Vendor | Product | Market Share (est.) |
+|------|------|------|-----------------|
+| 1 | NVIDIA | Rubin R200 | 70% |
+| 2 | AMD | MI455X | 15% |
+| 3 | Google | TPU v8t | 10% |
+| 4 | Huawei | Ascend 960 | 5% (mostly China) |
+
+### Inference Market (New Battlefield)
+
+| Rank | Vendor | Product | Advantage |
+|------|------|------|------|
+| 1 | NVIDIA | H200 / Rubin CPX | Mature ecosystem |
+| 2 | Qualcomm | AI 200 | Low TCO |
+| 3 | AMD | MI440X | Good compatibility |
+| 4 | Intel | Gaudi 4 | Low price |
+
+---
+
+## 9. Key Trends
+
+### Trend 1: Rise of Inference-Specific Chips
+
+- **Qualcomm AI 200**: Mobile giant enters the market
+- **NVIDIA Rubin CPX**: NVIDIA's first inference-specific chip
+- **Google TPU 8i**: Training/inference officially split
+
+### Trend 2: Rack-Scale Solutions Become Standard
+
+- **NVIDIA NVL72**: 72 GPU + 36 CPU
+- **AMD Helios**: 18 CPU + 72 GPU
+- **Qualcomm rack**: 160kW liquid-cooled rack
+
+### Trend 3: China's Domestic Chips Enter "Roadmap-Driven" Phase
+
+- **Huawei three-generation roadmap**: 950 → 960 → 970
+- **Clear timeline**: 2026-Q1 → 2027-Q4 → 2028-Q4
+- **Significance**: From "catch-up" to "planning"
+
+### Trend 4: HBM Capacity Becomes the Bottleneck
+
+- **SK hynix**: HBM4 capacity already booked by NVIDIA
+- **Samsung**: HBM4E samples delivered to AMD
+- **Impact**: MI400 and Rubin R200 shipments constrained by HBM capacity
+
+---
+
+## 10. Procurement Recommendations
+
+### If Procuring in 2026 H2
+
+1. **Training scenarios**:
+   - First choice: NVIDIA Rubin R200 (best performance)
+   - Alternative: AMD MI455X (better price/performance)
+   - Domestic: Huawei Ascend 950DT (China-based customers)
+
+2. **Inference scenarios**:
+   - First choice: NVIDIA H200 (mature ecosystem)
+   - Best value: Qualcomm AI 200 (if available)
+   - Cost-sensitive: AMD MI440X
+
+3. **HPC scenarios**:
+   - Only choice: AMD MI430X (FP64 support)
+
+### If Procuring in 2027
+
+- **Wait for Rubin Ultra**: Performance possibly 2x R200
+- **Watch MI500**: AMD's next-generation product
+- **Evaluate TPU v8**: If already on Google Cloud
+
+---
+
+## Conclusion
+
+2026 H2 will be **the most fiercely contested half-year in AI chip market history**:
+
+- **NVIDIA** continues to lead, but its advantage is narrowing
+- **AMD** precisely positions three models; market share will keep rising
+- **Qualcomm** enters the inference market; its low-TCO strategy may disrupt the market
+- **Huawei** has a clear three-generation roadmap; domestic substitution accelerates
+- **Intel**'s Jaguar Shores is make-or-break
+
+**For procurement decision-makers**, this is the hardest time to decide — every option has clear pros and cons.
+
+**For engineers**, this is the best of times — chip performance doubles yearly, architectural innovation is endless.
+
+---
+
+## References
+
+- [AI Compute Card Future Roadmap](/docs/roadmap) - MirrorFrog real-time updates
+- NVIDIA Rubin R200 deep dive (see related articles on this site)
+- AMD MI400 series CES 2026 launch (see related articles on this site)
+- Qualcomm AI 100 launch analysis (coming soon)
+
+---
+
+**Last updated**: 2026-06-20  
+**Author**: Charles Qing  
+**Tags**: #roadmap #market-analysis #procurement

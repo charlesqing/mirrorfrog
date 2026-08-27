@@ -1,0 +1,195 @@
+---
+slug: june-2026-ai-chip-major-events
+title: 'June 2026 AI Chip Major Events Roundup: Ascend 910C Trains Trillion-Parameter Model, OpenAI Custom Chip, RTX Spark Launch'
+date: '2026-06-28'
+authors: aicomputecards
+tags: [monthly-roundup, huawei, OpenAI, nvidia, ascend-910c, Jalapeño, RTX Spark]
+description: 'June 2026 AI chip major events roundup: Huawei Ascend 910C completes 1.6-trillion-parameter DeepSeek V4 Pro training, OpenAI launches its first custom AI inference chip Jalapeño, and NVIDIA launches the RTX Spark AI PC superchip at Computex.'
+---
+
+# June 2026 AI Chip Major Events Roundup
+
+> June 2026 saw multiple milestone events in the AI chip field, marking acceleration of two major trends: "domestic substitution" and "de-NVIDIA-ization."
+
+## 1. Huawei Ascend 910C Completes 1.6-Trillion-Parameter DeepSeek V4 Pro Training (2026-06-05)
+
+### Event Overview
+
+**June 5, 2026**, Shenzhen Hetao College, together with Harbin Institute of Technology (Shenzhen), Shenzhen Big Data Research Institute, Huawei, and other teams, relied on an **Ascend 910C domestic AI compute cluster** to successfully complete **full-parameter post-training of the 1.6-trillion-parameter DeepSeek V4 Pro large model**.
+
+### Technical Significance
+
+| Metric | Value |
+|------|------|
+| **Model parameters** | 1.6 trillion |
+| **Training chip** | Ascend 910C cluster |
+| **Training type** | Full Parameter Post-Training |
+| **Significance** | First time domestic AI chips complete trillion-parameter-level model training |
+
+### Industry Impact
+
+1. **Breaks technology blockade**: Proves domestic AI chips can train trillion-parameter models
+2. **Accelerates "farewell to NVIDIA"**: DeepSeek fully switches to Huawei Ascend, reducing dependence on H100
+3. **Domestic substitution inflection point**: From "inference substitution" to "training substitution"
+
+### Related Links
+
+- [Huawei Ascend 910C spec page](/docs/cards/huawei/ascend-910c)
+- [DeepSeek V4 Pro official announcement](https://www.deepseek.com) (pending)
+
+---
+
+## 2. OpenAI Launches First Custom AI Inference Chip Jalapeño (2026-06-24)
+
+### Event Overview
+
+**June 24, 2026**, OpenAI and Broadcom jointly launched the first custom AI inference chip **Jalapeño**, with a design cycle of only **9 months** (industry average 18 months), using **TSMC 3nm process**.
+
+### Key Metrics
+
+| Metric | Jalapeño | Comparison (Blackwell) |
+|------|-----------|-------------------|
+| **Process** | TSMC 3nm | TSMC 4nm |
+| **Architecture** | Systolic Array | Blackwell GPU |
+| **Design cycle** | **9 months** | ~18 months |
+| **Inference cost** | **-50%** | Baseline |
+| **AI-assisted design** | ✅ First | ❌ No |
+| **Deployment** | End of 2026 | Shipped |
+
+### Strategic Significance
+
+1. **First AI chip with AI-assisted design**: OpenAI used models like GPT-5.3-Codex-Spark to assist architecture exploration
+2. **Accelerates "de-NVIDIA-ization"**: Tech giants (Google, Amazon, Microsoft, Meta, OpenAI) collectively develop custom chips
+3. **Inference cost revolution**: For OpenAI processing hundreds of millions of API calls daily, a 50% cost reduction is significant
+
+### Related Links
+
+- [OpenAI Jalapeño spec page](/docs/cards/others/openai-jalapeno)
+- [OpenAI Custom Chip Deep Dive](/blog/openai-jalapeno-custom-ai-chip-2026)
+
+---
+
+## 3. NVIDIA Launches RTX Spark AI PC Superchip at Computex 2026 (2026-06-01)
+
+### Event Overview
+
+**June 1, 2026**, NVIDIA CEO Jensen Huang launched the **RTX Spark AI PC superchip** at Computex 2026 / GTC Taipei, in collaboration with MediaTek, using an **Arm CPU + Blackwell GPU** unified-memory architecture.
+
+### Key Metrics
+
+| Metric | RTX Spark |
+|------|-----------|
+| **CPU** | Up to 20-core Arm (with MediaTek) |
+| **GPU** | 6,144 CUDA cores (Blackwell) |
+| **Unified memory** | 128GB LPDDR5X (shared CPU+GPU) |
+| **Memory bandwidth** | 300 GB/s |
+| **AI compute** | ~1 PFLOPS (est.) |
+| **Model capacity** | Can run 120B-parameter models |
+| **Context** | Up to 1 million tokens |
+| **TDP** | ~100W (est.) |
+| **Availability** | Fall 2026 |
+
+### Industry Impact
+
+1. **NVIDIA enters PC chip market**: Challenges Intel's dominance in personal computers
+2. **New AI PC standard**: Run 120B-parameter models locally, 1M-token context
+3. **Windows transforms into AI Agent platform**: Deep collaboration with Microsoft OpenShell framework
+
+### Related Links
+
+- [NVIDIA RTX Spark spec page](/docs/cards/nvidia/rtx-spark)
+- [Computex 2026 Chip War Deep Dive](https://www.ai-master.cc/blog/blog-283) (external link)
+
+---
+
+## 4. MIIT Publishes "2026 AI Chip Industry Development White Paper" (2026-06-09)
+
+### Event Overview
+
+**June 9, 2026**, China's Ministry of Industry and Information Technology published the "2026 AI Chip Industry Development White Paper," predicting the domestic AI chip market will exceed **200 billion RMB in 2026**.
+
+### Key Predictions
+
+| Metric | 2026 Prediction |
+|------|--------------|
+| **Market size** | Exceed 200 billion RMB |
+| **Domestic chip share** | >50% (41% in 2025) |
+| **Edge inference chips** | Significant progress |
+| **Shipment growth** | More than double (vs 2025) |
+
+### Industry Significance
+
+1. **Domestic AI chip capitalization accelerates**: Cambricon, Enflame, Moore Threads, etc. accelerate IPOs
+2. **Edge inference becomes the breakthrough**: Easier to achieve domestic substitution than training chips
+3. **Policy dividend continues**: Domestic substitution upgraded from "market behavior" to "national strategy"
+
+---
+
+## 5. ByteDance in Talks to Procure 50K Iluvatar Inference Chips (2026-06-17)
+
+### Event Overview
+
+**June 17, 2026**, Reuters reported that ByteDance is in talks with Shanghai AI chip firm **Iluvatar** to procure **at least 50,000 AI chips**, mainly for inference tasks.
+
+### Deal Details
+
+| Item | Content |
+|------|------|
+| **Buyer** | ByteDance |
+| **Supplier** | Iluvatar |
+| **Chip model** | ZhiKai series (inference GPU) |
+| **Quantity** | At least 50,000 |
+| **Use** | Inference workloads |
+| **Training chip** | TianTai series |
+
+### Industry Significance
+
+1. **Domestic GPU top player "adds a member"**: Iluvatar enters a top internet company's supply chain for the first time
+2. **ByteDance 2026 capex raised over 200B RMB**: Mainly for AI compute and datacenters
+3. **"Domestic substitution" extends from government/SOEs to private tech giants**
+
+---
+
+## Summary: Three Trends in June 2026 AI Chip Industry
+
+### Trend 1: "Domestic Substitution" Moves from Inference to Training
+
+- **Ascend 910C completes 1.6-trillion-parameter model training** → Proves domestic chips have training capability
+- **DeepSeek fully switches to Ascend** → Leading AI companies first to "farewell to NVIDIA"
+- **ByteDance procures Iluvatar** → Private tech giants follow
+
+### Trend 2: "De-NVIDIA-ization" from Slogan to Action
+
+- **OpenAI Jalapeño** → First custom chip, inference cost -50%
+- **Google TPU, Amazon Trainium, Microsoft Maia** → Continuous iteration
+- **Meta MTIA, Apple M5 Ultra** → Increased investment
+
+### Trend 3: AI PC and Edge Inference Become New Battlefield
+
+- **NVIDIA RTX Spark** → New AI PC standard, launches Fall 2026
+- **Edge inference chip localization accelerates** → Key mention in MIIT white paper
+- **"Local trillion-parameter model execution"** → New consumer market selling point
+
+---
+
+## Looking Ahead (2026 H2)
+
+1. **Ascend 950DT full scale-up** (2026 Q4) → Huawei's latest-gen training chip
+2. **NVIDIA Rubin R200 shipment** (2026 H2) → Next-gen flagship
+3. **AMD MI400 Helios rack** (2026 H2) → Targets NVIDIA GB200
+4. **OpenAI Jalapeño deployment** (end of 2026) → Gigawatt-scale datacenters
+5. **Domestic AI chip shipments more than double** → CITIC Securities prediction
+
+---
+
+## References
+
+- [Huawei Ascend 910C Completes DeepSeek V4 Pro Training - Tencent News](https://news.qq.com/rain/a/20260608A02FLU00)
+- [OpenAI Jalapeño Chip Launch - CNBC](https://www.cnbc.com/2026/06/24/openai-and-broadcom-reveal-jalapeno-first-ai-chip-in-partnership.html)
+- [NVIDIA RTX Spark Launch - Tencent News](https://new.qq.com/rain/a/20260601A05PDK00)
+- [MIIT AI Chip White Paper - RayByte](https://raybyte.cn/news/2026-06-10-2026-ai)
+- [ByteDance Procures Iluvatar Chips - Sina Finance](https://finance.sina.com.cn/tech/digi/2026-06-17/doc-inictnup3783840.shtml)
+
+---
+
+**This article is continuously updated. Please provide the latest developments.**

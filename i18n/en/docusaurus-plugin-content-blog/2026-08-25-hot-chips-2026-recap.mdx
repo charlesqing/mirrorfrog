@@ -1,0 +1,135 @@
+---
+slug: hot-chips-2026-recap
+title: 'Hot Chips 2026 Full Recap: Rubin, MI455X, Crescent Island Together as AI Compute Delivery Enters the "System-Level" Era'
+date: '2026-08-25'
+authors: aicomputecards
+tags: [news, nvidia, rubin, amd, mi455x, intel, huawei, ascend, AI-hardware, TPU, tpu-8t, tpu-8i, custom-chip, OpenAI]
+description: 'Hot Chips 2026 (Aug 23-25, Stanford) concluded: NVIDIA Vera Rubin NVL72, AMD MI455X/Helios, and Intel Crescent Island went head-to-head; Google TPU v8 (8t/8i split), OpenAI Jalapeño, Microsoft Maia, and Meta MTIA custom ASICs gathered. This article surveys the flagship architectures and the industry''s shift to "the rack is the computer."'
+---
+
+# Hot Chips 2026 Full Recap: Rubin, MI455X, Crescent Island Together as AI Compute Delivery Enters the "System-Level" Era
+
+> **August 23-25, 2026**, the 38th Hot Chips (HC38) was held at Stanford's Memorial Auditorium. As the bellwether of global high-performance chip architecture, this conference landed exactly at the most intense moment of the AI compute arms race — the official agenda had **48 entries**, including 7 AI accelerators, 6 memory tutorials, 6 CPUs, and 4 each of GPUs and networking. Putting the vendor talks together, **one consensus emerged: the unit of AI compute competition has shifted from "single chip" to "whole rack / entire system."**
+
+---
+
+## 1. Overview: Three Days of Agenda, Almost a Preview of the 2027 AI Rack Market
+
+Monday (8/24) afternoon's GPU session was the focus, with four talks nearly colliding as the 2027 AI rack market:
+
+- **NVIDIA Rubin GPU** ("Driving the Era of Agentic AI"): First chiplet-architecture GPU, 288GB HBM4, ~50 PFLOPS FP4, paired with 88-core Arm-architecture Vera CPU into NVL72 / NVL144 racks, mass production in H2 2026.
+- **AMD Instinct MI400** (two talks: architecture + system architecture): Told the "rack-scale" story thoroughly.
+- **Intel Crescent Island**: A 350W air-cooled card designed for Agentic AI inference.
+
+Tuesday (8/25) afternoon's AI session was almost a parade of "hyperscalers de-NVIDIA-izing": Google's 8th-gen TPU, OpenAI's first custom chip, Microsoft Maia 200, Meta MTIA, and Cerebras wafer-scale rack all appeared together.
+
+> Every vendor on stage used the term "Agentic AI" within the first two PPT slides — not a coincidence, but the collective shift in 2026 AI workload design goals.
+
+---
+
+## 2. NVIDIA Rubin: One Rack Is a Supercomputer
+
+What NVIDIA featured at Hot Chips was not a single GPU but the **Vera Rubin NVL72 whole cabinet** — 72 Rubin GPUs + 36 Vera CPUs, 18 compute trays + 9 NVLink switch trays, about 1.3 million components, nearly 1,300 chips, weighing about 4,000 pounds (~1.8 tons).
+
+The single Rubin GPU specs are equally stunning:
+
+| Metric | Rubin GPU | vs Blackwell |
+|------|-----------|---------------|
+| **Transistors** | 336 billion (TSMC 3nm dual-die) | 208 billion (+61.5%) |
+| **Memory** | 288GB HBM4 | — |
+| **Bandwidth** | 22 TB/s | 2.8× Blackwell |
+| **NVFP4 inference** | 50 PFLOPS | 5× GB200 |
+| **Training compute** | 35 PFLOPS | 3.5× |
+
+The most disruptive design is in the compute tray: **no cables, no hoses, no fans**, all interconnected via the PCB backplane. NVIDIA says assembly time dropped from nearly 2 hours to 5 minutes (20× faster) while improving maintainability.
+
+**This time NVIDIA is selling not FLOPS but tokens per megawatt.** Citing a SemiAnalysis benchmark based on DeepSeek-v4-PRO (140K+ context, AgentX workload), it claims: versus GB300 NVL72, Vera Rubin NVL72 delivers **10× to up to 30× tokens/MW** as interaction intensity rises. A single cabinet provides **3.6 EFLOPS** inference compute, whole-cabinet power **190-230kW**; long-term capacity target is **1,000 NVL72 cabinets per day**.
+
+---
+
+## 3. AMD MI455X + Helios: Bigger Memory and Open Interconnect
+
+AMD's answer is the **MI455X + Helios rack** going head-to-head with NVIDIA. MI455X uses CDNA 5 architecture, 8 N2-process accelerator dies + N3P-process interconnect die, 256 workgroup processors, 192MB global L2.
+
+| Metric | MI455X | vs Rubin |
+|------|--------|-----------|
+| **Memory** | 432GB HBM4 (12-layer stack) | 50% higher than Rubin's 288GB |
+| **Bandwidth** | 23.3 TB/s | Slightly ahead |
+| **MXFP4 compute** | 40.26 PFLOPS | — |
+| **System (Helios 72 cards)** | 2.9 ExaFLOPS FP4 inference | — |
+| **Price** | ~$5.25M per cabinet | — |
+
+At the system level, AMD bets on the **UALoE (Ultra Accelerator Link over Ethernet)** open standard: each GPU provides 3.6 TB/s bidirectional interconnect bandwidth; two 512-port 200G UALoE switch chips in the switch tray total 10.8 TB/s — opening the interconnect protocol to the whole industry while targeting NVLink.
+
+> Production cadence: AMD plans to deliver engineering samples and small-batch systems in H2 2026, with large-scale ramp in Q2 2027. Earlier rumors of Helios delay due to cooling issues were not confirmed by AMD.
+
+---
+
+## 4. Intel Crescent Island: The Air-Cooled, Large-Memory "Cost-Effective Oddball"
+
+Intel offers a completely different path: **Crescent Island** — a 350W, air-cooled, standard-PCIe-slot inference GPU designed for Agentic AI, with the key metric being **tokens per watt**.
+
+| Metric | Crescent Island | Note |
+|------|-----------------|------|
+| **Architecture** | Xe3P, 32 Xe cores, 32MB unified L2 | Disclosed at Hot Chips |
+| **Memory** | Intel branded card 160GB / ODM up to 480GB LPDDR5X | More than Rubin's 288GB HBM4 |
+| **Form factor** | 350W air-cooled PCIe | Plugs into standard racks, no liquid-cooling retrofit |
+| **RAS** | ECC, dynamic page offline, hard-package repair, PCIe advanced error reporting | Addresses "silent data corruption" |
+
+Intel's logic is clear: inference scenarios need far more **memory capacity** than bandwidth; using low-cost LPDDR5X for capacity and air cooling to skip liquid-cooling infrastructure drives down per-token cost. Combined with Diamond Rapids Xeon (256 performance cores, 1.28GB cache, 128 PCIe Gen6 lanes), Intel tries to surround from edge to datacenter with "CPU + inference GPU + open software stack."
+
+---
+
+## 5. Custom ASIC Parade: Google, OpenAI, Microsoft, Meta Together
+
+Tuesday afternoon's AI session was the most historic of the conference — a parade of "hyperscalers de-NVIDIA-izing":
+
+| Chip | Vendor / Partner | Positioning | Key Specs / Progress |
+|------|------------|------|----------------|
+| **TPU 8t (Sunfish)** | Google × Broadcom | Training | 9,600 cards per pod, 121 FP4 ExaFLOPS, 2PB shared HBM |
+| **TPU 8i (Zebrafish)** | Google × MediaTek | Inference | 288GB HBM, 384MB on-chip SRAM (3× prev gen), ICI 19.2 Tb/s |
+| **Jalapeño** | OpenAI × Broadcom | Inference | 9-month end-to-end design, target ~50% token cost cut, commercial end of 2026 |
+| **Maia 200** | Microsoft (TSMC 3nm) | Inference | 140B+ transistors, 10+ PFLOPS FP4, 216GB HBM3E, serving GPT-5.2 at Des Moines datacenter |
+| **MTIA 300-500** | Meta (RISC-V) × Broadcom | Training + inference | Up to 25× compute gain, one model every 6 months before 2027 |
+
+> Google split TPU into training (8t) and inference (8i) dedicated architectures for the first time — its biggest architectural shift in a decade. Norm Jouppi personally took the stage to present TPU v8.
+
+---
+
+## 6. Two Hidden Threads — Memory and Networking: HBM4 Year 1 + AI Factory OS
+
+Beyond GPUs/ASICs, two hidden threads mattered equally:
+
+- **Memory**: Samsung's HBM Base Die (logic-process base die) and SK hynix's advanced packaging appeared together; the HBM4-era "base-die foundry" industry shift begins; HBF (high-bandwidth flash), LPDDR5X-PIM, 3D DRAM, and CXL compute-storage showcased "compute-in-memory" moving from papers to products.
+- **Networking**: NVIDIA BlueField-4 (DPU) and Spectrum-X Multiplane architecture (presented by Gilad Shainer) — networking is becoming the decisive architecture for gigascale AI, scaling from hundreds of thousands to a million cards; Broadcom Thor Ultra Ethernet NIC keeps pressing; Mojo Vision showed chip-level optical I/O.
+
+---
+
+## 7. Three Routes, One Consensus
+
+At the same conference, three vendors offered three distinctly different AI compute delivery philosophies:
+
+1. **NVIDIA: Full-stack closed integration** — GPU, CPU, DPU, and switch chips all self-designed, pushing system performance to the extreme via ultimate software-hardware co-design, at the cost of deep customer lock-in.
+2. **AMD: Open-standard catch-up** — Uses larger HBM4 capacity + UALoE open interconnect for a "cost-effective + open" play, tearing open the inference gap with Meta and OpenAI's 12GW-class orders.
+3. **Intel: Air-cooled cost-effectiveness** — Abandons liquid cooling and HBM, uses LPDDR5X large memory + standard PCIe, betting that "most inference doesn't need a 200kW rack."
+
+But all three agree: **the unit of competition is no longer the chip, but the co-designed system (rack / system).** For buyers, 2027 compute planning should compare not "single-card PFLOPS" but "tokens per megawatt, latency, availability, and full-lifecycle cost."
+
+## Related Links
+
+- [NVIDIA Rubin spec page](/docs/cards/nvidia/rubin)
+- [AMD MI455X spec page](/docs/cards/amd/mi455x)
+- [Intel Crescent Island spec page](/docs/cards/intel/crescent-island)
+- [Google TPU 8t spec page](/docs/cards/google/tpu-8t)
+- [Google TPU 8i spec page](/docs/cards/google/tpu-8i)
+
+## References
+
+- [Hot Chips 2026 Three Giants Together: Rubin 336B Transistors, MI455X 432GB, Crescent Island 480GB - IC Chip Industry Watch](https://hotchips.org/)
+- [Hot Chips Day 2: Rubin, MI400 and Diamond Rapids Go Head-to-Head - AI2Work](https://ai2.work/blog/hot-chips-day-2-rubin-mi400-and-diamond-rapids-go-head-to-head)
+- [NVIDIA Vera Rubin NVL72 Rack at Hot Chips 2026 - ServeTheHome](https://www.servethehome.com/nvidia-vera-rubin-nvl72-rack-at-hot-chips-2026)
+- [Hot Chips 2026: 4 Hyperscalers Put Custom AI Silicon on One Afternoon - Sean Kim](https://blog.imseankim.com/hot-chips-2026-custom-ai-silicon-meta-microsoft-google-openai)
+
+---
+
+**This article is compiled from Hot Chips 2026 (Aug 23-25) official presentations and on-site reports from ServeTheHome, SemiAnalysis, TechPowerUp, etc. Performance data are vendor-disclosed figures; actual performance subject to mass-produced products.**

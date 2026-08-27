@@ -1,0 +1,305 @@
+---
+slug: 2026-h1-ai-chip-industry-review
+title: '2026 H1 AI Chip Industry Review: Blackwell Ultra, the Domestic Big Three, and the Inference Era'
+date: '2026-07-01'
+authors: aicomputecards
+tags: [industry-review, nvidia, huawei, cambricon, inference-chip, blackwell, 2026H1]
+description: 'A review of major developments in the AI chip industry in H1 2026: NVIDIA Blackwell Ultra launch, Huawei Ascend 950PR inference beating H20, Cambricon turning profitable for the first time, Cerebras IPO, and the inference-chip track exploding — analyzing the deep logic behind the industry shift from training to inference.'
+---
+
+# 2026 H1 AI Chip Industry Review: Blackwell Ultra, the Domestic Big Three, and the Inference Era
+
+> In the first half of 2026, the AI chip industry underwent a historic turning point — the center of gravity shifted from the "training race" to "inference efficiency," domestic chip market share broke 40% for the first time, NVIDIA built higher barriers with Blackwell Ultra, and the inference-specific chip track bloomed in diversity.
+
+---
+
+## I. Compute Doubles Again: NVIDIA Blackwell Ultra Launch (June 1)
+
+On June 1, 2026, NVIDIA CEO Jensen Huang unveiled the new-generation AI chip **Blackwell Ultra** at **Computex 2026 (Taipei)**, setting a new starting line for the AI infrastructure race over the next two years.
+
+### Key Specs
+
+| Metric | Blackwell Ultra | B200 | Improvement |
+|------|-----------------|-------|------|
+| **FP8 compute** | **20 petaFLOPS** | ~10 petaFLOPS | **100%** |
+| **Architecture** | Blackwell Ultra | Blackwell | Upgrade |
+| **Expected delivery** | 2027 Q1 | 2026 Q1 | — |
+| **Positioning** | Hyperscale training + inference | Training + inference | Flagship |
+
+### Industry Significance
+
+1. **Direct impact of doubled compute**: 20 petaFLOPS FP8 means training time for hundred-billion-parameter models drops sharply; trillion-parameter model training moves from "scientific experiment" to "engineering routine"
+2. **System-level balance**: Blackwell Ultra is not just a chip but a system-level engineering breakthrough across NVLink, HBM, cooling, and power delivery
+3. **Roadmap certainty**: The Q1 2027 delivery timeline lets cloud vendors and AI labs plan infrastructure budgets 18 months ahead
+
+### Challenges
+
+- **Energy crisis**: Doubled performance comes with sharply higher power; datacenter power and cooling design face extreme challenges
+- **Accessibility**: Top-tier compute goes first to top cloud vendors; how smaller developers and research institutes reach compute at reasonable cost via cloud services
+- **Software stack adaptation**: New hardware needs matching CUDA versions and framework support; software ecosystem maturity becomes the key bottleneck for compute conversion
+
+---
+
+## II. Domestic AI Chips: The Tipping Point from "Usable" to "Good"
+
+On June 16, 2026, Xinchuang World published **"2026 China Domestic AI Chip Vendor Capability Quadrant"**, clearly outlining the overall domestic landscape.
+
+### 2.1 Capability Quadrant Ranking
+
+| Quadrant | Representative Vendors |
+|------|----------|
+| **Leader quadrant** | Huawei Ascend, Hygon, Cambricon, Alibaba T-Head, Moore Threads |
+| **Visionary quadrant** | Baidu Kunlunxin, Biren, Enflame, Iluvatar, HardyVision |
+| **Contender quadrant** | TSINGMICRO, Black Sesame, SemiDrive, Lisuan, Houmo |
+| **Challenger quadrant** | Denglin, Zhicun, VeriSilicon, Rockchip, Intellifusion |
+
+### 2.2 Huawei Ascend: The Anchor of Domestic Compute
+
+#### Market Position
+
+- In 2025, Ascend series shipped **812,000 units**, capturing **49%** of the domestic AI accelerator card share, firmly No.1 domestically
+- Ascend 950PR single-card FP8 compute reaches **1P** (PetaFLOPS), FP4 compute reaches **2P**
+- Inference performance is about **2.87x** that of NVIDIA H20, priced at only **72,000-75,000 RMB**, a significant price/performance advantage
+
+#### Full-Stack Advantage
+
+Huawei's "device-network-cloud-chip" integrated strategy is Ascend's core moat:
+- **Chip design**: Da Vinci 3.0 architecture iterating continuously
+- **OS**: HarmonyOS/Euler OS deeply optimized
+- **Networking**: Euler network protocol stack
+- **Cloud**: Huawei Cloud ModelArts platform seamlessly integrated
+
+#### Latest Progress
+
+- On June 5, 2026, Shenzhen Hetao College, together with HIT (Shenzhen) and Huawei, completed **full-parameter post-training of a 1.6-trillion-parameter DeepSeek V4 Pro model** on an **Ascend 910C cluster**
+- This is the first time domestic AI chips completed trillion-parameter-level model training, marking "domestic substitution" moving from inference to training
+
+### 2.3 Cambricon: The First Profitable Domestic AI Chip Benchmark
+
+#### Performance Explosion
+
+| Metric | Full-year 2025 | 2026 Q1 | YoY Growth |
+|------|---------------|-------------|----------|
+| **Revenue** | 6.497B RMB | 2.885B RMB | +453% / +160% |
+| **Net profit** | 2.059B RMB (first annual profit) | 1.013B RMB | — / +185% |
+
+#### Core Product: Siyuan 590
+
+- In **DeepSeek R1 inference scenarios**, TPS reaches **942**, about **50%** higher than H20
+- Years of joint optimization with ByteDance; strongest short-term cloud inference deployment capability
+- Of 2.885B RMB Q1 2026 revenue, Siyuan 590 contributed over 70%
+
+#### Potential Risks
+
+Absent from the 2nd 2026 "Safe and Reliable Evaluation Results Announcement"; the reason is unclear and will affect its domestic government/enterprise market performance.
+
+### 2.4 TSINGMICRO: The "Third Route" of Reconfigurable Chips
+
+#### Technical Route
+
+TSINGMICRO adopts a reconfigurable dataflow architecture同源 with **Groq LPU**, finding a balance between GPU generality and ASIC extreme efficiency.
+
+| Metric | TSINGMICRO TX81 | Traditional GPU | Advantage |
+|------|----------------|-----------------|------|
+| **Inference cost** | Baseline | **+100%** | **Reduced 50%** |
+| **Energy efficiency** | Baseline | Baseline | **3x improvement** |
+| **Architecture** | Reconfigurable dataflow | SIMT/SIMD | Better for inference |
+
+#### Deployment Progress
+
+- Cumulative shipments of reconfigurable chips exceed **30 million units**
+- Scaled deployment in a dozen-plus **thousand-card-scale intelligent computing centers** nationwide
+- Has begun A-share IPO tutoring; likely to become the "**first reconfigurable chip stock**"
+
+---
+
+## III. The Inference Chip Track: Core Signal of the Industry Shift
+
+On June 4, 2026, TrendForce published a deep report **"The Era of Inference Economy: The Rules of AI Chips Are Being Rewritten,"** pointing out that the compute competition center of gravity is shifting from **training** to **inference**.
+
+### 3.1 Why Now?
+
+#### Cost Structure Changed
+
+- **Training is a one-time cost**: Once a model is trained, marginal cost approaches zero
+- **Inference is a recurring cost**: Every API call, every generated token represents compute consumption and gross-margin pressure
+- **Per-unit inference cost and energy efficiency** directly affect gross margin and scale-expansion capability
+
+#### Model Compression Tech Matured
+
+- **1.58-bit quantization** and weight pruning let models maintain inference accuracy at extremely low memory footprint
+- **MoE (Mixture of Experts)** architecture activates only a few expert sub-networks per inference via "partial wake-up," greatly reducing actual computation
+- The rise of slimmed models provides commercial viability for **hard-wired inference chips**
+
+### 3.2 NVIDIA's $20B Bet: Acquiring Groq (December 2025)
+
+On December 24, 2025, NVIDIA acquired Groq's inference technology license and core team for **$20 billion**, one of NVIDIA's largest M&A/tech acquisitions ever.
+
+**Strategic intent**:
+1. **Fill the inference gap**: NVIDIA GPU is unshakable in training, but inference efficiency was never its strongest suit
+2. **Counter specialized inference chips**: Cerebras, Taalas, SambaNova and other startups are eroding the inference market
+3. **Position for Agentic AI**: Agentic AI needs extremely low-latency, high-throughput inference
+
+### 3.3 Taalas HC1: Proof of Concept for Hard-Wired Inference
+
+On February 20, 2026, Canadian AI chip startup **Taalas** launched inference chip **Taalas HC1**, directly etching Meta's open-source AI model **Llama 3.1 8B into the chip**.
+
+#### Key Metrics
+
+| Metric | Taalas HC1 | NVIDIA B200 (throughput optimized) | Advantage |
+|------|--------------|----------------------------------------|------|
+| **Inference rate** | **16,960 tokens/s/user** | Baseline | **~4-5x** |
+| **Cost per million tokens** | **0.75 cents** | 3.79 cents | **Reduced 80%** |
+| **Power** | ~250W | ~700W | **Reduced 64%** |
+| **Process** | TSMC N6 | TSMC 4nm | More mature |
+| **HBM** | ❌ Not used | ✅ HBM3e | Lower cost |
+
+#### Technical Principle
+
+Taalas HC1 uses an aggressive **Computing-in-Memory (CIM)** implementation:
+- Model weights directly固化 in **Mask ROM** (fully hardware-defined)
+- On-chip **SRAM** handles dynamic data (KV cache and LoRA fine-tuning weights)
+- Only **2 mask layers** need modification to produce a dedicated chip for another AI model; turning an AI model into a physical chip takes only **2 months**
+
+#### Limitations
+
+- **Lack of flexibility**: Hard-wiring cannot cope with rapidly iterating model updates
+- **Ecosystem barrier**: The current cloud market still relies on general-purpose platforms; customers may prefer flexible solutions that upgrade with models
+- **NRE cost**: High one-time engineering cost, requiring sufficient deployment scale to amortize
+
+### 3.4 Cerebras: The IPO Path of Wafer-Scale Integration
+
+On May 14, 2026, **Cerebras Systems** officially listed on NASDAQ, becoming the **first wafer-scale AI chip company to go public**.
+
+#### Core Technology: Wafer-Scale Integration (WSI)
+
+- **WSE-3 (third-gen wafer-scale engine)**: An entire 12-inch wafer as a single chip
+- **44GB on-chip SRAM**: No external HBM, eliminating the memory bandwidth bottleneck
+- **21 PB/s bandwidth**: On-chip communication bandwidth, thousands of times that of GPUs
+- **Partnership with OpenAI**: Signed a 3-year, 750MW, $20B+ compute cooperation agreement
+
+#### IPO Significance
+
+Cerebras's listing marks the **maturation of the inference-specific chip track**:
+1. Capital markets begin pricing such companies
+2. Proves "non-GPU" technical routes have commercial viability
+3. Provides valuation references for other inference chip startups (Groq, SambaNova, Taalas, etc.)
+
+### 3.5 Inference Chip Landscape: Multiple Technical Routes Coexist
+
+| Company | Technical Route | Core Advantage | Representative Product |
+|------|----------|----------|----------|
+| **Taalas** | Hard-wired (Mask ROM) | Extreme inference efficiency, low cost | HC1 |
+| **Cerebras** | Wafer-scale integration (WSI) | Ultra-high bandwidth, large-model inference | WSE-3 |
+| **Groq** | SRAM-first architecture | Deterministic latency, high throughput | LPU (acquired by NVIDIA) |
+| **d-Matrix** | Digital in-memory compute (DIMC) | More flexible than hard-wiring | Corsair |
+| **Etched** | Hard-wired Transformer | Works for all Transformer models | Sohu |
+| **Axelera AI** | Digital in-memory compute (D-IMC) + RISC-V | High energy efficiency | Metis AIPU |
+
+**TrendForce predicts**:
+- General-purpose GPUs still dominate **training and multi-model environments**
+- But in **mature, predictable scenarios**, general-purpose GPU profit margins will be compressed
+- The industry shifts from **general compute monopoly** to a **dual-track structure of general + specialized coexistence**
+
+---
+
+## IV. Overall Domestic AI Chip Landscape in H1 2026
+
+### 4.1 Industry Enters Scale-Up Phase
+
+| Metric | 2025 | 2026 Q1 | Trend |
+|------|---------|----------|------|
+| **Domestic AI accelerator shipments** | 1.65M units (41% share) | — | Rising |
+| **Total China AI accelerator shipments** | ~4M units | — | — |
+| **Hygon revenue growth** | — | Doubled | ↑ |
+| **Cambricon revenue growth** | — | +160% | ↑ |
+| **Moore Threads revenue growth** | — | Doubled | ↑ |
+
+Leading vendors collectively entered the **revenue realization channel**, moving from "technical validation" to "scale commercialization."
+
+### 4.2 Three Core Development Trends
+
+#### Trend 1: Capitalization Wave Reshapes the Landscape
+
+- Late 2025 to early 2026: **Moore Threads, Iluvatar** listed on the STAR Market
+- **Biren** listed on the Hong Kong stock exchange
+- **Enflame** STAR Market IPO accepted
+- **Kunlunxin, T-Head** initiated listing processes
+- **TSINGMICRO, HardyVision** and others advancing IPOs
+
+Capitalization brings dual effects:
+- ✅ **Positive**: Supports R&D and ecosystem building
+- ⚠️ **Negative**: Valuation bubbles and revenue realization pressure
+
+#### Trend 2: Capacity Becomes the Biggest Constraint Variable
+
+The contradiction between explosive domestic AI chip demand and limited advanced-process capacity is sharpening:
+
+| Vendor | Advanced-process capacity need | Actually obtained |
+|------|------------------|----------|
+| **Huawei Ascend** | 15K wafers/month (7nm-class) | Priority guaranteed |
+| **SMIC total capacity** | ~20K wafers/month (7nm-class) | — |
+| **Other vendors** | ~5K wafers/month combined | Extremely tight |
+
+**Whether stable wafer capacity can be secured directly determines vendor survival.** Cambricon's 75.4% inventory-to-revenue ratio is essentially a lock on capacity.
+
+#### Trend 3: Competition Shifts from "Usable" to "Good"
+
+Early competition focused on "can it run the model"; now it's about "runtime efficiency, deployment cost":
+
+| Dimension | "Usable" era | "Good" era |
+|----------|-------------|-------------|
+| **Hardware performance** | Can it run the model | Runtime efficiency, energy efficiency |
+| **Software stack** | Basic adaptation | Maturity, framework breadth |
+| **Ecosystem** | Existence | Developer community activity |
+| **Deployment cost** | Insensitive | Core competitive factor |
+
+---
+
+## V. H2 2026 Outlook
+
+### 5.1 Upcoming Key Events
+
+| Time | Event | Impact |
+|------|------|------|
+| **2026 Q3** | NVIDIA Rubin architecture details revealed | Next-gen flagship specs unveiled |
+| **2026 Q3** | Huawei Ascend 950PR/950DT formally launched | New benchmark for domestic inference chips |
+| **2026 Q4** | AMD MI350X scaled delivery | NVIDIA Blackwell competitor |
+| **2026 Q4** | Cambricon Siyuan 690 launch (est.) | New-gen training chip |
+| **2027 Q1** | NVIDIA Blackwell Ultra delivery | New compute benchmark lands |
+
+### 5.2 Key Competitive Factors Over the Next Three Years
+
+1. **Wafer capacity access**: Advanced-process capacity is a scarce resource; vendors tied to SMIC and TSMC have inherent advantages
+2. **Capital operation efficiency**: The IPO window is limited; raising enough capital on the market determines R&D sustainability
+3. **Software ecosystem depth**: Hardware performance is only the entry ticket; software stack maturity, framework adaptation breadth, and developer community activity are the core moat
+
+---
+
+## VI. Conclusion: A Diverse Ecosystem Will Eventually Form
+
+In H1 2026, the AI chip industry is undergoing a historic transition from "one dominant player" to "pluralistic coexistence."
+
+- **NVIDIA** builds higher training barriers with Blackwell Ultra while laying out inference efficiency via the Groq acquisition
+- **Huawei Ascend** holds the domestic compute baseline with full-stack capability; 950PR begins to surpass H20 in inference
+- **Cambricon** proves the commercial viability of domestic AI chips by turning profitable first; Siyuan 590 surpasses international rivals in specific scenarios
+- **Cerebras, Taalas** and other inference-specific chip companies opened a "non-GPU" third route
+- **TSINGMICRO**'s reconfigurable architecture provides a diversified technical route choice for China's AI chips
+
+Over the next three years, the domestic AI chip endgame will form a **pluralistic ecosystem where GPU, ASIC, and reconfigurable computing three technical routes coexist**, with cloud and edge developing in coordination. **"Domestic substitution" is no longer a slogan, but an industrial reality happening now.**
+
+---
+
+**Data sources**:
+- Xinchuang World "2026 China Domestic AI Chip Vendor Capability Quadrant" (2026-06-16)
+- TrendForce "The Era of Inference Economy: The Rules of AI Chips Are Being Rewritten" (2026-06-04)
+- RayByte "Compute Doubles! NVIDIA Blackwell Ultra Chip Launched" (2026-06-02)
+- Official financial reports and announcements of each company
+
+**Related reading**:
+- [Huawei Ascend 910C Specs Deep Dive](/docs/cards/huawei/ascend-910c)
+- [2026 H2 AI Chip Roadmap Update](/blog/2026-06-20-ai-chip-roadmap-h2-2026-update)
+- [Domestic AI Chip Triopoly Comparison: Ascend vs Cambricon vs Kunlunxin](/blog/2026-06-23-chinese-ai-chip-triopoly-comparison-2026)
+- [Full Comparison Table](/docs/comparison)
+
+---

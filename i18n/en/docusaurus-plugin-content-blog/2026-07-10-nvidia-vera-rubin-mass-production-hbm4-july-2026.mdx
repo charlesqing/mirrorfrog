@@ -1,0 +1,90 @@
+---
+slug: nvidia-vera-rubin-mass-production-hbm4-july-2026
+title: 'NVIDIA Vera Rubin Officially Ships: First VR200 NVL72 Delivered, Samsung HBM4 Mass Production, Rubin Ultra Cabinet Sky-High Price'
+date: '2026-07-10'
+authors: aicomputecards
+tags: [news, nvidia, rubin, vera, hbm4, AI-hardware]
+description: 'In July 2026, NVIDIA next-gen Vera Rubin platform officially began shipment: CoreWeave and Dell delivered the world''s first VR200 NVL72 cabinet and passed L11 diagnostics; Samsung started HBM4 mass production on July 8; the Rubin Ultra cabinet is estimated at up to $21M, with HBM cost the biggest driver.'
+---
+
+# NVIDIA Vera Rubin Officially Ships: From Roadmap to Physical Product
+
+> **July 2026**, NVIDIA's next-gen AI compute platform **Vera Rubin** officially began its first shipments, succeeding the Blackwell architecture, with large-scale mass production planned for H2 2026. First customers include Microsoft, Google, Amazon, Meta, Oracle, and other large cloud providers.
+
+## 1. World's First VR200 NVL72 Delivered (Milestone)
+
+**CoreWeave jointly with Dell** announced that the world's first NVIDIA **Vera Rubin VR200 NVL72** cabinet has been officially delivered and passed the **L11 full-cabinet hardware diagnostics** on the first try. This marks Rubin's move from roadmap to physical product, with no major bottlenecks in core supply-chain links (HBM4, advanced packaging, liquid cooling, ultra-high-power power supply).
+
+### VR200 NVL72 Core Configuration
+
+| Metric | Vera Rubin VR200 NVL72 |
+|------|------------------------|
+| **Cabinet codename** | Oberon |
+| **GPU** | 72 Rubin GPUs |
+| **CPU** | 36 Vera CPUs |
+| **Per-GPU memory** | **288 GB HBM4** |
+| **Per-CPU memory** | 1.5 TB LPDDR5X |
+| **Total cabinet HBM4** | **20.7 TB** (20,736 GB) |
+| **Total cabinet LPDDR5X** | 54 TB |
+| **Interconnect** | NVLink 6 full mesh |
+| **Inference performance** | ~3.6 exaFLOPS class |
+| **Cooling** | Liquid cooling |
+| **Generational improvement** | ~3.5× per-GPU compute, ~2.8× memory bandwidth (vs Blackwell) |
+
+> **Vera CPU** integrates 88 custom Olympus ARM cores, with 1.8 TB/s interconnect to the GPU, usable as a GPU memory expansion pool. NVIDIA completed its first Vera CPU deliveries to Anthropic, OpenAI, xAI, and Oracle Cloud in May.
+
+## 2. Samsung HBM4 Mass Production: Key Bottleneck Eases
+
+**July 8, 2026**, Samsung Electronics officially started **HBM4 mass production** for the Vera Rubin platform, with reported HBM4 mass-production yield reaching **70%** (above the initial 60-65% expectation). Confirmation of this key supply-chain link clears obstacles for Rubin's large-scale deployment.
+
+| HBM Supply Landscape (2026 Q1) | Share |
+|------------------------|------|
+| SK hynix | 45% |
+| Samsung | 40% |
+| Micron | 15% |
+
+> HBM4 uses 8-layer stacking (12-layer design planned for 2028), priced at about **2.8×** HBM3e. TrendForce predicts HBM supply will grow 65% annually, with HBM4 reaching 35% of total output by 2027 Q4.
+
+## 3. Rubin Ultra Sky-High Price: HBM Cost Dominates
+
+Per BofA Global Research estimates, the Rubin generation will push single-server cost to a new high:
+
+| Cost Item | Rubin VR200 (Oberon) | Comparison |
+|--------|----------------------|------|
+| **Cabinet HBM4 usage** | 20,736 GB | — |
+| **HBM4 unit price** | ~$18.40 / GB | Blackwell (HBM3e) ~$11.26 / GB |
+| **HBM4 cost alone** | **~$382K** | Excluding LPDDR5X |
+| **Rubin Ultra cabinet estimated price** | **~$21M** | ITHome / BofA estimate |
+
+## 4. Rubin Ultra Design Change: Original 4-die Cancelled (per SemiAnalysis)
+
+Semiconductor research firm **SemiAnalysis (2026-06-30)** disclosed that the original **4-die Rubin Ultra GPU unveiled at GTC 2026 has been cancelled**; the version actually shipping in 2027 is roughly halved in scale and performance:
+
+- **Reason for cancellation**: The original integrated 4 compute dies + 16 HBM4E in a single CoWoS-L package; the substrate warped under the 4-die config, causing compute-die-to-substrate contact failure and yield collapse; the alternative CoPoS won't reach mass production until after late 2028, missing the 2027 node.
+- **New approach**: Changed to **dual-die (same construction as standard Rubin) + HBM4E**, ~**384 GB HBM4E** per GPU (higher than standard Rubin's 288 GB), but total compute and bandwidth only half the original; to approach the original's aggregate compute, NVIDIA plans to assemble "2+2" board-level configs within the **Kyber rack** to reach four-die equivalent scale.
+- **Kyber rack delay**: The companion **Kyber NVL144 rack is delayed 12+ months to 2028** due to midplane PCB manufacturing difficulties; the 800V DC power scheme is likewise delayed to 2028.
+
+> ⚠️ **Note**: NVIDIA has not commented officially on the above design change; some on X argue "the chip count hasn't changed, it's old news reheated." This section is compiled from SemiAnalysis public reports, subject to final NVIDIA disclosure. We have marked "specs pending official confirmation" on the [Rubin Ultra preview card](/docs/cards/nvidia/rubin-ultra).
+
+## Industry Interpretation
+
+1. **"Never doubt" moment realized**: Rubin's first delivery passed L11 on the first try, dispelling market doubts about "Rubin delay," locking in H2 2026 AI compute supply certainty ahead of time.
+2. **Designed for Agentic AI**: Rubin targets agentic workflows and ultra-long-context inference, further lowering the training/inference cost curve for trillion-parameter models.
+3. **HBM is the full-chain winner**: 20.7 TB HBM4 per cabinet is enormous usage; SK hynix, Samsung, Micron, advanced packaging (CoWoS-L), liquid cooling, and power retrofitting all benefit across the chain, while also becoming the biggest cost and capacity constraint.
+
+## Related Links
+
+- [NVIDIA Rubin R200 spec page](/docs/cards/nvidia/rubin-r200)
+- [NVIDIA Vera CPU spec page](/docs/cards/nvidia/vera-cpu)
+- [NVIDIA Rubin CPX spec page](/docs/cards/nvidia/rubin-cpx)
+
+## References
+
+- [Samsung Starts Mass Production for Nvidia's Vera Rubin AI Platform (2026-07-08)](https://fazen.markets/en/samsung-mass-production-nvidia-vera-rubin-ai-platform-storage)
+- [Rubin cabinet first delivery: CoreWeave and Dell deliver world's first VR200 NVL72](https://guba.sina.com.cn/?s=thread&bid=20408&tid=174253)
+- [Nvidia Rubin Ultra cabinet estimated at $21M - ITHome (2026-07-09)](https://www.toutiao.com/article/7660486898866979354/)
+- [NVIDIA Vera Rubin scheduled for July 2026 shipment - VendorDeep](https://vendordeep.com/zh/report/nvidia-vera-rubin-platform-slated)
+
+---
+
+**This article continuously tracks Vera Rubin mass-production ramp and HBM4 supply-chain dynamics.**

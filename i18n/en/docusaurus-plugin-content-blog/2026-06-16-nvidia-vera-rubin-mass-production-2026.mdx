@@ -1,0 +1,141 @@
+---
+slug: nvidia-vera-rubin-mass-production-2026
+title: 'NVIDIA Vera Rubin Enters Full Production: The Agentic AI Factory Era Begins'
+authors: [aicomputecards]
+tags: [nvidia, rubin, vera, blackwell, ai-factory, computex-2026]
+date: 2026-06-16
+description: 'On June 1, 2026, NVIDIA announced at COMPUTEX 2026 that the Vera Rubin platform entered full production. This article details key specs of the Rubin GPU, Vera CPU, NVLink 6, CX8 SuperNIC, and compares performance against Blackwell.'
+---
+
+# NVIDIA Vera Rubin Enters Full Production: The Agentic AI Factory Era Begins
+
+On June 1, 2026, NVIDIA founder and CEO Jensen Huang officially announced at **COMPUTEX 2026 (Taipei)** that: **the Vera Rubin platform has entered full production**. This marks a fundamental paradigm shift for AI hardware from "discrete accelerators" to "integrated AI factories."
+
+## Key Highlights
+
+- **Rubin GPU**: Next-gen AI compute chip, FP4 compute is **3.6×** that of Blackwell
+- **Vera CPU**: 88 custom Arm cores (176 threads), replacing the Grace CPU
+- **NVLink 6**: GPU-to-GPU interconnect bandwidth reaches **260 TB/s** (double Blackwell)
+- **CX8 SuperNIC**: 800Gb/s network, ConnectX-9 link reaching 28.8 TB/s
+- **HBM4 memory**: 288GB per chip, **13 TB/s** bandwidth
+- **Agentic throughput**: **10×** over Grace Blackwell
+
+## Complete Vera Rubin Platform Specs
+
+Vera Rubin is not a single GPU but a **complete AI factory platform** comprising 7 chips:
+
+| Chip | Type | Purpose |
+|---------|------|------|
+| **Rubin GPU** | Main AI compute chip | Training + inference |
+| **Rubin Ultra GPU** | Flagship version | Ultra-scale inference |
+| **Vera CPU** | CPU paired with Rubin | Host CPU + data preprocessing |
+| **NVLink 6** | Interconnect chip | High-speed GPU interconnect (260 TB/s) |
+| **CX8 SuperNIC** | NIC | 800Gb/s network |
+| **XDR 800G switch** | Datacenter network | Cross-rack communication |
+| **Rubin Platform POD** | Whole cabinet | Pre-configured AI factory (144 GPUs) |
+
+## Rubin GPU Detailed Specs (estimated)
+
+| Parameter | Rubin GPU | Rubin Ultra | Blackwell (B200) |
+|------|------------|--------------|-------------------|
+| **Architecture** | Rubin | Rubin Ultra | Blackwell |
+| **Process** | TSMC 3nm (est.) | TSMC 3nm | TSMC 4NP |
+| **Memory** | 288GB HBM4 | 288GB HBM4E (est.) | 192GB HBM3e |
+| **Memory bandwidth** | 13 TB/s | 13+ TB/s | 8 TB/s |
+| **FP4 compute** | ~3,600 TFLOPS (est.) | ~5,000 TFLOPS (est.) | 2,250 TFLOPS |
+| **TDP** | 1,000W (est.) | 1,200W (est.) | 700-1000W |
+| **Interconnect** | NVLink 6 (260 TB/s) | NVLink 6 | NVLink 5 (1800 GB/s) |
+| **Mass production** | 2026 Q3 | H2 2027 | 2024 Q4 |
+
+> 📌 **Note**: Rubin's exact specs are not fully public yet; some values above are estimates.
+
+## Vera CPU: The New Host CPU Replacing Grace
+
+Vera CPU is NVIDIA's self-designed Arm-architecture CPU, replacing the previous Grace CPU:
+
+| Parameter | Vera CPU | Grace CPU |
+|------|----------|------------|
+| **Cores** | 88 cores (176 threads) | 72 cores (144 threads) |
+| **Architecture** | Custom Armv9 (est.) | Arm Neoverse V2 |
+| **Interface** | NVLink 5.0 (1.8 TB/s) | NVLink 4.0 (900 GB/s) |
+| **TDP** | ~500W (est.) | 350-500W |
+| **Purpose** | AI factory Host CPU | HPC / AI Host |
+
+**Key upgrade**: Vera's co-design with the Rubin GPU achieves **end-to-end optimization** in compute, data loading, and preprocessing, comparable to Google TPU 8t's Arm Axion integration.
+
+## Performance vs Blackwell
+
+NVIDIA officially claims that under the same POD configuration (144 GPU chips):
+
+| Metric | Grace Blackwell (GB200 NVL72) | Vera Rubin NVL144 | Improvement |
+|------|---------------------------|-------------------|------|
+| **FP4 compute** | 1.1 PFLOPS | **3.6 PFLOPS** | **3.3×** |
+| **Memory capacity** | 288GB×72 = 20.7TB | 288GB×144 = 41.4TB | 2× |
+| **Memory bandwidth** | 8 TB/s×72 | 13 TB/s×144 | ~3.3× |
+| **NVLink bandwidth** | 1800 GB/s×72 | 260 TB/s (full POD) | ~2× |
+| **Agentic throughput** | Baseline | **10×** | **10×** |
+| **Performance per watt** | Baseline | **25×** (vs CPU alone) | 25× |
+
+> 💡 **Why "10× agentic throughput"?** Agentic AI workloads differ from training/inference: one prompt may trigger multiple stages including reasoning, retrieval, tool calls, and response generation, involving thousands of steps. The Rubin platform is optimized for this **long-chain, high-concurrency** workload.
+
+## MGX Third-Gen Rack-Scale System
+
+Vera Rubin adopts the **MGX third-gen** open rack-scale system design:
+
+- **Five-rack synergy**: Vera Rubin NVL72 system + Vera CPU + Groq 3 LPX + Vera BlueField-4 STX storage + Spectrum-6 SPX Ethernet
+- **Global supply chain**: 30 countries, 350+ factories, hundreds of partners (Dell, HPE, Lenovo, Supermicro, Asus, Foxconn, etc.)
+- **Spectrum-X Ethernet silicon photonics**: World's first switch based on CPO (co-packaged optics) supporting 200Gb/s SerDes, now in mass production
+
+## Mass Production Timeline
+
+| Time | Event |
+|------|------|
+| Jan 2026 | CES 2026 first unveils Rubin platform |
+| June 1, 2026 | COMPUTEX 2026 announces full production |
+| **Fall 2026** | **Vera Rubin officially starts mass production and shipment** |
+| H2 2027 | Rubin Ultra launch (HBM4E upgrade) |
+| 2028 | Feynman architecture (next gen) |
+
+## AI Factory: From Selling Chips to Selling "Smart Production Lines"
+
+Huang said something at the launch that shook the industry:
+
+> "Rubin's Agentic AI throughput is **10×** that of Blackwell. Rubin is a complete AI factory platform."
+
+This marks a fundamental shift in NVIDIA's business model:
+- **Past**: Sold GPUs (H100/B200), customers built systems themselves
+- **Now**: Sells "complete AI factory solutions" (Vera Rubin POD), including GPU, CPU, network, storage, software stack
+- **Future**: Becomes the "TSMC" of global AI infrastructure (providing smart production capacity)
+
+## vs Competitors
+
+| Vendor | Product | Positioning | Advantage | Disadvantage |
+|------|------|------|------|------|
+| **NVIDIA** | Vera Rubin | Complete AI factory solution | Most complete ecosystem, most mature software | Expensive, extremely high power |
+| **AMD** | MI455X (MI400 series) | Training competitor | Price/performance, open ecosystem | Software ecosystem gap |
+| **Google** | TPU 8i/8t | Cloud training/inference | Deep Gemini integration | Google Cloud only |
+| **Huawei** | Ascend 910C/950 | Domestic substitution | China localization, AscendMind framework | Affected by export controls |
+
+## Industry Impact
+
+1. **AI labs**: Frontier model training time shrinks from "months" to "weeks"
+2. **Cloud providers**: Must decide whether to procure Vera Rubin POD (conflicts with self-developed chip strategy)
+3. **Hyperscale datacenters**: AI factory becomes a new competitive dimension (whoever has the strongest compute can train the strongest model)
+4. **Domestic chips**: Ascend 910C/950, Cambricon MLU590, etc. must catch up to Blackwell in 2026-2027, or the gap will widen to the Rubin era
+
+## Related Chips
+
+- [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - Rubin architecture GPU detailed specs
+- [NVIDIA Vera CPU](/docs/cards/nvidia/vera-cpu) - Vera CPU detailed specs
+- [NVIDIA B200](/docs/cards/nvidia/b200) - Previous-gen Blackwell architecture
+- [AMD MI455X](/docs/cards/amd/mi455x) - Direct competitor (MI400 series)
+
+## References
+
+- [NVIDIA Blog: Vera Rubin Full Production](https://blogs.nvidia.cn/blog/vera-rubin-full-production-agentic-ai-factory/)
+- [COMPUTEX 2026 Keynote](https://www.nvidia.cn/gtc/taipei/computex/)
+- [NVIDIA Official Newsroom](https://news.nvidia.com/)
+
+---
+
+*This article is compiled from NVIDIA official announcements and public materials. Some specs are estimates, subject to final official release.*
