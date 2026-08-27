@@ -1,0 +1,62 @@
+---
+title: NVIDIA H100 SXM vs Huawei Ascend 910B
+description: "NVIDIA H100 SXM vs Huawei Ascend 910B spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA H100 SXM, Huawei Ascend 910B, NVIDIA H100 SXM vs Huawei Ascend 910B, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA H100 SXM vs Huawei Ascend 910B
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA H100 SXM vs Huawei Ascend 910B: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA H100 SXM** and **Huawei Ascend 910B** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA H100 SXM | Huawei Ascend 910B |
+| --- | --- | --- |
+| Vendor | NVIDIA | Huawei |
+| Architecture | Hopper GH100 | Da Vinci |
+| Process | TSMC 4N | TSMC 7nm+ |
+| Release Date | 2022 3 GTC | 2022-11-08 |
+| FP8 Compute | 3,958 TFLOPS | — |
+| FP16 Compute | — | 256 TFLOPS |
+| FP32 Compute | 67 TFLOPS | 51.2 TFLOPS |
+| INT8 Compute | — | 512 TOPS |
+| Memory Type | — | — |
+| Memory Capacity | 80 GB HBM3 | 64 GB HBM2e/ HBM3e |
+| Memory Bandwidth | 3.35 TB/s | 600 GB/s/ 1,200 GB/s |
+| TDP Power | 700 W | 310 W |
+
+## Key Differences
+
+- **Power**: Huawei Ascend 910B has a TDP of 310 W, lower than NVIDIA H100 SXM's 700 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: NVIDIA H100 SXM packs 80 GB HBM3, more than Huawei Ascend 910B's 64 GB HBM2e/ HBM3e, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA H100 SXM; if budget, power wall, or local support are hard constraints, Huawei Ascend 910B often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA H100 SXM and Huawei Ascend 910B?
+
+The core difference is architecture and compute density: NVIDIA H100 SXM uses Hopper GH100, FP8 ~3,958 TFLOPS, memory 80 GB HBM3; Huawei Ascend 910B uses Da Vinci, FP8 ~No public FP8 data, memory 64 GB HBM2e/ HBM3e. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA H100 SXM?
+
+NVIDIA H100 SXM has a TDP of 700 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA H100 SXM and Huawei Ascend 910B differ in memory capacity?
+
+NVIDIA H100 SXM is 80 GB HBM3, Huawei Ascend 910B is 64 GB HBM2e/ HBM3e; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA H100 SXM](/en/docs/cards/nvidia/h100)
+- [Huawei Ascend 910B](/en/docs/cards/huawei/ascend-910b)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

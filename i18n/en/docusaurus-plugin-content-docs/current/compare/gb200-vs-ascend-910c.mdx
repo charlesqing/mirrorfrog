@@ -1,0 +1,61 @@
+---
+title: NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) vs Huawei Ascend 910C
+description: "NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) vs Huawei Ascend 910C spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA GB200 (Grace Blackwell 200, 2024-Q4), Huawei Ascend 910C, NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) vs Huawei Ascend 910C, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) vs Huawei Ascend 910C
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) vs Huawei Ascend 910C: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)** and **Huawei Ascend 910C** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) | Huawei Ascend 910C |
+| --- | --- | --- |
+| Vendor | NVIDIA | Huawei |
+| Architecture | Grace Blackwell 200 Superchip | Da Vinci |
+| Process | — | 7nm -class |
+| Release Date | 2024-03-18 | 2024-04-24 |
+| FP8 Compute | — | — |
+| FP16 Compute | — | — |
+| FP32 Compute | — | — |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | — | 8× HBM3 |
+| Memory Bandwidth | — | — |
+| TDP Power | 1000W | 310 W |
+
+## Key Differences
+
+- **Power**: Huawei Ascend 910C has a TDP of 310 W, lower than NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)'s 1000W, friendlier to datacenter PUE and cooling.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA GB200 (Grace Blackwell 200, 2024-Q4); if budget, power wall, or local support are hard constraints, Huawei Ascend 910C often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) and Huawei Ascend 910C?
+
+The core difference is architecture and compute density: NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) uses Grace Blackwell 200 Superchip, FP8 ~No public FP8 data, memory —; Huawei Ascend 910C uses Da Vinci, FP8 ~No public FP8 data, memory 8× HBM3. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)?
+
+NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) has a TDP of 1000W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) and Huawei Ascend 910C differ in memory capacity?
+
+NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) is —, Huawei Ascend 910C is 8× HBM3; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)](/en/docs/cards/nvidia/gb200)
+- [Huawei Ascend 910C](/en/docs/cards/huawei/ascend-910c)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

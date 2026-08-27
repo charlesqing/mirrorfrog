@@ -1,0 +1,61 @@
+---
+title: Huawei Ascend 910C vs MetaX 沐曦 曦云 C600 (2025)
+description: "Huawei Ascend 910C vs MetaX 沐曦 曦云 C600 (2025) spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [Huawei Ascend 910C, MetaX 沐曦 曦云 C600 (2025), Huawei Ascend 910C vs MetaX 沐曦 曦云 C600 (2025), AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: Huawei Ascend 910C vs MetaX 沐曦 曦云 C600 (2025)
+---
+
+import Link from '@docusaurus/Link';
+
+# Huawei Ascend 910C vs MetaX 沐曦 曦云 C600 (2025): Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **Huawei Ascend 910C** and **MetaX 沐曦 曦云 C600 (2025)** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | Huawei Ascend 910C | MetaX 沐曦 曦云 C600 (2025) |
+| --- | --- | --- |
+| Vendor | Huawei | Other |
+| Architecture | Da Vinci | XCORE 1.5 |
+| Process | 7nm -class | 7nm |
+| Release Date | 2024-04-24 | 2025 10 |
+| FP8 Compute | — | 1000 TFLOPS |
+| FP16 Compute | — | — |
+| FP32 Compute | — | 15 TFLOPS |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | 8× HBM3 | — |
+| Memory Bandwidth | — | 3.6 TB/s |
+| TDP Power | 310 W | 400 W |
+
+## Key Differences
+
+- **Power**: Huawei Ascend 910C has a TDP of 310 W, lower than MetaX 沐曦 曦云 C600 (2025)'s 400 W, friendlier to datacenter PUE and cooling.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize Huawei Ascend 910C; if budget, power wall, or local support are hard constraints, MetaX 沐曦 曦云 C600 (2025) often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between Huawei Ascend 910C and MetaX 沐曦 曦云 C600 (2025)?
+
+The core difference is architecture and compute density: Huawei Ascend 910C uses Da Vinci, FP8 ~No public FP8 data, memory 8× HBM3; MetaX 沐曦 曦云 C600 (2025) uses XCORE 1.5, FP8 ~1000 TFLOPS, memory —. See the comparison table above.
+
+### What is the TDP (power) of Huawei Ascend 910C?
+
+Huawei Ascend 910C has a TDP of 310 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do Huawei Ascend 910C and MetaX 沐曦 曦云 C600 (2025) differ in memory capacity?
+
+Huawei Ascend 910C is 8× HBM3, MetaX 沐曦 曦云 C600 (2025) is —; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [Huawei Ascend 910C](/en/docs/cards/huawei/ascend-910c)
+- [MetaX 沐曦 曦云 C600 (2025)](/en/docs/cards/others/metax-c600)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

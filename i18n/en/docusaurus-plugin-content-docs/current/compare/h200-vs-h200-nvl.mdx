@@ -1,0 +1,62 @@
+---
+title: NVIDIA H200 SXM vs NVIDIA H200 NVL
+description: "NVIDIA H200 SXM vs NVIDIA H200 NVL spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA H200 SXM, NVIDIA H200 NVL, NVIDIA H200 SXM vs NVIDIA H200 NVL, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA H200 SXM vs NVIDIA H200 NVL
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA H200 SXM vs NVIDIA H200 NVL: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA H200 SXM** and **NVIDIA H200 NVL** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA H200 SXM | NVIDIA H200 NVL |
+| --- | --- | --- |
+| Vendor | NVIDIA | NVIDIA |
+| Architecture | Hopper GH100 | NVIDIA Hopper (GH100) |
+| Process | TSMC 4N | TSMC 4nm |
+| Release Date | 2024 11 | 2024 |
+| FP8 Compute | 3,958 TFLOPS | 3,341 TFLOPS |
+| FP16 Compute | — | 1,671 TFLOPS |
+| FP32 Compute | — | 60 TFLOPS |
+| INT8 Compute | — | 3,341 TOPS |
+| Memory Type | — | HBM3e |
+| Memory Capacity | 141 GB HBM3e | 141 GB HBM3e |
+| Memory Bandwidth | 4.8 TB/s | 4.8 TB/s |
+| TDP Power | 700 W | 600 W |
+
+## Key Differences
+
+- **FP8 compute**: NVIDIA H200 SXM leads with ~3,958 TFLOPS versus NVIDIA H200 NVL's 3,341 TFLOPS, a clear edge in large-scale Transformer training/inference.
+- **Power**: NVIDIA H200 NVL has a TDP of 600 W, lower than NVIDIA H200 SXM's 700 W, friendlier to datacenter PUE and cooling.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA H200 SXM; if budget, power wall, or local support are hard constraints, NVIDIA H200 NVL often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA H200 SXM and NVIDIA H200 NVL?
+
+The core difference is architecture and compute density: NVIDIA H200 SXM uses Hopper GH100, FP8 ~3,958 TFLOPS, memory 141 GB HBM3e; NVIDIA H200 NVL uses NVIDIA Hopper (GH100), FP8 ~3,341 TFLOPS, memory 141 GB HBM3e. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA H200 SXM?
+
+NVIDIA H200 SXM has a TDP of 700 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA H200 SXM and NVIDIA H200 NVL differ in memory capacity?
+
+NVIDIA H200 SXM is 141 GB HBM3e, NVIDIA H200 NVL is 141 GB HBM3e; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA H200 SXM](/en/docs/cards/nvidia/h200)
+- [NVIDIA H200 NVL](/en/docs/cards/nvidia/h200-nvl)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

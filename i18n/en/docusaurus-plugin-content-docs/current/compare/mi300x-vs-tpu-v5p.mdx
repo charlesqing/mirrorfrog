@@ -1,0 +1,61 @@
+---
+title: AMD Instinct MI300X vs Google Cloud TPU v5p
+description: "AMD Instinct MI300X vs Google Cloud TPU v5p spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [AMD Instinct MI300X, Google Cloud TPU v5p, AMD Instinct MI300X vs Google Cloud TPU v5p, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: AMD Instinct MI300X vs Google Cloud TPU v5p
+---
+
+import Link from '@docusaurus/Link';
+
+# AMD Instinct MI300X vs Google Cloud TPU v5p: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **AMD Instinct MI300X** and **Google Cloud TPU v5p** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | AMD Instinct MI300X | Google Cloud TPU v5p |
+| --- | --- | --- |
+| Vendor | AMD | Google |
+| Architecture | CDNA 3 | Google TPU v5p |
+| Process | TSMC 5nm + 6nm | TSMC 5nm |
+| Release Date | 2023-06-13 | 2023-12-05 |
+| FP8 Compute | — | — |
+| FP16 Compute | — | — |
+| FP32 Compute | 65.3 TFLOPS | — |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | 192 GB HBM3 | — |
+| Memory Bandwidth | 5,300 GB/s | — |
+| TDP Power | 750 W | 300 W |
+
+## Key Differences
+
+- **Power**: Google Cloud TPU v5p has a TDP of 300 W, lower than AMD Instinct MI300X's 750 W, friendlier to datacenter PUE and cooling.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize AMD Instinct MI300X; if budget, power wall, or local support are hard constraints, Google Cloud TPU v5p often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between AMD Instinct MI300X and Google Cloud TPU v5p?
+
+The core difference is architecture and compute density: AMD Instinct MI300X uses CDNA 3, FP8 ~No public FP8 data, memory 192 GB HBM3; Google Cloud TPU v5p uses Google TPU v5p, FP8 ~No public FP8 data, memory —. See the comparison table above.
+
+### What is the TDP (power) of AMD Instinct MI300X?
+
+AMD Instinct MI300X has a TDP of 750 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do AMD Instinct MI300X and Google Cloud TPU v5p differ in memory capacity?
+
+AMD Instinct MI300X is 192 GB HBM3, Google Cloud TPU v5p is —; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [AMD Instinct MI300X](/en/docs/cards/amd/mi300x)
+- [Google Cloud TPU v5p](/en/docs/cards/google/tpu-v5p)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

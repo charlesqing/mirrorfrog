@@ -1,0 +1,62 @@
+---
+title: NVIDIA A100 vs AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)
+description: "NVIDIA A100 vs AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练) spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA A100, AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练), NVIDIA A100 vs AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练), AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA A100 vs AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA A100 vs AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练): Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA A100** and **AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA A100 | AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练) |
+| --- | --- | --- |
+| Vendor | NVIDIA | AMD |
+| Architecture | Ampere GA100 | CDNA 2 |
+| Process | TSMC 7nm | TSMC 6nm FinFET |
+| Release Date | 2020 6 GTC | 2022-03-22 |
+| FP8 Compute | — | — |
+| FP16 Compute | — | — |
+| FP32 Compute | 19.5 TFLOPS | — |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | 80 GB HBM2e | 64 GB HBM2e |
+| Memory Bandwidth | 1,935 GB/s | 1.6 TB/s |
+| TDP Power | 300 W / 400 W | 300 W |
+
+## Key Differences
+
+- **Power**: AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练) has a TDP of 300 W, lower than NVIDIA A100's 300 W / 400 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: NVIDIA A100 packs 80 GB HBM2e, more than AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)'s 64 GB HBM2e, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA A100; if budget, power wall, or local support are hard constraints, AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练) often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA A100 and AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)?
+
+The core difference is architecture and compute density: NVIDIA A100 uses Ampere GA100, FP8 ~No public FP8 data, memory 80 GB HBM2e; AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练) uses CDNA 2, FP8 ~No public FP8 data, memory 64 GB HBM2e. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA A100?
+
+NVIDIA A100 has a TDP of 300 W / 400 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA A100 and AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练) differ in memory capacity?
+
+NVIDIA A100 is 80 GB HBM2e, AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练) is 64 GB HBM2e; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA A100](/en/docs/cards/nvidia/a100)
+- [AMD Instinct MI210 (64GB HBM2e PCIe HPC 训练)](/en/docs/cards/amd/mi210)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

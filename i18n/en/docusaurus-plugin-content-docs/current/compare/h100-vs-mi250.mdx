@@ -1,0 +1,62 @@
+---
+title: NVIDIA H100 SXM vs AMD Instinct MI250
+description: "NVIDIA H100 SXM vs AMD Instinct MI250 spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA H100 SXM, AMD Instinct MI250, NVIDIA H100 SXM vs AMD Instinct MI250, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA H100 SXM vs AMD Instinct MI250
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA H100 SXM vs AMD Instinct MI250: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA H100 SXM** and **AMD Instinct MI250** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA H100 SXM | AMD Instinct MI250 |
+| --- | --- | --- |
+| Vendor | NVIDIA | AMD |
+| Architecture | Hopper GH100 | CDNA 2 |
+| Process | TSMC 4N | TSMC 6nm |
+| Release Date | 2022 3 GTC | 2021-11-08 |
+| FP8 Compute | 3,958 TFLOPS | — |
+| FP16 Compute | — | — |
+| FP32 Compute | 67 TFLOPS | 47.9 TFLOPS |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | 80 GB HBM3 | 128 GB HBM2e |
+| Memory Bandwidth | 3.35 TB/s | 3,276.8 GB/s |
+| TDP Power | 700 W | 500 W |
+
+## Key Differences
+
+- **Power**: AMD Instinct MI250 has a TDP of 500 W, lower than NVIDIA H100 SXM's 700 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: AMD Instinct MI250 packs 128 GB HBM2e, more than NVIDIA H100 SXM's 80 GB HBM3, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA H100 SXM; if budget, power wall, or local support are hard constraints, AMD Instinct MI250 often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA H100 SXM and AMD Instinct MI250?
+
+The core difference is architecture and compute density: NVIDIA H100 SXM uses Hopper GH100, FP8 ~3,958 TFLOPS, memory 80 GB HBM3; AMD Instinct MI250 uses CDNA 2, FP8 ~No public FP8 data, memory 128 GB HBM2e. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA H100 SXM?
+
+NVIDIA H100 SXM has a TDP of 700 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA H100 SXM and AMD Instinct MI250 differ in memory capacity?
+
+NVIDIA H100 SXM is 80 GB HBM3, AMD Instinct MI250 is 128 GB HBM2e; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA H100 SXM](/en/docs/cards/nvidia/h100)
+- [AMD Instinct MI250](/en/docs/cards/amd/mi250)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

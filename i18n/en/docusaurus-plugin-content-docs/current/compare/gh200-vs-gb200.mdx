@@ -1,0 +1,61 @@
+---
+title: NVIDIA GH200 Grace Hopper vs NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)
+description: "NVIDIA GH200 Grace Hopper vs NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA GH200 Grace Hopper, NVIDIA GB200 (Grace Blackwell 200, 2024-Q4), NVIDIA GH200 Grace Hopper vs NVIDIA GB200 (Grace Blackwell 200, 2024-Q4), AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA GH200 Grace Hopper vs NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA GH200 Grace Hopper vs NVIDIA GB200 (Grace Blackwell 200, 2024-Q4): Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA GH200 Grace Hopper** and **NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA GH200 Grace Hopper | NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) |
+| --- | --- | --- |
+| Vendor | NVIDIA | NVIDIA |
+| Architecture | Grace+ Hopper | Grace Blackwell 200 Superchip |
+| Process | TSMC 4nm | — |
+| Release Date | 2023 ，2024 | 2024-03-18 |
+| FP8 Compute | 3,958 TFLOPS | — |
+| FP16 Compute | 1,979 TFLOPS | — |
+| FP32 Compute | 134 TFLOPS | — |
+| INT8 Compute | 3,958 TOPS | — |
+| Memory Type | HBM3 | — |
+| Memory Capacity | 96 GB HBM3 | — |
+| Memory Bandwidth | 4.8 TB/s/ 6.35 TB/s | — |
+| TDP Power | 1000 W | 1000W |
+
+## Key Differences
+
+- The two chips are positioned similarly; evaluate based on your specific workload, software-stack maturity, and supply-chain availability.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA GH200 Grace Hopper; if budget, power wall, or local support are hard constraints, NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA GH200 Grace Hopper and NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)?
+
+The core difference is architecture and compute density: NVIDIA GH200 Grace Hopper uses Grace+ Hopper, FP8 ~3,958 TFLOPS, memory 96 GB HBM3; NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) uses Grace Blackwell 200 Superchip, FP8 ~No public FP8 data, memory —. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA GH200 Grace Hopper?
+
+NVIDIA GH200 Grace Hopper has a TDP of 1000 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA GH200 Grace Hopper and NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) differ in memory capacity?
+
+NVIDIA GH200 Grace Hopper is 96 GB HBM3, NVIDIA GB200 (Grace Blackwell 200, 2024-Q4) is —; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA GH200 Grace Hopper](/en/docs/cards/nvidia/gh200)
+- [NVIDIA GB200 (Grace Blackwell 200, 2024-Q4)](/en/docs/cards/nvidia/gb200)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

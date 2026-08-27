@@ -1,0 +1,61 @@
+---
+title: NVIDIA A100 vs NVIDIA H100 SXM
+description: "NVIDIA A100 vs NVIDIA H100 SXM spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA A100, NVIDIA H100 SXM, NVIDIA A100 vs NVIDIA H100 SXM, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA A100 vs NVIDIA H100 SXM
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA A100 vs NVIDIA H100 SXM: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA A100** and **NVIDIA H100 SXM** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA A100 | NVIDIA H100 SXM |
+| --- | --- | --- |
+| Vendor | NVIDIA | NVIDIA |
+| Architecture | Ampere GA100 | Hopper GH100 |
+| Process | TSMC 7nm | TSMC 4N |
+| Release Date | 2020 6 GTC | 2022 3 GTC |
+| FP8 Compute | — | 3,958 TFLOPS |
+| FP16 Compute | — | — |
+| FP32 Compute | 19.5 TFLOPS | 67 TFLOPS |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | 80 GB HBM2e | 80 GB HBM3 |
+| Memory Bandwidth | 1,935 GB/s | 3.35 TB/s |
+| TDP Power | 300 W / 400 W | 700 W |
+
+## Key Differences
+
+- **Power**: NVIDIA A100 has a TDP of 300 W / 400 W, lower than NVIDIA H100 SXM's 700 W, friendlier to datacenter PUE and cooling.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA A100; if budget, power wall, or local support are hard constraints, NVIDIA H100 SXM often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA A100 and NVIDIA H100 SXM?
+
+The core difference is architecture and compute density: NVIDIA A100 uses Ampere GA100, FP8 ~No public FP8 data, memory 80 GB HBM2e; NVIDIA H100 SXM uses Hopper GH100, FP8 ~3,958 TFLOPS, memory 80 GB HBM3. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA A100?
+
+NVIDIA A100 has a TDP of 300 W / 400 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA A100 and NVIDIA H100 SXM differ in memory capacity?
+
+NVIDIA A100 is 80 GB HBM2e, NVIDIA H100 SXM is 80 GB HBM3; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA A100](/en/docs/cards/nvidia/a100)
+- [NVIDIA H100 SXM](/en/docs/cards/nvidia/h100)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

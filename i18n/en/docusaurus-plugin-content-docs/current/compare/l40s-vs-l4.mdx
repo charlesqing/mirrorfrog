@@ -1,0 +1,63 @@
+---
+title: NVIDIA L40S vs NVIDIA L4
+description: "NVIDIA L40S vs NVIDIA L4 spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA L40S, NVIDIA L4, NVIDIA L40S vs NVIDIA L4, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA L40S vs NVIDIA L4
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA L40S vs NVIDIA L4: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA L40S** and **NVIDIA L4** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA L40S | NVIDIA L4 |
+| --- | --- | --- |
+| Vendor | NVIDIA | NVIDIA |
+| Architecture | Ada Lovelace AD102 | Ada Lovelace AD104 |
+| Process | TSMC 4N | TSMC 4N |
+| Release Date | 2023 8 | 2023 3 GTC |
+| FP8 Compute | 733 TFLOPS | 485 TFLOPS |
+| FP16 Compute | — | — |
+| FP32 Compute | 91.6 TFLOPS | 30.3 TFLOPS |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | 48 GB GDDR6 ECC | 24 GB GDDR6 |
+| Memory Bandwidth | 864 GB/s | 300 GB/s |
+| TDP Power | 350 W | 72 W |
+
+## Key Differences
+
+- **FP8 compute**: NVIDIA L40S leads with ~733 TFLOPS versus NVIDIA L4's 485 TFLOPS, a clear edge in large-scale Transformer training/inference.
+- **Power**: NVIDIA L4 has a TDP of 72 W, lower than NVIDIA L40S's 350 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: NVIDIA L40S packs 48 GB GDDR6 ECC, more than NVIDIA L4's 24 GB GDDR6, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA L40S; if budget, power wall, or local support are hard constraints, NVIDIA L4 often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA L40S and NVIDIA L4?
+
+The core difference is architecture and compute density: NVIDIA L40S uses Ada Lovelace AD102, FP8 ~733 TFLOPS, memory 48 GB GDDR6 ECC; NVIDIA L4 uses Ada Lovelace AD104, FP8 ~485 TFLOPS, memory 24 GB GDDR6. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA L40S?
+
+NVIDIA L40S has a TDP of 350 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA L40S and NVIDIA L4 differ in memory capacity?
+
+NVIDIA L40S is 48 GB GDDR6 ECC, NVIDIA L4 is 24 GB GDDR6; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA L40S](/en/docs/cards/nvidia/l40s)
+- [NVIDIA L4](/en/docs/cards/nvidia/l4)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

@@ -1,0 +1,63 @@
+---
+title: NVIDIA RTX 4090 vs NVIDIA RTX 5090 (Blackwell 消费级旗舰)
+description: "NVIDIA RTX 4090 vs NVIDIA RTX 5090 (Blackwell 消费级旗舰) spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA RTX 4090, NVIDIA RTX 5090 (Blackwell 消费级旗舰), NVIDIA RTX 4090 vs NVIDIA RTX 5090 (Blackwell 消费级旗舰), AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA RTX 4090 vs NVIDIA RTX 5090 (Blackwell 消费级旗舰)
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA RTX 4090 vs NVIDIA RTX 5090 (Blackwell 消费级旗舰): Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA RTX 4090** and **NVIDIA RTX 5090 (Blackwell 消费级旗舰)** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA RTX 4090 | NVIDIA RTX 5090 (Blackwell 消费级旗舰) |
+| --- | --- | --- |
+| Vendor | NVIDIA | NVIDIA |
+| Architecture | Ada Lovelace AD102 | Blackwell (GB202) |
+| Process | TSMC 4N | TSMC 4N |
+| Release Date | 2022 9 | 2025-01-07 |
+| FP8 Compute | 2,642 TFLOPS | 838 TFLOPS |
+| FP16 Compute | — | 419 TFLOPS |
+| FP32 Compute | 82.6 TFLOPS | 104.8 TFLOPS |
+| INT8 Compute | — | 1,676 TOPS |
+| Memory Type | — | — |
+| Memory Capacity | 24 GB GDDR6X | 32 GB GDDR7 |
+| Memory Bandwidth | 1,008 GB/s | 1,792 GB/s |
+| TDP Power | 450 W | 575 W |
+
+## Key Differences
+
+- **FP8 compute**: NVIDIA RTX 4090 leads with ~2,642 TFLOPS versus NVIDIA RTX 5090 (Blackwell 消费级旗舰)'s 838 TFLOPS, a clear edge in large-scale Transformer training/inference.
+- **Power**: NVIDIA RTX 4090 has a TDP of 450 W, lower than NVIDIA RTX 5090 (Blackwell 消费级旗舰)'s 575 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: NVIDIA RTX 5090 (Blackwell 消费级旗舰) packs 32 GB GDDR7, more than NVIDIA RTX 4090's 24 GB GDDR6X, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA RTX 4090; if budget, power wall, or local support are hard constraints, NVIDIA RTX 5090 (Blackwell 消费级旗舰) often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA RTX 4090 and NVIDIA RTX 5090 (Blackwell 消费级旗舰)?
+
+The core difference is architecture and compute density: NVIDIA RTX 4090 uses Ada Lovelace AD102, FP8 ~2,642 TFLOPS, memory 24 GB GDDR6X; NVIDIA RTX 5090 (Blackwell 消费级旗舰) uses Blackwell (GB202), FP8 ~838 TFLOPS, memory 32 GB GDDR7. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA RTX 4090?
+
+NVIDIA RTX 4090 has a TDP of 450 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA RTX 4090 and NVIDIA RTX 5090 (Blackwell 消费级旗舰) differ in memory capacity?
+
+NVIDIA RTX 4090 is 24 GB GDDR6X, NVIDIA RTX 5090 (Blackwell 消费级旗舰) is 32 GB GDDR7; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA RTX 4090](/en/docs/cards/nvidia/rtx-4090)
+- [NVIDIA RTX 5090 (Blackwell 消费级旗舰)](/en/docs/cards/nvidia/rtx-5090)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

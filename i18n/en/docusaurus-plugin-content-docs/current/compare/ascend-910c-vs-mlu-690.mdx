@@ -1,0 +1,62 @@
+---
+title: Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）
+description: "Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片） spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [Huawei Ascend 910C, 寒武纪 思元690（国产 AI 训练/推理芯片）, Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）
+---
+
+import Link from '@docusaurus/Link';
+
+# Huawei Ascend 910C vs 寒武纪 思元690（国产 AI 训练/推理芯片）: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **Huawei Ascend 910C** and **寒武纪 思元690（国产 AI 训练/推理芯片）** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | Huawei Ascend 910C | 寒武纪 思元690（国产 AI 训练/推理芯片） |
+| --- | --- | --- |
+| Vendor | Huawei | Cambricon |
+| Architecture | Da Vinci | MLUarch |
+| Process | 7nm -class | 5nm -class |
+| Release Date | 2024-04-24 | 2025 |
+| FP8 Compute | — | — |
+| FP16 Compute | — | 700+ TFLOPS |
+| FP32 Compute | — | — |
+| INT8 Compute | — | 2,800+ TOPS |
+| Memory Type | — | — |
+| Memory Capacity | 8× HBM3 | 196 GB HBM3 |
+| Memory Bandwidth | — | 3.35 TB/s |
+| TDP Power | 310 W | ~500 W |
+
+## Key Differences
+
+- **Power**: Huawei Ascend 910C has a TDP of 310 W, lower than 寒武纪 思元690（国产 AI 训练/推理芯片）'s ~500 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: 寒武纪 思元690（国产 AI 训练/推理芯片） packs 196 GB HBM3, more than Huawei Ascend 910C's 8× HBM3, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize Huawei Ascend 910C; if budget, power wall, or local support are hard constraints, 寒武纪 思元690（国产 AI 训练/推理芯片） often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between Huawei Ascend 910C and 寒武纪 思元690（国产 AI 训练/推理芯片）?
+
+The core difference is architecture and compute density: Huawei Ascend 910C uses Da Vinci, FP8 ~No public FP8 data, memory 8× HBM3; 寒武纪 思元690（国产 AI 训练/推理芯片） uses MLUarch, FP8 ~No public FP8 data, memory 196 GB HBM3. See the comparison table above.
+
+### What is the TDP (power) of Huawei Ascend 910C?
+
+Huawei Ascend 910C has a TDP of 310 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do Huawei Ascend 910C and 寒武纪 思元690（国产 AI 训练/推理芯片） differ in memory capacity?
+
+Huawei Ascend 910C is 8× HBM3, 寒武纪 思元690（国产 AI 训练/推理芯片） is 196 GB HBM3; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [Huawei Ascend 910C](/en/docs/cards/huawei/ascend-910c)
+- [寒武纪 思元690（国产 AI 训练/推理芯片）](/en/docs/cards/cambricon/mlu-690)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

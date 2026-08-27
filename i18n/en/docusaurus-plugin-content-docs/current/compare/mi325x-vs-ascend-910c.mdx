@@ -1,0 +1,62 @@
+---
+title: AMD Instinct MI325X vs Huawei Ascend 910C
+description: "AMD Instinct MI325X vs Huawei Ascend 910C spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [AMD Instinct MI325X, Huawei Ascend 910C, AMD Instinct MI325X vs Huawei Ascend 910C, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: AMD Instinct MI325X vs Huawei Ascend 910C
+---
+
+import Link from '@docusaurus/Link';
+
+# AMD Instinct MI325X vs Huawei Ascend 910C: Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **AMD Instinct MI325X** and **Huawei Ascend 910C** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | AMD Instinct MI325X | Huawei Ascend 910C |
+| --- | --- | --- |
+| Vendor | AMD | Huawei |
+| Architecture | CDNA 3 | Da Vinci |
+| Process | — | 7nm -class |
+| Release Date | 2024-10-10 | 2024-04-24 |
+| FP8 Compute | — | — |
+| FP16 Compute | — | — |
+| FP32 Compute | — | — |
+| INT8 Compute | — | — |
+| Memory Type | — | — |
+| Memory Capacity | 256 GB HBM3e | 8× HBM3 |
+| Memory Bandwidth | 6.48 TB/s | — |
+| TDP Power | 750 W | 310 W |
+
+## Key Differences
+
+- **Power**: Huawei Ascend 910C has a TDP of 310 W, lower than AMD Instinct MI325X's 750 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: AMD Instinct MI325X packs 256 GB HBM3e, more than Huawei Ascend 910C's 8× HBM3, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize AMD Instinct MI325X; if budget, power wall, or local support are hard constraints, Huawei Ascend 910C often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between AMD Instinct MI325X and Huawei Ascend 910C?
+
+The core difference is architecture and compute density: AMD Instinct MI325X uses CDNA 3, FP8 ~No public FP8 data, memory 256 GB HBM3e; Huawei Ascend 910C uses Da Vinci, FP8 ~No public FP8 data, memory 8× HBM3. See the comparison table above.
+
+### What is the TDP (power) of AMD Instinct MI325X?
+
+AMD Instinct MI325X has a TDP of 750 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do AMD Instinct MI325X and Huawei Ascend 910C differ in memory capacity?
+
+AMD Instinct MI325X is 256 GB HBM3e, Huawei Ascend 910C is 8× HBM3; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [AMD Instinct MI325X](/en/docs/cards/amd/mi325x)
+- [Huawei Ascend 910C](/en/docs/cards/huawei/ascend-910c)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

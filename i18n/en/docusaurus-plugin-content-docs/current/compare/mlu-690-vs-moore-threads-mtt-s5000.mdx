@@ -1,0 +1,62 @@
+---
+title: 寒武纪 思元690（国产 AI 训练/推理芯片） vs Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)
+description: "寒武纪 思元690（国产 AI 训练/推理芯片） vs Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练) spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [寒武纪 思元690（国产 AI 训练/推理芯片）, Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练), 寒武纪 思元690（国产 AI 训练/推理芯片） vs Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练), AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: 寒武纪 思元690（国产 AI 训练/推理芯片） vs Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)
+---
+
+import Link from '@docusaurus/Link';
+
+# 寒武纪 思元690（国产 AI 训练/推理芯片） vs Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练): Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **寒武纪 思元690（国产 AI 训练/推理芯片）** and **Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | 寒武纪 思元690（国产 AI 训练/推理芯片） | Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练) |
+| --- | --- | --- |
+| Vendor | Cambricon | Other |
+| Architecture | MLUarch | MUSA |
+| Process | 5nm -class | TSMC 6nm |
+| Release Date | 2025 | 2025-02-12 |
+| FP8 Compute | — | — |
+| FP16 Compute | 700+ TFLOPS | — |
+| FP32 Compute | — | 62.5 TFLOPS |
+| INT8 Compute | 2,800+ TOPS | 2,000 TOPS |
+| Memory Type | — | — |
+| Memory Capacity | 196 GB HBM3 | 80GB GDDR6X |
+| Memory Bandwidth | 3.35 TB/s | 1.6 TB/s |
+| TDP Power | ~500 W | 300 W |
+
+## Key Differences
+
+- **Power**: Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练) has a TDP of 300 W, lower than 寒武纪 思元690（国产 AI 训练/推理芯片）'s ~500 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: 寒武纪 思元690（国产 AI 训练/推理芯片） packs 196 GB HBM3, more than Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)'s 80GB GDDR6X, more comfortable for single-card hosting of very large models.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize 寒武纪 思元690（国产 AI 训练/推理芯片）; if budget, power wall, or local support are hard constraints, Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练) often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between 寒武纪 思元690（国产 AI 训练/推理芯片） and Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)?
+
+The core difference is architecture and compute density: 寒武纪 思元690（国产 AI 训练/推理芯片） uses MLUarch, FP8 ~No public FP8 data, memory 196 GB HBM3; Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练) uses MUSA, FP8 ~No public FP8 data, memory 80GB GDDR6X. See the comparison table above.
+
+### What is the TDP (power) of 寒武纪 思元690（国产 AI 训练/推理芯片）?
+
+寒武纪 思元690（国产 AI 训练/推理芯片） has a TDP of ~500 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do 寒武纪 思元690（国产 AI 训练/推理芯片） and Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练) differ in memory capacity?
+
+寒武纪 思元690（国产 AI 训练/推理芯片） is 196 GB HBM3, Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练) is 80GB GDDR6X; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [寒武纪 思元690（国产 AI 训练/推理芯片）](/en/docs/cards/cambricon/mlu-690)
+- [Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)](/en/docs/cards/others/moore-threads-mtt-s5000)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online

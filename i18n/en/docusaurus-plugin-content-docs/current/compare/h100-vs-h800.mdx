@@ -1,0 +1,61 @@
+---
+title: NVIDIA H100 SXM vs NVIDIA H800 (2023)
+description: "NVIDIA H100 SXM vs NVIDIA H800 (2023) spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [NVIDIA H100 SXM, NVIDIA H800 (2023), NVIDIA H100 SXM vs NVIDIA H800 (2023), AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: NVIDIA H100 SXM vs NVIDIA H800 (2023)
+---
+
+import Link from '@docusaurus/Link';
+
+# NVIDIA H100 SXM vs NVIDIA H800 (2023): Spec Comparison & Buyer's Guide
+
+In AI infrastructure selection, **NVIDIA H100 SXM** and **NVIDIA H800 (2023)** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+
+## Spec Comparison Table
+
+| Vendor | NVIDIA H100 SXM | NVIDIA H800 (2023) |
+| --- | --- | --- |
+| Vendor | NVIDIA | NVIDIA |
+| Architecture | Hopper GH100 | Hopper GH100 |
+| Process | TSMC 4N | TSMC 4N (4nm) |
+| Release Date | 2022 3 GTC | 2023 |
+| FP8 Compute | 3,958 TFLOPS | 3,958 TFLOPS |
+| FP16 Compute | — | 1,979 TFLOPS |
+| FP32 Compute | 67 TFLOPS | 67 TFLOPS |
+| INT8 Compute | — | 3,958 TOPS |
+| Memory Type | — | — |
+| Memory Capacity | 80 GB HBM3 | — |
+| Memory Bandwidth | 3.35 TB/s | 3.35 TB/s |
+| TDP Power | 700 W | 350W |
+
+## Key Differences
+
+- **Power**: NVIDIA H800 (2023) has a TDP of 350W, lower than NVIDIA H100 SXM's 700 W, friendlier to datacenter PUE and cooling.
+
+## Selection Advice
+
+- When chasing extreme single-card compute and a mature toolchain, prioritize NVIDIA H100 SXM; if budget, power wall, or local support are hard constraints, NVIDIA H800 (2023) often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+
+## FAQ
+
+### What are the main differences between NVIDIA H100 SXM and NVIDIA H800 (2023)?
+
+The core difference is architecture and compute density: NVIDIA H100 SXM uses Hopper GH100, FP8 ~3,958 TFLOPS, memory 80 GB HBM3; NVIDIA H800 (2023) uses Hopper GH100, FP8 ~3,958 TFLOPS, memory —. See the comparison table above.
+
+### What is the TDP (power) of NVIDIA H100 SXM?
+
+NVIDIA H100 SXM has a TDP of 700 W; actual whole-system power also includes board, fans, and PUE.
+
+### Which is better for large-model training / inference?
+
+Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
+
+### How much do NVIDIA H100 SXM and NVIDIA H800 (2023) differ in memory capacity?
+
+NVIDIA H100 SXM is 80 GB HBM3, NVIDIA H800 (2023) is —; the gap directly affects loadable model size and context length.
+
+## Related Pages
+
+- [NVIDIA H100 SXM](/en/docs/cards/nvidia/h100)
+- [NVIDIA H800 (2023)](/en/docs/cards/nvidia/h800)
+- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online
