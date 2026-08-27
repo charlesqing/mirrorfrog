@@ -1,0 +1,183 @@
+---
+slug: huawei-ascend-910c-deepseek-v4-pro-training
+title: 'Milestone! Huawei Ascend 910C Completes Full-Parameter Training of a 1.6-Trillion-Parameter Model'
+authors: [aicomputecards]
+tags: [huawei, ascend, 910c, deepseek, training, 1.6-trillion, breakthrough]
+date: 2026-06-16
+description: 'On June 5, 2026, Shenzhen Hetao College, together with HIT (Shenzhen) and Huawei, used 1,000 Huawei Ascend 910C chips to successfully complete full-parameter post-training of the 1.6-trillion-parameter DeepSeek-V4-Pro large model. This is the first time domestic AI chips have completed full-parameter training of a trillion-scale model, marking a historic leap from "inference" to "training" for domestic compute.'
+---
+
+# Milestone! Huawei Ascend 910C Completes Full-Parameter Training of a 1.6-Trillion-Parameter Model
+
+On June 5, 2026, Shenzhen announced a major piece of news: **Shenzhen Hetao College, together with HIT (Shenzhen) and Huawei, used 1,000 Huawei Ascend 910C chips to successfully complete full-parameter post-training of the 1.6-trillion-parameter DeepSeek-V4-Pro large model**.
+
+This was no tentative attempt, but a **milestone technological breakthrough**. It proved with irrefutable engineering results that: **domestic AI chips are fully capable of supporting world-class, super-large-parameter model training**.
+
+## Why this matters
+
+### The two thresholds of AI chips: "inference" and "training"
+
+- **Inference**: using an existing model to chat, write copy. Domestic chips **could already do this**
+- **Training**: adjusting model parameters to learn new capabilities. **Full-parameter training adjusts all 1.6 trillion parameters at once** — maximum difficulty
+
+Previously, full-parameter training of trillion-scale models was monopolized by **NVIDIA H100/H200**. Domestic chips could only do inference, not large-scale training.
+
+**The significance of this breakthrough**: domestic compute leapt from "usable" to "useful", from "inference" to "training".
+
+## Technical details
+
+### Training configuration
+
+| Item | Parameter |
+|------|------|
+| **Chips** | Huawei Ascend 910C × **1,000** |
+| **Model** | DeepSeek-V4-Pro |
+| **Parameters** | **1.6 trillion** (1600B) |
+| **Training type** | Full-parameter post-training |
+| **Framework** | MindSpore + torch_npu |
+| **Completed** | Announced June 5, 2026 |
+
+### Performance metrics
+
+| Metric | Value | Assessment |
+|------|------|------|
+| **Compute utilization** | **>30%** | Industrial grade (top overseas chips ~40%) |
+| **Key training operator efficiency** | **+14%** | vs previous-gen 910B |
+| **Communication bandwidth utilization** | >60% (est.) | MoE All-to-All communication |
+| **Stability** | 1,000 cards trained continuously with no failures | Cluster stability met standard |
+
+> 💡 **About 30% compute utilization**: many feel 30% is low, but in large-model training this is already a very respectable industrial-grade level. Even with the most advanced overseas chips, many teams' actual utilization is around 40%.
+
+## Ascend 910C detailed specs
+
+Ascend 910C is Huawei's AI training/inference chip announced at the Huawei Analyst Conference (April 24, 2024), with a theoretical peak of **800 TFLOPS (BF16)**, in the same class as NVIDIA H100.
+
+| Parameter | Ascend 910C | Ascend 910B | NVIDIA H100 |
+|------|------------|------------|--------------|
+| **Architecture** | Ascend 910C | Ascend 910B | Hopper |
+| **Process** | TSMC 7nm (est.) | TSMC 7nm | TSMC 4NP |
+| **BF16 compute** | **800 TFLOPS** | 256 TFLOPS | 989 TFLOPS (sparse) |
+| **Memory** | 64GB HBM (est.) | 64GB HBM2e (B1/B2) | 80GB HBM3 |
+| **Memory bandwidth** | ~2TB/s (est.) | 600 GB/s (B1/B2) | 3.35 TB/s |
+| **TDP** | ~400W (est.) | 300-400W | 700W |
+| **Mass production** | **April 2026 (full production)** | Nov 2022 | Mar 2022 |
+
+**Key upgrades**:
+- ✅ **3× compute**: from 910B's 256 TFLOPS to 800 TFLOPS
+- ✅ **Mature software ecosystem**: torch_npu adapts PyTorch, MindSpore framework mature
+- ✅ **Cluster stability**: 1,000 cards trained continuously with no failures (the biggest breakthrough)
+
+## Technical challenges and solutions
+
+### Challenge 1: Memory demand of trillion-scale models
+
+A 1.6-trillion-parameter model needs, just for **model parameters**:
+- FP16: 1.6T × 2 bytes = **3.2 TB**
+- Plus gradients and optimizer states: at least **10 TB** of memory
+
+**Huawei's solution**:
+- **Model Parallel**: distribute the model across 1,000 910C chips
+- **ZeRO optimizer**: optimize memory footprint
+- **Gradient accumulation**: update parameters in stages
+
+### Challenge 2: Communication efficiency of thousand-card clusters
+
+Training with 1,000 chips, **inter-chip communication** becomes the bottleneck. MoE models need **All-to-All communication** (each expert may need to communicate with all others).
+
+**Huawei's solution**:
+- **HCCS (Huawei Collective Communication Scheduler)**: in-house high-speed interconnect protocol
+- **Layered communication**: intra-node NVLink + inter-node HCCS
+- **Communication-compute overlap**: data transfer concurrent with computation
+
+### Challenge 3: Training stability
+
+Trillion-scale model training takes **weeks or months**; any single card failure can interrupt the entire training.
+
+**Huawei's solution**:
+- **Fault detection and auto-recovery**: real-time monitoring of card status, auto-restart and recovery on failure
+- **Checkpoint optimization**: high-frequency training-state saves (every N steps)
+- **Ascend cluster management software**: designed specifically for enterprise training
+
+## Competitive comparison
+
+| Vendor | Chip | 1.6T-param training | Ecosystem maturity | Availability |
+|------|------|---------------------|------------|--------|
+| **Huawei** | Ascend 910C | ✅ **Completed** | ⭐⭐⭐ (improving) | China-localized |
+| **NVIDIA** | H100/H200 | ✅ Industry standard | ⭐⭐⭐⭐⭐ | Global (export-controlled) |
+| **AMD** | MI300X | ✅ Feasible | ⭐⭐⭐⭐ | Global |
+| **Google** | TPU v5p/8t | ✅ JAX-native | ⭐⭐⭐⭐ | Google Cloud |
+
+**Conclusion**: Ascend 910C has **caught up to H100 in hardware performance**, still lags in **software ecosystem**, but this training success proves **engineering feasibility**.
+
+## Industry impact
+
+### 1. The "Zunyi Conference" of domestic compute
+
+This breakthrough is called the **"Zunyi Conference"** of domestic compute — from passive defense to strategic counteroffensive.
+
+**Specific impact**:
+- ✅ **Breaks the bias that "domestic chips can only do inference"**
+- ✅ **Proves domestic chips can train frontier models**
+- ✅ **Provides compute foundation for domestic large models (e.g., DeepSeek-V4, ERNIE 5.0)**
+
+### 2. Impact on NVIDIA
+
+Huawei Ascend 910C completing trillion-scale training means **China's AI industry is less dependent on NVIDIA**.
+
+| Scenario | Before | Now |
+|------|------|------|
+| **Inference** | Domestic chips usable | Domestic chips useful |
+| **Training** | Must use H100/H200 | **Can use 910C** |
+| **Large-scale training** | Must use H100 clusters | **Can use 910C clusters** |
+
+### 3. Boost to the domestic chip industry
+
+This breakthrough will drive the entire domestic AI chip supply chain:
+- **Chip design**: Cambricon, MetaX, Moore Threads accelerate iteration
+- **Wafer manufacturing**: SMIC, Hua Hong get more orders
+- **Packaging/test**: JCET, TFME benefit
+
+## Huawei Ascend roadmap (2025-2028)
+
+| Time | Chip | Positioning |
+|------|------|------|
+| Q1 2025 | Ascend 910C | Flagship training/inference (mass-produced) |
+| **Q1 2026** | **Ascend 950PR** | Inference-optimized (~500 TFLOPS BF16) |
+| Q4 2026 | Ascend 950DT | Data-center training |
+| Q4 2027 | Ascend 960 | Next-gen flagship |
+| Q4 2028 | Ascend 970 | Next-next-gen |
+
+## Training lessons shared
+
+The Shenzhen Hetao College team accumulated valuable experience:
+
+### ✅ Successes
+
+1. **Progressive training**: start from small models (7B), gradually scale to 1.6T
+2. **Mixed-precision training**: BF16 main + FP32 gradient accumulation
+3. **Communication optimization**: All-to-All overlap with computation
+4. **Fault recovery**: save checkpoint every 1,000 steps
+
+### ⚠️ Challenges encountered
+
+1. **Memory fragmentation**: severe fragmentation over long training, needs periodic cleanup
+2. **Communication bottleneck**: MoE All-to-All takes 30%+ of training time
+3. **Software bugs**: torch_npu occasional memory leak, needs training process restart
+
+## Related chips
+
+- [Huawei Ascend 910C](/en/docs/cards/huawei/ascend-910c) - the chip used in this training
+- [Huawei Ascend 910B](/en/docs/cards/huawei/ascend-910b) - previous-gen chip
+- [Huawei Ascend 950PR](/en/docs/cards/huawei/ascend-950pr) - next-gen inference chip
+- [NVIDIA H100](/en/docs/cards/nvidia/h100) - benchmark product
+- [NVIDIA H200](/en/docs/cards/nvidia/h200) - benchmark product (HBM3e upgrade)
+
+## References
+
+- [Sina Finance: Huawei Ascend 910C completes DS-V4-Pro training](https://finance.sina.com.cn/wm/2026-06-08/doc-iniasfps8856921.shtml)
+- [Tencent News: Milestone! Ascend 910C completes 1.6-trillion-param model training](https://news.qq.com/rain/a/20260608A02FLU00)
+- [21IC: Huawei chip completes full-parameter post-training of 1.6T AI model](https://www.21ic.com/a/1005893.html)
+
+---
+
+*This article is compiled from public reports. Salute to the teams at Shenzhen Hetao College, HIT (Shenzhen), and Huawei — you proved the feasibility of China's AI compute with engineering results.*

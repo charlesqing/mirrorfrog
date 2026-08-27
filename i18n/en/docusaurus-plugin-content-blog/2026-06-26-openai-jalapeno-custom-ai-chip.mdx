@@ -1,0 +1,285 @@
+---
+slug: openai-jalapeno-custom-ai-chip-2026
+title: "OpenAI's In-House AI Chip Jalapeño Deep Dive: Taped Out in 9 Months, Inference Cost Cut 50%"
+date: '2026-06-26'
+tags: [OpenAI, Jalapeño, in-house-chip, broadcom, inference-chip]
+authors: charlesqing
+---
+
+# OpenAI's In-House AI Chip Jalapeño Deep Dive: Taped Out in 9 Months, Inference Cost Cut 50%
+
+> On June 24, 2026, OpenAI and Broadcom jointly announced their first in-house AI inference chip, Jalapeño. This ASIC designed specifically for large language model inference went from design to tape-out in just 9 months and cuts inference cost by roughly 50%, marking OpenAI's transformation from a pure model company into a full-stack AI infrastructure provider.
+
+---
+
+## 1. Core conclusions (read this first)
+
+| Dimension | Jalapeño | Current GPU solution | Advantage |
+|------|----------|------------------|------|
+| **Inference cost** | **-50%** | Baseline | ✅ Half the cost |
+| **Performance per watt** | **Clearly superior** | Most advanced accelerator | ✅ Energy-efficiency lead |
+| **Design cycle** | **9 months** | ~18 months | ✅ 2× faster |
+| **Positioning** | Inference ASIC | Train+inference GPU | Dedicated optimization |
+| **Supply** | Internal only | Market purchase | ⚠️ Not for sale |
+
+**One-line summary**: Jalapeño is a **key step in OpenAI's full-stack AI strategy**, using in-house silicon to cut inference cost 50% while opening a new paradigm of "AI-assisted design of AI chips."
+
+---
+
+## 2. What is Jalapeño?
+
+### 2.1 Basic information
+
+| Item | Detail |
+|------|------|
+| **Name** | Jalapeño (a chili pepper) |
+| **Type** | Application-specific integrated circuit (ASIC) |
+| **Positioning** | Large language model **inference** |
+| **Announced** | 2026-06-24 |
+| **Taped out** | Sep 2025 (est., 9-month rapid tape-out) |
+| **Deployment** | End of 2026 (gigawatt-scale data centers) |
+| **Partners** | Broadcom, TSMC, Celestica |
+| **Process** | **TSMC 3nm** |
+| **Architecture** | Systolic Array |
+| **HBM** | **8 stacks** (est. HBM3E or HBM4) |
+
+### 2.2 Why "Jalapeño"?
+
+Jalapeño is a Mexican chili known for "**medium heat, strong flavor**." OpenAI's naming hints that the chip:
+
+- ✅ **Medium heat**: not the most aggressive architecture (vs Cerebras WSE), but effective enough
+- ✅ **Strong flavor**: strong presence in inference scenarios (50% cost reduction)
+- ✅ **Appetizer**: just "the first step of a multi-generation roadmap" (Broadcom CEO Hock Tan)
+
+---
+
+## 3. Deep technical analysis
+
+### 3.1 9-month rapid tape-out: the new paradigm of AI-assisted chip design
+
+Normally, designing an ASIC from scratch takes **1.5 to 2 years**. Jalapeño went from initial design to manufacturing tape-out in just **9 months**.
+
+**Key reason**: deep software-hardware co-development
+
+| Technique | Description |
+|----------|------|
+| **AI-assisted architecture exploration** | OpenAI used its own frontier models (GPT-5.3-Codex-Spark) to explore chip architecture design space |
+| **AI power simulation** | AI models for power simulation and optimization |
+| **RL optimization** | RL to optimize chip placement and routing |
+| **Broadcom silicon implementation** | Broadcom provides top-tier ASIC implementation (network, switch chip experience) |
+
+OpenAI President Greg Brockman said:
+
+> "We use the frontier models that serve our users to optimize the infrastructure that runs the models of the future."
+
+### 3.2 Architecture optimized for inference
+
+Unlike general-purpose GPUs, Jalapeño is an ASIC **built from scratch around OpenAI's deep understanding of LLM inference workloads**:
+
+| Architecture feature | Description |
+|----------|------|
+| **Reduce data movement** | Core principle is minimizing data movement (the main bottleneck in inference) |
+| **Balanced compute-memory-network** | Resource allocation optimized for inference, bringing real utilization closer to theoretical peak |
+| **High throughput + low latency** | Aims to combine the throughput of leading accelerators with the low latency of the fastest dedicated inference systems |
+| **Future model support** | Supports not only current models (GPT-5, GPT-5.3) but adapts to next-gen inference needs |
+
+### 3.3 Full-stack platform: more than a chip
+
+Jalapeño is a **multi-generation compute platform**, not just a chip:
+
+| Component | Supplier | Description |
+|------|--------|------|
+| **Accelerator chip** | OpenAI design, TSMC fab | TSMC 3nm, 8-stack HBM |
+| **Network switch chip** | Broadcom Tomahawk | High-speed interconnect (competes with NVIDIA NVLink) |
+| **Board, rack, system** | Celestica | Full-rack solution |
+| **Software stack** | OpenAI | Deep adaptation for GPT, Codex, Agent products |
+
+**Deployment target**: **gigawatt-scale data centers**
+
+Broadcom CEO Hock Tan said:
+
+> "Jalapeño will begin deployment this year in gigawatt-scale data centers with Microsoft and other partners."
+
+---
+
+## 4. Performance and cost analysis
+
+### 4.1 Inference cost cut 50%
+
+Although OpenAI's official release was conservative on Jalapeño's cost savings — only stating its "performance per watt is substantially better than today's state of the art" without a specific percentage — per **Bloomberg**, Broadcom CEO Hock Tan revealed:
+
+> Early internal tests show Jalapeño achieves roughly **50% inference cost savings** versus today's mainstream AI GPUs.
+
+**Significance for OpenAI**:
+
+| Item | Current (GPU) | Jalapeño | Savings |
+|------|---------------------|---------------|------|
+| **Daily API calls** | Hundreds of millions | Hundreds of millions | — |
+| **Inference cost share** | ~60-70% of operating cost | ~30-35% | **-50%** |
+| **Annual compute spend** | Billions of dollars | Hundreds of millions | **Saves billions** |
+
+### 4.2 Performance per watt clearly better than state of the art
+
+OpenAI's announcement states:
+
+> "Jalapeño engineering samples have successfully run complex reinforcement-learning tasks such as GPT-5.3-Codex-Spark at target frequency and power; early tests show **performance per watt substantially better than today's most advanced AI accelerators**."
+
+**Comparison target**: NVIDIA Blackwell (today's most advanced AI accelerator)
+
+| Metric | Jalapeño | NVIDIA Blackwell | Note |
+|------|----------|---------------------|------|
+| **Performance per watt** | **Clearly superior** | Baseline | OpenAI official statement |
+| **Inference latency** | On par with fastest dedicated inference systems | Baseline | Target |
+| **Throughput** | On par with leading accelerators | Baseline | Target |
+| **TDP** | Not disclosed (est. 400-700W) | 700-1000W | Jalapeño possibly lower |
+
+---
+
+## 5. Impact on the AI chip market
+
+### 5.1 "De-NVIDIA-ification" accelerates
+
+Jalapeño's launch is another footnote in **big-tech's collective challenge to NVIDIA's market dominance**:
+
+| Vendor | In-house chip | Type | Status | Relation to OpenAI |
+|------|----------|------|------|---------------------|
+| **Google** | TPU v6e / Ironwood | Train+inference | ✅ Commercial | Google Cloud supplies OpenAI |
+| **Amazon** | Trainium 3 | Training | ✅ Launched | AWS supplies OpenAI |
+| **Microsoft** | Maia 100 | Train+inference | ✅ Launched | OpenAI exclusive partner |
+| **Meta** | MTIA | Train+inference | ✅ Launched | — |
+| **Apple** | Neural Engine | On-device inference | ✅ Commercial | — |
+| **OpenAI** | **Jalapeño** | **Inference** | 🚧 Deploy end of 2026 | Internal + possibly sold to third parties |
+
+### 5.2 OpenAI is not about to fully "abandon" NVIDIA
+
+Brockman admitted:
+
+> "We simply cannot get compute fast enough."
+
+Currently OpenAI is **simultaneously procuring chips from NVIDIA, AWS, AMD, and Cerebras**; Jalapeño is a **structural supplement** to its explosive compute demand, not a replacement.
+
+### 5.3 Possibly sold to third parties
+
+Broadcom CEO Hock Tan specifically emphasized:
+
+> "This is just 'the start of a multi-generation roadmap'; OpenAI and Broadcom aim to jointly build gigawatt-scale compute clusters."
+
+This means **OpenAI may sell its hardware to third parties**, provided it can secure enough supply from Broadcom and TSMC.
+
+---
+
+## 6. Jalapeño vs other in-house chips
+
+| Metric | Jalapeño (OpenAI) | TPU v6e (Google) | Trainium 3 (Amazon) | Maia 100 (Microsoft) |
+|------|---------------------|------------------------|--------------------------|--------------------------|
+| **Announced** | 2026-06-24 | 2024 | Q4 2025 | 2023 |
+| **Type** | Inference ASIC | Train+inference TPU | Training ASIC | Train+inference |
+| **Process** | TSMC 3nm | TSMC 4nm | TSMC 5nm (est.) | TSMC 5nm (est.) |
+| **For sale** | ❌ Internal only (maybe later) | ✅ GCP | ✅ AWS | ❌ Internal only |
+| **Design cycle** | **9 months** | ~18 months | ~18 months | ~18 months |
+| **AI-assisted design** | ✅ First | ❌ No | ❌ No | ❌ No |
+| **Cost advantage** | **-50% inference cost** | Optimized | Optimized | Optimized |
+
+**Key differences**:
+- ✅ Jalapeño is the **first AI chip designed with AI assistance**
+- ✅ Jalapeño **design cycle only 9 months** (industry average 18 months)
+- ⚠️ Jalapeño **not for sale** (at least for now)
+
+---
+
+## 7. Future roadmap
+
+### 7.1 Multi-generation chip platform
+
+Jalapeño is just "**the start of a multi-generation roadmap**":
+
+| Time | Event |
+|------|------|
+| **End of 2026** | Jalapeño initial deployment (gigawatt-scale data centers) |
+| **2027** | Jalapeño v2 (est., architecture optimization) |
+| **2027-2028** | Jalapeño training version (est., challenging TPU/Trainium) |
+| **2028 and beyond** | Gigawatt-scale compute cluster fully built |
+
+### 7.2 OpenAI full-stack AI infrastructure strategy
+
+| Layer | OpenAI in-house | Outsourced/procured |
+|------|--------------|----------|
+| **Models** | ✅ GPT-5, GPT-5.3, Codex | — |
+| **Chips** | ✅ Jalapeño (inference) | NVIDIA GPU, AWS Trainium, AMD GPU |
+| **Systems** | ✅ With Celestica | Microsoft Azure data centers |
+| **Network** | ✅ Broadcom Tomahawk | Microsoft Azure network |
+| **Cloud platform** | ❌ None | Microsoft Azure (exclusive partner) |
+
+---
+
+## 8. Industry reaction and expert views
+
+### 8.1 Supportive views
+
+| Expert | View |
+|------|------|
+| **Broadcom CEO Hock Tan** | "Jalapeño is just the start of a multi-generation roadmap; the goal is to jointly build gigawatt-scale compute clusters." |
+| **OpenAI President Greg Brockman** | "We use the frontier models that serve our users to optimize the infrastructure that runs the models of the future." |
+| **Industry insiders** | "Jalapeño's launch is another footnote in big-tech's collective challenge to NVIDIA's market dominance." |
+
+### 8.2 Skeptical views
+
+| Concern | Description |
+|--------|------|
+| **Not for sale** | Currently internal only; third parties cannot purchase, limited impact on NVIDIA's market share |
+| **Software ecosystem** | OpenAI must build its own software stack; competing with CUDA is hard |
+| **Supply capacity** | TSMC capacity is limited; can it meet OpenAI + Broadcom + other customers' demand? |
+| **Opaque performance data** | OpenAI has not released specs (compute, memory, bandwidth, TDP), hard to assess objectively |
+
+---
+
+## 9. Significance for developers
+
+### 9.1 If OpenAI sells Jalapeño to developers in the future...
+
+| Scenario | Current (NVIDIA GPU) | Future (Jalapeño) |
+|------|---------------------|-----------------|
+| **Inference cost** | Baseline | **-50%** |
+| **Inference latency** | Baseline | Possibly lower |
+| **Software stack** | CUDA + TensorRT | OpenAI API (possibly open-source stack) |
+| **Procurement difficulty** | High (export controls, supply shortage) | Low (OpenAI direct supply) |
+
+### 9.2 Worth watching even if not sold
+
+- ✅ **50% inference cost cut** forces NVIDIA, AMD, Intel to lower GPU prices
+- ✅ The **AI-assisted chip design** paradigm will be rapidly copied by the industry
+- ✅ The **9-month tape-out cycle** becomes a new industry benchmark
+
+---
+
+## 10. Summary
+
+| Dimension | Assessment |
+|------|------|
+| **Technology innovation** | ⭐⭐⭐⭐⭐ First AI chip designed with AI assistance, 9-month tape-out |
+| **Cost advantage** | ⭐⭐⭐⭐⭐ 50% inference cost cut, billions saved annually |
+| **Strategic significance** | ⭐⭐⭐⭐⭐ OpenAI transforms from pure model company to full-stack AI infrastructure provider |
+| **Market impact** | ⭐⭐⭐⭐ "De-NVIDIA-ification" accelerates, big-tech in-house chip camp grows |
+| **Openness** | ⭐⭐ Internal only for now, possibly sold to third parties later |
+
+**Final recommendations**:
+- 🇨🇳 **China market**: Keep watching Huawei Ascend, Cambricon MLU, Moore Threads MTT (Jalapeño not sold to China)
+- 🌍 **International market**: Watch whether Jalapeño is eventually sold externally and its impact on NVIDIA's market share
+- 💡 **Developers**: Watch for possible OpenAI API price cuts (50% inference cost cut may partially pass through)
+
+---
+
+## References
+
+- [OpenAI official announcement](https://openai.com/blog) (technical white paper pending)
+- [Broadcom CEO Hock Tan interview](https://www.broadcom.com)
+- [Bloomberg: Jalapeño inference cost cut 50%](https://www.bloomberg.com)
+- [SemiWiki: Jalapeño technical details](https://semiwiki.com)
+- [Tom's Hardware: Jalapeño architecture analysis](https://www.tomshardware.com)
+- [ESMChina: Jalapeño 9-month tape-out](https://www.esmchina.com)
+
+---
+
+**Disclaimer**: Some specs in this article are estimates, subject to OpenAI's official technical white paper. OpenAI will release a detailed performance white paper in the coming months.
+
+**Last updated**: June 26, 2026

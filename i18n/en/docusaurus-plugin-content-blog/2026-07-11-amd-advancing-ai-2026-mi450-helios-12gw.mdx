@@ -1,0 +1,82 @@
+---
+slug: amd-advancing-ai-2026-mi450-helios-12gw
+title: 'AMD Advancing AI 2026 Opens Tomorrow: Three CDNA5 MI400 Models, Helios Rack Hits 3 exaFLOPS, OpenAI + Meta Lock 12GW Deal'
+date: '2026-07-11'
+authors: charlesqing
+tags: [news, amd, mi450, mi455x, instinct, hbm4]
+description: 'AMD will hold Advancing AI 2026 on July 22-23 (tomorrow), completing the Instinct MI400 series details: MI455X (432GB HBM4 / 40 PFLOPS FP4), MI440X (enterprise), MI430X (FP64/HPC) — three CDNA5 models; the Helios rack hits 3 exaFLOPS per cabinet; OpenAI and Meta each signed 6GW, totaling 12GW.'
+---
+
+# AMD Advancing AI 2026 Preview: A Pivotal Battle to Catch NVIDIA
+
+> AMD has confirmed its flagship AI event **Advancing AI 2026** will be held **July 22-23, 2026** at the Moscone Center in San Francisco, with the keynote on July 23 hosted by Chair and CEO Lisa Su. The event will complete the **Instinct MI400 series** availability timeline, pricing, and independent benchmark data.
+
+## 1. Instinct MI400 family: three CDNA 5 accelerators
+
+AMD fully revealed the MI400 matrix at CES 2026; all three accelerators use **CDNA 5 architecture, TSMC 2nm process**, differentiated by precision and scenario:
+
+| Model | Positioning | Key specs |
+|------|------|----------|
+| **MI455X (flagship)** | Large-scale train/inference (rack-scale) | 320B transistors, 12 chiplets, **432 GB HBM4** (12×36GB), **19.6 TB/s**, FP4 40 PFLOPS / FP8 20 PFLOPS |
+| **MI440X (enterprise)** | Local enterprise AI (8-card node) | Low-precision AI (FP4/FP8/BF16), direct MI300/MI350 replacement, compatible with existing power/cooling |
+| **MI430X (HPC/sovereign AI)** | High-precision scientific computing + AI | Full FP32/FP64, already deployed at Oak Ridge Discovery and France's first exascale Alice Recoque |
+
+> MI455X and MI440X target low-precision AI (FP4/FP8/BF16); MI430X fills traditional HPC high-precision needs — improving energy efficiency and cost-performance by "trimming execution units by precision." All three support **UALink** (among the first accelerators compatible with the standard) and Infinity Fabric die-to-die interconnect; rack scaling uses Ultra Ethernet.
+
+Lisa Su confirmed on the Q1 2026 earnings call: **MI455X samples have been sent to core customers**, with demand "exceeding the company's internal expectations for 2027."
+
+## 2. Helios rack: 3 exaFLOPS per cabinet
+
+AMD enters the hyperscale market with the **Helios rack-scale platform**:
+
+| Metric | Helios rack |
+|------|-------------|
+| **Accelerators** | 72 × MI455X |
+| **Aggregate HBM4** | **31 TB** |
+| **Total memory bandwidth** | **1.4 PB/s** |
+| **Per-cabinet compute** | Up to **3 AI exaFLOPS** (Q3 delivery target) |
+| **Target customers** | Hyperscale train/inference clusters |
+
+> Helios uses AMD's in-house Zen 6 **EPYC Venice** CPU (18 per rack) + **Pensando Vulcano** 800G NIC, integrated via the open ROCm software stack; AMD also plans a **double-width 128-card Helios variant**, pushing per-cabinet compute to the **3 AI exaFLOPS** ceiling. Further out, the **MI500 series (CDNA 6, 2nm, HBM4E)** is planned for 2027, with official claims of up to **1000×** AI performance vs MI300X.
+
+## 3. 12GW deal: OpenAI + Meta dual endorsement
+
+AMD holds two historic-scale compute agreements totaling about **12 GW**, with lifetime potential revenue possibly reaching **$100B**:
+
+| Customer | Scale | First deployment | Structure |
+|------|------|----------|------|
+| **OpenAI** | 6 GW (multi-gen products) | First 1 GW, H2 2026 on MI450 | "compute-for-upside": up to 160M warrants, vesting by milestone and stock-price targets |
+| **Meta** | 6 GW | Custom MI450 chips, from H2 2026 | Deployed in next-gen data centers |
+
+### Financial expectations
+
+| Metric | 2026 forecast |
+|------|-----------|
+| **MI400 series revenue** | ~$7.2B (about 25% of data-center sales) |
+| **Data-center GPU revenue** | ~$15B (up +114% YoY) |
+| **Total data-center revenue** | Possibly $28.7B (up +73% YoY) |
+
+> ⚠️ **Execution risk**: AMD has flagged that MI450's Q3 mass production will weigh on gross margin (new products below company average); advanced process and advanced packaging (TSMC CoWoS) capacity remain the main constraint.
+
+## Industry interpretation
+
+1. **CUDA moat being pried open**: when companies building the world's largest training clusters — Meta, OpenAI — bet on AMD silicon, AMD's long-standing 5-7% GPU share ceiling is being broken.
+2. **Memory advantage as differentiation**: 432 GB HBM4 / 19.6 TB/s vs NVIDIA Rubin's 288 GB offers capacity advantage, critical for large-model inference (KV Cache-constrained scenarios).
+3. **Tight benchmarking pace**: MI450 and NVIDIA Vera Rubin both ramp in H2 2026, with the two giants competing head-on over HBM4 supply and CoWoS capacity.
+
+## Related links
+
+- [AMD Instinct MI455X specs](/en/docs/cards/amd/mi455x)
+- [AMD Instinct MI400 specs](/en/docs/cards/amd/mi400)
+- [AMD Instinct MI350 specs](/en/docs/cards/amd/mi350)
+
+## References
+
+- [AMD sets July date to detail its Instinct MI400 AI accelerators - IT Magazine](https://itmagazineme.com/amd-sets-july-date-to-detail-its-instinct-mi400-ai-accelerators)
+- [Lisa Su: AMD has sent MI450 GPU samples to core customers - AGI.Space](https://www.agispace.net/news/15593)
+- [AMD and OpenAI announce strategic partnership to deploy 6GW AMD GPU - AMD press release](https://www.amd.com/zh-tw/newsroom/press-releases/2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html)
+- [AMD's 12-Gigawatt AI Contract Haul - StocksToday](https://stockstoday.com/amds-12-gigawatt-ai-contract-haul-masks-a-16-pullback-as-execution-hurdles-mount/)
+
+---
+
+*This article was written on the eve of Advancing AI 2026 (July 22-23, opening tomorrow); the keynote is July 23 hosted by Lisa Su, where MI400's final availability, pricing, and independent benchmarks will be revealed — we will update in sync.*

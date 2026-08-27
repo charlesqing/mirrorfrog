@@ -1,0 +1,95 @@
+---
+slug: huawei-ascend-950-capacity-orders-2026
+title: 'Huawei Ascend 950 Series Capacity & Orders Deep Dive: 950PR Monthly Capacity Jumps 10×, ByteDance Locks In 350k Units for $5.6B'
+date: '2026-07-10'
+authors: aicomputecards
+tags: [industry-report, huawei, ascend, ascend-950, domestic-chip, domestic-substitution]
+description: 'Huawei Ascend 950 series enters mass-scale ramp: 950PR entered production in April 2026, June monthly capacity jumped to 500k-600k units (~10× MoM), full-year target 1.2M; ByteDance locked in 350k units for $5.6B, Tencent/Alibaba/Baidu combined 400k, Q4 entry into South Korea with 950PR/950DT.'
+---
+
+# Huawei Ascend 950 Series: From "Can Build It" to "Cannot Meet Demand"
+
+> The Ascend 950 series (950PR inference / 950DT training) has become the core supply of domestic AI compute. Per multiple brokerages and industry research, 950 series capacity is **100% booked with scarce spot supply**; the full-year 1.2M-unit target is "100% certain," with expectations of an upward revision to 1.5M. This article summarizes capacity and order data as of July 2026.
+
+## 1. Capacity pace: ~10× MoM jump in June
+
+| Time | 950PR monthly capacity | Notes |
+|------|-------------|------|
+| **May 2026** | 50k-60k units | Near full production |
+| **June 2026** | **500k-600k units** | ~10× MoM; SMIC, Hua Hong tier-1 suppliers on overtime |
+| **Q3 2026 (est.)** | 700k-800k units | Per month |
+| **Full-year 2026 target** | **1.2M units** | Upward revision to 1.5M expected |
+
+> Supply chain delivery is tight: high-speed backplanes and liquid-cooling connectors' lead time stretched from 2 weeks to 6-8 weeks; orders are booked into 2027.
+
+## 2. Order structure: top cloud providers + operators + overseas
+
+| Customer | Locked volume | Amount / Notes |
+|------|--------|-------------|
+| **ByteDance** | 350k 950PR | **$5.6B**, concentrated delivery from Q3 2026 |
+| **Tencent / Alibaba / Baidu** | ~250k 950PR + 150k 950DT | Combined ~400k units |
+| **Three major operators** | 200k+ units | Centralized procurement, for intelligent compute centers and AI private networks |
+| **Overseas** | South Korea 2,000 units, Malaysia 3,000 servers, Russia ten-thousand-card cluster | From pilot to commercial |
+
+## 3. Shipment forecast: firmly #1 domestic
+
+Per CCA (Kezhi) Consulting estimates:
+
+| Metric | 2025 | 2026 (forecast) |
+|------|------|--------------|
+| **Huawei Ascend total shipments** | 812k cards | **1.026M cards** |
+| **Of which 950PR** | — | ~800k units |
+| **Of which 950DT** | — | ~100k-200k units |
+
+> Huawei has completed the product transition from the 910 series to the 950 series. The internet industry has become Ascend's largest application market; competitive advantage is extending from single-hardware performance to software ecosystem and system capabilities.
+
+## 4. Going overseas: formal South Korea entry in Q4
+
+Per Korean media ETNews, Huawei plans **Q4 2026** to formally enter the South Korean market with the Ascend series and Atlas 950 SuperPod:
+
+- Local distributor agreements signed; two channel partners including SK Shieldus selected
+- Main products: **950PR (mass-produced and delivered since April)** and **950DT (launched Q4)**
+- Official line: 950PR inference performance is **2.87×** that of H20, priced at about **1/4** of it
+
+## 5. WAIC 2026: 1024-card live debut confirmed
+
+At WAIC 2026 (July 17-20, Shanghai), Huawei's **Atlas 950 SuperPoD live hardware made its first public appearance** — a **16 compute-cabinet, 1,024 Ascend-card** scale — and won the conference's top honor, the **SAIL Award**:
+
+- **Core metrics**: total compute **1 EFLOPS FP8 / 2 EFLOPS FP4**, **256 TB** globally unified memory addressing, Lingqu 2.0 interconnect, 3 μs ultra-low RTT latency
+- **Full configuration**: 128 compute cabinets + 32 interconnect cabinets = 160 cabinets, ~1000㎡ footprint, carrying **8,192 Ascend 950DT**, planned **Q4 2026 launch**
+- **Commercial foundation**: previous-gen **384 SuperNode has cumulatively shipped 750+ units**, deployed in 20+ industries
+- **Software ecosystem**: CANN fully open-sourced end of 2025; community incubated 67 projects, 12.44M+ lines of code, 3,500+ monthly active developers
+
+> WAIC's debut confirmed the 950 series' "SuperNode-first" product logic: beyond single-card compute, system-level effective compute (interconnect bandwidth + unified memory + low latency) is the key dimension for domestic compute to benchmark against international flagships.
+
+## Ascend roadmap recap
+
+| Product | Positioning | Key metrics (official roadmap) |
+|------|------|------------------------|
+| **950PR** | Inference | 1 PFLOPS (FP8) / 2 PFLOPS (FP4), 2 TB/s interconnect |
+| **950DT** | Training | SuperNode core, launched Q4 |
+| **960** | Train/inference | 2 PFLOPS (FP8) / 4 PFLOPS |
+| **970** | Next-gen | In planning |
+
+## Industry interpretation
+
+1. **Domestic substitution moves from inference to training**: 950PR (inference) ramps first, 950DT (training) follows in Q4, combined with the Atlas 950 SuperPoD ten-thousand-card interconnect — domestic compute now has the complete "training substitution" puzzle for the first time.
+2. **Capacity is the biggest variable**: order certainty is extremely high, but SMIC/Hua Hong advanced-process capacity, HBM supply, and advanced packaging remain ramp bottlenecks — the root of "scarce spot supply."
+3. **Going overseas opens a second growth curve**: bulk procurement from South Korea, Malaysia, Russia, and Latin America marks domestic compute's shift from "internal circulation" to "external circulation."
+
+## Related links
+
+- [Huawei Ascend 950PR specs](/en/docs/cards/huawei/ascend-950pr)
+- [Huawei Ascend 950DT specs](/en/docs/cards/huawei/ascend-950dt)
+- [Huawei Ascend 950 specs](/en/docs/cards/huawei/ascend-950)
+
+## References
+
+- [China intelligent-compute chip competitive landscape (CCA data) - IDCquan](https://news.idcquan.com/news/207440.shtml)
+- [Ascend 950 series capacity and orders - Eastmoney](https://caifuhao.eastmoney.com/news/20260706225907439170360)
+- [WAIC catalyst: Huawei Ascend 950 SuperNode live debut - 10jqka](https://news.10jqka.com.cn/field/20260706/677984801.shtml)
+- [Huawei Ascend 950 enters South Korea in Q4: 2.87× H20 inference - Toutiao](https://www.toutiao.com/article/7657901626946011663)
+
+---
+
+*Data in this article is based on official and major brokerage research; capacity/orders are dynamic figures and will be continuously updated.*

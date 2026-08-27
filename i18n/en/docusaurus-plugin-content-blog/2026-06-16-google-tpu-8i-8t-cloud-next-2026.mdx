@@ -1,0 +1,187 @@
+---
+slug: google-tpu-8i-8t-cloud-next-2026
+title: 'Google TPU 8i/8t Officially Launched: Training and Inference Split for the First Time, 2nm Process Powers the Agentic Era'
+authors: [aicomputecards]
+tags: [google, tpu, tpu-8i, tpu-8t, cloud-next, agentic-ai, 2nm]
+date: 2026-06-16
+description: 'On April 22, 2026, Google officially launched the 8th-generation TPU at Cloud Next 2026: TPU 8i (inference-specific) and TPU 8t (training-specific). For the first time, Google split AI training and inference onto two independent chips, using TSMC 2nm process, mass production by end of 2027.'
+---
+
+# Google TPU 8i/8t Officially Launched: Training and Inference Split for the First Time, 2nm Process Powers the Agentic Era
+
+On April 22, 2026, at **Google Cloud Next '26** in Las Vegas, Google officially launched its **8th-generation Tensor Processing Unit (TPU)**. For the first time in Google's history, it split AI training and inference onto two independent chips:
+
+- **TPU 8t**: designed for model training
+- **TPU 8i**: focused on high-concurrency inference
+
+This launch introduces no new physical concept, but focuses on solving the core pain points of AI data centers: **ten-thousand-card cluster scaling efficiency**, **Agentic AI workload optimization**, and **performance per watt**.
+
+## TPU 8i (inference-specific): eliminating the "waiting room effect"
+
+TPU 8i is the first inference-specific chip co-designed by Google and **MediaTek**, aimed at eliminating the "waiting room effect" — where user requests are intentionally queued or delayed to maximize hardware utilization.
+
+### TPU 8i core specs (estimated)
+
+| Parameter | TPU 8i | TPU v7 Ironwood |
+|------|--------|-------------------|
+| **Positioning** | Inference-specific | Mostly inference |
+| **Process** | TSMC 2nm | — |
+| **Die design** | Dual compute die (est.) | — |
+| **Memory** | 8× HBM3e 12-layer (~192GB est.) | 8× HBM3 (192GB) |
+| **Memory bandwidth** | ~7 TB/s (est.) | 7,380 GB/s |
+| **FP8 compute** | ~4,614 TFLOPS (est.) | 4,614 TFLOPS |
+| **TDP (per chip)** | **1,300 W** | 1,000 W |
+| **Interconnect** | ICI 3D Torus | ICI 3D Torus |
+| **Integrated CPU** | Arm Axion (64 cores) | None |
+| **Cooling** | Air or liquid | 4th-gen liquid |
+| **Announced** | 2026-04-22 | 2025-08-25 |
+| **Mass production** | **End of 2027** | 2026 |
+
+**Key features**:
+- ✅ **High-concurrency inference optimization**: built for Agentic AI, supports inference chains of thousands of steps
+- ✅ **Arm Axion CPU integration**: 64-core Neoverse V2, host CPU + data preprocessing synergy
+- ✅ **Low latency**: eliminates the "waiting room effect", extremely low TTFT (time to first token)
+- ✅ **117% better performance per watt**: vs Ironwood (at equal price)
+
+## TPU 8t (training-specific): the "engine" of Gemini 3/4
+
+TPU 8t is designed for **training Google's frontier models like Gemini 3 / Gemini 4**, continuing Google's long-term partnership with **Broadcom**.
+
+### TPU 8t core specs
+
+| Parameter | TPU 8t | TPU v7 Ironwood | Improvement |
+|------|--------|-------------------|------|
+| **Positioning** | Training-specific | Mostly inference | Form-factor split |
+| **Process** | **TSMC 2nm** | — | New gen |
+| **Die design** | **Dual compute die** | — | Architecture upgrade |
+| **Memory** | 8× **HBM3e 12-layer** (~256GB per chip est.) | 8× HBM3 (192GB) | Upgrade |
+| **Memory bandwidth** | ~7 TB/s (per chip est.) | 7,380 GB/s | Flat |
+| **Pod chip count** | **9,600 chips** | 9,216 | +4% |
+| **Pod total HBM** | **2 PB** | — | Far exceeds |
+| **Pod FP4 compute** | **121 EFLOPS** | ~42 EFLOPS (est.) | **~3×** |
+| **Integrated CPU** | **Arm Axion (64 cores)** | None | New |
+| **TDP (per chip)** | **1,300 W** | 1,000 W | +30% |
+| **Mass production** | **End of 2027** | 2026 | — |
+
+**Key features**:
+- ✅ **Native MoE training support**: Expert-Parallel optimization (DeepSeek / Mixtral style)
+- ✅ **Long-context training**: 1M+ token context training optimization
+- ✅ **RLHF / post-training**: native Online RL (DPO/PPO/GRPO) optimization
+- ✅ **Arm Axion CPU synergy**: data preprocessing / weight init offloaded to CPU
+- ✅ **SparseCore acceleration**: MoE routing and recommendation systems
+
+## Strategic significance of the 8th-generation TPU
+
+### 1. Training and inference split for the first time
+
+Previously, Google's TPU design philosophy was "one architecture for both training and inference" (e.g., TPU v5p, v6e). But the arrival of the Agentic AI era changed that:
+
+- **Training workloads**: large-scale matrix multiply, long-sequence backpropagation, sparse MoE
+- **Inference workloads**: high concurrency, low latency, KV Cache-intensive, dynamic batching
+
+These two workloads impose very different demands on chip architecture. After the split:
+- TPU 8t can focus on optimizing **compute density** and **memory capacity**
+- TPU 8i can focus on optimizing **inference throughput** and **performance per watt**
+
+### 2. Dual-track partnership with Broadcom and MediaTek
+
+- **Broadcom**: continues designing TPU 8t (training), extending the long-term partnership since TPU v1
+- **MediaTek**: first-time collaboration designing TPU 8i (inference), bringing mobile-chip low-power design expertise
+
+This "dual-track" strategy lets Google:
+- Pursue **peak performance** on training chips (combined with Broadcom's high-end ASIC experience)
+- Pursue **peak energy efficiency** on inference chips (combined with MediaTek's mobile-chip experience)
+
+### 3. Versus NVIDIA Vera Rubin
+
+| Comparison | Google TPU 8t + 8i | NVIDIA Vera Rubin |
+|------|---------------------|---------------------|
+| **Strategy** | Training/inference split | Unified architecture (GPU+CPU) |
+| **Process** | TSMC 2nm | TSMC 3nm (est.) |
+| **Ecosystem** | Google Cloud only | Globally available |
+| **Software** | JAX / PyTorch-XLA | CUDA / PyTorch |
+| **Mass production** | End of 2027 | Fall 2026 |
+| **Strength** | Deep Gemini integration | Most mature ecosystem |
+
+## Deep technical analysis
+
+### TSMC 2nm: why 2nm?
+
+Google is the **first vendor to adopt TSMC 2nm on an AI accelerator** (NVIDIA Rubin uses 3nm). 2nm (N2) vs 3nm (N3E):
+
+- **Transistor density**: ~15-20% higher
+- **Power reduction**: ~25-30% (at equal performance)
+- **Performance gain**: ~10-15% (at equal power)
+
+For TPU 8t/8i, which already hit 1,300W, **2nm is mandatory** — otherwise 4nm/3nm couldn't integrate dual compute dies and 8× HBM3e within reasonable power.
+
+### Arm Axion CPU: Google's in-house CPU enters the TPU node for the first time
+
+Previously, TPU nodes used Intel Xeon or AMD EPYC as host CPUs. TPU 8t/8i integrate **Google's in-house Arm Axion CPU** (64-core Neoverse V2) for the first time:
+
+**Significance**:
+1. **Data preprocessing offload**: tokenization, data augmentation can run entirely on Axion, freeing TPU compute
+2. **Weight initialization**: large-model training weight init on CPU, accelerating training startup
+3. **Inference scheduling**: Axion handles request scheduling and load balancing for multi-model inference
+
+This marks the TPU node's evolution toward a "**SuperNode**": no longer a pure accelerator, but a **TPU + Axion CPU co-design system**, comparable to NVIDIA's Vera CPU.
+
+### 4th-gen liquid cooling: the 1,300W thermal challenge
+
+TPU 8t/8i TDP reaches **1,300W** (30% over Ironwood's 1,000W), posing a huge data-center cooling challenge.
+
+Google adopts a **4th-gen liquid cooling solution**:
+- **Cold-plate liquid cooling**: directly cools GPU die and HBM
+- **Immersion cooling**: optional (ultra-high-density deployment)
+- **Smart thermal control**: dynamically adjusts pump speed and fan RPM by workload
+
+## Production timeline and use cases
+
+| Time | Event |
+|------|------|
+| 2026-04-22 | Cloud Next '26 official announcement |
+| H2 2026 | Internal testing (Google DeepMind first) |
+| **End of 2027** | **Mass production, Google Cloud availability** |
+| 2028 | Next-gen TPU (possibly TPU 9) |
+
+**Target use cases**:
+- ✅ **Frontier model training** (Gemini 3/4, external customers)
+- ✅ **MoE large-model inference** (high concurrency, low latency)
+- ✅ **Multimodal AI** (ViT + LLM simultaneous inference)
+- ✅ **Agentic AI** (Agentic AI workloads)
+
+## Competitive comparison
+
+| Vendor | Product | Process | TDP | Mass production |
+|------|------|------|-----|----------|
+| **Google** | TPU 8i (inference) | TSMC 2nm | 1,300W | End of 2027 |
+| **Google** | TPU 8t (training) | TSMC 2nm | 1,300W | End of 2027 |
+| **NVIDIA** | Rubin GPU | TSMC 3nm (est.) | ~1,000W | Fall 2026 |
+| **NVIDIA** | Vera CPU | TSMC 3nm (est.) | ~500W | Fall 2026 |
+| **AMD** | MI455X (MI400) | TSMC 3nm (est.) | ~700W | 2026 |
+| **Huawei** | Ascend 950PR | — | ~500W | Q1 2026 |
+
+## Industry impact
+
+1. **AI chips enter the 2nm era**: Google leads with TSMC 2nm; NVIDIA and AMD will follow
+2. **Training/inference split becomes a new trend**: other vendors (NVIDIA, AMD) may follow suit
+3. **In-house CPUs become standard**: Google (Axion), NVIDIA (Vera), Huawei (Kunpeng) all do CPU+accelerator co-design
+4. **Liquid cooling becomes inevitable**: 1,300W TDP means air cooling can no longer suffice
+
+## Related chips
+
+- [Google TPU 8i](/en/docs/cards/google/tpu-8i) - inference-specific TPU detailed specs
+- [Google TPU 8t](/en/docs/cards/google/tpu-8t) - training-specific TPU detailed specs
+- [Google TPU v7 Ironwood](/en/docs/cards/google/tpu-ironwood) - previous-gen inference TPU
+- [NVIDIA Rubin R200](/en/docs/cards/nvidia/rubin-r200) - same-generation competitor
+- [NVIDIA Vera CPU](/en/docs/cards/nvidia/vera-cpu) - counterpart to Google Axion
+
+## References
+
+- [Google blog: Introducing new TPUs at Cloud Next '26](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/tpus-8t-8i-cloud-next/)
+- [Google Cloud Next '26 keynote replay](https://cloud.withgoogle.com/next/)
+- [Tencent News: Google 8th-gen TPU deep dive](https://news.qq.com/rain/a/20260423A02VCI00)
+
+---
+
+*This article is compiled from Google's official announcements and public sources; some specs are estimates, subject to final official release.*
