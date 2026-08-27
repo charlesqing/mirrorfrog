@@ -1,0 +1,168 @@
+---
+slug: huawei-ascend-920-3x-h20-domestic-substitution
+title: 'Huawei Ascend 920: 4 Tbps Domestic-Highest Bandwidth + 3× H20 Compute for Domestic Substitution'
+date: '2025-11-15'
+authors: aicomputecards
+tags: [product-launch, strategy, news]
+description: 'Huawei Ascend 920 is the next-gen Ascend chip mass-produced in H2 2025: 6nm SMIC domestic process, 4 Tbps HBM bandwidth, 900+ BF16 TFLOPS = 3× NVIDIA H20 compute — a key victory for China domestic substitution.'
+---
+
+**Huawei Ascend 920 (昇腾 920)** entered **mass production in H2 2025**, marking a **major breakthrough** for China's domestic AI chips. This article analyzes its specs, comparison with NVIDIA H20, the CloudMatrix 384 Ultra system, and its significance for China's AI industry.
+
+{/* truncate */}
+
+## Core Specifications
+
+| Item | Ascend 910C | **Ascend 920** | Improvement |
+|------|-------------|----------------|------|
+| Architecture | Da Vinci v3 | **Da Vinci v4** | New gen |
+| Process | 7nm | **6nm (SMIC domestic)** | More advanced |
+| Dies | 2× (dual die) | 2× | Same |
+| HBM capacity | ~128 GB | **~96 GB** | Slight down |
+| HBM bandwidth | 3.2 Tbps | **4 Tbps** | **1.25×** |
+| BF16 compute | 780 TFLOPS | **900+ TFLOPS** | **1.15×** |
+| FP16 compute | 1,560 TFLOPS | 1,800 TFLOPS | 1.15× |
+| INT8 compute | 3,120 TOPS | 3,600 TOPS | 1.15× |
+| TDP | ~310 W | ~400 W | +29% |
+| Release | 2025-04 | **2025 H2** | — |
+
+> **4 Tbps bandwidth = the highest domestic HBM bandwidth**, a 25% improvement over Ascend 910C. The 900+ BF16 TFLOPS also exceeds 910C.
+
+## Ascend 920 vs NVIDIA H20 (Head-to-Head)
+
+NVIDIA H20 is a "compliant" AI chip **specially designed for the Chinese market** under US export controls:
+
+| Metric | Ascend 920 | NVIDIA H20 |
+|------|------------|------------|
+| Positioning | Domestic substitute | China-compliant AI chip |
+| Process | 6nm (SMIC) | TSMC 4N (partially domestic after restrictions) |
+| Memory | ~96 GB | 96 GB HBM3 |
+| Memory bandwidth | **4 Tbps** | 4.0 Tbps |
+| BF16 compute | **900 TFLOPS** | 296 TFLOPS |
+| **BF16 compute ratio** | **3×** | 1× (baseline) |
+| Interconnect | HCCS 1.2 Tbps | NVLink 900 GB/s |
+| Software | CANN + MindSpore | CUDA (restricted) |
+| Import compliance | ✅ Domestic | ⚠️ US export controls |
+
+> 💡 **Ascend 920 leads H20 significantly in BF16 compute (3×)**, and its 4 Tbps bandwidth matches H20. This is a **key victory for domestic substitution**.
+
+## CloudMatrix 384 Ultra System
+
+Ascend 920 will be used in the **CloudMatrix 384 Ultra** super-node system:
+
+| Item | Configuration |
+|------|------|
+| **Chip count** | 384 Ascend 920 |
+| **Rack count** | 16 (12 compute + 4 network) |
+| **Total HBM** | ~36 TB (96GB × 384) |
+| **Interconnect** | All-optical mesh, **8,000+ LPO optical modules** |
+| **BF16 compute (system)** | **~345 PFLOPS** (est. 900 × 384) |
+| **TDP (system)** | ~150 kW |
+
+> **CloudMatrix 384 Ultra system-level BF16 compute ~345 PFLOPS** ≈ **2.4×** NVIDIA GB200 NVL72 cluster (~144 PF FP8 dense).
+
+## Why 920 Is a Key Victory for Domestic Substitution?
+
+### 1. Compute Surpasses H20 for the First Time
+
+| Period | Domestic | NVIDIA China edition | Ratio |
+|------|------|---------------|------|
+| 2023 | 910B = 320 TFLOPS | H20 = 296 TFLOPS | 1.08× |
+| 2024 | 910B = 320 TFLOPS | H20 = 296 TFLOPS | 1.08× |
+| 2025 H1 | 910C = 780 TFLOPS | H20 = 296 TFLOPS | 2.6× |
+| **2025 H2** | **920 = 900 TFLOPS** | H20 = 296 TFLOPS | **3.0×** |
+
+> **From H2 2025, domestic AI chip compute stably surpasses H20 by 3× for the first time.**
+
+### 2. 6nm SMIC Domestic Process
+
+Ascend 920 uses **SMIC N+1 / N+2 6nm process**:
+
+- ✅ Fully autonomous and controllable
+- ✅ Not subject to US export controls
+- ⚠️ Yield and cost still behind TSMC 4N
+
+### 3. 4 Tbps Domestic-Highest HBM
+
+Ascend 920's 4 Tbps HBM bandwidth:
+- First time domestically reaching the **4 Tbps class** (previous max was 3.2 Tbps)
+- Matches H20
+- Speculated to use **CXMT (ChangXin) HBM3** or self-developed HBM
+
+### 4. CANN + MindSpore Software Stack
+
+- **CANN 8.x** (Compute Architecture for Neural Networks): the CUDA analog
+- **MindSpore 2.4+**: Huawei's self-developed AI framework
+- **PyTorch 2.3+ MindSpore backend**: PyTorch compatible
+- **vLLM 0.7+ Ascend backend**: low-latency inference
+- **ONNX-Runtime Ascend backend**: cross-framework inference
+- **Atlas 900/950 series servers**: OEM systems
+
+## China Market Deployment Status
+
+### Scaled Customers
+
+| Customer | Application |
+|------|------|
+| **China Mobile** | Large-model training (980M customers) |
+| **China Telecom** | Smart customer service + business insight |
+| **China Unicom** | Government + industry AI |
+| **State Grid** | Grid dispatch + fault prediction |
+| **CNPC** | Exploration + logistics optimization |
+| **Major banks** | Risk control + anti-fraud |
+| **Internet companies** (Baidu, Alibaba, Tencent) | LLM inference |
+
+### Industry Layout
+
+- **Government**: 100% domestic requirement
+- **Finance**: policy-driven domestic preference
+- **Telecom**: fast HBM domesticization
+- **Energy**: fast HBM domesticization
+- **Internet**: partial sensitive-business domesticization
+- **Education / Healthcare**: gradual domesticization
+
+## Limitations and Challenges
+
+| Limitation | Impact |
+|------|------|
+| **FP8/FP4 support** | Ascend 920 still mainly BF16/FP16; FP8 optimizing |
+| **HBM capacity** | 96 GB below NVIDIA Rubin R200 288 GB / AMD MI400 432 GB |
+| **CUDA compatibility** | CANN 8 still needs migration; direct CUDA execution limited |
+| **SMIC 6nm yield** | 10-20% lower than TSMC 4N |
+| **HBM source** | CXMT HBM capacity limited |
+| **Interconnect bandwidth** | HCCS 1.2 Tbps far below NVLink 6 (3.5 TB/s) |
+
+## Comparison with Concurrent Domestic Chips
+
+| Vendor | Chip | BF16 Compute | HBM Bandwidth | Mass-Production |
+|------|------|-----------|----------|----------|
+| **Huawei** | Ascend 920 | 900 TFLOPS | 4 Tbps | 2025 H2 |
+| **Huawei** | Ascend 910C | 780 TFLOPS | 3.2 Tbps | 2025-04 |
+| **Cambricon** | MLU590 | ~480 TFLOPS | 2.4 Tbps | 2024 |
+| **Moore Threads** | MTT S5000 | ~250 TFLOPS | 1.6 Tbps | 2024 |
+| **Biren** | BR104 | ~300 TFLOPS | 1.6 Tbps | 2024 |
+| **Iluvatar** | CoreX Bi-150 | ~200 TFLOPS | 1.2 Tbps | 2024 |
+
+> **Huawei Ascend 920 maintains a clear lead among domestic AI chips.**
+
+## Detailed Product Pages
+
+- [Huawei Ascend 920 Full Specs](/en/docs/cards/huawei/ascend-920)
+- [Huawei Ascend 910C (previous gen)](/en/docs/cards/huawei/ascend-910c)
+- [Huawei Ascend 910B (first mass-produced)](/en/docs/cards/huawei/ascend-910b)
+- [Huawei Ascend 910D (high-end)](/en/docs/cards/huawei/ascend-910d)
+- [NVIDIA H100 NVL (benchmark)](/en/docs/cards/nvidia/h100-nvl)
+- [AMD MI300X (overseas alternative)](/en/docs/cards/amd/mi300x)
+- [Future Roadmap](/en/docs/roadmap)
+
+## Conclusion
+
+Huawei Ascend 920 is a **key victory** for China's AI chips in H2 2025:
+
+1. **900+ BF16 TFLOPS = 3× H20** — first stable 3× surpass of H20
+2. **6nm SMIC domestic** — autonomous and controllable
+3. **4 Tbps domestic-highest HBM bandwidth** — HBM domesticization breakthrough
+4. **CloudMatrix 384 Ultra system** — single system surpasses GB200 NVL72
+5. **CANN + MindSpore** — mature software ecosystem
+
+From H2 2025, China's AI industry enters a **new stage where "domestic chips can independently support large-scale AI applications."**

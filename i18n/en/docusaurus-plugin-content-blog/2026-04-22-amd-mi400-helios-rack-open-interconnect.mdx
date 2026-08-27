@@ -1,0 +1,134 @@
+---
+slug: amd-mi400-helios-rack-open-interconnect
+title: 'AMD MI400 + Helios Rack: 432GB HBM4 + 260 TB/s UALink Open Interconnect'
+date: '2026-04-22'
+authors: aicomputecards
+tags: [product-launch, tech-deep-dive]
+description: 'In 2026 AMD launched MI400 (CDNA Next) + Helios 72-GPU rack to challenge NVIDIA NVL72. UALink open interconnect + 432GB HBM4 + 19.6 TB/s bandwidth is AMD key weapon.'
+---
+
+In 2026 AMD launched **MI400 (CDNA Next)** + **Helios 72-GPU rack**, its flagship answer to NVIDIA NVL72. This article analyzes MI400's key specs, Helios rack's open-interconnect (UALink) strategy, and comparison with Rubin R200.
+
+{/* truncate */}
+
+## MI400 Core Specifications
+
+| Item | MI400 | Previous MI350 | Improvement |
+|------|-------|--------------|------|
+| Architecture | **CDNA Next** | CDNA 4 | New gen |
+| Process | TSMC 3nm / 2nm | TSMC 3nm | More advanced |
+| Memory | **432 GB HBM4** | 288 GB HBM3e | 1.5× |
+| Memory bandwidth | **19.6 TB/s** | 8 TB/s | 2.45× |
+| FP4 Tensor (dense) | **40 PFLOPS** | 20 PFLOPS | 2× |
+| FP8 Tensor (dense) | 20 PFLOPS | 10 PFLOPS | 2× |
+| TDP | ~1,000 W | ~1,000 W | Flat |
+| PCIe | Gen 6 | Gen 5 | 2× |
+| Release | **2026** | 2025 | — |
+
+> **432 GB HBM4 = the world's largest single-card memory**. Versus NVIDIA Rubin R200's 288 GB, **50% more**. This is a key advantage for **super-large-model inference**.
+
+## CDNA Next Architecture Highlights
+
+AMD's key evolution on CDNA Next:
+
+1. **FP4 matrix engine**: native MXFP4 / NVFP4 support
+2. **Enhanced sparse compute**: 2× sparse throughput vs CDNA 4
+3. **Larger Infinity Cache**: ~512 MB
+4. **Heterogeneous scheduler**: CPU+GPU co-optimization (with EPYC Venice)
+
+## Helios Rack: AMD's NVL72 Response
+
+Helios is AMD's rack-scale solution, **benchmarking NVIDIA GB300 NVL72 / Rubin NVL72**:
+
+| Item | Helios Rack | NVIDIA Rubin NVL72 |
+|------|-------------|---------------------|
+| GPU count | **72 MI400** | 72 Rubin |
+| CPU count | 36 **EPYC Venice** | 36 Vera |
+| Total HBM | 31.1 TB HBM4 | 20.7 TB HBM4 |
+| Scale-up interconnect | **UALink 260 TB/s** | NVLink 6 252 TB/s |
+| Scale-out network | Pensando Vulcano 800G | ConnectX-9 14.4 Tbps |
+| FP4 compute (dense) | **2.88 EFLOPS** | 3.6 EFLOPS (sparse) |
+| FP4 dense equivalent | 2.88 EF | 1.8 EF |
+| TDP (rack) | ~80 kW | ~130 kW |
+| Cooling | Liquid required | Liquid required |
+
+> **AMD Helios surpasses NVIDIA Rubin NVL72 on dense compute (2.88 vs 1.8 EFLOPS)**. But NVIDIA's sparse compute doubles to 3.6 EFLOPS, so it's "mixed results."
+
+## UALink: Open Interconnect Challenging NVLink
+
+**Ultra Accelerator Link (UALink)** is an **open standard scale-up interconnect** protocol driven by AMD + Broadcom + Intel:
+
+- **Goal**: replace NVLink's single-vendor closed ecosystem
+- **2026 debut**: AMD Helios 72-GPU rack
+- **Later**: Intel Jaguar Shores, AWS UltraServers
+
+UALink key features:
+
+| Feature | UALink | NVLink 6 |
+|------|-------|----------|
+| Standardization | Open standard | NVIDIA proprietary |
+| Bandwidth (rack-level) | 260 TB/s | 252 TB/s |
+| Vendors | AMD/Broadcom/Intel | NVIDIA only |
+| Ecosystem | ROCm + Open | CUDA only |
+| Future extensibility | **High** | Limited |
+
+> **UALink's real threat is not today but the future**. If UALink can build a complete ecosystem within 2-3 years, NVIDIA's closed-interconnect advantage will be weakened.
+
+## ROCm 8 Software Ecosystem
+
+AMD continues investing in ROCm:
+
+- **ROCm 7.x** (2025 GA): full PyTorch / JAX / Triton optimization
+- **ROCm 8.x** (2026): CDNA Next debut, full FP4 / FP8 support
+- **vLLM 0.7+** (AMD-SGLang optimized)
+- **AMD Composable Kernel (CK)**: CUDA Cores analog, open-source
+- **MIGraphX / ONNX-Runtime**: inference engines
+- **Infinity Hub**: AMD official reference implementations
+
+## Deployment Recommendations
+
+| Scenario | Recommended Config |
+|------|----------|
+| **700B+ model training** | Helios rack (72 GPU, **single rack runs 700B model**) |
+| **1T+ giant model training** | Multi-rack + UALink cross-rack interconnect |
+| **Ultra-low-latency inference** | MI400 + FP4 + vLLM/AMD-SGLang |
+| **Scientific computing** | MI400 + ROCm 7/8 + OpenMP |
+| **Multimodal generation** | MI400 (432GB fully reserved) |
+| **Prefer open ecosystem** | UALink + ROCm 8 (avoid NVIDIA lock-in) |
+
+## MI400 vs Rubin R200 (Concurrent Flagship Comparison)
+
+| Metric | MI400 (CDNA Next) | Rubin R200 |
+|------|-------------------|------------|
+| Memory | **432 GB HBM4** ✅ | 288 GB HBM4 |
+| Memory bandwidth | 19.6 TB/s | **22 TB/s** ✅ |
+| FP4 dense | 40 PF ✅ | 25 PF |
+| FP8 dense | 20 PF | 12.5 PF |
+| Per-GPU interconnect | UALink (open) ✅ | NVLink 6 (closed) |
+| Per-GPU network | Pensando 800G | **ConnectX-9 14.4 Tbps** ✅ |
+| CPU | EPYC Venice | **Vera ARM 88-core** ✅ |
+| Ecosystem | ROCm 8 (open) ✅ | CUDA 13 (mature) ✅ |
+| Standardization | UALink ✅ | NVLink ❌ |
+| TDP | 1,000 W ✅ | 1,800 W |
+
+> **AMD advantages**: larger memory, leading FP4 dense compute, open interconnect, lower power
+> **NVIDIA advantages**: HBM bandwidth, CPU integration, DC network, CUDA ecosystem
+
+## Detailed Product Pages
+
+- [AMD MI400 Full Specs](/en/docs/cards/amd/mi400)
+- [AMD MI350 (previous gen)](/en/docs/cards/amd/mi350)
+- [NVIDIA Rubin R200 (concurrent)](/en/docs/cards/nvidia/rubin-r200)
+- [AMD Helios Rack Docs](https://www.amd.com/en/products/accelerators/instinct.html)
+- [Future Roadmap](/en/docs/roadmap)
+
+## Conclusion
+
+AMD MI400 + Helios is AMD's **strongest counterattack** on AI compute:
+
+1. **CDNA Next + 432 GB HBM4** matches NVIDIA on hardware specs
+2. **Helios 72-GPU rack** even surpasses NVIDIA NVL72 on dense compute
+3. **UALink open interconnect** is a real threat to NVLink's closure
+4. **ROCm 8 ecosystem** keeps improving, but still needs time
+
+In 2026, AMD is the **only GPU vendor that can directly challenge NVIDIA**.
