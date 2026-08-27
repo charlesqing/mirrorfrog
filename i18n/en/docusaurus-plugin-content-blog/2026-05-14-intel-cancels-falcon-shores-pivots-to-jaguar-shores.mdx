@@ -1,0 +1,183 @@
+---
+slug: intel-cancels-falcon-shores-pivots-to-jaguar-shores
+title: 'Intel Cancels Falcon Shores, Pivots to Jaguar Shores: From Single-Chip Benchmarking to Rack-Scale System'
+date: '2026-05-14'
+authors: aicomputecards
+tags: [strategy, news]
+description: '2026-05-14 Intel earnings disclosed cancellation of the Falcon Shores single-chip GPU plan, pivoting to the rack-scale Jaguar Shores system project (2027-2028). Intel AI strategy shifts from "directly benchmarking NVIDIA" to "rack-scale systems + foundry."'
+---
+
+**May 14, 2026**, in its Q1 earnings disclosure, **Intel formally cancelled the Falcon Shores single-chip GPU plan** and confirmed the new rack-scale AI system project **Jaguar Shores** will launch in 2027-2028. This is a major adjustment to Intel's AI strategy; this article analyzes the reasons and the future in depth.
+
+{/* truncate */}
+
+## The Falcon Shores Cancellation
+
+| Time | Event | Detail |
+|------|------|------|
+| **2023** | First announced | 200 PFLOPS single-chip to benchmark B100 |
+| **2024-12** | Roadmap adjusted | Dropped 200 PF target, switched to "system-level" |
+| **2026-05-14** | **Formally cancelled** | Intel earnings discloses Falcon Shores cancellation |
+| **2026-05-14** | Pivot to Jaguar Shores | Confirms new rack-scale system project |
+| **2027-2028** | Expected launch | Jaguar Shores rack-scale system |
+
+## Why Cancel Falcon Shores?
+
+### 1. Third Consecutive Quarterly Loss
+
+Intel's Q1 2026 was its third consecutive quarterly loss:
+
+- Revenue: $12.7B (-7% YoY)
+- Net loss: -$1.6B
+- AI business (Habana): revenue only $0.4B, far below expectations
+
+**R&D budget is tight; cannot simultaneously support Falcon Shores + Gaudi + Xeon + 18A process.**
+
+### 2. Single-Chip 200 PF Unrealistic
+
+Falcon Shores originally planned a 200 PFLOPS single-chip in 2025 to benchmark B100.
+
+But by 2026, industry reality is:
+
+- NVIDIA Rubin R200 single-chip 50 PFLOPS FP4 sparse (25 PF dense) is already the limit
+- **Single-chip 200 PF is physically infeasible** (power, area, HBM capacity all unattainable)
+- **Industry has shifted to rack-scale** (NVL72, Helios, UltraServer)
+
+### 3. Tight HBM Supply
+
+HBM supply is tight, prioritized to NVIDIA:
+
+- **SK Hynix**: 70% capacity to NVIDIA
+- **Micron**: 60% capacity to NVIDIA
+- **Samsung**: share compressed
+
+**Intel struggles to secure enough HBM for a single-chip 200 PF plan.**
+
+### 4. Market Shifted to Rack-Scale
+
+In 2026 the AI compute market has shifted to rack-scale:
+
+- NVIDIA Rubin NVL72 (72 GPU)
+- AMD Helios (72 MI400)
+- AWS Trn3 UltraServer (144 chip)
+- Google TPU 8t pod (9,216 chip)
+
+**Single-chip benchmarking is meaningless; rack-scale is the main battlefield.**
+
+## Jaguar Shores: Intel's Rack-Scale Counterattack
+
+| Item | Parameter (est.) |
+|------|--------------|
+| **Form** | **Rack-scale system** (not single-chip) |
+| **AI accelerators per rack** | 64-128 (est.) |
+| **CPUs per rack** | 32-64 Xeon |
+| **AI accelerator IP** | **Gaudi v4 architecture** (evolved from Gaudi 3) |
+| **Process** | **Intel Foundry 18A** |
+| **HBM capacity (per accelerator)** | 144 GB HBM3e |
+| **HBM bandwidth (per accelerator)** | ~5 TB/s |
+| **FP8 compute (per accelerator)** | ~2,500 TFLOPS (est.) |
+| **FP8 compute (rack)** | ~160-320 PFLOPS |
+| **Network** | **800G integrated NIC** |
+| **TDP (rack)** | ~80-120 kW |
+| **Launch** | **2027-2028** |
+
+> ⚠️ **Not officially announced**: above specs are all estimated; **Intel has only roadmap-level disclosure**. All figures subject to Intel's later announcements.
+
+## Intel AI Strategy Reorganization (2026-05)
+
+| Strategy | Content |
+|------|------|
+| **Gaudi product line** | Continue Gaudi 3 / Gaudi 3E (maintain through 2026) |
+| **Falcon Shores** | ❌ **Cancelled** |
+| **Jaguar Shores** | ✅ **Restart rack-scale AI system** |
+| **Foundry service** | Intel Foundry 18A for NVIDIA / AMD / AWS |
+| **x86 dominance** | Strengthen Xeon 6/7 (AI server CPU leader) |
+| **Habana brand** | Retained; Jaguar Shores integrates Gaudi IP |
+
+> **Intel no longer does AI GPU directly benchmarking NVIDIA**:
+> - Short-term: Gaudi 3 maintained (cost-performance benchmark)
+> - Mid-term: Jaguar Shores system-level (rack-scale benchmark)
+> - Long-term: Intel Foundry 18A for AI vendors (Intel becomes "AI foundry")
+
+## Intel Foundry 18A Strategy
+
+Intel's true "AI ultimate strategy" is **foundry**:
+
+| Customer | 18A foundry product |
+|------|-------------|
+| **NVIDIA** | Rubin successor gen (2027+) |
+| **AMD** | MI500 successor gen (2028+) |
+| **AWS** | Trainium 4 (2027) |
+| **Microsoft** | Maia 2 (2026) |
+
+> **If Intel Foundry 18A yield reaches TSMC N3 level**, Intel transforms from "AI GPU loser" to "AI compute foundry hegemon."
+
+## Impact on Intel Customers
+
+### Gaudi 3 / Gaudi 3E (short-term)
+
+- Released 2024, better cost-performance than NVIDIA H100
+- Maintained through 2026 as Intel's main AI training chip
+- Main customers: some enterprise + government/telecom
+
+### Jaguar Shores (mid-term)
+
+- Launches 2027-2028
+- Suited for **rack-scale training**
+- Main customers: government, telecom, supercomputing centers
+
+### Intel Foundry 18A (long-term)
+
+- Mass production 2027 (est.)
+- Customers: NVIDIA, AMD, AWS, Microsoft
+- **Intel's true AI revenue source**
+
+## Impact on the AI Industry
+
+### 1. AI Chip Competitive Landscape Changes
+
+| Vendor | 2025 Positioning | 2026+ Positioning |
+|------|----------|-----------|
+| **NVIDIA** | GPU dominant | **GPU + LPU + system-level** (strongest) |
+| **AMD** | GPU #2 | **GPU + rack-scale UALink** |
+| **Intel** | Single-chip failed | **Rack-scale + foundry** |
+| **Google** | TPU dedicated | **TPU split + training/inference dual-track** |
+| **AWS** | Trainium self-designed | **3nm + UltraServer** |
+| **Huawei** | Domestic substitute | **3× H20 + system-level** |
+| **Cerebras** | Wafer-scale | **IPO + WSE-4** |
+| **Groq (NVIDIA)** | LPU independent | **NVIDIA acquisition integrated** |
+
+### 2. UALink Open Interconnect Accelerates
+
+After Intel joined the UALink alliance:
+
+- AMD + Intel + Broadcom jointly drive UALink
+- Challenge NVIDIA NVLink closed ecosystem
+- **UALink may become an open standard in 2027-2028**
+
+### 3. AI Foundry Competition
+
+- **TSMC still leads**: 3nm / 2nm process ahead
+- **Intel Foundry 18A catching up**: trial production 2026, mass production 2027
+- **Samsung Foundry**: 3nm GAA in production, but few customers
+
+## Detailed Product Pages
+
+- [Intel Jaguar Shores Full Specs](/en/docs/cards/intel/jaguar-shores)
+- [Intel Gaudi 3 (current main)](/en/docs/cards/intel/gaudi-3)
+- [Intel Gaudi 2 (previous gen)](/en/docs/cards/intel/gaudi-2)
+- [NVIDIA Rubin R200 (concurrent)](/en/docs/cards/nvidia/rubin-r200)
+- [AMD MI400 (concurrent)](/en/docs/cards/amd/mi400)
+- [Future Roadmap](/en/docs/roadmap)
+
+## Conclusion
+
+Intel's cancellation of Falcon Shores and pivot to Jaguar Shores is one of **the most significant strategic adjustments** in the AI chip industry in 2026:
+
+1. **Admits single-chip benchmarking of NVIDIA is unrealistic**
+2. **Pivots to rack-scale system** (same direction as AMD Helios)
+3. **Strengthens Intel Foundry 18A foundry** (true long-term strategy)
+4. **Integrates Gaudi IP into Jaguar Shores**
+5. **Joins UALink open-interconnect alliance** (challenging NVLink)
+
+Intel's AI strategy shifts from "directly benchmarking NVIDIA" to "rack-scale systems + AI foundry" — a **pragmatic strategic adjustment**. Over the next 5 years, the success or failure of Intel Foundry 18A will decide Intel's ultimate fate in the AI era.

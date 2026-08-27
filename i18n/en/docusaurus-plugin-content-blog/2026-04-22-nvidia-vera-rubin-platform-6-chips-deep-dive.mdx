@@ -1,0 +1,162 @@
+---
+slug: nvidia-vera-rubin-platform-6-chips-deep-dive
+title: 'NVIDIA Vera Rubin Platform Deep Dive: 6-Chip Package, 288GB HBM4, 50 PFLOPS FP4'
+date: '2026-04-22'
+authors: aicomputecards
+tags: [product-launch, tech-deep-dive]
+description: '2026 H2 NVIDIA Vera Rubin platform, the next-gen flagship after Blackwell: 6-chip CoWoS-L package, 288GB HBM4, 22 TB/s bandwidth, 50 PFLOPS FP4 sparse, ConnectX-9 28.8 TB/s network.'
+---
+
+The NVIDIA Vera Rubin platform is the next-gen flagship compute platform NVIDIA launched after Blackwell. This article deeply analyzes it from naming origin, 6-chip package, memory subsystem, compute matrix, interconnect architecture, rack-scale solution, and software ecosystem.
+
+{/* truncate */}
+
+## Naming Origin: In Memory of Astronomer Vera Rubin
+
+NVIDIA chose "Vera Rubin" as the next-gen platform codename, honoring astronomer **Vera Florence Cooper Rubin** (1928-2016). Through studying galaxy rotation curves in the 1960s-70s, she **first conclusively confirmed the existence of dark matter**.
+
+Naming the next-gen platform of the AI compute revolution after her carries deep philosophical meaning:
+
+- **Dark matter** is the "invisible" yet dominant mass of the universe
+- **AI compute** is the "invisible" yet dominant underlying infrastructure of the digital economy
+
+## 6-Chip Package (CoWoS-L)
+
+The Vera Rubin platform uses the industry's first **6-chip CoWoS-L package**:
+
+| Chip | Count | Role | Process |
+|------|------|------|------|
+| **Vera CPU** | 1 | Host CPU / prefetch / interconnect master | TSMC 3NP |
+| **Rubin GPU Die** | 2 | Matrix compute core | TSMC 3NP / 4NP |
+| **I/O / HBM Base Die** | 3 | HBM4 PHY + I/O + interconnect | TSMC 4NP |
+
+Versus the 2-chip package of Blackwell B300 Ultra (only 2 GPU dies), Vera Rubin **triples the chip count**, and transistor count grows substantially too.
+
+## Core Specifications (per GPU)
+
+| Item | Parameter |
+|------|------|
+| **Architecture** | Rubin |
+| **Transistors** | ~340 billion (per GPU) |
+| **Memory** | **288 GB HBM4** |
+| **Memory bandwidth** | **22 TB/s** (2.75× HBM3e) |
+| **FP4 Tensor (sparse)** | **50 PFLOPS** |
+| **FP8 Tensor (sparse)** | 25 PFLOPS |
+| **FP16/BF16 Tensor** | 12.5 PFLOPS |
+| **TDP** | ~1,800 W (liquid cooling required) |
+
+> **Data convention**: NVIDIA products after Blackwell continue to report **sparse** compute as the official figure. FP4 50 PF = 25 PF dense. For cross-vendor comparison, AMD MI400's 40 PF FP4 dense = NVIDIA Rubin R200's 80 PF FP4 sparse.
+
+## Vera CPU Deep Dive
+
+The Vera Rubin platform integrates NVIDIA's self-designed **ARM-compatible CPU** for the first time:
+
+- **88 Olympus cores** (est., referencing NVIDIA Grace's 72-core Neoverse V2)
+- **TSMC 3NP process**
+- **1:1 paired with Rubin GPU** (1 Vera : 2 Rubin dies)
+- Role: host CPU + prefetcher + NVLink 6 master + PCIe Gen 6 root complex
+
+This is an **important milestone** in NVIDIA's CPU design — after the blocked ARM acquisition, NVIDIA chose to self-design ARM-compatible cores, similar to Apple Silicon's approach.
+
+## NVLink 6 + ConnectX-9 Interconnect
+
+### NVLink 6
+
+| Item | NVLink 5 (B300) | **NVLink 6 (Rubin)** | Improvement |
+|------|------------------|------------------------|------|
+| Per-GPU bandwidth | 1.8 TB/s | **3.5 TB/s** | 2× |
+| GPU-to-GPU hops | 1 | 1 (fully-connected switch) | Same |
+| GPUs per rack | 72 | 72 | Same |
+
+### ConnectX-9 (dual NIC)
+
+| Item | ConnectX-8 (B300) | **ConnectX-9 (Rubin)** | Improvement |
+|------|-------------------|--------------------------|------|
+| Ports per GPU | 1× 1.6 Tbps | **2× 14.4 Tbps** | **18×** |
+| Aggregate per GPU | 1.6 Tbps | **28.8 TB/s** | **18,000× byte rate** |
+| Topology | 3D Torus | 3D Torus / fully-connected | — |
+
+> **ConnectX-9 28.8 TB/s means the GPU is never the network bottleneck**. This is the ultimate form of "in-network computing": GPU-to-GPU communication as fast as local HBM access.
+
+## Rubin NVL72 / NVL576 Racks
+
+### Rubin NVL72
+
+| Item | Configuration |
+|------|------|
+| GPU count | **72 Rubin** |
+| CPU count | 36 Vera |
+| Total HBM | 20.7 TB HBM4 |
+| NVLink aggregate | 252 TB/s |
+| FP4 sparse compute | **3.6 EFLOPS** |
+| FP8 sparse compute | 1.8 EFLOPS |
+| TDP (rack) | ~130 kW |
+
+### Rubin NVL576
+
+| Item | Configuration |
+|------|------|
+| GPU count | **576 Rubin** |
+| CPU count | 288 Vera |
+| Total HBM | 165 TB HBM4 |
+| NVLink aggregate | 2,016 TB/s |
+| FP4 sparse compute | **28.8 EFLOPS** |
+| FP8 sparse compute | 14.4 EFLOPS |
+| TDP (rack) | ~1 MW |
+
+> **Rubin NVL576 = 28.8 EFLOPS FP4 = 1.5 ExaFLOPS FP8**. That's **5.7×** the GB300 NVL72 (~0.5 EF FP8), the world's strongest AI super-node today.
+
+## Comparison with Concurrent Competitors
+
+| Metric | Rubin R200 | AMD MI400 | TPU 8t | Trainium 3 |
+|------|------------|-----------|--------|------------|
+| Memory | 288 GB HBM4 | 432 GB HBM4 | 216 GB HBM | 144 GB HBM |
+| Memory bandwidth | 22 TB/s | 19.6 TB/s | 6,528 GB/s | ~4.5 TB/s |
+| FP4 compute | 50 PF (sparse) | 40 PF (dense) | — | — |
+| FP8 compute | 25 PF (sparse) | 20 PF (dense) | 7 PF | 5.7 PF |
+| Interconnect | NVLink 6 + CX-9 | UALink | 3D Torus | NeuronLink-v4 |
+| TDP | 1,800 W | 1,000 W | N/A | 700 W |
+| CPU | Vera 88-core | EPYC Venice | Arm Axion | Xeon |
+
+> **NVIDIA advantages**: per-GPU compute (25 PF FP8 dense), NVLink interconnect, ConnectX-9 network, CUDA ecosystem.
+> **AMD advantages**: single-card memory (432 GB), open UALink interconnect, Helios 72-GPU rack integration.
+> **Google advantages**: JAX training paradigm, pod-scale (9,216 chips) ultra-large scale.
+> **AWS advantages**: perf per dollar (4.4× vs Trainium 2), Trn3 UltraServer 144 chips.
+
+## Software Ecosystem
+
+- **CUDA 13.x**: new Rubin microarchitecture support
+- **cuDNN 10.x**
+- **TensorRT-LLM 1.0+** (full FP4 / NVFP4 optimization)
+- **vLLM 0.8+** (Vera Rubin optimized)
+- **NCCL 2.21+** (ConnectX-9 + NVLink 6 support)
+- **NVFP4**: inherited from Blackwell Ultra, 2nd gen
+
+## Use Cases
+
+- ✅ **Ultra-large LLM training** (100B+ params, 10k-card clusters)
+- ✅ **Ultra-low-latency giant-model inference** (1T+ params real-time)
+- ✅ **Scientific research** (climate, biopharma, cryptography)
+- ✅ **Multimodal generation** (text-to-video, 4D content)
+- ❌ Small/mid model training (too costly, B300 Ultra more economical)
+- ❌ Edge deployment (power/volume unacceptable)
+
+## Detailed Product Pages
+
+- [NVIDIA Rubin R200 Full Specs](/en/docs/cards/nvidia/rubin-r200)
+- [NVIDIA B300 Ultra (previous flagship)](/en/docs/cards/nvidia/b300-ultra)
+- [AMD MI400 (concurrent)](/en/docs/cards/amd/mi400)
+- [Future Roadmap](/en/docs/roadmap)
+
+## Conclusion
+
+The NVIDIA Vera Rubin platform is another milestone in AI compute evolution:
+
+1. **6-chip package** breaks single-die physical limits
+2. **HBM4 + 22 TB/s** solves the memory wall
+3. **50 PF FP4 sparse** enters the 50 PF era
+4. **ConnectX-9 28.8 TB/s** solves the network bottleneck
+5. **Rubin NVL576 28.8 EFLOPS** enters the exaFLOPS era
+6. **Vera CPU** ends NVIDIA's lack of a CPU
+
+In H2 2026, AI compute will leap again.

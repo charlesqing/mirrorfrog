@@ -1,0 +1,171 @@
+---
+slug: google-tpu-8t-8i-split-training-inference
+title: 'Google TPU 8t + 8i: The TPU Era Splits Training and Inference for the First Time'
+date: '2026-04-22'
+authors: aicomputecards
+tags: [product-launch, strategy]
+description: '2026-04-22 Google unveiled TPU 8t (training, 216GB HBM) + TPU 8i (inference, 288GB HBM), first TPU split into separate training/inference product lines, integrating Arm Axion CPU.'
+---
+
+On April 22, 2026, at Cloud Next, Google unveiled **TPU 8t + TPU 8i** — **the first time TPU is split into two independent product lines: training and inference**. TPU 8t focuses on training, TPU 8i on inference. This is Google's key product adjustment for the AI inference era.
+
+{/* truncate */}
+
+## Why Split TPU?
+
+The past 7 TPU generations (v1 → v7 Ironwood) were all **training/inference general-purpose**:
+
+- v4-v6e: training-first, inference-secondary
+- v7 Ironwood: began tilting toward inference, but still general-purpose
+
+But the AI industry underwent a fundamental shift in 2025-2026:
+
+1. **Training demand**: only a few leading companies (OpenAI, Anthropic, Google DeepMind, Meta, xAI) need it
+2. **Inference demand**: **every AI application needs it** — a 100× larger market
+3. **Inference optimization direction**: **radically different from training**
+   - Training: compute + interconnect first (compute-bound)
+   - Inference: memory + bandwidth + flexible cooling first (memory-bound + TCO-sensitive)
+
+Google therefore decided to **split TPU into two product lines**:
+
+| Product | Positioning | Core Optimization |
+|------|------|----------|
+| **TPU 8t** | Training | Compute + interconnect + integrated Axion CPU |
+| **TPU 8i** | Inference | Memory + bandwidth + flexible cooling |
+
+## TPU 8t: Training-Specific
+
+| Item | Parameter |
+|------|------|
+| Architecture | TPU 8t (Trillium 2) |
+| Form | **Training-specific** |
+| BF16 compute (dense) | ~3,500 TFLOPS |
+| FP8 compute (dense) | ~7,000 TFLOPS |
+| HBM capacity | **216 GB** |
+| HBM bandwidth | **6,528 GB/s** |
+| ICI interconnect | 1,400 GB/s (bidirectional) |
+| Integrated CPU | **Arm Axion (Google self-designed, 64-core)** |
+| Pod scale | **9,216 chips** |
+| Topology | 3D Torus |
+| Cooling | Liquid |
+
+> **Arm Axion is Google's self-designed 64-core ARM CPU**, entering the TPU node for the first time. This makes the TPU 8t node a **TPU + Axion CPU co-system**, benchmarking NVIDIA Vera CPU.
+
+## TPU 8i: Inference-Specific
+
+| Item | Parameter |
+|------|------|
+| Architecture | TPU 8i (Trillium 2) |
+| Form | **Inference-specific** |
+| BF16 compute (dense) | **~5,500 TFLOPS** |
+| FP8 compute (dense) | ~11,000 TFLOPS |
+| INT8 compute | ~22,000 TOPS |
+| HBM capacity | **288 GB** |
+| HBM bandwidth | **8,601 GB/s** |
+| Cooling | **Air / liquid both OK** |
+| Pod scale | 256 chips |
+
+> **TPU 8i single-card 288GB HBM = the largest-memory inference ASIC today**. One card fits an FP16 70B model (no tensor parallelism needed), ideal for **long-context RAG, Agentic AI**.
+
+## TPU 8t vs 8i Key Differences
+
+| Metric | TPU 8t (training) | **TPU 8i (inference)** |
+|------|----------------|---------------------|
+| Positioning | Training | **Inference** |
+| BF16 compute | ~3,500 TFLOPS | **~5,500 TFLOPS** (stronger) |
+| HBM capacity | 216 GB | **288 GB** (larger) |
+| HBM bandwidth | 6,528 GB/s | **8,601 GB/s** (higher) |
+| Cooling | Liquid | **Air/liquid** |
+| Pod scale | 9,216 chips | 256 chips |
+| Integrated CPU | Arm Axion | None (standalone) |
+| Price | High | **Medium** |
+
+> **Purpose of the split**: training emphasizes compute + interconnect; inference emphasizes memory + bandwidth + cooling flexibility.
+
+## TPU 8i Inference Paradigm Optimization
+
+TPU 8i is specifically optimized for inference:
+
+| Optimization | Content |
+|----------|------|
+| **Ultra-low latency** | **TTFT < 100ms** (first-token latency) |
+| **High throughput** | 10,000+ tok/s (70B model FP8) |
+| **Long-context KV** | **288GB fully retains 1M+ token context** |
+| **MoE inference** | Expert Parallel native support |
+| **Speculative Decoding** | internal speculative acceleration |
+| **Batching** | Continuous batching + PagedAttention |
+| **Continuous KV Cache** | **KV Cache shared across requests** (same-prefix optimization) |
+
+## TPU 8t Training Paradigm Optimization
+
+TPU 8t is specifically optimized for training:
+
+| Optimization | Content |
+|----------|------|
+| **MoE training** | Expert Parallel native support (DeepSeek / Mixtral style) |
+| **Long-context training** | 1M+ token context training optimization |
+| **RLHF / post-training** | Online RL (DPO / PPO / GRPO) native optimization |
+| **Multimodal training** | vision-language joint training (ViT + LLM synchronized) |
+| **AXIOM** | Arm Axion CPU co-processing (data preprocessing / weight init) |
+
+## TPU 8i Inference Service Pricing
+
+| Instance | Price/hour (est.) |
+|------|-------------------|
+| **TPU 8i v6e-equivalent** | ~$3-5 / chip |
+| **TPU v7 Ironwood** | ~$6-8 / chip |
+| **TPU 8i vs TPU v7** | **+50%** price / **+150%** compute |
+
+> **TPU 8i BF16 compute per dollar is 70% higher than TPU v7 Ironwood** (by 2.4× compute / 1.5× price).
+
+## Software Ecosystem
+
+### TPU 8t
+- **JAX 0.5+**: Google's main training framework
+- **PyTorch/XLA 2.5+**: PyTorch compatible
+- **TensorFlow 2.17+**: legacy framework
+- **Paxml / Orbax**: Google internal LLM training stack
+- **MaxText**: Google reference implementation
+
+### TPU 8i
+- **JAX 0.5+**: inference
+- **PyTorch/XLA 2.5+**: inference
+- **vLLM 0.8+** (TPU backend): low-latency inference
+- **Vertex AI Inference**: Google managed inference service
+- **Gemini API**: largest internal user
+
+## Comparison with Concurrent Competitors
+
+| Metric | TPU 8t | TPU 8i | NVIDIA B300 Ultra | Groq 3 LPX |
+|------|--------|--------|-------------------|------------|
+| Positioning | Training | Inference | Training+inference | Ultra-low-latency inference |
+| HBM/SRAM | 216 GB HBM | 288 GB HBM | 288 GB HBM3e | 128 GB SRAM |
+| Bandwidth | 6.5 TB/s | **8.6 TB/s** | 8 TB/s | **40 PB/s** |
+| BF16 compute | 3.5 PF | 5.5 PF | 3.5 PF (FP8 dense) | 320 PF (rack) |
+| Interconnect | 3D Torus | 3D Torus | NVLink 5 | GroqSync |
+| Cooling | Liquid | **Air** | Liquid | Liquid |
+| Customers | Google DeepMind | Gemini / Vertex AI | AWS / Azure | NVIDIA customers |
+
+## Detailed Product Pages
+
+- [Google TPU 8t Full Specs](/en/docs/cards/google/tpu-8t)
+- [Google TPU 8i Full Specs](/en/docs/cards/google/tpu-8i)
+- [Google TPU v7 Ironwood (previous gen)](/en/docs/cards/google/tpu-ironwood)
+- [TPU Architecture Deep Dive](/en/docs/architectures/arch-tpu)
+- [NVIDIA B300 Ultra](/en/docs/cards/nvidia/b300-ultra)
+
+## Conclusion
+
+Google's TPU 8t + 8i split is a landmark event of the AI inference era:
+
+1. **First TPU split into training/inference** — TPU enters the "specialization" era
+2. **TPU 8i 288GB HBM** — one card fits a 70B model
+3. **TPU 8i air-cooled** — lowers data-center deployment barrier
+4. **Arm Axion integration** — Google's self-designed CPU enters TPU
+5. **JAX training paradigm** — Google bets on JAX as the next-gen training standard
+
+**Google now has "full-scenario AI compute coverage"**:
+- Training: TPU 8t pod
+- General inference: TPU 8i
+- Gemini API: TPU 8i cluster
+- Vertex AI: TPU 8i commercial
