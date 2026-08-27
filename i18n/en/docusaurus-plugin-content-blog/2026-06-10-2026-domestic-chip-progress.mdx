@@ -1,0 +1,571 @@
+---
+slug: 2026-domestic-chip-progress
+title: '2026 Domestic AI Chip Progress: Huawei Ascend 950, Baidu Kunlun M100, Alibaba T-Head M890 Fully Explained'
+authors: [aicomputecards]
+tags: [domestic-ai-chip, ascend-950, kunlun-m100, alibaba-yitian-m890, 2026-progress]
+date: 2026-06-10
+description: 'A comprehensive look at 2026 domestic AI chip progress: Huawei Ascend 950PR/950DT specs and supernode deployment, Baidu Kunlun M100 inference chip, Alibaba T-Head M890 performance breakthroughs, plus the latest from Cambricon, MetaX, Enflame and others.'
+---
+
+# 2026 Domestic AI Chip Progress: Huawei Ascend 950, Baidu Kunlun M100, Alibaba T-Head M890 Fully Explained
+
+In 2026, China's domestic AI chip industry has entered a period of **full-scale explosion**. The three giants — Huawei Ascend, Baidu Kunlun, and Alibaba T-Head — have successively launched next-generation products, while Cambricon, MetaX, Enflame, and Iluvatar have also achieved important breakthroughs.
+
+This article comprehensively analyzes 2026 domestic AI chip progress across four dimensions: **product launches, technology breakthroughs, market dynamics, and ecosystem building**.
+
+---
+
+## 1. Huawei Ascend: 950 series launched, 960/970 roadmap clear
+
+### 1.1 Ascend 950PR (launched Q1 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | March 21, 2026 |
+| **Platform** | Atlas 350 accelerator card |
+| **HBM capacity** | **128 GB** (Huawei in-house HiBL 1.0 HBM) |
+| **Memory bandwidth** | **1.6 TB/s** |
+| **FP8 compute** | **1 PFLOPS** |
+| **Positioning** | Inference-specific (Prefill stage) |
+| **Performance vs.** | Single-card compute is **2.87×** NVIDIA H20 |
+
+**Technology innovations**:
+- First adoption of **Huawei in-house HBM solution** (HiBL 1.0), lowering cost
+- Supports **FP8 low-precision compute**, 3× inference energy-efficiency improvement
+- Optimized for inference scenarios such as **video recommendation and real-time interaction**
+
+**Commercialization progress**:
+- Mass supply began in Q1 2026
+- Key customers: **China Telecom, China Mobile, China Unicom, Huawei Cloud**
+- Priced around **¥100,000/card** (¥80,000 for key accounts), ~30% lower than comparable competitors
+
+### 1.2 Ascend 950DT (launched Q4 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q4 2026 (expected October) |
+| **HBM capacity** | **144 GB** (Huawei in-house HiZQ 2.0 HBM) |
+| **Memory bandwidth** | **4 TB/s** (HiZQ 2.0 technology) |
+| **FP8 compute** | **1 PFLOPS** |
+| **Positioning** | Inference + training (Decode stage + training tasks) |
+| **Technology innovation** | First to carry in-house HiZQ 2.0 memory technology |
+
+**Technology innovations**:
+- Adopts **HiZQ 2.0 memory technology**, 2× data-movement efficiency
+- Supports **FP8/FP4 low-precision compute**, balancing performance and efficiency
+- Optimized for scenarios such as **dialogue generation and large-model training**
+
+### 1.3 950 SuperNode (launched Q4 2026)
+
+**System specs**:
+
+| Item | Configuration |
+|------|------|
+| **Max interconnected chips** | **8,192 chips** |
+| **Total FP8 compute** | **1 EFLOPS** (1,024-card scale) |
+| **1024-card version** | 16 liquid-cooled cabinets, 64 chips per cabinet |
+| **Supported models** | Trillion-parameter large-model training |
+| **Deployment progress** | 1,024-card version already in deployment |
+
+**Performance comparison**:
+- 950 SuperNode outperforms **NVIDIA's 2027 NVL576 system**
+- Leads by **20%** in **trillion-parameter model training**
+
+### 1.4 Ascend 960/970 roadmap
+
+| Chip model | Launch | Core specs | Positioning |
+|----------|----------|----------|------|
+| **Ascend 960** | Q4 2027 | N+3 process, 288GB HBM, FP8 2 PFLOPS, 30%+ better energy efficiency than 910C | Ultra-large-scale training |
+| **Ascend 970** | Q4 2028 | N+3 process, FP4 8 PFLOPS, 4 TB/s bandwidth, supports trillion-parameter models | Next-gen AI architecture (MoE, etc.) |
+
+**Technology breakthroughs**:
+- **Process upgrade**: from N+2 (7nm-class) to N+3 (5nm-class)
+- **Memory capacity doubled**: from 144GB (950DT) to **288GB** (960/970)
+- **Energy efficiency improved**: 960/970 are **30%+** better than 910C
+- **Precision optimized**: 970 supports **FP4 precision**, optimized for next-gen AI architectures (MoE, etc.)
+
+### 1.5 Commercialization progress
+
+**Shipment data**:
+- **384-card SuperNode**: over **500 units** deployed, the only truly large-scale commercial SuperNode in China
+- **2026 shipment target**: **800k chips** (1M cumulative)
+- **Market share**: **60%** of China's AI chip market
+
+**Ecosystem building**:
+- **CANN compiler**: open-sourced end of 2025, seamless PyTorch/TensorFlow migration
+- **Mind series toolchains**: fully open, lowering the developer barrier
+- **Ecosystem partners**: over **3,000**
+- **Developer community**: over **500k** registered developers
+
+---
+
+## 2. Baidu Kunlun: M100 inference-specific, Tianchi SuperNode deployed
+
+### 2.1 Kunlun M100 (launched early 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Early 2026 (expected Q2) |
+| **Positioning** | **Inference-specific** |
+| **Architecture** | In-house XPU-P architecture (inference-optimized) |
+| **Process** | 7nm (SMIC N+2) |
+| **HBM capacity** | 64 GB (inference-optimized) |
+| **TDP** | 250 W (low-power inference) |
+| **Performance vs.** | 1.5× P800 inference, 38% lower power |
+
+**Technology innovations**:
+- Adopts **RISC-V open instruction set**, adding 50+ AI-specific instructions
+- **Compute per watt** reaches 8.3 TOPS/W, **2.1×** the industry average
+- Supports models from **10 billion to 100 billion parameters** for inference
+
+**Commercialization progress**:
+- Mass supply in Q2 2026
+- Key customers: **Baidu Smart Cloud, China Merchants Bank, Southern Grid, Geely Auto**
+- Priced around **¥60,000/card**, clear cost-performance advantage
+
+### 2.2 Kunlun M300 (launched early 2027)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q1 2027 (expected March) |
+| **Positioning** | **Ultra-large-scale multimodal training** |
+| **Architecture** | In-house XPU-P architecture (multimodal-optimized) |
+| **Process** | 5nm (SMIC N+3) |
+| **HBM capacity** | **256 GB HBM4** |
+| **TDP** | 500 W |
+| **Modalities** | Text, images, video and other data types |
+
+**Technology innovations**:
+- Adopts **HBM4 memory**, bandwidth up to **3.2 TB/s**
+- Supports **FP8/FP4 low-precision compute**, 2× training energy-efficiency
+- Native support for **multimodal model training** (text + image + video)
+
+### 2.3 Tianchi 256-card SuperNode (launched June 2026)
+
+**System specs**:
+
+| Item | Configuration |
+|------|------|
+| **Launch date** | June 2026 (expected) |
+| **Chip count** | 256 Kunlun P800/M100 |
+| **Effective training rate** | **97%** |
+| **Inter-chip bandwidth** | **1.2 TB/s** |
+| **Validated models** | Baidu ERNIE 5.1 and other key large models |
+
+**Performance breakthroughs**:
+- **Fully domestic SuperNode**, fully autonomous and controllable from chip to network
+- **97% effective training rate**, surpassing NVIDIA DGX SuperPOD's 95%
+- Training validation completed for **Baidu ERNIE 5.1** and other key large models
+
+### 2.4 Commercialization progress
+
+**Shipment data**:
+- **P800**: 150k shipped in 2025, 200k target in 2026
+- **Ten-thousand-card clusters**: multiple P800-based clusters delivered
+- **Market share**: **20%** of China's AI chip market
+
+**Customer coverage**:
+- **External customer revenue share**: over **50%** in 2025
+- **China Mobile AI server procurement**: P800-based bids won **70%, 70%, 100%** shares
+- **Key customers**: China Merchants Bank, Southern Grid, Geely Auto, iFlytek
+
+**IPO progress**:
+- May 2026: officially launched **STAR Market IPO tutoring**
+- Plans **"A+H" model** — simultaneous A-share and Hong Kong listings
+- Valuation exceeds **¥10 billion**
+
+---
+
+## 3. Alibaba T-Head: M890 3× performance, Zhenwu series ships 560k units
+
+### 3.1 T-Head M890 (launched Q2 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q2 2026 (Alibaba Cloud Summit) |
+| **Performance** | **3×** previous generation |
+| **HBM capacity** | **144 GB** |
+| **Inter-chip bandwidth** | **800 GB/s** |
+| **Precision support** | FP8, FP4 low-precision compute |
+| **Positioning** | Full training + inference pipeline |
+
+**Technology innovations**:
+- Adopts **in-house ICN inter-chip protocol**, inter-chip latency under **150 ns**
+- Companion **PCCF communication library** and **ICN Switch chip** enable full-bandwidth interconnect of 64 chips within a single node
+- Supports **FP8/FP4 low-precision compute**, balancing performance and efficiency
+
+### 3.2 T-Head V900 (launched Q3 2027)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q3 2027 (expected September) |
+| **Performance** | **3×** again over M890 |
+| **HBM capacity** | **216 GB** |
+| **Inter-chip bandwidth** | **1,200 GB/s** |
+| **Positioning** | Ultra-large-scale training |
+
+### 3.3 T-Head G900 (launched Q3 2028)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q3 2028 (expected September) |
+| **Positioning** | Flagship product for next-gen compute demand |
+| **Technology innovation** | Supports full-pipeline training of **trillion-parameter models** |
+
+### 3.4 Zhenwu series commercialization progress
+
+**Shipment data**:
+- **Cumulative shipments**: over **560k units** as of April 2026
+- **Customers served**: 20+ industries, **400+ customers**
+- **Autonomous driving**: over **130k units**, 30+ customers
+- **Finance**: over **100k units**, 150+ customers
+
+**Performance advantage**:
+- At equal precision, Zhenwu series single-machine inference outperforms comparable products by **50%+** on average
+- **Panjiu server** SuperNode architecture supports **trillion-parameter large models on a single node**
+
+**Full product line**:
+- **Zhenwu series AI chips**: training + inference
+- **Yitian series CPUs**: data center CPUs
+- **ICN Switch interconnect chip**: inter-chip interconnect
+- **Camel920 400G smart NIC**: high-speed networking
+- **Junyue series storage controller chips**: storage optimization
+
+---
+
+## 4. Other domestic chip vendor progress
+
+### 4.1 Cambricon MLU590 (launched Q1 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q1 2026 (expected March) |
+| **Architecture** | MLUarch 09 (in-house) |
+| **Process** | 7nm (SMIC N+2) |
+| **HBM capacity** | 128 GB HBM3 |
+| **TDP** | 350 W |
+| **Positioning** | Training + inference |
+
+**Technology innovations**:
+- **MLUarch 09 architecture**, 2× compute over MLU590
+- Supports **FP8/FP4 low-precision compute**, 2.5× inference energy-efficiency
+- Native **MoE architecture** support, 3× sparse-model inference efficiency
+
+**Commercialization progress**:
+- Q1 2026: sample deliveries begun
+- Key customers: **Chinese government, state-owned enterprises, research institutes**
+- Day-0 adaptation of **DeepSeek-V3 671B** achieved
+
+### 4.2 MetaX Xiyun C600 (launched Q2 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q2 2026 (expected June) |
+| **Architecture** | MXMACA 3.0 (CUDA-compatible) |
+| **Process** | 7nm (SMIC N+2) |
+| **HBM capacity** | 128 GB HBM3 |
+| **TDP** | 350 W |
+| **Positioning** | Training + inference |
+
+**Technology innovations**:
+- **MXMACA 3.0 architecture**, CUDA-compatible, low migration cost
+- Supports **FP8/FP4 low-precision compute**, 2× training energy-efficiency
+- **Fully domestic supply chain**, autonomous and controllable from chip to packaging
+
+**Commercialization progress**:
+- Q2 2026: sample deliveries begun
+- Key customers: **Chinese government, state-owned enterprises, research institutes**
+- Adapted models include **LLaMA, ChatGLM, Baichuan**
+
+### 4.3 Enflame S60 (launched Q3 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q3 2026 (expected September) |
+| **Architecture** | GCU 3.0 (in-house) |
+| **Process** | 7nm (SMIC N+2) |
+| **HBM capacity** | 96 GB HBM3 |
+| **TDP** | 300 W |
+| **Positioning** | Inference-specific |
+
+**Technology innovations**:
+- **GCU 3.0 architecture**, 2.5× inference performance over S30
+- Supports **FP8 low-precision compute**, 3× inference energy-efficiency
+- **Hardware-level virtualization**, single card split into **64 virtual instances**
+
+**Commercialization progress**:
+- Q3 2026: sample deliveries begun
+- Key customers: **Tencent Cloud, China Telecom, China Unicom**
+- Priced around **¥50,000/card**
+
+### 4.4 Iluvatar VA10 (launched Q4 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q4 2026 (expected December) |
+| **Architecture** | HVMA 2.0 (in-house) |
+| **Process** | 7nm (SMIC N+2) |
+| **HBM capacity** | 64 GB HBM3 |
+| **TDP** | 250 W |
+| **Positioning** | Video processing + AI inference |
+
+**Technology innovations**:
+- **HVMA 2.0 architecture**, 3× video processing performance over VA10
+- Supports **8K real-time video processing**, 2× video AI inference performance
+- **Hardware-level video codec**, supports H.264/H.265/AV1
+
+**Commercialization progress**:
+- Q4 2026: sample deliveries begun
+- Key customers: **ByteDance, Kuaishou, Bilibili**
+- Priced around **¥40,000/card**
+
+### 4.5 Hygon DCU K100 (launched Q2 2026)
+
+**Core specs**:
+
+| Item | Parameter |
+|------|------|
+| **Launch date** | Q2 2026 (expected June) |
+| **Architecture** | x86-compatible GPGPU (in-house DCU) |
+| **Process** | 7nm (SMIC N+2) |
+| **HBM capacity** | 128 GB HBM3 |
+| **TDP** | 400 W |
+| **Positioning** | Training + inference (x86 ecosystem-compatible) |
+
+**Technology innovations**:
+- **DCU architecture**, x86-compatible, extremely low migration cost
+- Supports **FP8/FP4 low-precision compute**, 2× training energy-efficiency
+- **Fully domestic supply chain**, autonomous and controllable from chip to packaging
+
+**Commercialization progress**:
+- Q2 2026: sample deliveries begun
+- Key customers: **Chinese government, state-owned enterprises, research institutes**
+- Adaptation of **DeepSeek-V3 671B** achieved
+
+---
+
+## 5. 2026 domestic AI chip market landscape
+
+### 5.1 Market share (2026)
+
+| Vendor | Market share | Shipments (10k units) | Flagship products |
+|------|----------|----------------|----------|
+| **Huawei Ascend** | **60%** | 80 | 910C, 950PR, 950DT |
+| **Baidu Kunlun** | **20%** | 20 | P800, M100 |
+| **Alibaba T-Head** | **10%** | 10 | M890, Zhenwu series |
+| **Cambricon** | **5%** | 5 | MLU590 |
+| **MetaX** | **3%** | 3 | C600 |
+| **Others** | **2%** | 2 | S60, VA10, K100 |
+
+### 5.2 Technology roadmap comparison
+
+| Vendor | Architecture route | Ecosystem compatibility | Process | Supply chain |
+|------|----------|----------|------|------|
+| **Huawei Ascend** | Da Vinci (in-house) | CANN (CUDA-compatible) | SMIC N+2/N+3 | Fully domestic |
+| **Baidu Kunlun** | XPU-P (in-house) | XPU-P (CUDA-compatible) | SMIC N+2/N+3 | Fully domestic |
+| **Alibaba T-Head** | In-house RISC-V | CUDA-compatible | SMIC N+2/N+3 | Fully domestic |
+| **Cambricon** | MLUarch (in-house) | CANN (CUDA-compatible) | SMIC N+2 | Fully domestic |
+| **MetaX** | MXMACA (CUDA-compatible) | CUDA-compatible | SMIC N+2 | Fully domestic |
+| **Enflame** | GCU (in-house) | In-house ecosystem | SMIC N+2 | Fully domestic |
+| **Iluvatar** | HVMA (in-house) | In-house ecosystem | SMIC N+2 | Fully domestic |
+| **Hygon** | DCU (x86-compatible) | x86 ecosystem-compatible | SMIC N+2 | Fully domestic |
+
+### 5.3 Supply chain security comparison
+
+| Vendor | Wafer fab | HBM supply | Packaging/test | Supply chain rating |
+|------|----------|----------|----------|----------------|
+| **Huawei Ascend** | SMIC | Huawei in-house HiBL/HiZQ | JCET/TFME | ⭐⭐⭐⭐⭐ |
+| **Baidu Kunlun** | SMIC | ChangXin Memory | JCET/TFME | ⭐⭐⭐⭐⭐ |
+| **Alibaba T-Head** | SMIC | ChangXin Memory | JCET/TFME | ⭐⭐⭐⭐⭐ |
+| **Cambricon** | SMIC | Samsung/Hynix | JCET/TFME | ⭐⭐⭐⭐ |
+| **MetaX** | SMIC | Samsung/Hynix | JCET/TFME | ⭐⭐⭐⭐ |
+| **Enflame** | SMIC | Samsung/Hynix | JCET/TFME | ⭐⭐⭐⭐ |
+| **Iluvatar** | SMIC | Samsung/Hynix | JCET/TFME | ⭐⭐⭐⭐ |
+| **Hygon** | SMIC | Samsung/Hynix | JCET/TFME | ⭐⭐⭐⭐ |
+
+---
+
+## 6. 2026 domestic AI chip technology breakthroughs
+
+### 6.1 Process breakthroughs
+
+| Node | 2026 status | Representative products | Notes |
+|----------|--------------|----------|------|
+| **7nm (N+2)** | Mass production | 910C, P800, M890 | SMIC N+2 mature |
+| **5nm (N+3)** | Mass production | 960, 970, M300 | SMIC N+3 mass production in 2026 |
+| **3nm** | In development | Next-gen products | Mass production expected 2028 |
+
+### 6.2 Packaging breakthroughs
+
+| Packaging | 2026 status | Representative products | Notes |
+|----------|--------------|----------|------|
+| **Chiplet** | Mature | 910C, 950PR/DT | Dual-die packaging, higher yield |
+| **3D stacking** | Mature | P800, M890 | HBM3e 3D stacking |
+| **CoWoS** | Mature | All high-end products | TSMC CoWoS |
+| **Domestic packaging** | Mass production | 960, 970, M300 | JCET/TFME mass production |
+
+### 6.3 Memory breakthroughs
+
+| Memory | 2026 status | Representative products | Notes |
+|----------|--------------|----------|------|
+| **HBM2E** | Mature | 910C | Samsung supply |
+| **HBM3** | Mature | P800, MLU590, C600 | Samsung/Hynix supply |
+| **HBM3e** | Mature | 950PR, M890 | Samsung/Hynix supply |
+| **Huawei in-house HBM** | Mass production | 950PR (HiBL 1.0), 950DT (HiZQ 2.0) | Huawei in-house, lower cost |
+| **HBM4** | In development | M300 (2027) | Mass production expected 2027 |
+
+### 6.4 Interconnect breakthroughs
+
+| Interconnect | 2026 status | Representative products | Notes |
+|----------|--------------|----------|------|
+| **AscendLink** | Mature | 910C, 950PR/DT | Huawei in-house, 784 GB/s |
+| **XCCL** | Mature | P800, M100 | Kunlun in-house, 1.2 TB/s |
+| **ICN** | Mature | M890, V900 | Alibaba in-house, 800 GB/s |
+| **Domestic optical modules** | Mass production | All SuperNodes | 6,912 LPO optical modules |
+
+---
+
+## 7. 2026 domestic AI chip ecosystem building
+
+### 7.1 Software ecosystem comparison
+
+| Vendor | Software stack | CUDA compatibility | Framework support | Developer community |
+|------|--------|------------|----------|------------|
+| **Huawei Ascend** | CANN + MindSpore | Compatible (low migration cost) | PyTorch/TensorFlow/MaxMind | 500k+ |
+| **Baidu Kunlun** | XPU-P + PaddlePaddle | Compatible (low migration cost) | PyTorch/TensorFlow/PaddlePaddle | 300k+ |
+| **Alibaba T-Head** | In-house + Alibaba Cloud | Compatible (low migration cost) | PyTorch/TensorFlow/Alibaba Cloud | 200k+ |
+| **Cambricon** | CANN + MindSpore | Compatible (low migration cost) | PyTorch/TensorFlow | 100k+ |
+| **MetaX** | MXMACA + CUDA | Compatible (very low migration cost) | PyTorch/TensorFlow/CUDA | 50k+ |
+| **Enflame** | In-house GCU stack | Incompatible (rewrite needed) | PyTorch/TensorFlow | 30k+ |
+| **Iluvatar** | In-house HVMA stack | Incompatible (rewrite needed) | PyTorch/TensorFlow | 20k+ |
+| **Hygon** | DCU + x86 | x86-compatible (very low migration cost) | PyTorch/TensorFlow/x86 | 50k+ |
+
+### 7.2 Developer community building
+
+| Vendor | Developers | Docs | Dev tools | Training/cert |
+|------|------------|----------|----------|----------|
+| **Huawei Ascend** | 500k+ | Complete | CANN Toolkit | HCCP cert |
+| **Baidu Kunlun** | 300k+ | Complete | XPU-P Toolkit | PaddlePaddle cert |
+| **Alibaba T-Head** | 200k+ | Complete | Alibaba Cloud Toolkit | Alibaba Cloud cert |
+| **Cambricon** | 100k+ | Fairly complete | CANN Toolkit | Cambricon cert |
+| **MetaX** | 50k+ | Fairly complete | MXMACA Toolkit | MetaX cert |
+| **Enflame** | 30k+ | Average | GCU Toolkit | Enflame cert |
+| **Iluvatar** | 20k+ | Average | HVMA Toolkit | Iluvatar cert |
+| **Hygon** | 50k+ | Complete | DCU Toolkit | Hygon cert |
+
+### 7.3 Large-model adaptation capability
+
+| Vendor | DeepSeek-V3 | LLama 3 | ChatGLM | Baichuan | ERNIE | Qwen |
+|------|--------------|---------|---------|----------|------|------|
+| **Huawei Ascend** | ✅ Day-0 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Baidu Kunlun** | ✅ Day-0 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Alibaba T-Head** | ✅ Day-0 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Cambricon** | ✅ Day-0 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **MetaX** | ✅ Day-1 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Enflame** | ✅ Day-3 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Iluvatar** | ✅ Day-7 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Hygon** | ✅ Day-3 | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+---
+
+## 8. 2026 domestic AI chip market trends
+
+### 8.1 Market drivers
+
+| Driver | Description |
+|----------|------|
+| **Policy support** | The national 15th Five-Year Plan incorporates the compute network as a major project, with stronger policy support |
+| **Supply chain security** | Escalating US export controls make domestic chips the only option |
+| **Cost advantage** | Domestic chips are 30-50% cheaper than imports, clear cost-performance edge |
+| **Technology breakthroughs** | Comprehensive breakthroughs in compute, memory, and energy efficiency |
+| **Maturing ecosystem** | Software ecosystems (CANN, XPU-P, MXMACA) reach 60-70% of CUDA maturity |
+
+### 8.2 Market challenges
+
+| Challenge | Description |
+|----------|------|
+| **Process** | 7nm/5nm still lags NVIDIA's 4nm/3nm |
+| **HBM bandwidth** | Domestic HBM bandwidth still lags NVIDIA |
+| **Software ecosystem** | Ecosystem maturity still lags CUDA |
+| **Capacity bottleneck** | Limited SMIC N+2/N+3 capacity, supply falls short of demand |
+| **International competition** | NVIDIA, AMD, Google and others keep innovating |
+
+### 8.3 Market forecast (2026-2030)
+
+| Year | China AI chip market (¥B) | Domestic share | Domestic market (¥B) | Notes |
+|------|---------------------------|--------------|-------------------------|------|
+| **2026** | 500 | 35% | 175 | Ascend 60%, Kunlun 20% |
+| **2027** | 700 | 50% | 350 | 960/970 launch, breakthroughs |
+| **2028** | 1,000 | 65% | 650 | Domestic tech approaches international level |
+| **2029** | 1,500 | 80% | 1,200 | Domestic tech surpasses international level |
+| **2030** | 2,000 | 90% | 1,800 | Substitution essentially complete |
+
+---
+
+## 9. Summary and outlook
+
+### 9.1 Core conclusions
+
+1. **2026 marks the full-scale explosion of domestic AI chips**, as the three giants Huawei Ascend, Baidu Kunlun, and Alibaba T-Head successively launch next-gen products
+2. **Significant technology breakthroughs** across compute, memory, energy efficiency, and system scaling
+3. **Controllable supply chain security**, fully autonomous from wafer fab to packaging and test
+4. **Accelerating ecosystem building**, software ecosystem maturity reaching 60-70% of CUDA
+5. **Rising market share**, domestic chips take 35% of China's AI chip market in 2026, projected 90% by 2030
+
+### 9.2 Future outlook
+
+**Short term (2026-2027)**:
+- Huawei Ascend 950PR/950DT mass deployment, clear 960/970 roadmap
+- Baidu Kunlun M100 inference chip ramps, M300 ultra-large multimodal training chip launches
+- Alibaba T-Head M890 3× performance, V900 launches
+- Domestic chip market share rises to **50%**
+
+**Medium term (2028-2029)**:
+- Huawei Ascend 960/970 mass production, 5nm process, 8 PFLOPS FP4 compute
+- Baidu Kunlun M300 mass production, supports trillion-parameter multimodal training
+- Alibaba T-Head G900 launches, becoming the next-gen compute flagship
+- Domestic tech approaches international level, market share to **80%**
+
+**Long term (2030+)**:
+- Domestic AI chips exceed **20%** of the global market
+- Transition from "following" to "running alongside" to "leading"
+- Huawei Ascend, Baidu Kunlun, Alibaba T-Head among the global TOP 5
+- China becomes a global center of AI chip technology innovation
+
+---
+
+## References
+
+1. Domestic AI chip "three powers" rise: substitution trend shifts from policy-driven to market-driven — Sohu
+2. 2026 domestic AI chip panorama: Huawei Ascend races Cambricon — ZPEDU
+3. Huawei unveils three-year Ascend AI chip roadmap — Jiemian News
+4. Ascend 950PR chip — Baidu Baike
+5. Ascend 950 chip — Baidu Baike
+6. Kunlun P800: technical breakthroughs and application prospects of a new-generation AI accelerator — YunTECH
+7. Kunlun P800 latest specs: P800 single-precision compute reaches 345 TFLOPS — Xueqiu
+
+---
+
+*Last updated: June 10, 2026*

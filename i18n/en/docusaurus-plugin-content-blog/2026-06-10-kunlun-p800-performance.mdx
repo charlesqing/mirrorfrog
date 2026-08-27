@@ -1,0 +1,395 @@
+---
+slug: kunlun-p800-performance
+title: 'Kunlun P800 Deep Dive: Performance Data, Architectural Innovation, and SuperNode Deployment'
+authors: [aicomputecards]
+tags: [kunlun-p800, baidu, domestic-ai-chip, xpu-p, tianchi-supernode]
+date: 2026-06-10
+description: 'A deep dive into Kunlun P800 performance data, three architectural innovations, Tianchi 256/512 SuperNode configuration, DeepSeek adaptation, and market positioning — showcasing Baidu third-generation AI accelerator breakthroughs.'
+---
+
+# Kunlun P800 Deep Dive: Performance Data, Architectural Innovation, and SuperNode Deployment
+
+**Kunlun P800** is Baidu's **third-generation AI accelerator** from Kunlunxin Technology, based on the in-house **XPU-P architecture**, with **345 TFLOPS peak FP16 compute** (surpassing NVIDIA H20's 148 TFLOPS). Launched in March 2024, it has become an important force among domestic AI training/inference accelerators.
+
+This article comprehensively analyzes this domestic AI chip's breakthroughs across five dimensions: **performance data, architectural innovation, SuperNode deployment, large-model adaptation, and market positioning**.
+
+---
+
+## 1. Core Performance Data
+
+### 1.1 Compute performance
+
+| Precision | Compute | Reference |
+|------|------|----------|
+| **FP16** | **345 TFLOPS** | **2.3×** NVIDIA H20 (148 TFLOPS) |
+| **FP32** | Not disclosed | Estimated ~170 TFLOPS |
+| **INT8** | 8-bit inference supported | Specific TOPS not disclosed |
+| **Low-power mode** | 128 TFLOPS @ 120W | Energy-efficiency-optimized scenarios |
+| **MoE optimization** | Native MoE support | 4.3× sparse-model inference efficiency |
+
+**Performance characteristics**:
+- **345 TFLOPS at FP16**, a new domestic AI chip compute benchmark
+- **2.3× compute** over NVIDIA H20 (H20 only 148 TFLOPS)
+- Native **MoE support**, 4.3× sparse-model inference efficiency (with specific optimization)
+
+### 1.2 Memory and bandwidth
+
+| Item | Parameter |
+|------|------|
+| **HBM type** | HBM3e (3D-stacked memory) |
+| **Memory capacity** | **128 GB** |
+| **Memory bandwidth** | **1.5 TB/s** |
+| **ECC protection** | End-to-end ECC supported |
+
+**Memory advantages**:
+- 128GB capacity supports full-pipeline training of **hundred-billion-parameter models**
+- 1.5 TB/s is a **high-end configuration** among HBM3e solutions
+- 3D stacking alleviates large-model training memory bottlenecks
+
+### 1.3 Power and energy efficiency
+
+| Item | Parameter |
+|------|------|
+| **TDP** | **400 W** |
+| **Low-power mode** | 128 TFLOPS @ 120W |
+| **Energy efficiency (FP16)** | ~0.86 TFLOPS/W |
+| **vs. H100** | ~57% of H100 power (400W vs 700W) |
+
+**Energy efficiency characteristics**:
+- At **equal compute**, significantly lower power than NVIDIA H100
+- **Dynamic power adjustment**, auto-switching performance modes by load
+- Suited to **large-scale cluster deployment**, reducing data center PUE pressure
+
+### 1.4 Process and architecture
+
+| Item | Parameter |
+|------|------|
+| **Process** | **7nm** |
+| **Transistors** | **Over 50 billion** |
+| **Architecture** | In-house XPU-P |
+| **Form factor** | **OAM module** |
+| **Virtualization** | Hardware vXPU, single card split into **32 virtual instances** |
+
+**Architectural innovation**:
+- **Heterogeneous compute architecture**, decoupling matrix-multiply units from tensor cores
+- **Parallel compute and data movement**, theoretical compute 2.3× previous generation
+- **Hardware virtualization**, single physical card divided into multiple logical cards, raising utilization
+
+---
+
+## 2. Three Architectural Innovations
+
+### 2.1 Heterogeneous compute architecture optimization
+
+**Technology innovations**:
+- **Matrix-multiply / tensor-core decoupling**: parallelizes compute and data movement
+- **Dynamic task scheduling**: auto-allocates compute by load
+- **Sparse compute optimization**: native MoE support, 4.3× sparse-model inference efficiency
+
+**Performance gains**:
+- Theoretical compute 2.3× previous generation (Kunlun 2nd gen)
+- 1.8× training throughput at equal power
+
+### 2.2 3D-stacked memory technology
+
+**Technology innovations**:
+- **HBM3e memory** with 3D stacking
+- Single-card **128GB** capacity, **1.5 TB/s** bandwidth
+- **End-to-end ECC** for data reliability
+
+**Performance gains**:
+- Alleviates large-model training **memory bottleneck**
+- Supports full-pipeline training of **hundred-billion-parameter models** (no model-parallel splitting)
+- 5× bandwidth vs GDDR6
+
+### 2.3 Adaptive interconnect protocol
+
+**Technology innovations**:
+- **Dynamic die-to-die topology adjustment**
+- Built-in **NPU for zero-copy data transfer**, reducing CPU intervention
+- **ML-based congestion control**, 30% lower packet loss than traditional ECN
+
+**Performance gains**:
+- In **256-node clusters**, 40% lower communication latency
+- Inter-chip bandwidth **1.2 TB/s** (Tianchi 256-node)
+- Smooth scaling to **ten-thousand-card clusters**
+
+---
+
+## 3. Tianchi SuperNode Deployment
+
+### 3.1 Tianchi 256-node
+
+**System specs**:
+
+| Item | Configuration |
+|------|------|
+| **P800 chips per node** | 8 |
+| **Inter-chip bandwidth** | **1.2 TB/s** (40% over previous gen) |
+| **Max model parameters** | **500 billion** |
+| **Typical power** | 12 kW |
+| **Interconnect** | Hardware RDMA acceleration + dynamic traffic scheduling |
+
+**Core technology breakthroughs**:
+1. **Interconnect bandwidth engineering**:
+   - Built-in NPU for **zero-copy data transfer**, reducing CPU intervention
+   - **Dynamic traffic scheduling**: auto-adjusts routes by real-time link quality
+   - **Predictive congestion control**: ML-based congestion algorithm
+
+2. **Virtualization resource utilization**:
+
+| Split | Actual perf | Theoretical | Utilization |
+|----------|----------|----------|--------|
+| 1 card | 100% | 100% | 100% |
+| 2 cards | 185% | 200% | 92.5% |
+| 4 cards | 340% | 400% | 85% |
+
+### 3.2 Tianchi 512-node
+
+**System specs**:
+
+| Item | Configuration |
+|------|------|
+| **P800 chips per node** | 16 |
+| **Inter-chip bandwidth** | **2.4 TB/s** |
+| **Max model parameters** | **1.2 trillion** |
+| **Typical power** | 24 kW |
+| **Recovery speed** | Training resumes within **5 min** of node failure |
+
+**Core technology breakthroughs**:
+1. **Ultra-large-scale training support**:
+   - **Mixed-precision optimization**: adds **NF4 4-bit quantization** on FP16/BF16, 75% less memory
+   - **Gradient checkpoint acceleration**: reconstructs compute graph, activation storage O(n)→O(√n), 1.8× training speed
+   - **Failure recovery**: distributed snapshot, 10× faster than traditional checkpoint
+
+2. **Communication efficiency optimization**:
+   - **3D parallelism** (data + model + pipeline), compute/communication ratio 12:1
+   - In 1.75-trillion-parameter MoE training, communication overhead **below 15%**
+
+### 3.3 Tianchi series performance comparison
+
+| Metric | Tianchi 256 | Tianchi 512 | Improvement |
+|------|-------------|-------------|----------|
+| **Max model parameters** | 500 billion | 1.2 trillion | **2.4×** |
+| **Inter-chip bandwidth** | 1.2 TB/s | 2.4 TB/s | **2×** |
+| **Typical power** | 12 kW | 24 kW | 2× |
+| **Recovery time** | &lt;5 min | &lt;5 min | Flat |
+| **Latency reduction** | 40% | 50% | **10 pts** |
+
+---
+
+## 4. Large-Model Adaptation
+
+### 4.1 DeepSeek series adaptation
+
+**Certification**:
+- February 2025: passed **DeepSeek-V3/R1 671B** adaptation certification
+- Supports **single-machine 8-card** full DeepSeek-V3 671B
+- Supports **DeepSeek MoE full-parameter training** with just **32 machines**
+
+**Performance data** (DeepSeek-V3 671B):
+| Metric | P800 | NVIDIA H100 | Ratio |
+|------|-------|--------------|------|
+| **Inference speed (tokens/s)** | 12,500 | 14,200 | **88%** |
+| **Training throughput (samples/s)** | 8.5 | 10.2 | **83%** |
+| **First-token latency (ms)** | 95 | 85 | 112% |
+| **Memory usage (GB)** | 118 | 72 | 164% |
+
+**Conclusion**:
+- P800 reaches **88%** of H100 inference speed, gap significantly narrowed
+- **83%** of H100 training throughput
+- **128GB large memory** advantage clear, supports larger batch sizes
+
+### 4.2 Other large-model adaptation
+
+| Model | Deployment | Notes |
+|------|----------|------|
+| **ERNIE series** | Baidu Cloud native | Baidu Smart Cloud main deployment |
+| **LLaMA series** | Supported | Includes MoE-distilled versions |
+| **Qwen series** | Supported | Alibaba Cloud model adaptation |
+| **ChatGLM series** | Supported | Zhipu AI model adaptation |
+| **Baichuan series** | Supported | Baichuan Intelligent model adaptation |
+
+**CUDA compatibility**:
+- Models runnable on CUDA migrate to P800 at **low cost**
+- Supports open-source inference frameworks such as **vLLM**
+- ~**14% of CUDA low-level communication code** needs rewriting (sparse-model inference needs specific optimization)
+
+### 4.3 Ten-thousand-card cluster validation
+
+**Cluster scale**:
+- **Fully in-house 30,000-card cluster** deployed
+- Smooth scaling to **ten-thousand-card clusters**
+- Linear scaling efficiency **85%+** (thousand-card scale)
+
+**Stability data**:
+- **30 days continuous training** with no failures
+- Training resumes within **5 min** of node failure
+- Cluster availability **99.9%**
+
+---
+
+## 5. Performance Comparison Analysis
+
+### 5.1 vs. NVIDIA H20
+
+| Item | Kunlun P800 | NVIDIA H20 | Notes |
+|------|------------|-------------|------|
+| **FP16 compute** | 345 TFLOPS | 148 TFLOPS | P800 leads **2.3×** |
+| **HBM capacity** | 128 GB | 64 GB | P800 +**100%** |
+| **HBM bandwidth** | 1.5 TB/s | 4.0 TB/s | H20 clear bandwidth lead |
+| **TDP** | 400 W | 400 W | Flat |
+| **Process** | 7nm | 4nm (TSMC) | H20 more advanced |
+| **Software ecosystem** | XPU-P (CUDA-compatible) | CUDA | H20 more mature |
+| **Supply** | China autonomous | Export-controlled | P800 no supply-chain risk |
+
+**Conclusion**:
+- In **FP16 compute**, P800 leads H20 2.3×
+- In **memory capacity**, P800 leads 100%
+- In **HBM bandwidth**, H20 leads 2.67×
+- In **supply chain security**, P800 wins outright
+
+### 5.2 vs. NVIDIA H100
+
+| Item | Kunlun P800 | NVIDIA H100 | Notes |
+|------|------------|-------------|------|
+| **FP16 compute** | 345 TFLOPS | ~1,300 TFLOPS | H100 leads **3.77×** |
+| **HBM capacity** | 128 GB | 80 GB | P800 +**60%** |
+| **HBM bandwidth** | 1.5 TB/s | 3.35 TB/s | H100 leads **2.23×** |
+| **TDP** | 400 W | 700 W | P800 only **57%** of H100 power |
+| **Process** | 7nm | 4nm (TSMC) | H100 more advanced |
+| **DeepSeek inference speed** | 12,500 tokens/s | 14,200 tokens/s | P800 reaches **88%** of H100 |
+
+**Conclusion**:
+- In **raw compute**, H100 leads P800 3.77×
+- In **energy efficiency**, P800 clearly outperforms H100 (0.86 vs 1.86 TFLOPS/W)
+- In **actual inference performance**, P800 reaches 88% of H100, gap significantly narrowed
+- In **cost**, P800 is ~**50%** of H100
+
+### 5.3 vs. Ascend 910C
+
+| Item | Kunlun P800 | Ascend 910C | Notes |
+|------|------------|--------------|------|
+| **FP16 compute** | 345 TFLOPS | 800 TFLOPS | 910C leads **2.32×** |
+| **HBM capacity** | 128 GB | 128 GB | Flat |
+| **HBM bandwidth** | 1.5 TB/s | 784 GB/s | P800 leads **91%** |
+| **TDP** | 400 W | 310 W | 910C lower power |
+| **Process** | 7nm | 7nm (SMIC N+2) | Same |
+| **Software ecosystem** | XPU-P (CUDA-compatible) | CANN (CUDA-compatible) | Each with strengths |
+
+**Conclusion**:
+- In **FP16 compute**, 910C leads P800 2.32×
+- In **HBM bandwidth**, P800 leads 910C 91%
+- In **software ecosystem**, both CUDA-compatible, similar migration cost
+- In **scenarios**, P800 suits inference, 910C suits training
+
+---
+
+## 6. Market Positioning and Competitive Advantages
+
+### 6.1 Target markets
+
+**Core markets**:
+1. **Baidu Smart Cloud**: core compute base of the Baige platform
+2. **China Telecom/Mobile/Unicom**: won AI inference server procurement bids
+3. **Large-model startups**: cost-sensitive, high compute demand
+4. **Intelligent compute centers**: ten-thousand-card clusters validated
+
+**Edge markets**:
+1. **Autonomous driving**: end-to-end large-model training
+2. **Smart finance**: risk control, robo-advisory
+3. **Smart healthcare**: medical imaging, drug discovery
+
+### 6.2 Competitive advantages
+
+| Advantage | Description |
+|------|------|
+| **Compute leadership** | FP16 345 TFLOPS, 2.3× over H20 |
+| **Large memory** | 128GB HBM3e, full-pipeline training of hundred-billion-parameter models |
+| **High energy efficiency** | 400W TDP delivers 345 TFLOPS, better than H100 |
+| **System scaling** | Tianchi 256/512 SuperNodes, ten-thousand-card clusters |
+| **Software ecosystem** | XPU-P CUDA-compatible, low migration cost |
+| **Cost advantage** | ~50% of H100, clear cost-performance edge |
+| **Supply chain security** | China autonomous, no export-control risk |
+
+### 6.3 Weaknesses and improvement directions
+
+| Weakness | Improvement direction |
+|------|----------|
+| **Single-chip compute** | Next-gen M300 to adopt 5nm, target doubling |
+| **HBM bandwidth** | M300 to adopt HBM4, bandwidth to 3.2 TB/s |
+| **Software ecosystem** | Continued XPU-P + PaddlePaddle investment |
+| **Process** | Deep cooperation with SMIC to ramp N+2 (7nm-class) |
+
+---
+
+## 7. 2026 Shipment Plan and Market Forecast
+
+### 7.1 Shipment plan
+
+| Period | Shipments | Cumulative | Key customers |
+|------|--------|----------|----------|
+| **2024 Q1-Q4** | 50k | 50k | Baidu Smart Cloud |
+| **2025 Q1-Q4** | 150k | 200k | China Mobile, China Telecom |
+| **2026 Q1-Q2** | 100k | 300k | China Unicom, iFlytek |
+| **2026 Q3-Q4** | 100k | 400k | Government projects, large-model startups |
+| **2027** | 500k | 900k | Global market (Southeast Asia, Middle East, Latin America) |
+
+**Capacity bottleneck**:
+- Constrained by **wafer fab capacity**, supply falls short of demand
+- 2026 plan of **200k chips**, actual capacity ~**150k**
+- Kunlunxin deepening cooperation with **SMIC and Hua Hong** to raise capacity
+
+### 7.2 Market forecast
+
+**China AI chip market (2026)**:
+- **Total**: ~¥50B
+- **Domestic share**: ~35% (¥17.5B)
+- **Kunlun P800 share**: ~**20%** (¥3.5B, ~200k chips)
+
+**Global AI chip market (2026)**:
+- **Total**: ~$200B
+- **Kunlun share**: ~**1%** ($2B)
+- **Growth drivers**: China-market localization + Belt and Road exports
+
+---
+
+## 8. Summary and Outlook
+
+### 8.1 Core conclusions
+
+1. **Kunlun P800 is a major domestic AI chip breakthrough**, leading comprehensively in FP16 compute, memory capacity, and energy efficiency
+2. **Tianchi 256/512 SuperNodes** prove domestic chips can replace imported ones
+3. **DeepSeek-V3 671B adaptation success** validates P800 maturity in large-model training/inference
+4. **200k chips shipped in 2026**, projected 20% of China's AI chip market
+
+### 8.2 Future outlook
+
+**Short term (2026-2027)**:
+- P800 continues ramping, shipments exceed **500k**
+- Tianchi 512-node deployments over **100 units**
+- Software ecosystem (XPU-P + PaddlePaddle) maturity approaches **60%** of CUDA
+
+**Medium term (2028-2029)**:
+- Next-gen M300 mass production, **5nm process**, target **700 TFLOPS FP16**
+- M100 (inference-specific) becomes inference-market mainstay, share over **15%**
+- Supports **trillion-parameter model** full-pipeline training
+
+**Long term (2030+)**:
+- Kunlun series becomes **TOP 5** of the global AI chip market
+- Domestic AI chips exceed **15%** of the global market
+- Transition from "following" to "running alongside"
+
+---
+
+## References
+
+1. Kunlun P800 parameters — CSDN Library
+2. Kunlun P800: technical breakthroughs and application prospects of a new-generation AI accelerator — YunTECH
+3. Kunlun P800 latest specs: P800 single-precision compute reaches 345 TFLOPS — Xueqiu
+4. Exclusive: Kunlun — domestic AI card full DeepSeek training/inference adaptation — Kunlunxin official
+5. Kunlun P800 detailed specs — MirrorFrog: https://www.mirrorfrog.com/en/docs/cards/others/kunlun-p800
+
+---
+
+*Last updated: June 10, 2026*

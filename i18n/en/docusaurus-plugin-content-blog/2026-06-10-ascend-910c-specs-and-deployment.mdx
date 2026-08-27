@@ -1,0 +1,307 @@
+---
+slug: ascend-910c-specs-and-deployment
+title: 'Huawei Ascend 910C Deep Dive: Specs, Deployment, and Full Performance Overview'
+authors: [aicomputecards]
+tags: [huawei-ascend, ascend-910c, ai-chip, domestic-compute, cloudmatrix]
+date: 2026-06-10
+description: 'A deep dive into Huawei Ascend 910C specs, deployment cases (CloudMatrix 384 SuperNode, DeepSeek-V4-Pro training), performance comparisons, and market positioning — showcasing the breakthroughs of domestic AI chips.'
+---
+
+# Huawei Ascend 910C Deep Dive: Specs, Deployment, and Full Performance Overview
+
+**Huawei Ascend 910C** (Ascend 910C), Huawei's third-generation Ascend AI chip, adopts innovative dual-die (Chiplet) packaging and began mass supply in May 2025, becoming the backbone of domestic AI compute.
+
+This article comprehensively analyzes this domestic flagship AI chip across four dimensions: **technical specs, deployment cases, performance comparison, and market positioning**.
+
+---
+
+## 1. Core Technical Specifications
+
+### 1.1 Chip architecture and process
+
+| Item | Parameter |
+|------|------|
+| **Architecture** | Da Vinci (dual-die packaging) |
+| **Process** | SMIC N+2 (7nm-class) |
+| **Packaging** | Chiplet (2× Ascend 910B compute dies) |
+| **Transistors** | ~53 billion |
+| **Die size** | ~800mm² (estimated) |
+
+**Technology highlights**:
+- **Dual-die Chiplet packaging** integrates two 910B chips, breaking the single-die yield bottleneck
+- **Centerless I/O die design** lets the two compute dies interconnect directly, reducing communication latency
+- **SMIC N+2 process** delivers 7nm-class performance with a controllable, autonomous supply chain
+
+### 1.2 Compute performance
+
+| Precision | Compute | Reference |
+|------|------|----------|
+| **BF16** | **800 TFLOPS** | ~60% of NVIDIA H100 |
+| **FP16** | ~800 TFLOPS | Close to H100 at same precision |
+| **INT8** | ~1600 TOPS | Clear inference advantage |
+| **FP32** | Not disclosed | Training mainly uses BF16/FP16 |
+
+**Performance characteristics**:
+- **800 TFLOPS at BF16**, a new domestic AI chip compute benchmark
+- ~**2× compute** over 910B (dual-die stacking + architecture optimization)
+- No **FP8 precision** support (NVIDIA Blackwell's strength)
+
+### 1.3 Memory and interconnect
+
+| Item | Parameter |
+|------|------|
+| **HBM type** | HBM2E (8 stacks) |
+| **Memory capacity** | ~128 GB (combined dual-die) |
+| **Memory bandwidth** | **784 GB/s** |
+| **Interconnect protocol** | Huawei AscendLink (in-house) |
+| **Interconnect bandwidth** | 400 GB/s unidirectional (800 GB/s bidirectional) |
+
+**Memory advantages**:
+- 128GB capacity supports full-pipeline training of **hundred-billion-parameter models**
+- 784 GB/s is a **high-end configuration** among HBM2E solutions
+- In-house AscendLink protocol supports **384-chip all-optical interconnect**
+
+### 1.4 Power and energy efficiency
+
+| Item | Parameter |
+|------|------|
+| **TDP (dual-die)** | **~310 W** |
+| **Energy efficiency (BF16)** | ~2.58 TFLOPS/W |
+| **vs. H100** | ~45% of H100's power, comparable energy efficiency |
+
+**Energy efficiency advantages**:
+- At **equal compute**, significantly lower power than NVIDIA H100 (700W)
+- **7nm-class process**, ~30% better energy efficiency than 910B
+- Suited to **large-scale cluster deployment**, reducing data center PUE pressure
+
+---
+
+## 2. Key Deployment Cases
+
+### 2.1 CloudMatrix 384 SuperNode
+
+**System specs**:
+
+| Item | Configuration |
+|------|------|
+| **Chip count** | 384 Ascend 910C |
+| **Cabinets** | 16 (12 compute + 4 network) |
+| **Total HBM** | ~49 TB (128GB × 384) |
+| **Interconnect** | All-optical mesh network |
+| **Optical modules** | 6,912 LPO optical modules |
+| **System BF16 compute** | **~300 PFLOPS** |
+
+**Performance comparison**:
+- CloudMatrix 384's **total BF16 compute exceeds NVIDIA GB200 NVL72** (72× B200)
+- In **large-model training**, 384-chip 910C linear scaling efficiency reaches 85%+
+- Supports smooth scaling to **ten-thousand-card clusters** for ultra-large training
+
+**Deployment progress**:
+- As of June 2026, **over 500 CloudMatrix 384 SuperNodes deployed**
+- Key customers: **China Telecom, China Mobile, China Unicom, Huawei Cloud, iFlytek**
+- Scenarios: **large-model training, smart customer service, autonomous-driving simulation, scientific computing**
+
+### 2.2 DeepSeek-V4-Pro full-parameter post-training
+
+**Breakthrough significance**:
+
+On June 5, 2026, the AI training platform of Shenzhen Hetao College — together with **Harbin Institute of Technology (Shenzhen), Shenzhen Big Data Research Institute, Huawei, and Shenzhen Zhicheng AI Compute Platform** — completed **full-parameter post-training of the 1.6-trillion-parameter DeepSeek-V4-Pro large model** on an Ascend 910C compute cluster.
+
+**Technical highlights**:
+- Among the world's first to run full-parameter post-training of a trillion-parameter model on a **domestic compute platform**
+- Validates Ascend 910C maturity in **ultra-large-model training**
+- Proves domestic AI chips now have the **capability to replace imported chips**
+
+**Performance data** (official disclosure):
+- **Training throughput**: ~60% of an H100 cluster (BF16 precision)
+- **Memory utilization**: 92% (128GB HBM2E capacity advantage)
+- **Interconnect efficiency**: 384-chip linear scaling efficiency 85%+
+- **Stability**: 30 consecutive days of training with no failures
+
+### 2.3 Commercial deployment cases
+
+#### Case 1: A provincial big-data center (300 P FLOPS compute center)
+- **Scale**: 300 P FLOPS AI compute (~1,000× 910C)
+- **Scenarios**: government large model, city brain, smart transportation
+- **Deployment**: September 2025
+- **Investment**: ~¥200M (120 servers)
+
+#### Case 2: Huawei Cloud AI training platform
+- **Chips**: over 10,000 Ascend 910C
+- **Customers served**: over 500 enterprises
+- **Model support**: Pangu large model, third-party open-source models (LLaMA, ChatGLM, etc.)
+- **Global deployment**: China, Southeast Asia, Middle East, Latin America
+
+#### Case 3: iFlytek smart education
+- **Scale**: 256 Ascend 910C
+- **Scenarios**: smart-education large model, speech recognition, machine translation
+- **Performance**: 90% faster training than 910B
+
+---
+
+## 3. Performance Comparison Analysis
+
+### 3.1 vs. NVIDIA H100
+
+| Item | Ascend 910C | NVIDIA H100 | Notes |
+|------|--------------|-------------|------|
+| **BF16 compute** | 800 TFLOPS | ~1,300 TFLOPS | 910C ~60% of H100 |
+| **HBM capacity** | 128 GB | 80 GB | 910C +60% |
+| **HBM bandwidth** | 784 GB/s | 3.35 TB/s | H100 clear bandwidth lead |
+| **TDP** | 310 W | 700 W | 910C only 45% of H100 power |
+| **Process** | 7nm (SMIC N+2) | 4nm (TSMC) | H100 more advanced |
+| **Software ecosystem** | CANN (CUDA-compatible) | CUDA | H100 more mature |
+| **Supply** | China autonomous | Export-controlled | 910C no supply-chain risk |
+
+**Conclusion**:
+- In **raw compute**, 910C is ~60% of H100
+- In **memory capacity**, 910C leads by 60%, suited to large-model training
+- In **energy efficiency**, 910C clearly outperforms H100
+- In **supply chain security**, 910C wins outright
+
+### 3.2 vs. Ascend 910B
+
+| Item | Ascend 910C | Ascend 910B | Improvement |
+|------|--------------|-------------|----------|
+| **Architecture** | Dual-die Chiplet | Single die | — |
+| **BF16 compute** | 800 TFLOPS | ~400 TFLOPS | **+100%** |
+| **HBM capacity** | 128 GB | 64 GB | **+100%** |
+| **TDP** | 310 W | 310 W | Flat (single-die power) |
+| **Process** | SMIC N+2 | SMIC N+2 | Same |
+| **Yield** | ~40% | ~30% | **+33%** |
+
+**Conclusion**:
+- 910C's **dual-die packaging** doubles compute and memory capacity
+- Yield up from 910B's 30% to **40%**, lowering manufacturing cost
+- At **equal power**, 100% performance gain, significantly better energy efficiency
+
+### 3.3 Inference performance (DeepSeek measured)
+
+**Test environment**:
+- **Model**: DeepSeek-V3 (671B parameters)
+- **Hardware**: Ascend 910C vs NVIDIA H100
+- **Precision**: BF16
+- **Batch size**: 64
+
+**Results**:
+
+| Metric | Ascend 910C | NVIDIA H100 | Ratio |
+|------|--------------|-------------|------|
+| **Inference speed (tokens/s)** | 8,500 | 14,200 | **60%** |
+| **First-token latency (ms)** | 120 | 85 | 141% |
+| **Power (W)** | 310 | 700 | 44% |
+| **Cost (¥10k/card)** | ~10 | ~18 | 56% |
+
+**Conclusion**:
+- 910C inference speed is **60%** of H100, but power only 44%
+- In **cost-sensitive scenarios**, 910C's cost-performance advantage is clear
+- For **China-market localization needs**, 910C is the only option
+
+---
+
+## 4. Market Positioning and Competitive Advantages
+
+### 4.1 Target markets
+
+**Core markets**:
+1. **Chinese government and SOEs**: localization, data security, autonomy
+2. **Large-model startups**: cost-sensitive, high compute demand
+3. **Operators and cloud providers**: large-scale deployment, high efficiency requirements
+4. **Research and education**: ultra-large-scale computing, talent development
+
+**Edge markets**:
+1. **Autonomous driving**: end-to-end large-model training
+2. **Smart healthcare**: medical imaging, drug discovery
+3. **Fintech**: risk control, robo-advisory
+
+### 4.2 Competitive advantages
+
+| Advantage | Description |
+|------|------|
+| **Autonomy** | SMIC N+2 process + Huawei in-house architecture, no supply-chain risk |
+| **Large memory** | 128GB HBM2E, full-pipeline training of hundred-billion-parameter models |
+| **High energy efficiency** | 310W TDP delivers 800 TFLOPS, close to H100 efficiency |
+| **System scaling** | CloudMatrix 384 SuperNode, total compute exceeds GB200 NVL72 |
+| **Software ecosystem** | CANN CUDA-compatible, lower migration cost |
+| **Cost advantage** | ~¥100k/card, ~44% cheaper than H100 |
+
+### 4.3 Weaknesses and improvement directions
+
+| Weakness | Improvement direction |
+|------|----------|
+| **Single-chip compute** | Next-gen 910D to adopt 3nm, target doubling |
+| **HBM bandwidth** | 950 series to adopt in-house HBM (HiBL 1.0), bandwidth to 4 TB/s |
+| **Software ecosystem** | Continued CANN + MindSpore investment, expand developer community |
+| **Process** | Deep cooperation with SMIC to ramp N+3 (5nm-class) |
+
+---
+
+## 5. 2026 Shipment Plan and Market Forecast
+
+### 5.1 Shipment plan
+
+| Period | Shipments | Cumulative | Key customers |
+|------|--------|----------|----------|
+| **2025 Q2-Q4** | 200k | 200k | Huawei Cloud, China Telecom |
+| **2026 Q1-Q2** | 300k | 500k | China Mobile, China Unicom, iFlytek |
+| **2026 Q3-Q4** | 300k | 800k | Government projects, large-model startups |
+| **2027** | 1,000k | 1,800k | Global market (Southeast Asia, Middle East, Latin America) |
+
+**Capacity bottleneck**:
+- SMIC N+2 capacity ~**100k wafers/month**, Ascend 910C ~30% of that
+- 2026 plan of **800k chips** needs ~**400k wafers**, requiring 80%+ utilization
+- Huawei prioritizes 910C capacity via **deep SMIC cooperation**
+
+### 5.2 Market forecast
+
+**China AI chip market (2026)**:
+- **Total**: ~¥50B
+- **Domestic share**: ~35% (¥17.5B)
+- **Ascend 910C share**: ~**60%** (¥10.5B, ~800k chips)
+
+**Global AI chip market (2026)**:
+- **Total**: ~$200B
+- **Huawei share**: ~**5%** ($10B)
+- **Growth drivers**: China-market localization + Belt and Road exports
+
+---
+
+## 6. Summary and Outlook
+
+### 6.1 Core conclusions
+
+1. **Ascend 910C is a milestone domestic AI chip**, with comprehensive breakthroughs in compute, memory, energy efficiency, and system scaling
+2. **CloudMatrix 384 SuperNode** proves domestic chips can replace imported ones
+3. **DeepSeek-V4-Pro training success** validates 910C maturity in ultra-large-model training
+4. **800k chips shipped in 2026**, projected 60% of China's AI chip market
+
+### 6.2 Future outlook
+
+**Short term (2026-2027)**:
+- 910C continues ramping, shipments exceed **1,000k**
+- CloudMatrix 384 deployments over **1,000 units**
+- Software ecosystem (CANN + MindSpore) maturity approaches **70%** of CUDA
+
+**Medium term (2028-2029)**:
+- Next-gen 910D mass production, **3nm process**, target **1.6 PFLOPS BF16**
+- 950 series (PR/DT) becomes inference-market mainstay, share over **30%**
+- 960/970 launch, **N+3 process**, supports trillion-parameter models
+
+**Long term (2030+)**:
+- Huawei Ascend series becomes **TOP 3** of the global AI chip market
+- Domestic AI chips exceed **20%** of the global market
+- Transition from "following" to "running alongside" to "leading"
+
+---
+
+## References
+
+1. Huawei Ascend 910C — Baidu Baike
+2. Huawei Ascend series AI chip detailed parameter comparison (2025-2028) — EET-China
+3. Huawei Ascend 910C compute cluster powers domestic chip's successful trillion-scale AI large-model training — QQ News
+4. Huawei Ascend 910C completes DeepSeek V4 Pro training — Huxiu
+5. Huawei Ascend 910C measured efficiency surpasses H100, AI Infra software-hardware co-optimization shines at ten-thousand-card cluster — CNBlogs
+
+---
+
+*Last updated: June 10, 2026*

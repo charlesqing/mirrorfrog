@@ -1,0 +1,184 @@
+---
+slug: amd-mi455x-ces-2026-launch
+title: 'AMD MI455X Stuns at CES 2026: AI Chip Performance Up 1000x in 4 Years'
+authors: [aicomputecards]
+tags: [amd, mi400, mi455x, ces-2026, instinct, ai-accelerator, cdna-5, hbm4]
+date: 2026-06-16
+description: 'On January 5, 2026, AMD unveiled the MI400 series at CES 2026. The flagship MI455X uses a 2nm+3nm hybrid process, 432GB HBM4, and reaches 40 PFLOPS FP4 (20 PFLOPS FP8). Lisa Su declared: "4 years ago, MI250 AI performance; today MI455X is 1000x that."'
+---
+
+# AMD MI455X Stuns at CES 2026: AI Chip Performance Up 1000× in 4 Years
+
+On January 5, 2026, on the opening day of **CES 2026** (Consumer Electronics Show), AMD Chair and CEO **Dr. Lisa Su** unveiled in her keynote: the **Instinct MI400 series AI accelerators**.
+
+The most eye-catching is **MI455X** — AMD's most powerful AI accelerator ever, using a **2nm + 3nm hybrid process**, **432GB HBM4**, with FP4 compute up to **40 PFLOPS** (20 PFLOPS FP8).
+
+## Key highlights
+
+- **MI455X**: FP4 **40 PFLOPS**, FP8 **20 PFLOPS**, 10× over MI355X
+- **MI450**: cost-performance version, FP4 **28 PFLOPS**, 288GB HBM4
+- **Process upgrade**: world's first AI chip with **2nm + 3nm hybrid process** (GCD on 2nm, MCD on 3nm)
+- **Memory upgrade**: from MI350X's 288GB HBM3e to **432GB HBM4** (MI455X)
+- **Bandwidth upgrade**: from MI350X's 8 TB/s to **19.6 TB/s** (2.45×)
+- **Architecture upgrade**: from CDNA 4 to **CDNA 5**
+- **Mass production**: MI455X Q4 2026, MI450 Q3 2026
+
+## Full MI400 series specs
+
+> 📌 **Important correction (2026-06-16)**: After official spec verification, MI455X memory is **432GB HBM4** (not the earlier reported 288GB), and FP4 compute is **40 PFLOPS**. Corrected herein.
+
+| Model | Positioning | Memory | FP4 compute | FP8 compute | TDP (est.) |
+|------|------|------|----------|----------|------------|
+| **MI455X** | Flagship training+inference | **432GB HBM4** | **40 PFLOPS** | 20 PFLOPS | ~1,000W |
+| **MI450** | Cost-performance training | 288GB HBM4 | 28 PFLOPS | 14 PFLOPS | ~800W |
+| **MI440X** | Enterprise inference | 216GB HBM4 | 25 PFLOPS | 12.5 PFLOPS | ~600W |
+| **MI430X** | HPC / scientific computing | 192GB HBM4 | 20 PFLOPS | 10 PFLOPS | ~500W |
+| **MI400X** | General / edge inference | 128GB HBM4 | 12 PFLOPS | 6 PFLOPS | ~400W |
+
+**Key upgrades (vs MI350 series)**:
+- Memory: HBM3e → **HBM4**, capacity +**50%** (432GB vs 288GB)
+- Bandwidth: **19.6 TB/s** (vs MI350's 8 TB/s, +**2.45×**)
+- Compute: FP4 **40 PFLOPS** (vs MI355X's 20 PFLOPS, +**2×**)
+- Process: **2nm + 3nm hybrid** (GCD on 2nm, MCD on 3nm)
+- Architecture: **CDNA 5** (vs MI350's CDNA 4)
+
+## Performance vs. MI355X
+
+| Metric | MI355X (2025) | MI455X (2026) | Improvement |
+|------|-------------------|-------------------|------|
+| **FP4 compute** | 20 PFLOPS | **40 PFLOPS** | **2×** |
+| **FP8 compute** | 10 PFLOPS | **20 PFLOPS** | **2×** |
+| **Memory capacity** | 288GB HBM3e | **432GB HBM4** | **1.5×** |
+| **Memory bandwidth** | 8 TB/s | **19.6 TB/s** | **2.45×** |
+| **Process** | TSMC 3nm | **2nm + 3nm hybrid** | New gen |
+| **Architecture** | CDNA 4 | **CDNA 5** | New gen |
+| **TDP** | 800-1000W | ~1,000W | Flat |
+
+**Lisa Su at CES 2026**:
+
+> "Four years ago, MI250's AI performance was X. Today, MI455X's performance is **1000×** that. That's the pace of AI chip progress."
+
+## CDNA 5 architecture in detail
+
+The MI400 series adopts the **CDNA 5 architecture** (MI355X uses CDNA 4):
+
+### Key upgrades
+
+1. **Matrix Core upgrade**: FP8/INT8/FP16 support, sparsity acceleration
+2. **HBM4 controller**: 12-layer HBM4 (vs HBM3e's 8 layers)
+3. **Infinity Fabric 4.0**: 50% higher die-to-die / die-to-GPU bandwidth
+4. **Native sparsity support**: MoE Expert-Parallel optimization
+5. **Long-context optimization**: 1M+ token KV Cache acceleration
+
+### vs. NVIDIA Blackwell / Rubin
+
+| Metric | AMD MI455X | NVIDIA B200 | NVIDIA Rubin R200 (2026 Q4) |
+|------|----------------|-------------------|---------------------------|
+| **FP4 compute** | **40 PFLOPS** | 20 PFLOPS (45 sparse) | ~40 PFLOPS (est.) |
+| **FP8 compute** | **20 PFLOPS** | 10 PFLOPS (22.5 sparse) | ~20 PFLOPS (est.) |
+| **Memory** | **432GB HBM4** | 192GB HBM3e | 288GB HBM4 |
+| **Memory bandwidth** | **19.6 TB/s** | 8 TB/s | 13 TB/s |
+| **TDP** | ~1,000W | 700-1000W | ~1,000W |
+| **Process** | 2nm + 3nm hybrid | TSMC 4np | TSMC 3nm |
+| **Mass production** | 2026 Q4 | 2024 Q4 | 2026 Q4 |
+| **Software ecosystem** | ROCm | CUDA | CUDA |
+| **Strength** | Memory capacity, open ecosystem | Most mature ecosystem | Next-gen architecture |
+| **Weakness** | Software ecosystem gap | Smaller memory | Not yet launched |
+
+**Conclusion**: MI455X leads B200 in **FP4/FP8 compute** and **memory capacity/bandwidth**, but **software ecosystem** remains a weak point. Versus Rubin R200, paper specs are close, but Rubin has the CUDA ecosystem moat.
+
+## Production timeline
+
+| Time | Event |
+|------|------|
+| June 12, 2025 | MI400 series specs first announced at Advancing AI |
+| January 5, 2026 | MI455X/MI450/MI440X formally launched at CES 2026 |
+| **2026 Q3** | **MI450 sampling begins** |
+| **2026 Q4** | **MI455X mass production** |
+| 2026 Q4 | MI440X (enterprise inference) launched |
+| 2027 Q1 | MI430X/MI400X (HPC/edge inference) launched |
+| 2027 | MI500 series (next gen) |
+
+## AMD AI chip roadmap (2025-2027)
+
+| Time | Product | Process | Notes |
+|------|------|------|------|
+| Q4 2024 | MI325X | TSMC 5nm | HBM3e upgraded |
+| Q3 2025 | **MI355X** (MI350 series) | TSMC 3nm | CDNA 4, 288GB HBM3e |
+| **Q4 2026** | **MI455X** (MI400 series) | **2nm + 3nm hybrid** | **CDNA 5, 432GB HBM4** |
+| Q1 2027 | MI500 series | TSMC 2nm (est.) | Next gen, further gains |
+
+## Software ecosystem: ROCm's progress and challenges
+
+### ✅ Progress
+
+- **PyTorch 2.5+**: native MI300X/MI455X support
+- **Hugging Face Transformers**: official AMD GPU support
+- **vLLM 0.8+**: MI300X inference support (experimental)
+- **JAX**: AMD adapting (vs Google TPU)
+
+### ⚠️ Challenges
+
+- **Framework optimization**: PyTorch on AMD GPUs still below NVIDIA
+- **Operator coverage**: some niche operators need hand-written HIP
+- **Multi-card communication**: RCCL (vs NCCL) still lags
+- **Developer ecosystem**: tutorials, cases, community activity far below NVIDIA
+
+## Competitive comparison
+
+| Vendor | Product | FP4 compute | Memory | Mass production | Strength | Weakness |
+|------|------|----------|------|----------|------|------|
+| **AMD** | MI455X | **40 PFLOPS** | **432GB HBM4** | 2026 Q4 | Largest memory, open ecosystem | Software gap |
+| **NVIDIA** | B200 | 20 PFLOPS | 192GB HBM3e | 2024 Q4 | Most mature ecosystem | Smaller memory |
+| **NVIDIA** | Rubin R200 | ~40 PFLOPS | 288GB HBM4 | 2026 Q4 | Next-gen architecture, CUDA | Expensive |
+| **Huawei** | Ascend 910C | ~1.6 PFLOPS | 64GB HBM | 2026 Q2 | China-localized | Export-controlled |
+| **Google** | TPU 8t | ~9.2 PFLOPS | ~256GB HBM3e | Late 2027 | Gemini-integrated | Google Cloud only |
+
+## Industry impact
+
+### 1. Impact on NVIDIA
+
+On **paper**, AMD MI455X has already caught up to B200 (FP4 40 PFLOPS vs 20 PFLOPS), even leading substantially in memory capacity (432GB vs 192GB).
+
+**But**:
+- NVIDIA has the **CUDA ecosystem moat**
+- NVIDIA has the **Vera Rubin platform** (full solution, 2026 Q4)
+- AMD only sells **cards/nodes**, NVIDIA sells **AI factories**
+- MI455X mass production (2026 Q4) coincides with Rubin R200 — head-on competition
+
+### 2. Pressure on domestic chips
+
+MI455X's launch means: **mainstream international AI chips enter the 2nm + HBM4 era in 2026**.
+
+Domestic chips (Huawei Ascend, Cambricon, MetaX, etc.) need to:
+- Catch up to **5nm + HBM3e** by 2026-2027
+- Otherwise the gap widens from "1 generation" to "2 generations"
+
+### 3. Significance for cloud providers
+
+MI455X gives cloud providers a **second option beyond NVIDIA**:
+
+- **Microsoft Azure**: already deployed MI355X, may follow with MI455X
+- **Google Cloud**: in-house TPU, won't use AMD
+- **Amazon AWS**: in-house Trainium/Inferentia, won't use AMD
+- **Alibaba Cloud, Tencent Cloud**: may procure MI455X as NVIDIA alternative
+
+## Related chips
+
+- [AMD MI455X](/en/docs/cards/amd/mi455x) - the new launch
+- [AMD MI300X](/en/docs/cards/amd/mi300x) - previous flagship
+- [AMD MI325X](/en/docs/cards/amd/mi325x) - HBM3e upgraded
+- [NVIDIA B200](/en/docs/cards/nvidia/b200) - direct competitor
+- [NVIDIA Rubin R200](/en/docs/cards/nvidia/rubin-r200) - same-generation competitor
+
+## References
+
+- [MI455X chip - Baidu Baike](https://baike.baidu.com/item/MI455X%E8%8A%AF%E7%89%87/67184722) - official specs
+- [AMD drops its most powerful two-gen AI chips! World's first 432GB HBM4 - Zhihu](https://zhuanlan.zhihu.com/p/1916897465069725454) - on-site report
+- [Taking on NVIDIA: AMD launches MI440X for enterprise AI data centers - Tencent News](https://new.qq.com/rain/a/20260106A0464U00)
+- [AMD MI400 packs 432GB HBM4: specs crush NVIDIA on paper - CocoLoop](https://news.cocoloop.cn/2026/04/amd-mi400-nvidia-ai-chip-war/)
+- [AMD CES 2026 keynote replay](https://www.amd.com/en/events/ces-2026)
+
+---
+
+*This article is compiled from AMD CES 2026 official announcements, Baidu Baike, and Zhihu on-site reports; specs verified against official sources. Updated 2026-06-16: corrected MI455X memory (288GB → 432GB) and compute (FP8 6 PFLOPS → FP4 40 PFLOPS).*
