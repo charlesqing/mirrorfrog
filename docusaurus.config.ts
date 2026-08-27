@@ -188,12 +188,12 @@ const config: Config = {
     {tagName: 'meta', attributes: {name: 'msapplication-TileColor', content: '#6c5ce7'}},
     {tagName: 'meta', attributes: {name: 'msapplication-config', content: '/browserconfig.xml'}},
 
-    // ---- 搜索引擎验证（上线前替换为真实值）----
-    // Google Search Console:
-    // {tagName: 'meta', attributes: {name: 'google-site-verification', content: 'YOUR_GOOGLE_CODE'}},
-    // Bing Webmaster:
+    // ---- 搜索引擎验证 ----
+    // Google Search Console (2026-08-27 已启用):
+    {tagName: 'meta', attributes: {name: 'google-site-verification', content: 'iV1w9gSFQyjnSl9OlMd54hlYD09UmMocbnumV--R4ys'}},
+    // Bing Webmaster: 待启用
     // {tagName: 'meta', attributes: {name: 'msvalidate.01', content: 'YOUR_BING_CODE'}},
-    // Baidu Zhanzhang:
+    // Baidu Zhanzhang: 待启用
     // {tagName: 'meta', attributes: {name: 'baidu-site-verification', content: 'YOUR_BAIDU_CODE'}},
 
     // ---- JSON-LD: WebSite + Organization（注入到每页 <head>）----
