@@ -1,0 +1,111 @@
+---
+slug: hyperscaler-custom-silicon-2026
+title: 'Hyperscaler Custom Silicon Wave 2026: OpenAI Jalapeno, Maia 200, MTIA, TPU v8 Together "De-NVIDIA-ize"'
+date: '2026-08-22'
+authors: aicomputecards
+tags: [industry-report, custom-chip, OpenAI, google, tpu, broadcom, AI-infrastructure, inference-chip]
+description: 'In 2026, hyperscaler custom AI chips enter an explosion: OpenAI Jalapeno (with Broadcom, 9-month end-to-end design, ~50% lower token cost target, commercial by end-2026), Microsoft Maia 200 (140B transistors, already serving GPT-5.2), Meta MTIA 300-500 (RISC-V, Broadcom), Google TPU v8 (8t/8i split), Amazon Trainium 3, Anthropic in-house team. Hot Chips 2026 ASIC track was almost a de-NVIDIA-ization parade — but NVIDIA answer is full-stack, not single-chip.'
+---
+
+# Hyperscaler Custom Silicon Wave 2026: OpenAI Jalapeno, Maia 200, MTIA, TPU v8 Together "De-NVIDIA-ize"
+
+> The Tuesday-afternoon AI session at Hot Chips 2026 this August was the most historically significant of the conference — not because any single chip was so powerful, but because **almost everything on stage was a "hyperscaler de-NVIDIA-ization" custom ASIC**: Google's 8th-gen TPU, OpenAI's first self-designed chip, Microsoft Maia, Meta MTIA, and Cerebras wafer-scale racks, all on one stage. When the world's largest AI compute buyers start treating GPUs as "one of the options," the power structure of AI hardware is loosening.
+
+---
+
+## 1. OpenAI Jalapeno: Building a Chip in 9 Months
+
+On **June 24, 2026**, OpenAI, together with Broadcom, unveiled its first self-designed inference ASIC, **Jalapeno** — the fifth member of the "custom inference chip club."
+
+| Dimension | Jalapeno |
+|------|----------|
+| **Partner** | Broadcom + TSMC manufacturing |
+| **Positioning** | Inference-specific ASIC |
+| **Design cycle** | 9 months end-to-end (Greg Brockman says aided by OpenAI's own models) |
+| **Cost target** | ~50% lower token cost vs general-purpose GPU stack |
+| **Commercial timing** | First deployments by end-2026; long-term goal 10GW of self-designed chips |
+| **Deal scale** | Up to $10B strategic partnership with Broadcom (accelerators + networking by 2029) |
+
+> The talk title "You Can Just Build Things … Chips" is itself a signal: the largest AI compute buyer no longer defaults to GPU as the only path.
+
+---
+
+## 2. Google TPU v8: The Biggest Architectural Pivot in a Decade — Train/Infer Split
+
+Google has the longest custom-chip history (2016 to now), and its 8th-gen TPU for the first time **splits the product line in two**:
+
+| Model | Codename | Partner | Positioning | Key Specs |
+|------|------|--------|------|----------|
+| **TPU 8t** | Sunfish | Broadcom | Training | 9,600 cards per pod, 121 FP4 ExaFLOPS, 2PB shared HBM, 2× ICI bandwidth |
+| **TPU 8i** | Zebrafish | MediaTek | Inference | 288GB HBM, 384MB on-chip SRAM (3× prior gen), 19.2 Tb/s ICI |
+
+On capacity, Morgan Stanley estimates based on supply-chain interviews that **Google TPU production in 2026 may exceed 3 million units** (a brokerage estimate, not an official target). Google is also the only vendor to achieve large-scale custom-chip deployment and sell compute externally (Gemini runs on TPUs).
+
+---
+
+## 3. Meta MTIA: From Recommendation Systems to a GenAI Dual Mission
+
+Meta's custom journey has the clearest starting point — **MTIA was originally built for recommendation ranking hardware and is being pulled toward a dual mission by generative AI**.
+
+- **MTIA 300** is deployed; **400 / 450 / 500** are planned at roughly one new model every 6 months through 2027;
+- Based on **RISC-V**, Meta claims up to **25× compute gain**;
+- Node evolves with industry cadence: 100 (7nm) → 200 (5nm) → 300 series (3nm + CoWoS);
+- In partnership with **Broadcom**; another chip codenamed **Iris** reportedly passed testing in July 2026;
+- Meta plans to start volume production of one of them in September 2026, doubling its overall compute.
+
+---
+
+## 4. Microsoft Maia 200/300: Most Advanced Deployment
+
+Microsoft's **Maia 200**, released January 26, 2026, is the **most advanced in deployment** among the four:
+
+| Dimension | Maia 200 |
+|------|----------|
+| **Process** | TSMC 3nm, 140B+ transistors |
+| **Compute** | 10+ PFLOPS FP4 / 5 PFLOPS FP8 |
+| **Memory** | 216GB HBM3E, 7 TB/s |
+| **Power** | 750W |
+| **Deployment** | Already running in Des Moines data center, serving OpenAI GPT-5.2 and Microsoft 365 Copilot |
+
+Microsoft claims roughly **3× the performance of Amazon's Trainium** on specific benchmarks. The short-term strategy is a dual track of "self-designed Maia + purchased NVIDIA" in parallel — self-designed chips need time from design to mass production, and NVIDIA's mature ecosystem cannot be replaced in the short term.
+
+---
+
+## 5. Amazon Trainium 3 and Anthropic's In-House Team
+
+- **Amazon**: The Trainium series is already commercial, with **1.4 million units** cumulatively deployed (officially disclosed) — a multi-billion-dollar business; its strength is the AWS customer base, letting enterprises choose between NVIDIA GPUs and self-designed chips. Trainium 3 continues this path.
+- **Anthropic**: In August 2026 announced the formation of an **in-house chip team**, with no tape-out or mass-production timeline yet; initially positioned as a complement (not a replacement) to existing partnerships with NVIDIA/AMD/AWS/Google Cloud, aiming to tailor-build for the Claude architecture and shed reliance on a single GPU.
+
+---
+
+## 6. NVIDIA's Answer: Not a Faster GPU, But Full-Stack
+
+It's easy to simplify the narrative to "four companies build chips, NVIDIA defends GPU." But NVIDIA took **6 slots** at Hot Chips: a RISC-V tutorial, the Vera CPU, the Rubin GPU, the BlueField-4 DPU, the Spectrum-X multi-plane network, and an LPU accelerator.
+
+> A hyperscaler ASIC replaces only **one** of those five pillars. If the CPU, NIC, switching fabric, and software all come from the same vendor, what you save by swapping out the accelerator is far less than the accelerator line item on the bill suggests. Rubin's play is a full-stack AI factory platform spanning **seven chips and five racks** — the competitive answer is "full-stack positioning," not "a faster single chip."
+
+---
+
+## 7. Trend Judgment: Inference De-GPU-izes, Training Still GPU-Led
+
+- **Inference side**: The CUDA moat visibly shallows. Inference is parallelizable and replaceable at the endpoint; custom ASICs trade away the generality tax (implementing only the operations LLMs actually execute) for lower cost/token. Groq LPU, Cerebras, and various TPU/ASIC players all compete on the same metric.
+- **Training side**: Foundation models are still trained on GPUs, with no serious challenger in the short term. NVIDIA's three training moats (fastest silicon + NVLink + CUDA) remain firm.
+- **Conclusion**: Custom chips are not "replacing NVIDIA," but **giving buyers a credible external negotiation option in the largest and fastest-growing battlefield — inference**. That alone is enough to reshape the economics of AI infrastructure.
+
+## Related Links
+
+- [Inference Accelerator Market 2026](/en/blog/inference-accelerator-market-2026)
+- [Hot Chips 2026 Full Recap](/en/blog/hot-chips-2026-recap)
+- [Google TPU 8t Spec Page](/en/docs/cards/google/tpu-8t)
+- [Google TPU 8i Spec Page](/en/docs/cards/google/tpu-8i)
+
+## References
+
+- [Hot Chips 2026: 4 Hyperscalers Put Custom AI Silicon on One Afternoon - Sean Kim](https://blog.imseankim.com/hot-chips-2026-custom-ai-silicon-meta-microsoft-google-openai)
+- [Custom AI inference silicon: why OpenAI built Jalapeno - nexi.fund](https://nexi.fund/custom-ai-inference-silicon-2026)
+- [Anthropic Builds Custom AI Chips for Claude - Studio Global AI](https://www.studioglobal.ai/lv/discover/answers/what-is-anthropic-doing-with-custom-ai-6a82330710551e202b12fc5b)
+- [所有大厂都在做同一件事：自己造芯片，少买英伟达的 - Toutiao](https://www.toutiao.com/article/7673367199922324019)
+
+---
+
+**This article is compiled from August 2026 Hot Chips on-site reports, corporate announcements, and industry analysis. Some capacity and performance figures are brokerage estimates or vendor-disclosed figures; actual results are subject to mass-produced products.**

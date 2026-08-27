@@ -1,0 +1,79 @@
+---
+slug: domestic-gpu-ipo-wave-moore-threads-cambricon-2026
+title: 'Domestic GPU IPO Wave: The "Four Little Dragons" Assemble on Capital Markets, Moore Threads MTT S5000 Benchmarks Against H100'
+date: '2026-07-11'
+authors: aicomputecards
+tags: [industry-report, domestic-chip, moore-threads, cambricon, MTT-S5000, star-market, IPO]
+description: '2026 brings a domestic GPU IPO wave: Moore Threads has listed on the STAR Market (issue price ¥114.28), with MetaX, Enflame, and Biren advancing IPOs — the four little dragons assemble; Moore Threads MTT S5000 hits 1 PFLOPS FP8, 1.6TB/s bandwidth to benchmark against H100, completing full-pipeline GLM-5 validation; the domestic GPU corps total market cap approaches ¥2 trillion.'
+---
+
+# Domestic GPU IPO Wave: From Technology Breakthrough to Capital Virtuous Cycle
+
+> From December 2025 to July 2026 — just half a year — at least 6 AI chip companies have listed or are about to list on capital markets. Together with already-listed Cambricon, Hygon, and Iluvatar, the domestic GPU corps' total market cap is approaching **¥2 trillion**. This marks the critical climb from domestic GPUs being "usable" to "useful."
+
+## 1. The "Four Little Dragons" assemble on capital markets
+
+| Company | Listing status | Raise / issue price | Sponsor |
+|------|----------|----------------|----------|
+| **Moore Threads** | **Listed** (STAR Market sh688795, 2025-12-05) | Issue price ¥114.28, raised ¥8B | CITIC Securities |
+| **MetaX** | IPO accepted (2026-06-30) | ¥3.904B (total investment ¥5B) | Huatai United |
+| **Enflame** | Passed review (2026-06-15) | ¥6B | — |
+| **Biren** | HKEX / sprinting | — | — |
+
+> Already-listed camp: **Cambricon** (sh688256, STAR Market 2020-07-20), Hygon, Iluvatar (HKEX). Moore Threads turned a book profit of ¥29.35M in Q1; MetaX narrowed losses 57.7% and gave a 2026 breakeven timeline.
+
+## 2. Moore Threads MTT S5000: benchmarking against H100
+
+Moore Threads announced its flagship AI train+inference GPU **MTT S5000** successfully completed full-pipeline adaptation validation of Zhipu's new-generation large model **GLM-5** — measured performance "breaks the domestic compute ceiling":
+
+| Metric | MTT S5000 |
+|------|-----------|
+| **Architecture** | 4th-gen "Pinghu" architecture |
+| **FP8 compute** | **1 PFLOPS (1,000 TFLOPS)** |
+| **Memory bandwidth** | **1.6 TB/s** |
+| **Positioning** | Full-function train+inference GPU, benchmarks against NVIDIA H100 |
+| **Production** | Mass-produced; clusters online supporting trillion-parameter training |
+
+> **Deployment validation**: jointly completed full-pipeline training of embodied-brain model RoboBrain 2.5 with BAAI; partnered with SiliconFlow for high-performance DeepSeek-V3 inference, single-card speed near international top products. IPO funds go to three directions: next-gen AI train+inference chip, next-gen graphics chip, next-gen AI SoC chip.
+
+> **WAIC 2026 new progress**: Moore Threads showcased the **MTT C256 SuperNode** (first-of-its-kind single-layer Scale-up 256-card full interconnect, sub-microsecond latency) and three AI-factory solutions — "model training factory / token production factory / agent production factory"; the company pre-announced **H1 2026 revenue of ¥1.65B-1.75B, up 135%-149% YoY**.
+
+## 3. Cambricon: dual flagships MLU590/690
+
+| Chip | Process | Compute | Memory | Customer / status |
+|------|------|------|------|-------------|
+| **MLU590 (思元590)** | 7nm Chiplet | INT8 512 TOPS / **FP16 345 TFLOPS** | 96 GB HBM2e | ByteDance inference mainstay, ~80% of A100 overall, mass shipments early 2026 |
+| **MLU690 (思元690)** | **5nm-class (SMIC N+2)** | **FP16 700+ TFLOPS / INT8 2800+ TOPS** | **196 GB HBM3 (3.35 TB/s)** | Dual-die packaging, MLU-Link 890 Gbps; ~70% of H100 (80-90% pure inference); ByteDance largest customer, mass production early 2026 |
+
+> Cambricon is the only domestic AI chip vendor with a "unified edge-cloud architecture" — one MLU instruction set spans 思元 220 (edge) → 370 (border) → 590/690 (cloud), with one NeuWare toolchain across compute tiers.
+
+> **Capital and performance double explosion**: Cambricon's **total market cap exceeded ¥1 trillion on June 30, 2026**, becoming the STAR Market's first "trillion-yuan stock," up 75%+ YTD. On performance, Q1 2026 revenue **¥2.885B (+160% YoY)**, deducted net profit ¥934M; full-year 2025 revenue ¥6.497B (+453% YoY), net profit attributable to parent ¥2.059B, ending long-term losses. ByteDance has cumulatively deployed over 100k 思元 590/690, its largest customer.
+
+## 4. DeepSeek-V4 effect: changing the expectation coordinate system
+
+On April 24, 2026, DeepSeek released the trillion-parameter flagship **DeepSeek-V4**. Unlike a year earlier when V3's launch sparked debate over "can domestic chips even run large models," this time **multiple domestic chips — Huawei Ascend, Cambricon, Hygon, MetaX, Moore Threads, Kunlun, T-Head, Iluvatar — completed adaptation on launch day**.
+
+> The evaluation coordinate system is shifting: from "what percentage of NVIDIA's same-generation product performance" to "can it carry the real workloads of top-tier large models."
+
+## Industry interpretation
+
+1. **Capital ammunition in place**: dense IPOs provide ample funding for domestic GPU R&D iteration and capacity expansion, moving from "technology breakthrough" to "commercial virtuous cycle."
+2. **Train+inference becomes the mainstream route**: Moore Threads takes the full-function GPU route (graphics+AI+general compute), differentiating from Huawei Ascend's "AI-focused."
+3. **Software ecosystem is the decider**: Day-0 adaptation and the maturity of unified software stacks (MUSA / NeuWare / MXMACA) are replacing raw peak compute as the core yardstick of domestic GPU "usability."
+
+## Related links
+
+- [Moore Threads MTT S5000 specs](/en/docs/cards/others/moore-threads-mtt-s5000)
+- [Cambricon MLU590 (思元590) specs](/en/docs/cards/others/cambricon-mlu-590)
+- [Cambricon MLU690 (思元690) specs](/docs/cards/cambricon/mlu-690)
+
+## References
+
+- [Moore Threads flagship GPU benchmarked against NVIDIA H100 - Anue](https://anuenews.cnyes.com/tag/%E6%91%A9%E7%88%BE%E7%B7%9A%E7%A8%8B)
+- [GPU Four Little Dragons take the stage, Cambricon no longer alone - Sina Finance](https://finance.sina.com.cn/roll/2026-06-24/doc-inienxzw6241304.shtml)
+- [GPU industry status and development trends (2026) - 10jqka](https://m.10jqka.com.cn/20260624/c677673415.shtml)
+- [2026 domestic AI compute tracker (Huawei Ascend, Cambricon, Moore Threads)](https://jiawentechq.com/articles/2026-%E5%9B%BD%E4%BA%A7-ai-%E7%AE%97%E5%8A%9B%E8%BF%BD%E8%B8%AA)
+
+---
+
+*This article continuously tracks the domestic GPU listing process and product iteration.*
