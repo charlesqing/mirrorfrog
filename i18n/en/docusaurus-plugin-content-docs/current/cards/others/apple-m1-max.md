@@ -100,11 +100,11 @@ keywords: [Apple M1 Max, M1 Max, 32-core GPU, 400 GB/s, 64GB UMA, MacBook Pro 16
 
 ## Related Cards
 
-- [Apple M1 Pro (MacBook Pro 2021)](./apple-m1-pro) — Same-gen Pro
-- [Apple M1 Ultra (M1 Max dual-die)](./apple-m1-ultra) — Same-gen flagship
-- [Apple M2 Max (MacBook Pro 2023)](./apple-m2-max) — Successor
-- [Apple M3 Max (MacBook Pro 2023)](./apple-m3-max) — Successor
-- [Apple M-Series Overview](./apple-m-series) — M-series comparison table
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) — Same-gen mobile
-- [Architecture: APU Accelerated Processing](../../architectures/arch-apu) — APU architecture
-- [NVIDIA RTX 4090 (Consumer GPU)](../nvidia/rtx-4090) — Desktop GPU comparison
+- [Apple M1 Pro (MacBook Pro 2021)](/docs/cards/others/apple-m1-pro) — Same-gen Pro
+- [Apple M1 Ultra (M1 Max dual-die)](/docs/cards/others/apple-m1-ultra) — Same-gen flagship
+- [Apple M2 Max (MacBook Pro 2023)](/docs/cards/others/apple-m2-max) — Successor
+- [Apple M3 Max (MacBook Pro 2023)](/docs/cards/others/apple-m3-max) — Successor
+- [Apple M-Series Overview](/docs/cards/others/apple-m-series) — M-series comparison table
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — Same-gen mobile
+- [Architecture: APU Accelerated Processing](/docs/architectures/arch-apu) — APU architecture
+- [NVIDIA RTX 4090 (Consumer GPU)](/docs/cards/nvidia/rtx-4090) — Desktop GPU comparison

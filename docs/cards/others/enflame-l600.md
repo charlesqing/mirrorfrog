@@ -74,10 +74,10 @@ status: "发布"
 
 ## 相关产品
 
-- [云燧 T20](./enflame-t20) — 第二代训练卡
-- [云燧 T21](./enflame-t21) — 第二代训练卡（OAM）
-- [云燧 i20](./enflame-i20) — 第二代推理卡
-- [云燧 S60](./enflame-s60) — 第三代推理卡
+- [云燧 T20](/docs/cards/others/enflame-t20) — 第二代训练卡
+- [云燧 T21](/docs/cards/others/enflame-t21) — 第二代训练卡（OAM）
+- [云燧 i20](/docs/cards/others/enflame-i20) — 第二代推理卡
+- [云燧 S60](/docs/cards/others/enflame-s60) — 第三代推理卡
 
 ---
 

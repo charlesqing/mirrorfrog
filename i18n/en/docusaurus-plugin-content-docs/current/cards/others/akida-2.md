@@ -44,5 +44,5 @@ keywords: [BrainChip Akida 2, neuromorphic, event-driven, spiking neural network
 
 ## Related Cards
 
-- [IBM NorthPole (Neuromorphic)](./ibm-northpole)
+- [IBM NorthPole (Neuromorphic)](/docs/cards/others/ibm-northpole)
 - Loihi 2 (Intel Neuromorphic) — 页面待创建

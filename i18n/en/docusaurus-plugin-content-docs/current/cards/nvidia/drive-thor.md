@@ -104,11 +104,11 @@ keywords: [NVIDIA DRIVE Thor, DRIVE Thor, Blackwell autonomous driving, 1000 TOP
 
 ## Related Cards
 
-- [NVIDIA DRIVE Orin (254 TOPS Autonomous Driving)](../nvidia/jetson-orin) — Previous-gen automotive
-- [NVIDIA Jetson Thor (Robotics SoC)](../nvidia/jetson-thor) — Same-gen robotics
-- [NVIDIA H100 / B200 (Data Center)](../nvidia/b200) — Same-gen data center
-- [NVIDIA RTX 5090 (Consumer GPU)](../nvidia/rtx-5090) — Consumer
+- [NVIDIA DRIVE Orin (254 TOPS Autonomous Driving)](/docs/cards/nvidia/jetson-orin) — Previous-gen automotive
+- [NVIDIA Jetson Thor (Robotics SoC)](/docs/cards/nvidia/jetson-thor) — Same-gen robotics
+- [NVIDIA H100 / B200 (Data Center)](/docs/cards/nvidia/b200) — Same-gen data center
+- [NVIDIA RTX 5090 (Consumer GPU)](/docs/cards/nvidia/rtx-5090) — Consumer
 - [Mobileye EyeQ6 / Qualcomm Snapdragon Ride](https://www.mobileye.com/) — Competing automotive
-- [Tesla AI Training Chip Dojo V1/V2](../others/tesla-dojo) — Training counterpart
+- [Tesla AI Training Chip Dojo V1/V2](/docs/cards/others/tesla-dojo) — Training counterpart
 - [NVIDIA Halos Safety System](https://www.nvidia.com/en-us/automotive/halos/)
 - [NVIDIA DRIVE AGX Thor Developer Kit](https://developer.nvidia.com/drive/agx)

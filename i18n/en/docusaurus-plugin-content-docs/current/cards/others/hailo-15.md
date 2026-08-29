@@ -111,9 +111,9 @@ keywords: [Hailo-15, Hailo, AI vision processor, 20 TOPS, smart camera, AI-ISP, 
  
 ## Related Cards
  
-- [Hailo-8L (13 TOPS Edge AI)](./hailo) — Previous-gen entry
-- [NVIDIA Jetson Orin (40-275 TOPS Edge AI)](../nvidia/jetson-orin) — High-end edge comparison
-- [Blaize Xplorer (160 TOPS Edge)](./blaize-xplorer) — Same-gen edge
-- [Mobilint Regulus (32 TOPS Korea)](./mobilint) — Same-tier edge
+- [Hailo-8L (13 TOPS Edge AI)](/docs/cards/others/hailo) — Previous-gen entry
+- [NVIDIA Jetson Orin (40-275 TOPS Edge AI)](/docs/cards/nvidia/jetson-orin) — High-end edge comparison
+- [Blaize Xplorer (160 TOPS Edge)](/docs/cards/others/blaize-xplorer) — Same-gen edge
+- [Mobilint Regulus (32 TOPS Korea)](/docs/cards/others/mobilint) — Same-tier edge
 - [Hailo-15 Official Introduction](https://hailo.ai/products/ai-vision-processors/hailo-15h-ai-vision-processor/)
-- [Architecture: Edge AI](../../architectures/arch-npu) — NPU architecture
+- [Architecture: Edge AI](/docs/architectures/arch-npu) — NPU architecture

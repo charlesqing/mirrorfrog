@@ -123,12 +123,12 @@ keywords: [AMD Ryzen AI Max, Strix Halo, XDNA 2, 50 TOPS, 128GB UMA, 96GB VRAM, 
 
 ## Related Cards
 
-- [AMD MI300X (1.5 TB HBM3 Data Center)](../amd/mi300x) — Data center GPU
-- [AMD MI355X (288GB HBM3E Data Center)](../amd/mi355x) — Data center GPU
-- [AMD MI400 (CDNA Next Helios)](../amd/mi400) — Data center successor
-- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](../intel/core-ultra-2) — Same-gen AI PC competitor
-- [Apple M4 Max (128GB UMA 546 GB/s)](../others/apple-m4-max) — Desktop GPU
-- [Apple M4 Pro (64GB UMA)](../others/apple-m4-pro) — Desktop
-- [NVIDIA RTX 5090 (32GB GDDR7 Consumer GPU)](../nvidia/rtx-5090) — Desktop GPU
-- [Architecture: APU Accelerated Processing](../../architectures/arch-apu) — APU architecture
+- [AMD MI300X (1.5 TB HBM3 Data Center)](/docs/cards/amd/mi300x) — Data center GPU
+- [AMD MI355X (288GB HBM3E Data Center)](/docs/cards/amd/mi355x) — Data center GPU
+- [AMD MI400 (CDNA Next Helios)](/docs/cards/amd/mi400) — Data center successor
+- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](/docs/cards/intel/core-ultra-2) — Same-gen AI PC competitor
+- [Apple M4 Max (128GB UMA 546 GB/s)](/docs/cards/others/apple-m4-max) — Desktop GPU
+- [Apple M4 Pro (64GB UMA)](/docs/cards/others/apple-m4-pro) — Desktop
+- [NVIDIA RTX 5090 (32GB GDDR7 Consumer GPU)](/docs/cards/nvidia/rtx-5090) — Desktop GPU
+- [Architecture: APU Accelerated Processing](/docs/architectures/arch-apu) — APU architecture
 - [AMD Strix Halo Official Introduction](https://www.amd.com/en/blogs/2025/amd-ryzen-ai-max-395-processor-breakthrough-ai-.html)

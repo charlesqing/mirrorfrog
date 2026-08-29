@@ -106,10 +106,10 @@ keywords: [Apple A17 Pro, A17 Pro, iPhone 15 Pro, 3nm N3B, hardware ray tracing,
 
 ## Related Cards
 
-- [Apple A18 Pro (iPhone 16 Pro)](./apple-a18-pro) — Successor
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) — Next generation
-- [Apple M3 Pro / Max (MacBook Pro 2023)](./apple-m3-max) — Desktop class
-- [Apple M2 Pro (Mac mini 2023)](./apple-m4-pro) — Desktop class
-- [Architecture: NPU Mobile SoC](../../architectures/arch-npu) — NPU category
+- [Apple A18 Pro (iPhone 16 Pro)](/docs/cards/others/apple-a18-pro) — Successor
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — Next generation
+- [Apple M3 Pro / Max (MacBook Pro 2023)](/docs/cards/others/apple-m3-max) — Desktop class
+- [Apple M2 Pro (Mac mini 2023)](/docs/cards/others/apple-m4-pro) — Desktop class
+- [Architecture: NPU Mobile SoC](/docs/architectures/arch-npu) — NPU category
 - [Qualcomm Snapdragon 8 Gen 3 (2023 Mobile)](https://www.qualcomm.com/) — Same-gen competitor
 - [MediaTek Dimensity 9300 (2023 Mobile)](https://www.mediatek.com/) — Same-gen competitor

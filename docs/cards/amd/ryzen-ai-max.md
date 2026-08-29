@@ -123,12 +123,12 @@ keywords: [AMD Ryzen AI Max, Strix Halo, XDNA 2, 50 TOPS, 128GB UMA, 96GB VRAM, 
 
 ## 相关卡
 
-- [AMD MI300X (1.5 TB HBM3 数据中心)](../amd/mi300x) — 数据中心 GPU
-- [AMD MI355X (288GB HBM3E 数据中心)](../amd/mi355x) — 数据中心 GPU
-- [AMD MI400 (CDNA Next Helios)](../amd/mi400) — 数据中心后继
-- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](../intel/core-ultra-2) — 同代 AI PC 竞品
-- [Apple M4 Max (128GB UMA 546 GB/s)](../others/apple-m4-max) — 桌面 GPU
-- [Apple M4 Pro (64GB UMA)](../others/apple-m4-pro) — 桌面端
-- [NVIDIA RTX 5090 (32GB GDDR7 消费 GPU)](../nvidia/rtx-5090) — 桌面 GPU
-- [架构分类: APU 加速处理](../../architectures/arch-apu) — APU 架构
+- [AMD MI300X (1.5 TB HBM3 数据中心)](/docs/cards/amd/mi300x) — 数据中心 GPU
+- [AMD MI355X (288GB HBM3E 数据中心)](/docs/cards/amd/mi355x) — 数据中心 GPU
+- [AMD MI400 (CDNA Next Helios)](/docs/cards/amd/mi400) — 数据中心后继
+- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](/docs/cards/intel/core-ultra-2) — 同代 AI PC 竞品
+- [Apple M4 Max (128GB UMA 546 GB/s)](/docs/cards/others/apple-m4-max) — 桌面 GPU
+- [Apple M4 Pro (64GB UMA)](/docs/cards/others/apple-m4-pro) — 桌面端
+- [NVIDIA RTX 5090 (32GB GDDR7 消费 GPU)](/docs/cards/nvidia/rtx-5090) — 桌面 GPU
+- [架构分类: APU 加速处理](/docs/architectures/arch-apu) — APU 架构
 - [AMD Strix Halo 官方介绍](https://www.amd.com/en/blogs/2025/amd-ryzen-ai-max-395-processor-breakthrough-ai-.html)

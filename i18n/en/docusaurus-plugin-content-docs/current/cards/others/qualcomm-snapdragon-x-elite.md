@@ -111,11 +111,11 @@ keywords: [Qualcomm Snapdragon X Elite, Oryon, 12-core CPU, 4.3 GHz, 45 TOPS NPU
 
 ## Related Products
 
-- [Qualcomm AI 200 / 300 (Cloud AI est.)](./qualcomm-ai-200) -- cloud
-- [Qualcomm AI 100](./qualcomm-ai100) -- previous-gen data center
-- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](../intel/core-ultra-2) -- same-gen AI PC competitor
-- [AMD Ryzen AI Max (Strix Halo XDNA 2)](../amd/ryzen-ai-max) -- same-gen AI PC competitor
-- [Apple M4 Pro (64GB UMA)](../others/apple-m4-pro) -- Apple Silicon
-- [Apple A19 Pro (iPhone 17 Pro)](../others/apple-a19-pro) -- mobile
-- [Architecture: APU Accelerated Processing](../../architectures/arch-apu) -- APU architecture
+- [Qualcomm AI 200 / 300 (Cloud AI est.)](/docs/cards/others/qualcomm-ai-200) -- cloud
+- [Qualcomm AI 100](/docs/cards/others/qualcomm-ai100) -- previous-gen data center
+- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](/docs/cards/intel/core-ultra-2) -- same-gen AI PC competitor
+- [AMD Ryzen AI Max (Strix Halo XDNA 2)](/docs/cards/amd/ryzen-ai-max) -- same-gen AI PC competitor
+- [Apple M4 Pro (64GB UMA)](/docs/cards/others/apple-m4-pro) -- Apple Silicon
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) -- mobile
+- [Architecture: APU Accelerated Processing](/docs/architectures/arch-apu) -- APU architecture
 - [Snapdragon X Elite Official Page](https://www.qualcomm.com/laptops/products/snapdragon-x-elite)

@@ -107,11 +107,11 @@ keywords: [Intel Core Ultra Series 2, Lunar Lake, LNL, NPU 4.0, 48 TOPS, Xe2 GPU
 
 ## 相关卡
 
-- [Intel Gaudi 3 (数据中心训练)](./gaudi-3) — 数据中心
-- [Intel Gaudi 4 (数据中心训练 推测)](./gaudi-4) — 数据中心后继
-- [AMD Ryzen AI Max (Strix Halo / XDNA 2)](../amd/ryzen-ai-max) — 同代 AI PC 竞品
-- [NVIDIA RTX 5090 (消费 GPU)](../nvidia/rtx-5090) — 桌面 GPU
-- [Apple M4 Pro (64GB UMA)](../others/apple-m4-pro) — Apple Silicon 竞品
-- [Qualcomm AI 200 / 300 (Cloud AI)](../others/qualcomm-ai-200) — 竞品
-- [架构分类: APU 加速处理](../../architectures/arch-apu) — APU 架构
+- [Intel Gaudi 3 (数据中心训练)](/docs/cards/intel/gaudi-3) — 数据中心
+- [Intel Gaudi 4 (数据中心训练 推测)](/docs/cards/intel/gaudi-4) — 数据中心后继
+- [AMD Ryzen AI Max (Strix Halo / XDNA 2)](/docs/cards/amd/ryzen-ai-max) — 同代 AI PC 竞品
+- [NVIDIA RTX 5090 (消费 GPU)](/docs/cards/nvidia/rtx-5090) — 桌面 GPU
+- [Apple M4 Pro (64GB UMA)](/docs/cards/others/apple-m4-pro) — Apple Silicon 竞品
+- [Qualcomm AI 200 / 300 (Cloud AI)](/docs/cards/others/qualcomm-ai-200) — 竞品
+- [架构分类: APU 加速处理](/docs/architectures/arch-apu) — APU 架构
 - [Intel Core Ultra 官方页面](https://www.intel.com/content/www/us/en/products/details/processors/core-ultra.html)

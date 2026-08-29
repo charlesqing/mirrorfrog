@@ -105,11 +105,11 @@ keywords: [NVIDIA DRIVE Thor, DRIVE Thor, Blackwell 自动驾驶, 1000 TOPS INT8
 
 ## 相关卡
 
-- [NVIDIA DRIVE Orin (254 TOPS 自动驾驶)](../nvidia/jetson-orin) — 前代车规
-- [NVIDIA Jetson Thor (机器人 SoC)](../nvidia/jetson-thor) — 机器人同代
-- [NVIDIA H100 / B200 (数据中心)](../nvidia/b200) — 同代数据中心
-- [NVIDIA RTX 5090 (消费 GPU)](../nvidia/rtx-5090) — 消费端
+- [NVIDIA DRIVE Orin (254 TOPS 自动驾驶)](/docs/cards/nvidia/jetson-orin) — 前代车规
+- [NVIDIA Jetson Thor (机器人 SoC)](/docs/cards/nvidia/jetson-thor) — 机器人同代
+- [NVIDIA H100 / B200 (数据中心)](/docs/cards/nvidia/b200) — 同代数据中心
+- [NVIDIA RTX 5090 (消费 GPU)](/docs/cards/nvidia/rtx-5090) — 消费端
 - [Mobileye EyeQ6 / 高通 Snapdragon Ride](https://www.mobileye.com/) — 竞品车规
-- [Tesla AI 训练芯片 Dojo V1/V2](../others/tesla-dojo) — 训练配套
+- [Tesla AI 训练芯片 Dojo V1/V2](/docs/cards/others/tesla-dojo) — 训练配套
 - [NVIDIA Halos 安全系统](https://www.nvidia.com/en-us/automotive/halos/)
 - [NVIDIA DRIVE AGX Thor Developer Kit](https://developer.nvidia.com/drive/agx)

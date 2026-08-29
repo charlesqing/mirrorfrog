@@ -83,9 +83,9 @@ XiYun C550 is MetaX's iterative upgrade model based on C500, FP16 compute improv
 
 ## Related Products
 
-- [XiYun C500](./metax-c500) — First training-inference integrated GPU
-- [XiYun C588](./metax-c588) — Flagship iterative model
-- [XiYun C600](./metax-c600) — Fully domestic version
+- [XiYun C500](/docs/cards/others/metax-c500) — First training-inference integrated GPU
+- [XiYun C588](/docs/cards/others/metax-c588) — Flagship iterative model
+- [XiYun C600](/docs/cards/others/metax-c600) — Fully domestic version
 
 ---
 

@@ -105,10 +105,10 @@ keywords: [Apple A19, A19, iPhone 17, 5-core GPU, 8 GB RAM, 3nm N3P, Apple Intel
 
 ## Related Cards
 
-- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](./apple-a18-pro) — Previous gen
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) — Same-gen flagship
-- [Apple M4 Pro (64GB UMA workstation)](./apple-m4-pro) — Desktop class
-- [Apple A17 Pro (iPhone 15 Pro 3nm)](./apple-a17-pro) — Previous-gen 3nm debut
-- [Architecture: NPU Mobile SoC](../../architectures/arch-npu) — NPU category
-- [Qualcomm AI 200 / 300 (Cloud AI inference)](./qualcomm-ai-200) — Competitor
-- [NVIDIA Jetson Thor (Robotics SoC)](../nvidia/jetson-thor) — Edge AI
+- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](/docs/cards/others/apple-a18-pro) — Previous gen
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — Same-gen flagship
+- [Apple M4 Pro (64GB UMA workstation)](/docs/cards/others/apple-m4-pro) — Desktop class
+- [Apple A17 Pro (iPhone 15 Pro 3nm)](/docs/cards/others/apple-a17-pro) — Previous-gen 3nm debut
+- [Architecture: NPU Mobile SoC](/docs/architectures/arch-npu) — NPU category
+- [Qualcomm AI 200 / 300 (Cloud AI inference)](/docs/cards/others/qualcomm-ai-200) — Competitor
+- [NVIDIA Jetson Thor (Robotics SoC)](/docs/cards/nvidia/jetson-thor) — Edge AI

@@ -75,8 +75,8 @@ MTT S80 is Moore Threads' first gaming graphics card targeting the consumer mark
 
 ## Related Products
 
-- [MTT S70](./moore-threads-mtt-s70) — Streamlined version gaming graphics card
-- [MTT S5000](./moore-threads-mtt-s5000) — Training+inference integrated server GPU
+- [MTT S70](/docs/cards/others/moore-threads-mtt-s70) — Streamlined version gaming graphics card
+- [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — Training+inference integrated server GPU
 
 ---
 

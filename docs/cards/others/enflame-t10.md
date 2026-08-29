@@ -73,9 +73,9 @@ status: "量产"
 
 ## 相关产品
 
-- [云燧 T20](./enflame-t20) — 第二代训练卡（邃思2.0）
-- [云燧 T21](./enflame-t21) — 第二代OAM训练模组
-- [云燧 i10](./enflame-i10) — 同期推理卡
+- [云燧 T20](/docs/cards/others/enflame-t20) — 第二代训练卡（邃思2.0）
+- [云燧 T21](/docs/cards/others/enflame-t21) — 第二代OAM训练模组
+- [云燧 i10](/docs/cards/others/enflame-i10) — 同期推理卡
 
 ---
 

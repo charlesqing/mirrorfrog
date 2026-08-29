@@ -105,10 +105,10 @@ keywords: [Apple A19, A19, iPhone 17, 5-core GPU, 8 GB RAM, 3nm N3P, Apple Intel
 
 ## 相关卡
 
-- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](./apple-a18-pro) — 前代
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) — 同代旗舰
-- [Apple M4 Pro (64GB UMA 工作站)](./apple-m4-pro) — 桌面端
-- [Apple A17 Pro (iPhone 15 Pro 3nm)](./apple-a17-pro) — 前代 3nm 首发
-- [架构分类: NPU 移动 SoC](../../architectures/arch-npu) — NPU 分类
-- [Qualcomm AI 200 / 300 (Cloud AI 推测)](./qualcomm-ai-200) — 竞品
-- [NVIDIA Jetson Thor (机器人 SoC)](../nvidia/jetson-thor) — 边缘 AI
+- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](/docs/cards/others/apple-a18-pro) — 前代
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — 同代旗舰
+- [Apple M4 Pro (64GB UMA 工作站)](/docs/cards/others/apple-m4-pro) — 桌面端
+- [Apple A17 Pro (iPhone 15 Pro 3nm)](/docs/cards/others/apple-a17-pro) — 前代 3nm 首发
+- [架构分类: NPU 移动 SoC](/docs/architectures/arch-npu) — NPU 分类
+- [Qualcomm AI 200 / 300 (Cloud AI 推测)](/docs/cards/others/qualcomm-ai-200) — 竞品
+- [NVIDIA Jetson Thor (机器人 SoC)](/docs/cards/nvidia/jetson-thor) — 边缘 AI

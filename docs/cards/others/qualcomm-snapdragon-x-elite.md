@@ -111,11 +111,11 @@ keywords: [Qualcomm Snapdragon X Elite, Oryon, 12 核 CPU, 4.3 GHz, 45 TOPS NPU,
 
 ## 相关卡
 
-- [Qualcomm AI 200 / 300 (Cloud AI 推测)](./qualcomm-ai-200) — 云端
-- [Qualcomm AI 100](./qualcomm-ai100) — 上一代数据中心
-- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](../intel/core-ultra-2) — 同代 AI PC 竞品
-- [AMD Ryzen AI Max (Strix Halo XDNA 2)](../amd/ryzen-ai-max) — 同代 AI PC 竞品
-- [Apple M4 Pro (64GB UMA)](../others/apple-m4-pro) — Apple Silicon
-- [Apple A19 Pro (iPhone 17 Pro)](../others/apple-a19-pro) — 移动
-- [架构分类: APU 加速处理](../../architectures/arch-apu) — APU 架构
+- [Qualcomm AI 200 / 300 (Cloud AI 推测)](/docs/cards/others/qualcomm-ai-200) — 云端
+- [Qualcomm AI 100](/docs/cards/others/qualcomm-ai100) — 上一代数据中心
+- [Intel Core Ultra 2 (Lunar Lake 48 TOPS)](/docs/cards/intel/core-ultra-2) — 同代 AI PC 竞品
+- [AMD Ryzen AI Max (Strix Halo XDNA 2)](/docs/cards/amd/ryzen-ai-max) — 同代 AI PC 竞品
+- [Apple M4 Pro (64GB UMA)](/docs/cards/others/apple-m4-pro) — Apple Silicon
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — 移动
+- [架构分类: APU 加速处理](/docs/architectures/arch-apu) — APU 架构
 - [Snapdragon X Elite 官方页面](https://www.qualcomm.com/laptops/products/snapdragon-x-elite)

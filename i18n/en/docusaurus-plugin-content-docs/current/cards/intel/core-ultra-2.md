@@ -107,11 +107,11 @@ keywords: [Intel Core Ultra Series 2, Lunar Lake, LNL, NPU 4.0, 48 TOPS, Xe2 GPU
  
 ## Related Cards
  
-- [Intel Gaudi 3 (Data Center Training)](./gaudi-3) — Data center
-- [Intel Gaudi 4 (Data Center Training Rumored)](./gaudi-4) — Data center successor
-- [AMD Ryzen AI Max (Strix Halo / XDNA 2)](../amd/ryzen-ai-max) — Same-gen AI PC competitor
-- [NVIDIA RTX 5090 (Consumer GPU)](../nvidia/rtx-5090) — Desktop GPU
-- [Apple M4 Pro (64GB UMA)](../others/apple-m4-pro) — Apple Silicon competitor
-- [Qualcomm AI 200 / 300 (Cloud AI)](../others/qualcomm-ai-200) — Competitor
-- [Architecture: APU Accelerated Processing](../../architectures/arch-apu) — APU architecture
+- [Intel Gaudi 3 (Data Center Training)](/docs/cards/intel/gaudi-3) — Data center
+- [Intel Gaudi 4 (Data Center Training Rumored)](/docs/cards/intel/gaudi-4) — Data center successor
+- [AMD Ryzen AI Max (Strix Halo / XDNA 2)](/docs/cards/amd/ryzen-ai-max) — Same-gen AI PC competitor
+- [NVIDIA RTX 5090 (Consumer GPU)](/docs/cards/nvidia/rtx-5090) — Desktop GPU
+- [Apple M4 Pro (64GB UMA)](/docs/cards/others/apple-m4-pro) — Apple Silicon competitor
+- [Qualcomm AI 200 / 300 (Cloud AI)](/docs/cards/others/qualcomm-ai-200) — Competitor
+- [Architecture: APU Accelerated Processing](/docs/architectures/arch-apu) — APU architecture
 - [Intel Core Ultra Official Page](https://www.intel.com/content/www/us/en/products/details/processors/core-ultra.html)

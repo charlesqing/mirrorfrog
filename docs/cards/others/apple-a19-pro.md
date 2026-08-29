@@ -100,10 +100,10 @@ keywords: [Apple A19 Pro, A19 Pro, iPhone 17 Pro, Neural Engine 35 TOPS, Apple I
 
 ## 相关卡
 
-- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](./apple-a18-pro) — 前代 (2024-09)
-- [Apple M4 Max (128GB UMA 工作站)](./apple-m4-max) — 桌面端
-- [Apple M3 Max (128GB UMA)](./apple-m3-max) — 前代桌面
-- [Apple M-Series 总览](./apple-m-series) — M 系列对比表
-- [Qualcomm AI 200 / 300 (Cloud AI 推测)](./qualcomm-ai-200) — 移动 + 云端
-- [NVIDIA Jetson Thor (机器人 SoC)](../nvidia/jetson-thor) — 边缘 AI
-- [Samsung / MediaTek 移动 SoC 架构](../../architectures/arch-npu) — NPU 分类
+- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](/docs/cards/others/apple-a18-pro) — 前代 (2024-09)
+- [Apple M4 Max (128GB UMA 工作站)](/docs/cards/others/apple-m4-max) — 桌面端
+- [Apple M3 Max (128GB UMA)](/docs/cards/others/apple-m3-max) — 前代桌面
+- [Apple M-Series 总览](/docs/cards/others/apple-m-series) — M 系列对比表
+- [Qualcomm AI 200 / 300 (Cloud AI 推测)](/docs/cards/others/qualcomm-ai-200) — 移动 + 云端
+- [NVIDIA Jetson Thor (机器人 SoC)](/docs/cards/nvidia/jetson-thor) — 边缘 AI
+- [Samsung / MediaTek 移动 SoC 架构](/docs/architectures/arch-npu) — NPU 分类

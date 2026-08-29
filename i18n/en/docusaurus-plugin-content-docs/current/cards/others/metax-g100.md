@@ -80,9 +80,9 @@ XiCai G100 is MetaX's first GPU product targeting the graphics rendering market,
 
 ## Related Products
 
-- [XiYun C500](./metax-c500) — Training-inference integrated GPU
-- [XiYun C600](./metax-c600) — Fully domestic general-purpose GPU
-- [XiSi N100](./metax-n100) — AI inference GPU
+- [XiYun C500](/docs/cards/others/metax-c500) — Training-inference integrated GPU
+- [XiYun C600](/docs/cards/others/metax-c600) — Fully domestic general-purpose GPU
+- [XiSi N100](/docs/cards/others/metax-n100) — AI inference GPU
 
 ---
 

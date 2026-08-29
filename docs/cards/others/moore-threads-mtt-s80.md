@@ -75,8 +75,8 @@ MTT S80是摩尔线程面向消费市场的首款游戏显卡，对标NVIDIA RTX
 
 ## 相关产品
 
-- [MTT S70](./moore-threads-mtt-s70) — 精简版游戏显卡
-- [MTT S5000](./moore-threads-mtt-s5000) — 训推一体服务器GPU
+- [MTT S70](/docs/cards/others/moore-threads-mtt-s70) — 精简版游戏显卡
+- [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — 训推一体服务器GPU
 
 ---
 

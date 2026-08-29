@@ -71,10 +71,10 @@ status: "量产"
 
 ## 相关产品
 
-- [云燧 T20](./enflame-t20) — 第二代训练卡
-- [云燧 T21](./enflame-t21) — 第二代训练卡（OAM）
-- [云燧 i20](./enflame-i20) — 第二代推理卡
-- [燧原 L600](./enflame-l600) — 第四代训推一体芯片
+- [云燧 T20](/docs/cards/others/enflame-t20) — 第二代训练卡
+- [云燧 T21](/docs/cards/others/enflame-t21) — 第二代训练卡（OAM）
+- [云燧 i20](/docs/cards/others/enflame-i20) — 第二代推理卡
+- [燧原 L600](/docs/cards/others/enflame-l600) — 第四代训推一体芯片
 
 ---
 

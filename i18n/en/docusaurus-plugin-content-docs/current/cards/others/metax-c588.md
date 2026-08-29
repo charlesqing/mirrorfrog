@@ -85,9 +85,9 @@ XiYun C588 is the flagship iterative model of MetaX's C500 series, using XCORE 1
 
 ## Related Products
 
-- [XiYun C500](./metax-c500) — First training-inference integrated GPU
-- [XiYun C550](./metax-c550) — C500 iterative upgrade
-- [XiYun C600](./metax-c600) — Fully domestic version (7nm)
+- [XiYun C500](/docs/cards/others/metax-c500) — First training-inference integrated GPU
+- [XiYun C550](/docs/cards/others/metax-c550) — C500 iterative upgrade
+- [XiYun C600](/docs/cards/others/metax-c600) — Fully domestic version (7nm)
 
 ---
 

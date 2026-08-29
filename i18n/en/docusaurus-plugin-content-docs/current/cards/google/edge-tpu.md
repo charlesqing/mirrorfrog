@@ -111,14 +111,14 @@ keywords: [Google Edge TPU, Edge TPU, Coral, 4 TOPS, 2 TOPS/W, M.2 Accelerator, 
 
 ## Related Cards
 
-- [Google TPU v4 (Data Center Training)](../google/tpu-v4) — Same-vendor cloud training
-- [Google TPU v5e (Data Center Training-Lite)](../google/tpu-v5e) — Training lite
-- [Google TPU v6e (DC Inference)](../google/tpu-v6e) — Data center inference
-- [Google TPU 8i (DC Inference Flagship)](../google/tpu-8i) — Latest inference
-- [Hailo-15 (7-20 TOPS Smart Camera)](../others/hailo-15) — Competitor
-- [Hailo-8L (13 TOPS Edge)](../others/hailo) — Same-gen competitor
-- [NVIDIA Jetson Orin (40-275 TOPS Edge AI)](../nvidia/jetson-orin) — High-end edge comparison
-- [Blaize Xplorer (160 TOPS)](../others/blaize-xplorer) — Edge competitor
-- [Mobilint Regulus (32 TOPS Korea)](../others/mobilint) — Same-tier edge
-- [Architecture: TPU Edge Edition](../../architectures/arch-tpu) — Edge TPU concept
+- [Google TPU v4 (Data Center Training)](/docs/cards/google/tpu-v4) — Same-vendor cloud training
+- [Google TPU v5e (Data Center Training-Lite)](/docs/cards/google/tpu-v5e) — Training lite
+- [Google TPU v6e (DC Inference)](/docs/cards/google/tpu-v6e) — Data center inference
+- [Google TPU 8i (DC Inference Flagship)](/docs/cards/google/tpu-8i) — Latest inference
+- [Hailo-15 (7-20 TOPS Smart Camera)](/docs/cards/others/hailo-15) — Competitor
+- [Hailo-8L (13 TOPS Edge)](/docs/cards/others/hailo) — Same-gen competitor
+- [NVIDIA Jetson Orin (40-275 TOPS Edge AI)](/docs/cards/nvidia/jetson-orin) — High-end edge comparison
+- [Blaize Xplorer (160 TOPS)](/docs/cards/others/blaize-xplorer) — Edge competitor
+- [Mobilint Regulus (32 TOPS Korea)](/docs/cards/others/mobilint) — Same-tier edge
+- [Architecture: TPU Edge Edition](/docs/architectures/arch-tpu) — Edge TPU concept
 - [Coral Official](https://www.coral.ai/)

@@ -80,9 +80,9 @@ status: "研发中"
 
 ## 相关产品
 
-- [曦云 C500](./metax-c500) — 训推一体GPU
-- [曦云 C600](./metax-c600) — 全国产通用GPU
-- [曦思 N100](./metax-n100) — AI推理GPU
+- [曦云 C500](/docs/cards/others/metax-c500) — 训推一体GPU
+- [曦云 C600](/docs/cards/others/metax-c600) — 全国产通用GPU
+- [曦思 N100](/docs/cards/others/metax-n100) — AI推理GPU
 
 ---
 

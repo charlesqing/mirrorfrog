@@ -106,10 +106,10 @@ keywords: [Apple A17 Pro, A17 Pro, iPhone 15 Pro, 3nm N3B, hardware ray tracing,
 
 ## 相关卡
 
-- [Apple A18 Pro (iPhone 16 Pro)](./apple-a18-pro) — 后继
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) — 后续
-- [Apple M3 Pro / Max (MacBook Pro 2023)](./apple-m3-max) — 桌面端
-- [Apple M2 Pro (Mac mini 2023)](./apple-m4-pro) — 桌面端
-- [架构分类: NPU 移动 SoC](../../architectures/arch-npu) — NPU 分类
+- [Apple A18 Pro (iPhone 16 Pro)](/docs/cards/others/apple-a18-pro) — 后继
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — 后续
+- [Apple M3 Pro / Max (MacBook Pro 2023)](/docs/cards/others/apple-m3-max) — 桌面端
+- [Apple M2 Pro (Mac mini 2023)](/docs/cards/others/apple-m4-pro) — 桌面端
+- [架构分类: NPU 移动 SoC](/docs/architectures/arch-npu) — NPU 分类
 - [Qualcomm Snapdragon 8 Gen 3 (2023 移动)](https://www.qualcomm.com/) — 同代竞品
 - [MediaTek Dimensity 9300 (2023 移动)](https://www.mediatek.com/) — 同代竞品

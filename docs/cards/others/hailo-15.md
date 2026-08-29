@@ -111,9 +111,9 @@ keywords: [Hailo-15, Hailo, AI 视觉处理器, 20 TOPS, 智能摄像头, AI-ISP
 
 ## 相关卡
 
-- [Hailo-8L (13 TOPS Edge AI)](./hailo) — 前代入门
-- [NVIDIA Jetson Orin (40-275 TOPS 边缘 AI)](../nvidia/jetson-orin) — 高端边缘对比
-- [Blaize Xplorer (160 TOPS Edge)](./blaize-xplorer) — 同代边缘
-- [Mobilint Regulus (32 TOPS 韩国)](./mobilint) — 同梯度边缘
+- [Hailo-8L (13 TOPS Edge AI)](/docs/cards/others/hailo) — 前代入门
+- [NVIDIA Jetson Orin (40-275 TOPS 边缘 AI)](/docs/cards/nvidia/jetson-orin) — 高端边缘对比
+- [Blaize Xplorer (160 TOPS Edge)](/docs/cards/others/blaize-xplorer) — 同代边缘
+- [Mobilint Regulus (32 TOPS 韩国)](/docs/cards/others/mobilint) — 同梯度边缘
 - [Hailo-15 官方介绍](https://hailo.ai/products/ai-vision-processors/hailo-15h-ai-vision-processor/)
-- [架构分类: 边缘 AI](../../architectures/arch-npu) — NPU 架构
+- [架构分类: 边缘 AI](/docs/architectures/arch-npu) — NPU 架构

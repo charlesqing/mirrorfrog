@@ -104,10 +104,10 @@ keywords: [Apple M4 Pro, M4 Pro, 14 核 CPU, 20 核 GPU, 64GB UMA, 273 GB/s, Thu
 
 ## 相关卡
 
-- [Apple M4 Max (128GB UMA 工作站)](./apple-m4-max) — 同代 Max
-- [Apple M3 Max (128GB UMA)](./apple-m3-max) — 前代 Max
+- [Apple M4 Max (128GB UMA 工作站)](/docs/cards/others/apple-m4-max) — 同代 Max
+- [Apple M3 Max (128GB UMA)](/docs/cards/others/apple-m3-max) — 前代 Max
 - [Apple M4 Pro vs M3 Pro 升级指南](#)
-- [Apple M-Series 总览](./apple-m-series) — M 系列对比表
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) — 同代移动
-- [NVIDIA RTX 5080 / 5090 工作站](../nvidia/rtx-5090) — 桌面 GPU 对比
-- [AMD Ryzen AI (XDNA) 架构](../../architectures/arch-apu) — APU 分类
+- [Apple M-Series 总览](/docs/cards/others/apple-m-series) — M 系列对比表
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — 同代移动
+- [NVIDIA RTX 5080 / 5090 工作站](/docs/cards/nvidia/rtx-5090) — 桌面 GPU 对比
+- [AMD Ryzen AI (XDNA) 架构](/docs/architectures/arch-apu) — APU 分类

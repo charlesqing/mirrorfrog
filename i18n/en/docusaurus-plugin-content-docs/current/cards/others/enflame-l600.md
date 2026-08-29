@@ -74,10 +74,10 @@ Enflame L600 is Enflame's fourth-generation AI chip, positioned as "ultra-high-p
 
 ## Related Products
 
-- [CloudBlaze T20](./enflame-t20) — Second-generation training card
-- [CloudBlaze T21](./enflame-t21) — Second-generation training card (OAM)
-- [CloudBlaze i20](./enflame-i20) — Second-generation inference card
-- [CloudBlaze S60](./enflame-s60) — Third-generation inference card
+- [CloudBlaze T20](/docs/cards/others/enflame-t20) — Second-generation training card
+- [CloudBlaze T21](/docs/cards/others/enflame-t21) — Second-generation training card (OAM)
+- [CloudBlaze i20](/docs/cards/others/enflame-i20) — Second-generation inference card
+- [CloudBlaze S60](/docs/cards/others/enflame-s60) — Third-generation inference card
 
 ---
 

@@ -73,8 +73,8 @@ MTT S70是摩尔线程面向主流游戏市场的精简版显卡，对标NVIDIA 
 
 ## 相关产品
 
-- [MTT S80](./moore-threads-mtt-s80) — 完整版游戏显卡
-- [MTT S5000](./moore-threads-mtt-s5000) — 训推一体服务器GPU
+- [MTT S80](/docs/cards/others/moore-threads-mtt-s80) — 完整版游戏显卡
+- [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — 训推一体服务器GPU
 
 ---
 

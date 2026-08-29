@@ -71,9 +71,9 @@ CloudBlaze i10 is the inference product in Enflame's "training + inference" prod
 
 ## Related Products
 
-- [CloudBlaze T10](./enflame-t10) — Concurrent training card
-- [CloudBlaze i20](./enflame-i20) — Second-generation inference card (Suisi 2.0)
-- [CloudBlaze T20](./enflame-t20) — Second-generation training card
+- [CloudBlaze T10](/docs/cards/others/enflame-t10) — Concurrent training card
+- [CloudBlaze i20](/docs/cards/others/enflame-i20) — Second-generation inference card (Suisi 2.0)
+- [CloudBlaze T20](/docs/cards/others/enflame-t20) — Second-generation training card
 
 ---
 

@@ -70,5 +70,5 @@ Ascend 910 采用 **台积电 7nm+ EUV** 工艺（华为被制裁前获得的最
 
 - [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) - 国产化改良版
 - [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c) - Chiplet 双芯旗舰
-- [NVIDIA V100](/docs/cards/nvidia/v100) - 同期对标
+- NVIDIA V100（同期对标，暂无独立规格页）
 - [NVIDIA A100](/docs/cards/nvidia/a100) - 性能量级参考

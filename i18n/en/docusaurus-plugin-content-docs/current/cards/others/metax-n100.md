@@ -72,8 +72,8 @@ XiSi N100 is MetaX's first AI inference GPU, targeting NVIDIA L4/T4 inference ca
 
 ## Related Products
 
-- [XiYun C500](./metax-c500) — MetaX training-inference integrated GPU
-- [XiYun C600](./metax-c600) — MetaX fully domestic general-purpose GPU
+- [XiYun C500](/docs/cards/others/metax-c500) — MetaX training-inference integrated GPU
+- [XiYun C600](/docs/cards/others/metax-c600) — MetaX fully domestic general-purpose GPU
 
 ---
 

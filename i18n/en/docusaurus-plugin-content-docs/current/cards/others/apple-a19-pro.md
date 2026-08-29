@@ -100,10 +100,10 @@ keywords: [Apple A19 Pro, A19 Pro, iPhone 17 Pro, Neural Engine 35 TOPS, Apple I
 
 ## Related Cards
 
-- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](./apple-a18-pro) — Previous gen (2024-09)
-- [Apple M4 Max (128GB UMA workstation)](./apple-m4-max) — Desktop class
-- [Apple M3 Max (128GB UMA)](./apple-m3-max) — Previous-gen desktop
-- [Apple M-Series Overview](./apple-m-series) — M-series comparison table
-- [Qualcomm AI 200 / 300 (Cloud AI inference)](./qualcomm-ai-200) — Mobile + cloud
-- [NVIDIA Jetson Thor (Robotics SoC)](../nvidia/jetson-thor) — Edge AI
-- [Samsung / MediaTek mobile SoC architectures](../../architectures/arch-npu) — NPU category
+- [Apple A18 Pro (iPhone 16 Pro 35 TOPS NE)](/docs/cards/others/apple-a18-pro) — Previous gen (2024-09)
+- [Apple M4 Max (128GB UMA workstation)](/docs/cards/others/apple-m4-max) — Desktop class
+- [Apple M3 Max (128GB UMA)](/docs/cards/others/apple-m3-max) — Previous-gen desktop
+- [Apple M-Series Overview](/docs/cards/others/apple-m-series) — M-series comparison table
+- [Qualcomm AI 200 / 300 (Cloud AI inference)](/docs/cards/others/qualcomm-ai-200) — Mobile + cloud
+- [NVIDIA Jetson Thor (Robotics SoC)](/docs/cards/nvidia/jetson-thor) — Edge AI
+- [Samsung / MediaTek mobile SoC architectures](/docs/architectures/arch-npu) — NPU category

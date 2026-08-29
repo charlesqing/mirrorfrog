@@ -114,11 +114,11 @@ keywords: [Apple M1 Pro, M1 Pro, 10 核 CPU, 16 核 GPU, 200 GB/s, MacBook Pro 2
 
 ## 相关卡
 
-- [Apple M1 Ultra (M1 系列旗舰)](./apple-m1-ultra) — M1 Max 双芯
-- [Apple M2 Pro / Max / Ultra (2023)](./apple-m2-ultra) — 前代
-- [Apple M3 Pro / Max (2023)](./apple-m3-max) — 前代
-- [Apple M4 Pro (2024)](./apple-m4-pro) — 同代后继
-- [Apple M-Series 总览](./apple-m-series) — M 系列对比表
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) — 同代移动
-- [架构分类: APU 加速处理](../../architectures/arch-apu) — APU 架构
-- [NVIDIA RTX 4090 (消费 GPU)](../nvidia/rtx-4090) — 桌面 GPU 对比
+- [Apple M1 Ultra (M1 系列旗舰)](/docs/cards/others/apple-m1-ultra) — M1 Max 双芯
+- [Apple M2 Pro / Max / Ultra (2023)](/docs/cards/others/apple-m2-ultra) — 前代
+- [Apple M3 Pro / Max (2023)](/docs/cards/others/apple-m3-max) — 前代
+- [Apple M4 Pro (2024)](/docs/cards/others/apple-m4-pro) — 同代后继
+- [Apple M-Series 总览](/docs/cards/others/apple-m-series) — M 系列对比表
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) — 同代移动
+- [架构分类: APU 加速处理](/docs/architectures/arch-apu) — APU 架构
+- [NVIDIA RTX 4090 (消费 GPU)](/docs/cards/nvidia/rtx-4090) — 桌面 GPU 对比

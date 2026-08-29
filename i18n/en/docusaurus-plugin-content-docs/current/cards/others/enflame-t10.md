@@ -73,9 +73,9 @@ CloudBlaze T10 is Enflame's founding work, targeting NVIDIA V100, focusing on cl
 
 ## Related Products
 
-- [CloudBlaze T20](./enflame-t20) — Second-generation training card (Suisi 2.0)
-- [CloudBlaze T21](./enflame-t21) — Second-generation OAM training module
-- [CloudBlaze i10](./enflame-i10) — Concurrent inference card
+- [CloudBlaze T20](/docs/cards/others/enflame-t20) — Second-generation training card (Suisi 2.0)
+- [CloudBlaze T21](/docs/cards/others/enflame-t21) — Second-generation OAM training module
+- [CloudBlaze i10](/docs/cards/others/enflame-i10) — Concurrent inference card
 
 ---
 

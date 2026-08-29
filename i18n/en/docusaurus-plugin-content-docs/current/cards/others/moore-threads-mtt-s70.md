@@ -73,8 +73,8 @@ MTT S70 is Moore Threads' graphics card targeting the mainstream gaming market, 
 
 ## Related Products
 
-- [MTT S80](./moore-threads-mtt-s80) — Full version gaming graphics card
-- [MTT S5000](./moore-threads-mtt-s5000) — Training+inference server GPU
+- [MTT S80](/docs/cards/others/moore-threads-mtt-s80) — Full version gaming graphics card
+- [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — Training+inference server GPU
 
 ---
 

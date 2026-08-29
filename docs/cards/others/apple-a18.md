@@ -104,11 +104,11 @@ keywords: [Apple A18, A18, iPhone 16, 5-core GPU, 8 GB RAM, 3nm N3E, Apple Intel
 
 ## 相关卡
 
-- [Apple A18 Pro (iPhone 16 Pro)](./apple-a18-pro) — 同代旗舰
-- [Apple A19 (iPhone 17)](./apple-a19) — 后继
-- [Apple A17 Pro (iPhone 15 Pro)](./apple-a17-pro) — 前代 3nm 首发
-- [Apple M1 Pro (MacBook Pro 2021)](./apple-m1-pro) — 桌面端
+- [Apple A18 Pro (iPhone 16 Pro)](/docs/cards/others/apple-a18-pro) — 同代旗舰
+- [Apple A19 (iPhone 17)](/docs/cards/others/apple-a19) — 后继
+- [Apple A17 Pro (iPhone 15 Pro)](/docs/cards/others/apple-a17-pro) — 前代 3nm 首发
+- [Apple M1 Pro (MacBook Pro 2021)](/docs/cards/others/apple-m1-pro) — 桌面端
 - [Apple A16 Bionic (2022)](https://en.wikipedia.org/wiki/Apple_A16) — 前代
-- [架构分类: NPU 移动 SoC](../../architectures/arch-npu) — NPU 分类
-- [Qualcomm Snapdragon X Elite (PC 芯片)](./qualcomm-snapdragon-x-elite) — 同代竞品
-- [MediaTek Dimensity 9400 (2024 移动旗舰)](./mediatek-dimensity-9400) — 同代竞品
+- [架构分类: NPU 移动 SoC](/docs/architectures/arch-npu) — NPU 分类
+- [Qualcomm Snapdragon X Elite (PC 芯片)](/docs/cards/others/qualcomm-snapdragon-x-elite) — 同代竞品
+- [MediaTek Dimensity 9400 (2024 移动旗舰)](/docs/cards/others/mediatek-dimensity-9400) — 同代竞品

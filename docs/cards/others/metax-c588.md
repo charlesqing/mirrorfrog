@@ -85,9 +85,9 @@ status: "量产"
 
 ## 相关产品
 
-- [曦云 C500](./metax-c500) — 首款训推一体GPU
-- [曦云 C550](./metax-c550) — C500迭代升级
-- [曦云 C600](./metax-c600) — 全国产版本（7nm）
+- [曦云 C500](/docs/cards/others/metax-c500) — 首款训推一体GPU
+- [曦云 C550](/docs/cards/others/metax-c550) — C500迭代升级
+- [曦云 C600](/docs/cards/others/metax-c600) — 全国产版本（7nm）
 
 ---
 

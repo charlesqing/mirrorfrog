@@ -71,10 +71,10 @@ CloudBlaze S60 is Enflame's new-generation AI inference accelerator for large-sc
 
 ## Related Products
 
-- [CloudBlaze T20](./enflame-t20) — Second-generation training card
-- [CloudBlaze T21](./enflame-t21) — Second-generation training card (OAM)
-- [CloudBlaze i20](./enflame-i20) — Second-generation inference card
-- [Enflame L600](./enflame-l600) — Fourth-generation training+inference chip
+- [CloudBlaze T20](/docs/cards/others/enflame-t20) — Second-generation training card
+- [CloudBlaze T21](/docs/cards/others/enflame-t21) — Second-generation training card (OAM)
+- [CloudBlaze i20](/docs/cards/others/enflame-i20) — Second-generation inference card
+- [Enflame L600](/docs/cards/others/enflame-l600) — Fourth-generation training+inference chip
 
 ---
 

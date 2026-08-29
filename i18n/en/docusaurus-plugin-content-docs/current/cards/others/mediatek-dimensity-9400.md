@@ -118,10 +118,10 @@ keywords: [MediaTek Dimensity 9400, Cortex-X925, Immortalis-G925, NPU 890, Agent
 
 ## Related Products
 
-- [Apple A18 Pro (iPhone 16 Pro)](./apple-a18-pro) -- same-gen competitor
-- [Apple A19 Pro (iPhone 17 Pro)](./apple-a19-pro) -- successor
-- [Qualcomm Snapdragon X Elite (PC chip)](./qualcomm-snapdragon-x-elite) -- cross-category
-- [NVIDIA Jetson Thor (robotics SoC)](../nvidia/jetson-thor) -- edge AI
-- [Apple A18 (iPhone 16 base)](./apple-a18) -- same-gen base
-- [Architecture: NPU Mobile SoC](../../architectures/arch-npu) -- NPU classification
+- [Apple A18 Pro (iPhone 16 Pro)](/docs/cards/others/apple-a18-pro) -- same-gen competitor
+- [Apple A19 Pro (iPhone 17 Pro)](/docs/cards/others/apple-a19-pro) -- successor
+- [Qualcomm Snapdragon X Elite (PC chip)](/docs/cards/others/qualcomm-snapdragon-x-elite) -- cross-category
+- [NVIDIA Jetson Thor (robotics SoC)](/docs/cards/nvidia/jetson-thor) -- edge AI
+- [Apple A18 (iPhone 16 base)](/docs/cards/others/apple-a18) -- same-gen base
+- [Architecture: NPU Mobile SoC](/docs/architectures/arch-npu) -- NPU classification
 - [Dimensity 9400 Official Page](https://www.mediatek.com/products/smartphones/mediatek-dimensity-9400)

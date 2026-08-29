@@ -112,14 +112,14 @@ keywords: [Google Edge TPU, Edge TPU, Coral, 4 TOPS, 2 TOPS/W, M.2 Accelerator, 
 
 ## 相关卡
 
-- [Google TPU v4 (数据中心训练)](../google/tpu-v4) — 同厂商云端训练
-- [Google TPU v5e (数据中心训练-Lite)](../google/tpu-v5e) — 训练轻量
-- [Google TPU v6e (DC 推理)](../google/tpu-v6e) — 数据中心推理
-- [Google TPU 8i (DC 推理旗舰)](../google/tpu-8i) — 最新推理
-- [Hailo-15 (7-20 TOPS 智能摄像头)](../others/hailo-15) — 竞品
-- [Hailo-8L (13 TOPS Edge)](../others/hailo) — 同代竞品
-- [NVIDIA Jetson Orin (40-275 TOPS 边缘 AI)](../nvidia/jetson-orin) — 高端边缘对比
-- [Blaize Xplorer (160 TOPS)](../others/blaize-xplorer) — 边缘竞品
-- [Mobilint Regulus (32 TOPS 韩国)](../others/mobilint) — 同梯度边缘
-- [架构分类: TPU 边缘版](../../architectures/arch-tpu) — 边缘 TPU 概念
+- [Google TPU v4 (数据中心训练)](/docs/cards/google/tpu-v4) — 同厂商云端训练
+- [Google TPU v5e (数据中心训练-Lite)](/docs/cards/google/tpu-v5e) — 训练轻量
+- [Google TPU v6e (DC 推理)](/docs/cards/google/tpu-v6e) — 数据中心推理
+- [Google TPU 8i (DC 推理旗舰)](/docs/cards/google/tpu-8i) — 最新推理
+- [Hailo-15 (7-20 TOPS 智能摄像头)](/docs/cards/others/hailo-15) — 竞品
+- [Hailo-8L (13 TOPS Edge)](/docs/cards/others/hailo) — 同代竞品
+- [NVIDIA Jetson Orin (40-275 TOPS 边缘 AI)](/docs/cards/nvidia/jetson-orin) — 高端边缘对比
+- [Blaize Xplorer (160 TOPS)](/docs/cards/others/blaize-xplorer) — 边缘竞品
+- [Mobilint Regulus (32 TOPS 韩国)](/docs/cards/others/mobilint) — 同梯度边缘
+- [架构分类: TPU 边缘版](/docs/architectures/arch-tpu) — 边缘 TPU 概念
 - [Coral 官方](https://www.coral.ai/)

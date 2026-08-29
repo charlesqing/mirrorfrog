@@ -104,11 +104,11 @@ keywords: [Apple A18, A18, iPhone 16, 5-core GPU, 8 GB RAM, 3nm N3E, Apple Intel
 
 ## Related Cards
 
-- [Apple A18 Pro (iPhone 16 Pro)](./apple-a18-pro) — Same-gen flagship
-- [Apple A19 (iPhone 17)](./apple-a19) — Successor
-- [Apple A17 Pro (iPhone 15 Pro)](./apple-a17-pro) — Previous-gen 3nm debut
-- [Apple M1 Pro (MacBook Pro 2021)](./apple-m1-pro) — Desktop class
+- [Apple A18 Pro (iPhone 16 Pro)](/docs/cards/others/apple-a18-pro) — Same-gen flagship
+- [Apple A19 (iPhone 17)](/docs/cards/others/apple-a19) — Successor
+- [Apple A17 Pro (iPhone 15 Pro)](/docs/cards/others/apple-a17-pro) — Previous-gen 3nm debut
+- [Apple M1 Pro (MacBook Pro 2021)](/docs/cards/others/apple-m1-pro) — Desktop class
 - [Apple A16 Bionic (2022)](https://en.wikipedia.org/wiki/Apple_A16) — Previous gen
-- [Architecture: NPU Mobile SoC](../../architectures/arch-npu) — NPU category
-- [Qualcomm Snapdragon X Elite (PC chip)](./qualcomm-snapdragon-x-elite) — Same-gen competitor
-- [MediaTek Dimensity 9400 (2024 mobile flagship)](./mediatek-dimensity-9400) — Same-gen competitor
+- [Architecture: NPU Mobile SoC](/docs/architectures/arch-npu) — NPU category
+- [Qualcomm Snapdragon X Elite (PC chip)](/docs/cards/others/qualcomm-snapdragon-x-elite) — Same-gen competitor
+- [MediaTek Dimensity 9400 (2024 mobile flagship)](/docs/cards/others/mediatek-dimensity-9400) — Same-gen competitor
