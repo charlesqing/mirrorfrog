@@ -88,7 +88,7 @@
 
 .searchBox:focus-within {
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.15);
 }
 
 .searchIcon {

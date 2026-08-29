@@ -138,8 +138,8 @@ export default function ComparePage(): ReactNode {
               style={{
                 padding: '0.5rem 1.25rem',
                 borderRadius: 6,
-                border: '1px solid var(--ifm-color-primary, #6c5ce7)',
-                background: 'var(--ifm-color-primary, #6c5ce7)',
+                border: '1px solid var(--ifm-color-primary, #5b4cdb)',
+                background: 'var(--ifm-color-primary, #5b4cdb)',
                 color: '#fff',
                 cursor: 'pointer',
                 fontSize: '0.95rem',

@@ -3,7 +3,7 @@
 .wrapper {
   max-width: 900px;
   margin: 0 auto;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--ifm-font-family-base);
   position: relative;
   color: var(--ifm-font-color-base);
 }
@@ -60,7 +60,7 @@
 .input:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(53, 120, 229, 0.15);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.15);
 }
 .range {
   width: 100%;
@@ -160,7 +160,7 @@
 .priceBox {
   margin-top: 8px;
   padding: 8px 12px;
-  background: rgba(53, 120, 229, 0.06);
+  background: rgba(var(--ifm-color-primary-rgb), 0.06);
   border-radius: 8px;
   border-left: 3px solid var(--ifm-color-primary);
   font-size: 0.85rem;
@@ -327,7 +327,7 @@
   font-family: inherit;
 }
 .selectItemActive {
-  background: rgba(53, 120, 229, 0.1);
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);
   color: var(--ifm-color-primary);
   font-weight: 600;
 }
@@ -371,10 +371,10 @@
 .tcoBox {
   text-align: center;
   padding: 20px 16px;
-  background: linear-gradient(135deg, rgba(53, 120, 229, 0.06) 0%, rgba(53, 120, 229, 0.02) 100%);
+  background: linear-gradient(135deg, rgba(var(--ifm-color-primary-rgb), 0.06) 0%, rgba(var(--ifm-color-primary-rgb), 0.02) 100%);
   border-radius: 10px;
   margin-bottom: 16px;
-  border: 1px solid rgba(53, 120, 229, 0.1);
+  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.1);
 }
 .tcoValue {
   font-size: 2.2rem;
@@ -511,7 +511,7 @@
   border-radius: 4px;
 }
 .pieLegendHover {
-  background: rgba(53, 120, 229, 0.06);
+  background: rgba(var(--ifm-color-primary-rgb), 0.06);
 }
 .pieLegendDot {
   width: 10px;
@@ -622,8 +622,8 @@
 
 /* 洞察 */
 .insightBox {
-  background: rgba(53, 120, 229, 0.04);
-  border: 1px solid rgba(53, 120, 229, 0.1);
+  background: rgba(var(--ifm-color-primary-rgb), 0.04);
+  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.1);
   border-radius: 10px;
   padding: 12px 16px;
   margin-top: 16px;
@@ -672,7 +672,7 @@
 }
 .btnAdd:hover:not(:disabled) {
   border-color: var(--ifm-color-primary);
-  background: rgba(53, 120, 229, 0.04);
+  background: rgba(var(--ifm-color-primary-rgb), 0.04);
 }
 .btnAdd:disabled {
   opacity: 0.5;

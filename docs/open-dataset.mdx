@@ -1,6 +1,6 @@
 ---
 title: 开放数据集：AI 算力卡规格库
-description: MirrorFrog 将 188 款 AI 算力卡的完整规格以开放数据集形式发布（chips.json / pricing.json），供研究、二次开发与横向比对使用。含字段说明、许可协议与引用方式。
+description: MirrorFrog 将 222 款 AI 算力卡的完整规格以开放数据集形式发布（chips.json / pricing.json），供研究、二次开发与横向比对使用。含字段说明、许可协议与引用方式。
 keywords: [AI 芯片数据集, chips.json, 开放数据, 算力卡数据库, AI 芯片规格下载]
 sidebar_label: 开放数据集
 ---
@@ -12,7 +12,7 @@ import Head from '@docusaurus/Head';
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'MirrorFrog AI Compute Card Dataset',
-    description: '188 AI compute accelerators with specs, pricing references and vendor metadata.',
+    description: '222 AI compute accelerators with specs, pricing references and vendor metadata.',
     url: 'https://mirrorfrog.com/docs/open-dataset',
     license: 'https://creativecommons.org/licenses/by/4.0/',
     keywords: ['AI chip', 'GPU', 'NPU', 'TPU', 'datacenter accelerator'],
@@ -31,7 +31,7 @@ MirrorFrog 把站点背后的全部芯片规格整理成**机器可读的开放�
 
 | 文件 | 说明 | 直链 |
 | --- | --- | --- |
-| `chips.json` | 188 款芯片的完整规格（架构、制程、算力、显存、带宽、TDP 等） | [/chips.json](/chips.json) |
+| `chips.json` | 222 款芯片的完整规格（架构、制程、算力、显存、带宽、TDP 等） | [/chips.json](/chips.json) |
 | `pricing.json` | 各芯片的参考定价与币种（部分为推测/未公开，标注 `null`） | [/pricing.json](/pricing.json) |
 
 > 提示：两个文件均由 `npm run build` 前的 `prebuild` 脚本从 `docs/cards/**` 的 Markdown 源文件自动生成，规格以源文件为准。

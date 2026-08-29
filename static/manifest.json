@@ -1,7 +1,7 @@
 {
-  "name": "ACCW - AI 算力卡百科",
-  "short_name": "ACCW",
-  "description": "100+ 款 AI 芯片规格对比、深度分析、选型指南",
+  "name": "MirrorFrog AI 算力卡百科",
+  "short_name": "MirrorFrog",
+  "description": "222 款 AI 芯片规格对比、深度分析、选型指南",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

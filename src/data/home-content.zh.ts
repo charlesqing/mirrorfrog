@@ -84,7 +84,7 @@ const ZH_HOT_CHIPS: HotChip[] = [
 ];
 
 export const ZH_CONTENT: HomeContent = {
-  heroTitle: '',
+  heroTitle: 'AI 算力卡百科',
   heroSubtitle: '全球最全面的 AI 算力卡百科 · 持续更新',
   searchPlaceholder: '搜索芯片、厂商、架构（如 H100、昇腾、Hopper、HBM3）',
   searchLabel: '搜索 AI 算力卡',
@@ -95,7 +95,7 @@ export const ZH_CONTENT: HomeContent = {
   hotChipsTitle: '🔥 热门芯片',
   hotChipsDesc: '按"重要性 + 时效性 + 算力"综合排序 — 得分越高排名越靠前。',
   hotChipsHeader: ['芯片名称', '厂商', '架构', '显存', '带宽', 'FP16', 'TDP', '分类'],
-  viewFullComparison: '查看完整对比表（188 款）→',
+  viewFullComparison: '查看完整对比表（222 款）→',
   latestNewsTitle: '📰 最新动态',
   latestNewsDescPrefix: '行业新闻、产品发布、技术深度、选型指南。',
   latestNewsDescLink: '查看所有文章 →',

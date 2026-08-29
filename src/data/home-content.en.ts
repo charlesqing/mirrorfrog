@@ -22,7 +22,7 @@ const EN_HOT_CHIPS: HotChip[] = [
 ];
 
 export const EN_CONTENT: HomeContent = {
-  heroTitle: '',
+  heroTitle: 'AI Compute Cards Wiki',
   heroSubtitle: "The world's most comprehensive AI compute chip encyclopedia · Continuously updated",
   searchPlaceholder: 'Search chips, vendors, architectures (e.g. H100, Hopper, HBM3)',
   searchLabel: 'Search AI compute chips',
@@ -33,7 +33,7 @@ export const EN_CONTENT: HomeContent = {
   hotChipsTitle: '🔥 Hot Chips',
   hotChipsDesc: 'Ranked by importance, recency, and FP16/BF16 performance — higher score means higher rank.',
   hotChipsHeader: ['Chip', 'Vendor', 'Arch', 'Memory', 'Bandwidth', 'FP16', 'TDP', 'Category'],
-  viewFullComparison: 'View full comparison table (188 chips) →',
+  viewFullComparison: 'View full comparison table (222 chips) →',
   latestNewsTitle: '📰 Latest News',
   latestNewsDescPrefix: 'Industry news, product launches, technical deep-dives, and selection guides.',
   latestNewsDescLink: 'View all articles →',
