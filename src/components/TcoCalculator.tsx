@@ -28,7 +28,7 @@ interface CompareItem {
   tcoPerTflops?: number | null;
 }
 
-const COLORS = ['#3578e5', '#e94b4b', '#f5a623', '#7ed321'];
+const COLORS = ['#7F77DD', '#1D9E75', '#E0A030', '#E8633A']; // 品牌紫 / 青 / 琥珀 / 珊瑚
 
 // ===== 工具函数 =====
 function flatPricing(p: PricingData) {
@@ -148,30 +148,33 @@ function zhName(id: string, fallback: string): string { return ZH_NAMES[id] || f
 function vendorLabel(v: string): string { return VENDOR_LABEL[v] || v; }
 
 // ===== 数字滚动动画 Hook =====
-function useCountUp(target: number, duration = 500): number {
+// 仅在 animateKey 变化（如切换芯片）时播放数字滚动动画；
+// 拖动 slider 等连续变更时直接显示目标值，避免数字抖动。
+function useCountUp(target: number, animateKey: string | number = ''): number {
   const [val, setVal] = useState(target);
-  const fromRef = useRef(target);
-  const startRef = useRef<number | null>(null);
   const rafRef = useRef<number | null>(null);
+  const prevKey = useRef(animateKey);
   useEffect(() => {
-    fromRef.current = val;
-    startRef.current = null;
+    const keyChanged = animateKey !== prevKey.current;
+    prevKey.current = animateKey;
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    if (!keyChanged) { setVal(target); return; }
+    const from = val;
+    const start = performance.now();
+    const duration = 500;
     const step = (ts: number) => {
-      if (startRef.current === null) startRef.current = ts;
-      const p = Math.min(1, (ts - startRef.current) / duration);
+      const p = Math.min(1, (ts - start) / duration);
       const eased = 1 - Math.pow(1 - p, 3);
-      const cur = fromRef.current + (target - fromRef.current) * eased;
-      setVal(cur);
+      setVal(from + (target - from) * eased);
       if (p < 1) rafRef.current = requestAnimationFrame(step);
     };
     rafRef.current = requestAnimationFrame(step);
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [target]);
+  }, [target, animateKey]);
   return val;
 }
-function AnimatedMoney({ value }: { value: number }) {
-  const v = useCountUp(value);
+function AnimatedMoney({ value, animateKey = '' }: { value: number; animateKey?: string | number }) {
+  const v = useCountUp(value, animateKey);
   return <span className={styles.tcoValue}>{fmtFull(Math.round(v))}</span>;
 }
 
@@ -379,12 +382,12 @@ function Bars({ data, hoverYear, setHover, baseProc }: {
     <div>
       <div className={styles.barHoverLabel} aria-live="polite">
         {hoverEntry ? (
-          <>第 {hoverEntry.year} 年: {fmt(hoverEntry.procurement + hoverEntry.electricity + hoverEntry.dc + hoverEntry.cooling)}
-            {hoverEntry.year === 1 && hoverEntry.procurement > 0 && <span className={styles.barHoverNote}>（含采购 {fmt(baseProc)}）</span>}
+          <>第 {hoverEntry.year} 年累计 TCO: {fmt(hoverEntry.procurement + hoverEntry.electricity + hoverEntry.dc + hoverEntry.cooling)}
+            {hoverEntry.year === 1 && hoverEntry.procurement > 0 && <span className={styles.barHoverNote}>（含一次性采购 {fmt(baseProc)}）</span>}
           </>
-        ) : '悬停查看各年成本'}
+        ) : '悬停/聚焦查看各年累计 TCO'}
       </div>
-      <div className={styles.barArea} role="img" aria-label={`TCO 随年限变化柱状图，共 ${data.length} 年`}>
+      <div className={styles.barArea} role="img" aria-label={`TCO 累计随年限变化柱状图，共 ${data.length} 年`}>
         {data.map(d => {
           const t = d.procurement + d.electricity + d.dc + d.cooling;
           const h = (t / max) * 100;
@@ -420,6 +423,7 @@ function Bars({ data, hoverYear, setHover, baseProc }: {
 
 // ===== 多芯片对比柱状图（P3-1）=====
 function CompareChart({ compare }: { compare: CompareItem[] }) {
+  const [hoverId, setHoverId] = useState<string | null>(null);
   if (compare.length === 0) return null;
   const max = Math.max(...compare.map(c => c.tco), 1);
   const c = { procurement: COLORS[0], electricity: COLORS[1], dc: COLORS[2], cooling: COLORS[3] };
@@ -432,12 +436,18 @@ function CompareChart({ compare }: { compare: CompareItem[] }) {
           const h = (t / max) * 100;
           const p1 = (item.procurement / t) * 100, p2 = (item.electricity / t) * 100, p3 = (item.dc / t) * 100;
           const grad = `linear-gradient(to top,${c.procurement} ${p1}%,${c.electricity} ${p1}%,${c.electricity} ${p1 + p2}%,${c.dc} ${p1 + p2}%,${c.dc} ${p1 + p2 + p3}%,${c.cooling} ${p1 + p2 + p3}%)`;
+          const isHover = hoverId === item.chip.id;
           return (
-            <div key={item.chip.id} className={styles.barCol}>
+            <div key={item.chip.id} className={`${styles.barCol} ${isHover ? styles.barColHover : ''}`}>
               <div className={styles.barTopLabel}>{fmt(t)}</div>
               <div className={styles.barSlot}>
-                <div className={styles.barFill} style={{ height: `${h}%`, background: grad }}
-                  role="img" aria-label={`${zhName(item.chip.id, item.chip.name)} TCO ${fmtFull(Math.round(t))}`} />
+                <div className={styles.barFill}
+                  style={{ height: `${h}%`, background: grad, opacity: hoverId === null || isHover ? 1 : 0.4 }}
+                  role="img" tabIndex={0}
+                  aria-label={`${zhName(item.chip.id, item.chip.name)} TCO ${fmtFull(Math.round(t))}，采购 ${fmtFull(Math.round(item.procurement))}，电费 ${fmtFull(Math.round(item.electricity))}，租金 ${fmtFull(Math.round(item.dc))}，冷却 ${fmtFull(Math.round(item.cooling))}`}
+                  onMouseEnter={() => setHoverId(item.chip.id)} onMouseLeave={() => setHoverId(null)}
+                  onFocus={() => setHoverId(item.chip.id)} onBlur={() => setHoverId(null)}
+                />
               </div>
               <div className={styles.barBottomLabel} style={{ maxWidth: 80, textAlign: 'center', fontSize: '0.66rem', lineHeight: 1.2, marginTop: 4 }}>
                 {zhName(item.chip.id, item.chip.name).split(' ').pop()}
@@ -473,11 +483,11 @@ function Sensitivity({ base, params }: {
     return proc + opDiscounted;
   };
   const items = [
-    { label: '电价 ±20%', delta: 0.2, params: { price: params.price * 1.2 } },
-    { label: '使用率 ±20%', delta: 0.2, params: { usage: clamp(params.usage * 1.2, 0.1, 1) } },
-    { label: '使用年限 ±1年', delta: 1 / Math.max(params.years, 1), params: { years: params.years + 1 }, relative: false },
-    { label: 'PUE 1.2→1.5', delta: 0.3, params: { pue: 1.5 } },
-    { label: '空闲比率 15%→30%', delta: 0.15, params: { idleRatio: 0.3 } },
+    { label: '电价 +20%', delta: 0.2, params: { price: params.price * 1.2 } },
+    { label: '使用率 +20%', delta: 0.2, params: { usage: clamp(params.usage * 1.2, 0.1, 1) } },
+    { label: '使用年限 +1年', delta: 1 / Math.max(params.years, 1), params: { years: params.years + 1 }, relative: false },
+    { label: 'PUE →1.5', delta: 0.3, params: { pue: 1.5 } },
+    { label: '空闲比率 →30%', delta: 0.15, params: { idleRatio: 0.3 } },
   ];
   return (
     <div className={styles.sensitivityBox}>
@@ -669,26 +679,18 @@ export default function TcoCalculator() {
     { label: '冷却', value: cool, color: COLORS[3] },
   ].filter(i => i.value > 0), [proc, elec, dc, cool]);
 
-  // P1-4 动态化：跟随 years 滑块
+  // P0-2 累计 TCO：每根柱子 = 截至该年的累计（已折现）TCO，
+  // 堆叠为累计构成（采购 / 电费 / 租金 / 冷却）。柱子逐年升高，契合「TCO 随年限变化」标题。
   const barData = useMemo(() => {
-    return Array.from({ length: years }, (_, i) => i + 1).map(y => {
-      // 折现到第 y 年
-      const yrFactor = discount > 0 ? (1 - Math.pow(1 + discount, -(y))) / discount : y;
-      // 单年折现
-      const singleYrFactor = discount > 0 ? Math.pow(1 + discount, -(y - 1)) : 1;
-      // 每年的运营成本（不折现）
-      const yrElec = annualDeviceElec;
-      const yrDc = annualDc;
-      const yrCool = annualCooling;
-      return {
-        year: y,
-        procurement: y === 1 ? proc : 0,
-        electricity: yrElec * singleYrFactor,
-        dc: yrDc * singleYrFactor,
-        cooling: yrCool * singleYrFactor,
-        // 用于显示：第 y 年的实际现金流（含折现）
-        _factor: yrFactor,
-      };
+    let cumProc = 0, cumElec = 0, cumDc = 0, cumCool = 0;
+    return Array.from({ length: years }, (_, i) => {
+      const y = i + 1;
+      const sf = discount > 0 ? Math.pow(1 + discount, -(y - 1)) : 1; // 单年折现因子
+      cumProc += y === 1 ? proc : 0;
+      cumElec += annualDeviceElec * sf;
+      cumDc += annualDc * sf;
+      cumCool += annualCooling * sf;
+      return { year: y, procurement: cumProc, electricity: cumElec, dc: cumDc, cooling: cumCool };
     });
   }, [years, proc, annualDeviceElec, annualDc, annualCooling, discount]);
 
@@ -849,11 +851,11 @@ export default function TcoCalculator() {
         </div>
 
         {/* P1-1 / P1-2 / P1-3 高级参数（默认折叠） */}
-        <details style={{ marginBottom: 0 }}>
-          <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--ifm-color-emphasis-700)', fontWeight: 600, padding: '4px 0' }}>
+        <details className={styles.advancedDetails}>
+          <summary className={styles.advancedSummary}>
             ⚙️ 高级参数（空闲功耗 / PUE / 折现）
           </summary>
-          <div className={styles.formRow} style={{ marginTop: 10 }}>
+          <div className={`${styles.formRow} ${styles.advancedBody}`}>
             <div className={styles.formCol}>
               <label className={styles.label} htmlFor="tco-idle">
                 空闲功耗比率 <span className={styles.labelValue}>{(idleRatio * 100).toFixed(0)}%</span>
@@ -919,9 +921,9 @@ export default function TcoCalculator() {
           <>
             <div className={styles.tcoBox}>
               <div className={styles.resultHeader}>{years} 年 TCO 总计{discount > 0 ? '（折现）' : ''}</div>
-              <div className={styles.tcoValue}><AnimatedMoney value={tco} /></div>
+              <div className={styles.tcoValue}><AnimatedMoney value={tco} animateKey={chipId} /></div>
               <div className={styles.tcoSub}>
-                年均 <AnimatedMoney value={tco / years} /> · 每卡年均 <AnimatedMoney value={tco / qty / years} />
+                年均 <AnimatedMoney value={tco / years} animateKey={chipId} /> · 每卡年均 <AnimatedMoney value={tco / qty / years} animateKey={chipId} />
                 {tcoPerTflops != null && <> · <strong>每 TFLOPS TCO ${tcoPerTflops.toFixed(2)}</strong></>}
               </div>
             </div>
@@ -938,7 +940,7 @@ export default function TcoCalculator() {
                   <div className={styles.costRowBar} style={{ width: `${pct}%`, background: item.color }} />
                   <span className={styles.costDot} style={{ background: item.color }} aria-hidden="true" />
                   <span className={styles.costName}>{item.name}</span>
-                  <span className={styles.costValue}><AnimatedMoney value={item.value} /></span>
+                  <span className={styles.costValue}><AnimatedMoney value={item.value} animateKey={chipId} /></span>
                   <span className={styles.costPct}>{pct.toFixed(1)}%</span>
                 </div>
               );
@@ -950,7 +952,7 @@ export default function TcoCalculator() {
                 <Pie data={pieData} hoverIdx={pieHover} setHover={setPieHover} />
               </div>
               <div className={styles.chartCard}>
-                <div className={styles.chartTitle}>TCO 随年限变化 <span className={styles.chartHint}>(已折现)</span></div>
+                <div className={styles.chartTitle}>TCO 累计随年限 <span className={styles.chartHint}>(累计·已折现)</span></div>
                 <Bars data={barData} hoverYear={barHover} setHover={setBarHover} baseProc={proc} />
               </div>
             </div>
@@ -962,10 +964,10 @@ export default function TcoCalculator() {
                 {proc > elec ? <span className={styles.insightGood}>采购成本占主导，关注性能性价比</span> : <span className={styles.insightBad}>电费超过采购成本！建议选择能效更高的芯片</span>}
               </div>
               <div className={styles.insightRow}>
-                <strong>每瓦 TCO：</strong> {chip.tdp > 0 ? <><AnimatedMoney value={tco / qty / chip.tdp} /> / W</> : '—'}
+                <strong>每瓦 TCO（全周期）：</strong> {chip.tdp > 0 ? <><AnimatedMoney value={tco / qty / chip.tdp} animateKey={chipId} /> / W</> : '—'}
               </div>
               <div className={styles.insightRow}>
-                <strong>电费年增长率：</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} /> / 年（设备电，PUE={pue.toFixed(2)} 已含冷却）</> : '—'}
+                <strong>电费年增长率：</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} animateKey={chipId} /> / 年（设备电，PUE={pue.toFixed(2)} 已含冷却）</> : '—'}
               </div>
               {tcoPerTflops != null && (
                 <div className={styles.insightRow}>

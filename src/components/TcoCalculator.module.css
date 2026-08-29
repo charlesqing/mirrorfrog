@@ -620,6 +620,25 @@
   display: inline-block;
 }
 
+/* 高级参数折叠（原内联样式抽离 · P2-2） */
+.advancedDetails { margin-bottom: 0; }
+.advancedSummary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 600;
+  padding: 4px 0;
+}
+.advancedBody { margin-top: 10px; }
+
+/* 对比柱状图键盘聚焦 / 高亮（P1-3） */
+.barFill:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+.barColHover .barTopLabel { color: var(--ifm-color-primary); }
+.barColHover .barBottomLabel { color: var(--ifm-color-primary); font-weight: 700; }
+
 /* 洞察 */
 .insightBox {
   background: rgba(var(--ifm-color-primary-rgb), 0.04);
@@ -644,11 +663,11 @@
   border-bottom: none;
 }
 .insightGood {
-  color: #00a400;
+  color: var(--ifm-color-success);
   font-weight: 600;
 }
 .insightBad {
-  color: #fa383e;
+  color: var(--ifm-color-danger);
   font-weight: 600;
 }
 
