@@ -238,7 +238,7 @@
       "288GB HBM3E",
       "8 TB/s",
       "Helios",
-      "UALoF"
+      "UALink"
     ],
     "tdpW": 1400,
     "fp16Tflops": null,
@@ -251,7 +251,7 @@
         "bandwidth": "8 TB/s（业界最高）"
       },
       "compute": {
-        "fp32": "115 TFLOPS"
+        "fp32": "144.2 TFLOPS"
       },
       "tdp": "1400 W"
     }
@@ -665,17 +665,16 @@
     "fp16Tflops": 700,
     "specs": {
       "architecture": "MLUarch（新一代 MLU 架构）",
-      "process": "中芯国际 5nm 级（N+2）",
+      "process": "台积电 4nm（双 die Chiplet，Cambricon 4.0 架构）；亦见中芯 N+2 国产版报道",
       "memory": {
         "capacity": "196 GB HBM3",
         "bandwidth": "3.35 TB/s"
       },
       "compute": {
         "fp16": "700+ TFLOPS",
-        "int8": "2,800+ TOPS",
         "fp32": "未公开（推测 ~175 TFLOPS）"
       },
-      "tdp": "~500 W（推测）",
+      "tdp": "400–500 W（web 共识 400W+）",
       "release": "2025"
     }
   },
@@ -1261,26 +1260,20 @@
   },
   {
     "id": "ascend-910d",
-    "title": "Huawei Ascend 910D (传闻)",
+    "title": "Huawei Ascend 910D (传闻/未正式发布)",
     "vendor": "huawei",
     "slug": "/docs/cards/huawei/ascend-910d",
-    "description": "Huawei Ascend 910D 是 910C 下一代产品，2025 年中后期量产，对标 NVIDIA Blackwell / Rubin。",
+    "description": "Huawei Ascend 910D 是网传的 910C 下一代训练旗舰，华为官方从未发布数据表；本卡汇总 2025–2026 多来源传闻规格，并标注其已被 950 系列官方路线图取代。",
     "keywords": [
       "Huawei Ascend 910D",
       "昇腾 910D",
       "国产 AI 芯片",
-      "下一代"
+      "传闻",
+      "未发布"
     ],
-    "tdpW": 310,
+    "tdpW": 0,
     "fp16Tflops": null,
-    "specs": {
-      "release": "未发布（传闻）",
-      "architecture": "进一步升级的 Da Vinci",
-      "tdp": "310 W",
-      "memory": {
-        "capacity": "仍为 HBM2e（比 NVIDIA 落后 2 代）"
-      }
-    }
+    "specs": {}
   },
   {
     "id": "ascend-920",
@@ -1481,12 +1474,12 @@
       "process": "TSMC 7nm",
       "compute": {
         "fp32": "48 TFLOPS",
-        "fp16": "~192 TFLOPS（推算）",
-        "int8": "~384 TOPS（推算）"
+        "fp16": "192 TFLOPS（官方/采购规格确认）",
+        "int8": "384 TOPS（官方/采购规格确认）"
       },
       "memory": {
         "capacity": "64 GB HBM2e",
-        "bandwidth": "~2 TB/s（推算）"
+        "bandwidth": "1.2 TB/s（HBM2e，官方/采购规格确认）"
       },
       "tdp": "350 W",
       "release": "2023年"
@@ -2002,7 +1995,7 @@
     "title": "NVIDIA B200",
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/b200",
-    "description": "NVIDIA Blackwell B200 是当前最强大的 AI 训练 GPU：18 PFLOPS FP4、192GB HBM3e、8 TB/s 带宽、1000W TDP，旗舰级数据中心 AI 加速器。",
+    "description": "NVIDIA Blackwell B200 是当前最强大的 AI 训练 GPU：20 PFLOPS FP4、192GB HBM3e、8 TB/s 带宽、1000W TDP，旗舰级数据中心 AI 加速器。",
     "keywords": [
       "NVIDIA B200",
       "Blackwell",
@@ -2013,18 +2006,18 @@
       "LLM 训练"
     ],
     "tdpW": 1000,
-    "fp16Tflops": 4500,
+    "fp16Tflops": 5000,
     "specs": {
       "release": "2024 年 GTC，2025 年大规模量产",
       "architecture": "Blackwell GB100（双 die）",
       "process": "TSMC 4NP",
       "memory": {
-        "capacity": "192 GB HBM3e",
+        "capacity": "192 GB HBM3e（物理）/ 180 GB 可用（软件可见）",
         "bandwidth": "8 TB/s"
       },
       "compute": {
-        "fp8": "9 PFLOPS（稀疏）",
-        "fp16": "4.5 PFLOPS（稀疏）",
+        "fp8": "10 PFLOPS（稀疏）",
+        "fp16": "5 PFLOPS（稀疏）",
         "fp64": "40 TFLOPS"
       },
       "tdp": "1000 W"
@@ -2105,14 +2098,14 @@
       "Grace CPU",
       "B200 GPU",
       "2024-Q4",
-      "1 EFLOPS 机柜"
+      "1.44 EFLOPS 机柜"
     ],
-    "tdpW": 1000,
+    "tdpW": 2000,
     "fp16Tflops": null,
     "specs": {
       "release": "2024-03-18",
       "architecture": "Grace Blackwell 200 Superchip",
-      "tdp": "1000W"
+      "tdp": "~2,000W（Grace + 2× B200）"
     }
   },
   {
@@ -2130,11 +2123,11 @@
       "B300 Ultra",
       "机柜级 AI"
     ],
-    "tdpW": 1600,
+    "tdpW": 3000,
     "fp16Tflops": null,
     "specs": {
       "architecture": "Grace Blackwell 300 Superchip",
-      "tdp": "1600 W（B300 Ultra 1400W + Grace 200W）",
+      "tdp": "~3,000W（2× B300 Ultra 1400W + Grace 200W）",
       "release": "2025-01-07"
     }
   },
@@ -2920,10 +2913,10 @@
     "description": "NVIDIA Rubin R200 GPU，基于3nm制程，3360亿晶体管，288GB HBM4显存，FP4算力50 PFLOPS，2026年GTC发布的新一代AI训练与推理GPU",
     "keywords": [],
     "tdpW": 2300,
-    "fp16Tflops": 25000,
+    "fp16Tflops": 9000,
     "specs": {
       "compute": {
-        "fp16": "推测 ~25 PFLOPS",
+        "fp16": "推测 ~9 PFLOPS（稀疏，约 FP8 一半）",
         "fp32": "130 TFLOPS",
         "int8": "推测 ~100 PFLOPS"
       },
@@ -3715,21 +3708,21 @@
       "MLU-Link",
       "国产 AI 芯片"
     ],
-    "tdpW": 250,
-    "fp16Tflops": 256,
+    "tdpW": 350,
+    "fp16Tflops": 345,
     "specs": {
       "architecture": "第三代 MLU 架构（Da Vinci 类）",
       "process": "7nm（TSMC）",
       "memory": {
-        "capacity": "48 GB HBM2e（官方未完整公开，推测）",
-        "bandwidth": "~400 GB/s（推测）"
+        "capacity": "96 GB HBM2e",
+        "bandwidth": "~2 TB/s（HBM2e）"
       },
       "compute": {
-        "fp16": "256 TFLOPS",
+        "fp16": "256 TFLOPS（部分来源标注 345 TFLOPS）",
         "fp32": "~64 TFLOPS（推测，FP16 的 1/4）",
         "int8": "512 TOPS"
       },
-      "tdp": "250 W",
+      "tdp": "350 W",
       "release": "2024 首次亮相 / 2026-07-01 官方正式发布"
     }
   },
@@ -4233,7 +4226,7 @@
       "DTK",
       "CUDA兼容"
     ],
-    "tdpW": 300,
+    "tdpW": 350,
     "fp16Tflops": null,
     "specs": {
       "architecture": "自研 GPGPU，x86 指令集兼容",
@@ -4243,10 +4236,10 @@
         "int8": "392 TOPS"
       },
       "memory": {
-        "capacity": "40 GB HBM2e（另有 64GB HBM3 版本传闻）",
-        "bandwidth": "1.2 TB/s（读取，双环形总线，实测利用率 92%+）"
+        "capacity": "64 GB HBM2e",
+        "bandwidth": "896 GB/s（HBM2e，双环形总线，实测利用率 92%+）"
       },
-      "tdp": "300 W",
+      "tdp": "350 W（K100-AI 版；标准版 K100 约 300W）",
       "release": "2024"
     }
   },
@@ -4893,7 +4886,7 @@
     "title": "Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)",
     "vendor": "others",
     "slug": "/docs/cards/others/moore-threads-mtt-s5000",
-    "description": "摩尔线程 MTT S5000 详尽规格：7nm、48GB GDDR6、FP32 25 TFLOPS、BF16 50 TFLOPS、MUSA 架构、国产 GPU 训练。",
+    "description": "摩尔线程 MTT S5000 详尽规格：第四代 MUSA 平湖架构、PH100 芯片、1000 TFLOPS 稠密 AI 算力、80GB GDDR6X、1.6 TB/s、MTLink 784 GB/s、国产全功能 GPU 训推一体卡。",
     "keywords": [
       "Moore Threads",
       "摩尔线程",
