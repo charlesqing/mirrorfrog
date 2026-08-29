@@ -22,7 +22,7 @@ NVIDIA Rubin R200 是 NVIDIA 在 2026 年 GTC 大会发布的新一代 AI GPU，
 | **FP4 推理算力** | 50 PFLOPS（sparse） |
 | **FP4 训练算力** | 35 PFLOPS（sparse） |
 | **FP8/FP6 算力** | 17.5 PFLOPS（sparse） |
-| **FP16 算力** | 推测 ~25 PFLOPS |
+| **FP16 算力** | 推测 ~9 PFLOPS（稀疏，约 FP8 一半）|
 | **FP32 算力** | 130 TFLOPS |
 | **FP64 算力** | 200 TFLOPS（matrix） |
 | **INT8 算力** | 推测 ~100 PFLOPS |

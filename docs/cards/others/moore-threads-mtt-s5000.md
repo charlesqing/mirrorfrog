@@ -2,7 +2,7 @@
 id: moore-threads-mtt-s5000
 title: Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)
 sidebar_label: Moore Threads 摩尔线程
-description: 摩尔线程 MTT S5000 详尽规格：7nm、48GB GDDR6、FP32 25 TFLOPS、BF16 50 TFLOPS、MUSA 架构、国产 GPU 训练。
+description: 摩尔线程 MTT S5000 详尽规格：第四代 MUSA 平湖架构、PH100 芯片、1000 TFLOPS 稠密 AI 算力、80GB GDDR6X、1.6 TB/s、MTLink 784 GB/s、国产全功能 GPU 训推一体卡。
 keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI 芯片]
 ---
 
@@ -49,6 +49,8 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 | 互联 | MUSA Link 800 GB/s | 400 GB/s | 2× |
 | TDP | 300W | 250W | +20% |
 
+> ⚠️ **参数说明**：上表为 MTT S5000 **早期（2024）版本**参数。2025-02-12 发布的**现行量产版**已升级为 **80GB GDDR6X / 1.6 TB/s / 1000 TFLOPS 稠密 AI 算力**（见上方核心规格）。
+
 ## MUSA 架构
 
 ### 核心组件
@@ -59,7 +61,7 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 | **Tensor Core** | 自研矩阵单元（类 Tensor Core） |
 | **SFU** | Special Function Unit（超越函数） |
 | **RT Core** | 硬件光追核心 |
-| **MUSA Link** | 8 卡全互联，800 GB/s 双向 |
+| **MUSA Link** | 8 卡全互联，784 GB/s 双向 |
 
 ### 与 NVIDIA CUDA 差异
 
@@ -131,7 +133,7 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 - **全功能 GPU**：图形 + AI + 通用计算（GPGPU）+ 光追
 - **国产化率 60%**：HBM/显存来自三星/海力士，CPU 国产（兆芯），封装国产
 - **多精度支持**：FP32 / FP16 / BF16 / INT8 / INT4
-- **多卡互联**：MUSA Link 8 卡，800 GB/s 双向
+- **多卡互联**：MUSA Link 8 卡，784 GB/s 双向
 - **PCIe 4.0**：相比 PCIe 5.0 落后一代
 - **缺点**：相比 NVIDIA H100 (989 BF16 TFLOPS) 算力 1/20，生态差距大
 
