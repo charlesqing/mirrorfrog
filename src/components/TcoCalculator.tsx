@@ -314,7 +314,7 @@ function ChipSelect({ chips, value, onChange, id }: {
 }
 
 // ===== 饼图（P4-2 加 title/aria-label）=====
-function Pie({ data, hoverIdx, setHover, totalLabel = '总计' }: {
+const Pie = React.memo(function Pie({ data, hoverIdx, setHover, totalLabel = '总计' }: {
   data: { label: string; value: number; color: string }[];
   hoverIdx: number | null;
   setHover: (i: number | null) => void;
@@ -367,10 +367,10 @@ function Pie({ data, hoverIdx, setHover, totalLabel = '总计' }: {
       </div>
     </div>
   );
-}
+});
 
 // ===== 柱状图（P4-2）=====
-function Bars({ data, hoverYear, setHover, baseProc }: {
+const Bars = React.memo(function Bars({ data, hoverYear, setHover, baseProc }: {
   data: { year: number; procurement: number; electricity: number; dc: number; cooling: number }[];
   hoverYear: number | null; setHover: (y: number | null) => void;
   baseProc: number;
@@ -419,10 +419,10 @@ function Bars({ data, hoverYear, setHover, baseProc }: {
       </div>
     </div>
   );
-}
+});
 
 // ===== 多芯片对比柱状图（P3-1）=====
-function CompareChart({ compare }: { compare: CompareItem[] }) {
+const CompareChart = React.memo(function CompareChart({ compare }: { compare: CompareItem[] }) {
   const [hoverId, setHoverId] = useState<string | null>(null);
   if (compare.length === 0) return null;
   const max = Math.max(...compare.map(c => c.tco), 1);
@@ -458,7 +458,7 @@ function CompareChart({ compare }: { compare: CompareItem[] }) {
       </div>
     </div>
   );
-}
+});
 
 // ===== 敏感性分析（P3-2）=====
 function Sensitivity({ base, params }: {

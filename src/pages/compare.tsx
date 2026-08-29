@@ -103,6 +103,19 @@ export default function ComparePage(): ReactNode {
     });
   }, [selected]);
 
+  // P1 性能：厂商分组/排序只在 chips 变化时计算一次，避免每次渲染重算 222 卡
+  const chipGroups = useMemo(() => {
+    const groups = chips.reduce((acc, c) => {
+      const g = acc.find(x => x.vendor === c.vendor);
+      if (g) g.chips.push(c);
+      else acc.push({ vendor: c.vendor, chips: [c] });
+      return acc;
+    }, [] as { vendor: string; chips: Chip[] }[]);
+    groups.sort((a, b) => a.vendor.localeCompare(b.vendor));
+    groups.forEach(g => g.chips.sort((a, b) => a.title.localeCompare(b.title)));
+    return groups;
+  }, [chips]);
+
   const handleSelect = (index: number, chipId: string) => {
     const chip = chips.find(c => c.id === chipId) || null;
     const newSelected = [...selected];
@@ -123,28 +136,12 @@ export default function ComparePage(): ReactNode {
   if (error) {
     return (
       <Layout title={isZh ? '芯片对比' : 'Chip Comparison'}>
-        <main style={{ maxWidth: 800, margin: '0 auto', padding: '2rem 1rem' }}>
-          <div style={{
-            padding: '1.5rem',
-            border: '1px solid var(--ifm-color-danger, #e74c3c)',
-            borderRadius: 8,
-            textAlign: 'center',
-          }}>
-            <p style={{ marginBottom: '1rem' }}>
+        <main className={styles.errorWrap}>
+          <div className={styles.errorBox}>
+            <p className={styles.errorMessage}>
               {isZh ? '加载芯片数据失败' : 'Failed to load chip data'}: {error}
             </p>
-            <button
-              onClick={loadChips}
-              style={{
-                padding: '0.5rem 1.25rem',
-                borderRadius: 6,
-                border: '1px solid var(--ifm-color-primary, #5b4cdb)',
-                background: 'var(--ifm-color-primary, #5b4cdb)',
-                color: '#fff',
-                cursor: 'pointer',
-                fontSize: '0.95rem',
-              }}
-            >
+            <button onClick={loadChips} className={styles.errorRetry}>
               {isZh ? '重试' : 'Retry'}
             </button>
           </div>
@@ -191,25 +188,15 @@ export default function ComparePage(): ReactNode {
                   <option value="">
                     {isZh ? '— 选择芯片 —' : '— Select a chip —'}
                   </option>
-                  {chips
-                    .reduce((groups, c) => {
-                      const group = groups.find(g => g.vendor === c.vendor);
-                      if (group) group.chips.push(c);
-                      else groups.push({ vendor: c.vendor, chips: [c] });
-                      return groups;
-                    }, [] as { vendor: string; chips: Chip[] }[])
-                    .sort((a, b) => a.vendor.localeCompare(b.vendor))
-                    .map(group => (
-                      <optgroup key={group.vendor} label={group.vendor}>
-                        {group.chips
-                          .sort((a, b) => a.title.localeCompare(b.title))
-                          .map(c => (
-                            <option key={c.id} value={c.id}>
-                              {c.title}
-                            </option>
-                          ))}
-                      </optgroup>
-                    ))}
+                  {chipGroups.map(group => (
+                    <optgroup key={group.vendor} label={group.vendor}>
+                      {group.chips.map(c => (
+                        <option key={c.id} value={c.id}>
+                          {c.title}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
                 </select>
                 {chip && (
                   <button

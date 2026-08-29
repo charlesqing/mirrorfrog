@@ -28,6 +28,39 @@
   margin-bottom: 2rem;
 }
 
+/* 错误态 */
+.errorWrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.errorBox {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-danger, #e74c3c);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.errorMessage {
+  margin-bottom: 1rem;
+}
+
+.errorRetry {
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-primary, #5b4cdb);
+  background: var(--ifm-color-primary, #5b4cdb);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.errorRetry:hover {
+  opacity: 0.9;
+}
+
 /* 芯片选择区 */
 .selectorSection {
   background: var(--ifm-background-surface-color);
