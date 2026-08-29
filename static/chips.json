@@ -3559,6 +3559,108 @@
     }
   },
   {
+    "id": "axera-ax620",
+    "title": "爱芯元智 AX620 (AX620A)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/axera-ax620",
+    "description": "爱芯元智 AX620A：12nm 边缘视觉 AI SoC，14.4 TOPS INT4（3.6 TOPS INT8）、自研 AI-ISP + 混合精度 NPU，智能摄像头常客。",
+    "keywords": [
+      "爱芯元智",
+      "AX620",
+      "AX620A",
+      "AXERA",
+      "边缘视觉",
+      "AI-ISP",
+      "3.6 TOPS",
+      "智能摄像头"
+    ],
+    "tdpW": 630,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "四核 ARM Cortex-A7 + 自研混合精度 NPU + AI-ISP",
+      "process": "12nm（FinFET，TSMC）",
+      "compute": {
+        "int8": "3.6 TOPS",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "LPDDR4 / LPDDR4X",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开（推测 < 2 W；同代 AX630A < 3 W）",
+      "release": "2021-07（点亮）"
+    }
+  },
+  {
+    "id": "axera-ax650",
+    "title": "爱芯元智 AX650 (AX650N)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/axera-ax650",
+    "description": "爱芯元智 AX650N：2023 年第三代端侧视觉 SoC，18 TOPS INT8（72 TOPS INT4）、8K 视频、原生支持 Transformer，智能摄像头/边缘盒子。",
+    "keywords": [
+      "爱芯元智",
+      "AX650",
+      "AX650N",
+      "AXERA",
+      "端侧AI",
+      "18 TOPS",
+      "INT8",
+      "8K",
+      "Transformer"
+    ],
+    "tdpW": 4,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "八核 ARM Cortex-A55 @1.7GHz + 自研混合精度 NPU + AI-ISP + VPU",
+      "process": "未公开（推测 12nm 或 14nm 级，与 AX620 同代）",
+      "compute": {
+        "int8": "18 TOPS（官方最新规格；早期发布信息为 10.8 TOPS）",
+        "fp32": "支持（混合精度）"
+      },
+      "memory": {
+        "type": "LPDDR4X（64-bit）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "约 4 W（典型）",
+      "release": "2023-03"
+    }
+  },
+  {
+    "id": "biren-br100",
+    "title": "壁仞 BR100",
+    "vendor": "others",
+    "slug": "/docs/cards/others/biren-br100",
+    "description": "壁仞 BR100 旗舰通用 GPU（2022）：双 chiplet、TSMC 7nm、1024 TFLOPS BF16、2048 TOPS INT8、64GB HBM2e、~2.3 TB/s、550W，对标 NVIDIA A100/H100。",
+    "keywords": [
+      "壁仞 BR100",
+      "Biren BR100",
+      "壁立仞",
+      "BIRENSUPA",
+      "1024 TFLOPS",
+      "2048 TOPS",
+      "HBM2e",
+      "国产 GPU",
+      "7nm",
+      "Chiplet"
+    ],
+    "tdpW": 550,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "壁立仞（Biren 自研 ISA），双 chiplet",
+      "process": "TSMC 7nm，2.5D CoWoS 封装",
+      "compute": {
+        "int8": "2048 TOPS",
+        "fp32": "256 TFLOPS"
+      },
+      "memory": {
+        "type": "HBM2e",
+        "bandwidth": "~2.3 TB/s（部分资料记 1.64 TB/s）"
+      },
+      "tdp": "550 W",
+      "release": "2022-08（Hot Chips 34）"
+    }
+  },
+  {
     "id": "biren-br104",
     "title": "Biren 壁仞 BR100 / BR104 (国产 AI 训练/推理)",
     "vendor": "others",
@@ -3589,6 +3691,80 @@
       },
       "tdp": "300 W",
       "release": "2022-08"
+    }
+  },
+  {
+    "id": "blacksesame-a1000",
+    "title": "黑芝麻智能 华山 A1000 (Huashan A1000)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/blacksesame-a1000",
+    "description": "国产首款单芯片行泊一体车规 SoC：16nm FFC 车规工艺、DynamAI NN（九韶）NPU、58 TOPS INT8 / 116 TOPS INT4、典型功耗 18W、8 核 Cortex-A55、支持 16 路摄像头，通过 ISO 26262 ASIL-B 与 AEC-Q100 Grade 2。",
+    "keywords": [
+      "黑芝麻智能",
+      "Black Sesame Technologies",
+      "华山A1000",
+      "Huashan A1000",
+      "九韶",
+      "DynamAI NN",
+      "NeuralIQ ISP",
+      "58 TOPS",
+      "行泊一体",
+      "车规级 AI 芯片",
+      "ASIL-B"
+    ],
+    "tdpW": 18,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "自研 DynamAI NN 引擎 / 九韶 NPU（混合精度 4bit/8bit MAC 阵列）+ NeuralIQ / 星眸 ISP",
+      "process": "16nm FFC Automotive 车规级工艺",
+      "compute": {
+        "int8": "58 TOPS",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "车规级 64-bit LPDDR4",
+        "bandwidth": "未公开"
+      },
+      "tdp": "18 W（典型功耗）",
+      "release": "2020-06"
+    }
+  },
+  {
+    "id": "blacksesame-a2000",
+    "title": "黑芝麻智能 华山 A2000 (Huashan A2000)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/blacksesame-a2000",
+    "description": "面向物理 AI 与 L3/L4 的国产高算力车规芯片家族：7nm、自研九韶 NPU + 近存计算、百 MB 级 8TB/s 片上缓存、等效算力 200/400/700/1000 TOPS 四档、原生 INT4/INT8/FP8/FP16/FP32 混合精度、ASIL-D 三层安全架构。",
+    "keywords": [
+      "黑芝麻智能",
+      "Black Sesame Technologies",
+      "华山A2000",
+      "Huashan A2000",
+      "九韶 NPU",
+      "近存计算",
+      "1000 TOPS",
+      "7nm",
+      "L4 自动驾驶",
+      "VLA",
+      "世界模型",
+      "ASIL-D",
+      "FAD2.0"
+    ],
+    "tdpW": 200,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "自研 九韶（Jiushao）NPU 大核架构 + 近存计算；多核 Arm Cortex-A78AE CPU + GPU + DSP + 自研 ISP",
+      "process": "7nm 先进制程",
+      "compute": {
+        "int8": "等效算力四档：A2000N 200 TOPS / A2000L 400 TOPS / A2000U 700 TOPS / A2000X 1000 TOPS",
+        "fp32": "未公开（全链路支持 FP32 精度，未公布算力数值）"
+      },
+      "memory": {
+        "type": "未公开（DDR 带宽利用率经深度优化；官方未披露具体代际）",
+        "bandwidth": "未公开（片上缓存带宽 8 TB/s，容量百 MB 级）"
+      },
+      "tdp": "未公开。> 官方仅披露 200 TOPS 级版本能效比约 3 TOPS/W，据此推算该档功耗约 60–70W 量级；更高算力档位功耗官方未公布，待官方确认",
+      "release": "2024-12（2024-12-30 家族首次官宣）；2026-01 CES 首次公开亮相；2026-04 家族全新阵容发布"
     }
   },
   {
@@ -3660,6 +3836,103 @@
     }
   },
   {
+    "id": "cambricon-mlu-220",
+    "title": "寒武纪 思元220 (MLU220)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/cambricon-mlu-220",
+    "description": "寒武纪思元220 (MLU220) 边缘/车载 AI 推理 SoC（2019）：MLUv02 架构，8 TOPS INT8，M.2 形态，功耗仅 8.25W。",
+    "keywords": [
+      "寒武纪 思元220",
+      "Cambricon MLU220",
+      "边缘推理",
+      "车载",
+      "8 TOPS",
+      "M.2",
+      "低功耗",
+      "国产 AI 芯片"
+    ],
+    "tdpW": 8,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "寒武纪 MLUv02",
+      "process": "TSMC 16nm",
+      "compute": {
+        "int8": "8 TOPS",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "LPDDR4x（64 bit）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "8.25 W（被动散热）",
+      "release": "2019-11"
+    }
+  },
+  {
+    "id": "cambricon-mlu-270",
+    "title": "寒武纪 思元270 (MLU270)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/cambricon-mlu-270",
+    "description": "寒武纪思元270 (MLU270) 云端/边缘 AI 推理加速卡（2019）：MLUv02 架构，128 TOPS INT8，16GB DDR4，70–150W，支持视频编解码。",
+    "keywords": [
+      "寒武纪 思元270",
+      "Cambricon MLU270",
+      "MLUv02",
+      "128 TOPS INT8",
+      "边缘推理",
+      "云端推理",
+      "国产 AI 芯片"
+    ],
+    "tdpW": 270,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "寒武纪 MLUv02",
+      "process": "TSMC 16nm",
+      "compute": {
+        "int8": "128 TOPS",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "DDR4（ECC）",
+        "bandwidth": "102 GB/s"
+      },
+      "tdp": "70 W（MLU270-S4）/ 150 W（MLU270-F4）",
+      "release": "2019"
+    }
+  },
+  {
+    "id": "cambricon-mlu-290",
+    "title": "寒武纪 思元290 (MLU290)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/cambricon-mlu-290",
+    "description": "寒武纪思元290 (MLU290) 首颗训练芯片（2020/2021）：MLUv02 扩展架构，7nm，512 TOPS INT8，32GB HBM2，350W，OAM 形态。",
+    "keywords": [
+      "寒武纪 思元290",
+      "Cambricon MLU290",
+      "训练芯片",
+      "MLUv02 Extended",
+      "512 TOPS",
+      "HBM2",
+      "国产 AI 训练卡"
+    ],
+    "tdpW": 350,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "寒武纪 MLUv02 扩展架构（MLUv02 Extended）",
+      "process": "TSMC 7nm",
+      "compute": {
+        "int8": "512 TOPS",
+        "fp32": "32 TFLOPS（推测，同上）"
+      },
+      "memory": {
+        "type": "HBM2",
+        "bandwidth": "1.23 TB/s（1228 GB/s）"
+      },
+      "tdp": "350 W",
+      "release": "2020（发布）/ 2021-01（量产）"
+    }
+  },
+  {
     "id": "cambricon-mlu-370",
     "title": "Cambricon 寒武纪 MLU 370 (2021)",
     "vendor": "others",
@@ -3727,6 +4000,107 @@
     }
   },
   {
+    "id": "canaan-k210",
+    "title": "嘉楠 勘智 K210",
+    "vendor": "others",
+    "slug": "/docs/cards/others/canaan-k210",
+    "description": "嘉楠勘智 K210：全球首款量产 RISC-V 边缘 AI SoC，双核 64 位 + KPU，约 0.8 TOPS、0.3W 亚瓦级，端侧视听一体。",
+    "keywords": [
+      "嘉楠",
+      "K210",
+      "Canaan",
+      "Kendryte",
+      "RISC-V",
+      "KPU",
+      "0.8 TOPS",
+      "端侧AI",
+      "开发板"
+    ],
+    "tdpW": 1,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "双核 64 位 RISC-V（@400MHz，各带 FPU）+ KPU + APU + FFT 引擎",
+      "process": "28nm（TSMC）",
+      "compute": {
+        "int8": "约 0.8 TOPS（KPU 峰值；部分开发板标注 0.23 TOPS 乘法算子算力）",
+        "fp32": "未公开（16 位定点乘法约 0.3 TOPS 级）"
+      },
+      "memory": {
+        "type": "片上 SRAM",
+        "bandwidth": "未公开"
+      },
+      "tdp": "约 0.3 W（典型），峰值 < 1 W",
+      "release": "2018-09"
+    }
+  },
+  {
+    "id": "canaan-k510",
+    "title": "嘉楠 勘智 K510",
+    "vendor": "others",
+    "slug": "/docs/cards/others/canaan-k510",
+    "description": "嘉楠勘智 K510：三核 RISC-V 边缘 AI SoC，约 3 TOPS KPU，28nm，图像/语音端侧，K210 性能 3 倍。",
+    "keywords": [
+      "嘉楠",
+      "K510",
+      "Canaan",
+      "Kendryte",
+      "RISC-V",
+      "KPU",
+      "3 TOPS",
+      "端侧AI"
+    ],
+    "tdpW": 2,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "三核 64 位 RISC-V（2×@800MHz + 1×DSP @800MHz）+ KPU（GNNE）+ FFT/VAD",
+      "process": "28nm",
+      "compute": {
+        "int8": "约 3 TOPS（KPU/GNNE 峰值）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "LPDDR3 / LPDDR4",
+        "bandwidth": "未公开"
+      },
+      "tdp": "约 2 W（典型）",
+      "release": "2021-07"
+    }
+  },
+  {
+    "id": "corerain-caisa",
+    "title": "鲲云科技 CAISA（数据流 AI 芯片）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/corerain-caisa",
+    "description": "鲲云科技 CAISA 全球首款数据流（Dataflow）架构 AI 芯片，2019 年 28nm 量产，单芯片 10.9 TOPS、芯片利用率高达 95.4%，X9 卡 43.6 TOPS。",
+    "keywords": [
+      "鲲云",
+      "Corerain",
+      "CAISA",
+      "数据流",
+      "Dataflow",
+      "28nm",
+      "高利用率",
+      "10.9 TOPS",
+      "星空加速卡"
+    ],
+    "tdpW": 20,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "定制数据流（Dataflow）CAISA3.0 架构（4 个 CAISA 引擎，1.6 万+ MAC 单元）",
+      "process": "28nm",
+      "compute": {
+        "int8": "10.9 TOPS（单芯片峰值；星空 X9 四芯片 43.6 TOPS）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "DDR（双通道）",
+        "bandwidth": "每 CAISA 芯片 >340 Gbps（双 DDR 通道）"
+      },
+      "tdp": "未公开（芯片级）；星空 X3 动态功耗约 20W",
+      "release": "2019-06"
+    }
+  },
+  {
     "id": "d-matrix-corsair",
     "title": "d-Matrix CORSair (数字存内计算推理加速卡)",
     "vendor": "others",
@@ -3753,6 +4127,40 @@
       "tdp": "未公开（风冷/液冷均支持）",
       "process": "未公开（Chiplet 多芯片封装）",
       "release": "2024年11月19日（SC24）"
+    }
+  },
+  {
+    "id": "denglin-goldwasser",
+    "title": "登临科技 Goldwasser（GPU+）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/denglin-goldwasser",
+    "description": "登临科技 Goldwasser 系列国产 GPU 类 AI 加速卡，2020 年基于 TSMC 12nm 量产，GPU+ 片内异构（通用计算 + 数据流）存算架构，训推一体，INT8 最高 512 TOPS。",
+    "keywords": [
+      "登临",
+      "Goldwasser",
+      "GPU+",
+      "数据流",
+      "存算",
+      "训推一体",
+      "12nm",
+      "推理训练",
+      "登临科技"
+    ],
+    "tdpW": 70,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "GPU+ 片内异构（可编程 GPGPU 引擎 + 高效 Tensor 引擎，数据流驱动，兼容 CUDA/OpenCL）",
+      "process": "TSMC 12nm",
+      "compute": {
+        "int8": "32-512 TOPS（按型号：UL 32-64 / L 128-256 / XL 512 TOPS）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "未公开",
+        "bandwidth": "未公开"
+      },
+      "tdp": "40-70 W（Goldwasser L 典型区间；UL 25-35W，XL 未公开）",
+      "release": "2020-06"
     }
   },
   {
@@ -4209,6 +4617,153 @@
     }
   },
   {
+    "id": "horizon-journey-2",
+    "title": "地平线 征程2 (Journey 2)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/horizon-journey-2",
+    "description": "中国首款车规级量产 AI 芯片：BPU 伯努利 1.0 架构、台积电 28nm HPC+、>4 TOPS INT8 等效算力、典型功耗仅 2W，面向入门 ADAS 与智能座舱。",
+    "keywords": [
+      "地平线",
+      "Horizon Robotics",
+      "征程2",
+      "Journey 2",
+      "BPU",
+      "伯努利",
+      "车规级 AI 芯片",
+      "ADAS",
+      "智能座舱",
+      "国产 AI 芯片"
+    ],
+    "tdpW": 2,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "地平线 BPU 2.0（伯努利 1.0 / Bernoulli 1.0），双核 BPU",
+      "process": "台积电 TSMC 28nm HPC+",
+      "compute": {
+        "int8": "> 4 TOPS（等效算力）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "DDR4 / LPDDR4，速率最高 3200 MT/s",
+        "bandwidth": "约 12.8 GB/s（32-bit × 3200 MT/s 推算）"
+      },
+      "tdp": "2 W（典型功耗）",
+      "release": "2019-08"
+    }
+  },
+  {
+    "id": "horizon-journey-3",
+    "title": "地平线 征程3 (Journey 3)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/horizon-journey-3",
+    "description": "地平线第二代量产车规 AI 芯片：BPU 伯努利 2.0 架构、16nm 工艺、5 TOPS INT8、典型功耗 2.5W，支持 L2+ 辅助驾驶、行车/泊车一体与智能座舱。",
+    "keywords": [
+      "地平线",
+      "Horizon Robotics",
+      "征程3",
+      "Journey 3",
+      "J3",
+      "BPU",
+      "伯努利2.0",
+      "车规级 AI 芯片",
+      "L2+ 辅助驾驶",
+      "行泊一体"
+    ],
+    "tdpW": 3,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "地平线 BPU 伯努利 2.0（Bernoulli 2.0），双核 BPU，最大频率 950 MHz，支持 DFS",
+      "process": "16nm（台积电；部分资料表述为 16/12nm 家族工艺）",
+      "compute": {
+        "int8": "5 TOPS",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "片外 32-bit DDR4 / LPDDR4 / LPDDR4X，速率最高 3200 MT/s",
+        "bandwidth": "约 12.8 GB/s（32-bit × 3200 MT/s 推算）"
+      },
+      "tdp": "2.5 W（典型功耗）",
+      "release": "2020-09（2020-09-26 北京车展）"
+    }
+  },
+  {
+    "id": "horizon-journey-5",
+    "title": "地平线 征程5 (Journey 5)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/horizon-journey-5",
+    "description": "首款前装量产的国产百 TOPS 级智驾芯片：BPU 贝叶斯架构、台积电 16nm、128 TOPS INT8、1531 FPS、60ms 延迟、约 30W 功耗，对标 NVIDIA Orin，支持 L2+ 至 L4。",
+    "keywords": [
+      "地平线",
+      "Horizon Robotics",
+      "征程5",
+      "Journey 5",
+      "J5",
+      "BPU",
+      "贝叶斯",
+      "128 TOPS",
+      "大算力智驾芯片",
+      "NVIDIA Orin",
+      "理想 L8",
+      "ISO 26262"
+    ],
+    "tdpW": 96,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "地平线 BPU 贝叶斯（Bayesian，第三代 BPU），双核 BPU，近存计算设计",
+      "process": "台积电 TSMC 16nm",
+      "compute": {
+        "int8": "128 TOPS（旗舰版本；部分资料将 96 TOPS 版本记为 J5、128 TOPS 版本记为 J5P）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "未公开（车规级 LPDDR，官方未披露具体代际）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "约 30 W（系统平均功耗；部分资料记 30–35W；96 TOPS 版本约 20W）",
+      "release": "2021-07（2021-07-29 上海发布会；2021-09-10 亦有公开发布活动）"
+    }
+  },
+  {
+    "id": "horizon-journey-6",
+    "title": "地平线 征程6 (Journey 6)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/horizon-journey-6",
+    "description": "地平线第四代旗舰车规计算方案：BPU 纳什架构、台积电 7nm、370 亿晶体管、征程6P 达 560 TOPS INT8、65W、18 核 A78AE、LPDDR5x 204GB/s，CPU+BPU+GPU+MCU 四芯合一，支持一段式端到端与舱驾一体。",
+    "keywords": [
+      "地平线",
+      "Horizon Robotics",
+      "征程6",
+      "Journey 6",
+      "J6P",
+      "J6M",
+      "BPU",
+      "纳什",
+      "Nash",
+      "560 TOPS",
+      "7nm",
+      "舱驾一体",
+      "城区 NOA",
+      "HSD",
+      "ASIL-D"
+    ],
+    "tdpW": 65,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "地平线 BPU 纳什（Nash，第四代 BPU），4 核 BPU；CPU+BPU+GPU+MCU 四芯合一 SoC",
+      "process": "台积电 TSMC 7nm；370 亿晶体管",
+      "compute": {
+        "int8": "560 TOPS（征程6P）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "LPDDR5x-8533，192-bit",
+        "bandwidth": "204 GB/s"
+      },
+      "tdp": "65 W（征程6P）；能效比 8.6 TOPS/W",
+      "release": "2024-04（2023-11 广州车展官宣）"
+    }
+  },
+  {
     "id": "hygon-dcu-k100",
     "title": "Hygon 海光 DCU K100 AI 版 (2024)",
     "vendor": "others",
@@ -4241,6 +4796,74 @@
       },
       "tdp": "350 W（K100-AI 版；标准版 K100 约 300W）",
       "release": "2024"
+    }
+  },
+  {
+    "id": "hygon-dcu-z100",
+    "title": "海光 DCU Z100",
+    "vendor": "others",
+    "slug": "/docs/cards/others/hygon-dcu-z100",
+    "description": "海光 DCU Z100（深算系列）GPGPU 加速卡：7nm、8192 计算核心、32GB HBM2、FP64 10.8 TFLOPS，兼容 ROCm/DTK 软件栈，国产 AI+HPC 算力卡。",
+    "keywords": [
+      "海光 DCU Z100",
+      "Hygon DCU Z100",
+      "深算",
+      "GPGPU",
+      "32GB HBM2",
+      "ROCm",
+      "DTK",
+      "CUDA兼容",
+      "国产 GPU"
+    ],
+    "tdpW": 250,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "GPGPU，基于 AMD CDNA 授权深度定制（gfx906 / CDNA 第一代）",
+      "process": "7nm（推测，基于同代 Z100L 公开信息）",
+      "compute": {
+        "fp32": "未公开（推测 ~10.8 TFLOPS，与 FP64 持平，类 CDNA 架构特性）",
+        "int8": "未公开（推测 ~43.2 TOPS）"
+      },
+      "memory": {
+        "type": "HBM2",
+        "bandwidth": "未公开（Z100L 为 1024 GB/s，Z100 应更高，推测 ~1.2 TB/s）"
+      },
+      "tdp": "~250 W（未公开，按产品资料推测）",
+      "release": "2022（深算一号）"
+    }
+  },
+  {
+    "id": "hygon-dcu-z100l",
+    "title": "海光 DCU Z100L",
+    "vendor": "others",
+    "slug": "/docs/cards/others/hygon-dcu-z100l",
+    "description": "海光 DCU Z100L（深算系列）GPGPU 加速卡：Z100 精简版，7nm、3840 核心、32GB HBM2、1024 GB/s，FP32 ~12 TFLOPS，面向性价比 HPC/AI 场景。",
+    "keywords": [
+      "海光 DCU Z100L",
+      "Hygon DCU Z100L",
+      "深算",
+      "GPGPU",
+      "32GB HBM2",
+      "ROCm",
+      "DTK",
+      "性价比",
+      "国产 GPU"
+    ],
+    "tdpW": 280,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "GPGPU，基于 AMD CDNA 授权深度定制（gfx906 / CDNA 第一代）",
+      "process": "7nm",
+      "compute": {
+        "fp32": "10.1 – 12.2 TFLOPS",
+        "int8": "40.5 – 49.1 TOPS"
+      },
+      "memory": {
+        "type": "HBM2",
+        "bandwidth": "1024 GB/s（1 TB/s）"
+      },
+      "tdp": "250 W / 280 W（按不同资料）",
+      "release": "2022（深算一号）"
     }
   },
   {
@@ -4373,6 +4996,214 @@
       },
       "tdp": "275 W（推测）",
       "release": "2023 年"
+    }
+  },
+  {
+    "id": "innosilicon-fenghua-1",
+    "title": "芯动科技 风华1号",
+    "vendor": "others",
+    "slug": "/docs/cards/others/innosilicon-fenghua-1",
+    "description": "国产首款 4K 级高性能数据中心 GPU，2021-11 发布，FP32 5 TFLOPS、160 GPixel/s 渲染、最大 16GB GDDR6/GDDR6X、304 GB/s、桌面功耗仅 20W，支持 Innolink Chiplet 双晶粒扩展",
+    "keywords": [
+      "芯动科技",
+      "Innosilicon",
+      "风华1号",
+      "Fenghua 1",
+      "国产 GPU",
+      "GDDR6X",
+      "Innolink",
+      "Chiplet",
+      "云办公",
+      "云游戏",
+      "SR-IOV"
+    ],
+    "tdpW": 50,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "芯动自研 GPU 架构（全套自主 IP）",
+      "process": "未公开",
+      "compute": {
+        "int8": "12.5 TOPS（官网）/ 25 TOPS（发布会及研报口径，见下方说明）",
+        "fp32": "5 TFLOPS"
+      },
+      "memory": {
+        "type": "GDDR6 / GDDR6X Combo（芯动自研，单比特最大速率 19 Gbps）",
+        "bandwidth": "最大 304 GB/s（支持动态调整）",
+        "capacity": "32GB"
+      },
+      "tdp": "桌面 4K 重度渲染约 20 W；多路云渲染约 35~50 W（实测典型功耗，可无风扇设计）",
+      "release": "2021-11-26（上海发布会）"
+    }
+  },
+  {
+    "id": "innosilicon-fenghua-2",
+    "title": "芯动科技 风华2号",
+    "vendor": "others",
+    "slug": "/docs/cards/others/innosilicon-fenghua-2",
+    "description": "芯动科技第二代国产 GPU，2022-08-03 发布，FP32 1.5 TFLOPS、48 GPixel/s、AI 12.5 TOPS(INT8)、典型功耗仅 4~15W、LPDDR5X 显存、支持 4K 三屏输出与无风扇设计",
+    "keywords": [
+      "芯动科技",
+      "Innosilicon",
+      "风华2号",
+      "Fenghua 2",
+      "国产 GPU",
+      "LPDDR5X",
+      "低功耗 GPU",
+      "信创",
+      "4K 三屏",
+      "边缘 AI"
+    ],
+    "tdpW": 15,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "芯动自研 GPU 架构（全套自主 IP，内核演进自研可控）",
+      "process": "未公开",
+      "compute": {
+        "int8": "12.5 TOPS",
+        "fp32": "1.5 TFLOPS"
+      },
+      "memory": {
+        "type": "LPDDR5X / LPDDR5 / LPDDR4X / LPDDR4（芯动自研 LPDDR5X 技术），亦有 GDDR6 方案",
+        "bandwidth": "未公开"
+      },
+      "tdp": "典型功耗 4~15 W（实测；支持高性能与低功耗两种工作模式，可被动散热）",
+      "release": "2022-08-03（武汉发布会）"
+    }
+  },
+  {
+    "id": "intellifusion-ipu",
+    "title": "云天励飞 DeepEye1000（IPU）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/intellifusion-ipu",
+    "description": "云天励飞 DeepEye1000（云天初芯）国产视觉 AI 推理芯片，22nm FD-SOI，存算融合 + 可重构计算阵列，约 2 TOPS INT 算力，面向边缘与端侧安防/视觉。",
+    "keywords": [
+      "云天励飞",
+      "Intellifusion",
+      "DeepEye1000",
+      "IPU",
+      "存算融合",
+      "视觉AI",
+      "安防",
+      "22nm",
+      "边缘",
+      "可重构"
+    ],
+    "tdpW": 1000,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "异构多核视觉 AI 协处理器（存算融合 + 可重构计算阵列，自研 NNP200 四核神经网络处理器）",
+      "process": "22nm FD-SOI",
+      "compute": {
+        "int8": "2.0 TOPS（峰值，INT16/INT12/INT8 混合精度；IPO 披露 INT12 下 1.5 TOPS）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "DDR4（模组/卡形态）",
+        "bandwidth": "未公开（官方称存算融合使 DDR 访问带宽下降 77%）"
+      },
+      "tdp": "未公开（芯片级）；IPU X1000 卡典型功耗约 20W（被动散热）",
+      "release": "2019-11"
+    }
+  },
+  {
+    "id": "jingjia-jm9",
+    "title": "景嘉微 JM9 系列",
+    "vendor": "others",
+    "slug": "/docs/cards/others/jingjia-jm9",
+    "description": "景嘉微第三代自主 GPU，2021-11 完成流片封装，官方披露首款芯片 FP32 1.5 TFLOPS、8GB 显存、128 GB/s、功耗低于 30W，主攻信创桌面与工作站国产化替代",
+    "keywords": [
+      "景嘉微",
+      "Jingjia Micro",
+      "JM9",
+      "JM9231",
+      "JM9271",
+      "国产 GPU",
+      "信创",
+      "图形处理芯片",
+      300474
+    ],
+    "tdpW": 30,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "JM9 自研 GPU 架构（统一渲染架构）",
+      "process": "未公开（媒体报道称 14nm，官方未确认）",
+      "compute": {
+        "int8": "未公开",
+        "fp32": "1.5 TFLOPS（32 位单精度浮点，官方公告）"
+      },
+      "memory": {
+        "type": "未公开（官方公告未标注类型）",
+        "bandwidth": "128 GB/s"
+      },
+      "tdp": "< 30 W（官方公告）",
+      "release": "2021-11（流片封装及初步测试完成公告）"
+    }
+  },
+  {
+    "id": "jingjia-jm9271",
+    "title": "景嘉微 JM9271",
+    "vendor": "others",
+    "slug": "/docs/cards/others/jingjia-jm9271",
+    "description": "景嘉微 JM9 系列高端型号，传闻规格 FP32 8 TFLOPS、16GB HBM、512 GB/s、200W，面向 AI/云计算/安防，官方从未单独发布完整规格",
+    "keywords": [
+      "景嘉微",
+      "Jingjia Micro",
+      "JM9271",
+      "JM9",
+      "国产 GPU",
+      "HBM",
+      "信创",
+      "GTX 1080",
+      300474
+    ],
+    "tdpW": 200,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "JM9 自研 GPU 架构（第三代景嘉微 GPU）",
+      "process": "未公开（媒体报道称 14nm，官方未确认）",
+      "compute": {
+        "int8": "未公开",
+        "fp32": "8 TFLOPS"
+      },
+      "memory": {
+        "type": "GDDR6",
+        "bandwidth": "512 GB/s（另一篇同期文章）"
+      },
+      "tdp": "200 W（传闻，官方未公开）",
+      "release": "2021（JM9 系列流片封装公告）；2022-05 系列第二款芯片研发成功"
+    }
+  },
+  {
+    "id": "kunlun-1",
+    "title": "昆仑芯 昆仑1 (818-300)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/kunlun-1",
+    "description": "百度自研首款云端全功能 AI 芯片昆仑1（训练型 818-300，2018 发布 / 2019 量产）：三星 14nm、XPU 架构、260 TOPS INT8、512 GB/s、~100W。",
+    "keywords": [
+      "昆仑芯 昆仑1",
+      "百度昆仑",
+      "818-300",
+      "260 TOPS",
+      "14nm",
+      "XPU",
+      "国产 AI 芯片",
+      "训练芯片"
+    ],
+    "tdpW": 150,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "百度自研 XPU 神经处理器架构",
+      "process": "三星 14nm，I-Cube™（Interposer-Cube）封装",
+      "compute": {
+        "int8": "260 TOPS",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "bandwidth": "512 GB/s",
+        "type": "未公开（高带宽内存，板载）"
+      },
+      "tdp": "~100 – 150 W（官方初称 100+W；后续资料记 150W）",
+      "release": "2018-07（Baidu Create 2018）"
     }
   },
   {
@@ -4567,6 +5398,41 @@
     }
   },
   {
+    "id": "lingxi",
+    "title": "灵汐科技 领启 KA200（类脑芯片）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/lingxi",
+    "description": "灵汐科技领启 KA200 全球首款量产商用异构融合类脑芯片，存算一体 + 众核并行架构，支持 ANN/SNN 混合与脑仿真，32 TOPS INT8 / 16 TFLOPS FP16，源自清华天机系列。",
+    "keywords": [
+      "灵汐",
+      "Lynxi",
+      "领启 KA200",
+      "类脑",
+      "神经形态",
+      "SNN",
+      "存算一体",
+      "天机",
+      "异构融合",
+      "脑仿真"
+    ],
+    "tdpW": 3,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "存算一体 + 众核并行 + 异构融合（支持 ANN/SNN 混合与脑仿真，类脑/神经形态）",
+      "process": "未公开（KA200；\"天机\"早期芯片为 28nm，KA200 工艺未披露）",
+      "compute": {
+        "int8": "32 TOPS（INT8，KA200）",
+        "fp32": "未公开（KA200；类脑加速模块支持 FP16/INT8/Binary spike）"
+      },
+      "memory": {
+        "type": "LPDDR4（类脑加速模块/板卡）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开（天机 V3 指标要求能效 ≥1 TOPS/W）",
+      "release": "2021（KA200 量产商用，具体月份未公开）"
+    }
+  },
+  {
     "id": "mediatek-dimensity-9400",
     "title": "MediaTek Dimensity 9400 (Cortex-X925 NPU 890 Agentic AI)",
     "vendor": "others",
@@ -4591,6 +5457,38 @@
       },
       "release": "2024-10-09",
       "tdp": "10 W"
+    }
+  },
+  {
+    "id": "metax-c290",
+    "title": "沐曦 曦云 C290",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-c290",
+    "description": "沐曦 曦云 C290 训练/推理 GPU（XCORE 1.0 架构、OAM1.5 形态）：7nm 级 GPGPU，具体算力官方未公开，属曦云 C 系列早期型号。",
+    "keywords": [
+      "沐曦 曦云C290",
+      "MetaX C290",
+      "XCORE 1.0",
+      "训练GPU",
+      "OAM",
+      "国产 GPU",
+      "规格未公开"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "沐曦自研 XCORE 1.0 架构及指令集",
+      "process": "7nm 级（推测，同代 XCORE 1.0 产品为 7nm，官方未单列 C290）",
+      "compute": {
+        "fp32": "未公开（推测，属 XCORE 1.0 家族，区间或接近 C500 级别）",
+        "int8": "未公开（推测，同上）"
+      },
+      "memory": {
+        "type": "未公开（推测 HBM2e）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开",
+      "release": "2022（曦云 C 系列早期型号）"
     }
   },
   {
@@ -4708,6 +5606,40 @@
       },
       "tdp": "400 W",
       "release": "2025 年 10 月"
+    }
+  },
+  {
+    "id": "metax-c700",
+    "title": "沐曦 曦云 C700",
+    "vendor": "others",
+    "slug": "/docs/cards/others/metax-c700",
+    "description": "沐曦 曦云 C700 下一代训练旗舰 GPU（研发中）：新一代 GPU 架构、对标 NVIDIA H100、扩展 FP4 低精度、国产先进工艺，规格多未公开。",
+    "keywords": [
+      "沐曦 曦云C700",
+      "MetaX C700",
+      "训练GPU",
+      "H100对标",
+      "FP4",
+      "国产先进工艺",
+      "研发中",
+      "未公开"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "新一代 GPU 架构及指令集（非 XCORE 1.5）",
+      "process": "更高制程的国产先进工艺（具体节点未公开）",
+      "compute": {
+        "fp32": "未公开（目标对标 H100）",
+        "fp8": "未公开（预计支持，较 C600 进一步提升）",
+        "int8": "未公开"
+      },
+      "memory": {
+        "type": "未公开（预计 HBM3e 或更高）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开",
+      "release": "2025（立项研发）"
     }
   },
   {
@@ -4963,6 +5895,41 @@
     }
   },
   {
+    "id": "nextvpu",
+    "title": "肇观电子 N 系列 VPU（视觉 AI）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/nextvpu",
+    "description": "肇观电子 N 系列视觉 VPU（CVKit AI 核），低功耗国产视觉 AI 芯片，最高 2.4 TOPS INT8 / 1.2 TOPS FP16，面向安防、机器人、车载与消费级 AI 摄像头。",
+    "keywords": [
+      "肇观电子",
+      "NextVPU",
+      "麒麟",
+      "猎户座",
+      "VPU",
+      "视觉NPU",
+      "CVKit",
+      "2.4 TOPS",
+      "低功耗",
+      "安防"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "CVKit™ AI 计算核心（视觉 NPU，多核异构视觉 SoC）",
+      "process": "未公开",
+      "compute": {
+        "int8": "2.4 TOPS（INT8，N 系列最高；N163 2.4 / N161 1.2 / N160 1.0 TOPS）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "DDR3L",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开（定位低功耗；具体数值官方未单列）",
+      "release": "2020（N 系列发布，具体月份未公开）"
+    }
+  },
+  {
     "id": "openai-jalapeno",
     "title": "OpenAI Jalapeño (自研 AI 推理芯片)",
     "vendor": "others",
@@ -5175,6 +6142,72 @@
     }
   },
   {
+    "id": "rockchip-rk3576",
+    "title": "瑞芯微 RK3576",
+    "vendor": "others",
+    "slug": "/docs/cards/others/rockchip-rk3576",
+    "description": "瑞芯微 RK3576：2024 年第二代 8nm AIoT SoC，6 TOPS 自研 NPU（INT8）、8K30 解码，中端 AIoT 能效标杆。",
+    "keywords": [
+      "瑞芯微",
+      "RK3576",
+      "Rockchip",
+      "AIoT",
+      "6 TOPS",
+      "NPU",
+      "中端",
+      2024
+    ],
+    "tdpW": 3,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "八核 64 位（4×Cortex-A72 + 4×Cortex-A53）+ Mali-G52 MC3 + 自研 NPU",
+      "process": "第二代 8nm",
+      "compute": {
+        "int8": "6 TOPS（INT8；支持稀疏化加速）",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "LPDDR4 / LPDDR4X / LPDDR5",
+        "bandwidth": "未公开"
+      },
+      "tdp": "NPU 满负载约 3.2 W（整机更低）",
+      "release": "2024-09（量产）"
+    }
+  },
+  {
+    "id": "rockchip-rk3588",
+    "title": "瑞芯微 RK3588",
+    "vendor": "others",
+    "slug": "/docs/cards/others/rockchip-rk3588",
+    "description": "瑞芯微 RK3588：8nm 八核 AIoT SoC，6 TOPS NPU（INT8）、8K 视频编解码，边缘盒子/开发板主力。",
+    "keywords": [
+      "瑞芯微",
+      "RK3588",
+      "Rockchip",
+      "AIoT",
+      "6 TOPS",
+      "NPU",
+      "8K",
+      "边缘盒子"
+    ],
+    "tdpW": 8,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "八核 64 位（4×Cortex-A76 + 4×Cortex-A55）+ Mali-G610 MC4 + 三核自研 NPU",
+      "process": "8nm",
+      "compute": {
+        "int8": "6 TOPS",
+        "fp32": "未公开（GPU 另计，非 NPU 指标）"
+      },
+      "memory": {
+        "type": "LPDDR4 / LPDDR4X / LPDDR5",
+        "bandwidth": "未公开"
+      },
+      "tdp": "约 5–8 W（系统级，依配置）",
+      "release": "2021 末（发布）/ 2022（量产）"
+    }
+  },
+  {
     "id": "sambanova-sn40l",
     "title": "SambaNova SN40L",
     "vendor": "others",
@@ -5222,6 +6255,141 @@
       "architecture": "第五代 RDU（Reconfigurable Data Unit）",
       "release": "2026 年 2 月 24 日",
       "tdp": "150000 W"
+    }
+  },
+  {
+    "id": "sophgo-bm1684",
+    "title": "算能 BM1684",
+    "vendor": "others",
+    "slug": "/docs/cards/others/sophgo-bm1684",
+    "description": "算能（原比特大陆算丰）BM1684 边缘 AI 推理处理器：12nm、17.6 TOPS INT8、12GB LPDDR4X，主打视频结构化与多路视觉分析。",
+    "keywords": [
+      "算能",
+      "BM1684",
+      "SOPHGO",
+      "边缘AI",
+      "视频推理",
+      "17.6 TOPS",
+      "INT8",
+      "安防"
+    ],
+    "tdpW": 16,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "算能第三代自研 TPU 架构，集成 8 核 ARM Cortex-A53 @ 2.3GHz + 64 个 NPU 核心",
+      "process": "12nm（TSMC）",
+      "compute": {
+        "int8": "17.6 TOPS（Winograd 加速下可达 35.2 TOPS）",
+        "fp32": "2.2 TFLOPS"
+      },
+      "memory": {
+        "type": "LPDDR4X",
+        "bandwidth": "未公开"
+      },
+      "tdp": "约 16 W（典型功耗；部分整机标 15W）",
+      "release": "2019"
+    }
+  },
+  {
+    "id": "sophgo-bm1684x",
+    "title": "算能 BM1684X",
+    "vendor": "others",
+    "slug": "/docs/cards/others/sophgo-bm1684x",
+    "description": "算能第四代 TPU BM1684X：12nm、32 TOPS INT8（64 TOPS INT4）、16 TFLOPS FP16/BF16，支持大模型边缘推理。",
+    "keywords": [
+      "算能",
+      "BM1684X",
+      "SOPHGO",
+      "边缘AI",
+      "32 TOPS",
+      "INT8",
+      "大模型",
+      "LLM边缘"
+    ],
+    "tdpW": 20,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "算能第四代自研 TPU（Bernoulli 架构），集成 8 核 ARM Cortex-A53 @ 2.3GHz",
+      "process": "12nm（TSMC；部分资料误标 16nm，已校正）",
+      "compute": {
+        "int8": "32 TOPS（INT4 可达 64 TOPS）",
+        "fp32": "2 TFLOPS"
+      },
+      "memory": {
+        "type": "LPDDR4 / LPDDR4X",
+        "bandwidth": "约 68.3 GB/s（16GB 配置，128-bit @ 4266 Mbps）"
+      },
+      "tdp": "≤ 18–20 W（满载，被动无风扇散热）",
+      "release": "2022"
+    }
+  },
+  {
+    "id": "sophgo-bm1688",
+    "title": "算能 BM1688",
+    "vendor": "others",
+    "slug": "/docs/cards/others/sophgo-bm1688",
+    "description": "算能高集成边缘 TPU BM1688：16 TOPS INT8（32 TOPS INT4）、4 TFLOPS FP16/BF16，面向边缘大模型与多路视觉。",
+    "keywords": [
+      "算能",
+      "BM1688",
+      "SOPHGO",
+      "边缘AI",
+      "16 TOPS",
+      "INT8",
+      "边缘大模型",
+      "安防"
+    ],
+    "tdpW": 7,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "算能高集成边缘 TPU，集成 8 核 ARM Cortex-A53 @ 1.6GHz + 自研 NPU",
+      "process": "未公开（推测 12nm 级，与 BM1684X 同代）",
+      "compute": {
+        "int8": "16 TOPS（INT4 可达 32 TOPS）",
+        "fp32": "0.5 TFLOPS"
+      },
+      "memory": {
+        "type": "LPDDR4 / LPDDR4X",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开（配套整机典型约 7.2 W，单芯片更低）",
+      "release": "2023"
+    }
+  },
+  {
+    "id": "tencent-zixiao",
+    "title": "腾讯 紫霄 (Zixiao)",
+    "vendor": "others",
+    "slug": "/docs/cards/others/tencent-zixiao",
+    "description": "腾讯蓬莱实验室首款云端 AI 推理芯片，2021-11 发布、2023 量产，2.5D 封装合封 HBM2e，内置 CV 与视频编解码加速器，头部业务提供 3 倍加速与 45%+ 成本节省，单卡负载达 NVIDIA T4 的 4 倍",
+    "keywords": [
+      "腾讯",
+      "Tencent",
+      "紫霄",
+      "Zixiao",
+      "蓬莱实验室",
+      "AI 推理芯片",
+      "HBM2e",
+      "2.5D 封装",
+      "燧原科技",
+      "腾讯会议实时字幕",
+      "国产 AI 芯片"
+    ],
+    "tdpW": 70,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "腾讯自研 AI 推理 NPU/ASIC 架构（内置 CV 加速器 + 视频编解码加速器）",
+      "process": "未公开（腾讯从未官宣；业界流传台积电 7nm，属未证实的供应链消息）",
+      "compute": {
+        "int8": "未公开",
+        "fp32": "未公开"
+      },
+      "memory": {
+        "type": "HBM2e（官方确认，2.5D 封装与 AI 核心合封）",
+        "bandwidth": "未公开"
+      },
+      "tdp": "未公开（第三方口径称相较 NVIDIA T4 等方案功耗降低约 70%）",
+      "release": "2021-11-03（2021 腾讯数字生态大会）"
     }
   },
   {
