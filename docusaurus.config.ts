@@ -43,6 +43,11 @@ const config: Config = {
     ],
   ],
 
+  // Mermaid 图表主题：必须与 markdown.mermaid 配套显式声明。
+  // preset-classic 不会自动检测已安装的 @docusaurus/theme-mermaid；
+  // 若不在此注册，Mermaid 组件与 mermaid 库不会进入 bundle，时间线只会渲染成空白。
+  themes: ['@docusaurus/theme-mermaid'],
+
       onBrokenLinks: 'warn',
   markdown: {
     mermaid: true,
