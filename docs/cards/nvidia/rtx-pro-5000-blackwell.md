@@ -24,6 +24,7 @@ keywords: [RTX Pro 5000 Blackwell, Blackwell, 专业显卡, GDDR7, AI 工作站,
 | **显存类型** | GDDR7 |
 | **显存带宽** | 约 1.2 TB/s（厂商未公开，按位宽估算） |
 | **FP32** | 未公开（预计 ~100 TFLOPS） |
+| **FP16/BF16 Tensor Core** | 1,032 TFLOPS（稀疏） |
 | **FP4 Tensor Core** | 未公开（预计 ~2,000 TFLOPS 推理） |
 | **TDP** | 300 W |
 | **PCIe** | Gen 5 x16 |

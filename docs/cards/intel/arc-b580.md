@@ -24,6 +24,7 @@ keywords: [Intel Arc B580, Battlemage, Xe2, GDDR6, XMX, AI 显卡, 桌面显卡]
 | **XMX AI 引擎** | 160 |
 | **INT8 算力** | 233 TOPS |
 | **FP32** | 未公开（游戏卡未标 FP32 TFLOPS） |
+| **FP16 算力** | 27.34 TFLOPS |
 | **显存** | **12 GB GDDR6** |
 | **显存类型** | GDDR6 |
 | **显存带宽** | 456 GB/s（192-bit） |

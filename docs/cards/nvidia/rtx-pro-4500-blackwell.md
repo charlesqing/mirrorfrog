@@ -22,6 +22,7 @@ keywords: [RTX Pro 4500 Blackwell, Blackwell, 专业显卡, GDDR7, AI 工作站,
 | **显存类型** | GDDR7 |
 | **显存带宽** | 未公开（预计 ~900 GB/s） |
 | **FP32** | 未公开（预计 ~70 TFLOPS） |
+| **FP16/BF16 Tensor Core** | 406 TFLOPS（稀疏） |
 | **FP4 Tensor Core** | 未公开（预计 ~1,500 TFLOPS 推理） |
 | **TDP** | 200 W |
 | **PCIe** | Gen 5 x16 |

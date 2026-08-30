@@ -26,6 +26,7 @@ keywords: [RTX Pro 6000 Blackwell, Blackwell, 专业显卡, GDDR7, AI 工作站,
 | **Tensor Core** | 752（第五代） |
 | **RT Core** | 188（第四代） |
 | **FP32** | 125 TFLOPS |
+| **FP16/BF16 Tensor Core** | 1,000 TFLOPS（稀疏） |
 | **FP4 Tensor Core** | 4,000 TFLOPS（推理） |
 | **显存** | **96 GB GDDR7 ECC** |
 | **显存带宽** | 1.79 TB/s（512-bit） |

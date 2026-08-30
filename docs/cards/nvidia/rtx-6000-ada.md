@@ -24,6 +24,7 @@ NVIDIA RTX 6000 Ada 是面向专业工作站的高端 GPU，2022 年发布。基
 | **CUDA Core** | 18,176 |
 | **Tensor Core** | 568（第四代） |
 | **FP32** | 91.1 TFLOPS |
+| **FP16/BF16 Tensor Core** | 729 TFLOPS（稀疏） |
 | **FP8 Tensor Core** | 1,458 TFLOPS（稀疏） |
 | **INT8 Tensor Core** | 2,916 TOPS |
 | **TDP** | 300 W |

@@ -1538,13 +1538,14 @@
       "桌面显卡"
     ],
     "tdpW": 190,
-    "fp16Tflops": null,
+    "fp16Tflops": 27,
     "specs": {
       "architecture": "Intel Xe2（Battlemage，BMG-G21）",
       "process": "TSMC N5",
       "compute": {
         "int8": "233 TOPS",
-        "fp32": "未公开（游戏卡未标 FP32 TFLOPS）"
+        "fp32": "未公开（游戏卡未标 FP32 TFLOPS）",
+        "fp16": "27.34 TFLOPS"
       },
       "memory": {
         "capacity": "12 GB GDDR6",
@@ -2354,7 +2355,7 @@
       "Hopper refresh"
     ],
     "tdpW": 700,
-    "fp16Tflops": null,
+    "fp16Tflops": 1979,
     "specs": {
       "release": "2024 年 11 月（首批出货）",
       "architecture": "Hopper GH100（refresh）",
@@ -2364,6 +2365,7 @@
         "bandwidth": "4.8 TB/s（4,800 GB/s）"
       },
       "compute": {
+        "fp16": "1,979 TFLOPS（稀疏）",
         "fp8": "3,958 TFLOPS（稀疏）"
       },
       "tdp": "700 W"
@@ -2559,7 +2561,7 @@
       "T4 继任者"
     ],
     "tdpW": 72,
-    "fp16Tflops": null,
+    "fp16Tflops": 242,
     "specs": {
       "release": "2023 年 3 月 GTC",
       "architecture": "Ada Lovelace AD104",
@@ -2570,6 +2572,7 @@
       },
       "compute": {
         "fp32": "30.3 TFLOPS",
+        "fp16": "242 TFLOPS（稀疏）",
         "fp8": "485 TFLOPS"
       },
       "tdp": "72 W"
@@ -2589,7 +2592,7 @@
       "vGPU"
     ],
     "tdpW": 350,
-    "fp16Tflops": null,
+    "fp16Tflops": 733,
     "specs": {
       "release": "2023 年 8 月",
       "architecture": "Ada Lovelace AD102",
@@ -2600,6 +2603,7 @@
       },
       "compute": {
         "fp32": "91.6 TFLOPS",
+        "fp16": "733 TFLOPS（稀疏）",
         "fp8": "733 TFLOPS（稀疏）"
       },
       "tdp": "350 W"
@@ -2718,7 +2722,7 @@
       "合规版"
     ],
     "tdpW": 575,
-    "fp16Tflops": null,
+    "fp16Tflops": 838,
     "specs": {
       "architecture": "Blackwell (GB202)",
       "process": "TSMC 4N",
@@ -2727,7 +2731,8 @@
         "bandwidth": "1,792 GB/s"
       },
       "compute": {
-        "fp32": "104.8 TFLOPS"
+        "fp32": "104.8 TFLOPS",
+        "fp16": "838 TFLOPS（稀疏）"
       },
       "tdp": "575 W",
       "release": "2025-01（推测）"
@@ -2747,7 +2752,7 @@
       "专业显卡"
     ],
     "tdpW": 300,
-    "fp16Tflops": null,
+    "fp16Tflops": 729,
     "specs": {
       "release": "2022 年 12 月",
       "architecture": "Ada Lovelace AD102",
@@ -2758,6 +2763,7 @@
       },
       "compute": {
         "fp32": "91.1 TFLOPS",
+        "fp16": "729 TFLOPS（稀疏）",
         "fp8": "1,458 TFLOPS（稀疏）"
       },
       "tdp": "300 W"
@@ -2809,7 +2815,7 @@
       "ECC 显存"
     ],
     "tdpW": 200,
-    "fp16Tflops": null,
+    "fp16Tflops": 406,
     "specs": {
       "architecture": "NVIDIA Blackwell 2.0 (GB202)",
       "process": "TSMC 4nm",
@@ -2819,7 +2825,8 @@
         "bandwidth": "未公开（预计 ~900 GB/s）"
       },
       "compute": {
-        "fp32": "未公开（预计 ~70 TFLOPS）"
+        "fp32": "未公开（预计 ~70 TFLOPS）",
+        "fp16": "406 TFLOPS（稀疏）"
       },
       "tdp": "200 W",
       "release": "2025 年"
@@ -2840,7 +2847,7 @@
       "ECC 显存"
     ],
     "tdpW": 300,
-    "fp16Tflops": null,
+    "fp16Tflops": 1032,
     "specs": {
       "architecture": "NVIDIA Blackwell 2.0 (GB202)",
       "process": "TSMC 4nm",
@@ -2850,7 +2857,8 @@
         "bandwidth": "约 1.2 TB/s（厂商未公开，按位宽估算）"
       },
       "compute": {
-        "fp32": "未公开（预计 ~100 TFLOPS）"
+        "fp32": "未公开（预计 ~100 TFLOPS）",
+        "fp16": "1,032 TFLOPS（稀疏）"
       },
       "tdp": "300 W",
       "release": "2025 年"
@@ -2871,12 +2879,13 @@
       "ECC 显存"
     ],
     "tdpW": 600,
-    "fp16Tflops": null,
+    "fp16Tflops": 1000,
     "specs": {
       "architecture": "NVIDIA Blackwell 2.0 (GB202)",
       "process": "TSMC 4nm",
       "compute": {
-        "fp32": "125 TFLOPS"
+        "fp32": "125 TFLOPS",
+        "fp16": "1,000 TFLOPS（稀疏）"
       },
       "memory": {
         "capacity": "96 GB GDDR7 ECC",
