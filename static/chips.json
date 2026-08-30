@@ -2604,7 +2604,7 @@
       "compute": {
         "fp32": "91.6 TFLOPS",
         "fp16": "733 TFLOPS（稀疏）",
-        "fp8": "733 TFLOPS（稀疏）"
+        "fp8": "1,466 TFLOPS（稀疏）"
       },
       "tdp": "350 W"
     }
@@ -2784,7 +2784,7 @@
       "ECC 显存"
     ],
     "tdpW": 145,
-    "fp16Tflops": null,
+    "fp16Tflops": 322,
     "specs": {
       "architecture": "NVIDIA Blackwell 2.0 (GB202)",
       "process": "TSMC 4nm",
@@ -2794,7 +2794,8 @@
         "bandwidth": "未公开（预计 ~600 GB/s）"
       },
       "compute": {
-        "fp32": "未公开（预计 ~50 TFLOPS）"
+        "fp32": "40 TFLOPS",
+        "fp16": "322 TFLOPS（稀疏）"
       },
       "tdp": "145 W（SFF 版 70W）",
       "release": "2025 年"

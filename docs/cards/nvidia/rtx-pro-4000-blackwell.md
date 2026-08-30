@@ -21,8 +21,9 @@ keywords: [RTX Pro 4000 Blackwell, Blackwell, 专业显卡, GDDR7, AI 工作站,
 | **显存** | **24 GB GDDR7 ECC** |
 | **显存类型** | GDDR7 |
 | **显存带宽** | 未公开（预计 ~600 GB/s） |
-| **FP32** | 未公开（预计 ~50 TFLOPS） |
-| **FP4 Tensor Core** | 未公开（预计 ~1,000 TFLOPS 推理） |
+| **FP32** | 40 TFLOPS |
+| **FP4 Tensor Core** | 1,290 TOPS（稀疏） |
+| **FP16/BF16 Tensor Core** | 322 TFLOPS（稀疏） |
 | **TDP** | 145 W（SFF 版 70W） |
 | **PCIe** | Gen 5 x16 |
 | **ECC** | 支持 |
