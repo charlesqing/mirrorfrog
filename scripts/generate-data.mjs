@@ -30,8 +30,9 @@ const KEY_MAP = {
   '统一内存': 'memory.capacity', 'unified memory': 'memory.capacity',
   '内存容量': 'memory.capacity', 'memory capacity': 'memory.capacity',
   'fp8': 'compute.fp8', 'fp8 算力': 'compute.fp8', 'fp8 tensor': 'compute.fp8', 'fp8 tensor core': 'compute.fp8',
-  'fp16': 'compute.fp16', 'fp16 算力': 'compute.fp16', 'fp16 tensor': 'compute.fp16', 'fp16 tensor core': 'compute.fp16',
-  'fp16/bf16': 'compute.fp16', 'fp16/bf16 tensor': 'compute.fp16',
+  'fp16': 'compute.fp16', 'fp16 算力': 'compute.fp16', 'fp16 tensor': 'compute.fp16', 'fp16 tensor core': 'compute.fp16', 'fp16 稀疏': 'compute.fp16', 'fp16 稀疏算力': 'compute.fp16', 'fp16 dense': 'compute.fp16', 'fp16 matrix': 'compute.fp16',
+  'fp16/bf16': 'compute.fp16', 'fp16/bf16 tensor': 'compute.fp16', 'fp16/bf16 tensor core': 'compute.fp16', 'fp16/bf16 matrix': 'compute.fp16', 'fp16 / bf16': 'compute.fp16', 'fp16 / bf16 (峰值)': 'compute.fp16',
+  'bf16': 'compute.fp16', 'bf16 算力': 'compute.fp16', 'bf16 dense': 'compute.fp16', 'bf16/fp16': 'compute.fp16',
   'fp32': 'compute.fp32', 'fp32 算力': 'compute.fp32',
   'fp64': 'compute.fp64',
   'int8': 'compute.int8', 'int8 算力': 'compute.int8', 'int8 tensor': 'compute.int8',
@@ -47,8 +48,16 @@ const KEY_MAP = {
 function normalizeKey(rawKey) {
   if (!rawKey) return null;
   const clean = String(rawKey).replace(/[*_`]/g, '').trim();
-  const lower = clean.toLowerCase();
-  return KEY_MAP[clean] || KEY_MAP[lower] || null;
+  // 归一化：统一斜杠/空格两侧空白并转小写，宽松匹配 "FP16 / BF16" == "fp16/bf16"
+  const norm = clean.toLowerCase().replace(/\s*\/\s*/g, '/').replace(/\s+/g, ' ').trim();
+  // 排除 benchmark / 聚合行（非纯算力值，会污染 per-chip 数字）
+  if (/(训练|benchmark|bert|gpt|resnet|比|测试|吞吐|性能对比|pod|机柜|rack)/i.test(norm)) return null;
+  // 显式映射优先
+  const mapped = KEY_MAP[clean] || KEY_MAP[norm];
+  if (mapped) return mapped;
+  // 兜底：含 fp16/bf16 且非聚合 → 视为 compute.fp16（覆盖未枚举的变体写法）
+  if (/(^|[^a-z])(fp16|bf16)([^a-z]|$)/.test(norm)) return 'compute.fp16';
+  return null;
 }
 
 function setNested(obj, path, value) {
