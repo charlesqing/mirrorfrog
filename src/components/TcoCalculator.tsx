@@ -739,6 +739,12 @@ export default function TcoCalculator() {
     return lines.join('\n');
   }, [chip, qty, usage, price, years, unitPriceUSD, tco, tcoPerTflops, compare]);
 
+  // 留资报告的焦点芯片：主选 + 对比列表（用于生成规格/定价/替代方案章节）
+  const getFocusChipIds = useCallback(
+    () => (chip ? [chip.id, ...compare.map(c => c.chip.id)] : []),
+    [chip, compare],
+  );
+
   const pieData = useMemo(() => [
     { label: '采购', value: proc, color: COLORS[0] },
     { label: '电费', value: elec, color: COLORS[1] },
@@ -1214,7 +1220,7 @@ export default function TcoCalculator() {
       )}
 
       {/* Lead capture：下载完整选型报告 */}
-      <LeadCapture source="tco" lang="zh" getExtraSections={getTcoContext} />
+      <LeadCapture source="tco" lang="zh" getExtraSections={getTcoContext} getFocusChipIds={getFocusChipIds} />
     </div>
   );
 }

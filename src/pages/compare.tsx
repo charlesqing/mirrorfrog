@@ -113,6 +113,12 @@ export default function ComparePage(): ReactNode {
     return `**当前对比芯片**\n${lines.join('\n')}`;
   }, [selectedChips]);
 
+  // 留资报告的焦点芯片：当前对比的所有芯片
+  const getFocusChipIds = useCallback(
+    () => selected.filter((c): c is Chip => c !== null).map(c => c.id),
+    [selected],
+  );
+
   // P1 性能：厂商分组/排序只在 chips 变化时计算一次，避免每次渲染重算 222 卡
   const chipGroups = useMemo(() => {
     const groups = chips.reduce((acc, c) => {
@@ -411,6 +417,7 @@ export default function ComparePage(): ReactNode {
             source="compare"
             lang={isZh ? 'zh' : 'en'}
             getExtraSections={getCompareContext}
+            getFocusChipIds={getFocusChipIds}
           />
         )}
       </main>
