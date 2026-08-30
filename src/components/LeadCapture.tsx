@@ -8,7 +8,7 @@ import styles from './LeadCapture.module.css';
  *   1. 你的选型方案 —— 调用方注入的 TCO 摘要 / 对比清单（getExtraSections）
  *   2. 焦点芯片规格与定价 —— getFocusChipIds 指定的芯片，完整 specs + pricing.json 定价
  *   3. 同档替代方案 —— 按 FP16 算力最接近自动推荐 3 款（引回站内的钩子）
- *   4. 无焦点时回退 —— FP16 Top 10 极简表 + 在线版链接（体积恒定在几 KB）
+ *   4. 无焦点时回退 —— 全量规格表（用户未做筛选时默认输出全库参考）
  *
  * 无后端依赖：提交即生成 Markdown 下载（留资即交付）；lead 存 localStorage，
  * 接后端只改 saveLead()。
@@ -235,12 +235,9 @@ function buildReport(
       }
     }
   } else {
-    // 回退：无焦点芯片时给 FP16 Top 10 极简表（不再是 222 行全量）
-    const top = chips
-      .filter(c => c.fp16Tflops != null && c.fp16Tflops > 0)
-      .sort((a, b) => (b.fp16Tflops ?? 0) - (a.fp16Tflops ?? 0))
-      .slice(0, 10);
-    lines.push(zh ? '## 数据总览（FP16 算力 Top 10）' : '## Overview (Top 10 by FP16 TFLOPS)');
+    // 无焦点芯片（用户未做筛选）：默认输出全量规格表 —— 有筛选时是焦点报告，
+    // 无筛选时用户要的就是全库参考，全量表符合预期（体积 ~12KB 可接受）
+    lines.push(zh ? '## 全量芯片规格摘要' : '## Full Chip Spec Summary');
     lines.push('');
     lines.push(
       zh
@@ -248,7 +245,7 @@ function buildReport(
         : '| Model | Vendor | FP16 (TFLOPS) | TDP (W) | Price |',
     );
     lines.push('| --- | --- | --- | --- | --- |');
-    for (const c of top) lines.push(chipRow(c, pricing, zh));
+    for (const c of chips) lines.push(chipRow(c, pricing, zh));
   }
 
   lines.push('');
