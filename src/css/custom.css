@@ -70,6 +70,15 @@
     border-left: none;
     border-right: none;
   }
+
+  /* 移动端：所有 markdown 表格横向滚动，避免窄屏下挤压变形 */
+  .markdown table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* ---------- Dark mode: table improvements ---------- */

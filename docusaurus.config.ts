@@ -45,6 +45,7 @@ const config: Config = {
 
       onBrokenLinks: 'warn',
   markdown: {
+    mermaid: true,
     hooks: {onBrokenMarkdownLinks: 'warn'},
   },
 
@@ -376,6 +377,11 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+
+    // Mermaid（路线图时间线可视化）：亮色 neutral / 暗色 dark，匹配站点暗色默认
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
     },
   } satisfies Preset.ThemeConfig,
 };
