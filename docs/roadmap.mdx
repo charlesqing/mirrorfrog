@@ -45,8 +45,8 @@ sidebar_label: '未来路线图'
 | 2026-H2 | 🔄 [**NVIDIA Rubin NVL72 机柜**](/docs/cards/nvidia/rubin) | NVIDIA | 72 颗 Rubin + 36 颗 Vera，1.8 EFLOPS FP4 |
 | 2026-H2 | 🔄 [**AMD MI400 系列 + Helios 机柜**](/docs/cards/amd/mi400) | AMD | CDNA 5，TSMC 2nm，三款细分型号（见下） |
 | 2026-H2 | 🔄 [**AMD MI455X（旗舰）**](/docs/cards/amd/mi455x) | AMD | 432GB HBM4，40 PFLOPS FP4，Helios 机架核心 |
-| 2026-H2 | 🔄 **AMD MI450X（高性价比）** | AMD | 432GB HBM4，FP4/FP8 训练+推理 |
-| 2026-H2 | 🔄 **AMD MI430X（HPC）** | AMD | 432GB HBM4，支持 FP32/FP64，主权 AI + HPC |
+| 2026-H2 | 🔄 [**AMD MI450X（高性价比）**](/docs/cards/amd/mi400) | AMD | 432GB HBM4，FP4/FP8 训练+推理 |
+| 2026-H2 | 🔄 [**AMD MI430X（HPC）**](/docs/cards/amd/mi430x) | AMD | 432GB HBM4，支持 FP32/FP64，主权 AI + HPC |
 | 2026-H2 | 🔄 [**Qualcomm AI 200**](/docs/cards/others/qualcomm-ai-200) | Qualcomm | 机架级 AI 推理，768GB LPDDR/卡，低 TCO |
 | 2026-Q4 | 🔄 [**华为昇腾 950DT 全面放量**](/docs/cards/huawei/ascend-950dt) | 华为 | 950DT 训练量产；WAIC 2026 已展示 Atlas 950 SuperPoD（1024 卡，1 EFLOPS FP8） |
 | 2026-秋 | 🔄 [**NVIDIA RTX Spark 零售**](/docs/cards/nvidia/rtx-spark) | NVIDIA | 华硕/戴尔/惠普/联想/微软首发 |
@@ -121,41 +121,62 @@ sidebar_label: '未来路线图'
 
 ## 发布时间线（可视化）
 
-```mermaid
-timeline TD
-    title AI 算力卡发布路线图（2025-2028）
-    section 2025 H1
-        NVIDIA B200          ： 已发布
-        AMD MI355X           ： 已发布
-        Google TPU v6e       ： 已 GA
-    section 2025 H2
-        NVIDIA B300 Ultra    ： 已发布
-        AWS Trainium 3       ： GA
-        Google TPU Ironwood  ： 已发布
-        华为昇腾 910C        ： 已量产
-    section 2026 H1
-        NVIDIA Vera Rubin R200 ： 全面量产
-        NVIDIA RTX Spark     ： 发布
-        华为昇腾 950PR/DT    ： 已量产
-        寒武纪 MLU690        ： 出货
-    section 2026 H2
-        Rubin NVL72          ： 出货
-        AMD MI400 系列       ： MI455X/MI450X/MI430X
-        AMD Helios 机架      ： 预期 H2
-        Qualcomm AI 200      ： 机架推理商用
-        RTX Spark 零售       ： 秋季
-        昇腾 950 SuperPoD    ： WAIC 2026 首展
-    section 2027
-        Qualcomm AI 250      ： 近存计算商用
-        NVIDIA Rubin Ultra / Feynman ： 前瞻
-        AMD MI500            ： 前瞻
-        Google TPU v8        ： 前瞻
-        Cerebras WSE-4       ： IPO 后首代
-        华为昇腾 960         ： 路线图
-        Intel Jaguar Shores  ： ❌ 已取消
-    section 2028
-        华为昇腾 970         ： 路线图 Q4
-```
+<div className="timeline-td">
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2025 H1</div>
+  <div className="timeline-td-event"><strong>NVIDIA B200</strong> — 已发布</div>
+  <div className="timeline-td-event"><strong>AMD MI355X</strong> — 已发布</div>
+  <div className="timeline-td-event"><strong>Google TPU v6e</strong> — 已 GA</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2025 H2</div>
+  <div className="timeline-td-event"><strong>NVIDIA B300 Ultra</strong> — 已发布</div>
+  <div className="timeline-td-event"><strong>AWS Trainium 3</strong> — GA</div>
+  <div className="timeline-td-event"><strong>Google TPU Ironwood</strong> — 已发布</div>
+  <div className="timeline-td-event"><strong>华为昇腾 910C</strong> — 已量产</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2026 H1</div>
+  <div className="timeline-td-event"><strong>NVIDIA Vera Rubin R200</strong> — 全面量产</div>
+  <div className="timeline-td-event"><strong>NVIDIA RTX Spark</strong> — 发布</div>
+  <div className="timeline-td-event"><strong>华为昇腾 950PR/DT</strong> — 已量产</div>
+  <div className="timeline-td-event"><strong>寒武纪 MLU690</strong> — 出货</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2026 H2</div>
+  <div className="timeline-td-event"><strong>Rubin NVL72</strong> — 出货</div>
+  <div className="timeline-td-event"><strong>AMD MI400 系列</strong> — MI455X / MI450X / MI430X</div>
+  <div className="timeline-td-event"><strong>AMD Helios 机架</strong> — 预期 H2</div>
+  <div className="timeline-td-event"><strong>Qualcomm AI 200</strong> — 机架推理商用</div>
+  <div className="timeline-td-event"><strong>RTX Spark 零售</strong> — 秋季</div>
+  <div className="timeline-td-event"><strong>昇腾 950 SuperPoD</strong> — WAIC 2026 首展</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2027</div>
+  <div className="timeline-td-event"><strong>Qualcomm AI 250</strong> — 近存计算商用</div>
+  <div className="timeline-td-event"><strong>NVIDIA Rubin Ultra / Feynman</strong> — 前瞻</div>
+  <div className="timeline-td-event"><strong>AMD MI500</strong> — 前瞻</div>
+  <div className="timeline-td-event"><strong>Google TPU v8</strong> — 前瞻</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2027 末季</div>
+  <div className="timeline-td-event"><strong>Cerebras WSE-4</strong> — IPO 后首代</div>
+  <div className="timeline-td-event"><strong>华为昇腾 960</strong> — 路线图</div>
+  <div className="timeline-td-event"><strong>Intel Jaguar Shores</strong> — ❌ 已取消</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2028</div>
+  <div className="timeline-td-event"><strong>华为昇腾 970</strong> — 路线图 Q4</div>
+</div>
+
+</div>
 
 ## 数据来源与更新
 

@@ -45,8 +45,8 @@ sidebar_label: 'Future Roadmap'
 | 2026-H2 | 🔄 [**NVIDIA Rubin NVL72 Rack**](/en/docs/cards/nvidia/rubin) | NVIDIA | 72 Rubin + 36 Vera, 1.8 EFLOPS FP4 |
 | 2026-H2 | 🔄 [**AMD MI400 Series + Helios Rack**](/en/docs/cards/amd/mi400) | AMD | CDNA 5, TSMC 2nm, three SKUs (see below) |
 | 2026-H2 | 🔄 [**AMD MI455X (Flagship)**](/en/docs/cards/amd/mi455x) | AMD | 432GB HBM4, 40 PFLOPS FP4, Helios rack core |
-| 2026-H2 | 🔄 **AMD MI450X (Value)** | AMD | 432GB HBM4, FP4/FP8 training + inference |
-| 2026-H2 | 🔄 **AMD MI430X (HPC)** | AMD | 432GB HBM4, FP32/FP64 support, sovereign AI + HPC |
+| 2026-H2 | 🔄 [**AMD MI450X (Value)**](/en/docs/cards/amd/mi400) | AMD | 432GB HBM4, FP4/FP8 training + inference |
+| 2026-H2 | 🔄 [**AMD MI430X (HPC)**](/en/docs/cards/amd/mi430x) | AMD | 432GB HBM4, FP32/FP64 support, sovereign AI + HPC |
 | 2026-H2 | 🔄 [**Qualcomm AI 200**](/en/docs/cards/others/qualcomm-ai-200) | Qualcomm | Rack-scale AI inference, 768GB LPDDR/card, low TCO |
 | 2026-Q4 | 🔄 [**Huawei Ascend 950DT Full Ramp**](/en/docs/cards/huawei/ascend-950dt) | Huawei | Training mass production; WAIC 2026 showcased Atlas 950 SuperPoD (1024 chips, 1 EFLOPS FP8) |
 | 2026-Fall | 🔄 [**NVIDIA RTX Spark Retail**](/en/docs/cards/nvidia/rtx-spark) | NVIDIA | Asus / Dell / HP / Lenovo / Microsoft launch partners |
@@ -121,41 +121,62 @@ sidebar_label: 'Future Roadmap'
 
 ## Release Timeline (Visual)
 
-```mermaid
-timeline TD
-    title AI Compute Card Release Roadmap (2025-2028)
-    section 2025 H1
-        NVIDIA B200          : Launched
-        AMD MI355X           : Launched
-        Google TPU v6e       : GA
-    section 2025 H2
-        NVIDIA B300 Ultra    : Launched
-        AWS Trainium 3       : GA
-        Google TPU Ironwood  : Launched
-        Huawei Ascend 910C   : In Production
-    section 2026 H1
-        NVIDIA Vera Rubin R200 : Full Production
-        NVIDIA RTX Spark     : Launched
-        Huawei Ascend 950PR/DT : In Production
-        Cambricon MLU690     : Shipping
-    section 2026 H2
-        Rubin NVL72          : Shipping
-        AMD MI400 Series     : MI455X/MI450X/MI430X
-        AMD Helios Rack      : Expected H2
-        Qualcomm AI 200      : Rack Inference
-        RTX Spark Retail     : Fall
-        Ascend 950 SuperPoD  : WAIC 2026
-    section 2027
-        Qualcomm AI 250      : Near-Memory
-        NVIDIA Rubin Ultra / Feynman : Outlook
-        AMD MI500            : Outlook
-        Google TPU v8        : Outlook
-        Cerebras WSE-4       : Post-IPO
-        Huawei Ascend 960    : Roadmap
-        Intel Jaguar Shores  : ❌ Cancelled
-    section 2028
-        Huawei Ascend 970    : Roadmap Q4
-```
+<div className="timeline-td">
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2025 H1</div>
+  <div className="timeline-td-event"><strong>NVIDIA B200</strong> — Launched</div>
+  <div className="timeline-td-event"><strong>AMD MI355X</strong> — Launched</div>
+  <div className="timeline-td-event"><strong>Google TPU v6e</strong> — GA</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2025 H2</div>
+  <div className="timeline-td-event"><strong>NVIDIA B300 Ultra</strong> — Launched</div>
+  <div className="timeline-td-event"><strong>AWS Trainium 3</strong> — GA</div>
+  <div className="timeline-td-event"><strong>Google TPU Ironwood</strong> — Launched</div>
+  <div className="timeline-td-event"><strong>Huawei Ascend 910C</strong> — In Production</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2026 H1</div>
+  <div className="timeline-td-event"><strong>NVIDIA Vera Rubin R200</strong> — Full Production</div>
+  <div className="timeline-td-event"><strong>NVIDIA RTX Spark</strong> — Launched</div>
+  <div className="timeline-td-event"><strong>Huawei Ascend 950PR/DT</strong> — In Production</div>
+  <div className="timeline-td-event"><strong>Cambricon MLU690</strong> — Shipping</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2026 H2</div>
+  <div className="timeline-td-event"><strong>Rubin NVL72</strong> — Shipping</div>
+  <div className="timeline-td-event"><strong>AMD MI400 Series</strong> — MI455X / MI450X / MI430X</div>
+  <div className="timeline-td-event"><strong>AMD Helios Rack</strong> — Expected H2</div>
+  <div className="timeline-td-event"><strong>Qualcomm AI 200</strong> — Rack Inference</div>
+  <div className="timeline-td-event"><strong>RTX Spark Retail</strong> — Fall</div>
+  <div className="timeline-td-event"><strong>Ascend 950 SuperPoD</strong> — WAIC 2026</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2027</div>
+  <div className="timeline-td-event"><strong>Qualcomm AI 250</strong> — Near-Memory</div>
+  <div className="timeline-td-event"><strong>NVIDIA Rubin Ultra / Feynman</strong> — Outlook</div>
+  <div className="timeline-td-event"><strong>AMD MI500</strong> — Outlook</div>
+  <div className="timeline-td-event"><strong>Google TPU v8</strong> — Outlook</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">Late 2027</div>
+  <div className="timeline-td-event"><strong>Cerebras WSE-4</strong> — Post-IPO</div>
+  <div className="timeline-td-event"><strong>Huawei Ascend 960</strong> — Roadmap</div>
+  <div className="timeline-td-event"><strong>Intel Jaguar Shores</strong> — ❌ Cancelled</div>
+</div>
+
+<div className="timeline-td-section">
+  <div className="timeline-td-marker">2028</div>
+  <div className="timeline-td-event"><strong>Huawei Ascend 970</strong> — Roadmap Q4</div>
+</div>
+
+</div>
 
 ## Data Sources & Updates
 

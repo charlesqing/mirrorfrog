@@ -129,3 +129,100 @@ table th:first-child {
 .dropdown__menu {
   z-index: 300;
 }
+
+/* ========== 路线图竖向时间线（替换 mermaid timeline） ========== */
+.timeline-td {
+  position: relative;
+  margin: 1.5rem 0 2rem 0;
+  padding-left: 9rem;
+}
+
+.timeline-td::before {
+  content: '';
+  position: absolute;
+  left: 7.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--ifm-color-primary);
+  opacity: 0.35;
+}
+
+.timeline-td-section {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-td-section:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-td-marker {
+  position: absolute;
+  left: -9rem;
+  top: 0;
+  width: 7rem;
+  padding: 6px 10px;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-td-section::before {
+  content: '';
+  position: absolute;
+  left: -1.65rem;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  background: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-background-color);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-td-event {
+  padding: 8px 14px;
+  margin: 4px 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 4px;
+  border-left: 3px solid var(--ifm-color-primary);
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-900);
+}
+
+[data-theme='dark'] .timeline-td-event {
+  background: rgba(91, 76, 219, 0.08);
+  color: var(--ifm-color-emphasis-200);
+}
+
+.timeline-td-event strong {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .timeline-td {
+    padding-left: 5.5rem;
+  }
+  .timeline-td::before {
+    left: 4.5rem;
+  }
+  .timeline-td-marker {
+    left: -5.5rem;
+    width: 4rem;
+    font-size: 0.78rem;
+    padding: 4px 6px;
+  }
+  .timeline-td-section::before {
+    left: -1.15rem;
+    width: 10px;
+    height: 10px;
+    top: 9px;
+  }
+}
