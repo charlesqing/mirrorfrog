@@ -1,0 +1,35 @@
+# MirrorFrog — AI 算力卡规格库（AI Compute Cards Wiki）
+
+> MirrorFrog 是中文世界覆盖最全的 AI 芯片（GPU / NPU / TPU / ASIC）规格数据库与选型决策工具，收录 222 款 AI 算力卡，覆盖 NVIDIA、AMD、Intel、Google TPU、AWS、华为昇腾、寒武纪、摩尔线程等 14 个厂商分类。提供逐卡规格页、多卡横向对比、TCO 总拥有成本计算器（含集群级与自建 vs 云租赁分析）、行业路线图与开放数据集。所有芯片规格数据以 CC BY 4.0 许可开放下载。
+
+## 核心页面
+
+- [首页](https://www.mirrorfrog.com/): 站点入口，含最新动态与热门芯片
+- [对比页](https://www.mirrorfrog.com/compare): 任选多款芯片横向对比算力 / 显存 / 带宽 / TDP / 价格
+- [TCO 计算器](https://www.mirrorfrog.com/docs/tco-calculator): 单机与集群级总拥有成本测算，支持自建 vs 云租赁盈亏平衡分析
+- [未来路线图](https://www.mirrorfrog.com/docs/roadmap): 2025-2028 各厂商发布时间线与规格前瞻
+- [行业时间线](https://www.mirrorfrog.com/docs/timeline): AI 算力卡行业大事记
+- [开放数据集](https://www.mirrorfrog.com/docs/open-dataset): chips.json 与 pricing.json 机器可读数据下载（CC BY 4.0）
+
+## 开放数据集
+
+- [chips.json](https://www.mirrorfrog.com/chips.json): 222 款 AI 芯片完整规格（架构、制程、算力 TFLOPS、显存、带宽、TDP、tdpW、fp16Tflops 等结构化字段）
+- [pricing.json](https://www.mirrorfrog.com/pricing.json): 各芯片参考定价与币种（USD / CNY）
+
+数据以 CC BY 4.0 许可开放，引用时请注明来源 MirrorFrog（mirrorfrog.com）。
+
+## 主要厂商分类
+
+- [NVIDIA](https://www.mirrorfrog.com/docs/cards/nvidia/h100): 38 款，H100 / H200 / B200 / GB200 / Rubin 等
+- [AMD Instinct](https://www.mirrorfrog.com/docs/cards/amd/mi300x): 16 款，MI300X / MI325X / MI355X / MI400 系列等
+- [华为昇腾](https://www.mirrorfrog.com/docs/cards/huawei/ascend-910b): 15 款，Ascend 910B / 910C / 950 系列等
+- [Intel](https://www.mirrorfrog.com/docs/cards/intel/gaudi-3): 12 款，Gaudi 3 / Jaguar Shores 等
+- [Google TPU](https://www.mirrorfrog.com/docs/cards/google/tpu-v5p): 9 款，TPU v5e / v5p / v6e / Ironwood 等
+- [AWS](https://www.mirrorfrog.com/docs/cards/aws/trainium2): 5 款，Trainium / Inferentia 系列
+- [其他厂商](https://www.mirrorfrog.com/docs/intro): 含寒武纪、摩尔线程、Cerebras、百度昆仑芯、天数智芯、燧原等
+
+## 内容使用说明
+
+- 芯片规格页 URL 形如 `/docs/cards/{vendor}/{chip-id}`，每页含结构化核心规格表（便于 AI 摘要引用）
+- 站点支持中英双语，英文版位于 `/en/` 路径
+- 博客行业分析位于 `/blog`，覆盖国产芯片格局、HBM 供需、超算自建趋势等主题

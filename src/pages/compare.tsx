@@ -9,6 +9,7 @@ import Heading from '@theme/Heading';
 import styles from './compare.module.css';
 import { ZH_CONTENT } from '../data/home-content.zh';
 import { EN_CONTENT } from '../data/home-content.en';
+import LeadCapture from '../components/LeadCapture';
 
 type Chip = {
   id: string;
@@ -102,6 +103,15 @@ export default function ComparePage(): ReactNode {
       };
     });
   }, [selected]);
+
+  // 留资报告的个性化段落：当前对比选择
+  const getCompareContext = useCallback(() => {
+    if (selectedChips.length === 0) return '';
+    const lines = selectedChips.map(c =>
+      `- **${c.title}**（${c.vendor}）— ${c.architecture ?? '—'} / ${c.memoryCapacity ?? '—'} / TDP ${c.tdp ?? '—'}`,
+    );
+    return `**当前对比芯片**\n${lines.join('\n')}`;
+  }, [selectedChips]);
 
   // P1 性能：厂商分组/排序只在 chips 变化时计算一次，避免每次渲染重算 222 卡
   const chipGroups = useMemo(() => {
@@ -394,6 +404,14 @@ export default function ComparePage(): ReactNode {
               ? '👆 请选择至少 2 款芯片开始对比'
               : '👆 Please select at least 2 chips to start comparison'}
           </div>
+        )}
+
+        {selectedChips.length >= 2 && (
+          <LeadCapture
+            source="compare"
+            lang={isZh ? 'zh' : 'en'}
+            getExtraSections={getCompareContext}
+          />
         )}
       </main>
     </Layout>

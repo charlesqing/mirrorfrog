@@ -940,3 +940,147 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* ===== 部署模式切换（集群级升级）===== */
+.modeRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.modeBtn {
+  padding: 0.45rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast);
+}
+
+.modeBtn:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.modeBtnActive,
+.modeBtnActive:hover {
+  color: #fff;
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.clusterRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: rgba(var(--ifm-color-primary-rgb), 0.06);
+  border: 1px dashed rgba(var(--ifm-color-primary-rgb), 0.35);
+  border-radius: 10px;
+}
+
+/* ===== Build vs Rent 面板 ===== */
+.bvrGrid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.4fr) minmax(200px, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.bvrNow {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.bvrNow strong {
+  color: var(--ifm-font-color-base);
+}
+
+.bvrGood {
+  color: var(--ifm-color-success);
+  font-weight: 600;
+}
+
+.bvrBad {
+  color: var(--ifm-color-danger);
+  font-weight: 600;
+}
+
+.bvrKpi {
+  padding: 16px 20px;
+  text-align: center;
+  background: rgba(var(--ifm-color-primary-rgb), 0.07);
+  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.25);
+  border-radius: 12px;
+}
+
+.bvrKpiLabel {
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.bvrKpiValue {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ifm-color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.bvrKpiHint {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.bvrTableWrap {
+  overflow-x: auto;
+}
+
+.bvrTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bvrTable th,
+.bvrTable td {
+  padding: 0.45rem 0.75rem;
+  text-align: right;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.bvrTable th:first-child,
+.bvrTable td:first-child {
+  text-align: left;
+}
+
+.bvrTable th {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.bvrRowActive {
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+.bvrRowActive td:first-child {
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .bvrGrid {
+    grid-template-columns: 1fr;
+  }
+}

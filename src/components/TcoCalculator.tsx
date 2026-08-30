@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import styles from './TcoCalculator.module.css';
+import LeadCapture from './LeadCapture';
 
 // ===== 常量与工具 =====
 const CNY_TO_USD = 7.2;            // 人民币兑美元汇率（P0-1）
@@ -54,7 +55,7 @@ function fmtOriginal(amount: number, currency: 'USD' | 'CNY' | undefined) {
 function clamp(n: number, min: number, max: number) { return Math.max(min, Math.min(max, n)); }
 
 // ===== URL 状态同步（P2-3）=====
-const URL_KEYS = ['chip', 'qty', 'usage', 'price', 'years', 'dc', 'pue', 'idle', 'dr', 'manual', 'cur'] as const;
+const URL_KEYS = ['chip', 'qty', 'usage', 'price', 'years', 'dc', 'pue', 'idle', 'dr', 'manual', 'cur', 'mode', 'server', 'netr', 'ops', 'cloud'] as const;
 type UrlKey = typeof URL_KEYS[number];
 function readUrlParams(): Partial<Record<UrlKey, string>> {
   if (typeof window === 'undefined') return {};
@@ -598,6 +599,13 @@ export default function TcoCalculator() {
   const [barHover, setBarHover] = useState<number | null>(null);
   const [toast, setToast] = useState('');
 
+  // ===== 部署模式与 Build vs Rent（集群级升级）=====
+  const [mode, setMode] = useState<'node' | 'cluster'>('node');
+  const [serverCost, setServerCost] = useState(30000);    // 每 8 卡服务器节点价（CPU/主板/内存/存储/机箱）
+  const [networkRatio, setNetworkRatio] = useState(0.12); // 网络设备占 GPU 采购价比（交换机/光模块/DPU）
+  const [opsPerK, setOpsPerK] = useState(150000);         // 每千卡年人力 OPEX（SRE/机房运维）
+  const [cloudPrice, setCloudPrice] = useState(2.5);      // 云 GPU 租赁价 $/GPU/hr（对照价）
+
   // 初始加载数据 + 读取 URL
   const urlLoaded = useRef(false);
   useEffect(() => {
@@ -623,6 +631,11 @@ export default function TcoCalculator() {
       if (u.dr) setDiscount(Number(u.dr));
       if (u.manual) setManualPrice(Number(u.manual));
       if (u.cur) setCurrencyView(Number(u.cur));  // 0=USD, 1=CNY
+      if (u.mode === 'cluster') setMode('cluster');
+      if (u.server) setServerCost(Number(u.server));
+      if (u.netr) setNetworkRatio(Number(u.netr));
+      if (u.ops) setOpsPerK(Number(u.ops));
+      if (u.cloud) setCloudPrice(Number(u.cloud));
       urlLoaded.current = true;
     });
   }, []);
@@ -639,8 +652,13 @@ export default function TcoCalculator() {
       dr: discount === DEFAULT_DISCOUNT ? null : discount,
       manual: manualPrice,
       cur: currencyView === 0 ? null : currencyView,
+      mode: mode === 'cluster' ? 'cluster' : null,
+      server: serverCost === 30000 ? null : serverCost,
+      netr: networkRatio === 0.12 ? null : networkRatio,
+      ops: opsPerK === 150000 ? null : opsPerK,
+      cloud: cloudPrice === 2.5 ? null : cloudPrice,
     });
-  }, [chipId, qty, usage, price, years, dcCost, idleRatio, pue, discount, manualPrice, currencyView]);
+  }, [chipId, qty, usage, price, years, dcCost, idleRatio, pue, discount, manualPrice, currencyView, mode, serverCost, networkRatio, opsPerK, cloudPrice]);
 
   const chip = chips.find(c => c.id === chipId);
   const chipPriceInfo = chip ? pricing[chipId] : null;
@@ -668,9 +686,58 @@ export default function TcoCalculator() {
   const tco = proc + opDiscounted;
   const costs = { proc, elec, dc, cool, tco };
 
+  // ===== 集群级扩展：叠加服务器 / 网络 / 人力 OPEX =====
+  const isCluster = mode === 'cluster';
+  const servers = Math.max(1, Math.ceil(qty / 8));
+  const serverCostTotal = isCluster ? servers * serverCost : 0;
+  const networkCost = isCluster ? proc * networkRatio : 0;
+  const procCluster = proc + serverCostTotal + networkCost;          // 集群一次性采购
+  const opsHumanAnnual = isCluster ? (qty / 1000) * opsPerK : 0;     // 千卡人力年成本
+  const annualOpCluster = annualDeviceElec + annualCooling + annualDc + opsHumanAnnual;
+  const tcoCluster = procCluster + annualOpCluster * discountFactor; // 集群级 TCO（折现）
+
+  // ===== Build vs Rent：自建每 GPU-hour 成本 own(u) = A/u + B（可精确反解盈亏平衡利用率）=====
+  const bvrC1 = procCluster;
+  const bvrC2 = (tdpKW * qty * idleRatio * 8760 * price * pue + annualDc + opsHumanAnnual) * years;
+  const bvrC3 = tdpKW * qty * (1 - idleRatio) * 8760 * price * pue * years;
+  const bvrDenom = 8760 * years * Math.max(qty, 1);
+  const bvrA = (bvrC1 + bvrC2) / bvrDenom;
+  const bvrB = bvrC3 / bvrDenom;
+  // 平衡点：A/u* + B = cloudPrice → u* = A / (cloudPrice − B)；云价 ≤ B 时自建永远更便宜
+  const breakevenUsage = cloudPrice > bvrB ? clamp(bvrA / (cloudPrice - bvrB), 0, 1) : null;
+  const ownPerHourNow = usage > 0 ? bvrA / usage + bvrB : Infinity;
+  const bvrRows: { u: number; own: number; delta: number; annual: number }[] = useMemo(() => {
+    return [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95].map(u => {
+      const own = bvrA / u + bvrB;
+      const delta = own - cloudPrice;               // 正 = 自建更贵
+      return { u, own, delta, annual: delta * 8760 * qty };
+    });
+  }, [bvrA, bvrB, cloudPrice, qty]);
+
   // 每 TFLOPS TCO（P3-3）
   const tcoPerTflops = chip?.fp16Tflops && chip.fp16Tflops > 0 && qty > 0
     ? tco / (chip.fp16Tflops * qty * years) : null;
+
+  // 留资报告的个性化段落：当前 TCO 计算上下文
+  const getTcoContext = useCallback(() => {
+    if (!chip) return '';
+    const lines = [
+      `- 芯片：${zhName(chip.id, chip.name)}（${chip.vendor}）`,
+      `- 数量：${qty} 卡`,
+      `- 使用率：${Math.round(usage * 100)}% · 电价：$${price.toFixed(2)}/kWh · 年限：${years} 年`,
+      `- 单价：$${Math.round(unitPriceUSD).toLocaleString()}`,
+      `- ${years} 年 TCO：$${Math.round(tco).toLocaleString()}`,
+    ];
+    if (tcoPerTflops != null) lines.push(`- 每 TFLOPS 年成本：$${tcoPerTflops.toFixed(2)}`);
+    if (compare.length > 0) {
+      lines.push('');
+      lines.push('**对比列表**');
+      for (const c of compare) {
+        lines.push(`- ${zhName(c.chip.id, c.chip.name)} × ${c.quantity}：TCO $${Math.round(c.tco).toLocaleString()}`);
+      }
+    }
+    return lines.join('\n');
+  }, [chip, qty, usage, price, years, unitPriceUSD, tco, tcoPerTflops, compare]);
 
   const pieData = useMemo(() => [
     { label: '采购', value: proc, color: COLORS[0] },
@@ -726,6 +793,20 @@ export default function TcoCalculator() {
       {/* Parameters */}
       <div className={styles.card}>
         <div className={styles.cardTitle}>⚙️ 参数设置</div>
+
+        {/* 部署模式切换 */}
+        <div className={styles.modeRow} role="tablist" aria-label="部署模式">
+          <button type="button" role="tab" aria-selected={mode === 'node'}
+            className={`${styles.modeBtn} ${mode === 'node' ? styles.modeBtnActive : ''}`}
+            onClick={() => setMode('node')}>
+            单节点 / 裸卡
+          </button>
+          <button type="button" role="tab" aria-selected={mode === 'cluster'}
+            className={`${styles.modeBtn} ${mode === 'cluster' ? styles.modeBtnActive : ''}`}
+            onClick={() => setMode('cluster')}>
+            集群级（含服务器 / 网络 / 人力）
+          </button>
+        </div>
 
         <div style={{ marginBottom: 14 }}>
           <label className={styles.label} htmlFor="tco-chip-select">
@@ -826,6 +907,33 @@ export default function TcoCalculator() {
             <div className={styles.rangeScale}><span>10%</span><span>50%</span><span>100%</span></div>
           </div>
         </div>
+
+        {/* 集群级参数 */}
+        {isCluster && (
+          <div className={styles.clusterRow}>
+            <div className={styles.formCol}>
+              <label className={styles.label} htmlFor="tco-server">服务器节点价（$/8 卡）</label>
+              <input id="tco-server" type="number" className={styles.input} min={0} step={1000}
+                value={serverCost} onChange={e => setServerCost(Math.max(0, Number(e.target.value)))}/>
+              <div className={styles.rangeScale}><span>CPU / 主板 / 内存 / 存储</span></div>
+            </div>
+            <div className={styles.formCol}>
+              <label className={styles.label} htmlFor="tco-netr">
+                网络设备占比 <span className={styles.labelValue}>{(networkRatio * 100).toFixed(0)}%</span>
+              </label>
+              <input id="tco-netr" type="range" className={styles.range} min={0.02} max={0.4} step={0.01}
+                value={networkRatio} onChange={e => setNetworkRatio(Number(e.target.value))}
+                aria-valuetext={`${(networkRatio * 100).toFixed(0)} 百分比`}/>
+              <div className={styles.rangeScale}><span>2%</span><span>40%</span></div>
+            </div>
+            <div className={styles.formCol}>
+              <label className={styles.label} htmlFor="tco-ops">人力 OPEX（$/千卡/年）</label>
+              <input id="tco-ops" type="number" className={styles.input} min={0} step={10000}
+                value={opsPerK} onChange={e => setOpsPerK(Math.max(0, Number(e.target.value)))}/>
+              <div className={styles.rangeScale}><span>SRE / 机房运维</span></div>
+            </div>
+          </div>
+        )}
 
         <div className={styles.formRow}>
           <div className={styles.formCol}>
@@ -974,6 +1082,20 @@ export default function TcoCalculator() {
                   <strong>每 TFLOPS TCO：</strong> ${tcoPerTflops.toFixed(2)} / TFLOPS（按 FP16 算力 {chip.fp16Tflops} TFLOPS 归一化）
                 </div>
               )}
+              {isCluster && (
+                <div className={styles.insightRow}>
+                  <strong>集群级 TCO：</strong>
+                  <AnimatedMoney value={tcoCluster} animateKey={`${chipId}-${mode}`} />（{qty} 卡 = {servers} 台服务器节点 · 网络 ${Math.round(networkCost).toLocaleString()} · 人力 ${Math.round(opsHumanAnnual * years).toLocaleString()}，均{discount > 0 ? '已折现' : '未折现'}）
+                </div>
+              )}
+              {breakevenUsage != null && (
+                <div className={styles.insightRow}>
+                  <strong>Build vs Rent：</strong>
+                  {usage >= breakevenUsage
+                    ? <span className={styles.insightGood}>当前利用率 {(usage * 100).toFixed(0)}% 已高于平衡点 {(breakevenUsage * 100).toFixed(0)}%，自建更划算</span>
+                    : <span className={styles.insightBad}>当前利用率 {(usage * 100).toFixed(0)}% 低于平衡点 {(breakevenUsage * 100).toFixed(0)}%，租赁更划算</span>}
+                </div>
+              )}
             </div>
 
             <Sensitivity base={tco} params={{
@@ -990,6 +1112,75 @@ export default function TcoCalculator() {
           </>
         )}
       </div>
+
+      {/* Build vs Rent */}
+      {chip && (
+        <div className={styles.card}>
+          <div className={styles.cardTitle}>⚖️ 自建 vs 云租赁（Build vs Rent）</div>
+          <div className={styles.bvrGrid}>
+            <div className={styles.bvrCol}>
+              <label className={styles.label} htmlFor="tco-cloud">云 GPU 租赁价（$/GPU/hr）</label>
+              <input id="tco-cloud" type="number" className={styles.input} min={0.1} max={50} step={0.1}
+                value={cloudPrice} onChange={e => setCloudPrice(Math.max(0.01, Number(e.target.value)))}/>
+              <div className={styles.pricePresets}>
+                {[{ l: 'H100 $2.0', v: 2.0 }, { l: 'H100 $2.5', v: 2.5 }, { l: 'H200 $3.2', v: 3.2 }, { l: 'B200 $5.5', v: 5.5 }].map(p => (
+                  <button key={p.l} type="button" onClick={() => setCloudPrice(p.v)}
+                    className={`${styles.pricePreset} ${Math.abs(cloudPrice - p.v) < 0.001 ? styles.pricePresetActive : ''}`}>
+                    {p.l}
+                  </button>
+                ))}
+              </div>
+              <p className={styles.bvrNow}>
+                当前 {(usage * 100).toFixed(0)}% 利用率：自建 <strong>${ownPerHourNow.toFixed(2)}</strong>/GPU/hr
+                {' '}vs 云 <strong>${cloudPrice.toFixed(2)}</strong>/GPU/hr
+                {ownPerHourNow < cloudPrice ? (
+                  <span className={styles.bvrGood}> · 自建每年省 ${Math.round((cloudPrice - ownPerHourNow) * 8760 * qty).toLocaleString()}</span>
+                ) : (
+                  <span className={styles.bvrBad}> · 自建每年多花 ${Math.round((ownPerHourNow - cloudPrice) * 8760 * qty).toLocaleString()}</span>
+                )}
+              </p>
+            </div>
+            <div className={styles.bvrKpi} role="status">
+              <div className={styles.bvrKpiLabel}>盈亏平衡利用率</div>
+              <div className={styles.bvrKpiValue}>
+                {breakevenUsage != null ? `${(breakevenUsage * 100).toFixed(0)}%` : '—'}
+              </div>
+              <div className={styles.bvrKpiHint}>
+                {breakevenUsage != null
+                  ? `利用率持续高于 ${(breakevenUsage * 100).toFixed(0)}% 时，自建比租云更划算`
+                  : `云价 ≤ 自建固定成本下限（$${bvrB.toFixed(2)}/hr），租赁始终更优`}
+              </div>
+            </div>
+          </div>
+          <div className={styles.bvrTableWrap}>
+            <table className={styles.bvrTable}>
+              <caption className={styles.srOnly}>不同利用率下自建与云租赁的每小时成本对比（{qty} 卡集群）</caption>
+              <thead>
+                <tr>
+                  <th scope="col">利用率</th>
+                  <th scope="col">自建 $/GPU/hr</th>
+                  <th scope="col">对比云 ${cloudPrice.toFixed(2)}</th>
+                  <th scope="col">年化差额（{qty} 卡）</th>
+                </tr>
+              </thead>
+              <tbody>
+                {bvrRows.map(r => (
+                  <tr key={r.u} className={Math.abs(r.u - usage) < 0.026 ? styles.bvrRowActive : ''}>
+                    <td>{Math.round(r.u * 100)}%</td>
+                    <td>${r.own.toFixed(2)}</td>
+                    <td className={r.delta <= 0 ? styles.bvrGood : styles.bvrBad}>
+                      {r.delta <= 0 ? '省 $' : '贵 $'}{Math.abs(r.delta).toFixed(2)}/hr
+                    </td>
+                    <td className={r.delta <= 0 ? styles.bvrGood : styles.bvrBad}>
+                      {r.delta <= 0 ? '−$' : '+$'}{Math.abs(Math.round(r.annual)).toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {/* Compare */}
       {compare.length > 0 && (
@@ -1021,6 +1212,9 @@ export default function TcoCalculator() {
           <CompareChart compare={compare} />
         </div>
       )}
+
+      {/* Lead capture：下载完整选型报告 */}
+      <LeadCapture source="tco" lang="zh" getExtraSections={getTcoContext} />
     </div>
   );
 }
