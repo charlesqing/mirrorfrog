@@ -1133,7 +1133,15 @@ export default function TcoCalculator() {
       {chip && (
         <div className={styles.card}>
           <div className={styles.cardTitle}>⚖️ 自建 vs 云租赁（Build vs Rent）</div>
-          <div className={styles.bvrGrid}>
+          {!unitPriceUSD ? (
+            <div className={styles.tcoEmpty}>
+              <div className={styles.tcoEmptyEmoji}>💰</div>
+              <p className={styles.tcoEmptyTitle}>该芯片暂无定价信息</p>
+              <small>请先在上方「手动价格」输入框填写预估价格，再对比自建与云租赁成本</small>
+            </div>
+          ) : (
+            <>
+            <div className={styles.bvrGrid}>
             <div className={styles.bvrCol}>
               <label className={styles.label} htmlFor="tco-cloud">云 GPU 租赁价（$/GPU/hr）</label>
               <input id="tco-cloud" type="number" className={styles.input} min={0.1} max={50} step={0.1}
@@ -1195,6 +1203,8 @@ export default function TcoCalculator() {
               </tbody>
             </table>
           </div>
+            </>
+          )}
         </div>
       )}
 
