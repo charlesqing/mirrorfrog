@@ -799,6 +799,10 @@ export default function TcoCalculator() {
     <div className={styles.wrapper}>
       {toast && <div className={styles.toast} role="status" aria-live="polite">{toast}</div>}
 
+      {/* 双栏布局：左 = 参数（sticky），右 = 结果 + BVR + 对比 */}
+      <div className={styles.toolLayout}>
+        <div className={styles.toolLeft}>
+
       {/* Parameters */}
       <div className={styles.card}>
         <div className={styles.cardTitle}>⚙️ 参数设置</div>
@@ -1015,6 +1019,9 @@ export default function TcoCalculator() {
         </details>
       </div>
 
+        </div>
+        <div className={styles.toolRight}>
+
       {/* Results */}
       <div className={styles.card}>
         <div className={styles.cardTitle}>
@@ -1222,8 +1229,13 @@ export default function TcoCalculator() {
         </div>
       )}
 
-      {/* Lead capture：下载完整选型报告 */}
-      <LeadCapture source="tco" lang="zh" getExtraSections={getTcoContext} getFocusChipIds={getFocusChipIds} />
+        </div>
+      </div>
+
+      {/* Lead capture：下载完整选型报告（位于工具区下方，不再与结果卡争视觉） */}
+      <div className={styles.leadSection}>
+        <LeadCapture source="tco" lang="zh" getExtraSections={getTcoContext} getFocusChipIds={getFocusChipIds} />
+      </div>
     </div>
   );
 }

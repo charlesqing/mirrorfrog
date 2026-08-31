@@ -1,7 +1,7 @@
 /* TCO 计算器样式（P2-1：从内联样式抽离 + P2-2：暗色模式兼容） */
 
 .wrapper {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   font-family: var(--ifm-font-family-base);
   position: relative;
@@ -29,7 +29,10 @@
 
 /* 表单 */
 .label {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--ifm-color-emphasis-700);
@@ -42,7 +45,7 @@
   margin-left: 8px;
 }
 .labelValue {
-  float: right;
+  float: none;
   color: var(--ifm-color-primary);
   font-weight: 700;
 }
@@ -370,19 +373,21 @@
 }
 .tcoBox {
   text-align: center;
-  padding: 20px 16px;
-  background: linear-gradient(135deg, rgba(var(--ifm-color-primary-rgb), 0.06) 0%, rgba(var(--ifm-color-primary-rgb), 0.02) 100%);
+  padding: 20px 20px 20px 22px;
+  background: linear-gradient(135deg, rgba(var(--ifm-color-primary-rgb), 0.08) 0%, rgba(var(--ifm-color-primary-rgb), 0.02) 100%);
   border-radius: 10px;
   margin-bottom: 16px;
-  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.15);
+  border-left: 4px solid var(--ifm-color-primary);
 }
 .tcoValue {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: var(--ifm-color-primary);
-  line-height: 1.2;
+  line-height: 1.15;
   font-variant-numeric: tabular-nums;
   font-family: monospace;
+  letter-spacing: -0.01em;
 }
 .tcoSub {
   font-size: 0.78rem;
@@ -771,8 +776,8 @@
   width: 24px;
   height: 24px;
   border: none;
-  background: var(--ifm-color-danger-light, #fce8e6);
-  color: var(--ifm-color-danger, #fa383e);
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-danger);
   border-radius: 50%;
   font-size: 1rem;
   font-weight: 700;
@@ -781,6 +786,11 @@
   align-items: center;
   justify-content: center;
   line-height: 1;
+  transition: background 0.15s, color 0.15s;
+}
+.compareRemove:hover {
+  background: var(--ifm-color-danger);
+  color: #fff;
 }
 .compareName {
   font-size: 0.92rem;
@@ -1083,4 +1093,33 @@
   .bvrGrid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===== 双栏工具布局（B 档重排：左参数 sticky，右结果实时跟随）===== */
+.toolLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.toolLeft,
+.toolRight {
+  min-width: 0; /* 防止 grid 子项内容撑破列宽 */
+}
+@media (min-width: 1024px) {
+  .toolLayout {
+    grid-template-columns: 360px minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+  }
+  .toolLeft {
+    position: sticky;
+    top: 76px; /* Docusaurus 导航栏约 60px，预留 16px 呼吸 */
+  }
+}
+
+/* 留资区与工具区分隔 */
+.leadSection {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--ifm-color-emphasis-200);
 }
