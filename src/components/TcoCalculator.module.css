@@ -997,10 +997,17 @@
 /* ===== Build vs Rent 面板 ===== */
 .bvrGrid {
   display: grid;
-  grid-template-columns: minmax(260px, 1.4fr) minmax(200px, 1fr);
-  gap: 20px;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
   align-items: start;
   margin-bottom: 16px;
+}
+
+/* Grid 子项：必须 min-width:0，否则输入框/预设 chips 会撑破第一列，
+   进而把第二列 .bvrKpi 推到父卡片之外（错位根因） */
+.bvrCol,
+.bvrKpi {
+  min-width: 0;
 }
 
 .bvrNow {
@@ -1089,7 +1096,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .bvrGrid {
     grid-template-columns: 1fr;
   }
