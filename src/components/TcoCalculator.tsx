@@ -83,6 +83,9 @@ const VENDOR_LABEL: Record<string, string> = {
   google: '🟡 Google', aws: '🟠 AWS', cerebras: '🟣 Cerebras', meta: '🔵 Meta',
   microsoft: '🔵 Microsoft', apple: '⚫ Apple', qualcomm: '🔵 Qualcomm',
   mediatek: '🟢 MediaTek', others: '🟤 其它',
+  // 国产厂商（目录型 vendor，此前缺失标签会直接显示原始 ID）
+  cambricon: '🟠 寒武纪', baidu: '🟠 昆仑芯', iluvatar: '🟠 天数智芯',
+  enflame: '🟠 燧原', metax: '🟠 沐曦',
 };
 const ZH_NAMES: Record<string, string> = {
   'a100': 'NVIDIA A100', 'h100': 'NVIDIA H100 SXM', 'h100-nvl': 'NVIDIA H100 NVL',

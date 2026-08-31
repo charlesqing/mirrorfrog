@@ -1,16 +1,16 @@
 ---
 id: metax-c500
-title: MetaX 沐曦 曦云 C500 (2022)
+title: MetaX 沐曦 曦云 C500 (2023)
 sidebar_label: 曦云C500
-description: "沐曦 曦云C500 详尽规格：自研XCORE 1.0架构，64GB HBM2e，FP32 54 TFLOPS，TF32 140 TFLOPS，FP16 280 TFLOPS，INT8 560 TOPS，MetaXLink，PCIe Gen5，2022年发布"
-keywords: [MetaX C500, 沐曦, 曦云C500, XCORE 1.0, 64GB HBM2e, FP16 280 TFLOPS, 国产GPU, MXMACA, CUDA兼容]
+description: "沐曦 曦云C500 详尽规格：自研XCORE 1.0架构，64GB HBM2e，FP32 15–40 TFLOPS，FP16/BF16 240 TFLOPS，INT8 480 TOPS，MetaXLink 2–64卡互联，2023年发布、2024年2月量产"
+keywords: [MetaX C500, 沐曦, 曦云C500, XCORE 1.0, 64GB HBM2e, FP16 240 TFLOPS, 国产GPU, MXMACA, CUDA兼容]
 ---
 
-# MetaX 沐曦 曦云 C500 (2022)
+# MetaX 沐曦 曦云 C500 (2023)
 
 ## 产品概述
 
-**曦云 C500** 是沐曦集成电路于 **2022 年**发布的**首款训推一体通用 GPU**，基于自研 **XCORE 1.0 架构**设计，配备 **64GB HBM2e 显存**，支持 FP64/FP32/TF32/FP16/BF16/INT8 多精度混合计算，FP16 算力 **280 TFLOPS**，INT8 算力 **560 TOPS**，接口支持 **PCIe Gen5** 和 **MetaXLink** 多卡互联，是沐曦"曦云"C 系列的首款产品。
+**曦云 C500** 是沐曦集成电路于 **2023 年**推出的**首款训推一体通用 GPU**，基于自研 **XCORE 1.0 架构**设计，配备 **64GB HBM2e 显存**，支持 FP64/FP32/TF32/FP16/BF16/INT8 多精度混合计算，FP16/BF16 算力 **240 TFLOPS**，INT8 算力 **480 TOPS**，接口支持 **PCIe Gen5** 和 **MetaXLink** 多卡互联（2–64 卡），是沐曦「曦云」C 系列的首款产品，**2024 年 2 月量产**。
 
 **定位**：**训推一体 GPU**，兼顾 AI 训练和推理场景，性能优于 NVIDIA H20（据第三方评测）。
 
@@ -22,20 +22,22 @@ keywords: [MetaX C500, 沐曦, 曦云C500, XCORE 1.0, 64GB HBM2e, FP16 280 TFLOP
 | **制程** | 未公开（推测 7nm） |
 | **FP32** | **54 TFLOPS**（矢量 18 + 矩阵 36） |
 | **TF32** | **140 TFLOPS** |
-| **FP16** | **280 TFLOPS** |
-| **BF16** | **280 TFLOPS** |
-| **INT8** | **560 TOPS** |
+| **FP16** | **240 TFLOPS** |
+| **BF16** | **240 TFLOPS** |
+| **INT8** | **480 TOPS** |
 | **显存容量** | **64 GB HBM2e** |
 | **显存带宽** | 未公开（推测 ~1.6 TB/s） |
 | **TDP** | 350 W（推测） |
 | **互联** | **MetaXLink**（7 个高速互连接口，最多 64 卡互联） |
 | **接口** | **PCIe Gen5** + MetaXLink |
 | **FP64 支持** | ✅（科学计算/气象预测） |
-| **发布** | **2022 年** |
-| **量产** | 2023 年起 |
+| **集群扩展** | 千卡集群线性扩展效率 **88%–90%** |
+| **发布** | **2023 年** |
+| **量产** | **2024-02** |
 | **软件栈** | **MXMACA**（兼容 CUDA，迁移成本降低 90%） |
+| **营收地位** | 2025Q1 占沐曦主营业务收入 **97.87%**，累计销量超 55,000 颗（全系列，截至 2025 年底） |
 
-> ⚠️ **规格说明**：制程、TDP、显存带宽官方未完整公开，以沐曦后续官方数据表为准。
+> ⚠️ **规格说明**：制程、TDP、显存带宽官方未完整公开，以沐曦后续官方数据表为准。FP32 各家口径不一（15–40 TFLOPS vs 54 TFLOPS），待官方数据表统一。
 
 ## 曦云C系列产品线
 

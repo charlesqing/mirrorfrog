@@ -1277,19 +1277,20 @@
       "国产 AI 芯片",
       "双小芯片"
     ],
-    "tdpW": 310,
+    "tdpW": 600,
     "fp16Tflops": 800,
     "specs": {
-      "release": "2024-04-24（推测）",
       "architecture": "Da Vinci（双小芯片）",
-      "process": "7nm 级（含 SMIC 国产化）",
+      "process": "中芯国际 SMIC 7nm N+2",
       "memory": {
-        "capacity": "8× HBM3 模块"
+        "capacity": "128 GB HBM2e（官方口径；部分板卡配置为 96 GB）",
+        "bandwidth": "3.2 TB/s（官方口径；部分来源记 1.8 TB/s）"
       },
       "compute": {
-        "fp16": "800 TFLOPS（~H100 的 60%）"
+        "fp16": "800 TFLOPS（~H100 的 80%，部分口径记 750–800）",
+        "int8": "1,500–1,600 TOPS"
       },
-      "tdp": "310 W"
+      "tdp": "310–600 W（视板卡与超节点配置）"
     }
   },
   {
@@ -1389,17 +1390,16 @@
       "Decode 推理"
     ],
     "tdpW": 500,
-    "fp16Tflops": 500,
+    "fp16Tflops": 547,
     "specs": {
       "architecture": "Da Vinci v5（第四代昇腾）",
       "process": "SMIC N+2（等效 7nm 改良）",
       "compute": {
-        "fp8": "1 PFLOPS（HiF8 格式）",
-        "fp16": "~500 TFLOPS",
-        "int8": "~2,000 TOPS"
+        "int8": "1,034 / 919 / 804 TOPS",
+        "fp16": "547 / 486 / 425 TFLOPS"
       },
       "tdp": "500 W",
-      "release": "2026年8月（华为云上线）"
+      "release": "2026年8月（华为云上线；原计划 Q4，已提前）"
     }
   },
   {
@@ -1419,7 +1419,7 @@
       "长上下文推理"
     ],
     "tdpW": 600,
-    "fp16Tflops": 780,
+    "fp16Tflops": 486,
     "specs": {
       "release": "2026-03-20（正式发布）",
       "architecture": "昇腾 950（单片式设计）",
@@ -1428,7 +1428,8 @@
         "capacity": "112 GB HiBL 1.0（Atlas 350 加速卡）/ 128 GB（芯片裸片）"
       },
       "compute": {
-        "fp16": "未公开（推测 ~780 TFLOPS）"
+        "int8": "919 / 804 TOPS",
+        "fp16": "486 / 425 TFLOPS"
       },
       "tdp": "600 W"
     }
@@ -2147,12 +2148,12 @@
       "1.44 EFLOPS 机柜"
     ],
     "tdpW": 2000,
-    "fp16Tflops": 200000,
+    "fp16Tflops": 10000,
     "specs": {
       "release": "2024-03-18",
       "architecture": "Grace Blackwell 200 Superchip",
       "compute": {
-        "fp16": "10 PFLOPS（2× B200）"
+        "fp16": "10 PFLOPS（双芯片封装）"
       },
       "tdp": "~2,000W（Grace + 2× B200）"
     }
@@ -2173,11 +2174,11 @@
       "机柜级 AI"
     ],
     "tdpW": 3000,
-    "fp16Tflops": 300000,
+    "fp16Tflops": 3750,
     "specs": {
       "architecture": "Grace Blackwell 300 Superchip",
       "compute": {
-        "fp16": "3.75 PFLOPS（2× B300 Ultra）"
+        "fp16": "3.75 PFLOPS（双芯片封装）"
       },
       "tdp": "~3,000W（2× B300 Ultra 1400W + Grace 200W）",
       "release": "2025-01-07"
@@ -3709,12 +3710,12 @@
       "Transformer"
     ],
     "tdpW": 4,
-    "fp16Tflops": 32,
+    "fp16Tflops": 0,
     "specs": {
       "architecture": "八核 ARM Cortex-A55 @1.7GHz + 自研混合精度 NPU + AI-ISP + VPU",
       "process": "未公开（推测 12nm 或 14nm 级，与 AX620 同代）",
       "compute": {
-        "fp16": "支持 FP16/FP32 混合精度（具体 TFLOPS 未单列）",
+        "fp16": "未公开（支持混合精度，具体 TFLOPS 未单列）",
         "int8": "18 TOPS（官方最新规格；早期发布信息为 10.8 TOPS）",
         "fp32": "支持（混合精度）"
       },
@@ -3957,13 +3958,13 @@
       "国产 AI 芯片"
     ],
     "tdpW": 8,
-    "fp16Tflops": 16,
+    "fp16Tflops": 0,
     "specs": {
       "architecture": "寒武纪 MLUv02",
       "process": "TSMC 16nm",
       "compute": {
         "int8": "8 TOPS",
-        "fp16": "未公开（支持 INT4/INT8/INT16 可配置定点运算）",
+        "fp16": "未公开（支持可配置定点运算）",
         "fp32": "未公开"
       },
       "memory": {
@@ -3990,13 +3991,13 @@
       "国产 AI 芯片"
     ],
     "tdpW": 270,
-    "fp16Tflops": 32,
+    "fp16Tflops": 0,
     "specs": {
       "architecture": "寒武纪 MLUv02",
       "process": "TSMC 16nm",
       "compute": {
         "int8": "128 TOPS",
-        "fp16": "未公开（支持 FP16/FP32 混合精度，峰值未公布）",
+        "fp16": "未公开（支持混合精度，峰值未公布）",
         "fp32": "未公开"
       },
       "memory": {
@@ -4023,13 +4024,13 @@
       "国产 AI 训练卡"
     ],
     "tdpW": 350,
-    "fp16Tflops": 512,
+    "fp16Tflops": 256,
     "specs": {
       "architecture": "寒武纪 MLUv02 扩展架构（MLUv02 Extended）",
       "process": "TSMC 7nm",
       "compute": {
         "int8": "512 TOPS",
-        "fp16": "256 TFLOPS（推测，来源于整合参数表；官方发布材料以 INT8 512 TOPS 为主）",
+        "fp16": "256 TFLOPS（推测，来源于整合参数表；官方发布材料未列浮点算力）",
         "fp32": "32 TFLOPS（推测，同上）"
       },
       "memory": {
@@ -5554,12 +5555,12 @@
       "脑仿真"
     ],
     "tdpW": 3,
-    "fp16Tflops": 200,
+    "fp16Tflops": 16,
     "specs": {
       "architecture": "存算一体 + 众核并行 + 异构融合（支持 ANN/SNN 混合与脑仿真，类脑/神经形态）",
       "process": "未公开（KA200；\"天机\"早期芯片为 28nm，KA200 工艺未披露）",
       "compute": {
-        "fp16": "16 TFLOPS（FP16，KA200）",
+        "fp16": "16 TFLOPS（FP16）",
         "int8": "32 TOPS（INT8，KA200）",
         "fp32": "未公开（KA200；类脑加速模块支持 FP16/INT8/Binary spike）"
       },
@@ -5633,36 +5634,36 @@
   },
   {
     "id": "metax-c500",
-    "title": "MetaX 沐曦 曦云 C500 (2022)",
+    "title": "MetaX 沐曦 曦云 C500 (2023)",
     "vendor": "others",
     "slug": "/docs/cards/others/metax-c500",
-    "description": "沐曦 曦云C500 详尽规格：自研XCORE 1.0架构，64GB HBM2e，FP32 54 TFLOPS，TF32 140 TFLOPS，FP16 280 TFLOPS，INT8 560 TOPS，MetaXLink，PCIe Gen5，2022年发布",
+    "description": "沐曦 曦云C500 详尽规格：自研XCORE 1.0架构，64GB HBM2e，FP32 15–40 TFLOPS，FP16/BF16 240 TFLOPS，INT8 480 TOPS，MetaXLink 2–64卡互联，2023年发布、2024年2月量产",
     "keywords": [
       "MetaX C500",
       "沐曦",
       "曦云C500",
       "XCORE 1.0",
       "64GB HBM2e",
-      "FP16 280 TFLOPS",
+      "FP16 240 TFLOPS",
       "国产GPU",
       "MXMACA",
       "CUDA兼容"
     ],
     "tdpW": 350,
-    "fp16Tflops": 280,
+    "fp16Tflops": 240,
     "specs": {
       "architecture": "自研 XCORE 1.0（数十个核心 IP）",
       "process": "未公开（推测 7nm）",
       "compute": {
         "fp32": "54 TFLOPS（矢量 18 + 矩阵 36）",
-        "fp16": "280 TFLOPS",
-        "int8": "560 TOPS"
+        "fp16": "240 TFLOPS",
+        "int8": "480 TOPS"
       },
       "memory": {
         "bandwidth": "未公开（推测 ~1.6 TB/s）"
       },
       "tdp": "350 W（推测）",
-      "release": "2022 年"
+      "release": "2023 年"
     }
   },
   {
@@ -5673,7 +5674,7 @@
     "description": "",
     "keywords": [],
     "tdpW": 300,
-    "fp16Tflops": 22,
+    "fp16Tflops": 280,
     "specs": {
       "architecture": "XCORE 1.0（曦云架构，C500迭代）",
       "process": "7 nm（预估）",
@@ -5684,8 +5685,8 @@
       },
       "compute": {
         "fp32": "15 TFLOPS（同C500，预估）",
-        "fp16": "22.4 TFLOPS",
-        "int8": "44.8 TOPS（预估）"
+        "fp16": "280 TFLOPS",
+        "int8": "560 TOPS"
       },
       "release": "2024-06（预估）"
     }
@@ -5734,21 +5735,21 @@
       "CUDA兼容"
     ],
     "tdpW": 400,
-    "fp16Tflops": 0,
+    "fp16Tflops": 500,
     "specs": {
       "architecture": "自研 XCORE 1.5（数十个核心 IP）",
       "process": "7nm（中芯国际国产工艺）",
       "compute": {
         "fp8": "1000 TFLOPS（对标 H100 989 TFLOPS）",
         "fp32": "15 TFLOPS",
-        "fp16": "支持多精度混合（具体数值未公开）",
-        "int8": "支持（具体 TOPS 未公开）"
+        "fp16": "~500 TFLOPS（与 FP8 共用 Tensor Core，比例 1:2）",
+        "int8": "~1,000 TOPS"
       },
       "memory": {
         "bandwidth": "3.6 TB/s"
       },
       "tdp": "400 W",
-      "release": "2025 年 10 月"
+      "release": "2025 年 7 月（WAIC 2025 首发）／2025 年 10 月正式发布"
     }
   },
   {
@@ -5977,12 +5978,12 @@
       "architecture": "MUSA（第四代，平湖）",
       "process": "TSMC 6nm（推测）",
       "memory": {
-        "capacity": "80GB GDDR6X",
+        "capacity": "80 GB（官方未公开颗粒类型；1.6 TB/s 带宽为 HBM 级）",
         "bandwidth": "1.6 TB/s"
       },
       "compute": {
+        "fp16": "~500 TFLOPS（按官方 FP8 稠密算力 1:2 推算，非官方直接公布）",
         "fp32": "62.5 TFLOPS（推测）",
-        "fp16": "500 TFLOPS（推测）",
         "int8": "2,000 TOPS（推测）"
       },
       "tdp": "300 W",
@@ -6423,12 +6424,12 @@
       "安防"
     ],
     "tdpW": 16,
-    "fp16Tflops": 32,
+    "fp16Tflops": 0,
     "specs": {
       "architecture": "算能第三代自研 TPU 架构，集成 8 核 ARM Cortex-A53 @ 2.3GHz + 64 个 NPU 核心",
       "process": "12nm（TSMC）",
       "compute": {
-        "fp16": "未公开（公开资料仅披露 INT8 / FP32）",
+        "fp16": "未公开（公开资料仅披露整型与单精度算力）",
         "int8": "17.6 TOPS（Winograd 加速下可达 35.2 TOPS）",
         "fp32": "2.2 TFLOPS"
       },
@@ -6588,7 +6589,7 @@
       "Jim Keller"
     ],
     "tdpW": 300,
-    "fp16Tflops": 16000,
+    "fp16Tflops": 1200,
     "specs": {
       "release": "2024-Q3（推测）",
       "architecture": "Tenstorrent Tensix + RISC-V",
@@ -6597,7 +6598,7 @@
         "bandwidth": "307 GB/s（LPDDR4X）"
       },
       "compute": {
-        "fp16": "单卡 1.2 PFLOPS（8 卡 = 16 PFLOPS）",
+        "fp16": "1.2 PFLOPS（单卡；八卡聚合另计）",
         "int8": "单卡 4.8 POPS（推测）"
       },
       "tdp": "300 W"
@@ -6705,13 +6706,13 @@
       "国产GPU"
     ],
     "tdpW": 300,
-    "fp16Tflops": 400,
+    "fp16Tflops": 200,
     "specs": {
       "architecture": "瀚博第二代GPU架构（乾元系列）",
       "process": "7nm（TSMC）",
       "compute": {
         "fp32": "未公开（推测 ~20 TFLOPS）",
-        "fp16": "未公开（推测 ~200 TFLOPS FP16 / ~400 TOPS INT8）"
+        "fp16": "未公开（推测约 200 TFLOPS FP16）"
       },
       "tdp": "未公开（推测 200-300W）",
       "release": "2023-07-06（2023世界人工智能大会）"
