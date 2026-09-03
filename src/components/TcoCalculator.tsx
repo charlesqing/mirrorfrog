@@ -30,6 +30,7 @@ interface CompareItem {
 }
 
 const COLORS = ['#7F77DD', '#1D9E75', '#E0A030', '#E8633A']; // 品牌紫 / 青 / 琥珀 / 珊瑚
+const COLORS_CLUSTER = ['#5A8DEE', '#C2559E', '#4DA8A0'];   // 集群附加：服务器蓝 / 网络品红 / 人力青
 
 // ===== 工具函数 =====
 function flatPricing(p: PricingData) {
@@ -373,30 +374,46 @@ const Pie = React.memo(function Pie({ data, hoverIdx, setHover, totalLabel = '�
   );
 });
 
-// ===== 柱状图（P4-2）=====
+// ===== 柱状图（P4-2；集群模式支持第 5 段「人力 OPEX」堆叠）=====
 const Bars = React.memo(function Bars({ data, hoverYear, setHover, baseProc }: {
-  data: { year: number; procurement: number; electricity: number; dc: number; cooling: number }[];
+  data: { year: number; procurement: number; electricity: number; dc: number; cooling: number; ops?: number }[];
   hoverYear: number | null; setHover: (y: number | null) => void;
   baseProc: number;
 }) {
-  const max = Math.max(...data.map(d => d.procurement + d.electricity + d.dc + d.cooling), 1);
-  const c = { procurement: COLORS[0], electricity: COLORS[1], dc: COLORS[2], cooling: COLORS[3] };
+  const hasOps = data.some(d => (d.ops ?? 0) > 0);
+  const segColors: Record<string, string> = {
+    procurement: COLORS[0], electricity: COLORS[1], dc: COLORS[2], cooling: COLORS[3], ops: COLORS_CLUSTER[2],
+  };
+  const segLabels: Record<string, string> = { procurement: '采购', electricity: '电费', dc: '租金', cooling: '冷却', ops: '人力' };
+  const segKeys = ['procurement', 'electricity', 'dc', 'cooling', 'ops'] as const;
+  const total = (d: typeof data[number]) => d.procurement + d.electricity + d.dc + d.cooling + (d.ops ?? 0);
+  const max = Math.max(...data.map(total), 1);
   const hoverEntry = hoverYear !== null ? data.find(d => d.year === hoverYear) : null;
   return (
     <div>
       <div className={styles.barHoverLabel} aria-live="polite">
         {hoverEntry ? (
-          <>第 {hoverEntry.year} 年累计 TCO: {fmt(hoverEntry.procurement + hoverEntry.electricity + hoverEntry.dc + hoverEntry.cooling)}
+          <>第 {hoverEntry.year} 年累计 TCO: {fmt(total(hoverEntry))}
             {hoverEntry.year === 1 && hoverEntry.procurement > 0 && <span className={styles.barHoverNote}>（含一次性采购 {fmt(baseProc)}）</span>}
           </>
         ) : '悬停/聚焦查看各年累计 TCO'}
       </div>
       <div className={styles.barArea} role="img" aria-label={`TCO 累计随年限变化柱状图，共 ${data.length} 年`}>
         {data.map(d => {
-          const t = d.procurement + d.electricity + d.dc + d.cooling;
+          const t = total(d);
           const h = (t / max) * 100;
-          const p1 = (d.procurement / t) * 100, p2 = (d.electricity / t) * 100, p3 = (d.dc / t) * 100;
-          const grad = `linear-gradient(to top,${c.procurement} ${p1}%,${c.electricity} ${p1}%,${c.electricity} ${p1 + p2}%,${c.dc} ${p1 + p2}%,${c.dc} ${p1 + p2 + p3}%,${c.cooling} ${p1 + p2 + p3}%)`;
+          const vals: Record<string, number> = {
+            procurement: d.procurement, electricity: d.electricity, dc: d.dc, cooling: d.cooling, ops: d.ops ?? 0,
+          };
+          let acc = 0;
+          const stops: string[] = [];
+          segKeys.forEach(k => {
+            const v = vals[k];
+            if (v <= 0 || t <= 0) return;
+            const p0 = (acc / t) * 100; acc += v; const p1 = (acc / t) * 100;
+            stops.push(`${segColors[k]} ${p0}%,${segColors[k]} ${p1}%`);
+          });
+          const grad = stops.length ? `linear-gradient(to top,${stops.join(',')})` : 'transparent';
           const isHover = hoverYear === d.year;
           return (
             <div key={d.year} className={styles.barCol}
@@ -416,10 +433,9 @@ const Bars = React.memo(function Bars({ data, hoverYear, setHover, baseProc }: {
         })}
       </div>
       <div className={styles.barLegend}>
-        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.procurement }} />采购</span>
-        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.electricity }} />电费</span>
-        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.dc }} />租金</span>
-        <span className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: c.cooling }} />冷却</span>
+        {segKeys.filter(k => k !== 'ops' || hasOps).map(k => (
+          <span key={k} className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: segColors[k] }} />{segLabels[k]}</span>
+        ))}
       </div>
     </div>
   );
@@ -464,34 +480,33 @@ const CompareChart = React.memo(function CompareChart({ compare }: { compare: Co
   );
 });
 
-// ===== 敏感性分析（P3-2）=====
+// ===== 敏感性分析（P3-2；集群模式叠加服务器 / 网络 / 人力）=====
 function Sensitivity({ base, params }: {
   base: number;
   params: {
     tdpKW: number; qty: number; usage: number; price: number; years: number; dcCost: number; pue: number; idleRatio: number; discount: number; unitPriceUSD: number;
+    isCluster: boolean; serverCost: number; networkRatio: number; opsPerK: number;
   };
 }) {
-  // 计算各参数 ±20% 时 TCO 的变化（用基础公式重算）
+  // 计算各参数变化时 TCO 的变化（用基础公式重算，与主计算口径一致）
   const calc = (overrides: Partial<typeof params>): number => {
     const p = { ...params, ...overrides };
-    const tdpKW = p.tdpKW, qty = p.qty, usage = p.usage, price = p.price, years = p.years;
-    const dcCost = p.dcCost, pue = p.pue, idleRatio = p.idleRatio, discount = p.discount, unitPrice = p.unitPriceUSD;
-    const proc = unitPrice * qty;
-    const annualDeviceElec = tdpKW * qty * (idleRatio + (1 - idleRatio) * usage) * 8760 * price;
-    const annualCooling = annualDeviceElec * (pue - 1);
-    const annualDc = dcCost * qty;
-    // 折现
-    const r = discount;
-    const discountFactor = r > 0 ? (1 - Math.pow(1 + r, -years)) / r : years;
-    const opDiscounted = (annualDeviceElec + annualCooling + annualDc) * discountFactor;
-    return proc + opDiscounted;
+    const proc = p.unitPriceUSD * p.qty;
+    const annualDeviceElec = p.tdpKW * p.qty * (p.idleRatio + (1 - p.idleRatio) * p.usage) * 8760 * p.price;
+    const annualCooling = annualDeviceElec * (p.pue - 1);
+    const annualDc = p.dcCost * p.qty;
+    const r = p.discount;
+    const discountFactor = r > 0 ? (1 - Math.pow(1 + r, -p.years)) / r : p.years;
+    const procTotal = p.isCluster ? proc + Math.ceil(p.qty / 8) * p.serverCost + proc * p.networkRatio : proc;
+    const opsHumanAnnual = p.isCluster ? (p.qty / 1000) * p.opsPerK : 0;
+    return procTotal + (annualDeviceElec + annualCooling + annualDc + opsHumanAnnual) * discountFactor;
   };
   const items = [
-    { label: '电价 +20%', delta: 0.2, params: { price: params.price * 1.2 } },
-    { label: '使用率 +20%', delta: 0.2, params: { usage: clamp(params.usage * 1.2, 0.1, 1) } },
-    { label: '使用年限 +1年', delta: 1 / Math.max(params.years, 1), params: { years: params.years + 1 }, relative: false },
-    { label: 'PUE →1.5', delta: 0.3, params: { pue: 1.5 } },
-    { label: '空闲比率 →30%', delta: 0.15, params: { idleRatio: 0.3 } },
+    { label: '电价 +20%', params: { price: params.price * 1.2 } },
+    { label: '使用率 +20%', params: { usage: clamp(params.usage * 1.2, 0.1, 1) } },
+    { label: '使用年限 +1年', params: { years: params.years + 1 } },
+    { label: 'PUE →1.5', params: { pue: 1.5 } },
+    { label: '空闲比率 →30%', params: { idleRatio: 0.3 } },
   ];
   return (
     <div className={styles.sensitivityBox}>
@@ -517,14 +532,18 @@ function Sensitivity({ base, params }: {
   );
 }
 
-// ===== 导出 CSV（含汇率与原币种）=====
+// ===== 导出 CSV（含汇率与原币种；集群模式含服务器 / 网络 / 人力）=====
 function exportCSV(
   chip: Chip, qty: number, years: number, usage: number, price: number,
   dcCost: number, idleRatio: number, pue: number, discount: number,
   unitPriceUSD: number, originalPrice: number | null, originalCurrency: 'USD' | 'CNY' | null,
   isManualPrice: boolean, costs: { proc: number; elec: number; dc: number; cool: number; tco: number },
-  compare: CompareItem[]
+  compare: CompareItem[],
+  mode: 'node' | 'cluster',
+  clusterExtra: { server: number; network: number; ops: number; tco: number }
 ) {
+  const isCluster = mode === 'cluster';
+  const tcoTotal = isCluster ? clusterExtra.tco : costs.tco;
   const rows: string[][] = [];
   rows.push(['AI 算力卡 TCO 计算报告']);
   rows.push(['生成时间', new Date().toISOString()]);
@@ -533,6 +552,7 @@ function exportCSV(
   rows.push(['芯片', zhName(chip.id, chip.name)]);
   rows.push(['TDP (W)', String(chip.tdp)]);
   rows.push(['数量', String(qty)]);
+  rows.push(['部署模式', isCluster ? '集群（含服务器 / 网络 / 人力 OPEX）' : '单节点 / 裸卡']);
   rows.push(['使用率', `${(usage * 100).toFixed(0)}%`]);
   rows.push(['电价 ($/kWh)', String(price)]);
   rows.push(['使用年限', String(years)]);
@@ -547,25 +567,32 @@ function exportCSV(
   }
   rows.push(['价格来源', isManualPrice ? '用户手动输入' : 'pricing.json']);
   rows.push([]);
-  rows.push(['【成本明细 (TCO 已折现)】']);
+  rows.push(['【成本明细（已折现）】']);
   rows.push(['项目', '金额 ($)', '占比']);
-  const t = costs.tco || 1;
-  rows.push(['采购成本', String(Math.round(costs.proc)), `${(costs.proc / t * 100).toFixed(1)}%`]);
+  const t = tcoTotal || 1;
+  rows.push(['采购成本（卡）', String(Math.round(costs.proc)), `${(costs.proc / t * 100).toFixed(1)}%`]);
+  if (isCluster) {
+    rows.push(['服务器节点（一次性）', String(Math.round(clusterExtra.server)), `${(clusterExtra.server / t * 100).toFixed(1)}%`]);
+    rows.push(['网络设备（一次性）', String(Math.round(clusterExtra.network)), `${(clusterExtra.network / t * 100).toFixed(1)}%`]);
+  }
   rows.push(['运营电费（折现）', String(Math.round(costs.elec)), `${(costs.elec / t * 100).toFixed(1)}%`]);
   rows.push(['租金（折现）', String(Math.round(costs.dc)), `${(costs.dc / t * 100).toFixed(1)}%`]);
   rows.push(['冷却（折现）', String(Math.round(costs.cool)), `${(costs.cool / t * 100).toFixed(1)}%`]);
-  rows.push(['TCO 总计', String(Math.round(costs.tco)), '100.0%']);
-  rows.push(['年均 TCO', String(Math.round(costs.tco / years)), '']);
-  rows.push(['每卡年均', String(Math.round(costs.tco / qty / years)), '']);
+  if (isCluster) {
+    rows.push(['人力 OPEX（折现）', String(Math.round(clusterExtra.ops)), `${(clusterExtra.ops / t * 100).toFixed(1)}%`]);
+  }
+  rows.push([isCluster ? '集群 TCO 总计' : 'TCO 总计', String(Math.round(tcoTotal)), '100.0%']);
+  rows.push(['年均 TCO', String(Math.round(tcoTotal / years)), '']);
+  rows.push(['每卡年均', String(Math.round(tcoTotal / qty / years)), '']);
   if (chip.fp16Tflops) {
     rows.push(['FP16 算力 (TFLOPS)', String(chip.fp16Tflops), '']);
-    rows.push(['每 TFLOPS TCO ($)', String(Math.round(costs.tco / (chip.fp16Tflops * qty * years))), '']);
+    rows.push(['每 TFLOPS 年均 TCO ($)', String(Math.round(tcoTotal / (chip.fp16Tflops * qty * years))), '']);
   }
   rows.push([]);
   if (compare.length > 0) {
     rows.push(['【多芯片对比】']);
     const header = ['芯片', '数量', 'TCO ($)', '采购 ($)', '电费 ($)', '租金 ($)', '冷却 ($)'];
-    if (compare.some(c => c.tcoPerTflops != null)) header.push('每 TFLOPS TCO');
+    if (compare.some(c => c.tcoPerTflops != null)) header.push('每 TFLOPS 年均 TCO');
     rows.push(header);
     compare.forEach(c => {
       const row: string[] = [zhName(c.chip.id, c.chip.name), String(c.quantity), String(Math.round(c.tco)),
@@ -698,6 +725,10 @@ export default function TcoCalculator() {
   const opsHumanAnnual = isCluster ? (qty / 1000) * opsPerK : 0;     // 千卡人力年成本
   const annualOpCluster = annualDeviceElec + annualCooling + annualDc + opsHumanAnnual;
   const tcoCluster = procCluster + annualOpCluster * discountFactor; // 集群级 TCO（折现）
+  const opsDisc = opsHumanAnnual * discountFactor;                   // 人力 OPEX（折现）
+
+  // 展示口径：集群模式 = 集群级 TCO（含服务器 / 网络 / 人力）；单节点 = 裸卡 TCO
+  const displayTco = isCluster ? tcoCluster : tco;
 
   // ===== Build vs Rent：自建每 GPU-hour 成本 own(u) = A/u + B（可精确反解盈亏平衡利用率）=====
   const bvrC1 = procCluster;
@@ -717,9 +748,9 @@ export default function TcoCalculator() {
     });
   }, [bvrA, bvrB, cloudPrice, qty]);
 
-  // 每 TFLOPS TCO（P3-3）
+  // 每 TFLOPS 年均 TCO（P3-3；随部署模式口径走 displayTco）
   const tcoPerTflops = chip?.fp16Tflops && chip.fp16Tflops > 0 && qty > 0
-    ? tco / (chip.fp16Tflops * qty * years) : null;
+    ? displayTco / (chip.fp16Tflops * qty * years) : null;
 
   // 留资报告的个性化段落：当前 TCO 计算上下文
   const getTcoContext = useCallback(() => {
@@ -727,9 +758,10 @@ export default function TcoCalculator() {
     const lines = [
       `- 芯片：${zhName(chip.id, chip.name)}（${chip.vendor}）`,
       `- 数量：${qty} 卡`,
+      `- 部署模式：${isCluster ? '集群（含服务器 / 网络 / 人力）' : '单节点 / 裸卡'}`,
       `- 使用率：${Math.round(usage * 100)}% · 电价：$${price.toFixed(2)}/kWh · 年限：${years} 年`,
       `- 单价：$${Math.round(unitPriceUSD).toLocaleString()}`,
-      `- ${years} 年 TCO：$${Math.round(tco).toLocaleString()}`,
+      `- ${years} 年 TCO：$${Math.round(displayTco).toLocaleString()}`,
     ];
     if (tcoPerTflops != null) lines.push(`- 每 TFLOPS 年成本：$${tcoPerTflops.toFixed(2)}`);
     if (compare.length > 0) {
@@ -740,7 +772,7 @@ export default function TcoCalculator() {
       }
     }
     return lines.join('\n');
-  }, [chip, qty, usage, price, years, unitPriceUSD, tco, tcoPerTflops, compare]);
+  }, [chip, qty, usage, price, years, unitPriceUSD, isCluster, displayTco, tcoPerTflops, compare]);
 
   // 留资报告的焦点芯片：主选 + 对比列表（用于生成规格/定价/替代方案章节）
   const getFocusChipIds = useCallback(
@@ -748,27 +780,37 @@ export default function TcoCalculator() {
     [chip, compare],
   );
 
-  const pieData = useMemo(() => [
+  const pieData = useMemo(() => (isCluster ? [
+    { label: '采购（卡）', value: proc, color: COLORS[0] },
+    { label: '服务器节点', value: serverCostTotal, color: COLORS_CLUSTER[0] },
+    { label: '网络设备', value: networkCost, color: COLORS_CLUSTER[1] },
+    { label: '电费', value: elec, color: COLORS[1] },
+    { label: '租金', value: dc, color: COLORS[2] },
+    { label: '冷却', value: cool, color: COLORS[3] },
+    { label: '人力 OPEX', value: opsDisc, color: COLORS_CLUSTER[2] },
+  ] : [
     { label: '采购', value: proc, color: COLORS[0] },
     { label: '电费', value: elec, color: COLORS[1] },
     { label: '租金', value: dc, color: COLORS[2] },
     { label: '冷却', value: cool, color: COLORS[3] },
-  ].filter(i => i.value > 0), [proc, elec, dc, cool]);
+  ]).filter(i => i.value > 0), [isCluster, proc, serverCostTotal, networkCost, elec, dc, cool, opsDisc]);
 
   // P0-2 累计 TCO：每根柱子 = 截至该年的累计（已折现）TCO，
-  // 堆叠为累计构成（采购 / 电费 / 租金 / 冷却）。柱子逐年升高，契合「TCO 随年限变化」标题。
+  // 堆叠为累计构成（采购 / 电费 / 租金 / 冷却 / 人力）。柱子逐年升高，契合「TCO 随年限变化」标题。
   const barData = useMemo(() => {
-    let cumProc = 0, cumElec = 0, cumDc = 0, cumCool = 0;
+    let cumProc = 0, cumElec = 0, cumDc = 0, cumCool = 0, cumOps = 0;
+    const procOnce = isCluster ? procCluster : proc; // 集群模式一次性采购含服务器 + 网络
     return Array.from({ length: years }, (_, i) => {
       const y = i + 1;
       const sf = discount > 0 ? Math.pow(1 + discount, -(y - 1)) : 1; // 单年折现因子
-      cumProc += y === 1 ? proc : 0;
+      cumProc += y === 1 ? procOnce : 0;
       cumElec += annualDeviceElec * sf;
       cumDc += annualDc * sf;
       cumCool += annualCooling * sf;
-      return { year: y, procurement: cumProc, electricity: cumElec, dc: cumDc, cooling: cumCool };
+      cumOps += opsHumanAnnual * sf;
+      return { year: y, procurement: cumProc, electricity: cumElec, dc: cumDc, cooling: cumCool, ops: cumOps };
     });
-  }, [years, proc, annualDeviceElec, annualDc, annualCooling, discount]);
+  }, [years, proc, procCluster, isCluster, annualDeviceElec, annualDc, annualCooling, opsHumanAnnual, discount]);
 
   const addCompare = useCallback(() => {
     if (!chip || !tco || !proc) {
@@ -1044,21 +1086,32 @@ export default function TcoCalculator() {
         ) : (
           <>
             <div className={styles.tcoBox}>
-              <div className={styles.resultHeader}>{years} 年 TCO 总计{discount > 0 ? '（折现）' : ''}</div>
-              <div className={styles.tcoValue}><AnimatedMoney value={tco} animateKey={chipId} /></div>
+              <div className={styles.resultHeader}>
+                {years} 年{isCluster ? '集群' : ''} TCO 总计{discount > 0 ? '（折现）' : ''}
+                {isCluster && <span className={styles.chartHint}>（含服务器 / 网络 / 人力）</span>}
+              </div>
+              <div className={styles.tcoValue}><AnimatedMoney value={displayTco} animateKey={`${chipId}-${mode}`} /></div>
               <div className={styles.tcoSub}>
-                年均 <AnimatedMoney value={tco / years} animateKey={chipId} /> · 每卡年均 <AnimatedMoney value={tco / qty / years} animateKey={chipId} />
-                {tcoPerTflops != null && <> · <strong>每 TFLOPS TCO ${tcoPerTflops.toFixed(2)}</strong></>}
+                年均 <AnimatedMoney value={displayTco / years} animateKey={`${chipId}-${mode}`} /> · 每卡年均 <AnimatedMoney value={displayTco / qty / years} animateKey={`${chipId}-${mode}`} />
+                {tcoPerTflops != null && <> · <strong>每 TFLOPS 年均 TCO ${tcoPerTflops.toFixed(2)}</strong></>}
               </div>
             </div>
 
-            {[
+            {(isCluster ? [
+              { name: '采购成本（卡）', value: proc, color: COLORS[0] },
+              { name: '服务器节点（一次性）', value: serverCostTotal, color: COLORS_CLUSTER[0] },
+              { name: '网络设备（一次性）', value: networkCost, color: COLORS_CLUSTER[1] },
+              { name: '电费成本（折现）', value: elec, color: COLORS[1] },
+              { name: '数据中心租金（折现）', value: dc, color: COLORS[2] },
+              { name: '冷却成本（折现）', value: cool, color: COLORS[3] },
+              { name: '人力 OPEX（折现）', value: opsDisc, color: COLORS_CLUSTER[2] },
+            ] : [
               { name: '采购成本', value: proc, color: COLORS[0] },
               { name: '电费成本（折现）', value: elec, color: COLORS[1] },
               { name: '数据中心租金（折现）', value: dc, color: COLORS[2] },
               { name: '冷却成本（折现）', value: cool, color: COLORS[3] },
-            ].map(item => {
-              const pct = tco > 0 ? (item.value / tco) * 100 : 0;
+            ]).map(item => {
+              const pct = displayTco > 0 ? (item.value / displayTco) * 100 : 0;
               return (
                 <div key={item.name} className={styles.costRow}>
                   <div className={styles.costRowBar} style={{ width: `${pct}%`, background: item.color }} />
@@ -1088,20 +1141,14 @@ export default function TcoCalculator() {
                 {proc > elec ? <span className={styles.insightGood}>采购成本占主导，关注性能性价比</span> : <span className={styles.insightBad}>电费超过采购成本！建议选择能效更高的芯片</span>}
               </div>
               <div className={styles.insightRow}>
-                <strong>每瓦 TCO（全周期）：</strong> {chip.tdp > 0 ? <><AnimatedMoney value={tco / qty / chip.tdp} animateKey={chipId} /> / W</> : '—'}
+                <strong>每瓦 TCO（全周期）：</strong> {chip.tdp > 0 ? <><AnimatedMoney value={displayTco / qty / chip.tdp} animateKey={`${chipId}-${mode}`} /> / W</> : '—'}
               </div>
               <div className={styles.insightRow}>
                 <strong>电费年增长率：</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} animateKey={chipId} /> / 年（设备电，PUE={pue.toFixed(2)} 已含冷却）</> : '—'}
               </div>
               {tcoPerTflops != null && (
                 <div className={styles.insightRow}>
-                  <strong>每 TFLOPS TCO：</strong> ${tcoPerTflops.toFixed(2)} / TFLOPS（按 FP16 算力 {chip.fp16Tflops} TFLOPS 归一化）
-                </div>
-              )}
-              {isCluster && (
-                <div className={styles.insightRow}>
-                  <strong>集群级 TCO：</strong>
-                  <AnimatedMoney value={tcoCluster} animateKey={`${chipId}-${mode}`} />（{qty} 卡 = {servers} 台服务器节点 · 网络 ${Math.round(networkCost).toLocaleString()} · 人力 ${Math.round(opsHumanAnnual * years).toLocaleString()}，均{discount > 0 ? '已折现' : '未折现'}）
+                  <strong>每 TFLOPS 年均 TCO：</strong> ${tcoPerTflops.toFixed(2)} / TFLOPS·年（按 FP16 算力 {chip.fp16Tflops} TFLOPS 归一化）
                 </div>
               )}
               {breakevenUsage != null && (
@@ -1114,15 +1161,17 @@ export default function TcoCalculator() {
               )}
             </div>
 
-            <Sensitivity base={tco} params={{
+            <Sensitivity base={displayTco} params={{
               tdpKW, qty, usage, price, years, dcCost, pue, idleRatio, discount, unitPriceUSD,
+              isCluster, serverCost, networkRatio, opsPerK,
             }} />
 
             <div className={styles.actionRow}>
               <button type="button" onClick={addCompare} className={styles.btnAdd}>➕ 加入对比</button>
               <button type="button" onClick={() => chip && exportCSV(
                 chip, qty, years, usage, price, dcCost, idleRatio, pue, discount,
-                unitPriceUSD, dbPriceOriginal, dbPriceCurrency, manualPrice != null, costs, compare
+                unitPriceUSD, dbPriceOriginal, dbPriceCurrency, manualPrice != null, costs, compare,
+                mode, { server: serverCostTotal, network: networkCost, ops: opsDisc, tco: displayTco }
               )} className={styles.btnCsv} title="导出当前计算结果为 CSV（含汇率与原币种）">📥 导出 CSV</button>
             </div>
           </>
@@ -1224,7 +1273,7 @@ export default function TcoCalculator() {
                 <div className={styles.compareQty}>× {entry.quantity}{entry.chip.fp16Tflops ? ` · ${entry.chip.fp16Tflops} TFLOPS` : ''}</div>
                 <div className={styles.compareTco}>{fmtFull(Math.round(entry.tco))}</div>
                 {entry.tcoPerTflops != null && (
-                  <div className={styles.compareTflops}>${entry.tcoPerTflops.toFixed(2)} / TFLOPS</div>
+                  <div className={styles.compareTflops}>${entry.tcoPerTflops.toFixed(2)} / TFLOPS·年</div>
                 )}
                 <div className={styles.compareCosts}>
                   <span className={styles.compareCostItem}>采购 {fmt(entry.procurement)}</span>
