@@ -23,7 +23,10 @@ const KEY_MAP = {
   '制程': 'process', 'process': 'process', '工艺': 'process', 'foundry': 'process',
   '显存': 'memory.capacity', '内存': 'memory.capacity', '容量': 'memory.capacity',
   'memory': 'memory.capacity', 'memory size': 'memory.capacity',
-  'HBM': 'memory.capacity', 'hbm': 'memory.capacity',
+  // 常见复合写法：此前只有「显存」，导致 62 张卡的「显存容量」被静默丢弃
+  '显存容量': 'memory.capacity', '显存大小': 'memory.capacity', '显存规格': 'memory.capacity',
+  'vram': 'memory.capacity', 'vram 容量': 'memory.capacity', 'video memory': 'memory.capacity',
+  'HBM': 'memory.capacity', 'hbm': 'memory.capacity', 'hbm 容量': 'memory.capacity',
   '显存类型': 'memory.type', '内存类型': 'memory.type', '类型': 'memory.type', 'memory type': 'memory.type',
   '显存带宽': 'memory.bandwidth', '内存带宽': 'memory.bandwidth', '带宽': 'memory.bandwidth',
   'memory bandwidth': 'memory.bandwidth', 'bandwidth': 'memory.bandwidth',
@@ -140,7 +143,9 @@ function parseTflops(s) {
   if (!s) return null;
   const cleaned = String(s).replace(/[–—~～]/g, '-');
   const matches = cleaned.match(/(\d+(?:[.,]\d+)?)/g);
-  if (!matches) return 0;
+  // 单元格无数字（如「未公开」「待确认」）→ 返回 null 而非 0。
+  // 返回 0 会让「未知」被误当成「实测 0 TFLOPS」，污染对比与留资推荐。
+  if (!matches) return null;
   const max = matches.reduce((m, v) => Math.max(m, parseFloat(v.replace(',', ''))), 0);
   if (/pflops/i.test(s)) return Math.round(max * 1000);
   return Math.round(max);

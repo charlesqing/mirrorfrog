@@ -386,6 +386,7 @@
         "int8": "5 POPS（矩阵；含稀疏 10.1 POPS）"
       },
       "memory": {
+        "capacity": "432 GB",
         "type": "HBM4",
         "bandwidth": "23.3 TB/s"
       },
@@ -410,12 +411,13 @@
       "Helios"
     ],
     "tdpW": 0,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "CDNA 6（新一代，MI400 为 CDNA 5）",
       "process": "TSMC 2nm",
       "memory": {
         "type": "HBM4E（MI400 为 HBM4）",
+        "capacity": "待确认（TBD）",
         "bandwidth": "待确认（TBD）"
       },
       "compute": {
@@ -621,6 +623,9 @@
     "specs": {
       "architecture": "Trainium3（NeuronCore-v4）",
       "process": "TSMC 3nm",
+      "memory": {
+        "capacity": "144 GB HBM3e（AWS 官方确认）"
+      },
       "compute": {
         "fp16": "1,260 TFLOPS（推测，FP8 一半）"
       },
@@ -907,6 +912,9 @@
       "compute": {
         "fp16": "2,307 TFLOPS"
       },
+      "memory": {
+        "capacity": "192 GB"
+      },
       "tdp": "600 W"
     }
   },
@@ -993,6 +1001,9 @@
       "compute": {
         "fp16": "459 TFLOPS"
       },
+      "memory": {
+        "capacity": "95 GB"
+      },
       "tdp": "300 W"
     }
   },
@@ -1017,6 +1028,9 @@
       "compute": {
         "fp16": "918 TFLOPS（4.7× v5e）",
         "int8": "1,836 TOPS"
+      },
+      "memory": {
+        "capacity": "32 GB（2× v5e）"
       },
       "tdp": "200 W"
     }
@@ -1096,7 +1110,7 @@
       "INT8"
     ],
     "tdpW": 15,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "release": "2025 年（华为重新命名）",
       "process": "7nm（SMIC）",
@@ -1154,7 +1168,7 @@
       "推理芯片"
     ],
     "tdpW": 70,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "达芬奇（DaVinci）",
       "process": "未公开",
@@ -1185,7 +1199,7 @@
       "推理芯片"
     ],
     "tdpW": 15,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "达芬奇 Lite（DaVinci Lite）",
       "process": "未公开",
@@ -1332,7 +1346,7 @@
       "architecture": "Da Vinci v4",
       "process": "6nm（SMIC N+1 / N+2 国产化）",
       "memory": {
-        "capacity": "8× HBM3 模块"
+        "capacity": "~96 GB（推测）"
       },
       "compute": {
         "fp16": "1,800 TFLOPS（推测）",
@@ -1364,6 +1378,9 @@
     "specs": {
       "architecture": "Da Vinci v5（第四代昇腾）",
       "process": "N+2（SMIC 国产化）",
+      "memory": {
+        "capacity": "144 GB"
+      },
       "compute": {
         "fp8": "1 PFLOPS（HiF8 格式）",
         "fp16": "~500 TFLOPS",
@@ -1394,6 +1411,9 @@
     "specs": {
       "architecture": "Da Vinci v5（第四代昇腾）",
       "process": "SMIC N+2（等效 7nm 改良）",
+      "memory": {
+        "capacity": "144 GB"
+      },
       "compute": {
         "int8": "1,034 / 919 / 804 TOPS",
         "fp16": "547 / 486 / 425 TFLOPS"
@@ -1664,7 +1684,7 @@
       "Computex 2026"
     ],
     "tdpW": 350,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "release": "已披露（2026-06 Computex 2026），未量产",
       "architecture": "Xe3P（第三代 Xe，XMX 升级至 16 深度脉动阵列）",
@@ -1908,6 +1928,9 @@
     "specs": {
       "architecture": "MTIA v3（Iris）",
       "process": "TSMC 5nm（推测）",
+      "memory": {
+        "capacity": "64-96 GB（推测）"
+      },
       "tdp": "200 W",
       "release": "2026 Q3 量产"
     }
@@ -1935,6 +1958,9 @@
       "process": "TSMC 3nm（N3P）",
       "compute": {
         "fp8": "5+ PFLOPS（原生张量核心）"
+      },
+      "memory": {
+        "capacity": "216 GB"
       },
       "tdp": "750 W",
       "release": "2026年1月26日"
@@ -2336,6 +2362,7 @@
         "int8": "296 TOPS"
       },
       "memory": {
+        "capacity": "96GB HBM3",
         "bandwidth": "4.0 TB/s"
       },
       "tdp": "400W",
@@ -2433,6 +2460,7 @@
         "int8": "3,958 TOPS（稀疏）"
       },
       "memory": {
+        "capacity": "80GB HBM3",
         "bandwidth": "3.35 TB/s"
       },
       "tdp": "350W（SXM5）",
@@ -2957,7 +2985,7 @@
       "推理专用 GPU"
     ],
     "tdpW": 500,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "Rubin（CPX 专用变体）",
       "process": "TSMC 3NP（推测）",
@@ -2988,6 +3016,7 @@
         "int8": "推测 ~100 PFLOPS"
       },
       "memory": {
+        "capacity": "288 GB",
         "type": "HBM4",
         "bandwidth": "22 TB/s"
       },
@@ -3006,6 +3035,7 @@
     "fp16Tflops": null,
     "specs": {
       "memory": {
+        "capacity": "576 GB HBM4e（原版设计）",
         "type": "HBM4e",
         "bandwidth": "推测 >44 TB/s（HBM4e）"
       },
@@ -3146,6 +3176,69 @@
       },
       "tdp": "400 W",
       "release": "2023（流片）/ 2025（测试）"
+    }
+  },
+  {
+    "id": "alibaba-zhenwu-810e",
+    "title": "阿里平头哥 真武 810E（训推一体 AI 芯片）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/alibaba-zhenwu-810e",
+    "description": "阿里平头哥真武 810E 训推一体 AI 芯片详尽规格：96 GB HBM2e、700 GB/s 片间互联（7 条自研 ICN 链路）、PCIe 5.0、板级功耗约 400 W，2026 年 1 月亮相，真武系列初代基线产品，单卡带宽与 NVIDIA H20 相当。",
+    "keywords": [
+      "真武810E",
+      "Zhenwu 810E",
+      "平头哥",
+      "T-Head",
+      "阿里",
+      "PPU",
+      "96GB HBM2e",
+      "700GB/s",
+      "国产AI芯片"
+    ],
+    "tdpW": 400,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "平头哥自研并行计算架构（PPU）",
+      "process": "未公开",
+      "memory": {
+        "capacity": "96 GB HBM2e"
+      },
+      "tdp": "400 W（板级功耗，推测）",
+      "release": "2026 年 1 月"
+    }
+  },
+  {
+    "id": "alibaba-zhenwu-m890",
+    "title": "阿里平头哥 真武 M890（训推一体 AI 芯片）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/alibaba-zhenwu-m890",
+    "description": "阿里平头哥真武 M890 训推一体 AI 芯片详尽规格：144 GB HBM3、800 GB/s 片间互联、FP32 至 FP4 全精度原生支持、FP16 600 TFLOPS，2026 年 5 月 20 日阿里云峰会发布，配套自研 ICN Switch 1.0 与磐久 AL128 超节点服务器。",
+    "keywords": [
+      "真武M890",
+      "Zhenwu M890",
+      "平头哥",
+      "T-Head",
+      "阿里",
+      "PPU",
+      "144GB",
+      "ICN Switch",
+      "磐久AL128",
+      "Agentic",
+      "国产AI芯片"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": 600,
+    "specs": {
+      "architecture": "平头哥自研并行计算架构（PPU）",
+      "process": "未公开（业界推测 4nm / 5nm）",
+      "memory": {
+        "capacity": "144 GB（HBM3）"
+      },
+      "compute": {
+        "fp16": "600 TFLOPS"
+      },
+      "tdp": "未公开",
+      "release": "2026 年 5 月 20 日（2026 阿里云峰会）"
     }
   },
   {
@@ -3675,7 +3768,7 @@
       "智能摄像头"
     ],
     "tdpW": 630,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "四核 ARM Cortex-A7 + 自研混合精度 NPU + AI-ISP",
       "process": "12nm（FinFET，TSMC）",
@@ -3685,6 +3778,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开（板载 LPDDR4/LPDDR4X）",
         "type": "LPDDR4 / LPDDR4X",
         "bandwidth": "未公开"
       },
@@ -3710,7 +3804,7 @@
       "Transformer"
     ],
     "tdpW": 4,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "八核 ARM Cortex-A55 @1.7GHz + 自研混合精度 NPU + AI-ISP + VPU",
       "process": "未公开（推测 12nm 或 14nm 级，与 AX620 同代）",
@@ -3720,6 +3814,7 @@
         "fp32": "支持（混合精度）"
       },
       "memory": {
+        "capacity": "8GB（标准 64-bit LPDDR4X，最大 32GB LPDDR4X）",
         "type": "LPDDR4X（64-bit）",
         "bandwidth": "未公开"
       },
@@ -3756,6 +3851,7 @@
         "fp32": "256 TFLOPS"
       },
       "memory": {
+        "capacity": "64 GB",
         "type": "HBM2e",
         "bandwidth": "~2.3 TB/s（部分资料记 1.64 TB/s）"
       },
@@ -3827,6 +3923,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开（由域控方案选配）",
         "type": "车规级 64-bit LPDDR4",
         "bandwidth": "未公开"
       },
@@ -3866,6 +3963,7 @@
         "fp32": "未公开（全链路支持 FP32 精度，未公布算力数值）"
       },
       "memory": {
+        "capacity": "未公开（由域控/计算平台方案选配）",
         "type": "未公开（DDR 带宽利用率经深度优化；官方未披露具体代际）",
         "bandwidth": "未公开（片上缓存带宽 8 TB/s，容量百 MB 级）"
       },
@@ -3958,7 +4056,7 @@
       "国产 AI 芯片"
     ],
     "tdpW": 8,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "寒武纪 MLUv02",
       "process": "TSMC 16nm",
@@ -3968,6 +4066,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "~4 GB（板载 LPDDR4x，按 cnmon 实测 4096 MiB 估算）",
         "type": "LPDDR4x（64 bit）",
         "bandwidth": "未公开"
       },
@@ -3991,7 +4090,7 @@
       "国产 AI 芯片"
     ],
     "tdpW": 270,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "寒武纪 MLUv02",
       "process": "TSMC 16nm",
@@ -4001,6 +4100,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "16 GB",
         "type": "DDR4（ECC）",
         "bandwidth": "102 GB/s"
       },
@@ -4034,6 +4134,7 @@
         "fp32": "32 TFLOPS（推测，同上）"
       },
       "memory": {
+        "capacity": "32 GB",
         "type": "HBM2",
         "bandwidth": "1.23 TB/s（1228 GB/s）"
       },
@@ -4127,7 +4228,7 @@
       "开发板"
     ],
     "tdpW": 1,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "双核 64 位 RISC-V（@400MHz，各带 FPU）+ KPU + APU + FFT 引擎",
       "process": "28nm（TSMC）",
@@ -4137,6 +4238,7 @@
         "fp32": "未公开（16 位定点乘法约 0.3 TOPS 级）"
       },
       "memory": {
+        "capacity": "8MB 片上 SRAM（无需外置内存）",
         "type": "片上 SRAM",
         "bandwidth": "未公开"
       },
@@ -4161,7 +4263,7 @@
       "端侧AI"
     ],
     "tdpW": 2,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "三核 64 位 RISC-V（2×@800MHz + 1×DSP @800MHz）+ KPU（GNNE）+ FFT/VAD",
       "process": "28nm",
@@ -4171,6 +4273,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "1.5MB 片上 SRAM（1MB + 512KB）+ 外置 LPDDR3/LPDDR4",
         "type": "LPDDR3 / LPDDR4",
         "bandwidth": "未公开"
       },
@@ -4196,7 +4299,7 @@
       "星空加速卡"
     ],
     "tdpW": 20,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "定制数据流（Dataflow）CAISA3.0 架构（4 个 CAISA 引擎，1.6 万+ MAC 单元）",
       "process": "28nm",
@@ -4206,6 +4309,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开",
         "type": "DDR（双通道）",
         "bandwidth": "每 CAISA 芯片 >340 Gbps（双 DDR 通道）"
       },
@@ -4260,7 +4364,7 @@
       "登临科技"
     ],
     "tdpW": 70,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "GPU+ 片内异构（可编程 GPGPU 引擎 + 高效 Tensor 引擎，数据流驱动，兼容 CUDA/OpenCL）",
       "process": "TSMC 12nm",
@@ -4270,6 +4374,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开",
         "type": "未公开",
         "bandwidth": "未公开"
       },
@@ -4328,6 +4433,7 @@
         "int8": "未公开（推测 ~200 TOPS）"
       },
       "memory": {
+        "capacity": "未公开（推测 16–32GB）",
         "bandwidth": "未公开"
       },
       "tdp": "200 W（推测）",
@@ -4428,7 +4534,7 @@
       2021
     ],
     "tdpW": 0,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "自研 GCU-CARA 全域计算架构",
       "process": "未公开（行业推测 12nm）",
@@ -4472,6 +4578,7 @@
         "int8": "未公开（推测 ~640 TOPS）"
       },
       "memory": {
+        "capacity": "HBM2E（容量未公开，推测 32–64GB）",
         "bandwidth": "未公开（推测 ~1.6 TB/s）"
       },
       "tdp": "400 W（板级功耗）",
@@ -4531,6 +4638,9 @@
     "specs": {
       "architecture": "Transformer 专用 ASIC（不可编程）",
       "process": "TSMC 4nm（推测）",
+      "memory": {
+        "capacity": "144 GB"
+      },
       "tdp": "未公开",
       "release": "2024年6月"
     }
@@ -4730,6 +4840,7 @@
       "architecture": "HBM-PIM (Processing-in-Memory)",
       "process": "HBM: 1y nm DRAM / Logic: 4nm",
       "memory": {
+        "capacity": "12 GB（HBM2-PIM）",
         "bandwidth": "307 GB/s（传统）+ PIM 内部 1 TB/s+"
       },
       "tdp": "10 W",
@@ -4755,7 +4866,7 @@
       "国产 AI 芯片"
     ],
     "tdpW": 2,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "地平线 BPU 2.0（伯努利 1.0 / Bernoulli 1.0），双核 BPU",
       "process": "台积电 TSMC 28nm HPC+",
@@ -4765,6 +4876,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "最大 4 GB（片外 DDR4 / LPDDR4，32-bit）",
         "type": "DDR4 / LPDDR4，速率最高 3200 MT/s",
         "bandwidth": "约 12.8 GB/s（32-bit × 3200 MT/s 推算）"
       },
@@ -4791,7 +4903,7 @@
       "行泊一体"
     ],
     "tdpW": 3,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "地平线 BPU 伯努利 2.0（Bernoulli 2.0），双核 BPU，最大频率 950 MHz，支持 DFS",
       "process": "16nm（台积电；部分资料表述为 16/12nm 家族工艺）",
@@ -4801,6 +4913,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "最大 4 GB",
         "type": "片外 32-bit DDR4 / LPDDR4 / LPDDR4X，速率最高 3200 MT/s",
         "bandwidth": "约 12.8 GB/s（32-bit × 3200 MT/s 推算）"
       },
@@ -4829,7 +4942,7 @@
       "ISO 26262"
     ],
     "tdpW": 96,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "地平线 BPU 贝叶斯（Bayesian，第三代 BPU），双核 BPU，近存计算设计",
       "process": "台积电 TSMC 16nm",
@@ -4839,6 +4952,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开（随域控方案配置）",
         "type": "未公开（车规级 LPDDR，官方未披露具体代际）",
         "bandwidth": "未公开"
       },
@@ -4880,6 +4994,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开（随域控方案配置）",
         "type": "LPDDR5x-8533，192-bit",
         "bandwidth": "204 GB/s"
       },
@@ -4951,6 +5066,7 @@
         "int8": "未公开（推测 ~43.2 TOPS）"
       },
       "memory": {
+        "capacity": "32 GB",
         "type": "HBM2",
         "bandwidth": "未公开（Z100L 为 1024 GB/s，Z100 应更高，推测 ~1.2 TB/s）"
       },
@@ -4986,6 +5102,7 @@
         "int8": "40.5 – 49.1 TOPS"
       },
       "memory": {
+        "capacity": "32 GB",
         "type": "HBM2",
         "bandwidth": "1024 GB/s（1 TB/s）"
       },
@@ -5053,6 +5170,7 @@
         "int8": "192 TOPS"
       },
       "memory": {
+        "capacity": "32 GB HBM2E",
         "bandwidth": "未公开（推测 ~1 TB/s）"
       },
       "tdp": "275 W（推测）",
@@ -5087,6 +5205,7 @@
         "int8": "256 TOPS"
       },
       "memory": {
+        "capacity": "32 GB HBM2",
         "bandwidth": "未公开（推测 ~1 TB/s）"
       },
       "tdp": "250 W（板级功耗）",
@@ -5119,10 +5238,103 @@
         "int8": "未公开（推测 300–400 TOPS）"
       },
       "memory": {
+        "capacity": "推测 32–64 GB HBM2/HBM3",
         "bandwidth": "未公开"
       },
       "tdp": "275 W（推测）",
       "release": "2023 年"
+    }
+  },
+  {
+    "id": "iluvatar-tongyang-ty1000",
+    "title": "天数智芯 彤央 TY1000（边端算力系列）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/iluvatar-tongyang-ty1000",
+    "description": "天数智芯彤央系列边端 AI 芯片（TY1000 至 TY1200）详尽规格：2026 年 1 月发布，实测稠密算力覆盖 100 至 300 TOPS，官方称性能超越 NVIDIA Jetson AGX Orin，主打工业级实时控制与边缘监测分析。",
+    "keywords": [
+      "天数智芯",
+      "彤央",
+      "TY1000",
+      "TY1200",
+      "Iluvatar",
+      "边端AI芯片",
+      "边缘计算",
+      "AGX Orin",
+      "国产AI芯片"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "天数智芯自研通用 GPU 架构",
+      "compute": {
+        "int8": "300 TOPS（系列上限，实测稠密）",
+        "fp16": "未公开（边端定位，以整型算力为主）"
+      },
+      "release": "2026 年 1 月",
+      "tdp": "未公开（低功耗边端定位）"
+    }
+  },
+  {
+    "id": "iluvatar-zhikai-150",
+    "title": "天数智芯 智铠 150（云端推理加速卡）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/iluvatar-zhikai-150",
+    "description": "天数智芯智铠 150 推理加速卡详尽规格：INT8 300 TOPS、32 GB HBM2e、通用 GPU 架构（非 ASIC）、售价约 3 万元，定位云端高密度推理，兼容主流深度学习框架与 CUDA 迁移。",
+    "keywords": [
+      "天数智芯",
+      "智铠150",
+      "Iluvatar",
+      "推理GPU",
+      "32GB HBM2e",
+      "INT8",
+      "300 TOPS",
+      "通用GPU",
+      "国产AI芯片"
+    ],
+    "tdpW": 0,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "天数智芯通用 GPU 架构（GPGPU，非 ASIC）",
+      "compute": {
+        "int8": "300 TOPS"
+      },
+      "memory": {
+        "capacity": "32 GB HBM2e"
+      },
+      "release": "2024 年",
+      "tdp": "未公开（同系列参考见智铠系列其他卡）"
+    }
+  },
+  {
+    "id": "iluvatar-zhikai-50",
+    "title": "天数智芯 智铠 50（低功耗边缘推理卡）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/iluvatar-zhikai-50",
+    "description": "天数智芯智铠 50 低功耗推理加速卡详尽规格：板级功耗 75 W、16 GB HBM2e、半长半高单槽 PCIe、被动散热、最大 128 路 1080P 视频解码，售价约 1.5 万元，适配小型机房与工控场景。",
+    "keywords": [
+      "天数智芯",
+      "智铠50",
+      "MR-V50",
+      "Iluvatar",
+      "推理GPU",
+      "16GB HBM2e",
+      "75W",
+      "低功耗",
+      "边缘推理",
+      "国产AI芯片"
+    ],
+    "tdpW": 75,
+    "fp16Tflops": null,
+    "specs": {
+      "architecture": "天数智芯通用 GPU 架构",
+      "compute": {
+        "int8": "192 TOPS（另有信源报 64 TOPS，存在口径冲突）"
+      },
+      "memory": {
+        "capacity": "16 GB HBM2e"
+      },
+      "tdp": "75 W（板级功耗）",
+      "release": "2022 年 12 月（智铠系列）"
     }
   },
   {
@@ -5145,7 +5357,7 @@
       "SR-IOV"
     ],
     "tdpW": 50,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "芯动自研 GPU 架构（全套自主 IP）",
       "process": "未公开",
@@ -5155,9 +5367,9 @@
         "fp32": "5 TFLOPS"
       },
       "memory": {
+        "capacity": "32GB",
         "type": "GDDR6 / GDDR6X Combo（芯动自研，单比特最大速率 19 Gbps）",
-        "bandwidth": "最大 304 GB/s（支持动态调整）",
-        "capacity": "32GB"
+        "bandwidth": "最大 304 GB/s（支持动态调整）"
       },
       "tdp": "桌面 4K 重度渲染约 20 W；多路云渲染约 35~50 W（实测典型功耗，可无风扇设计）",
       "release": "2021-11-26（上海发布会）"
@@ -5182,7 +5394,7 @@
       "边缘 AI"
     ],
     "tdpW": 15,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "芯动自研 GPU 架构（全套自主 IP，内核演进自研可控）",
       "process": "未公开",
@@ -5192,6 +5404,7 @@
         "fp32": "1.5 TFLOPS"
       },
       "memory": {
+        "capacity": "2GB / 4GB / 8GB",
         "type": "LPDDR5X / LPDDR5 / LPDDR4X / LPDDR4（芯动自研 LPDDR5X 技术），亦有 GDDR6 方案",
         "bandwidth": "未公开"
       },
@@ -5228,6 +5441,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开（芯片级）；IPU X1000 模组/卡配备 16GB DDR4",
         "type": "DDR4（模组/卡形态）",
         "bandwidth": "未公开（官方称存算融合使 DDR 访问带宽下降 77%）"
       },
@@ -5253,7 +5467,7 @@
       300474
     ],
     "tdpW": 30,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "JM9 自研 GPU 架构（统一渲染架构）",
       "process": "未公开（媒体报道称 14nm，官方未确认）",
@@ -5263,6 +5477,7 @@
         "fp32": "1.5 TFLOPS（32 位单精度浮点，官方公告）"
       },
       "memory": {
+        "capacity": "8 GB",
         "type": "未公开（官方公告未标注类型）",
         "bandwidth": "128 GB/s"
       },
@@ -5288,7 +5503,7 @@
       300474
     ],
     "tdpW": 200,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "JM9 自研 GPU 架构（第三代景嘉微 GPU）",
       "process": "未公开（媒体报道称 14nm，官方未确认）",
@@ -5298,6 +5513,7 @@
         "fp32": "8 TFLOPS"
       },
       "memory": {
+        "capacity": "8 GB",
         "type": "GDDR6",
         "bandwidth": "512 GB/s（另一篇同期文章）"
       },
@@ -5333,6 +5549,7 @@
       },
       "memory": {
         "bandwidth": "512 GB/s",
+        "capacity": "未公开",
         "type": "未公开（高带宽内存，板载）"
       },
       "tdp": "~100 – 150 W（官方初称 100+W；后续资料记 150W）",
@@ -5355,7 +5572,7 @@
       "国产AI芯片"
     ],
     "tdpW": 0,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "自研架构（具体代号未公开）",
       "process": "未公开",
@@ -5363,6 +5580,7 @@
         "fp16": "未公开"
       },
       "memory": {
+        "capacity": "未公开",
         "type": "未公开",
         "bandwidth": "未公开"
       },
@@ -5386,7 +5604,7 @@
       "国产AI芯片"
     ],
     "tdpW": 700,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "自研架构（具体代号未公开）",
       "process": "未公开（推测 5nm/4nm）",
@@ -5565,6 +5783,7 @@
         "fp32": "未公开（KA200；类脑加速模块支持 FP16/INT8/Binary spike）"
       },
       "memory": {
+        "capacity": "未公开（类脑加速模块搭载 LPDDR4）",
         "type": "LPDDR4（类脑加速模块/板卡）",
         "bandwidth": "未公开"
       },
@@ -5615,7 +5834,7 @@
       "规格未公开"
     ],
     "tdpW": 0,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "沐曦自研 XCORE 1.0 架构及指令集",
       "process": "7nm 级（推测，同代 XCORE 1.0 产品为 7nm，官方未单列 C290）",
@@ -5625,6 +5844,7 @@
         "int8": "未公开（推测，同上）"
       },
       "memory": {
+        "capacity": "未公开（同代 XCORE 1.0 产品多为 64GB HBM2e，C290 以官方为准）",
         "type": "未公开（推测 HBM2e）",
         "bandwidth": "未公开"
       },
@@ -5660,6 +5880,7 @@
         "int8": "480 TOPS"
       },
       "memory": {
+        "capacity": "64 GB HBM2e",
         "bandwidth": "未公开（推测 ~1.6 TB/s）"
       },
       "tdp": "350 W（推测）",
@@ -5746,6 +5967,7 @@
         "int8": "~1,000 TOPS"
       },
       "memory": {
+        "capacity": "144GB HBM3e",
         "bandwidth": "3.6 TB/s"
       },
       "tdp": "400 W",
@@ -5769,7 +5991,7 @@
       "未公开"
     ],
     "tdpW": 0,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "新一代 GPU 架构及指令集（非 XCORE 1.5）",
       "process": "更高制程的国产先进工艺（具体节点未公开）",
@@ -5780,6 +6002,7 @@
         "int8": "未公开"
       },
       "memory": {
+        "capacity": "未公开",
         "type": "未公开（预计 HBM3e 或更高）",
         "bandwidth": "未公开"
       },
@@ -5909,7 +6132,7 @@
       "国产AI芯片"
     ],
     "tdpW": 400,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "自研 春晓芯片（第二代 MUSA 内核架构）",
       "process": "未公开（推测 7nm）",
@@ -5919,6 +6142,7 @@
         "fp16": "支持（具体数值未公开）"
       },
       "memory": {
+        "capacity": "48 GB GDDR6（推测，与 S4000 相近）",
         "bandwidth": "未公开（推测 ~700 GB/s）"
       },
       "tdp": "400 W（推测）",
@@ -5942,7 +6166,7 @@
       "国产AI芯片"
     ],
     "tdpW": 450,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "自研 曲院 GPU（第三代 MUSA 内核架构）",
       "process": "未公开（推测 7nm/6nm）",
@@ -5952,6 +6176,7 @@
         "fp16": "支持（具体数值未公开）"
       },
       "memory": {
+        "capacity": "48 GB GDDR6",
         "bandwidth": "768 GB/s"
       },
       "tdp": "450 W",
@@ -6069,6 +6294,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "内置 1Gbit DDR3L（部分型号一体化封装）",
         "type": "DDR3L",
         "bandwidth": "未公开"
       },
@@ -6097,7 +6323,7 @@
       "architecture": "Systolic Array（脉动阵列）",
       "process": "TSMC 3nm",
       "memory": {
-        "capacity": "8 堆栈（推测 HBM3E 或 HBM4）"
+        "capacity": "未公开（推测 128-256GB）"
       },
       "tdp": "未公开（推测 400-700W）",
       "release": "2026-06-24"
@@ -6180,7 +6406,7 @@
       "机架级"
     ],
     "tdpW": 0,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "Qualcomm 自研 AI 架构",
       "process": "未公开（预估 4nm 或 3nm）",
@@ -6212,7 +6438,7 @@
       "2027 年"
     ],
     "tdpW": 0,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "近存计算（Near-Memory Computing）",
       "process": "未公开（预估 3nm）",
@@ -6316,6 +6542,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "双通道 32-bit LPDDR4/LPDDR4x-4266 / LPDDR5-4800",
         "type": "LPDDR4 / LPDDR4X / LPDDR5",
         "bandwidth": "未公开"
       },
@@ -6350,6 +6577,7 @@
         "fp32": "未公开（GPU 另计，非 NPU 指标）"
       },
       "memory": {
+        "capacity": "最高 32GB（LPDDR4 / LPDDR4X / LPDDR5）",
         "type": "LPDDR4 / LPDDR4X / LPDDR5",
         "bandwidth": "未公开"
       },
@@ -6424,7 +6652,7 @@
       "安防"
     ],
     "tdpW": 16,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "算能第三代自研 TPU 架构，集成 8 核 ARM Cortex-A53 @ 2.3GHz + 64 个 NPU 核心",
       "process": "12nm（TSMC）",
@@ -6434,6 +6662,7 @@
         "fp32": "2.2 TFLOPS"
       },
       "memory": {
+        "capacity": "12GB（板载）",
         "type": "LPDDR4X",
         "bandwidth": "未公开"
       },
@@ -6468,6 +6697,7 @@
         "fp32": "2 TFLOPS"
       },
       "memory": {
+        "capacity": "6 / 12 / 16GB（最大 16GB LPDDR4X）",
         "type": "LPDDR4 / LPDDR4X",
         "bandwidth": "约 68.3 GB/s（16GB 配置，128-bit @ 4266 Mbps）"
       },
@@ -6502,6 +6732,7 @@
         "fp32": "0.5 TFLOPS"
       },
       "memory": {
+        "capacity": "8 / 16GB（LPDDR4/LPDDR4X 64-bit @ 4266 Mbps，另支持 DDR4 2×32-bit）",
         "type": "LPDDR4 / LPDDR4X",
         "bandwidth": "未公开"
       },
@@ -6539,6 +6770,7 @@
         "fp32": "未公开"
       },
       "memory": {
+        "capacity": "未公开",
         "type": "HBM2e（官方确认，2.5D 封装与 AI 核心合封）",
         "bandwidth": "未公开"
       },
@@ -6673,7 +6905,7 @@
       "国产AI芯片"
     ],
     "tdpW": 300,
-    "fp16Tflops": 0,
+    "fp16Tflops": null,
     "specs": {
       "architecture": "自研 RPU（Reconfigurable Processing Unit），可重构计算架构",
       "process": "未公开（推测 7nm/6nm）",
