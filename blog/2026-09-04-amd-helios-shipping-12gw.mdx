@@ -1,0 +1,87 @@
+---
+slug: amd-helios-shipping-12gw
+title: 'AMD Helios 正式出货：MI455X 机架 525 万美元一台，OpenAI / Meta / 甲骨文 / Anthropic 12GW 订单进入兑现期'
+date: '2026-09-04'
+authors: aicomputecards
+tags: [新闻, amd, mi450, mi455x, rubin]
+description: 'AMD 确认 Helios 机架已全面量产、Q3 末启动出货，OpenAI、Meta、甲骨文、Anthropic 合计约 12GW 订单开始兑现。MI455X 凭 432GB HBM4 显存反超 Rubin 288GB，但 CoWoS-L 封装与 HBM 供应成为 2027 年翻倍目标的最大变量。'
+---
+
+# AMD Helios 正式出货：MI455X 机架 525 万美元一台，OpenAI / Meta / 甲骨文 / Anthropic 12GW 订单进入兑现期
+
+> 7 月 Advancing AI 2026 大会上的承诺正在兑现：**AMD Helios 机架已进入全面量产，2026 年 Q3 末启动客户出货、Q4 放量**。管理层透露客户拉货进度"领先于初始预测"——对英伟达而言，第一次有一个对手在"机架级系统"这个自己定义的战场上，拿到了真金白银的订单。
+
+---
+
+## 1. Helios：AMD 第一台真正意义上的"机架级计算机"
+
+| 指标 | Helios（72 × MI455X） | 对比 Vera Rubin NVL72 |
+|------|----------------------|----------------------|
+| **显存** | 31TB HBM4 池化（单卡 432GB） | Rubin 单卡 288GB（**+50%**） |
+| **显存带宽** | 1.4PB/s（单卡 19.6TB/s） | 22TB/s（单卡） |
+| **FP4 推理** | 2.9 ExaFLOPS | 3.6 EFLOPS |
+| **FP8 训练** | 1.4 ExaFLOPS | 1.2 EFLOPS |
+| **Scale-up 互联** | 260TB/s（UALink/UALoE） | 130TB/s（NVLink6，约 2 倍差距） |
+| **机架售价** | **约 525 万美元** | — |
+| **出货节奏** | 2026 Q3 末起，Q4 放量 | 2026 年 9 月批量出货 |
+
+MI455X 采用 CDNA 5 架构：8 个 TSMC N2 制程加速 die + N3P 互联 die，256 个工作组处理器、192MB 全局 L2，12 层堆叠 HBM4 让它成为**首款显存超过 400GB 的 AMD GPU**。同系列还有面向主权 AI 与 HPC 的 MI430X（推理特化）、面向企业的 MI440X（8 GPU + 1 EPYC Venice 一体化服务器）——三条产品线覆盖从云到边缘的完整光谱，规格详见本站 [MI455X](/docs/cards/amd/mi455x)、[MI440X](/docs/cards/amd/mi440x)、[MI430X](/docs/cards/amd/mi430x) 卡片。
+
+配套的 **EPYC Venice（Zen 6）** 是业界首款 2nm x86 服务器 CPU，最高 256 核，性能较上代 Turin 提升约 1.7 倍，承担 Helios 机架内编排、数据搬运与 CPU 密集型负载。
+
+## 2. 12GW 订单簿：四大锚定客户全部落地
+
+AMD 在 AI 加速器市场最大的变化，是从"卖芯片"变成"签产能"：
+
+| 客户 | 协议规模 | 关键条款 | 交付节奏 |
+|------|---------|---------|---------|
+| **OpenAI** | 6GW 跨代际 | 首批 1GW MI450；附最高 1.6 亿股认股权证（与部署进度及股价挂钩） | 2026 H2 起部署，2027 加速 |
+| **Meta** | 最高 6GW / 五年 | 最高 600 亿美元；Meta 获收购 AMD 最多 10% 股份的选择权 | 2026 H2 部署 Helios |
+| **甲骨文** | 5 万颗 MI450 | 从 2026 Q3 起部署 | 2026 Q3 起 |
+| **Anthropic** | 最高 2GW | AMD 投资最高 50 亿美元；双方用 Claude 优化 ROCm | 首批 1GW 2027 H1 上线 |
+
+分析师对 OpenAI 协议中 GPU 部分的收入估计约 800 亿美元；Piper Sandler 估计 Meta 协议五年内可为 AMD 带来约 1000 亿美元收入。合作模式也已升级——不再是简单的采购合同，而是"定制开发 + 资本投入 + 长期联合优化"的深度绑定：Anthropic 甚至披露 Claude 曾在**一个周末内自主完成 AMD AI 服务器的配置**。
+
+值得关注的是，Cerebras 也宣布与 AMD 达成合作，从 Cerebras 数据中心内部开始部署 AMD 服务器——推理芯片初创公司与 GPU 巨头的"竞合"正在成为新常态。
+
+## 3. 最大的变量不是英伟达，是封装产能
+
+AMD 2027 年数据中心营收翻倍的目标，瓶颈不在需求，在供给侧：
+
+- **CoWoS-L 产能**：汇丰分析指出，要达成目标，CoWoS-L 产能需求需比基础情景高出 12%–35%；AMD 选择将设备托管至 SPIL、PTI 等二线封装厂（一线供应商 2027 年前几乎没有产能富余），低良率风险不可忽视；
+- **HBM 供应**：MI455X 单卡 432GB HBM4 对存储供应提出极高要求，2027 年 HBM4 供给依然紧张（详见本站 HBM4 竞速分析）；
+- **资本开支**：AMD Q2 资本支出已跃升至 8.08 亿美元，专门用于向外包封测厂托管 CoWoS 设备以保障 Venice CPU 量产。
+
+摩根大通提醒：这是 AMD **首次机架级产品量产**，执行风险在 2027 财年内仍然显著，毛利率稀释效应将随出货量逐步显现。
+
+## 4. ROCm 与 CUDA：真正的前线
+
+AMD 高管提出"随着 PyTorch、vLLM 等高层抽象框架普及，底层 CUDA 或 ROCm 的差异对开发者日益模糊"。这个判断有部分道理——但 CUDA 的护城河不止是编程接口，还包括数学库、通信库、调试工具和二十年积累的硬件级优化能力。处理自定义算子、混合精度、稀疏计算和千卡集群故障排查时，底层软件栈依然决定成败。
+
+AMD 的聪明之处在于借力打力：**让 Anthropic 用 Claude 优化 ROCm**——用 AI 优化 AI 芯片的软件栈，这可能是缩小生态差距最快的一条路。
+
+## 5. 对采购方的启示
+
+- **第二供应源已是现实选项**：2027 年规划推理集群时，MI455X/Helios 值得进入正式评估名单，其 432GB 显存对大参数模型推理的容量优势是实打实的；
+- **锁定交付窗口**：Helios 为 OCP 开放机架参考设计，最终交付由 OEM/ODM 完成——下单时确认液冷、电源与系统集成责任方，避免"芯片到了机柜没到"；
+- **关注 Q4 爬坡数据**：年底前 Helios 是否真在 OpenAI 基础设施中大规模上线，是检验 AMD 机架级交付能力的第一个硬指标。
+
+---
+
+## 相关链接
+
+- [AMD MI455X 规格页](/docs/cards/amd/mi455x)
+- [AMD MI440X 规格页](/docs/cards/amd/mi440x)
+- [AMD MI430X 规格页](/docs/cards/amd/mi430x)
+- [NVIDIA Rubin 规格页](/docs/cards/nvidia/rubin)
+
+## 参考资料
+
+- [Tech Insider：AMD Advancing AI 2026 — Helios Hits $5.25M, 12GW Booked](https://tech-insider.org/amd-advancing-ai-2026/)
+- [Lumien AI：AMD Helios AI Servers Enter Full Production, OpenAI Commits to Deployment](https://lumienai.com/news/amd-helios-ai-server-full-production-openai-anthropic)
+- [超级金属市场新闻网：AMD AI 战略受限于产能瓶颈（2026-09）](https://www.smmnn.com/25343/amd-ai-zhan-lue-shou-xian-yu-c.html)
+- [大数跨境：全球首款 2nm GPU 炸场，OpenAI、Meta、微软站台](https://www.10100.com/article/149201476)
+
+---
+
+**本文基于 AMD Advancing AI 2026 大会披露与后续供应链报道整理。订单规模、收入预测均为分析师口径，实际以 AMD 财报为准。**
