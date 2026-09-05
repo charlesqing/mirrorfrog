@@ -1,99 +1,74 @@
 [
   {
-    "title": "Hot Chips 2026 全景总结：Rubin、MI455X、Crescent Island 同台，AI 算力交付进入\"系统级\"时代",
-    "date": "2026-08-25",
-    "slug": "hot-chips-2026-recap",
-    "url": "/blog/hot-chips-2026-recap",
-    "description": "Hot Chips 2026（8月23-25日，斯坦福）落幕：NVIDIA Vera Rubin NVL72、AMD MI455X/Helios、Intel Crescent Island 三大路线正面对决；Google TPU v8（8t",
+    "title": "AI 算力周报（9.1-9.5）：DeepSeek 订 16 万颗昇腾 950DT、英伟达 129 亿美元收购 Hugging Face、Rubin Ultra 显存减配",
+    "date": "2026-09-05",
+    "slug": "ai-compute-weekly-2026-w36",
+    "url": "/blog/ai-compute-weekly-2026-w36",
+    "description": "本周题眼是两条相反方向的成本重构：DeepSeek 拟购 16 万颗昇腾 950DT 标志国产算力从\"不得不国产\"转向\"主动选国产\"；英伟达一边 129.3 亿美元吞下 Hugging Face，一边给 Rubin Ultra 减配显存、把",
     "tags": [
       "新闻",
+      "昇腾",
+      "华为",
       "nvidia",
       "rubin",
-      "amd",
-      "mi455x",
-      "intel",
-      "huawei",
-      "华为",
-      "昇腾",
-      "AI硬件",
-      "TPU",
-      "tpu-8t",
-      "tpu-8i",
-      "自研芯片",
-      "OpenAI"
-    ]
-  },
-  {
-    "title": "云巨头自研芯片浪潮 2026：OpenAI Jalapeño、Maia 200、MTIA、TPU v8 集体\"去英伟达化\"",
-    "date": "2026-08-22",
-    "slug": "hyperscaler-custom-silicon-2026",
-    "url": "/blog/hyperscaler-custom-silicon-2026",
-    "description": "2026 年云巨头自研 AI 芯片进入爆发期：OpenAI Jalapeño（博通合作，9 个月端到端设计，token 成本目标降 50%，2026 底商用）、微软 Maia 200（1400 亿晶体管，已部署服务 GPT-5.2）、Met",
-    "tags": [
-      "产业报告",
-      "自研芯片",
+      "hbm4",
       "OpenAI",
-      "谷歌",
-      "google",
-      "tpu",
-      "博通",
-      "custom-chip",
-      "AI基础设施",
-      "推理芯片"
+      "deepseek"
     ]
   },
   {
-    "title": "HBM4 量产元年：三星良率突破80%、三巨头齐过英伟达认证，AI 算力供给的最后一道瓶颈",
-    "date": "2026-08-20",
-    "slug": "hbm4-mass-production-2026",
-    "url": "/blog/hbm4-mass-production-2026",
-    "description": "2026 是 HBM4 量产元年：三星 HBM4 良率 8 月初突破 80% 黄金门槛（六个月从不足六成跃迁），SK 海力士同期达 80% 区间并掌握 Rubin 六至七成分配；三巨头均于 6 月通过英伟达认证。真正的瓶颈已从晶圆转向后端堆",
+    "title": "AMD Helios 正式出货：MI455X 机架 525 万美元一台，OpenAI / Meta / 甲骨文 / Anthropic 12GW 订单进入兑现期",
+    "date": "2026-09-04",
+    "slug": "amd-helios-shipping-12gw",
+    "url": "/blog/amd-helios-shipping-12gw",
+    "description": "AMD 确认 Helios 机架已全面量产、Q3 末启动出货，OpenAI、Meta、甲骨文、Anthropic 合计约 12GW 订单开始兑现。MI455X 凭 432GB HBM4 显存反超 Rubin 288GB，但 CoWoS-L ",
+    "tags": [
+      "新闻",
+      "amd",
+      "mi450",
+      "mi455x",
+      "rubin"
+    ]
+  },
+  {
+    "title": "昇腾 950 超节点 Q4 上市，中兴、新华三、曙光全线跟进：国产超节点从概念走向交付",
+    "date": "2026-09-04",
+    "slug": "china-supernode-race-2026",
+    "url": "/blog/china-supernode-race-2026",
+    "description": "华为 Atlas 950 SuperPoD（1024 卡，1 EFLOPS FP8）计划 2026 年四季度上市；昇腾 384 超节点商用落地已超 750 套。中兴 OEX、新华三 UniPoD、曙光 8000、壁仞 BLink 2.0、沐",
+    "tags": [
+      "新闻",
+      "国产芯片",
+      "昇腾",
+      "华为",
+      "AI基础设施"
+    ]
+  },
+  {
+    "title": "国产 AI 芯片半年报大检阅：寒武纪净赚 23 亿、壁仞营收暴涨 20 倍、燧原登板，\"抢芯大战\"白热化",
+    "date": "2026-09-04",
+    "slug": "domestic-ai-chip-h1-2026-earnings",
+    "url": "/blog/domestic-ai-chip-h1-2026-earnings",
+    "description": "2026 半年报密集披露：寒武纪营收 59.96 亿（+108%）、摩尔线程 17.36 亿（+147%）、壁仞 12.36 亿（+1998%）、沐曦首次扭亏；燧原 9 月 2 日启动 IPO 申购，国产四家 GPU/加速器厂商全部完成上市",
+    "tags": [
+      "新闻",
+      "国产芯片",
+      "寒武纪",
+      "摩尔线程",
+      "IPO"
+    ]
+  },
+  {
+    "title": "HBM4 从送样竞速进入量产爬坡竞速：SK 海力士率先交付 Rubin、美光产能翻倍、三星直逼王座",
+    "date": "2026-09-04",
+    "slug": "hbm4-ramp-race-2026",
+    "url": "/blog/hbm4-ramp-race-2026",
+    "description": "SK 海力士向 Vera Rubin 平台量产交付全球首款 12 层 HBM4，三星 2 月抢下全球首发、Q2 份额升至 33%，美光年底 HBM 月产能冲刺 10 万片晶圆。英伟达重启 Rubin CPX 项目并改用 168GB HBM4",
     "tags": [
       "新闻",
       "hbm4",
-      "AI硬件",
-      "nvidia",
-      "rubin",
-      "amd",
-      "mi400",
-      "产业报告",
-      "AI算力"
-    ]
-  },
-  {
-    "title": "国产三强 2026 H2：国产化率突破40%向60%迈进，昇腾960路线图、MLU690与S5000生态齐发力",
-    "date": "2026-08-18",
-    "slug": "domestic-ai-chip-triopoly-h2-2026",
-    "url": "/blog/domestic-ai-chip-triopoly-h2-2026",
-    "description": "2026 下半年国产 AI 芯片进入放量关键期：中国 AI 加速卡国产化率首破 40%，2027 年看 60%–70%；华为昇腾 950 系列产能排满、960 路线图披露（FP8 4 PFLOPS、288GB/9.6TB/s、2027 Q4",
-    "tags": [
-      "产业报告",
-      "国产芯片",
-      "华为",
-      "昇腾",
-      "寒武纪",
-      "摩尔线程",
-      "国产算力",
-      "domestic-substitution",
-      "2026进展"
-    ]
-  },
-  {
-    "title": "推理加速卡市场 2026：占加速器市场60%-70%，GPU 与 ASIC 份额反转，五大流派混战",
-    "date": "2026-08-15",
-    "slug": "inference-accelerator-market-2026",
-    "url": "/blog/inference-accelerator-market-2026",
-    "description": "2026 年推理芯片成为主战场：占 AI 加速器市场 60%–70%（约 $400B），全球推理专用芯片市场达 $412.7B（+38.4%）。技术路线上 GPU 52.6% 仍居首但增速放缓，ASIC 从 17.8% 飙升至 41.3%。",
-    "tags": [
-      "产业报告",
-      "推理芯片",
-      "inference",
-      "GPU",
-      "TPU",
-      "ASIC",
-      "推理算力",
-      "AI算力",
-      "算力趋势"
+      "AI芯片",
+      "rubin"
     ]
   }
 ]

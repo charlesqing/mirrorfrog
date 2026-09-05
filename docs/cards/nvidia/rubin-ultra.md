@@ -1,6 +1,6 @@
 ---
 title: "NVIDIA Rubin Ultra (V300)"
-description: "NVIDIA Rubin Ultra (V300) 预览：Rubin 架构旗舰增强版，原版 4 芯片设计、576GB HBM4e、NVL144 机柜。⚠️ 架构修订中，规格待官方最终确认。"
+description: "NVIDIA Rubin Ultra (V300) 预览：Rubin 架构旗舰增强版，原版 4 芯片设计、576GB HBM4e、NVL144 机柜。⚠️ 架构修订中：4 芯片设计取消，2026-09 报道称显存拟降至 192GB HBM4。规格待官方最终确认。"
 id: rubin-ultra
 date: "2026-03-17"
 vendor: "nvidia"
@@ -14,6 +14,8 @@ category: "数据中心GPU"
 **NVIDIA Rubin Ultra（代号 V300）** 是 Rubin 架构的**旗舰增强版**，于 **GTC 2026（2026-03-17）** 与 Rubin R200 一同公布，定位为超大规模训练/推理的顶端产品。原版设计采用 **4 芯片 MCM 封装**，单卡 **576GB HBM4e**，通过 **NVL144** 机柜扩展至 **144 颗 GPU**，是 NVIDIA 对标主权 AI 与 yotta-scale 集群的旗舰方案。
 
 > ⚠️ **架构修订提示**：据 SemiAnalysis 报道，原版 4 芯片 Rubin Ultra 设计因封装制造难度已被**取消**，新版规模缩减约一半、性能相应减半。以下规格基于**原版公开信息**，**最终量产规格以 NVIDIA 官方为准**。
+>
+> 📌 **2026-09 减配报道（SemiAnalysis / 科创板日报）**：Rubin Ultra 的 HBM 配置拟从 HBM4E 12-Hi（384GB 档）**下调至 HBM4 8-Hi（192GB）**，三星配合开发 8 层产品。动因是 HBM/DRAM 涨价后**内存已占整机 TCO 约 40%**，减配后 HBM 成本降超 50%；省下的预算转向 **Scale-up 纵向扩展网络**——以 NVL576 NPO 方案测算，Scale-up 网络占机架支出比例从 4% 升至 12%。TrendForce 亦显示 NVIDIA 自 2026 Q3 起并行评估 HBM4E 8-Hi / HBM4E 12-Hi / HBM4 8-Hi 多套方案。最终配置以官方为准。
 
 ## 核心规格（原版设计，待官方最终确认）
 
@@ -72,6 +74,7 @@ Rubin Ultra 面向**超大规模数据中心与主权 AI 集群**，适用于：
 
 - NVIDIA GTC 2026 主题演讲（Rubin Ultra 公布）
 - SemiAnalysis：Rubin Ultra 原版 4 芯片设计取消、新版缩减约一半
+- SemiAnalysis / 科创板日报（2026-09）：Rubin Ultra 显存拟从 384GB 档减配至 192GB HBM4，预算转向 Scale-up 光互联
 - 行业供应链分析（富士康）：V300 576GB HBM4e / 144 GPU 机柜，$21,000/机柜
 
 ## 相关产品

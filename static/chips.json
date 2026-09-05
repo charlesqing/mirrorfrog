@@ -3029,7 +3029,7 @@
     "title": "NVIDIA Rubin Ultra (V300)",
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/rubin-ultra",
-    "description": "NVIDIA Rubin Ultra (V300) 预览：Rubin 架构旗舰增强版，原版 4 芯片设计、576GB HBM4e、NVL144 机柜。⚠️ 架构修订中，规格待官方最终确认。",
+    "description": "NVIDIA Rubin Ultra (V300) 预览：Rubin 架构旗舰增强版，原版 4 芯片设计、576GB HBM4e、NVL144 机柜。⚠️ 架构修订中：4 芯片设计取消，2026-09 报道称显存拟降至 192GB HBM4。规格待官方最终确认。",
     "keywords": [],
     "tdpW": 3000,
     "fp16Tflops": null,
@@ -6307,7 +6307,7 @@
     "title": "OpenAI Jalapeño (自研 AI 推理芯片)",
     "vendor": "others",
     "slug": "/docs/cards/others/openai-jalapeno",
-    "description": "OpenAI Jalapeño 详尽规格：TSMC 3nm、8 堆栈 HBM、推理成本降低 50%、与博通联合开发。",
+    "description": "OpenAI Jalapeño 详尽规格：TSMC 3nm、6 堆栈 HBM4 216GB @15.4TB/s、700W、围绕投机解码设计、tokens/kW 达 GB300 的 1.7 倍、与博通联合开发。",
     "keywords": [
       "OpenAI",
       "Jalapeño",
@@ -6320,12 +6320,12 @@
     "tdpW": 700,
     "fp16Tflops": null,
     "specs": {
-      "architecture": "Systolic Array（脉动阵列）",
+      "architecture": "Systolic Array（脉动阵列），围绕投机解码（Speculative Decoding）设计",
       "process": "TSMC 3nm",
       "memory": {
-        "capacity": "未公开（推测 128-256GB）"
+        "capacity": "216 GB"
       },
-      "tdp": "未公开（推测 400-700W）",
+      "tdp": "700 W",
       "release": "2026-06-24"
     }
   },

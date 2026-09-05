@@ -2,7 +2,7 @@
 id: openai-jalapeno
 title: OpenAI Jalapeño (自研 AI 推理芯片)
 sidebar_label: OpenAI Jalapeño
-description: OpenAI Jalapeño 详尽规格：TSMC 3nm、8 堆栈 HBM、推理成本降低 50%、与博通联合开发。
+description: OpenAI Jalapeño 详尽规格：TSMC 3nm、6 堆栈 HBM4 216GB @15.4TB/s、700W、围绕投机解码设计、tokens/kW 达 GB300 的 1.7 倍、与博通联合开发。
 keywords: [OpenAI, Jalapeño, 自研芯片, AI 推理, ASIC, 博通, TSMC 3nm]
 ---
 
@@ -16,27 +16,30 @@ keywords: [OpenAI, Jalapeño, 自研芯片, AI 推理, ASIC, 博通, TSMC 3nm]
 
 **战略意义**：这标志着 OpenAI 从纯模型公司转型为**全栈 AI 基础设施提供商**，与谷歌 TPU、亚马逊 Trainium、微软 Maia 并列，成为科技巨头自研 AI 芯片阵营的重要一员。
 
-## 核心规格（推测）
+## 核心规格
 
 | 项目 | 参数 |
 |------|------|
-| **架构** | Systolic Array（脉动阵列） |
+| **架构** | Systolic Array（脉动阵列），围绕**投机解码（Speculative Decoding）**设计 |
 | **制程** | **TSMC 3nm** |
-| **晶体管数** | 未公开（推测 500-1000 亿） |
-| **HBM** | **8 堆栈**（推测 HBM3E 或 HBM4） |
-| **HBM 容量** | 未公开（推测 128-256GB） |
-| **HBM 带宽** | 未公开（推测 6-10 TB/s） |
+| **晶体管数** | 未公开 |
+| **HBM** | **6 堆栈 HBM4** |
+| **HBM 容量** | **216 GB** |
+| **HBM 带宽** | **15.4 TB/s** |
 | **算力（推理）** | 未公开（目标媲美 Blackwell） |
-| **TDP** | 未公开（推测 400-700W） |
+| **能效** | DeepSeek R1 负载下 **tokens/kW 为 GB300 的 1.7 倍**（OpenAI 口径） |
+| **TDP** | **700 W** |
 | **互联** | Broadcom Tomahawk 交换芯片 |
 | **封装** | Celestica 提供电路板、机架和系统 |
 | **设计工具** | OpenAI 前沿模型辅助架构探索、功耗仿真与强化学习优化 |
 | **发布** | 2026-06-24 |
-| **流片时间** | 2025-09（推测，9 个月极速流片） |
-| **部署** | 2026 年底（千兆瓦级数据中心） |
+| **流片时间** | **2025-09**（RTL 冻结到流片 9 个月极速流片） |
+| **部署** | **首批硅片后约 10 周承载 ChatGPT 流量**；2026 年底千兆瓦级数据中心 |
 | **供货** | **仅内部使用**（OpenAI + 微软），不对外销售 |
 
 > ⚠️ **注意**：Jalapeño 是 OpenAI **内部专用芯片**，不对外销售。博通 CEO 陈福阳表示，未来可能出售给第三方，但需获得足够供货。
+>
+> 📌 **2026-09 更新**：Hot Chips 2026 及后续披露确认了内存与能效规格——6 堆栈 HBM4 共 216GB、带宽 15.4TB/s、TDP 700W，围绕投机解码设计；OpenAI 称在 DeepSeek R1 推理负载下 tokens/kW 达 GB300 的 **1.7 倍**。
 
 ## Jalapeño  vs 其他 AI 加速器对比
 
@@ -165,9 +168,10 @@ Jalapeño 的发布标志着 AI 产业的竞争维度正在发生根本性跃迁
 - [彭博社：Jalapeño 推理成本降低 50%](https://www.bloomberg.com)
 - [SemiWiki：Jalapeño 技术细节](https://semiwiki.com)
 - [Tom's Hardware：Jalapeño 架构分析](https://www.tomshardware.com)
+- [Hot Chips 2026 及 2026-09 后续披露：6 堆栈 HBM4 216GB @ 15.4TB/s、700W、tokens/kW 1.7× GB300]
 
 ---
 
 **声明**：本文部分规格为推测值，以 OpenAI 官方技术白皮书为准。OpenAI 将在未来数月内发布详细性能技术白皮书。
 
-**最后更新**：2026-06-26
+**最后更新**：2026-09-05
