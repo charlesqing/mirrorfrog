@@ -26,8 +26,8 @@ keywords: [Apple M5 Ultra, M5 Ultra, 2nm, 384GB UMA, 1 TB/s, Apple Silicon 第�
 ## 核心规格（推测）
 
 | 项目 | 参数 |
-| **发布** | 2026-Q3（推测） |
 |------|------|
+| **发布** | 2026-Q3（推测） |
 | **架构** | Apple Silicon (M5 Max × 2, UltraFusion) |
 | **制程** | **TSMC 2nm (N2)** |
 | **CPU 核心** | **40（24P + 16E）**（**首次 16E 核**） |

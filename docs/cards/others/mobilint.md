@@ -17,8 +17,8 @@ keywords: [Mobilint, Regulus, 韩国 NPU, 5nm, 32 TOPS, 12W, Edge AI, 韩国 AI 
 ## 核心规格
 
 | 项目 | 参数 |
-| **发布** | 2023-Q3（推测） |
 |------|------|
+| **发布** | 2023-Q3（推测） |
 | **架构** | Mobilint Aries NPU |
 | **制程** | **TSMC 5nm** |
 | **NPU 核数** | **8× Aries NPU core** |

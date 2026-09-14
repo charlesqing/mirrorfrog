@@ -20,8 +20,8 @@ keywords: [Google TPU v6p, TPU v6p, Trillium 训练, Pathway, JAX, TPU 6P]
 ## 核心规格
 
 | 项目 | 参数 |
-| **发布** | 2024-12-03 |
 |------|------|
+| **发布** | 2024-12-03 |
 | **代号** | Trillium 训练版（Google 内部称 Pathway） |
 | **架构** | Google TPU v6（与 v6e 同代） |
 | **制程** | TSMC 5nm（vs v5e 7nm） |

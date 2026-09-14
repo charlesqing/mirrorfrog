@@ -81,7 +81,7 @@ function loadPricing(): Promise<Record<string, PriceInfo>> {
 const SPEC_LABEL_ZH: Record<string, string> = {
   'architecture': '架构', 'process': '制程', 'memory.type': '显存类型',
   'memory.capacity': '显存容量', 'memory.bandwidth': '显存带宽',
-  'compute.fp8': 'FP8 算力', 'compute.fp16': 'FP16 算力', 'compute.fp32': 'FP32 算力',
+  'compute.fp4': 'FP4 算力', 'compute.fp8': 'FP8 算力', 'compute.fp16': 'FP16 算力', 'compute.fp32': 'FP32 算力',
   'compute.fp64': 'FP64 算力', 'compute.int8': 'INT8 算力', 'tdp': 'TDP 功耗', 'release': '发布时间',
   'interface': '接口', 'price': '首发价格', 'tdpW': 'TDP（数值 W）',
 };

@@ -19,8 +19,8 @@ keywords: [IBM NorthPole, In-Memory Compute, 神经形态, 22nm, 458 TOPS, TrueN
 ## 核心规格
 
 | 项目 | 参数 |
-| **发布** | 2023-10-19 |
 |------|------|
+| **发布** | 2023-10-19 |
 | **架构** | IBM NorthPole（In-Memory Compute） |
 | **制程** | **IBM 22nm SOI**（**Samsung/Samsung 11nm 推测 2026**） |
 | **核心数** | **256 个 CISC 处理器**（Custom Instruction Set） |

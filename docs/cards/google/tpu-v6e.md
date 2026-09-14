@@ -15,8 +15,8 @@ Google TPU v6e（代号 **Trillium**）于 2024 年 12 月 GA（General Availabi
 ## 核心规格
 
 | 项目 | 参数 |
-| **发布** | 2024 年 12 月 GA |
 |------|------|
+| **发布** | 2024 年 12 月 GA |
 | **架构** | TPU v6e（Trillium） |
 | **BF16 算力** | **918 TFLOPS**（4.7× v5e） |
 | **INT8 算力** | 1,836 TOPS |

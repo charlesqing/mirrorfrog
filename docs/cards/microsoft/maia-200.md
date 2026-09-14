@@ -135,6 +135,24 @@ keywords: [Maia 200, Microsoft AI chip, Azure, TSMC 3nm, FP4, HBM3e, 推理加�
   - Azure 虚拟机（Maia 200 实例）
 - **Maia SDK 预览版**：已开放申请
 
+## Hot Chips 2026 补充披露（2026-08 更新）
+
+微软在 Hot Chips 2026（演讲题目 *MAIA 200: A Data Center Scale AI system*）进一步披露了系统架构与液冷设计：
+
+| 项目 | 补充披露内容 |
+|------|--------------|
+| **SoC die 面积** | 820 mm² |
+| **晶体管数** | 1,400 亿 |
+| **Scale-up 拓扑** | 全连接四元拓扑，统一 Ethernet scale-up |
+| **片上 SRAM** | 272 MB（**由软件显式管理**） |
+| **液冷方案** | 冷板液冷 + **第二代 Sidecar Heat Exchanger Unit（HXU）** |
+| **承载负载** | GPT-5.2、Microsoft 365 Copilot、Microsoft Foundry |
+| **官方口径** | 每美元性能较 fleet 中最新一代硬件提升 **30%**（自报，2027 年财报 TCO 待验） |
+
+### 下一代 Maia 300
+
+据公开报道，微软计划**最快下月发布 Maia 300**，正与台积电洽谈**超过 30 万颗**产能，计划 **2027 年交付**，长期目标为**超过 100 万颗**。这标志着微软自研 ASIC 从技术验证阶段迈向规模部署阶段，其角色也从"降本试水"变为**承载旗舰负载**。
+
 ## 外部链接
 
 - [微软官方博客：Maia 200 发布](https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/)

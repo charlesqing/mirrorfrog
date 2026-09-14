@@ -21,8 +21,8 @@ keywords: [Intel Gaudi 4, Gaudi 4, Intel AI, 3nm, HBM3E, SynapseAI, 对标 H200]
 ## 核心规格（推测）
 
 | 项目 | 参数 |
-| **发布** | 2026-Q2（推测） |
 |------|------|
+| **发布** | 2026-Q2（推测） |
 | **架构** | Intel Gaudi 第四代（与 Gaudi 3 同架构演进） |
 | **制程** | Intel 18A（1.8nm，等效 2nm 级） |
 | **HBM** | **192 GB HBM3E**（6 个 stack） |

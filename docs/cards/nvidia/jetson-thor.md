@@ -15,8 +15,8 @@ NVIDIA Jetson Thor 是 2025 年发布的下一代边缘 AI 模组，基于 **Bla
 ## 核心规格
 
 | 规格 | Jetson AGX Thor Developer Kit | Jetson T5000 | Jetson T4000 |
-| **发布** | 2025 年 8 月（GA） |
 |------|------------------------------|--------------|--------------|
+| **发布** | 2025 年 8 月（GA） |
 | **AI 算力 (FP4 稀疏)** | **2,070 TFLOPS** | 2,070 TFLOPS | 1,200 TFLOPS |
 | **GPU** | 2,560-core Blackwell + 第五代 Tensor Core | 2,560-core Blackwell + 第五代 Tensor Core | 1,536-core Blackwell + 第五代 Tensor Core |
 | **MIG** | 10 TPC | 10 TPC | 6 TPC |

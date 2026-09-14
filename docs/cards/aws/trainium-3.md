@@ -123,6 +123,35 @@ Trainium 3 是 AWS **"AI 工厂"战略**的核心 —— Amazon 内部 Bedrock�
 | **SDK** | https://github.com/aws-neuron |
 | **合作方** | Anthropic / Meta / Mistral / HuggingFace |
 
+## 系统级规格（UltraServer / UltraCluster）
+
+单芯片规格之外，AWS 披露了整机级参数——这是判断 Trainium3 集群实际交付能力的依据：
+
+| 项目 | 规格 |
+|------|------|
+| **UltraServer 芯片数** | 最多 **144 颗** Trainium3 |
+| **UltraServer MXFP8 算力** | **362 PFLOPS** |
+| **UltraServer HBM 总容量** | **20.7 TB** HBM3e |
+| **UltraServer 聚合带宽** | **706 TB/s** |
+| **Scale-out 带宽** | 最高 **28.8 Tbps**（Elastic Fabric Adapter，单 UltraServer） |
+| **互联** | NeuronSwitch 全对全 fabric（芯片间带宽较 Trainium2 UltraServer 翻倍） |
+| **集群** | UltraClusters 3.0，可扩展至数十万颗芯片 |
+
+> ⚠️ **口径提示**：362 PFLOPS / 20.7 TB / 706 TB/s 均为 **UltraServer 整机（144 颗芯片）** 数据，**不是单芯片规格**。单芯片 FP8 密集算力为 **2.52 PFLOPS**。
+
+## 商业化进展（2026-09 更新）
+
+| 维度 | 进展 |
+|------|------|
+| **收入规模** | Trainium 与 Graviton 合计年化收入运行率突破 **250 亿美元**；安迪·贾西称若芯片业务独立运营，年化运行率有望接近 **500 亿美元** |
+| **产能状态** | Trainium2 基本售罄；Trainium3 刚出货便接近满配；距上市尚有约 18 个月的 **Trainium4 已有大量产能被提前预订** |
+| **客户承诺** | Anthropic 承诺最高 **5 GW** Trainium 容量；OpenAI 承诺约 **2 GW**（2027 年起放量）；Uber 已用 Trainium3 训练网约车业务模型 |
+| **向外销售** | AWS 正与外部企业洽谈**直接出售 Trainium 芯片**（不再局限于云实例租赁） |
+| **9/8 高通交易** | 亚马逊宣布与高通达成多代自研 AI 芯片合作，初期聚焦推理，**潜在采购承诺十年最高 600 亿美元**（为上限而非保证收入） |
+| **Trainium4** | 将采用 NVIDIA **NVLink Fusion** 互联技术——承认 NVIDIA 网络生态仍是客户预期接入的标准 |
+
+> **关键洞察**：Trainium3 是云自研 ASIC 从"内部降本工具"变为"对外产品线"的标志性产品。它的验证点有两个——Anthropic 的 5 GW 与 OpenAI 的 2 GW 承诺能否按期兑现，以及性能能否扛住 NVIDIA Rubin 的正面冲击。软件侧，从 CUDA 迁移到 Neuron 栈仍需可观工程投入，这是低价之外的摩擦成本。
+
 ## 相关产品
 
 - [AWS Trainium 2](/docs/cards/aws/trainium-2) - 前代芯片

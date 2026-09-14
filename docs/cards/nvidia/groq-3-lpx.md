@@ -92,6 +92,24 @@ Groq 3 LPX 是 **NVIDIA Vera Rubin 平台**的**推理加速 co-processor** —�
 - **OpenAI API 兼容层**（兼容现有 LLM 应用）
 - **LangChain / LlamaIndex** 集成
 
+## Hot Chips 2026 LPU 架构细节（2026-08 更新）
+
+NVIDIA 在 Hot Chips 2026 详细披露了收购 Groq 后的第三代 LPU（演讲题目 *Think Fast: LPU Accelerator for Heterogeneous Compute*），首次在自家参考架构中给"非 GPU"留出正式位置：
+
+| 项目 | 规格 |
+|------|------|
+| **单 LPU 片上 SRAM** | **500 MB** |
+| **片上带宽** | **150 TB/s** |
+| **LPX 机架规模** | **256 颗** LPU |
+| **LPX 机架算力** | **315 PFLOPS** |
+| **LPX 聚合带宽** | **640 TB/s** |
+| **实测（Gemma 4 31B）** | 单用户 **3,431 token/s** |
+| **DeepSeek V3 级模型** | 约需 **5 个机架** |
+| **同步机制** | FPGA 桥接同步域与异步域；投机解码只换 draft token |
+| **首个云客户** | Nebius（Token Factory） |
+
+> **关键洞察**：**GPU 管 prefill，LPU 管 decode**。LPU 用超大片上 SRAM 绕开 decode 阶段的内存带宽瓶颈——这正是"每 token 经济学"推导出的必然结论：prefill 吃算力，decode 吃带宽，两者用不同架构解决成本更低。
+
 ## 价格（推测）
 
 | 项目 | 价格 |

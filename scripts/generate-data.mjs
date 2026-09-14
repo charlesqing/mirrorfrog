@@ -33,6 +33,13 @@ const KEY_MAP = {
   '统一内存': 'memory.capacity', 'unified memory': 'memory.capacity',
   '内存容量': 'memory.capacity', 'memory capacity': 'memory.capacity',
   'fp8': 'compute.fp8', 'fp8 算力': 'compute.fp8', 'fp8 tensor': 'compute.fp8', 'fp8 tensor core': 'compute.fp8',
+  // FP4 已成 2026 新卡主口径（TPU 8t/8i、MTIA 400、Maia 200、Trainium3 均以 FP4/MXFP4 标称），
+  // 此前无映射导致这些卡的 FP4 算力被静默丢弃
+  'fp4': 'compute.fp4', 'fp4 算力': 'compute.fp4', 'fp4 tensor': 'compute.fp4', 'fp4 tensor core': 'compute.fp4',
+  'fp4 稀疏': 'compute.fp4', 'fp4 稀疏算力': 'compute.fp4', 'fp4 dense': 'compute.fp4',
+  'mxfp4': 'compute.fp4', 'mx4': 'compute.fp4', 'mxfp4 算力': 'compute.fp4', 'fp4 稠密算力': 'compute.fp4',
+  'fp4 sparse': 'compute.fp4', 'fp4 dense': 'compute.fp4', 'fp4 稀疏 (sparse)': 'compute.fp4',
+  'fp8 sparse': 'compute.fp8', 'fp8 dense': 'compute.fp8', 'fp8 / fp6 sparse': 'compute.fp8', 'fp8 / fp6 dense': 'compute.fp8',
   'fp16': 'compute.fp16', 'fp16 算力': 'compute.fp16', 'fp16 tensor': 'compute.fp16', 'fp16 tensor core': 'compute.fp16', 'fp16 稀疏': 'compute.fp16', 'fp16 稀疏算力': 'compute.fp16', 'fp16 dense': 'compute.fp16', 'fp16 matrix': 'compute.fp16',
   'fp16/bf16': 'compute.fp16', 'fp16/bf16 tensor': 'compute.fp16', 'fp16/bf16 tensor core': 'compute.fp16', 'fp16/bf16 matrix': 'compute.fp16', 'fp16 / bf16': 'compute.fp16', 'fp16 / bf16 (峰值)': 'compute.fp16',
   'bf16': 'compute.fp16', 'bf16 算力': 'compute.fp16', 'bf16 dense': 'compute.fp16', 'bf16/fp16': 'compute.fp16',
@@ -129,11 +136,22 @@ function parseSpecsTable(markdown) {
   return result;
 }
 
+// 「未公开 / 待定」标记：出现这些词说明该字段没有可采信数值。
+// 必须挡住「未公开（推测 ~175 TFLOPS）」这类单元格——否则推测值会被当成实测值。
+const UNKNOWN_RE = /未公开|待定|待公布|待确认|不详|未披露|N\/A|TBD|Cancelled/i;
+
 function parseTdpW(s) {
-  if (!s || s === 'Cancelled' || s === 'N/A' || s === 'TBD') return 0;
+  if (!s) return null;
   const cleaned = String(s).replace(/[–—~～]/g, '-');
   const matches = cleaned.match(/(\d+(?:[.,]\d+)?)/g);
-  if (!matches) return 0;
+  // 与 parseTflops 同理：无数字必须返回 null 而非 0（0 会被当成「实测 0 W」）。
+  if (!matches) return null;
+  // 位置判定：若「未公开」出现在第一个数字之前，说明该数字不属于主值
+  // （如「未公开（推测 350-500W）」「未公开；IPU X1000 卡约 20W」）→ 不予采信；
+  // 反之「**40-70 W**（… XL 未公开）」「~250 W（未公开，推测）」保留了真实主值。
+  const firstNum = cleaned.search(/\d/);
+  const unk = cleaned.search(UNKNOWN_RE);
+  if (unk >= 0 && unk < firstNum) return null;
   const max = matches.reduce((m, v) => Math.max(m, parseFloat(v.replace(',', ''))), 0);
   if (/kw/i.test(s)) return Math.round(max * 1000);
   return Math.round(max);
@@ -141,6 +159,10 @@ function parseTdpW(s) {
 
 function parseTflops(s) {
   if (!s) return null;
+  // 算力口径更严：只要出现「未公开 / 待定」就整格丢弃任何数字。
+  // 实测扫描显示「支持原生 FP8（具体 TFLOPS 未公开）」「支持 8-bit 推理（…未公开）」
+  // 这类单元格会把格式名里的 8 当成算力值，位置判定挡不住，故整格不采信。
+  if (UNKNOWN_RE.test(s)) return null;
   const cleaned = String(s).replace(/[–—~～]/g, '-');
   const matches = cleaned.match(/(\d+(?:[.,]\d+)?)/g);
   // 单元格无数字（如「未公开」「待确认」）→ 返回 null 而非 0。
@@ -162,6 +184,7 @@ function parseChip(filePath) {
   // 解析为数字字段供前端直接使用（避免重复解析逻辑）
   const tdpW = parseTdpW(specs.tdp || '');
   const fp16 = parseTflops(specs.compute?.fp16);
+  const fp4 = parseTflops(specs.compute?.fp4);
   return {
     id,
     title: data.title || id,
@@ -171,6 +194,7 @@ function parseChip(filePath) {
     keywords: Array.isArray(data.keywords) ? data.keywords : [],
     tdpW,           // 数字（TDP，W）
     fp16Tflops: fp16, // 数字（FP16 算力，TFLOPS，可为 null）
+    fp4Tflops: fp4,   // 数字（FP4 算力，TFLOPS，可为 null）
     specs,
   };
 }

@@ -483,11 +483,11 @@
       "source": "华为官方指导价 / 市场均价"
     },
     "ascend-910c": {
-      "official_msrp": 16000,
-      "market_price": 14500,
-      "currency": "USD",
-      "last_updated": "2026-06-13",
-      "source": "华为官方指导价"
+      "official_msrp": null,
+      "market_price": 110000,
+      "currency": "CNY",
+      "last_updated": "2026-09-10",
+      "source": "2026-09 渠道报价 >¥11 万（年初约 ¥9 万，+22%；Reuters 2026-09-10）"
     },
     "ascend-920": {
       "official_msrp": 25000,
@@ -497,18 +497,18 @@
       "source": "华为官方指导价"
     },
     "ascend-950pr": {
-      "official_msrp": 18000,
-      "market_price": null,
-      "currency": "USD",
-      "last_updated": "2026-06-01",
-      "source": "预测价格"
+      "official_msrp": null,
+      "market_price": 80000,
+      "currency": "CNY",
+      "last_updated": "2026-09-10",
+      "source": "2026-09 渠道报价 >¥8 万（年初约 ¥6 万，+30%；Reuters 2026-09-10）"
     },
     "ascend-950dt": {
-      "official_msrp": 22000,
-      "market_price": null,
-      "currency": "USD",
-      "last_updated": "2026-06-01",
-      "source": "预测价格"
+      "official_msrp": null,
+      "market_price": 250000,
+      "currency": "CNY",
+      "last_updated": "2026-09-10",
+      "source": "2026-09 渠道报价 >¥25 万（较 7 月 +20~50%；Bloomberg 称 3 个月涨约 60%，对标 B200；Reuters 2026-09-10）"
     },
     "ascend-910d": {
       "official_msrp": 18000,
@@ -1325,11 +1325,11 @@
   },
   "cambricon": {
     "mlu-690": {
-      "market_price": 140000,
-      "official_msrp": 150000,
+      "market_price": 175000,
+      "official_msrp": 190000,
       "currency": "CNY",
-      "last_updated": "2026-06-23",
-      "source": "寒武纪官网/市场均价"
+      "last_updated": "2026-09-10",
+      "source": "寒武纪官网 / 市场均价；2026-09 报价较两个月前上调 20~30%（Reuters 2026-09-10，HBM 挤压）"
     }
   }
 }

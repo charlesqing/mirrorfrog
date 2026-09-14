@@ -22,7 +22,7 @@ type Chip = {
     architecture?: string;
     process?: string;
     memory?: { type?: string; capacity?: string; bandwidth?: string };
-    compute?: { fp8?: string; fp16?: string; fp32?: string; int8?: string };
+    compute?: { fp4?: string; fp8?: string; fp16?: string; fp32?: string; int8?: string };
     tdp?: string;
     release?: string;
   };
@@ -37,6 +37,7 @@ type CompareChip = {
   memoryType?: string;
   memoryCapacity?: string;
   memoryBandwidth?: string;
+  fp4?: string;
   fp8?: string;
   fp16?: string;
   fp32?: string;
@@ -94,6 +95,7 @@ export default function ComparePage(): ReactNode {
         memoryType: specs.memory?.type,
         memoryCapacity: specs.memory?.capacity,
         memoryBandwidth: specs.memory?.bandwidth,
+        fp4: specs.compute?.fp4,
         fp8: specs.compute?.fp8,
         fp16: specs.compute?.fp16,
         fp32: specs.compute?.fp32,
@@ -303,6 +305,14 @@ export default function ComparePage(): ReactNode {
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td className={styles.specName}>FP4</td>
+                  {selectedChips.map((c, i) => (
+                    <td key={i} className={styles.specValue}>
+                      {c.fp4 || '—'}
+                    </td>
+                  ))}
+                </tr>
                 <tr>
                   <td className={styles.specName}>FP8</td>
                   {selectedChips.map((c, i) => (

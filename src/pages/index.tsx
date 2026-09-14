@@ -22,7 +22,7 @@ type Chip = {
     architecture?: string;
     process?: string;
     memory?: { type?: string; capacity?: string; bandwidth?: string };
-    compute?: { fp8?: string; fp16?: string; fp32?: string; int8?: string };
+    compute?: { fp4?: string; fp8?: string; fp16?: string; fp32?: string; int8?: string };
     tdp?: string;
     release?: string;
   };
