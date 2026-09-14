@@ -83,7 +83,7 @@ status: "已流片"
 - [Tesla Dojo v2](/docs/cards/others/tesla-dojo-v2) — 训练芯片后继
 - [NVIDIA Drive Thor](/docs/cards/nvidia/drive-thor) — 车载 AI 计算竞品
 - [NVIDIA Jetson Thor](/docs/cards/nvidia/jetson-thor) — 机器人 AI 计算平台
-- [完整对比表](/docs/compare)
+- [完整对比表](/docs/comparison)
 
 ## 参考资料
 

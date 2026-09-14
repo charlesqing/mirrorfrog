@@ -86,7 +86,7 @@ status: "研发中"
 - [壁仞 BR100](/docs/cards/others/biren-br100) — 初代旗舰
 - [沐曦 曦云 C700](/docs/cards/others/metax-c700) — 同批下一代产品
 - [摩尔线程 华山](/docs/cards/others/moore-threads-huashan) — 同批下一代产品
-- [完整对比表](/docs/compare)
+- [完整对比表](/docs/comparison)
 
 ## 参考资料
 

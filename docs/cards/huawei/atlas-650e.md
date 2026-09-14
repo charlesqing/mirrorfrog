@@ -83,7 +83,7 @@ status: "预告"
 - [华为昇腾 950PR](/docs/cards/huawei/ascend-950pr) — 同代预填充向芯片
 - [华为昇腾 910C](/docs/cards/huawei/ascend-910c) — 上一代主力
 - [摩尔线程 华山](/docs/cards/others/moore-threads-huashan) — 国产云端竞品
-- [完整对比表](/docs/compare)
+- [完整对比表](/docs/comparison)
 
 ## 参考资料
 

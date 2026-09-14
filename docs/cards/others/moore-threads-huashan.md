@@ -90,7 +90,7 @@ status: "研发中"
 - [摩尔线程 MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — 在售云端旗舰
 - [寒武纪 思元690](/docs/cards/cambricon/mlu-690) — 国产训练芯片竞品
 - [华为昇腾 950DT](/docs/cards/huawei/ascend-950dt) — 国产训练/推理旗舰
-- [完整对比表](/docs/compare)
+- [完整对比表](/docs/comparison)
 
 ## 参考资料
 

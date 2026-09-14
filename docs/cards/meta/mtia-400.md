@@ -92,7 +92,7 @@ Meta 公布的路线图显示未来两年完成 **MTIA 300 / 400 / 450 / 500 四
 - [Microsoft Maia 200](/docs/cards/microsoft/maia-200) — 云厂商自研推理芯片
 - [Google TPU 8i](/docs/cards/google/tpu-8i) — 推理向自研 ASIC
 - [AWS Trainium3](/docs/cards/aws/trainium-3) — 云自研训练/推理芯片
-- [完整对比表](/docs/compare)
+- [完整对比表](/docs/comparison)
 
 ## 参考资料
 

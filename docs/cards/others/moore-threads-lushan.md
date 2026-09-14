@@ -85,7 +85,7 @@ status: "研发中"
 - [摩尔线程 华山](/docs/cards/others/moore-threads-huashan) — 同架构 AI 训推一体
 - [摩尔线程 MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — 在售云端旗舰
 - [摩尔线程 MTT S4000](/docs/cards/others/moore-threads-mtt-s4000) — 上一代云端产品
-- [完整对比表](/docs/compare)
+- [完整对比表](/docs/comparison)
 
 ## 参考资料
 
