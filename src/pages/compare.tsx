@@ -426,6 +426,7 @@ export default function ComparePage(): ReactNode {
           <LeadCapture
             source="compare"
             lang={isZh ? 'zh' : 'en'}
+            chipCount={chips.length}
             getExtraSections={getCompareContext}
             getFocusChipIds={getFocusChipIds}
           />

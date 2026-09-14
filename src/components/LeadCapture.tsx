@@ -1,10 +1,10 @@
-import { memo, useCallback, useState, type FormEvent } from 'react';
+import { memo, useCallback, useEffect, useState, type FormEvent } from 'react';
 import styles from './LeadCapture.module.css';
 
 /**
  * 「下载选型报告」邮箱留资组件。
  *
- * 报告以用户上下文为中心（不是 222 款全量倾倒）：
+ * 报告以用户上下文为中心（不是全量倾倒）：
  *   1. 你的选型方案 —— 调用方注入的 TCO 摘要 / 对比清单（getExtraSections）
  *   2. 焦点芯片规格与定价 —— getFocusChipIds 指定的芯片，完整 specs + pricing.json 定价
  *   3. 同档替代方案 —— 按 FP16 算力最接近自动推荐 3 款（引回站内的钩子）
@@ -19,6 +19,11 @@ type LeadCaptureProps = {
   source: 'tco' | 'compare';
   /** 界面语言 */
   lang?: 'zh' | 'en';
+  /**
+   * 芯片库总数（封面徽章与报告统计用）。
+   * 调用方已知时直接传入，避免重复请求；缺省时组件自动读取 chips.json。
+   */
+  chipCount?: number;
   /** 个性化报告段落（Markdown 文本），如当前 TCO 计算结果或对比选择 */
   getExtraSections?: () => string;
   /** 焦点芯片 id 列表（第一个为主选），用于生成规格 + 定价 + 替代方案章节 */
@@ -167,6 +172,7 @@ function buildReport(
 ): string {
   const zh = lang === 'zh';
   const date = new Date().toISOString().slice(0, 10);
+  const vendorCount = new Set(chips.map(c => c.vendor)).size;
   const lines: string[] = [];
 
   lines.push(zh ? '# MirrorFrog AI 算力卡选型报告' : '# MirrorFrog AI Accelerator Selection Report');
@@ -251,8 +257,8 @@ function buildReport(
   lines.push('');
   lines.push(
     zh
-      ? `## 完整数据（${chips.length} 款 · 14 厂商）`
-      : `## Full Database (${chips.length} chips · 14 vendors)`,
+      ? `## 完整数据（${chips.length} 款 · ${vendorCount} 厂商）`
+      : `## Full Database (${chips.length} chips · ${vendorCount} vendors)`,
   );
   lines.push('');
   lines.push(
@@ -281,10 +287,25 @@ function saveLead(email: string, source: string): void {
   }
 }
 
-function LeadCaptureInner({ source, lang = 'zh', getExtraSections, getFocusChipIds }: LeadCaptureProps) {
+function LeadCaptureInner({ source, lang = 'zh', chipCount, getExtraSections, getFocusChipIds }: LeadCaptureProps) {
   const zh = lang === 'zh';
   const [email, setEmail] = useState('');
   const [state, setState] = useState<'idle' | 'busy' | 'done' | 'error'>('idle');
+  const [totalChips, setTotalChips] = useState<number | null>(chipCount ?? null);
+
+  // 封面徽章 / 报告统计用的芯片总数：调用方已知时直接传入（零额外请求），
+  // 否则惰性读取 chips.json（模块级缓存，与提交时共用同一份数据）。
+  useEffect(() => {
+    if (chipCount != null) {
+      setTotalChips(chipCount);
+      return;
+    }
+    let alive = true;
+    loadChips()
+      .then(c => { if (alive) setTotalChips(c.length); })
+      .catch(() => { /* 读取失败则隐藏徽章，宁可不显示也不显示错误数字 */ });
+    return () => { alive = false; };
+  }, [chipCount]);
 
   const handleSubmit = useCallback(
     (e: FormEvent) => {
@@ -332,8 +353,8 @@ function LeadCaptureInner({ source, lang = 'zh', getExtraSections, getFocusChipI
             </p>
             <p className={styles.doneText}>
               {zh
-                ? '含你的选型方案、焦点芯片完整规格与定价、同档替代方案。后续数据更新将通过邮箱同步。'
-                : 'Includes your selection, focus chip specs & pricing, and closest alternatives. Future data updates will be emailed.'}
+                ? '含你的选型方案、焦点芯片完整规格与定价、同档替代方案。报告已在浏览器本地生成，可直接留存。'
+                : 'Includes your selection, focus chip specs & pricing, and closest alternatives. Generated locally in your browser.'}
             </p>
           </div>
         </div>
@@ -347,7 +368,7 @@ function LeadCaptureInner({ source, lang = 'zh', getExtraSections, getFocusChipI
         <div className={styles.coverBar} />
         <div className={styles.coverLine1} />
         <div className={styles.coverLine2} />
-        <div className={styles.coverBadge}>222</div>
+        {totalChips != null && <div className={styles.coverBadge}>{totalChips}</div>}
       </div>
       <div className={styles.body}>
         <h3 className={styles.title}>
@@ -355,8 +376,8 @@ function LeadCaptureInner({ source, lang = 'zh', getExtraSections, getFocusChipI
         </h3>
         <p className={styles.desc}>
           {zh
-            ? '留下邮箱，立即下载围绕你当前选型生成的报告（Markdown）：所选芯片完整规格与定价、同档替代方案，并订阅后续数据更新。'
-            : 'Drop your email to instantly download a Markdown report built around your selection — focus chip specs & pricing, closest alternatives — and subscribe to data updates.'}
+            ? '留下邮箱，立即下载围绕你当前选型生成的报告（Markdown）：所选芯片完整规格与定价、同档替代方案。报告在浏览器本地生成。'
+            : 'Drop your email to instantly download a Markdown report built around your selection — focus chip specs & pricing, closest alternatives. Generated locally in your browser.'}
         </p>
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           <label className={styles.srLabel} htmlFor={`lc-email-${source}`}>
@@ -388,8 +409,8 @@ function LeadCaptureInner({ source, lang = 'zh', getExtraSections, getFocusChipI
               ? '邮箱格式有误，或数据加载失败，请重试。'
               : 'Invalid email or data failed to load — please retry.'
             : zh
-              ? '无需注册 · 数据 CC BY 4.0 · 随时可退订'
-              : 'No signup wall · Data under CC BY 4.0 · Unsubscribe anytime'}
+              ? '无需注册 · 数据 CC BY 4.0 · 报告本地生成'
+              : 'No signup wall · Data under CC BY 4.0 · Report generated locally'}
         </p>
       </div>
     </aside>

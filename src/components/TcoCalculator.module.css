@@ -1112,7 +1112,9 @@
 .toolRight {
   min-width: 0; /* 防止 grid 子项内容撑破列宽 */
 }
-@media (min-width: 1024px) {
+/* 断点取 1280px 而非 1024px：本页在宽屏下右侧还有 Docusaurus 的 TOC 栏，
+   1024~1280px 视口下正文容器会被压窄，过早切双栏会把结果区挤成窄条。 */
+@media (min-width: 1280px) {
   .toolLayout {
     grid-template-columns: 360px minmax(0, 1fr);
     align-items: start;
