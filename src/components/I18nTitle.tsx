@@ -6,7 +6,7 @@ export default function I18nTitle(): ReactElement | null {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      'zh-Hans': 'AI 算力卡百科 | 233 款 AI 芯片规格对比',
+      'zh-Hans': 'AI 算力卡百科 | 222 款 AI 芯片规格对比',
       'en': 'AI Compute Cards Wiki | 222 AI Chips Specs Compared',
     };
 

@@ -4,9 +4,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   // ========== 基础信息 ==========
-  title: 'AI 算力卡百科 | 233 款 AI 芯片规格对比',
+  title: 'AI 算力卡百科 | 222 款 AI 芯片规格对比',
   titleDelimiter: ' | ',
-  tagline: '233 款 AI 算力卡完整规格对比 · NVIDIA / AMD / 华为昇腾 · 2025-2026 行业洞察',
+  tagline: '222 款 AI 算力卡完整规格对比 · NVIDIA / AMD / 华为昇腾 · 2025-2026 行业洞察',
   favicon: 'img/favicon.ico',
 
   future: {v4: true},
@@ -143,8 +143,8 @@ const config: Config = {
             var path = window.location.pathname;
             var isEnglish = path.startsWith('/en/') || path.startsWith('/en');
             var defaultTitles = {
-              zh: 'AI 算力卡百科 | 233 款 AI 芯片规格对比',
-              en: 'AI Compute Cards Wiki | 233 AI Chips Specs Compared'
+              zh: 'AI 算力卡百科 | 222 款 AI 芯片规格对比',
+              en: 'AI Compute Cards Wiki | 222 AI Chips Specs Compared'
             };
             var currentTitle = document.title;
             if (currentTitle === defaultTitles.zh || currentTitle === defaultTitles.en || currentTitle.includes('AI 算力卡百科') || currentTitle.includes('AI Compute Cards Wiki')) {
@@ -164,7 +164,7 @@ const config: Config = {
     },
 
     // ---- 基础 SEO Meta ----
-    {tagName: 'meta', attributes: {name: 'description', content: '完整收录 233 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI400、华为昇腾910B/950/960/970、寒武纪 MLU370 等主流 AI 芯片，提供算力卡选型参考。'}},
+    {tagName: 'meta', attributes: {name: 'description', content: '完整收录 222 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI400、华为昇腾910B/950/960/970、寒武纪 MLU370 等主流 AI 芯片，提供算力卡选型参考。'}},
     {tagName: 'meta', attributes: {name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}},
     {tagName: 'meta', attributes: {name: 'googlebot', content: 'index, follow, max-image-preview:large'}},
     {tagName: 'meta', attributes: {name: 'baiduspider', content: 'index, follow'}},
@@ -184,7 +184,7 @@ const config: Config = {
     {tagName: 'meta', attributes: {property: 'og:image', content: 'https://mirrorfrog.com/img/og-cover.png'}},
     {tagName: 'meta', attributes: {property: 'og:image:width', content: '1200'}},
     {tagName: 'meta', attributes: {property: 'og:image:height', content: '630'}},
-    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'MirrorFrog AI 算力卡百科 - 233 款 AI 芯片规格对比'}},
+    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'MirrorFrog AI 算力卡百科 - 222 款 AI 芯片规格对比'}},
     {tagName: 'meta', attributes: {property: 'og:image:type', content: 'image/png'}},
 
     // ---- Twitter Card ----
@@ -193,9 +193,9 @@ const config: Config = {
     // {tagName: 'meta', attributes: {name: 'twitter:site', content: '@mirrorfrog'}},
     // {tagName: 'meta', attributes: {name: 'twitter:creator', content: '@mirrorfrog'}},
     {tagName: 'meta', attributes: {name: 'twitter:title', content: 'MirrorFrog AI 算力卡百科'}},
-    {tagName: 'meta', attributes: {name: 'twitter:description', content: '完整收录 233 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI400、华为昇腾910B/950/960/970 等主流 AI 芯片。'}},
+    {tagName: 'meta', attributes: {name: 'twitter:description', content: '完整收录 222 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI400、华为昇腾910B/950/960/970 等主流 AI 芯片。'}},
     {tagName: 'meta', attributes: {name: 'twitter:image', content: 'https://mirrorfrog.com/img/og-cover.png'}},
-    {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'MirrorFrog AI 算力卡百科 - 233 款 AI 芯片'}},
+    {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'MirrorFrog AI 算力卡百科 - 222 款 AI 芯片'}},
 
     // ---- Windows Tile ----
     {tagName: 'meta', attributes: {name: 'msapplication-TileColor', content: '#5b4cdb'}},
@@ -219,7 +219,7 @@ const config: Config = {
           name: 'MirrorFrog AI 算力卡百科',
           alternateName: 'AI Compute Cards Wiki | MirrorFrog',
           url: 'https://mirrorfrog.com',
-          description: '233 款 AI 算力卡完整规格对比、深度分析、选型指南。覆盖 NVIDIA、AMD、Intel、Google、AWS、华为昇腾、寒武纪等主流 AI 加速芯片。2025-2026 行业洞察持续更新。',
+          description: '222 款 AI 算力卡完整规格对比、深度分析、选型指南。覆盖 NVIDIA、AMD、Intel、Google、AWS、华为昇腾、寒武纪等主流 AI 加速芯片。2025-2026 行业洞察持续更新。',
           inLanguage: ['zh-Hans', 'en'],
           copyrightHolder: {'@id': 'https://mirrorfrog.com/#organization'},
           potentialAction: {
@@ -262,7 +262,7 @@ const config: Config = {
             price: '0',
             priceCurrency: 'USD',
           },
-          description: '完整收录 233 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI400、华为昇腾910B/950/960/970、寒武纪 MLU370 等主流 AI 芯片，提供算力卡选型参考。',
+          description: '完整收录 222 款 AI 算力卡规格参数与性能对比，覆盖 NVIDIA H100/H200/B200/GB300/Rubin、AMD MI300X/MI400、华为昇腾910B/950/960/970、寒武纪 MLU370 等主流 AI 芯片，提供算力卡选型参考。',
         },
       ],
     })},

@@ -264,7 +264,7 @@ function HomepageHeader({ chips, content, stats, statsReady }: { chips: Chip[]; 
   );
 }
 
-function HotChipsSection({ content, chipCount }: { content: HomeContent; chipCount: number }) {
+function HotChipsSection({ content }: { content: HomeContent }) {
   const sortedChips = useMemo(() => sortChips(content.hotChips, content), [content]);
   const h = content.hotChipsHeader;
   return (
@@ -302,7 +302,7 @@ function HotChipsSection({ content, chipCount }: { content: HomeContent; chipCou
           })}
         </ul>
         <p className={styles.sectionFooter}>
-          <Link to="/docs/comparison">{content.viewFullComparison.replace('{n}', chipCount > 0 ? String(chipCount) : '—')}</Link>
+          <Link to="/docs/comparison">{content.viewFullComparison}</Link>
         </p>
       </div>
     </section>
@@ -422,7 +422,7 @@ export default function Home(): ReactNode {
         const estimate = (meta.docFiles ?? 0) * 2 + (meta.blogFiles ?? 0) * 2 + 50;
         setPageCount(estimate);
       } else {
-        setPageCount(233 * 2 + 50 * 2 + 50);
+        setPageCount(222 * 2 + 50 * 2 + 50);
       }
       setMetaReady(true);
     });
@@ -448,7 +448,7 @@ export default function Home(): ReactNode {
     <Layout title={pageTitle} description={content.metaDescription}>
       <HomepageHeader chips={chips} content={content} stats={stats} statsReady={chipsReady && metaReady} />
       <main>
-        <HotChipsSection content={content} chipCount={chips.length} />
+        <HotChipsSection content={content} />
         <NewsSection news={news} loading={!newsReady} content={content} />
         <CTASection content={content} />
       </main>
