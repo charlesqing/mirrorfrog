@@ -1526,27 +1526,37 @@
   },
   {
     "id": "ascend-960",
-    "title": "Huawei Ascend 960 (Atlas 960 SuperPoD)",
+    "title": "Huawei Ascend 960 (昇腾 960)",
     "vendor": "huawei",
     "slug": "/docs/cards/huawei/ascend-960",
-    "description": "Huawei Ascend 960 (Atlas 960 SuperPoD) 预览卡：数字中国建设峰会披露 15488 张昇腾卡超节点、单芯片推测 FP8 ~2 PFLOPS / N+3 工艺、2027-Q4 路线图。",
+    "description": "Huawei Ascend 960 官宣规格（华为全联接大会 2026）：960DT FP8 2 PFLOPS / FP4 4 PFLOPS 翻倍升级、288GB 自研 HBM、9.6TB/s 带宽，2027 Q2 上市；NPO 超节点 4096 卡、8 EFLOPS FP8、1PB HBM。",
     "keywords": [
       "Huawei Ascend 960",
       "昇腾 960",
+      "昇腾 960DT",
+      "昇腾 960PR",
       "Atlas 960 SuperPoD",
-      "15488 卡",
-      "灵衢总线",
-      "FP8",
-      "超节点"
+      "Atlas 860",
+      "NPO",
+      "Hi-ONE",
+      "灵衢",
+      "韬定律"
     ],
     "tdpW": 700,
     "fp16Tflops": null,
-    "fp4Tflops": null,
+    "fp4Tflops": 4000,
     "specs": {
-      "architecture": "Da Vinci v6（推测）",
-      "process": "N+3（推测，SMIC 国产化）",
-      "tdp": "700 W（推测，路线图）",
-      "release": "2027-Q4（路线图）"
+      "architecture": "Da Vinci v6（昇腾第六代）",
+      "compute": {
+        "fp8": "2 PFLOPS",
+        "fp4": "4 PFLOPS"
+      },
+      "memory": {
+        "capacity": "288 GB（自研 HBM，最高配置）",
+        "bandwidth": "9.6 TB/s"
+      },
+      "tdp": "700 W（推测，官方未披露）",
+      "release": "2027 Q2"
     }
   },
   {
