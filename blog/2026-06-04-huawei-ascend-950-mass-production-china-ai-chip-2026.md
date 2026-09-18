@@ -2,7 +2,7 @@
 slug: huawei-ascend-950-mass-production-china-ai-chip-2026
 title: "华为昇腾 950 量产与中国 AI 芯片生态全貌"
 authors: aicomputecards
-tags: [新闻, AI芯片, 国产芯片, 昇腾, news]
+tags: [news, ai-chip, domestic-chips, ascend]
 date: 2026-06-04
 description: 华为昇腾 950PR/950DT 正式量产，自研 HBM 突破，中国 AI 芯片产业在 2026 年形成华为、寒武纪、摩尔线程三极格局。
 ---

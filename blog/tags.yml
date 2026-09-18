@@ -113,76 +113,7 @@ domestic-substitution:
   description: AI chip domestic substitution process
   permalink: /domestic-substitution
 
-ai-chips:
-  label: AI Chips
-  description: AI chip industry dynamics and trends
-  permalink: /ai-chips
-
 # ========== 中文标签 key（博客实际使用）==========
-AI算力:
-  label: AI算力
-  description: AI 算力技术与产业发展
-  permalink: /ai-compute-zh
-
-产业报告:
-  label: 产业报告
-  description: AI 产业研究报告与趋势分析
-  permalink: /industry-report-zh
-
-算力趋势:
-  label: 算力趋势
-  description: AI 算力发展趋势与预测
-  permalink: /compute-trend-zh
-
-智算驱动:
-  label: 智算驱动
-  description: 智能计算驱动产业变革
-  permalink: /ai-computing-zh
-
-新闻:
-  label: 新闻
-  description: AI 算力卡行业新闻动态
-  permalink: /news-zh
-
-AI芯片:
-  label: AI芯片
-  description: AI 芯片行业动态
-  permalink: /ai-chip-zh
-
-国产芯片:
-  label: 国产芯片
-  description: 中国国产 AI 芯片发展动态
-  permalink: /domestic-chips-zh
-
-昇腾:
-  label: 昇腾
-  description: 华为昇腾系列 AI 芯片
-  permalink: /ascend-zh
-
-推理算力:
-  label: 推理算力
-  description: AI 推理算力技术优化
-  permalink: /inference-compute-zh
-
-AI硬件:
-  label: AI硬件
-  description: AI 硬件技术与发展趋势
-  permalink: /ai-hardware-zh
-
-边缘AI:
-  label: 边缘AI
-  description: 边缘 AI 与端侧推理
-  permalink: /edge-ai-zh
-
-专用芯片:
-  label: 专用芯片
-  description: ASIC / NPU 等专用 AI 芯片
-  permalink: /specialized-chip-zh
-
-能效散热:
-  label: 能效散热
-  description: AI 芯片能效与散热技术
-  permalink: /energy-efficiency-zh
 
 selection:
   label: Selection Guide
@@ -328,11 +259,6 @@ huawei:
   description: Huawei AI chips and Ascend series
   permalink: /huawei
 
-shengteng:
-  label: 昇腾
-  description: 华为昇腾系列AI芯片
-  permalink: /shengteng-zh
-
 910c:
   label: Ascend 910C
   description: Huawei Ascend 910C chip
@@ -347,11 +273,6 @@ training:
   label: Training
   description: AI model training and post-training
   permalink: /training
-
-1.6-trillion:
-  label: 1.6 Trillion
-  description: 1.6 trillion parameter models
-  permalink: /1.6-trillion
 
 breakthrough:
   label: Breakthrough
@@ -425,32 +346,12 @@ custom-chip:
 
 # ========== 新增标签：2026-06-20 博客使用 ==========
 
-路线图:
-  label: 路线图
-  description: AI 芯片未来路线图与发展趋势
-  permalink: /roadmap-zh
-
 qualcomm:
   label: Qualcomm
   description: Qualcomm AI chips and datacenter accelerators
   permalink: /qualcomm
 
 # ========== 中文标签（博客使用）==========
-
-华为:
-  label: 华为
-  description: 华为 AI 芯片与昇腾系列
-  permalink: /huawei-zh
-
-寒武纪:
-  label: 寒武纪
-  description: 寒武纪 MLU 系列 AI 训练芯片
-  permalink: /cambricon-zh
-
-摩尔线程:
-  label: 摩尔线程
-  description: 摩尔线程 MTT 系列全功能 GPU
-  permalink: /moore-threads-zh
 
 MLU690:
   label: MLU690
@@ -469,31 +370,6 @@ OpenAI:
   description: OpenAI AI chips and infrastructure
   permalink: /openai
 
-Jalapeño:
-  label: Jalapeño
-  description: OpenAI 首款自研 AI 推理芯片
-  permalink: /jalapeno
-
-自研芯片:
-  label: 自研芯片
-  description: 科技巨头自研 AI 芯片（ASIC）
-  permalink: /custom-ai-chip-zh
-
-博通:
-  label: 博通
-  description: Broadcom AI 芯片合作与网络技术
-  permalink: /broadcom-zh
-
-推理芯片:
-  label: 推理芯片
-  description: AI 推理专用芯片与加速器
-  permalink: /inference-chip-zh
-
-AI基础设施:
-  label: AI 基础设施
-  description: AI 全栈基础设施（芯片+系统+网络）
-  permalink: /ai-infrastructure-zh
-
 # ========== 新增标签：2026-06-23 博客使用 ==========
 
 H100:
@@ -501,36 +377,14 @@ H100:
   description: NVIDIA H100 GPU detailed analysis
   permalink: /h100-zh
 
-对比:
-  label: 对比
-  description: AI chip comparison and benchmarking
-  permalink: /comparison-zh
-
 # ========== 新增标签：2026-06-28 月度汇总博客使用 ==========
 
-月度汇总:
-  label: 月度汇总
-  description: AI 芯片产业月度重大事件汇总
-  permalink: /monthly-summary-zh
-
-RTX Spark:
-  label: RTX Spark
-  description: NVIDIA RTX Spark AI PC 超级芯片
-  permalink: /rtx-spark-zh
-
 # ========== 新增标签：2026-07-01 行业复盘博客使用 ==========
-
-行业复盘:
-  label: 行业复盘
-  description: AI 芯片产业周期复盘与趋势分析
-  permalink: /industry-review-zh
 
 2026H1:
   label: 2026上半年
   description: 2026年上半年AI芯片行业重大事件与进展
   permalink: /2026-h1-zh
-
-
 
 # ========== 新增标签：2026-07-11 计算卡行业博客使用 ==========
 
@@ -549,11 +403,6 @@ mi450:
   description: AMD Instinct MI450 加速器
   permalink: /mi450
 
-科创板:
-  label: 科创板
-  description: 科创板 AI 芯片企业上市动态
-  permalink: /star-market-zh
-
 IPO:
   label: IPO
   description: AI 芯片企业 IPO 与资本市场动态
@@ -571,8 +420,52 @@ inference-chip:
   description: AI inference dedicated chips and accelerators
   permalink: /inference-chip
 
-2026-h1:
-  label: 2026 H1
-  description: Major AI chip events and progress in the first half of 2026
-  permalink: /2026-h1
+moore-threads:
+  label: Moore Threads
+  description: Moore Threads MTT series GPUs and domestic GPU progress
+  permalink: /moore-threads
 
+broadcom:
+  label: Broadcom
+  description: Broadcom custom AI accelerators and networking silicon
+  permalink: /broadcom
+
+jalapeno:
+  label: OpenAI Jalapeno
+  description: OpenAI in-house custom AI chip program
+  permalink: /jalapeno
+
+rtx-spark:
+  label: RTX Spark
+  description: NVIDIA RTX Spark workstation and edge AI products
+  permalink: /rtx-spark
+
+ai-compute:
+  label: AI Compute
+  description: AI compute supply, demand and industry trends
+  permalink: /ai-compute
+
+ai-hardware:
+  label: AI Hardware
+  description: AI hardware industry dynamics beyond chips (HBM, servers, systems)
+  permalink: /ai-hardware
+
+ai-infrastructure:
+  label: AI Infrastructure
+  description: Data center, power and networking infrastructure for AI
+  permalink: /ai-infrastructure
+
+power-cooling:
+  label: Power & Cooling
+  description: Power efficiency, thermal design and liquid cooling for AI systems
+  permalink: /power-cooling
+
+edge-ai:
+  label: Edge AI
+  description: Edge AI computing and on-device inference
+  permalink: /edge-ai
+
+roadmap:
+  label: Roadmap
+  description: Vendor AI chip roadmap updates and forecasts
+  permalink: /roadmap

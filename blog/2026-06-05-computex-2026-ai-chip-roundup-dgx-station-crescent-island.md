@@ -2,7 +2,7 @@
 slug: computex-2026-ai-chip-roundup-dgx-station-crescent-island
 title: "Computex 2026 AI 算力卡大事件：DGX Station for Windows、Intel Crescent Island 等重磅发布"
 authors: aicomputecards
-tags: [新闻, AI芯片, product-launch, news]
+tags: [news, ai-chip, product-launch]
 date: 2026-06-05
 description: Computex 2026 圆满收官：NVIDIA DGX Station for Windows（20 PFLOPS，748GB 内存）、Intel Crescent Island AI GPU（480GB LPDDR5x）、RTX Spark 等 AI 算力新品密集发布。
 ---

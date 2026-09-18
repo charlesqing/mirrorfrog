@@ -2,7 +2,7 @@
 slug: computex-2026-wrapup-ai-pc-rtx-spark-market-impact
 title: "Computex 2026 会后观察：AI PC 芯片大战开启，NVIDIA RTX Spark 六月上市"
 authors: aicomputecards
-tags: [新闻, AI芯片, GPU, 国产芯片, news, product-launch]
+tags: [news, ai-chip, GPU, domestic-chips, product-launch]
 date: 2026-06-06
 description: "Computex 2026 圆满落幕后业界反应：NVIDIA RTX Spark 笔记本六月上市 $1,399 起，Intel 18A Clearwater Forest 投产，AMD Ryzen AI 400 出货。AI PC 元年正式开启。"
 ---

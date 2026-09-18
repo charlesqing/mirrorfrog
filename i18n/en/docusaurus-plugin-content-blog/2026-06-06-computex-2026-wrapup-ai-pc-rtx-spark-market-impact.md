@@ -2,7 +2,7 @@
 slug: computex-2026-wrapup-ai-pc-rtx-spark-market-impact
 title: "Computex 2026 Wrap-Up: AI PC Chip War Begins, NVIDIA RTX Spark Arrives Fall 2026"
 authors: aicomputecards
-tags: [新闻, AI芯片, GPU, 国产芯片, news, product-launch]
+tags: [news, ai-chip, GPU, domestic-chips, product-launch]
 date: 2026-06-06
 description: "Post-Computex 2026 market reactions: NVIDIA RTX Spark laptops launch this month starting at $1,399, Intel 18A Clearwater Forest enters production, AMD Ryzen AI 400 ships. The AI PC era officially begins."
 ---

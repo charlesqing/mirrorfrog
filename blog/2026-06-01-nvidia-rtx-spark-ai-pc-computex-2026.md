@@ -2,7 +2,7 @@
 slug: nvidia-rtx-spark-ai-pc-computex-2026
 title: "NVIDIA 发布 RTX Spark：AI 算力进入个人电脑时代"
 authors: aicomputecards
-tags: [新闻, GPU, AI芯片, product-launch, news]
+tags: [news, GPU, ai-chip, product-launch]
 date: 2026-06-01
 description: NVIDIA 在 Computex 2026 正式发布 RTX Spark，20 核 Grace CPU + Blackwell GPU，AI 算力 1 PFLOPS，重新定义个人 AI 计算机。
 ---
