@@ -2,7 +2,7 @@
 id: ascend-910b
 title: Huawei Ascend 910B
 sidebar_label: Huawei Ascend 910B
-description: Huawei Ascend 910B 详尽规格：64GB HBM2e、256 TFLOPS FP16、512 TOPS INT8、310W TDP，国产 AI 训练 GPU。
+description: Huawei Ascend 910B 详尽规格：64GB HBM2e、320 TFLOPS FP16、640 TOPS INT8、310W TDP，国产 AI 训练 GPU。
 keywords: [Huawei Ascend 910B, 昇腾 910B, 国产 AI 芯片, Da Vinci, CANN]
 ---
 
@@ -10,9 +10,9 @@ keywords: [Huawei Ascend 910B, 昇腾 910B, 国产 AI 芯片, Da Vinci, CANN]
 
 ## 产品概述
 
-Huawei Ascend 910B 是华为昇腾系列 AI 训练芯片，**基于 Da Vinci 架构**，2022-2023 年开始量产。在美国出口管制背景下，**是中国市场 NVIDIA 替代方案的主流选择**。搭载 64GB HBM2e 显存，FP16 算力 256 TFLOPS，已被用于百度、阿里、腾讯等中国大型 AI 项目。
+Huawei Ascend 910B 是华为昇腾系列 AI 训练芯片，**基于 Da Vinci 架构**，2022-2023 年开始量产。在美国出口管制背景下，**是中国市场 NVIDIA 替代方案的主流选择**。搭载 64GB HBM2e 显存，FP16 算力 320 TFLOPS，已被用于百度、阿里、腾讯等中国大型 AI 项目。
 
-**注意**：Ascend 910B 有多个版本（B1/B2/B3/B4），规格略有差异。本文以 B1 版本为准。
+**注意**：Ascend 910B 有多个版本（B1/B2/B3/B4），规格略有差异。核心规格表采用多来源一致的通用口径（FP16 320 TFLOPS / INT8 640 TOPS）；下表各子版本算力为市场口径，未经官方规格书确认，采购以实测为准。
 
 ## 核心规格
 
@@ -24,8 +24,8 @@ Huawei Ascend 910B 是华为昇腾系列 AI 训练芯片，**基于 Da Vinci 架
 | **显存** | 64 GB HBM2e（B1/B2）/ HBM3e（B3） |
 | **显存带宽** | 600 GB/s（B1/B2）/ 1,200 GB/s（B3） |
 | **FP32** | 51.2 TFLOPS |
-| **FP16** | 256 TFLOPS |
-| **INT8** | 512 TOPS |
+| **FP16** | 320 TFLOPS |
+| **INT8** | 640 TOPS |
 | **TDP** | 310 W |
 | **互联** | HCCS（华为自研） |
 | **形式** | PCIe 半高半长 |

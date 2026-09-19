@@ -28,8 +28,8 @@ The **Kunlunxin P800** is the **third-generation AI accelerator card** from Kunl
 | **Memory** | 96 GB HBM3 |
 | **Memory Bandwidth** | 2.4 TB/s |
 | **FP16** | **345 TFLOPS** (surpasses the H20's 148 TFLOPS) |
-| **Low-Power FP16** | 128 TFLOPS @ 120W |
-| **INT8** | Supports 8-bit inference (specific TOPS not disclosed) |
+| **Low-power mode** | 128 TFLOPS @ 120 W |
+| **INT8** | **820 TOPS** (some reports cite 690–820 TOPS) |
 | **MoE Support** | Native support for MoE architectures |
 | **TDP** | 400 W |
 | **Form Factor** | **OAM module** |

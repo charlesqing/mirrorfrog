@@ -28,7 +28,7 @@ keywords: [MetaX C600, 沐曦, 曦云C600, XCORE 1.5, 7nm, 144GB HBM3e, FP8 1000
 | **FP8** | **1000 TFLOPS**（对标 H100 989 TFLOPS） |
 | **FP32** | 15 TFLOPS |
 | **FP16 / BF16** | **~500 TFLOPS**（与 FP8 共用 Tensor Core，比例 1:2） |
-| **INT8** | **~1,000 TOPS** |
+| **INT8** | **2000 TOPS**（官方发布口径） |
 | **精度支持** | FP8 / FP16 / BF16 / FP32 / INT8 / INT4 混合精度 |
 | **显存容量** | **144GB HBM3e** |
 | **显存带宽** | **3.6 TB/s** |

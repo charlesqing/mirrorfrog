@@ -44,6 +44,10 @@ keywords: [Biren, 壁仞, BR100, BR104, 国产 AI 芯片, BIRENSUPA, 国产替�
 | **架构** | 壁立仞（Biren 自研 ISA） |
 | **制程** | TSMC 7nm |
 | **设计** | 单 Chiplet |
+| **BF16 算力** | **512 TFLOPS**（约为 BR100 一半） |
+| **TF32+ 算力** | 256 TFLOPS |
+| **FP32 算力** | 128 TFLOPS |
+| **INT8 算力** | **1024 TOPS** |
 | **HBM** | **32 GB HBM2e** |
 | **片间带宽** | 256 GB/s（BLink 互联） |
 | **TDP** | **300 W** |
@@ -58,8 +62,8 @@ keywords: [Biren, 壁仞, BR100, BR104, 国产 AI 芯片, BIRENSUPA, 国产替�
 |------|-------|-------|
 | **定位** | 旗舰训练 | 通用推理 |
 | **芯片设计** | 双 Chiplet | 单 Chiplet |
-| **BF16 算力** | **1024 TFLOPS** | ~256 TFLOPS |
-| **INT8 算力** | 2048 TOPS | ~512 TOPS |
+| **BF16 算力** | **1024 TFLOPS** | ~512 TFLOPS |
+| **INT8 算力** | 2048 TOPS | ~1024 TOPS |
 | **HBM** | 64GB HBM2e | 32GB HBM2e |
 | **片间带宽** | 800 GB/s | 256 GB/s |
 | **TDP** | ~400W | 300W |

@@ -23,7 +23,7 @@ keywords: [Moore Threads, MTT S4000, Quyuan GPU, third-generation MUSA, 48GB GDD
 | **FP32** | **25 TFLOPS** |
 | **TF32** | **50 TFLOPS** |
 | **INT8** | **200 TOPS** |
-| **FP16/BF16** | Supported (specific values not disclosed) |
+| **FP16/BF16** | **100 TFLOPS** (official documentation figures) |
 | **Memory Capacity** | **48 GB GDDR6** |
 | **Memory Bandwidth** | **768 GB/s** |
 | **TDP** | **450 W** |

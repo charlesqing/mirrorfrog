@@ -2,7 +2,7 @@
 id: moore-threads-mtt-s5000
 title: "Moore Threads MTT S5000 (Domestic GPU Training)"
 sidebar_label: Moore Threads MTT S5000
-description: "Moore Threads MTT S5000 detailed specs: 7nm, 80GB GDDR6X, FP32 62.5 TFLOPS, BF16 500 TFLOPS, MUSA architecture, domestic GPU training."
+description: "Moore Threads MTT S5000 detailed specs: 4th-generation MUSA Pinghu architecture, PH100 chip, FP8 1000 TFLOPS (dense), BF16 400 TFLOPS, 80GB memory, 1.6 TB/s, MTLink 784 GB/s, domestic full-function GPU unified training/inference card."
 keywords: [Moore Threads, MTT S5000, MUSA, domestic GPU, domestic AI chip]
 ---
 
@@ -10,7 +10,7 @@ keywords: [Moore Threads, MTT S5000, MUSA, domestic GPU, domestic AI chip]
 
 ## Product Overview
 
-**Moore Threads (Moore Threads)** is a Chinese full-function GPU startup company, **founded in October 2020**, with the founder being former NVIDIA China region executive **Zhang Jianzhong**. **MTT S5000** is a training+inference integrated GPU AI computing card based on **fourth-generation MUSA "Pinghu" architecture**, with parameters publicly disclosed on **2025-02-12**: **single card AI compute 1000 TFLOPS**, **80GB GDDR6X**, **1.6 TB/s bandwidth**. Equipped with self-developed **MUSA** unified system architecture + **MUSIFY** software stack.
+**Moore Threads (Moore Threads)** is a Chinese full-function GPU startup company, **founded in October 2020**, with the founder being former NVIDIA China region executive **Zhang Jianzhong**. **MTT S5000** is a training+inference integrated GPU AI computing card based on **fourth-generation MUSA "Pinghu" architecture**, with parameters publicly disclosed on **2025-02-12**: **single card AI compute 1000 TFLOPS**, **80GB memory**, **1.6 TB/s bandwidth**. Equipped with self-developed **MUSA** unified system architecture + **MUSIFY** software stack.
 
 **Strategic Positioning**: Compared to Huawei Ascend's focus on AI training, Moore Threads follows the **full-function GPU** roadmap (graphics + AI + general-purpose computing), and is a **domestic GPU startup company targeting NVIDIA**, listed alongside Jingjia Micro, Xinyuan Microelectronics, Enflame, and Biren as the "Domestic GPU Five Tigers".
 
@@ -21,7 +21,7 @@ keywords: [Moore Threads, MTT S5000, MUSA, domestic GPU, domestic AI chip]
 | **Architecture** | MUSA (4th generation, Pinghu) |
 | **Process** | TSMC 6nm (estimated) |
 | **GPU Cores** | **4096 MUSA Cores** (self-developed ISA) |
-| **Memory** | **80GB GDDR6X** |
+| **Memory** | **80GB memory** |
 | **Memory Bandwidth** | **1.6 TB/s** |
 | **FP32** | **62.5 TFLOPS** (estimated) |
 | **BF16 / FP16** | **500 TFLOPS** (estimated) |
@@ -33,6 +33,12 @@ keywords: [Moore Threads, MTT S5000, MUSA, domestic GPU, domestic AI chip]
 | **Release** | 2025-02-12 (parameters disclosed) |
 | **Mass Production** | 2025-Q1 (parameters disclosed) |
 | **Unit Price (OAM)** | ~$4,000-6,000 |
+
+> 📌 **Data correction (2026-08 online verification)**:
+> - **Memory type**: This site previously recorded "GDDR6X", which **contradicts** the 1.6 TB/s bandwidth (GDDR6X caps at ~1 TB/s, and 80GB is not a typical GDDR configuration). Moore Threads officially announced only "80GB memory, 1.6 TB/s bandwidth" without disclosing the chip type. Now labeled as reported.
+> - **Compute precision**: The official "1000 TFLOPS dense per-card AI compute" refers specifically to **FP8 precision** (liquid-cooled version), not FP16. FP16 is about 500 TFLOPS. The precision was previously unlabeled, easily misread as FP16 performance and overestimated.
+> - **Interconnect**: Officially **MTLink 784 GB/s** (previously recorded as "MUSA Link" with no figure).
+> - **Compute figures re-verified (2026-09 cross-validation)**: The official datasheet figures are **BF16/FP16 400 TFLOPS, FP32 100 TFLOPS, INT8 800 TOPS, TDP 500W (market-reported)**; the previously listed 500/62.5/2000 extrapolated from FP8 at 1:2, and 300W, are deprecated.
 
 ## MTT S5000 Parameter Evolution (2024 → 2025 Version)
 

@@ -2,7 +2,7 @@
 id: ascend-910
 title: Huawei Ascend 910
 sidebar_label: Huawei Ascend 910
-description: "Huawei Ascend 910 detailed specs: 2019 first-generation cloud training chip, TSMC 7nm+ EUV, 256 TFLOPS FP16, 512 TOPS INT8, 350W TDP, 32GB HBM2 — the cornerstone of the Ascend 910 family."
+description: "Huawei Ascend 910 detailed specs: 2019 first-generation cloud training chip, TSMC 7nm+ EUV, 256 TFLOPS FP16, 512 TOPS INT8, 310W TDP, 32GB HBM2 — the cornerstone of the Ascend 910 family."
 keywords: [Huawei Ascend 910, Ascend 910, Da Vinci Max architecture, cloud training, 256 TFLOPS, domestic AI chip]
 ---
 
@@ -29,7 +29,7 @@ The Ascend 910 uses the **TSMC 7nm+ EUV** process (the last advanced node Huawei
 | **INT8** | **512 TOPS** |
 | **Memory** | 32 GB HBM2 |
 | **Memory Bandwidth** | 1.5 TB/s (896 GB/s, varies by board) |
-| **TDP** | **350 W** |
+| **TDP** | **310 W** (official release figures) |
 | **Interconnect** | HCCS (Huawei in-house, 1st generation) |
 | **Systems** | Atlas 300T / Atlas 800 (training servers) |
 | **Video Decoding** | 128-channel full HD H.264/H.265 |
@@ -38,7 +38,7 @@ The Ascend 910 uses the **TSMC 7nm+ EUV** process (the last advanced node Huawei
 
 | Model | Release | Process | FP16 | Memory | TDP | Positioning |
 |------|------|------|------|------|-----|------|
-| **Ascend 910 (1st gen)** | 2019 | TSMC 7nm+ | 256 T | 32GB HBM2 | 350W | First-generation cloud training |
+| **Ascend 910 (1st gen)** | 2019 | TSMC 7nm+ | 256 T | 32GB HBM2 | 310W | First-generation cloud training |
 | Ascend 910B | 2021-22 | SMIC 7nm N+2 | 256-414 T | 64GB HBM2e | 310W | Domestic mainstay |
 | Ascend 910C | 2025 Q1 | SMIC 7nm N+2 | 800 T | 128GB HBM3 | ~310W | Chiplet dual-die flagship |
 | Ascend 920 | 2025 H2 | SMIC 6nm | 900+ T | ~96GB | 400W | Next-generation bandwidth king |

@@ -28,7 +28,7 @@ It is the first domestic general-purpose GPU with an end-to-end domestic product
 | **FP8** | **1000 TFLOPS** (rivals the H100's 989 TFLOPS) |
 | **FP32** | 15 TFLOPS |
 | **FP16 / BF16** | **~500 TFLOPS** (shares Tensor Cores with FP8 at a 1:2 ratio) |
-| **INT8** | **~1,000 TOPS** |
+| **INT8** | **2000 TOPS** (official release figures) |
 | **Precision Support** | FP8 / FP16 / BF16 / FP32 / INT8 / INT4 mixed precision |
 | **Memory Capacity** | **144GB HBM3e** |
 | **Memory Bandwidth** | **3.6 TB/s** |

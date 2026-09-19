@@ -2,7 +2,7 @@
 id: ascend-910
 title: Huawei Ascend 910
 sidebar_label: Huawei Ascend 910
-description: Huawei Ascend 910 详尽规格：2019 初代云端训练芯片、台积电 7nm+ EUV、256 TFLOPS FP16、512 TOPS INT8、350W TDP、32GB HBM2，昇腾 910 家族基石。
+description: Huawei Ascend 910 详尽规格：2019 初代云端训练芯片、台积电 7nm+ EUV、256 TFLOPS FP16、512 TOPS INT8、310W TDP、32GB HBM2，昇腾 910 家族基石。
 keywords: [Huawei Ascend 910, 昇腾 910, 达芬奇 Max 架构, 云端训练, 256 TFLOPS, 国产 AI 芯片]
 ---
 
@@ -29,7 +29,7 @@ Ascend 910 采用 **台积电 7nm+ EUV** 工艺（华为被制裁前获得的最
 | **INT8** | **512 TOPS** |
 | **显存** | 32 GB HBM2 |
 | **显存带宽** | 1.5 TB/s（896 GB/s，依板卡） |
-| **TDP** | **350 W** |
+| **TDP** | **310 W**（官方发布口径） |
 | **互联** | HCCS（华为自研，初代） |
 | **整机** | Atlas 300T / Atlas 800（训练服务器） |
 | **视频解码** | 128 路全高清 H.264/H.265 |
@@ -38,7 +38,7 @@ Ascend 910 采用 **台积电 7nm+ EUV** 工艺（华为被制裁前获得的最
 
 | 型号 | 发布 | 制程 | FP16 | 显存 | TDP | 定位 |
 |------|------|------|------|------|-----|------|
-| **Ascend 910（初代）** | 2019 | 台积电 7nm+ | 256 T | 32GB HBM2 | 350W | 第一代云端训练 |
+| **Ascend 910（初代）** | 2019 | 台积电 7nm+ | 256 T | 32GB HBM2 | 310W | 第一代云端训练 |
 | Ascend 910B | 2021-22 | SMIC 7nm N+2 | 256-414 T | 64GB HBM2e | 310W | 国产化主力 |
 | Ascend 910C | 2025 Q1 | SMIC 7nm N+2 | 800 T | 128GB HBM3 | ~310W | Chiplet 双芯旗舰 |
 | Ascend 920 | 2025 H2 | SMIC 6nm | 900+ T | ~96GB | 400W | 下一代带宽王者 |

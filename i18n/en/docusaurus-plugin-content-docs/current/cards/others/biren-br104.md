@@ -44,6 +44,10 @@ Biren is counted alongside **Moore Threads, Jingjia Micro, and Iluvatar CoreX** 
 | **Architecture** | Biren (in-house Biren ISA) |
 | **Process** | TSMC 7nm |
 | **Design** | Single chiplet |
+| **BF16 Compute** | **512 TFLOPS** (about half of the BR100) |
+| **TF32+ Compute** | 256 TFLOPS |
+| **FP32 Compute** | 128 TFLOPS |
+| **INT8 Compute** | **1024 TOPS** |
 | **HBM** | **32 GB HBM2e** |
 | **Inter-Die Bandwidth** | 256 GB/s (BLink interconnect) |
 | **TDP** | **300 W** |
@@ -58,8 +62,8 @@ Biren is counted alongside **Moore Threads, Jingjia Micro, and Iluvatar CoreX** 
 |------|-------|-------|
 | **Positioning** | Flagship training | General-purpose inference |
 | **Chip Design** | Dual chiplet | Single chiplet |
-| **BF16 Compute** | **1024 TFLOPS** | ~256 TFLOPS |
-| **INT8 Compute** | 2048 TOPS | ~512 TOPS |
+| **BF16 Compute** | **1024 TFLOPS** | ~512 TFLOPS |
+| **INT8 Compute** | 2048 TOPS | ~1024 TOPS |
 | **HBM** | 64GB HBM2e | 32GB HBM2e |
 | **Inter-Die Bandwidth** | 800 GB/s | 256 GB/s |
 | **TDP** | ~400W | 300W |

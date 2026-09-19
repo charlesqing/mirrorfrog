@@ -1279,7 +1279,7 @@
     "title": "Huawei Ascend 910",
     "vendor": "huawei",
     "slug": "/docs/cards/huawei/ascend-910",
-    "description": "Huawei Ascend 910 详尽规格：2019 初代云端训练芯片、台积电 7nm+ EUV、256 TFLOPS FP16、512 TOPS INT8、350W TDP、32GB HBM2，昇腾 910 家族基石。",
+    "description": "Huawei Ascend 910 详尽规格：2019 初代云端训练芯片、台积电 7nm+ EUV、256 TFLOPS FP16、512 TOPS INT8、310W TDP、32GB HBM2，昇腾 910 家族基石。",
     "keywords": [
       "Huawei Ascend 910",
       "昇腾 910",
@@ -1288,7 +1288,7 @@
       "256 TFLOPS",
       "国产 AI 芯片"
     ],
-    "tdpW": 350,
+    "tdpW": 310,
     "fp16Tflops": 256,
     "fp4Tflops": null,
     "specs": {
@@ -1304,7 +1304,7 @@
         "capacity": "32 GB HBM2",
         "bandwidth": "1.5 TB/s（896 GB/s，依板卡）"
       },
-      "tdp": "350 W"
+      "tdp": "310 W（官方发布口径）"
     }
   },
   {
@@ -1312,7 +1312,7 @@
     "title": "Huawei Ascend 910B",
     "vendor": "huawei",
     "slug": "/docs/cards/huawei/ascend-910b",
-    "description": "Huawei Ascend 910B 详尽规格：64GB HBM2e、256 TFLOPS FP16、512 TOPS INT8、310W TDP，国产 AI 训练 GPU。",
+    "description": "Huawei Ascend 910B 详尽规格：64GB HBM2e、320 TFLOPS FP16、640 TOPS INT8、310W TDP，国产 AI 训练 GPU。",
     "keywords": [
       "Huawei Ascend 910B",
       "昇腾 910B",
@@ -1321,7 +1321,7 @@
       "CANN"
     ],
     "tdpW": 310,
-    "fp16Tflops": 256,
+    "fp16Tflops": 320,
     "fp4Tflops": null,
     "specs": {
       "release": "2022-11-08",
@@ -1333,8 +1333,8 @@
       },
       "compute": {
         "fp32": "51.2 TFLOPS",
-        "fp16": "256 TFLOPS",
-        "int8": "512 TOPS"
+        "fp16": "320 TFLOPS",
+        "int8": "640 TOPS"
       },
       "tdp": "310 W"
     }
@@ -4120,15 +4120,15 @@
       "港交所上市"
     ],
     "tdpW": 300,
-    "fp16Tflops": 1024,
+    "fp16Tflops": 512,
     "fp4Tflops": null,
     "specs": {
       "architecture": "壁立仞（Biren 自研 ISA）",
       "process": "TSMC 7nm",
       "compute": {
-        "fp16": "1024 TFLOPS",
-        "int8": "2048 TOPS",
-        "fp32": "256 TFLOPS"
+        "fp16": "512 TFLOPS（约为 BR100 一半）",
+        "int8": "1024 TOPS",
+        "fp32": "128 TFLOPS"
       },
       "memory": {
         "capacity": "32 GB HBM2e",
@@ -4428,37 +4428,38 @@
   },
   {
     "id": "cambricon-mlu-370",
-    "title": "Cambricon 寒武纪 MLU 370 (2021)",
+    "title": "Cambricon 寒武纪 MLU370-X8 (思元370)",
     "vendor": "others",
     "slug": "/docs/cards/others/cambricon-mlu-370",
-    "description": "寒武纪 MLU 370 详尽规格：7nm、96 INT8 TOPS、48GB HBM2、35W、2021 训练 + 推理、MLU 590 前代。",
+    "description": "寒武纪 MLU370-X8 官方规格：7nm 双芯思元370、FP16 96 TFLOPS、INT8 256 TOPS、48GB LPDDR5、614.4 GB/s、250W、MLU-Link 200GB/s，训推一体加速卡。",
     "keywords": [
-      "Cambricon MLU 370",
-      "寒武纪 思元 370",
+      "Cambricon MLU370",
+      "寒武纪 思元370",
+      "MLU370-X8",
       "7nm",
-      "48GB HBM2",
-      "96 TOPS",
-      "35W",
-      "国产 AI",
-      2021
+      "48GB LPDDR5",
+      "256 TOPS",
+      "96 TFLOPS",
+      "250W",
+      "国产 AI"
     ],
-    "tdpW": 35,
-    "fp16Tflops": 48,
+    "tdpW": 250,
+    "fp16Tflops": 96,
     "fp4Tflops": null,
     "specs": {
-      "architecture": "Cambricon MLUv04（第四代）",
+      "architecture": "Cambricon MLUarch03（第三代，双芯思元 370）",
       "process": "TSMC 7nm",
-      "memory": {
-        "capacity": "48GB HBM2",
-        "bandwidth": "614 GB/s"
-      },
       "compute": {
-        "int8": "96 TOPS",
-        "fp16": "48 TFLOPS",
-        "fp32": "24 TFLOPS"
+        "fp32": "24 TFLOPS",
+        "fp16": "96 TFLOPS",
+        "int8": "256 TOPS"
       },
-      "tdp": "35 W",
-      "release": "2021"
+      "memory": {
+        "capacity": "48GB LPDDR5",
+        "bandwidth": "614.4 GB/s"
+      },
+      "tdp": "250 W",
+      "release": "2021（思元 370 发布）"
     }
   },
   {
@@ -4765,23 +4766,18 @@
     "title": "燧原科技 云燧 S60",
     "vendor": "others",
     "slug": "/docs/cards/others/enflame-s60",
-    "description": "",
+    "description": "燧原科技 云燧 S60 官方规格：48GB 显存、672 GB/s 带宽、PCIe Gen5 x16、最大功耗 300W，支持 FP32/FP16/BF16/INT8，面向大模型推理，DeepSeek 全量模型适配。",
     "keywords": [],
     "tdpW": 300,
-    "fp16Tflops": 100,
+    "fp16Tflops": null,
     "fp4Tflops": null,
     "specs": {
       "architecture": "GCU320（邃思320）",
-      "process": "7 nm（预估）",
-      "tdp": "300 W（典型）",
+      "process": "未公开",
+      "tdp": "300 W（官方产品手册，最大功耗）",
       "memory": {
-        "capacity": "48 GB HBM2e（预估）",
-        "bandwidth": "1.6 TB/s（预估）"
-      },
-      "compute": {
-        "fp32": "25 TFLOPS（预估）",
-        "fp16": "100 TFLOPS（预估）",
-        "int8": "200 TOPS（预估）"
+        "capacity": "48 GB（官方产品手册）",
+        "bandwidth": "672 GB/s（官方产品手册）"
       },
       "release": "2024-03"
     }
@@ -4817,7 +4813,7 @@
     "title": "Enflame 燧原 云燧 T20 (2021)",
     "vendor": "others",
     "slug": "/docs/cards/others/enflame-t20",
-    "description": "燧原 云燧 T20 详尽规格：邃思 2.0 芯片，2.5D 封装，TF32 160 TFLOPS，INT8 320 TOPS，64GB HBM2E，1.8 TB/s，GCU-LARE 互联，2021 年发布",
+    "description": "燧原 云燧 T20 详尽规格：邃思 2.0 芯片，2.5D 封装，TF32 160 TFLOPS，INT8 320 TOPS，32GB HBM2E，1.6 TB/s，GCU-LARE 互联，TDP 300W，2021 年发布",
     "keywords": [
       "燧原 T20",
       "云燧T20",
@@ -4825,11 +4821,11 @@
       "Enflame",
       "国产AI训练",
       "TF32 160TFLOPS",
-      "64GB HBM2E",
+      "32GB HBM2E",
       "GCU-LARE",
       2021
     ],
-    "tdpW": null,
+    "tdpW": 300,
     "fp16Tflops": null,
     "fp4Tflops": null,
     "specs": {
@@ -4841,11 +4837,11 @@
         "int8": "320 TOPS"
       },
       "memory": {
-        "capacity": "64GB HBM2E（三星，国内首款支持）",
-        "bandwidth": "1.8 TB/s（芯片级）"
+        "capacity": "32GB HBM2E（三星，国内首款支持）",
+        "bandwidth": "1.6 TB/s"
       },
-      "release": "2021 年 7 月 7 日（WAIC 2021）",
-      "tdp": "未公开"
+      "tdp": "300 W",
+      "release": "2021 年 7 月 7 日（WAIC 2021）"
     }
   },
   {
@@ -5462,7 +5458,7 @@
     "title": "天数智芯 智铠100 (MR100)",
     "vendor": "others",
     "slug": "/docs/cards/others/iluvatar-mr100",
-    "description": "天数智芯 智铠100 (MR100/MR-V100) 详尽规格：7nm，32GB HBM2E，FP32 24 TFLOPS，FP16 96 TFLOPS，INT8 192 TOPS，128路1080P视频解码，PCIe Gen4，2022年发布",
+    "description": "天数智芯 智铠100 (MR100/MR-V100) 详尽规格：7nm，32GB HBM2E，FP32 24 TFLOPS，FP16 96 TFLOPS，INT8 384 TOPS，800 GB/s，128路1080P视频解码，PCIe Gen4，2022年发布",
     "keywords": [
       "天数智芯",
       "智铠100",
@@ -5474,7 +5470,7 @@
       "推理GPU",
       "通用GPU"
     ],
-    "tdpW": 275,
+    "tdpW": 150,
     "fp16Tflops": 96,
     "fp4Tflops": null,
     "specs": {
@@ -5483,13 +5479,13 @@
       "compute": {
         "fp32": "24 TFLOPS",
         "fp16": "96 TFLOPS",
-        "int8": "192 TOPS"
+        "int8": "384 TOPS（官方发布会口径）"
       },
       "memory": {
         "capacity": "32 GB HBM2E",
-        "bandwidth": "未公开（推测 ~1 TB/s）"
+        "bandwidth": "800 GB/s（官方发布会口径）"
       },
-      "tdp": "275 W（推测）",
+      "tdp": "150 W（官方口径）",
       "release": "2022 年"
     }
   },
@@ -5967,7 +5963,7 @@
       2024
     ],
     "tdpW": 400,
-    "fp16Tflops": 128,
+    "fp16Tflops": 345,
     "fp4Tflops": null,
     "specs": {
       "architecture": "自研 XPU-P 架构",
@@ -5977,8 +5973,8 @@
         "bandwidth": "2.4 TB/s"
       },
       "compute": {
-        "fp16": "128 TFLOPS @ 120W",
-        "int8": "支持 8-bit 推理（具体 TOPS 未公开）"
+        "fp16": "345 TFLOPS（超越 H20 148 TFLOPS）",
+        "int8": "820 TOPS（另有 690–820 报道口径）"
       },
       "tdp": "400 W",
       "release": "2024-03"
@@ -6231,13 +6227,13 @@
     "slug": "/docs/cards/others/metax-c550",
     "description": "",
     "keywords": [],
-    "tdpW": 300,
+    "tdpW": 450,
     "fp16Tflops": 280,
     "fp4Tflops": null,
     "specs": {
       "architecture": "XCORE 1.0（曦云架构，C500迭代）",
       "process": "7 nm（预估）",
-      "tdp": "300 W（预估）",
+      "tdp": "450 W（OAM 口径）",
       "memory": {
         "capacity": "64 GB HBM2e（同C500）",
         "bandwidth": "~1600–1800 GB/s"
@@ -6304,7 +6300,7 @@
         "fp8": "1000 TFLOPS（对标 H100 989 TFLOPS）",
         "fp32": "15 TFLOPS",
         "fp16": "~500 TFLOPS（与 FP8 共用 Tensor Core，比例 1:2）",
-        "int8": "~1,000 TOPS"
+        "int8": "2000 TOPS（官方发布口径）"
       },
       "memory": {
         "capacity": "144GB HBM3e",
@@ -6581,7 +6577,7 @@
       "国产AI芯片"
     ],
     "tdpW": 450,
-    "fp16Tflops": null,
+    "fp16Tflops": 100,
     "fp4Tflops": null,
     "specs": {
       "architecture": "自研 曲院 GPU（第三代 MUSA 内核架构）",
@@ -6589,7 +6585,7 @@
       "compute": {
         "fp32": "25 TFLOPS",
         "int8": "200 TOPS",
-        "fp16": "支持（具体数值未公开）"
+        "fp16": "100 TFLOPS（官方文档口径）"
       },
       "memory": {
         "capacity": "48 GB GDDR6",
@@ -6604,7 +6600,7 @@
     "title": "Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)",
     "vendor": "others",
     "slug": "/docs/cards/others/moore-threads-mtt-s5000",
-    "description": "摩尔线程 MTT S5000 详尽规格：第四代 MUSA 平湖架构、PH100 芯片、1000 TFLOPS 稠密 AI 算力、80GB GDDR6X、1.6 TB/s、MTLink 784 GB/s、国产全功能 GPU 训推一体卡。",
+    "description": "摩尔线程 MTT S5000 详尽规格：第四代 MUSA 平湖架构、PH100 芯片、FP8 1000 TFLOPS（稠密）、BF16 400 TFLOPS、80GB 显存、1.6 TB/s、MTLink 784 GB/s、国产全功能 GPU 训推一体卡。",
     "keywords": [
       "Moore Threads",
       "摩尔线程",
@@ -6613,8 +6609,8 @@
       "国产 GPU",
       "国产 AI 芯片"
     ],
-    "tdpW": 300,
-    "fp16Tflops": 500,
+    "tdpW": 500,
+    "fp16Tflops": 400,
     "fp4Tflops": null,
     "specs": {
       "architecture": "MUSA（第四代，平湖）",
@@ -6624,11 +6620,11 @@
         "bandwidth": "1.6 TB/s"
       },
       "compute": {
-        "fp16": "~500 TFLOPS（按官方 FP8 稠密算力 1:2 推算，非官方直接公布）",
-        "fp32": "62.5 TFLOPS（推测）",
-        "int8": "2,000 TOPS（推测）"
+        "fp16": "400 TFLOPS（官方彩页口径）",
+        "fp32": "100 TFLOPS",
+        "int8": "800 TOPS（官方彩页口径）"
       },
-      "tdp": "300 W",
+      "tdp": "500 W（市场口径）",
       "release": "2025-02-12（公开参数）"
     }
   },
@@ -7452,32 +7448,33 @@
   },
   {
     "id": "zhonghao-tpu",
-    "title": "中昊芯英 国产 TPU (AI 训练/推理)",
+    "title": "中昊芯英 须臾 TPU (AI 训练/推理)",
     "vendor": "others",
     "slug": "/docs/cards/others/zhonghao-tpu",
-    "description": "中昊芯英 自研 TPU 详尽规格：400W/512 TOPS、1.28 TOPS/W 能效（2.3× H100）、千卡集群千亿参数、2026-05 量产交付、天津移动智算中心已投运。",
+    "description": "中昊芯英 须臾 TPU 详尽规格：混合精度浮点 896 TFLOPS、INT8 1792 TOPS、600W、单超节点最高 2048 片全光互联，2026-06-30 发布，兼容 PyTorch/vLLM/SGLang。",
     "keywords": [
       "中昊芯英",
+      "须臾",
       "国产 TPU",
       "自研 TPU",
       "AI 芯片",
-      "能效比",
+      "全光互联",
       "天津移动智算中心",
       2026
     ],
-    "tdpW": 400,
-    "fp16Tflops": 256,
+    "tdpW": 600,
+    "fp16Tflops": 896,
     "fp4Tflops": null,
     "specs": {
-      "release": "2026 年 5 月",
-      "architecture": "自研 TPU（纯 ASIC，无图形渲染）",
-      "process": "7nm（推测）",
+      "release": "2026-06-30（须臾正式发布）",
+      "architecture": "自研 TPU（纯 ASIC，无图形渲染；IP/指令集/算子库自研）",
+      "process": "未公开",
       "compute": {
-        "int8": "512 TOPS",
-        "fp16": "256 TFLOPS（推测）",
-        "fp32": "128 TFLOPS（推测）"
+        "fp16": "896 TFLOPS（混合精度浮点，官方发布口径）",
+        "int8": "1792 TOPS",
+        "fp32": "未公开"
       },
-      "tdp": "400 W"
+      "tdp": "600 W"
     }
   }
 ]

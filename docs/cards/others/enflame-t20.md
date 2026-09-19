@@ -2,15 +2,15 @@
 id: enflame-t20
 title: Enflame 燧原 云燧 T20 (2021)
 sidebar_label: Enflame T20
-description: "燧原 云燧 T20 详尽规格：邃思 2.0 芯片，2.5D 封装，TF32 160 TFLOPS，INT8 320 TOPS，64GB HBM2E，1.8 TB/s，GCU-LARE 互联，2021 年发布"
-keywords: [燧原 T20, 云燧T20, 邃思2.0, Enflame, 国产AI训练, TF32 160TFLOPS, 64GB HBM2E, GCU-LARE, 2021]
+description: "燧原 云燧 T20 详尽规格：邃思 2.0 芯片，2.5D 封装，TF32 160 TFLOPS，INT8 320 TOPS，32GB HBM2E，1.6 TB/s，GCU-LARE 互联，TDP 300W，2021 年发布"
+keywords: [燧原 T20, 云燧T20, 邃思2.0, Enflame, 国产AI训练, TF32 160TFLOPS, 32GB HBM2E, GCU-LARE, 2021]
 ---
 
 # Enflame 燧原 云燧 T20 (2021)
 
 ## 产品概述
 
-**云燧 T20** 是燧原科技于 **2021 年 7 月 7 日** 在世界人工智能大会（WAIC）上发布的**第二代 AI 训练加速卡**，基于自研 **邃思 2.0（DTU 2.0）芯片**，采用 **2.5D 先进封装**（57.5mm × 57.5mm，整合 9 颗芯片），**TF32 算力 160 TFLOPS**（国内率先支持 TF32）、**INT8 算力 320 TOPS**，配备 **64GB HBM2E 显存**（1.8 TB/s 带宽），GCU-LARE 互联技术支持集群扩展至 8192 卡（1.3 EFLOPS）。
+**云燧 T20** 是燧原科技于 **2021 年 7 月 7 日** 在世界人工智能大会（WAIC）上发布的**第二代 AI 训练加速卡**，基于自研 **邃思 2.0（DTU 2.0）芯片**，采用 **2.5D 先进封装**（57.5mm × 57.5mm，整合 9 颗芯片），**TF32 算力 160 TFLOPS**（国内率先支持 TF32）、**INT8 算力 320 TOPS**，配备 **32GB HBM2E 显存**（1.6 TB/s 带宽），**TDP 300W**，GCU-LARE 互联技术支持集群扩展至 8192 卡（1.3 EFLOPS）。
 
 燧原是"GPU 四小龙"之一，主打国产云端 AI 训练与推理。
 
@@ -33,9 +33,11 @@ keywords: [燧原 T20, 云燧T20, 邃思2.0, Enflame, 国产AI训练, TF32 160TF
 | **TF32** | **160 TFLOPS**（国内率先支持） |
 | **FP16 / BF16** | 支持（具体数值未披露） |
 | **INT8** | **320 TOPS** |
-| **显存** | **64GB HBM2E**（三星，国内首款支持） |
-| **显存带宽** | **1.8 TB/s**（芯片级） |
+| **显存** | **32GB HBM2E**（三星，国内首款支持） |
+| **显存带宽** | **1.6 TB/s** |
 | **互联** | **GCU-LARE®**（燧原智能互联），双向 **300 GB/s** |
+
+> 📌 **数据订正（2026-09 交叉验证）**：本页此前记「64GB HBM2E / 1.8 TB/s」为早期误记；燧原 IPO 招股口径与官方资料为 **32GB HBM2E、1.6 TB/s、TDP 300W**，已修正。
 
 ### 云燧 T20 加速卡
 
@@ -48,8 +50,8 @@ keywords: [燧原 T20, 云燧T20, 邃思2.0, Enflame, 国产AI训练, TF32 160TF
 | **集群** | 支持从单机多卡到千卡级别 |
 | **软件栈** | **驭算 TopsRider 2.0** |
 | **开发接口** | C++ / Python，多层次 API 开放 |
+| **TDP** | **300 W** |
 | **发布** | 2021 年 7 月 7 日（WAIC 2021） |
-| **TDP** | 未公开 |
 
 ## GCU-LARE 互联与集群
 
@@ -101,24 +103,23 @@ keywords: [燧原 T20, 云燧T20, 邃思2.0, Enflame, 国产AI训练, TF32 160TF
 - ✅ **国产化算力刚需**（自主可控）
 - ❌ **单卡推理**（非主要定位，云燧 i20 推理卡更优）
 - ❌ **CUDA 生态**（自研 TopsRider，迁移需适配）
-- ❌ **FP8 训练**（不支持，需关注 T30）
-- ❌ **制程未公开**（行业推测 12nm，落后同期 7nm 竞品）
+- ❌ **FP8 训练**（不支持，需关注 L600/T30）
 
 ## 与同期国产 AI 训练卡对比（2021）
 
-| 指标 | 燧原 T20 | 寒武纪 MLU 370 | 华为 Ascend 910 | 差异 |
-|------|----------|-----------------|-----------------|------|
-| **发布** | 2021-07 | 2021-Q4 | 2019 | T20 年中发布 |
+| 指标 | 燧原 T20 | 寒武纪 MLU370-X8 | 华为 Ascend 910 | 差异 |
+|------|----------|------------------|-----------------|------|
+| **发布** | 2021-07 | 2021-Q4（X8 2022 量产） | 2019 | T20 年中发布 |
 | **封装** | 2.5D 先进封装 | 普通封装 | 普通封装 | T20 先进 |
 | **TF32** | **160 TFLOPS** | 不支持 | 不支持 | T20 独有 |
 | **FP32** | 40 TFLOPS | 24 TFLOPS | 256 TFLOPS | Ascend 910 领先 |
-| **INT8** | 320 TOPS | 96 TOPS | 512 TOPS | Ascend 910 领先 |
-| **显存** | **64GB HBM2E** | 48GB HBM2 | 32GB HBM2 | **T20 最大** |
-| **带宽** | **1.8 TB/s** | 614 GB/s | 1.2 TB/s | **T20 最大** |
+| **INT8** | 320 TOPS | 256 TOPS | 512 TOPS | Ascend 910 领先 |
+| **显存** | **32GB HBM2E** | 48GB LPDDR5 | 32GB HBM2 | MLU370 容量最大 |
+| **带宽** | **1.6 TB/s** | 614 GB/s | 1.2 TB/s | **T20 最大** |
 | **互联** | 300 GB/s | 200 GB/s | HCCS | T20 领先 |
 | **集群** | **8192 卡** 1.3 EFLOPS | 千卡 | 4096 卡 | **T20 最大** |
 
-> **2021 国产 AI 训练霸主**：T20 显存最大（64GB）、互联最强（300 GB/s）、集群最大（8192 卡 1.3 EFLOPS）。但 FP32 算力（40 TFLOPS）和 INT8（320 TOPS）低于华为 Ascend 910。
+> **2021 国产 AI 训练主力**：T20 带宽最大（1.6 TB/s）、互联最强（300 GB/s）、集群最大（8192 卡 1.3 EFLOPS）。但 FP32 算力（40 TFLOPS）和 INT8（320 TOPS）低于华为 Ascend 910。
 
 ## 关键时间线
 
@@ -135,7 +136,7 @@ keywords: [燧原 T20, 云燧T20, 邃思2.0, Enflame, 国产AI训练, TF32 160TF
 - [Kunlun 昆仑芯 P800](/docs/cards/others/kunlun-p800) — 国产 AI 算力最强（345 TFLOPS）
 - [MetaX 曦云 C600](/docs/cards/others/metax-c600) — 全国产 GPU（1000 TFLOPS FP8）
 - [Hygon 海光 DCU K100](/docs/cards/others/hygon-dcu-k100) — x86 兼容 GPGPU
-- [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) — 同期国产 AI 训练
+- [Cambricon MLU370-X8](/docs/cards/others/cambricon-mlu-370) — 同期国产 AI 训推
 - [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 下一代国产 AI
 - [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) — 国产 AI 训练主力
 - [NVIDIA A100](/docs/cards/nvidia/a100) — 国际训练标杆

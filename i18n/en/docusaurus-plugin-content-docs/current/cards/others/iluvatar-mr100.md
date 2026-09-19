@@ -57,7 +57,7 @@ keywords: [Iluvatar, ZhiKai 100, MR100, MR-V100, Iluvatar CoreX, 7nm, 32GB HBM2E
 | Product | Release | FP16 TFLOPS | INT8 TOPS | Status |
 |---------|----------|----------------|-------------|--------|
 | TianGai 100 (BI-V100) | 2021 | ~128 TFLOPS | 256 TOPS | On sale |
-| **ZhiKai 100 (MR100)** | **2022** | **96 TFLOPS** | **192 TOPS** | **Current mainstream** |
+| **ZhiKai 100 (MR100)** | **2022** | **96 TFLOPS** | **384 TOPS** | **Current mainstream** |
 | TianGai 150 (BI-V150) | 2023 | Not disclosed | Not disclosed | On sale |
 | ZhiKai 200 (MR200) | 2024+ | Not disclosed | Not disclosed | Next generation |
 

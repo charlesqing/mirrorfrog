@@ -2,7 +2,7 @@
 id: moore-threads-mtt-s5000
 title: Moore Threads 摩尔线程 MTT S5000 (国产 GPU 训练)
 sidebar_label: Moore Threads 摩尔线程
-description: 摩尔线程 MTT S5000 详尽规格：第四代 MUSA 平湖架构、PH100 芯片、1000 TFLOPS 稠密 AI 算力、80GB GDDR6X、1.6 TB/s、MTLink 784 GB/s、国产全功能 GPU 训推一体卡。
+description: 摩尔线程 MTT S5000 详尽规格：第四代 MUSA 平湖架构、PH100 芯片、FP8 1000 TFLOPS（稠密）、BF16 400 TFLOPS、80GB 显存、1.6 TB/s、MTLink 784 GB/s、国产全功能 GPU 训推一体卡。
 keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI 芯片]
 ---
 
@@ -10,7 +10,7 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 
 ## 产品概述
 
-**摩尔线程（Moore Threads）** 是中国全功能 GPU 创业公司，**2020-10 成立**，创始人为原 NVIDIA 中国区高管 **张建中**。**MTT S5000** 是基于 **第四代 MUSA "平湖" 架构** 的训推一体 GPU 智算卡，**2025-02-12 公开参数**：**单卡 AI 算力 1000 TFLOPS**，**80GB GDDR6X**，**1.6 TB/s 带宽**。配套自研 **MUSA** 统一系统架构 + **MUSIFY** 软件栈。
+**摩尔线程（Moore Threads）** 是中国全功能 GPU 创业公司，**2020-10 成立**，创始人为原 NVIDIA 中国区高管 **张建中**。**MTT S5000** 是基于 **第四代 MUSA "平湖" 架构** 的训推一体 GPU 智算卡，**2025-02-12 公开参数**：**单卡 FP8 稠密 AI 算力 1000 TFLOPS**，**80GB 显存**，**1.6 TB/s 带宽**。配套自研 **MUSA** 统一系统架构 + **MUSIFY** 软件栈。
 
 **战略定位**：相比华为昇腾专注 AI 训练，摩尔线程走**全功能 GPU** 路线（图形 + AI + 通用计算），是中国**对标 NVIDIA 的国产 GPU 创业公司**，与景嘉微、芯原微电子、燧原科技、壁仞科技并列为"国产 GPU 五虎"。
 
@@ -27,11 +27,11 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 | **显存** | **80 GB**（官方未公开颗粒类型；1.6 TB/s 带宽为 HBM 级） |
 | **内存带宽** | **1.6 TB/s** |
 | **FP8（稠密，官方口径）** | **1,000 TFLOPS**（液冷版 1000 / 风冷版 920） |
-| **BF16 / FP16** | **~500 TFLOPS**（按官方 FP8 稠密算力 1:2 推算，非官方直接公布） |
-| **FP32** | **62.5 TFLOPS**（推测） |
-| **INT8** | **2,000 TOPS**（推测） |
+| **BF16 / FP16** | **400 TFLOPS**（官方彩页口径） |
+| **FP32** | **100 TFLOPS** |
+| **INT8** | **800 TOPS**（官方彩页口径） |
 | **精度支持** | **FP8 → FP64 全精度**，含硬件级 FP8 Tensor Core |
-| **TDP** | 300 W |
+| **TDP** | 500 W（市场口径） |
 | **PCIe** | PCIe 5.0 ×16 |
 | **互联** | **MTLink 784 GB/s**（8 卡节点内全互联） |
 | **板卡形态** | OAM（遵循 OAM 标准）/ PCIe；**液冷 + 风冷**双形态 |
@@ -44,6 +44,7 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 > - **显存类型**：本站此前记为 "GDDR6X"，与 1.6 TB/s 带宽**自相矛盾**（GDDR6X 上限约 1 TB/s，且 80GB 容量非 GDDR 常规配置）。摩尔线程官方仅公布「80GB 显存、1.6 TB/s 带宽」，未公开颗粒类型。已改为如实标注。
 > - **算力精度口径**：官方「单卡 AI 稠密算力 1000 TFLOPS」特指 **FP8 精度**（液冷版），非 FP16。FP16 约 500 TFLOPS。此前未标注精度，易被误读为 FP16 性能而高估。
 > - **互联**：官方为 **MTLink 784 GB/s**（原记「MUSA Link」无数值）。
+> - **算力口径复核（2026-09 交叉验证）**：官方彩页口径为 **BF16/FP16 400 TFLOPS、FP32 100 TFLOPS、INT8 800 TOPS、TDP 500W（市场口径）**；本页此前按 FP8 1:2 推算的 500/62.5/2000 及 300W 已废弃。
 
 ## MTT S5000 参数演进（2024 → 2025 版）
 
@@ -58,7 +59,7 @@ keywords: [Moore Threads, 摩尔线程, MTT S5000, MUSA, 国产 GPU, 国产 AI �
 | 互联 | MUSA Link 800 GB/s | 400 GB/s | 2× |
 | TDP | 300W | 250W | +20% |
 
-> ⚠️ **参数说明**：上表为 MTT S5000 **早期（2024）版本**参数。2025-02-12 发布的**现行量产版**已升级为 **80GB GDDR6X / 1.6 TB/s / 1000 TFLOPS 稠密 AI 算力**（见上方核心规格）。
+> ⚠️ **参数说明**：上表为 MTT S5000 **早期（2024）版本**参数。2025-02-12 发布的**现行量产版**已升级为 **80GB 显存 / 1.6 TB/s / FP8 1000 TFLOPS 稠密 AI 算力**（见上方核心规格；显存颗粒类型官方未公开，互联为 MTLink 784 GB/s）。
 
 ## MUSA 架构
 

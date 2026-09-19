@@ -2,7 +2,7 @@
 id: ascend-910b
 title: Huawei Ascend 910B
 sidebar_label: Huawei Ascend 910B
-description: "Huawei Ascend 910B detailed specs: 64GB HBM3, 320 TFLOPS FP16, 640 TOPS INT8, 310W TDP, China's domestic AI training GPU."
+description: "Huawei Ascend 910B detailed specs: 64GB HBM2e, 320 TFLOPS FP16, 640 TOPS INT8, 310W TDP, China's domestic AI training GPU."
 keywords: [Huawei Ascend 910B, Ascend 910B, China AI chip, Da Vinci, CANN]
 ---
  
@@ -10,7 +10,9 @@ keywords: [Huawei Ascend 910B, Ascend 910B, China AI chip, Da Vinci, CANN]
  
 ## Overview
  
-Huawei Ascend 910B is part of the Ascend series of AI training chips, **based on the Da Vinci architecture**, entering mass production in 2022-2023. Under US export controls, it has become the **mainstream NVIDIA alternative in the Chinese market**. Equipped with 64GB HBM3 memory and 320 TFLOPS FP16 compute, it has been adopted by major Chinese AI projects at Baidu, Alibaba, Tencent, and others.
+Huawei Ascend 910B is part of the Ascend series of AI training chips, **based on the Da Vinci architecture**, entering mass production in 2022-2023. Under US export controls, it has become the **mainstream NVIDIA alternative in the Chinese market**. Equipped with 64GB HBM2e memory and 320 TFLOPS FP16 compute, it has been adopted by major Chinese AI projects at Baidu, Alibaba, Tencent, and others.
+
+**Note**: The Ascend 910B has multiple versions (B1/B2/B3/B4) with slightly different specs. The core spec table uses the common figures consistent across multiple sources (FP16 320 TFLOPS / INT8 640 TOPS); the per-version compute in the version-difference table below is market-reported and unconfirmed by official specification sheets — base purchasing decisions on actual measurements.
  
 ## Core Specifications
  

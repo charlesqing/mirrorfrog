@@ -23,7 +23,7 @@ keywords: [摩尔线程, MTT S4000, Moore Threads, 第三代MUSA, 曲院GPU, 48G
 | **FP32** | **25 TFLOPS** |
 | **TF32** | **50 TFLOPS** |
 | **INT8** | **200 TOPS** |
-| **FP16/BF16** | 支持（具体数值未公开） |
+| **FP16/BF16** | **100 TFLOPS**（官方文档口径） |
 | **显存容量** | **48 GB GDDR6** |
 | **显存带宽** | **768 GB/s** |
 | **TDP** | **450 W** |

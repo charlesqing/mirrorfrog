@@ -22,7 +22,7 @@ status: "Mass production"
 |--------------|-------|
 | **Architecture** | XCORE 1.0 (XiYun architecture, C500 iteration) |
 | **Process** | 7 nm (estimated) |
-| **TDP** | 300 W (estimated) |
+| **TDP** | 450 W (OAM spec) |
 | **Memory** | 64 GB HBM2e (same as C500) |
 | **Memory Bandwidth** | ~1600–1800 GB/s |
 | **FP32 Compute** | 15 TFLOPS (same as C500, estimated) |
