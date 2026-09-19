@@ -308,6 +308,7 @@ const sidebars: SidebarsConfig = {
         'cards/others/kunlun-m300',
         'cards/baidu/r200',
         'cards/others/hygon-dcu-k100',
+        'cards/others/hygon-bw1000',
         'cards/others/metax-c600',
         'cards/others/metax-c588',
         'cards/others/metax-c550',
@@ -334,6 +335,7 @@ const sidebars: SidebarsConfig = {
         'cards/others/alibaba-zhenwu-810e',
         'cards/others/alibaba-zhenwu-m890',
         'cards/others/zhonghao-tpu',
+        'cards/others/enrigin-d20',
         'cards/others/tsingmicro-tx81',
 
         {
@@ -383,6 +385,7 @@ const sidebars: SidebarsConfig = {
             'cards/others/corerain-caisa',
             'cards/others/lingxi',
             'cards/others/nextvpu',
+            'cards/others/orient-df1000',
           ],
         },
         {
@@ -396,6 +399,7 @@ const sidebars: SidebarsConfig = {
             'cards/others/hygon-dcu-z100l',
             'cards/others/biren-br100',
             'cards/others/kunlun-1',
+            'cards/others/kunlun-r300',
             'cards/others/metax-c290',
             'cards/others/metax-c700',
           ],
