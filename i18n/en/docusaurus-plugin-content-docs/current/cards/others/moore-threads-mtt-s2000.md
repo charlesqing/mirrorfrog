@@ -59,7 +59,7 @@ keywords: [Moore Threads, MTT S2000, domestic GPU, CUDA-compatible, AI inference
 
 | Item | Content |
 |------|---------|
-| **Company** | Moore Threads (摩尔线程) |
+| **Company** | Moore Threads |
 | **Website** | https://www.moorethreads.com |
 | **Headquarters** | Beijing, China |
 

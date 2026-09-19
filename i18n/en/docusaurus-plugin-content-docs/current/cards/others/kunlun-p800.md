@@ -1,98 +1,100 @@
 ---
 id: kunlun-p800
-title: Kunlun 昆仑芯 P800 (2024)
-sidebar_label: Kunlun P800
-description: "昆仑芯 P800 详尽规格：自研 XPU-P 架构，FP16 345 TFLOPS（超越 NVIDIA H20），400W，OAM 形态，2024 年上市，国产 AI 训练/推理加速卡"
-keywords: [昆仑芯 P800, Kunlun P800, 百度, XPU-P, 345 TFLOPS, FP16, 国产 AI, 万卡集群, DeepSeek, 2024]
+title: Kunlunxin P800 (2024)
+sidebar_label: Kunlunxin P800
+description: "Kunlunxin P800 detailed specs: in-house XPU-P architecture, 345 TFLOPS FP16 (surpassing the NVIDIA H20), 400W, OAM form factor, launched in 2024, domestic AI training/inference accelerator card"
+keywords: [Kunlunxin P800, Kunlun P800, Baidu, XPU-P, 345 TFLOPS, FP16, domestic AI, 10,000-card clusters, DeepSeek, 2024]
 ---
 
-# Kunlun 昆仑芯 P800 (2024)
+# Kunlunxin P800 (2024)
 
-## 产品概述
+## Product Overview
 
-**昆仑芯 P800** 是昆仑芯科技（百度旗下）推出的**第三代 AI 加速卡**，基于自研 **XPU-P 架构**，**FP16 峰值算力 345 TFLOPS**（超越 NVIDIA H20 的 148 TFLOPS），**TDP 约 400W**，采用 **OAM 模块形态**，2024 年 3 月上市。支持 DeepSeek-V3/R1 671B 满血版**单机 8 卡运行**，已交付多个万卡级集群。
+The **Kunlunxin P800** is the **third-generation AI accelerator card** from Kunlunxin Technology (a Baidu company). Based on the in-house **XPU-P architecture**, it delivers **345 TFLOPS of peak FP16 compute** (surpassing the NVIDIA H20's 148 TFLOPS) at a **TDP of about 400W**, in the **OAM module form factor**; it launched in March 2024. It supports running the full-strength DeepSeek-V3/R1 671B on **8 cards in a single server**, and multiple 10,000-card clusters have been delivered.
 
-**关键定位**：
-- **昆仑芯 1 代**（2018）：14nm，百度内部部署
-- **昆仑芯 2 代**（2021）：7nm，自研 Kunlun Core II，256 INT8 TOPS
-- **昆仑芯 P800**（2024）：**XPU-P 架构，FP16 345 TFLOPS，OAM** — **本页**
-- **昆仑芯 M100**（2026 初）：推理专用 — 已有页
-- **昆仑芯 M300**（2027 初）：超大规模多模态训练
+**Key Positioning**:
+- **Kunlunxin Gen 1** (2018): 14nm, deployed inside Baidu
+- **Kunlunxin Gen 2** (2021): 7nm, in-house Kunlun Core II, 256 INT8 TOPS
+- **Kunlunxin P800** (2024): **XPU-P architecture, 345 TFLOPS FP16, OAM** — **this page**
+- **Kunlunxin M100** (early 2026): inference-dedicated — existing page
+- **Kunlunxin M300** (early 2027): ultra-large-scale multimodal training
 
-## 核心规格
+## Core Specifications
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **架构** | 自研 XPU-P 架构 |
-| **代数** | 第三代 AI 加速卡 |
-| **FP16** | **345 TFLOPS**（超越 H20 148 TFLOPS） |
-| **低功耗 FP16** | 128 TFLOPS @ 120W |
-| **INT8** | 支持 8-bit 推理（具体 TOPS 未公开） |
-| **MoE 支持** | 原生支持 MoE 架构 |
-| **TDP** | ~400W |
-| **板卡形态** | **OAM 模块** |
-| **互联** | XCCL（昆仑芯互联），支持 IB/ROCE |
-| **虚拟化** | 硬件级 vXPU，单卡可拆分为 32 个虚拟实例 |
-| **集群规模** | 支持万卡集群，已实现全自研三万卡集群 |
-| **超节点** | 天池 256 / 天池 512 |
-| **量产** | 2024 年 3 月上市，2025 年起大规模交付 |
-| **供应状态** | 供不应求，受限于晶圆代工产能 |
+| **Architecture** | In-house XPU-P architecture |
+| **Process** | 7nm |
+| **Memory** | 96 GB HBM3 |
+| **Memory Bandwidth** | 2.4 TB/s |
+| **FP16** | **345 TFLOPS** (surpasses the H20's 148 TFLOPS) |
+| **Low-Power FP16** | 128 TFLOPS @ 120W |
+| **INT8** | Supports 8-bit inference (specific TOPS not disclosed) |
+| **MoE Support** | Native support for MoE architectures |
+| **TDP** | 400 W |
+| **Form Factor** | **OAM module** |
+| **Interconnect** | XCCL (Kunlunxin interconnect), supports IB/ROCE |
+| **Release** | 2024-03 |
+| **Mass Production** | Launched in March 2024, large-scale delivery since 2025 |
+| **Cluster Scale** | Supports 10,000-card clusters; an all-in-house 30,000-card cluster has been realized |
+| **Supernode** | Tianchi 256 / Tianchi 512 |
+| **Supply Status** | In short supply, constrained by foundry capacity |
 
-## 大模型适配能力
+## Large-Model Adaptation
 
-| 模型 | 部署方式 | 备注 |
+| Model | Deployment | Notes |
 |------|----------|------|
-| DeepSeek-V3/R1 671B | **单机 8 卡**推理 | 通过信通院适配认证 |
-| DeepSeek MoE 全参训练 | **32 台**即可完成 | 支持 MLA、多专家并行 |
-| 文心（ERNIE）系列 | 百度云原生支持 | 百度智能云主力部署 |
-| Llama / Qwen / ChatGLM | 支持 | 含 MoE 蒸馏版本 |
-| Baichuan | 支持 | 国产模型生态 |
+| DeepSeek-V3/R1 671B | **8 cards in a single server** inference | Passed CAICT adaptation certification |
+| DeepSeek MoE full-parameter training | **32 servers** suffice | Supports MLA and multi-expert parallelism |
+| ERNIE series | Native Baidu Cloud support | Main deployment on Baidu AI Cloud |
+| Llama / Qwen / ChatGLM | Supported | Includes MoE distilled versions |
+| Baichuan | Supported | Domestic model ecosystem |
 
-> **CUDA 兼容性**：CUDA 上可运行的模型在 P800 上迁移成本低，支持 vLLM 等开源推理框架。
+> **CUDA compatibility**: models that run on CUDA migrate to the P800 at low cost; open-source inference frameworks such as vLLM are supported.
 
-## 厂商信息
+## Vendor Information
 
-| 项目 | 内容 |
+| Parameter | Details |
 |------|------|
-| **公司** | 昆仑芯科技（北京）有限公司 |
-| **母公司** | 百度（持股 57.67%） |
-| **成立** | 2021 年 4 月（从百度独立） |
-| **P800 上市** | 2024 年 3 月 |
-| **IPO 状态** | 2026 年 5 月启动科创板 IPO 辅导 |
-| **估值** | 超百亿元 |
-| **主要客户** | 百度智能云、中国移动（AI 推理服务器集采中标） |
-| **认证** | 信通院《智算服务集群稳定运行》五星评级 |
+| **Company** | Kunlunxin Technology (Beijing) Co., Ltd. |
+| **Parent Company** | Baidu (57.67% stake) |
+| **Founded** | April 2021 (spun off from Baidu) |
+| **P800 Launch** | March 2024 |
+| **IPO Status** | Started STAR Market IPO tutoring in May 2026 |
+| **Valuation** | Over 10 billion RMB |
+| **Key Customers** | Baidu AI Cloud, China Mobile (won the AI inference server centralized procurement) |
+| **Certification** | CAICT five-star rating for "Stable Operation of Intelligent Computing Service Clusters" |
 
-## 适用场景
+## Use Cases
 
-- ✅ **国产大模型训练**（DeepSeek、文心等全参训练）
-- ✅ **大模型推理**（671B 单机 8 卡部署）
-- ✅ **百度智能云**（百舸平台核心算力底座）
-- ✅ **国产智算中心**（万卡集群已验证）
-- ✅ **MoE 模型推理**（硬件原生优化）
-- ❌ **CUDA 生态深度依赖场景**（迁移需适配）
-- ❌ **低功耗边缘部署**（400W TDP 较高）
-- ❌ **国际市场**（出口管制受限）
+- ✅ **Domestic large-model training** (full-parameter training of DeepSeek, ERNIE, etc.)
+- ✅ **Large-model inference** (671B on 8 cards in a single server)
+- ✅ **Baidu AI Cloud** (core compute foundation of the Baige platform)
+- ✅ **Domestic intelligent computing centers** (10,000-card clusters verified)
+- ✅ **MoE model inference** (native hardware optimization)
+- ❌ **Deep CUDA ecosystem dependence** (migration requires adaptation)
+- ❌ **Low-power edge deployment** (400W TDP is high)
+- ❌ **International markets** (restricted by export controls)
 
-## 关键时间线
+## Key Timeline
 
-| 时间 | 事件 |
+| Date | Event |
 |------|------|
-| 2018 | 昆仑芯 1 代发布（14nm） |
-| 2021-04 | 昆仑芯科技独立运营 |
-| 2021 | 昆仑芯 2 代量产（7nm Kunlun Core II） |
-| **2024-03** | **P800 正式上市**（本页） |
-| 2025-02 | 通过 DeepSeek 671B 适配认证 |
-| 2025 | 大规模交付万卡集群 |
-| 2026-05 | 启动科创板 IPO |
+| 2018 | Kunlunxin Gen 1 released (14nm) |
+| 2021-04 | Kunlunxin Technology began independent operations |
+| 2021 | Kunlunxin Gen 2 mass-produced (7nm Kunlun Core II) |
+| **2024-03** | **P800 officially launched** (this page) |
+| 2025-02 | Passed DeepSeek 671B adaptation certification |
+| 2025 | Large-scale delivery of 10,000-card clusters |
+| 2026-05 | Started STAR Market IPO |
 
-## 相关卡
+## Related Cards
 
-- [Kunlun 昆仑芯 M100](/docs/cards/others/kunlun-m100) — 下一代推理专用
-- [NVIDIA H20](/docs/cards/nvidia/h20) — FP16 对标（P800 2.3×）
-- [NVIDIA H100](/docs/cards/nvidia/h100) — 国际旗舰对标
-- [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) — 国产 AI 竞品
-- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 国产 AI 训练卡
-- [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — x86 兼容国产 GPGPU
-- [MetaX C600](/docs/cards/others/metax-c600) — 全国产 GPU
-- [Enflame T20](/docs/cards/others/enflame-t20) — 国产 AI 训练卡
+- [Kunlunxin M100](/docs/cards/others/kunlun-m100) — Next-generation inference-dedicated
+- [NVIDIA H20](/docs/cards/nvidia/h20) — FP16 benchmark (P800 is 2.3x)
+- [NVIDIA H100](/docs/cards/nvidia/h100) — International flagship benchmark
+- [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) — Domestic AI competitor
+- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — Domestic AI training card
+- [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — x86-compatible domestic GPGPU
+- [MetaX C600](/docs/cards/others/metax-c600) — Fully domestic GPU
+- [Enflame T20](/docs/cards/others/enflame-t20) — Domestic AI training card

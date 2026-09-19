@@ -1,7 +1,10 @@
 /**
  * 芯片排序和评分工具函数测试
+ *
+ * 注意：显式 `import ... from 'vitest'` 在 vitest 4.1.8 + vite 8 组合下会解析到
+ * 错误实例并抛 `undefined.config`，因此统一使用 vitest.config.ts 已启用的 globals
+ * （tsconfig types: ["vitest/globals"]），不要改回显式导入。
  */
-import { describe, it, expect } from 'vitest';
 import { rankScore, sortChips, type HotChip, type HomeContent } from '../utils/chip-utils';
 
 const MOCK_CONTENT: HomeContent = {

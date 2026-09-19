@@ -1,104 +1,105 @@
 ---
 id: biren-br104
-title: Biren 壁仞 BR100 / BR104 (国产 AI 训练/推理)
-sidebar_label: Biren 壁仞
-description: "壁仞科技 BR100/BR104：7nm、BR100 BF16 1024 TFLOPS/INT8 2048 TOPS、BR104 32GB HBM2e 300W、BIRENSUPA 软件栈、国产 AI 创业五虎。2025年1月港交所上市。"
-keywords: [Biren, 壁仞, BR100, BR104, 国产 AI 芯片, BIRENSUPA, 国产替代, 港交所上市]
+title: Biren BR100 / BR104 (Domestic AI Training/Inference)
+sidebar_label: Biren
+description: "Biren Technology BR100/BR104: 7nm, BR100 1024 TFLOPS BF16 / 2048 TOPS INT8, BR104 32GB HBM2e 300W, BIRENSUPA software stack, one of China's AI chip startup 'Five Tigers'. Listed on HKEX in January 2025."
+keywords: [Biren, BR100, BR104, domestic AI chips, BIRENSUPA, domestic substitution, HKEX listing]
 ---
 
-# Biren 壁仞 BR100 / BR104 (国产 AI 训练/推理)
+# Biren BR100 / BR104 (Domestic AI Training/Inference)
 
-## 产品概述
+## Product Overview
 
-**壁仞科技（Biren Technology）** 是中国 AI 芯片创业公司，**2019-09 成立**，总部上海。**2025 年 1 月在港交所上市**。BR100/BR104 是其首款通用 GPU 芯片系列，2022 年 8 月正式发布。
+**Biren Technology** is a Chinese AI chip startup, **founded in September 2019** and headquartered in Shanghai. It **listed on the Hong Kong Stock Exchange (HKEX) in January 2025**. BR100/BR104 is its first general-purpose GPU chip series, officially released in August 2022.
 
-- **BR100**：旗舰款，双 chiplet 设计，**BF16 1024 TFLOPS** / INT8 2048 TOPS
-- **BR104**：单 chiplet 版本，**32GB HBM2e**，**300W TDP**，面向通用计算
+- **BR100**: flagship, dual-chiplet design, **1024 TFLOPS BF16** / 2048 TOPS INT8
+- **BR104**: single-chiplet version, **32GB HBM2e**, **300W TDP**, aimed at general-purpose computing
 
-壁仞与**摩尔线程、景嘉微、天数智芯**等并称"国产 AI 创业五虎"，累计融资 **$700M+**。
+Biren is counted alongside **Moore Threads, Jingjia Micro, and Iluvatar CoreX** as one of China's "Five Tigers" of AI chip startups, with cumulative funding of **$700M+**.
 
-## 核心规格
+## Core Specifications
 
-### BR100（旗舰款）
+### BR100 (Flagship)
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **架构** | 壁立仞（Biren 自研 ISA） |
-| **制程** | TSMC 7nm |
-| **设计** | **双 Chiplet**（8 计算芯粒 + 4 HBM2e 芯粒） |
-| **BF16 算力** | **1024 TFLOPS** |
-| **TF32+ 算力** | 512 TFLOPS |
-| **INT8 算力** | **2048 TOPS** |
-| **FP32 算力** | 256 TFLOPS |
-| **HBM** | 64GB HBM2e（4 个芯粒） |
-| **片间带宽** | 800 GB/s（BLink 互联） |
-| **TDP** | ~400W |
-| **发布** | 2022-08 |
-| **状态** | 2025 年上海智算中心万卡集群部署 |
+| **Architecture** | Biren (in-house Biren ISA) |
+| **Process** | TSMC 7nm |
+| **Design** | **Dual chiplet** (8 compute dies + 4 HBM2e dies) |
+| **BF16 Compute** | **1024 TFLOPS** |
+| **TF32+ Compute** | 512 TFLOPS |
+| **INT8 Compute** | **2048 TOPS** |
+| **FP32 Compute** | 256 TFLOPS |
+| **HBM** | 64GB HBM2e (4 stacks) |
+| **Memory Bandwidth** | **2.3 TB/s** |
+| **Inter-Die Bandwidth** | 800 GB/s (BLink interconnect) |
+| **TDP** | 300 W |
+| **Release** | 2022-08 |
+| **Status** | Deployed in the Shanghai Intelligent Computing Center's 10,000-card cluster in 2025 |
 
-### BR104（通用版）
+### BR104 (General-Purpose Version)
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **架构** | 壁立仞（Biren 自研 ISA） |
-| **制程** | TSMC 7nm |
-| **设计** | 单 Chiplet |
+| **Architecture** | Biren (in-house Biren ISA) |
+| **Process** | TSMC 7nm |
+| **Design** | Single chiplet |
 | **HBM** | **32 GB HBM2e** |
-| **片间带宽** | 256 GB/s（BLink 互联） |
+| **Inter-Die Bandwidth** | 256 GB/s (BLink interconnect) |
 | **TDP** | **300 W** |
-| **形态** | PCIe Gen4 ×16 |
-| **虚拟化** | 支持最高 4 份安全虚拟实例 |
-| **发布** | 2022-08 |
-| **状态** | 已量产 |
+| **Form Factor** | PCIe Gen4 ×16 |
+| **Virtualization** | Supports up to 4 secure virtual instances |
+| **Release** | 2022-08 |
+| **Status** | In mass production |
 
-## BR100 vs BR104 对比
+## BR100 vs BR104 Comparison
 
-| 指标 | BR100 | BR104 |
+| Metric | BR100 | BR104 |
 |------|-------|-------|
-| **定位** | 旗舰训练 | 通用推理 |
-| **芯片设计** | 双 Chiplet | 单 Chiplet |
-| **BF16 算力** | **1024 TFLOPS** | ~256 TFLOPS |
-| **INT8 算力** | 2048 TOPS | ~512 TOPS |
+| **Positioning** | Flagship training | General-purpose inference |
+| **Chip Design** | Dual chiplet | Single chiplet |
+| **BF16 Compute** | **1024 TFLOPS** | ~256 TFLOPS |
+| **INT8 Compute** | 2048 TOPS | ~512 TOPS |
 | **HBM** | 64GB HBM2e | 32GB HBM2e |
-| **片间带宽** | 800 GB/s | 256 GB/s |
+| **Inter-Die Bandwidth** | 800 GB/s | 256 GB/s |
 | **TDP** | ~400W | 300W |
-| **虚拟化** | 8 份 | 4 份 |
+| **Virtualization** | 8 instances | 4 instances |
 
-## 壁立仞架构六大特性
+## Six Key Features of the Biren Architecture
 
-| 特性 | 说明 |
+| Feature | Description |
 |------|------|
-| **TF32+** | NVIDIA TF32 的改良版，更高精度 |
-| **TDA** | 张量数据存取加速器 |
-| **C-Warp** | 类 CUDA Warp 的并行调度 |
-| **BLink** | 芯片间高速互联 |
-| **HBM 统一寻址** | 多芯片共享 HBM 空间 |
-| **安全虚拟化** | 硬件级多租户隔离 |
+| **TF32+** | An improved version of NVIDIA TF32 with higher precision |
+| **TDA** | Tensor data access accelerator |
+| **C-Warp** | CUDA-like Warp parallel scheduling |
+| **BLink** | High-speed inter-chip interconnect |
+| **Unified HBM Addressing** | Multiple chips share the HBM address space |
+| **Secure Virtualization** | Hardware-level multi-tenant isolation |
 
-## 厂商信息
+## Vendor Information
 
-| 项目 | 内容 |
+| Parameter | Details |
 |------|------|
-| **公司** | 壁仞科技（Biren Technology） |
-| **成立** | 2019-09 |
-| **上市** | **2025-01 港交所** |
-| **总部** | 上海 |
-| **融资** | $700M+（B 轮创中国半导体单笔融资纪录） |
-| **软件** | BIRENSUPA（类 CUDA 软件栈） |
-| **客户** | 上海智算中心、百度、字节跳动 |
+| **Company** | Biren Technology |
+| **Founded** | 2019-09 |
+| **Listing** | **2025-01 HKEX** |
+| **Headquarters** | Shanghai |
+| **Funding** | $700M+ (the Series B set a record for a single financing round in China's semiconductor industry) |
+| **Software** | BIRENSUPA (CUDA-like software stack) |
+| **Customers** | Shanghai Intelligent Computing Center, Baidu, ByteDance |
 
-## 适用场景
+## Use Cases
 
-- ✅ **国产 AI 训练**（BR100，万卡集群）
-- ✅ **国产 AI 推理**（BR104，300W 低功耗）
-- ✅ **政府/国企 AI 项目**（国产化替代）
-- ❌ **CUDA 生态锁定**（需迁移至 BIRENSUPA）
-- ❌ **国际市场**（出口管制）
+- ✅ **Domestic AI training** (BR100, 10,000-card clusters)
+- ✅ **Domestic AI inference** (BR104, 300W low power)
+- ✅ **Government/SOE AI projects** (domestic substitution)
+- ❌ **CUDA ecosystem lock-in** (migration to BIRENSUPA required)
+- ❌ **International markets** (export controls)
 
-## 相关产品
+## Related Products
 
-- [华为昇腾 910C](/docs/cards/huawei/ascend-910c) - 国产对标
-- [华为昇腾 950](/docs/cards/huawei/ascend-950) - 国产下一代
-- [寒武纪 MLU590](/docs/cards/others/cambricon-mlu) - 国产竞品
-- [摩尔线程 MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) - 国产 GPU
-- [NVIDIA H100](/docs/cards/nvidia/h100) - 国际对标
+- [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c) - Domestic benchmark
+- [Huawei Ascend 950](/docs/cards/huawei/ascend-950) - Domestic next generation
+- [Cambricon MLU590](/docs/cards/others/cambricon-mlu) - Domestic competitor
+- [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) - Domestic GPU
+- [NVIDIA H100](/docs/cards/nvidia/h100) - International benchmark

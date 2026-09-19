@@ -10,7 +10,7 @@ keywords: [Zhonghao, domestic TPU, AI chip, energy efficiency, Tianjin Mobile]
 
 ## Product Overview
 
-**Zhonghao (中昊芯英)** is an emerging Chinese **TPU-architecture AI chip** startup. In May 2026, it officially released its **self-developed TPU chip** and achieved **mass production and delivery**, becoming one of the few companies globally to master TPU architecture after Google. At 400W TDP, it delivers **512 TOPS INT8** compute with an efficiency of **1.28 TOPS/W** (2.3x that of H100). The **Tianjin Mobile TPU AI Computing Center** is already operational, marking the **first benchmark case** of domestic TPU commercialization.
+**Zhonghao Xinying** is an emerging Chinese **TPU-architecture AI chip** startup. In May 2026, it officially released its **self-developed TPU chip** and achieved **mass production and delivery**, becoming one of the few companies globally to master TPU architecture after Google. At 400W TDP, it delivers **512 TOPS INT8** compute with an efficiency of **1.28 TOPS/W** (2.3x that of H100). The **Tianjin Mobile TPU AI Computing Center** is already operational, marking the **first benchmark case** of domestic TPU commercialization.
 
 Core design philosophy: Abandon GPU's graphics rendering modules, pure ASIC design focused on AI computation, achieving significantly better energy efficiency than traditional GPUs at the same process node. A thousand-card cluster can support **hundreds-of-billions-parameter large model** computation.
 
@@ -73,7 +73,7 @@ Core design philosophy: Abandon GPU's graphics rendering modules, pure ASIC desi
 
 | Item | Content |
 |------|---------|
-| **Company** | Zhonghao (杭州) Technology Co., Ltd. |
+| **Company** | Hangzhou Zhonghao Xinying Technology Co., Ltd. |
 | **Positioning** | Domestic TPU-architecture AI chip new force |
 | **Core Product** | Self-developed TPU chip |
 | **Website** | TBD |

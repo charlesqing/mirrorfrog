@@ -8,77 +8,79 @@ keywords: [NVIDIA RTX Spark, AI PC, Computex 2026, Blackwell, Arm CPU, unified m
 
 # NVIDIA RTX Spark (AI PC Superchip)
 
-## 产品概述
+## Product Overview
 
-**NVIDIA RTX Spark** 于 **2026 年 6 月 1 日**在 Computex 2026 / GTC Taipei 正式发布，是 NVIDIA 与 **联发科（MediaTek）** 合作的首款 AI PC 超级芯片。采用 **Arm CPU + Blackwell GPU** 统一内存架构，配备 **128GB LPDDR5X** 共享内存，目标是将 Windows 转变为一个"智能体 AI（Agentic AI）"平台。
+**NVIDIA RTX Spark** was officially unveiled on **June 1, 2026** at Computex 2026 / GTC Taipei as NVIDIA's first AI PC superchip developed in collaboration with **MediaTek**. It adopts a unified-memory **Arm CPU + Blackwell GPU** architecture with **128GB LPDDR5X** of shared memory, aiming to turn Windows into an "Agentic AI" platform.
 
-RTX Spark 同时面向 **笔记本和紧凑型桌面**，预计 **2026 年秋季**上市，首发 OEM 包括 Dell、HP、Lenovo、Asus、MSI、Microsoft Surface。
+RTX Spark targets both **laptops and compact desktops** and is expected to launch in **Fall 2026**, with launch OEMs including Dell, HP, Lenovo, Asus, MSI, and Microsoft Surface.
 
-## 核心规格
+## Core Specifications
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **架构** | Blackwell GPU + Arm CPU（联发科合作） |
-| **CPU** | 最多 **20 核 Arm** |
-| **GPU** | **6,144 CUDA 核心**（Blackwell） |
-| **统一内存** | **128 GB LPDDR5X**（CPU + GPU 共享） |
-| **内存带宽** | **300 GB/s** |
-| **互联** | NVLink C2C（CPU-GPU） |
-| **游戏性能** | ~100 FPS @ 1440p（DLSS 4.5） |
-| **模型容量** | 可运行 **1,200 亿参数** 模型 |
-| **上下文** | 最长 **100 万 tokens** |
-| **AI 算力（推测）** | ~1 PFLOPS（NVIDIA 非官方口径） |
-| **首发 OEM** | Dell, HP, Lenovo, Asus, MSI, Microsoft Surface |
-| **机型** | 30+ 款笔记本 + ~10 款桌面 |
-| **上市** | **2026 年秋季** |
-| **定价** | 尚未公布 |
+| **Architecture** | Blackwell GPU + Arm CPU (MediaTek collaboration) |
+| **CPU** | Up to **20 Arm cores** |
+| **GPU** | **6,144 CUDA cores** (Blackwell) |
+| **Unified Memory** | **128 GB LPDDR5X** (shared by CPU + GPU) |
+| **Memory Bandwidth** | **300 GB/s** |
+| **Interconnect** | NVLink C2C (CPU-GPU) |
+| **Gaming Performance** | ~100 FPS @ 1440p (DLSS 4.5) |
+| **Model Capacity** | Runs **120 billion parameter** models |
+| **Context** | Up to **1 million tokens** |
+| **AI Compute (estimated)** | ~1 PFLOPS (unofficial NVIDIA figure) |
+| **TDP** | ~100W (estimated) |
+| **Launch OEMs** | Dell, HP, Lenovo, Asus, MSI, Microsoft Surface |
+| **Models** | 30+ laptops + ~10 desktops |
+| **Availability** | **Fall 2026** |
+| **Pricing** | Not yet announced |
+| **Announced** | 2025-01-07 (Project DIGITS) |
 
-> ⚠️ **注**：NVIDIA 在 Computex 2026 的发布重点是平台定位和 AI 叙事，未公布具体的 TFLOPS/PFLOPS 官方数据、TDP 和定价。以上部分数据基于行业推测。
+> ⚠️ **Note**: NVIDIA's Computex 2026 announcement focused on platform positioning and the AI narrative; it did not publish official TFLOPS/PFLOPS figures, TDP, or pricing. Some of the data above is based on industry estimates.
 
-## 平台生态
+## Platform Ecosystem
 
-| 合作伙伴 | 合作内容 |
+| Partner | Collaboration |
 |----------|----------|
-| **Microsoft** | OpenShell 框架，将 Windows 转变为 AI Agent 平台 |
-| **Adobe** | Photoshop / Premiere 核心重写，100% GPU 加速 |
-| **联发科** | Arm CPU 架构协同设计 |
-| **Dell, HP, Lenovo, Asus, MSI** | 首发 OEM 笔记本/桌面 |
+| **Microsoft** | OpenShell framework, turning Windows into an AI Agent platform |
+| **Adobe** | Photoshop / Premiere core rewrites, 100% GPU-accelerated |
+| **MediaTek** | Co-design of the Arm CPU architecture |
+| **Dell, HP, Lenovo, Asus, MSI** | Launch OEM laptops/desktops |
 
-## 与 DGX Station for Windows 对比
+## Comparison with DGX Station for Windows
 
-| 指标 | RTX Spark | DGX Station for Windows |
+| Metric | RTX Spark | DGX Station for Windows |
 |------|-----------|------------------------|
-| **芯片** | RTX Spark Superchip | GB300 Grace Blackwell Ultra |
-| **内存** | 128GB LPDDR5X | 748GB（252GB HBM3e + 496GB LPDDR5X） |
-| **内存带宽** | 300 GB/s | 7.1 TB/s (GPU) |
-| **CUDA 核心** | 6,144 | ~20,000 (推测) |
-| **AI 算力** | ~1 PFLOPS | 20 PFLOPS FP4 |
-| **目标** | 个人 AI Agent / 笔记本 | 桌面 AI 超算 / 万亿参数模型 |
+| **Chip** | RTX Spark Superchip | GB300 Grace Blackwell Ultra |
+| **Memory** | 128GB LPDDR5X | 748GB (252GB HBM3e + 496GB LPDDR5X) |
+| **Memory Bandwidth** | 300 GB/s | 7.1 TB/s (GPU) |
+| **CUDA Cores** | 6,144 | ~20,000 (estimated) |
+| **AI Compute** | ~1 PFLOPS | 20 PFLOPS FP4 |
+| **Target** | Personal AI agents / laptops | Desktop AI supercomputing / trillion-parameter models |
 | **TDP** | TBD | 1,600W |
-| **上市** | 2026 秋 | 2026 Q4 |
+| **Availability** | Fall 2026 | 2026 Q4 |
 
-## 厂商信息
+## Vendor Information
 
-| 项目 | 内容 |
+| Parameter | Details |
 |------|------|
-| **制造商** | NVIDIA × MediaTek（联发科） |
-| **官网** | https://www.nvidia.com |
-| **首发** | Computex 2026 / GTC Taipei（2026-06-01） |
-| **上市** | 2026 年秋季 |
+| **Manufacturer** | NVIDIA × MediaTek |
+| **Official Website** | https://www.nvidia.com |
+| **Announcement** | Computex 2026 / GTC Taipei (2026-06-01) |
+| **Availability** | Fall 2026 |
 
-## 适用场景
+## Use Cases
 
-- ✅ **个人 AI Agent**：本地运行 120B 参数模型，100 万 token 上下文
-- ✅ **创作者工作站**：Adobe Photoshop / Premiere 100% GPU 加速
-- ✅ **本地 LLM 推理**：128GB 统一内存足够多数模型
-- ✅ **轻度 AI 训练**：微调 / LoRA / 小规模训练
-- ❌ **大规模训练**（DGX Station 更适合）
-- ❌ **HPC 科学计算**（H100 / Rubin 更适合）
+- ✅ **Personal AI agents**: run 120B parameter models locally with 1 million token context
+- ✅ **Creator workstations**: Adobe Photoshop / Premiere 100% GPU-accelerated
+- ✅ **Local LLM inference**: 128GB unified memory suffices for most models
+- ✅ **Light AI training**: fine-tuning / LoRA / small-scale training
+- ❌ **Large-scale training** (DGX Station is a better fit)
+- ❌ **HPC scientific computing** (H100 / Rubin are better fits)
 
-## 相关产品
+## Related Products
 
-- [NVIDIA DGX Station for Windows](/docs/cards/nvidia/gb300) - 桌面 AI 超算
-- [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - 数据中心训练旗舰
-- [NVIDIA B200](/docs/cards/nvidia/b200) - 数据中心训练
-- [Apple M5 Ultra](/docs/cards/others/apple-m5-ultra) - 竞品对比
-- [RTX 5090](/docs/cards/nvidia/rtx-5090) - 消费级 GPU
+- [NVIDIA DGX Station for Windows](/docs/cards/nvidia/gb300) - Desktop AI supercomputing
+- [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - Data center training flagship
+- [NVIDIA B200](/docs/cards/nvidia/b200) - Data center training
+- [Apple M5 Ultra](/docs/cards/others/apple-m5-ultra) - Competitor comparison
+- [RTX 5090](/docs/cards/nvidia/rtx-5090) - Consumer GPU

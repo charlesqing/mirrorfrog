@@ -1,129 +1,146 @@
 ---
 id: metax-c600
-title: MetaX 沐曦 曦云 C600 (2025)
+title: MetaX C600 (2025)
 sidebar_label: MetaX C600
-description: "沐曦 曦云 C600 详尽规格：自研 XCORE 1.5 架构，7nm 国产工艺，FP8 1000 TFLOPS（对标 H100），144GB HBM3e，3.6 TB/s，全国产 GPU，2025 年发布"
-keywords: [MetaX C600, 沐曦, 曦云C600, XCORE 1.5, 7nm, 144GB HBM3e, FP8 1000 TFLOPS, 全国产GPU, MXMACA, CUDA兼容]
+description: "MetaX C600 detailed specs: in-house XCORE 1.5 architecture, domestic 7nm process, 1000 TFLOPS FP8 (rivaling the H100), 144GB HBM3e, 3.6 TB/s, fully domestic GPU, released in 2025"
+keywords: [MetaX C600, MetaX, MetaX C600, XCORE 1.5, 7nm, 144GB HBM3e, FP8 1000 TFLOPS, fully domestic GPU, MXMACA, CUDA compatible]
 ---
 
-# MetaX 沐曦 曦云 C600 (2025)
+# MetaX C600 (2025)
 
-## 产品概述
+## Product Overview
 
-**曦云 C600** 是沐曦集成电路于 **2025 年 10 月**发布的首款**全流程国产通用 GPU**，基于自研 **XCORE 1.5 架构**，采用国产 **7nm 工艺**（中芯国际），集成 **144GB HBM3e 显存**（带宽 3.6 TB/s），**FP8 峰值算力 1000 TFLOPS**（对标 NVIDIA H100 的 989 TFLOPS FP8），TDP 400W，搭配 **MXMACA 软件栈**兼容 CUDA 生态。
+The **MetaX C600** is the first **end-to-end domestic general-purpose GPU**, released by MetaX Integrated Circuits in **October 2025**. Based on the in-house **XCORE 1.5 architecture** and a domestic **7nm process** (SMIC), it integrates **144GB HBM3e memory** (3.6 TB/s bandwidth) with **peak FP8 compute of 1000 TFLOPS** (benchmarked against the NVIDIA H100's 989 TFLOPS FP8), 400W TDP, and the **MXMACA software stack** compatible with the CUDA ecosystem.
 
-是全流程国产化（IP 设计 → 晶圆制造 → 封装测试）的首款国产通用 GPU，芯片从设计到制造实现 100% 去美化。
+It is the first domestic general-purpose GPU with an end-to-end domestic production chain (IP design → wafer manufacturing → packaging and testing), achieving 100% de-Americanization from chip design to manufacturing.
 
-**沐曦产品线**：
-- **曦思 N 系列**：推理芯片
-- **曦云 C 系列**：通用 GPU（训推一体）— C500（64GB HBM）→ **C600（本页）** → C700（2027 H2 规划）
-- **曦彩 G 系列**：图形渲染
+**MetaX Product Lines**:
+- **N Series**: inference chips
+- **C Series**: general-purpose GPUs (training + inference) — C500 (64GB HBM) → **C600 (this page)** → C700 (planned for 2027 H2)
+- **G Series**: graphics rendering
 
-## 核心规格
+## Core Specifications
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **架构** | 自研 **XCORE 1.5**（数十个核心 IP） |
-| **制程** | **7nm**（中芯国际国产工艺） |
-| **FP8** | **1000 TFLOPS**（对标 H100 989 TFLOPS） |
+| **Architecture** | In-house **XCORE 1.5** (dozens of core IPs) |
+| **Process** | **7nm** (domestic SMIC process) |
+| **FP8** | **1000 TFLOPS** (rivals the H100's 989 TFLOPS) |
 | **FP32** | 15 TFLOPS |
-| **FP16 / BF16** | 支持多精度混合（具体数值未公开） |
-| **INT8** | 支持（具体 TOPS 未公开） |
-| **显存容量** | **144GB HBM3e** |
-| **显存带宽** | **3.6 TB/s** |
-| **TDP** | **400W** |
-| **能效比** | 2.5 TFLOPS/W（FP8） |
-| **互联** | **MetaXLink** 超节点扩展（单集群数千卡） |
-| **封装** | 2.5D 先进封装（长电科技 / 通富微电） |
-| **EDA** | 华大九天等国产方案 |
-| **发布** | 2025 年 10 月 |
-| **量产** | 2025 年底风险量产 |
+| **FP16 / BF16** | **~500 TFLOPS** (shares Tensor Cores with FP8 at a 1:2 ratio) |
+| **INT8** | **~1,000 TOPS** |
+| **Precision Support** | FP8 / FP16 / BF16 / FP32 / INT8 / INT4 mixed precision |
+| **Memory Capacity** | **144GB HBM3e** |
+| **Memory Bandwidth** | **3.6 TB/s** |
+| **TDP** | 400 W |
+| **Energy Efficiency** | 2.5 TFLOPS/W (FP8) |
+| **Interconnect** | In-house **MetaXLink** high-speed interconnect, **320 GB/s** bidirectional per card, flexible networking of 2-64 cards |
+| **Maximum Cluster** | **256-card supernode** (supports interconnection of 1,024+ cards in a single cluster) |
+| **Reliability** | ECC memory correction + RAS fault tolerance + multi-tenant hardware isolation |
+| **Packaging** | 2.5D advanced packaging (JCET / Tongfu Microelectronics) |
+| **EDA** | Domestic solutions such as Empyrean |
+| **Release** | July 2025 (debut at WAIC 2025) / official release in October 2025 |
+| **Mass Production** | Risk production by end of 2025 |
+| **Security Certification** | National Security and Reliability Assessment **Level I** (2026-05-26, the first fully domestic flagship GPGPU on the list) |
 
-## 全流程国产化
+## End-to-End Domestic Production
 
-曦云 C600 是首款**全链条国产**通用 GPU：
+The MetaX C600 is the first general-purpose GPU that is **domestic across the entire chain**:
 
-| 环节 | 国产方案 | 说明 |
+| Stage | Domestic Solution | Description |
 |------|---------|------|
-| **IP 设计** | 沐曦自研 XCORE 1.5 | 从指令集到计算单元完全自主 |
-| **晶圆制造** | 中芯国际等 | 国产 7nm 工艺 |
-| **封装测试** | 长电科技、通富微电 | 2.5D 先进封装 |
-| **EDA 工具** | 华大九天等 | 国产 EDA 逐步导入 |
-| **软件栈** | MXMACA | 自研，兼容 CUDA |
+| **IP Design** | MetaX in-house XCORE 1.5 | Fully independent from instruction set to compute units |
+| **Wafer Manufacturing** | SMIC and others | Domestic 7nm process |
+| **Packaging & Testing** | JCET, Tongfu Microelectronics | 2.5D advanced packaging |
+| **EDA Tools** | Empyrean and others | Domestic EDA tools being adopted step by step |
+| **Software Stack** | MXMACA | In-house, CUDA compatible |
 
-> **战略意义**：彻底摆脱海外供应链依赖，构建安全、可靠的自主算力基础设施。
+> **Strategic significance**: completely eliminating dependence on overseas supply chains and building secure, reliable, independent compute infrastructure.
 
-## MXMACA 软件生态
+## MXMACA Software Ecosystem
 
-| 层级 | 工具 | 说明 |
+| Layer | Tool | Description |
 |------|------|------|
-| **软件栈** | **MXMACA** | 沐曦统一计算架构 |
-| **AI 框架** | PyTorch | 原生支持 |
-| | DeepSpeed | 分布式训练 |
-| **CUDA 兼容** | 自动迁移工具 | 代码迁移成本降低 **90% 以上** |
-| **大模型** | 支持国产千卡集群 | 中科院合作完成多模型全参数训练 |
-| **生态策略** | "1+6+X" | GPU 底座赋能金融、医疗、能源、教科研、交通、大文娱 |
+| **Software Stack** | **MXMACA** | MetaX unified compute architecture |
+| **AI Frameworks** | PyTorch | Native support |
+| | DeepSpeed | Distributed training |
+| **CUDA Compatibility** | Automatic migration tools | Cuts code migration cost by **over 90%** |
+| **Large Models** | Supports domestic thousand-card clusters | Completed full-parameter training of multiple models in cooperation with the Chinese Academy of Sciences |
+| **Ecosystem Strategy** | "1+6+X" | GPU foundation empowering finance, healthcare, energy, education/research, transportation, and entertainment |
 
-## 厂商信息
+## Vendor Information
 
-| 项目 | 内容 |
+| Parameter | Details |
 |------|------|
-| **公司** | 沐曦集成电路（上海）股份有限公司 |
-| **南京团队** | 近百人研发团队（"最强大脑"） |
-| **立项目期** | 2024 年 2 月（C600 立项，投资约 13.7 亿元） |
-| **流片** | 2024 年 10 月 |
-| **发布** | 2025 年 10 月 |
-| **量产** | 2025 年底风险量产 |
-| **IPO 状态** | 已完成两轮问询回复，冲刺科创板 |
-| **营收** | 2025 上半年 3.2 亿元，在手订单 14.3 亿元 |
-| **已部署** | 25,000+ 颗 GPU |
-| **定价** | C500 约 3.89 万元/卡（A100 的 1/3） |
-| **C700 规划** | 2027 H2 量产，超 800 亿晶体管 |
+| **Company** | MetaX Integrated Circuits (Shanghai) Co., Ltd. |
+| **Nanjing Team** | R&D team of nearly 100 people ("strongest brains") |
+| **Project Initiation** | February 2024 (C600 initiated, investment of about 1.37 billion RMB) |
+| **Tape-Out** | October 2024 |
+| **Release** | October 2025 |
+| **Mass Production** | Risk production by end of 2025 |
+| **IPO Status** | Completed two rounds of inquiry responses, pursuing a STAR Market listing |
+| **Revenue** | 320 million RMB in H1 2025, with 1.43 billion RMB in orders on hand |
+| **Deployed** | 25,000+ GPUs |
+| **Pricing** | C500 about 38,900 RMB per card (1/3 of the A100) |
+| **C700 Plan** | Production in 2027 H2, over 80 billion transistors |
 
-## 适用场景
+## Use Cases
 
-- ✅ **国产大模型训练**（千卡集群已验证全参数训练）
-- ✅ **生成式 AI 推理**（144GB HBM3e 超大显存）
-- ✅ **国产智算中心**（全流程国产化，去美化刚需）
-- ✅ **政府/央企项目**（自主可控强制要求）
-- ✅ **FP8 推理**（1000 TFLOPS，对标 H100）
-- ✅ **CUDA 迁移场景**（90%+ 迁移成本降低）
-- ❌ **图形渲染**（通用 GPU 但非图形专用，曦彩 G 系列更优）
-- ❌ **CUDA 原生生态**（需通过 MXMACA 迁移）
-- ❌ **量产初期供应**（2025 年底才风险量产）
+- ✅ **Domestic large-model training** (thousand-card clusters verified for full-parameter training)
+- ✅ **Generative AI inference** (extra-large 144GB HBM3e memory)
+- ✅ **Domestic intelligent computing centers** (end-to-end domestic production; de-Americanization is a hard requirement)
+- ✅ **Government/SOE projects** (mandatory independent and controllable requirements)
+- ✅ **FP8 inference** (1000 TFLOPS, rivaling the H100)
+- ✅ **CUDA migration scenarios** (90%+ reduction in migration cost)
+- ❌ **Graphics rendering** (general-purpose but not graphics-dedicated; the G Series is a better fit)
+- ❌ **Native CUDA ecosystem** (migration via MXMACA required)
+- ❌ **Early-stage production supply** (risk production only by end of 2025)
 
-## 与 NVIDIA H100 对比
+## Comparison with NVIDIA H100
 
-| 指标 | 曦云 C600 | NVIDIA H100 | 差异 |
+| Metric | MetaX C600 | NVIDIA H100 | Difference |
 |------|-----------|-------------|------|
-| **制程** | 7nm（国产） | TSMC 4nm | H100 先进 |
+| **Process** | 7nm (domestic) | TSMC 4nm | H100 more advanced |
 | **FP8** | **1000 TFLOPS** | 989 TFLOPS | C600 +1% |
-| **FP16** | 未公开（推测 ~300 TFLOPS） | 989 TFLOPS | 待确认 |
-| **FP32** | 15 TFLOPS | 67 TFLOPS | H100 4.5× |
-| **显存** | **144GB HBM3e** | 80GB HBM3 | **C600 +80%** |
-| **带宽** | 3.6 TB/s | 3.35 TB/s | C600 +7% |
-| **能效** | 2.5 TFLOPS/W | ~1.4 TFLOPS/W | C600 有优势（FP8） |
-| **生态** | MXMACA（CUDA 兼容） | CUDA | H100 成熟 |
-| **价格** | 待公布（C500 为 A100 1/3） | ~$30k+ | C600 预计便宜 |
-| **国产化** | ✅ 100% | ❌ | C600 独有 |
+| **FP16** | Not disclosed (estimated ~300 TFLOPS) | 989 TFLOPS | To be confirmed |
+| **FP32** | 15 TFLOPS | 67 TFLOPS | H100 4.5x |
+| **Memory** | **144GB HBM3e** | 80GB HBM3 | **C600 +80%** |
+| **Bandwidth** | 3.6 TB/s | 3.35 TB/s | C600 +7% |
+| **Energy Efficiency** | 2.5 TFLOPS/W | ~1.4 TFLOPS/W | C600 has the edge (FP8) |
+| **Ecosystem** | MXMACA (CUDA compatible) | CUDA | H100 more mature |
+| **Price** | To be announced (C500 is 1/3 of the A100) | ~$30k+ | C600 expected to be cheaper |
+| **Domestic Production** | ✅ 100% | ❌ | Unique to C600 |
 
-## 关键时间线
+## Key Timeline
 
-| 时间 | 事件 |
+| Date | Event |
 |------|------|
-| 2024-02 | C600 立项（投资 13.7 亿元） |
-| 2024-10 | C600 交付流片 |
-| 2025-07 | C600 百度百科词条建立 |
-| **2025-10** | **C600 南京正式发布**（本页） |
-| 2025 年底 | C600 风险量产 |
-| 2027 H2 | C700 目标量产 |
+| 2024-02 | C600 project initiated (investment of 1.37 billion RMB) |
+| 2024-10 | C600 tape-out delivered |
+| 2025-07 | C600 Baidu Baike entry created |
+| **2025-10** | **C600 officially released in Nanjing** (this page) |
+| End of 2025 | C600 risk production |
+| 2027 H2 | C700 targeted for production |
 
-## 相关卡
+## Production Status Confirmation (2026-09 Update)
 
-- [Kunlun 昆仑芯 P800](/docs/cards/others/kunlun-p800) — 国产 AI 算力最强
-- [Hygon 海光 DCU K100](/docs/cards/others/hygon-dcu-k100) — x86 兼容 GPGPU
-- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 国产 AI 训练卡
-- [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — 国产 GPU
-- [NVIDIA H100](/docs/cards/nvidia/h100) — FP8 对标产品
-- [NVIDIA H200](/docs/cards/nvidia/h200) — FP8 对标产品
-- [Enflame 云燧 T20](/docs/cards/others/enflame-t20) — 国产 AI 训练卡
+| Parameter | Status |
+|------|------|
+| **Mass Production Time** | Mass production achieved in **May 2026** |
+| **Process** | Domestic 7nm |
+| **Memory** | 144 GB HBM3e |
+| **FP8 Compute** | About 1,000 TFLOPS |
+| **Compliance** | Completed the **national security and stability testing** |
+| **Interconnect** | In-house MetaXLink, already applied at thousand-card scale (bandwidth close to H100 level), now pushing toward 10,000-card deployments |
+
+> 📌 **Procurement positioning**: the C600 is MetaX's **currently purchasable flagship on sale**. Until the next-generation C700 enters production in the second half of 2027, the C600 serves as the transitional supply of high-end domestic GPUs — for domestic compute projects that need to **land right now**, it is one of the options worth evaluating.
+
+## Related Cards
+
+- [Kunlunxin P800](/docs/cards/others/kunlun-p800) — Strongest domestic AI compute
+- [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — x86-compatible GPGPU
+- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — Domestic AI training card
+- [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) — Domestic GPU
+- [NVIDIA H100](/docs/cards/nvidia/h100) — FP8 benchmark
+- [NVIDIA H200](/docs/cards/nvidia/h200) — FP8 benchmark
+- [Enflame T20](/docs/cards/others/enflame-t20) — Domestic AI training card

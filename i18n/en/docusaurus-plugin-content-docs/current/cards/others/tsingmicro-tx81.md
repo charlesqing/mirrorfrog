@@ -92,6 +92,6 @@ Tsingmicro's RPU architecture is the **fourth category of general-purpose comput
 ## References$
 
 - [Over 30 million units shipped! How can this reconfigurable AI chip company lead domestic substitution?](https://news.qq.com/rain/a/20251128A01WF200)
-- [Just now, this Tsinghua AI chip company released重磅 in Shenzhen!](https://www.sohu.com/a/949842332_121124373)
+- [Just now, this Tsinghua AI chip company released a major update in Shenzhen!](https://www.sohu.com/a/949842332_121124373)
 - [Tsingmicro Official Website](http://www.tsingmicro.com/)
 - [TX8 Series - Baidu Baike](https://baike.baidu.com/item/TX8%E7%B3%BB%E5%88%97/67445703)

@@ -1,124 +1,125 @@
 ---
 id: hygon-dcu-k100
-title: Hygon 海光 DCU K100 AI 版 (2024)
+title: Hygon DCU K100 AI (2024)
 sidebar_label: Hygon DCU K100
-description: "海光 DCU K100 AI 版详尽规格：x86 兼容 GPGPU，FP16/BF16 192 TFLOPS，INT8 392 TOPS，40GB HBM2e，DTK 生态兼容 CUDA，国产 AI 数据中心加速卡"
-keywords: [海光 DCU K100, Hygon DCU K100, 深算三号, GPGPU, x86, 192 TFLOPS, 40GB HBM2e, 国产 AI, DTK, CUDA兼容]
+description: "Hygon DCU K100 AI detailed specs: x86-compatible GPGPU, 192 TFLOPS FP16/BF16, 392 TOPS INT8, 40GB HBM2e, DTK ecosystem compatible with CUDA, a domestic AI data center accelerator card"
+keywords: [Hygon DCU K100, Hygon DCU K100, DCU Gen 3, GPGPU, x86, 192 TFLOPS, 40GB HBM2e, domestic AI, DTK, CUDA compatible]
 ---
 
-# Hygon 海光 DCU K100 AI 版 (2024)
+# Hygon DCU K100 AI (2024)
 
-## 产品概述
+## Product Overview
 
-**海光 DCU K100 AI 版（深算三号）** 是海光信息面向 AI 数据中心推出的**高性能 GPGPU 加速卡**，基于自研 **x86 兼容 GPGPU 架构**，**FP16/BF16 算力 192 TFLOPS**、**INT8 算力 392 TOPS**，配备 **40GB HBM2e 显存**和 **1.2 TB/s 读取带宽**。兼容 ROCm/DTK 软件栈，可**大幅降低 CUDA 迁移成本**，专为国产大模型训练与推理打造。
+The **Hygon DCU K100 AI (DCU Gen 3)** is a **high-performance GPGPU accelerator card** launched by Hygon Information for AI data centers. Based on the in-house **x86-compatible GPGPU architecture**, it delivers **192 TFLOPS of FP16/BF16 compute** and **392 TOPS of INT8 compute**, equipped with **64GB HBM2e memory** and **896 GB/s of memory bandwidth**. Compatible with the ROCm/DTK software stack, it can **greatly reduce CUDA migration costs** and is purpose-built for domestic large-model training and inference. (Standard K100: FP64 24.5 TFLOPS, peak of about 100 TFLOPS, 64GB HBM2e, 896 GB/s, about 300W, retaining double-precision capability.)
 
-**产品演进**：
-- **深算一号**（2022）：早期 GPGPU，DCU 架构验证
-- **深算二号**（2023）：双精度 K100 + AI 优化版
-- **DCU K100 AI 版**（2024）：**FP16 192 TFLOPS，x86 指令集** — **本页**
-- **深算三号**（规划中）：下一代 GPGPU
+**Product Evolution**:
+- **DCU Gen 1** (2022): early GPGPU, DCU architecture validation
+- **DCU Gen 2** (2023): double-precision K100 + AI-optimized edition
+- **DCU K100 AI** (2024): **192 TFLOPS FP16, x86 instruction set** — **this page**
+- **DCU Gen 3** (planned): next-generation GPGPU
 
-## 核心规格
+## Core Specifications
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **架构** | 自研 GPGPU，x86 指令集兼容 |
-| **制程** | 先进制程（推测 7nm，官方未公开） |
+| **Architecture** | In-house GPGPU, x86 instruction-set compatible |
+| **Process** | Advanced node (estimated 7nm; not officially disclosed) |
 | **FP32** | 49 TFLOPS |
 | **TF32** | 96 TFLOPS |
 | **FP16 / BF16** | **192 TFLOPS** |
 | **INT8** | **392 TOPS** |
-| **显存容量** | **40GB HBM2e**（另有 64GB HBM3 版本传闻） |
-| **显存带宽** | **1.2 TB/s**（读取，双环形总线，实测利用率 92%+） |
-| **总线拓扑** | 双环形 HBM2e 总线（读写分离，避免冲突） |
-| **调度器** | 统一张量调度器，动态感知 Attention QKV 矩阵 |
-| **TDP** | 约 300-400W（实测数据未公开） |
-| **板卡形态** | PCIe 全高全长双宽卡 |
-| **软件生态** | **DTK（DCU Toolkit）**，基于 ROCm，兼容 CUDA |
+| **Memory** | **64 GB HBM2e** |
+| **Memory Bandwidth** | **896 GB/s** (HBM2e, dual ring buses, measured utilization 92%+) |
+| **Bus Topology** | Dual ring HBM2e buses (read/write separation to avoid conflicts) |
+| **Scheduler** | Unified tensor scheduler that dynamically senses Attention QKV matrices |
+| **TDP** | **350 W** (K100-AI edition; standard K100 about 300W) |
+| **Form Factor** | PCIe full-height, full-length, dual-slot card |
+| **Release** | 2024 |
+| **Software Ecosystem** | **DTK (DCU Toolkit)**, based on ROCm, CUDA compatible |
 
-## DTK 软件生态
+## DTK Software Ecosystem
 
-| 层级 | 工具 | 说明 |
+| Layer | Tool | Description |
 |------|------|------|
-| **运行时** | **ROCm** | AMD 开源 GPGPU 平台 |
-| **编程框架** | **DTK**（DCU Toolkit） | 海光自研，兼容 HIP/CUDA |
-| **AI 框架** | PyTorch (HIP 后端) | 通过 ROCm 自动映射 |
-| | TensorFlow | 支持 |
-| | PaddlePaddle | 百度飞桨 |
-| **编译器** | HIPIFY | CUDA 代码自动转换工具 |
-| **算子库** | MIOpen | 类 cuDNN |
-| **量化** | 支持 FP16/INT8 混合精度 | 原生 BF16 格式 |
+| **Runtime** | **ROCm** | AMD's open-source GPGPU platform |
+| **Programming Framework** | **DTK** (DCU Toolkit) | Hygon's in-house stack, HIP/CUDA compatible |
+| **AI Frameworks** | PyTorch (HIP backend) | Automatically mapped through ROCm |
+| | TensorFlow | Supported |
+| | PaddlePaddle | Baidu PaddlePaddle |
+| **Compiler** | HIPIFY | Automatic CUDA code conversion tool |
+| **Operator Library** | MIOpen | cuDNN-like |
+| **Quantization** | FP16/INT8 mixed precision supported | Native BF16 format |
 
-> **CUDA 兼容性**：通过 DTK/HIP 生态，可将 CUDA 代码自动转换为 DCU 可执行代码，迁移成本远低于完全自研架构。
+> **CUDA compatibility**: through the DTK/HIP ecosystem, CUDA code can be automatically converted into DCU-executable code, with far lower migration cost than fully in-house architectures.
 
-## 厂商信息
+## Vendor Information
 
-| 项目 | 内容 |
+| Parameter | Details |
 |------|------|
-| **公司** | 海光信息技术股份有限公司 |
-| **股票代码** | 688041（科创板） |
-| **技术来源** | 基于 x86 授权 + 自研 DCU 架构 |
-| **K100 AI 版上市** | 2024 年 |
-| **主要客户** | 三大运营商、智算中心、金融/能源央企 |
-| **对标产品** | NVIDIA H20（FP16 192 vs H20 148 TFLOPS） |
-| **价格优势** | 相比 H20 便宜不少 |
+| **Company** | Hygon Information Technology Co., Ltd. |
+| **Stock Code** | 688041 (STAR Market) |
+| **Technology Origin** | x86 licensing + in-house DCU architecture |
+| **K100 AI Launch** | 2024 |
+| **Key Customers** | The three major telecom operators, intelligent computing centers, state-owned enterprises in finance/energy |
+| **Benchmark Product** | NVIDIA H20 (FP16 192 vs H20 148 TFLOPS) |
+| **Price Advantage** | Considerably cheaper than the H20 |
 
-## 关键技术特性
+## Key Technical Features
 
-- **双环形 HBM2e 总线**：读写路径物理分离，实测利用率稳定 92%+（同代竞品卡约 76%），ResNet-50 等训练负载表现优异
-- **统一张量调度器**：动态感知 Attention 层 QKV 矩阵尺寸变化，消除调度抖动
-- **x86 兼容生态**：底层指令集兼容 x86，软件开发迁移成本更低
-- **原生 BF16**：硬件支持 Brain Floating Point 格式
-- **Qwen-7B 微调实测**：Batch size 从 4 跳至 8 时利用率曲线几乎无陡升（对比 A100 出现明显调度抖动）
+- **Dual ring HBM2e buses**: physically separated read/write paths, measured utilization steady at 92%+ (about 76% for same-generation competitor cards); excellent performance on training workloads such as ResNet-50
+- **Unified tensor scheduler**: dynamically senses QKV matrix size changes in Attention layers, eliminating scheduling jitter
+- **x86-compatible ecosystem**: underlying instruction set compatible with x86, lowering software development migration costs
+- **Native BF16**: hardware support for the Brain Floating Point format
+- **Qwen-7B fine-tuning test**: when batch size jumps from 4 to 8, the utilization curve shows almost no sharp rise (the A100, by contrast, exhibits clear scheduling jitter)
 
-## 适用场景
+## Use Cases
 
-- ✅ **国产智算中心**（x86 生态兼容，央企/运营商优先）
-- ✅ **大模型训练**（Qwen 系列、Baichuan 等国产模型）
-- ✅ **大模型推理**（192 TFLOPS FP16 推理服务）
-- ✅ **计算机视觉训练**（ResNet-50、YOLOv8）
-- ✅ **科学计算**（x86 生态 + 大规模线性代数、PDE 求解）
-- ❌ **CUDA 原生生态**（需通过 HIP 转译，部分算子需手工优化）
-- ❌ **超大模型训练**（40GB 显存受限，需多卡并行）
+- ✅ **Domestic intelligent computing centers** (x86 ecosystem compatibility; preferred by SOEs/operators)
+- ✅ **Large-model training** (domestic models such as the Qwen series and Baichuan)
+- ✅ **Large-model inference** (192 TFLOPS FP16 inference services)
+- ✅ **Computer vision training** (ResNet-50, YOLOv8)
+- ✅ **Scientific computing** (x86 ecosystem + large-scale linear algebra, PDE solving)
+- ❌ **Native CUDA ecosystem** (requires HIP translation; some operators need manual optimization)
+- ❌ **Extra-large model training** (limited by 64GB memory; requires multi-card parallelism)
 
-## 与 NVIDIA H20 对比
+## Comparison with NVIDIA H20
 
-| 指标 | 海光 DCU K100 AI | NVIDIA H20 | 差异 |
+| Metric | Hygon DCU K100 AI | NVIDIA H20 | Difference |
 |------|-------------------|-------------|------|
 | **FP16** | 192 TFLOPS | 148 TFLOPS | **DCU K100 +30%** |
 | **INT8** | 392 TOPS | 296 TOPS | **DCU K100 +32%** |
-| **显存** | 40GB HBM2e | 96GB HBM3 | H20 2.4× |
-| **软件生态** | DTK (ROCm) / HIP | CUDA | H20 成熟度更高 |
-| **价格** | 较低 | 较高 | DCU K100 有优势 |
-| **供应** | 国产稳定 | 出口管制风险 | DCU K100 安全 |
+| **Memory** | 64GB HBM2e | 96GB HBM3 | H20 1.5x |
+| **Software Ecosystem** | DTK (ROCm) / HIP | CUDA | H20 more mature |
+| **Price** | Lower | Higher | DCU K100 has the advantage |
+| **Supply** | Stable domestic supply | Export control risk | DCU K100 is secure |
 
-> **DCU K100 优势**：算力超越 H20，价格更低，供应安全；**劣势**：显存较小，软件生态成熟度不及 CUDA。
+> **DCU K100 strengths**: compute surpasses the H20, lower price, secure supply; **weaknesses**: smaller memory, software ecosystem maturity behind CUDA.
 
-## 国产 GPU 生态对比
+## Domestic GPU Ecosystem Comparison
 
-| 产品 | 架构 | FP16 (TFLOPS) | 显存 | 软件生态 | 优势 |
+| Product | Architecture | FP16 (TFLOPS) | Memory | Software Ecosystem | Strength |
 |------|------|---------------|------|---------|------|
-| **海光 DCU K100** | GPGPU/x86 | **192** | 40GB HBM2e | DTK (ROCm) | x86 兼容 |
-| 寒武纪 MLU 590 | 自研 MLUv05 | 128 | 96GB HBM2 | NeuWare | 国产 AI 成熟 |
-| 昆仑芯 P800 | XPU-P | 345 | 未公开 | 自研 | 算力最强 |
-| 沐曦 C600 | XCORE 1.5 | ~300 (FP8:1000) | 144GB HBM3e | MXMACA | 显存最大 |
-| 燧原 T20 | GCU-CARA | ~80 (TF32:160) | 64GB HBM2E | TopsRider | 集群方案 |
+| **Hygon DCU K100** | GPGPU/x86 | **192** | 64GB HBM2e | DTK (ROCm) | x86 compatible |
+| Cambricon MLU 590 | In-house MLUv05 | 128 | 96GB HBM2 | NeuWare | Mature domestic AI |
+| Kunlunxin P800 | XPU-P | 345 | Not disclosed | In-house | Strongest compute |
+| MetaX C600 | XCORE 1.5 | ~300 (FP8:1000) | 144GB HBM3e | MXMACA | Largest memory |
+| Enflame T20 | GCU-CARA | ~80 (TF32:160) | 64GB HBM2E | TopsRider | Cluster solution |
 
-## 关键时间线
+## Key Timeline
 
-| 时间 | 事件 |
+| Date | Event |
 |------|------|
-| 2016 | 海光信息成立（AMD x86/Zen 授权） |
-| 2022 | 深算一号 DCU 发布 |
-| 2023 | 深算二号双精度 K100 发布 |
-| **2024** | **DCU K100 AI 版上市**（深算三号 AI 版） |
-| 2025 | K100 AI 版大规模部署 |
+| 2016 | Hygon Information founded (AMD x86/Zen licensing) |
+| 2022 | DCU Gen 1 released |
+| 2023 | DCU Gen 2 double-precision K100 released |
+| **2024** | **DCU K100 AI launched** (DCU Gen 3 AI edition) |
+| 2025 | Large-scale deployment of the K100 AI |
 
-## 相关卡
+## Related Cards
 
-- [Kunlun 昆仑芯 P800](/docs/cards/others/kunlun-p800) — 国产 AI 算力最强
-- [MetaX 曦云 C600](/docs/cards/others/metax-c600) — 全国产 GPU
-- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 国产 AI 训练卡
-- [Enflame 云燧 T20](/docs/cards/others/enflame-t20) — 国产 AI 训练卡
-- [NVIDIA H20](/docs/cards/nvidia/h20) — 直接对标产品
-- [AMD Instinct MI300X](/docs/cards/amd/mi300x) — GPGPU 生态对标
+- [Kunlunxin P800](/docs/cards/others/kunlun-p800) — Strongest domestic AI compute
+- [MetaX C600](/docs/cards/others/metax-c600) — Fully domestic GPU
+- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — Domestic AI training card
+- [Enflame T20](/docs/cards/others/enflame-t20) — Domestic AI training card
+- [NVIDIA H20](/docs/cards/nvidia/h20) — Direct benchmark
+- [AMD Instinct MI300X](/docs/cards/amd/mi300x) — GPGPU ecosystem benchmark

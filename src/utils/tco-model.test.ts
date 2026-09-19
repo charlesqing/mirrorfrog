@@ -3,8 +3,10 @@
  *
  * 这一组用例的作用是给「集群叠加 / 折现 / BVR 闭式解 / URL 值消毒」建立回归护栏——
  * 此前这些算法只存在于组件内部，零测试覆盖，改一处就可能悄悄改错口径。
+ *
+ * 注意：显式 `import ... from 'vitest'` 在 vitest 4.1.8 + vite 8 组合下会解析到
+ * 错误实例并抛 `undefined.config`，因此统一使用 globals（见 vitest.config.ts）。
  */
-import { describe, it, expect } from 'vitest';
 import {
   computeTco,
   computeBvr,

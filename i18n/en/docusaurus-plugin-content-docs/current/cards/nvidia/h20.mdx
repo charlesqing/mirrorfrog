@@ -1,0 +1,123 @@
+---
+title: NVIDIA H20 (2024)
+sidebar_label: NVIDIA H20
+description: "NVIDIA H20 detailed specs: export-compliant Hopper AI accelerator for the China market, FP16 148 TFLOPS, 96GB HBM3, 4.0 TB/s, released 2024"
+keywords: [NVIDIA H20, H20, Hopper, export compliance, China market, 96GB HBM3, FP16 148 TFLOPS, domestic alternatives]
+---
+
+# NVIDIA H20 (2024)
+
+## Product Overview
+
+**NVIDIA H20** is the **export-compliant AI accelerator** NVIDIA launched for the **China market**, based on the **Hopper architecture** (same architecture as the H100/H200), officially released in **early 2024**.
+
+Restricted by US export controls (the October 2023 rules), H20's compute was **deliberately cut** to comply:
+- **FP16**: 148 TFLOPS (~15% of the H100)
+- **FP8**: 296 TFLOPS (~15% of the H100)
+- **Memory**: 96GB HBM3 (4.0 TB/s bandwidth)
+
+H20's positioning: **keep NVIDIA's ecosystem advantages as much as possible while staying compliant**, competing with domestic AI chips (Hygon DCU, Kunlunxin, MetaX, etc.).
+
+## Core Specifications
+
+| Parameter | Value |
+|------|------|
+| **Architecture** | Hopper (export-compliance cut-down) |
+| **Process** | TSMC 4N (4nm) |
+| **FP8** | **296 TFLOPS** |
+| **FP16** | **148 TFLOPS** |
+| **TF32** | 74 TFLOPS |
+| **FP32** | 24 TFLOPS |
+| **INT8** | 296 TOPS |
+| **Memory Capacity** | **96GB HBM3** |
+| **Memory Bandwidth** | **4.0 TB/s** |
+| **Interconnect** | NVLink 900 GB/s (downgraded) |
+| **TDP** | **400W** |
+| **Release** | Early 2024 |
+| **Discontinued** | July 2025 (NVIDIA notified channel partners) |
+
+## Export Compliance Background
+
+### US Export Control Timeline
+
+| Date | Event |
+|------|------|
+| 2022-10 | US BIS issues export controls restricting A100/H100 exports to China |
+| 2023-10 | New rules tighten further, adding a "performance density" threshold |
+| **2023-11** | **NVIDIA launches H20 / L20 / L2** (compliant versions) |
+| 2024-02 | H20 begins shipping to Chinese customers |
+| **2025-07** | **NVIDIA notifies channel partners that H20 will be discontinued** (export controls tighten again) |
+
+### Compliance-Limited Parameters
+
+| Parameter | Compliance Threshold | H20 Actual |
+|------|---------|------------|
+| **FP16 compute** | < 300 TFLOPS | 148 TFLOPS |
+| **Performance density** | < a certain threshold | Compliant |
+| **Memory bandwidth** | No explicit limit | 4.0 TB/s (uncut) |
+
+> **Strategy**: NVIDIA chose to **keep memory bandwidth** (important for LLM inference) while **cutting compute sharply**, staying competitive within compliance.
+
+## Comparison with Domestic Chips
+
+### H20 vs Hygon DCU K100
+
+| Metric | NVIDIA H20 | Hygon DCU K100 | Difference |
+|------|------------|---------------|------|
+| **FP16** | 148 TFLOPS | **192 TFLOPS** | K100 +30% |
+| **Memory** | 96GB HBM3 | 64GB HBM3 | H20 +50% |
+| **Bandwidth** | 4.0 TB/s | 3.2 TB/s | H20 +25% |
+| **Ecosystem** | CUDA (complete) | ROCm (compatible) | H20 advantage |
+| **Supply** | Discontinued in 2025 | Stable supply | K100 advantage |
+| **Price** | ~$25k (est.) | ~$15k (est.) | K100 cheaper |
+
+### H20 vs Kunlunxin P800
+
+| Metric | NVIDIA H20 | Kunlunxin P800 | Difference |
+|------|------------|-------------|------|
+| **FP16** | 148 TFLOPS | **345 TFLOPS** | P800 2.3x |
+| **Memory** | 96GB HBM3 | 32GB HBM3 | H20 +200% |
+| **Bandwidth** | 4.0 TB/s | Not disclosed | H20 advantage |
+| **Ecosystem** | CUDA | Baidu Paddle | Each has merits |
+
+> **Conclusion**: H20 still leads in **memory capacity and bandwidth**, but its **compute has been overtaken by domestic chips**. With H20 discontinued in 2025, domestic substitution is accelerating.
+
+## Use Cases
+
+- ✅ **Transition period for NVIDIA ecosystem migration** (CUDA code needs no changes)
+- ✅ **LLM inference** (96GB memory + 4.0 TB/s bandwidth advantage)
+- ✅ **Short-term projects** (still procurable before July 2025)
+- ❌ **Long-term training clusters** (discontinued in 2025, supply chain risk)
+- ❌ **Cost-effectiveness first** (domestic chips offer higher compute at lower prices)
+- ❌ **Self-reliance requirements** (the US government can tighten export controls at any time)
+
+## Discontinuation Impact (July 2025)
+
+In July 2025, NVIDIA notified channel partners that **H20 would be discontinued**, because:
+1. US export controls could tighten further
+2. H20 margins were squeezed (deliberately cut compute)
+3. NVIDIA prioritized capacity for H200/B200
+
+**Impact on the China market**:
+- Customers who bought H20: no short-term impact; repairs/expansion difficult long-term
+- Customers who did not: accelerated shift to domestic chips (Hygon, Kunlunxin, MetaX, etc.)
+- Domestic substitution timeline: **brought forward 1-2 years**
+
+## Vendor Information
+
+| Parameter | Value |
+|------|------|
+| **Company** | NVIDIA Corporation |
+| **Architecture** | Hopper (export-compliance cut-down) |
+| **Release** | Early 2024 |
+| **Discontinued** | July 2025 (channel partners notified) |
+| **China market positioning** | Export-compliant version replacing the H100/A100 |
+| **Competitors** | Hygon DCU, Kunlunxin, MetaX, Biren, etc. |
+
+## Related Cards
+
+- [NVIDIA H100](/docs/cards/nvidia/h100) — Full Hopper architecture (banned from sale in China)
+- [NVIDIA H200](/docs/cards/nvidia/h200) — Upgraded H100 (banned from sale in China)
+- [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — Domestic alternative, stronger FP16
+- [Kunlunxin P800](/docs/cards/others/kunlun-p800) — Domestic alternative, 2.3x FP16
+- [MetaX C600](/docs/cards/others/metax-c600) — Fully domestic GPU

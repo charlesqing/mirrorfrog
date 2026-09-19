@@ -3,6 +3,7 @@ import { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useHistory } from 'react-router-dom';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
@@ -67,6 +68,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const wrapRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const history = useHistory();
   const listboxId = 'search-listbox';
   const debounceTimerRef = useRef<number | null>(null);
 
@@ -128,7 +130,8 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
       case 'Enter':
         if (selectedIndex >= 0 && selectedIndex < results.length) {
           e.preventDefault();
-          window.location.href = results[selectedIndex].slug;
+          // SPA 导航（代替 window.location.href 整页刷新）
+          history.push(results[selectedIndex].slug);
         }
         break;
       case 'Escape':
@@ -215,7 +218,7 @@ function SearchBox({ chips, content }: { chips: Chip[]; content: HomeContent }) 
                         <span className={styles.searchTag}>{chip.specs.memory.capacity}</span>
                       )}
                     </span>
-                    <span className={styles.searchArrow}>→</span>
+                    <span className={styles.searchArrow} aria-hidden>→</span>
                   </Link>
                 </li>
               ))}
@@ -272,8 +275,8 @@ function HotChipsSection({ content, chipCount }: { content: HomeContent; chipCou
       <div className="container">
         <Heading as="h2" className={styles.sectionTitle}>{content.hotChipsTitle}</Heading>
         <p className={styles.sectionDesc}>{content.hotChipsDesc}</p>
-        <ul className={styles.chipList}>
-          <li className={styles.chipHeader}>
+        <ul className={styles.chipList} aria-label={content.hotChipsTitle}>
+          <li className={styles.chipHeader} aria-hidden="true">
             <span>{h[0]}</span><span>{h[1]}</span><span>{h[2]}</span><span>{h[3]}</span>
             <span>{h[4]}</span><span>{h[5]}</span><span>{h[6]}</span><span>{h[7]}</span>
           </li>

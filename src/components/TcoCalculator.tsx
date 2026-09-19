@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import styles from './TcoCalculator.module.css';
 import LeadCapture from './LeadCapture';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useTcoT, segLabel, segShort, type TcoT } from './tco-i18n';
 import {
   computeTco, computeBvr, sensitivityScenarios, sanitizeNumber, toUSD, yearDiscountFactor,
   CNY_TO_USD, DEFAULT_IDLE_RATIO, DEFAULT_PUE, DEFAULT_DISCOUNT,
@@ -49,14 +51,14 @@ const COLORS_CLUSTER = ['#5A8DEE', '#C2559E', '#4DA8A0'];   // 集群附加：�
  * 成本分段定义 —— 饼图 / 柱图 / 成本行 / 对比柱状图**共用这一份**。
  * 任何新增成本项只改这里，避免出现「柱图 5 段、饼图 7 段」这类同源不同口径。
  */
-const COST_SEGMENTS: { key: keyof Omit<CompareItem, 'chip' | 'quantity' | 'mode' | 'tco' | 'tcoPerTflops'>; label: string; short: string; color: string }[] = [
-  { key: 'procurement', label: '采购（卡）', short: '采购', color: COLORS[0] },
-  { key: 'server', label: '服务器节点', short: '服务器', color: COLORS_CLUSTER[0] },
-  { key: 'network', label: '网络设备', short: '网络', color: COLORS_CLUSTER[1] },
-  { key: 'electricity', label: '电费', short: '电费', color: COLORS[1] },
-  { key: 'dc', label: '租金', short: '租金', color: COLORS[2] },
-  { key: 'cooling', label: '冷却', short: '冷却', color: COLORS[3] },
-  { key: 'ops', label: '人力 OPEX', short: '人力', color: COLORS_CLUSTER[2] },
+const COST_SEGMENTS: { key: keyof Omit<CompareItem, 'chip' | 'quantity' | 'mode' | 'tco' | 'tcoPerTflops'>; color: string }[] = [
+  { key: 'procurement', color: COLORS[0] },
+  { key: 'server', color: COLORS_CLUSTER[0] },
+  { key: 'network', color: COLORS_CLUSTER[1] },
+  { key: 'electricity', color: COLORS[1] },
+  { key: 'dc', color: COLORS[2] },
+  { key: 'cooling', color: COLORS[3] },
+  { key: 'ops', color: COLORS_CLUSTER[2] },
 ];
 /** 一次性支出项（柱图 hover 注记需要区分） */
 const ONE_TIME_KEYS = COST_SEGMENTS.filter(s => s.key === 'procurement' || s.key === 'server' || s.key === 'network').map(s => s.key);
@@ -101,19 +103,7 @@ function writeUrlParams(state: Record<UrlKey, string | number | null>) {
   window.history.replaceState(null, '', newUrl);
 }
 
-// ===== 厂商/芯片中文名映射（保持原状）=====
-const VENDOR_LABEL: Record<string, string> = {
-  nvidia: '🟢 NVIDIA', amd: '🔴 AMD', intel: '🔵 Intel', huawei: '🔴 华为海思',
-  google: '🟡 Google', aws: '🟠 AWS', cerebras: '🟣 Cerebras', meta: '🔵 Meta',
-  microsoft: '🔵 Microsoft', apple: '⚫ Apple', qualcomm: '🔵 Qualcomm',
-  mediatek: '🟢 MediaTek', others: '🟤 其他厂商',
-  // 目录型 vendor（docs/cards/ 下的一级目录）
-  cambricon: '🟠 寒武纪', baidu: '🟠 昆仑芯', iluvatar: '🟠 天数智芯',
-  enflame: '🟠 燧原', metax: '🟠 沐曦',
-  // docs/cards/others/ 下按品牌再拆一层
-  'moore-threads': '🟠 摩尔线程', biren: '🟠 壁仞', alibaba: '🟠 阿里平头哥',
-  hygon: '🟠 海光', horizon: '🟠 地平线', sophgo: '🟠 算能', tesla: '⚫ Tesla',
-};
+// ===== 芯片中文名映射（保持原状；厂商名在 tco-i18n 字典中按 locale 取）=====
 
 /**
  * `docs/cards/others/` 下聚集了 127 款（占全库一半以上）不同厂商的卡片，vendor 字段粒度不足。
@@ -206,7 +196,15 @@ const ZH_NAMES: Record<string, string> = {
   'ibm-northpole': 'IBM NorthPole', 'hbm-pim': 'SK海力士 HBM-PIM',
 };
 function zhName(id: string, fallback: string): string { return ZH_NAMES[id] || fallback.replace(/\([^)]*\)/g, '').trim(); }
-function vendorLabel(v: string): string { return VENDOR_LABEL[v] || v; }
+/** 按 locale 取芯片显示名：EN 优先查字典覆盖表，未命中回落 ZH_NAMES */
+function displayName(id: string, fallback: string, t: TcoT): string {
+  if (t.lang === 'en') {
+    const en = t.chipNames[id];
+    if (en) return en;
+  }
+  return zhName(id, fallback);
+}
+function vendorLabel(v: string, t: TcoT): string { return t.vendors[v] || v; }
 
 // ===== 数字滚动动画 Hook =====
 // 仅在 animateKey 变化（如切换芯片）时播放数字滚动动画；
@@ -243,6 +241,7 @@ function AnimatedMoney({ value, animateKey = '' }: { value: number; animateKey?:
 function ChipSelect({ chips, value, onChange, id }: {
   chips: Chip[]; value: string; onChange: (v: string) => void; id?: string;
 }) {
+  const t = useTcoT();
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState('');
   const [activeIdx, setActiveIdx] = useState(0);
@@ -259,11 +258,11 @@ function ChipSelect({ chips, value, onChange, id }: {
     const ql = q.trim().toLowerCase();
     if (!ql) return chips;
     return chips.filter(c =>
-      zhName(c.id, c.name).toLowerCase().includes(ql) ||
+      displayName(c.id, c.name, t).toLowerCase().includes(ql) ||
       c.id.toLowerCase().includes(ql) ||
-      vendorLabel(groupOf(c)).toLowerCase().includes(ql)
+      vendorLabel(groupOf(c), t).toLowerCase().includes(ql)
     );
-  }, [chips, q]);
+  }, [chips, q, t]);
 
   const grouped = useMemo(() => {
     const g: Record<string, Chip[]> = {};
@@ -315,12 +314,12 @@ function ChipSelect({ chips, value, onChange, id }: {
         aria-haspopup="listbox"
         aria-controls="tco-chip-listbox"
         aria-activedescendant={open && activeId ? `tco-opt-${activeId}` : undefined}
-        aria-label="选择芯片"
+        aria-label={t.select.triggerAria}
         onClick={() => setOpen(!open)}
         className={styles.selectTrigger}
       >
         <span className={styles.selectTriggerText}>
-          {current ? `${zhName(current.id, current.name)} — ${current.tdp}W` : '— 请选择芯片 —'}
+          {current ? `${displayName(current.id, current.name, t)} — ${current.tdp}W` : t.select.placeholder}
         </span>
         <span className={`${styles.selectArrow} ${open ? styles.selectArrowOpen : ''}`}>▼</span>
       </button>
@@ -331,18 +330,18 @@ function ChipSelect({ chips, value, onChange, id }: {
               autoFocus
               value={q}
               onChange={e => setQ(e.target.value)}
-              placeholder="🔍 搜索芯片名称或厂商…"
+              placeholder={t.select.searchPlaceholder}
               className={styles.selectSearchInput}
-              aria-label="搜索芯片"
+              aria-label={t.select.searchAria}
             />
           </div>
-          <div className={styles.selectList} ref={listRef} role="listbox" id="tco-chip-listbox" aria-label="芯片列表">
+          <div className={styles.selectList} ref={listRef} role="listbox" id="tco-chip-listbox" aria-label={t.select.listAria}>
             {flatList.length === 0 ? (
-              <div className={styles.selectEmpty}>未找到匹配的芯片</div>
+              <div className={styles.selectEmpty}>{t.select.noMatch}</div>
             ) : Object.keys(grouped).sort().map(v => (
               <div key={v}>
                 <div className={styles.selectGroupHeader}>
-                  {vendorLabel(v)} ({grouped[v].length})
+                  {vendorLabel(v, t)} ({grouped[v].length})
                 </div>
                 {grouped[v].map(c => {
                   const flatIdx = flatList.findIndex(x => x.id === c.id);
@@ -359,7 +358,7 @@ function ChipSelect({ chips, value, onChange, id }: {
                       onMouseEnter={() => setActiveIdx(flatIdx)}
                       className={`${styles.selectItem} ${isSelected || isActive ? styles.selectItemActive : ''}`}
                     >
-                      <span>{zhName(c.id, c.name)}</span>
+                      <span>{displayName(c.id, c.name, t)}</span>
                       <span className={styles.selectItemTdp}>{c.tdp}W</span>
                     </button>
                   );
@@ -367,7 +366,7 @@ function ChipSelect({ chips, value, onChange, id }: {
               </div>
             ))}
           </div>
-          <div className={styles.selectFooter}>共 {filtered.length} 款芯片 · ↑↓ 导航 · Enter 确认 · Esc 关闭</div>
+          <div className={styles.selectFooter}>{t.select.footer(filtered.length)}</div>
         </div>
       )}
     </div>
@@ -375,26 +374,28 @@ function ChipSelect({ chips, value, onChange, id }: {
 }
 
 // ===== 饼图（P4-2 加 title/aria-label）=====
-const Pie = React.memo(function Pie({ data, hoverIdx, setHover, totalLabel = '总计' }: {
+const Pie = React.memo(function Pie({ data, hoverIdx, setHover, totalLabel }: {
   data: { label: string; value: number; color: string }[];
   hoverIdx: number | null;
   setHover: (i: number | null) => void;
   totalLabel?: string;
 }) {
+  const t = useTcoT();
+  const centerTotalLabel = totalLabel ?? t.pie.total;
   const total = data.reduce((s, d) => s + d.value, 0);
-  if (!total) return <div className={styles.tcoEmpty}><div className={styles.tcoEmptyEmoji}>📊</div><div>暂无数据</div></div>;
+  if (!total) return <div className={styles.tcoEmpty}><div className={styles.tcoEmptyEmoji}>📊</div><div>{t.pie.noData}</div></div>;
   let acc = 0;
   const segs = data.map(d => { const s = (acc / total) * 360; acc += d.value; const e = (acc / total) * 360; return { ...d, s, e }; });
   const cx = 80, cy = 80, r = 70;
   function pol(a: number) { const rad = (a - 90) * Math.PI / 180; return `${cx + r * Math.cos(rad)},${cy + r * Math.sin(rad)}`; }
   const active = hoverIdx !== null ? segs[hoverIdx] : null;
   const displayTotal = active ? active.value : total;
-  const displayLabel = active ? active.label : totalLabel;
+  const displayLabel = active ? active.label : centerTotalLabel;
   return (
     <div className={styles.pieWrap}>
       <svg viewBox="0 0 160 160" width={140} height={140} style={{ flexShrink: 0 }}
-        role="img" aria-label={`成本构成饼图，共 ${segs.length} 项，总计 ${fmtFull(Math.round(total))}`}>
-        <title>成本构成饼图</title>
+        role="img" aria-label={t.pie.aria(segs.length, fmtFull(Math.round(total)))}>
+        <title>{t.pie.title}</title>
         {segs.map((d, i) => {
           const large = d.e - d.s > 180 ? 1 : 0;
           const isHover = hoverIdx === i;
@@ -413,7 +414,7 @@ const Pie = React.memo(function Pie({ data, hoverIdx, setHover, totalLabel = '�
         <text x={cx} y={cy - 4} textAnchor="middle" className={styles.pieCenterLabel}>{displayLabel}</text>
         <text x={cx} y={cy + 14} textAnchor="middle" className={styles.pieCenterValue}>{fmt(displayTotal)}</text>
       </svg>
-      <div className={styles.pieLegend} role="list" aria-label="成本图例">
+      <div className={styles.pieLegend} role="list" aria-label={t.pie.legendAria}>
         {segs.map((d, i) => (
           <div key={i} role="listitem"
             onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
@@ -439,6 +440,7 @@ const Bars = React.memo(function Bars({ data, segs, hoverYear, setHover, oneTime
   /** 一次性支出合计（采购 + 服务器 + 网络），用于第 1 年注记——与成本行同源 */
   oneTimeTotal: number;
 }) {
+  const tr = useTcoT();
   const totalOf = (d: { values: Record<string, number> }) => segs.reduce((s, g) => s + (d.values[g.key] ?? 0), 0);
   const max = Math.max(...data.map(totalOf), 1);
   const hoverEntry = hoverYear !== null ? data.find(d => d.year === hoverYear) : null;
@@ -447,12 +449,12 @@ const Bars = React.memo(function Bars({ data, segs, hoverYear, setHover, oneTime
     <div>
       <div className={styles.barHoverLabel} aria-live="polite">
         {hoverEntry ? (
-          <>第 {hoverEntry.year} 年累计 TCO: {fmt(hoverTotal)}
-            {hoverEntry.year === 1 && oneTimeTotal > 0 && <span className={styles.barHoverNote}>（含一次性支出 {fmt(oneTimeTotal)}）</span>}
+          <>{tr.bars.yearCum(hoverEntry.year, fmt(hoverTotal))}
+            {hoverEntry.year === 1 && oneTimeTotal > 0 && <span className={styles.barHoverNote}>{tr.bars.oneTimeNote(fmt(oneTimeTotal))}</span>}
           </>
-        ) : '悬停/聚焦查看各年累计 TCO'}
+        ) : tr.bars.hoverHint}
       </div>
-      <div className={styles.barArea} role="img" aria-label={`TCO 累计随年限变化柱状图，共 ${data.length} 年`}>
+      <div className={styles.barArea} role="img" aria-label={tr.bars.aria(data.length)}>
         {data.map(d => {
           const t = totalOf(d);
           const h = (t / max) * 100;
@@ -475,10 +477,10 @@ const Bars = React.memo(function Bars({ data, segs, hoverYear, setHover, oneTime
               <div className={styles.barSlot}>
                 <div className={styles.barFill}
                   style={{ height: `${h}%`, background: grad, opacity: hoverYear === null || isHover ? 1 : 0.4 }}
-                  role="img" aria-label={`第 ${d.year} 年总计 ${fmtFull(Math.round(t))}`}
+                  role="img" aria-label={tr.bars.yearTotalAria(d.year, fmtFull(Math.round(t)))}
                 />
               </div>
-              <div className={`${styles.barBottomLabel} ${isHover ? styles.barBottomLabelHover : ''}`}>{d.year}年</div>
+              <div className={`${styles.barBottomLabel} ${isHover ? styles.barBottomLabelHover : ''}`}>{tr.bars.yearAxis(d.year)}</div>
             </div>
           );
         })}
@@ -494,14 +496,15 @@ const Bars = React.memo(function Bars({ data, segs, hoverYear, setHover, oneTime
 
 // ===== 多芯片对比柱状图（P3-1；分段同样取自 COST_SEGMENTS）=====
 const CompareChart = React.memo(function CompareChart({ compare }: { compare: CompareItem[] }) {
+  const tr = useTcoT();
   const [hoverId, setHoverId] = useState<string | null>(null);
   if (compare.length === 0) return null;
   const max = Math.max(...compare.map(x => x.tco), 1);
   const segs = COST_SEGMENTS.filter(s => compare.some(x => (x[s.key] ?? 0) > 0));
   return (
     <div className={styles.compareChart}>
-      <div className={styles.compareChartTitle}>对比柱状图（堆叠：{segs.map(s => s.short).join(' / ')}）</div>
-      <div className={styles.barArea} role="img" aria-label={`${compare.length} 款芯片 TCO 对比柱状图`}>
+      <div className={styles.compareChartTitle}>{tr.compareChart.title(segs.map(s => segShort(tr, s.key)).join(' / '))}</div>
+      <div className={styles.barArea} role="img" aria-label={tr.compareChart.aria(compare.length)}>
         {compare.map(item => {
           const t = item.tco;
           const h = (t / max) * 100;
@@ -516,7 +519,7 @@ const CompareChart = React.memo(function CompareChart({ compare }: { compare: Co
           const grad = stops.length ? `linear-gradient(to top,${stops.join(',')})` : 'transparent';
           const isHover = hoverId === item.chip.id;
           const detail = segs.filter(s => (item[s.key] ?? 0) > 0)
-            .map(s => `${s.short} ${fmtFull(Math.round(item[s.key]))}`).join('，');
+            .map(s => `${segShort(tr, s.key)} ${fmtFull(Math.round(item[s.key]))}`).join(tr.lang === 'en' ? '; ' : '，');
           return (
             <div key={item.chip.id} className={`${styles.barCol} ${isHover ? styles.barColHover : ''}`}>
               <div className={styles.barTopLabel}>{fmt(t)}</div>
@@ -524,13 +527,17 @@ const CompareChart = React.memo(function CompareChart({ compare }: { compare: Co
                 <div className={styles.barFill}
                   style={{ height: `${h}%`, background: grad, opacity: hoverId === null || isHover ? 1 : 0.4 }}
                   role="img" tabIndex={0}
-                  aria-label={`${zhName(item.chip.id, item.chip.name)}（${item.mode === 'cluster' ? '集群' : '单节点'}）TCO ${fmtFull(Math.round(t))}，${detail}`}
+                  aria-label={tr.compareChart.itemAria(
+                    displayName(item.chip.id, item.chip.name, tr),
+                    item.mode === 'cluster' ? tr.compareChart.modeCluster : tr.compareChart.modeNode,
+                    fmtFull(Math.round(t)), detail,
+                  )}
                   onMouseEnter={() => setHoverId(item.chip.id)} onMouseLeave={() => setHoverId(null)}
                   onFocus={() => setHoverId(item.chip.id)} onBlur={() => setHoverId(null)}
                 />
               </div>
               <div className={styles.barBottomLabel} style={{ maxWidth: 80, textAlign: 'center', fontSize: '0.66rem', lineHeight: 1.2, marginTop: 4 }}>
-                {zhName(item.chip.id, item.chip.name).split(' ').pop()}
+                {displayName(item.chip.id, item.chip.name, tr).split(' ').pop()}
               </div>
             </div>
           );
@@ -538,7 +545,7 @@ const CompareChart = React.memo(function CompareChart({ compare }: { compare: Co
       </div>
       <div className={styles.barLegend}>
         {segs.map(s => (
-          <span key={s.key} className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: s.color }} />{s.short}</span>
+          <span key={s.key} className={styles.barLegendItem}><span className={styles.barLegendDot} style={{ background: s.color }} />{segShort(tr, s.key)}</span>
         ))}
       </div>
     </div>
@@ -552,13 +559,14 @@ function Sensitivity({ base, input, mode, cluster }: {
   mode: DeploymentMode;
   cluster: ClusterInput;
 }) {
+  const t = useTcoT();
   // 情景定义在 tco-model 里，评估也走同一个 computeTco —— 不会再出现「敏感性用 A 公式、hero 用 B 公式」
   const scenarios = sensitivityScenarios(input);
   return (
     <div className={styles.sensitivityBox}>
-      <div className={styles.sensitivityTitle}>🔬 敏感性分析（单因素情景，TCO 相对当前值的变化）</div>
+      <div className={styles.sensitivityTitle}>{t.sensitivity.title}</div>
       <div className={styles.sensitivityGrid}>
-        {scenarios.map(s => {
+        {scenarios.map((s, i) => {
           const tcoUp = computeTco({ ...input, ...s.overrides }, mode, cluster).tco;
           const delta = tcoUp - base;
           const pct = base > 0 ? (delta / base) * 100 : 0;
@@ -566,7 +574,7 @@ function Sensitivity({ base, input, mode, cluster }: {
                         Math.abs(pct) > 10 ? 'var(--ifm-color-warning)' : 'var(--ifm-color-success)';
           return (
             <div key={s.label} className={styles.sensitivityItem}>
-              <div className={styles.sensitivityLabel}>{s.label}</div>
+              <div className={styles.sensitivityLabel}>{t.sensitivity.scenarios[i]}</div>
               <div className={styles.sensitivityValue} style={{ color }}>
                 {delta >= 0 ? '+' : ''}{fmtFull(Math.round(delta))} ({pct >= 0 ? '+' : ''}{pct.toFixed(1)}%)
               </div>
@@ -584,60 +592,60 @@ function exportCSV(
   dcCost: number, idleRatio: number, pue: number, discount: number,
   unitPriceUSD: number, originalPrice: number | null, originalCurrency: 'USD' | 'CNY' | null,
   isManualPrice: boolean, mode: DeploymentMode, bb: CostBreakdown, totalTco: number,
-  compare: CompareItem[]
+  compare: CompareItem[], tr: TcoT
 ) {
   const isCluster = mode === 'cluster';
   const rows: string[][] = [];
-  rows.push(['AI 算力卡 TCO 计算报告']);
-  rows.push(['生成时间', new Date().toISOString()]);
+  rows.push([tr.csv.reportTitle]);
+  rows.push([tr.csv.generatedAt, new Date().toISOString()]);
   rows.push([]);
-  rows.push(['【参数】']);
-  rows.push(['芯片', zhName(chip.id, chip.name)]);
-  rows.push(['TDP (W)', String(chip.tdp)]);
-  rows.push(['数量', String(qty)]);
-  rows.push(['部署模式', isCluster ? '集群（含服务器 / 网络 / 人力 OPEX）' : '单节点 / 裸卡']);
-  rows.push(['使用率', `${(usage * 100).toFixed(0)}%`]);
-  rows.push(['电价 ($/kWh)', String(price)]);
-  rows.push(['使用年限', String(years)]);
-  rows.push(['单卡年租金 ($)', String(dcCost)]);
-  rows.push(['空闲功耗比率', `${(idleRatio * 100).toFixed(0)}%`]);
-  rows.push(['PUE', String(pue)]);
-  rows.push(['折现率', `${(discount * 100).toFixed(1)}%`]);
-  rows.push(['单卡价格 ($)', String(Math.round(unitPriceUSD))]);
+  rows.push([tr.csv.paramsSection]);
+  rows.push([tr.csv.chip, displayName(chip.id, chip.name, tr)]);
+  rows.push([tr.csv.tdp, String(chip.tdp)]);
+  rows.push([tr.csv.qty, String(qty)]);
+  rows.push([tr.csv.mode, isCluster ? tr.csv.modeCluster : tr.csv.modeNode]);
+  rows.push([tr.csv.usage, `${(usage * 100).toFixed(0)}%`]);
+  rows.push([tr.csv.elecPrice, String(price)]);
+  rows.push([tr.csv.years, String(years)]);
+  rows.push([tr.csv.dcRent, String(dcCost)]);
+  rows.push([tr.csv.idleRatio, `${(idleRatio * 100).toFixed(0)}%`]);
+  rows.push([tr.csv.pue, String(pue)]);
+  rows.push([tr.csv.discountRate, `${(discount * 100).toFixed(1)}%`]);
+  rows.push([tr.csv.unitPrice, String(Math.round(unitPriceUSD))]);
   if (originalPrice != null && originalCurrency) {
-    rows.push(['原始价格', `${fmtOriginal(originalPrice, originalCurrency)}（${originalCurrency}）`]);
-    rows.push(['汇率', `1 USD = ${CNY_TO_USD} CNY`]);
+    rows.push([tr.csv.originalPrice, tr.lead.priceWithCurrency(fmtOriginal(originalPrice, originalCurrency), originalCurrency)]);
+    rows.push([tr.csv.fxLabel, tr.csv.fxRate(String(CNY_TO_USD))]);
   }
-  rows.push(['价格来源', isManualPrice ? '用户手动输入' : 'pricing.json']);
+  rows.push([tr.csv.priceSource, isManualPrice ? tr.csv.sourceManual : tr.csv.sourceDb]);
   rows.push([]);
-  rows.push(['【成本明细（已折现）】']);
-  rows.push(['项目', '金额 ($)', '占比']);
+  rows.push([tr.csv.detailSection]);
+  rows.push([tr.csv.item, tr.csv.amount, tr.csv.share]);
   const t = totalTco || 1;
   COST_SEGMENTS.forEach(s => {
     const v = bb[s.key];
     if (v <= 0) return;
-    const suffix = s.key === 'procurement' ? '（卡）' : ONE_TIME_KEYS.includes(s.key) ? '（一次性）' : '（折现）';
-    rows.push([`${s.label}${suffix}`, String(Math.round(v)), `${(v / t * 100).toFixed(1)}%`]);
+    const suffix = s.key === 'procurement' ? tr.costSuffix.card : ONE_TIME_KEYS.includes(s.key) ? tr.costSuffix.oneTime : tr.costSuffix.discounted;
+    rows.push([`${segLabel(tr, s.key)}${suffix}`, String(Math.round(v)), `${(v / t * 100).toFixed(1)}%`]);
   });
-  rows.push([isCluster ? '集群 TCO 总计' : 'TCO 总计', String(Math.round(totalTco)), '100.0%']);
-  rows.push(['年均 TCO', String(Math.round(totalTco / years)), '']);
-  rows.push(['每卡年均', String(Math.round(totalTco / qty / years)), '']);
+  rows.push([isCluster ? tr.csv.totalCluster : tr.csv.total, String(Math.round(totalTco)), '100.0%']);
+  rows.push([tr.csv.annual, String(Math.round(totalTco / years)), '']);
+  rows.push([tr.csv.perCardAnnual, String(Math.round(totalTco / qty / years)), '']);
   if (chip.fp16Tflops) {
-    rows.push(['FP16 算力 (TFLOPS)', String(chip.fp16Tflops), '']);
-    rows.push(['每 TFLOPS 年均 TCO ($)', String(Math.round(totalTco / (chip.fp16Tflops * qty * years))), '']);
+    rows.push([tr.csv.fp16, String(chip.fp16Tflops), '']);
+    rows.push([tr.csv.perTflops, String(Math.round(totalTco / (chip.fp16Tflops * qty * years))), '']);
   }
   rows.push([]);
   if (compare.length > 0) {
-    rows.push(['【多芯片对比】']);
+    rows.push([tr.csv.compareSection]);
     const cmpSegs = COST_SEGMENTS.filter(s => compare.some(x => (x[s.key] ?? 0) > 0));
     const withTflops = compare.some(c => c.tcoPerTflops != null);
-    const header = ['芯片', '部署模式', '数量', 'TCO ($)', ...cmpSegs.map(s => `${s.short} ($)`)];
-    if (withTflops) header.push('每 TFLOPS 年均 TCO');
+    const header = [tr.csv.colChip, tr.csv.colMode, tr.csv.colQty, tr.csv.colTco, ...cmpSegs.map(s => `${segShort(tr, s.key)} ($)`)];
+    if (withTflops) header.push(tr.csv.colPerTflops);
     rows.push(header);
     compare.forEach(c => {
       const row: string[] = [
-        zhName(c.chip.id, c.chip.name),
-        c.mode === 'cluster' ? '集群' : '单节点',
+        displayName(c.chip.id, c.chip.name, tr),
+        c.mode === 'cluster' ? tr.csv.compareModeCluster : tr.csv.compareModeNode,
         String(c.quantity),
         String(Math.round(c.tco)),
       ];
@@ -650,12 +658,14 @@ function exportCSV(
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url; a.download = `TCO_${chip.id}_${qty}卡_${years}年_${mode === 'cluster' ? '集群' : '单节点'}_${new Date().toISOString().slice(0, 10)}.csv`;
+  a.href = url; a.download = tr.csv.fileName(chip.id, qty, years, isCluster, new Date().toISOString().slice(0, 10));
   a.click(); URL.revokeObjectURL(url);
 }
 
 // ===== 主组件 =====
 export default function TcoCalculator() {
+  const { i18n } = useDocusaurusContext();
+  const t = useTcoT();
   const [chips, setChips] = useState<Chip[]>([]);
   const [pricing, setPricing] = useState<Record<string, PricingInfo>>({});
   const [chipId, setChipId] = useState('');
@@ -795,23 +805,23 @@ export default function TcoCalculator() {
   const getTcoContext = useCallback(() => {
     if (!chip) return '';
     const lines = [
-      `- 芯片：${zhName(chip.id, chip.name)}（${chip.vendor}）`,
-      `- 数量：${qty} 卡`,
-      `- 部署模式：${isCluster ? '集群（含服务器 / 网络 / 人力）' : '单节点 / 裸卡'}`,
-      `- 使用率：${Math.round(usage * 100)}% · 电价：$${price.toFixed(2)}/kWh · 年限：${years} 年`,
-      `- 单价：$${Math.round(unitPriceUSD).toLocaleString()}`,
-      `- ${years} 年 TCO：$${Math.round(displayTco).toLocaleString()}`,
+      t.context.chip(displayName(chip.id, chip.name, t), chip.vendor),
+      t.context.qty(qty),
+      t.context.mode(isCluster),
+      t.context.params(`${Math.round(usage * 100)}`, price.toFixed(2), years),
+      t.context.unitPrice(Math.round(unitPriceUSD).toLocaleString()),
+      t.context.totalTco(years, Math.round(displayTco).toLocaleString()),
     ];
-    if (tcoPerTflops != null) lines.push(`- 每 TFLOPS 年成本：$${tcoPerTflops.toFixed(2)}`);
+    if (tcoPerTflops != null) lines.push(t.context.perTflops(tcoPerTflops.toFixed(2)));
     if (compare.length > 0) {
       lines.push('');
-      lines.push('**对比列表**');
+      lines.push(t.context.compareList);
       for (const c of compare) {
-        lines.push(`- ${zhName(c.chip.id, c.chip.name)} × ${c.quantity}：TCO $${Math.round(c.tco).toLocaleString()}`);
+        lines.push(t.context.compareItem(displayName(c.chip.id, c.chip.name, t), c.quantity, Math.round(c.tco).toLocaleString()));
       }
     }
     return lines.join('\n');
-  }, [chip, qty, usage, price, years, unitPriceUSD, isCluster, displayTco, tcoPerTflops, compare]);
+  }, [chip, qty, usage, price, years, unitPriceUSD, isCluster, displayTco, tcoPerTflops, compare, t]);
 
   // 留资报告的焦点芯片：主选 + 对比列表（用于生成规格/定价/替代方案章节）
   const getFocusChipIds = useCallback(
@@ -820,7 +830,7 @@ export default function TcoCalculator() {
   );
 
   // 饼图：分段取自 COST_SEGMENTS，与柱图 / 成本行 / CSV / 对比图同源
-  const pieData = activeSegs.map(s => ({ label: s.label, value: costMap[s.key] ?? 0, color: s.color }));
+  const pieData = activeSegs.map(s => ({ label: segLabel(t, s.key), value: costMap[s.key] ?? 0, color: s.color }));
 
   // 累计 TCO 柱状图：每根柱子 = 截至该年的累计（逐年折现）构成。
   // 一次性支出（采购 / 服务器 / 网络）只计入第 1 年；分段 key 与 COST_SEGMENTS 一致。
@@ -843,12 +853,12 @@ export default function TcoCalculator() {
 
   const addCompare = useCallback(() => {
     if (!chip || !displayTco || !proc) {
-      setToast('⚠️ 请先选择芯片并填写价格');
+      setToast(t.toast.needChip);
       setTimeout(() => setToast(''), 2000);
       return;
     }
     if (!chip.tdp || chip.tdp <= 0) {
-      setToast('⚠️ 此芯片缺少单卡 TDP，无法估算电费，暂不支持加入对比');
+      setToast(t.toast.noTdp);
       setTimeout(() => setToast(''), 2000);
       return;
     }
@@ -866,9 +876,9 @@ export default function TcoCalculator() {
       ops: breakdown.ops,
       tcoPerTflops,
     }].slice(-4));
-    setToast(`✓ 已将 ${zhName(chip.id, chip.name)}（${isCluster ? '集群' : '单节点'}）加入对比`);
+    setToast(t.toast.added(displayName(chip.id, chip.name, t), isCluster ? t.toast.modeCluster : t.toast.modeNode));
     setTimeout(() => setToast(''), 2000);
-  }, [chip, qty, mode, isCluster, displayTco, proc, breakdown.server, breakdown.network, elec, dc, cool, breakdown.ops, tcoPerTflops]);
+  }, [chip, qty, mode, isCluster, displayTco, proc, breakdown.server, breakdown.network, elec, dc, cool, breakdown.ops, tcoPerTflops, t]);
 
   const removeCompare = (id: string) => setCompare(p => p.filter(x => x.chip.id !== id));
   const clearCompare = () => setCompare([]);
@@ -886,41 +896,41 @@ export default function TcoCalculator() {
 
       {/* Parameters */}
       <div className={styles.card}>
-        <div className={styles.cardTitle}>⚙️ 参数设置</div>
+        <div className={styles.cardTitle}>{t.params.title}</div>
 
         {/* 部署模式切换 */}
-        <div className={styles.modeRow} role="tablist" aria-label="部署模式">
+        <div className={styles.modeRow} role="tablist" aria-label={t.params.modeAria}>
           <button type="button" role="tab" aria-selected={mode === 'node'}
             className={`${styles.modeBtn} ${mode === 'node' ? styles.modeBtnActive : ''}`}
             onClick={() => setMode('node')}>
-            单节点 / 裸卡
+            {t.params.modeNode}
           </button>
           <button type="button" role="tab" aria-selected={mode === 'cluster'}
             className={`${styles.modeBtn} ${mode === 'cluster' ? styles.modeBtnActive : ''}`}
             onClick={() => setMode('cluster')}>
-            集群级（含服务器 / 网络 / 人力）
+            {t.params.modeCluster}
           </button>
         </div>
 
         <div style={{ marginBottom: 14 }}>
           <label className={styles.label} htmlFor="tco-chip-select">
-            选择芯片 <span className={styles.labelHint}>支持搜索 · 按厂商分组 · 键盘 ↑↓ Enter</span>
+            {t.params.selectLabel} <span className={styles.labelHint}>{t.params.selectHint}</span>
           </label>
           {chips.length === 0 ? (
-            <div className={styles.loadingPlaceholder}>正在加载芯片数据…</div>
+            <div className={styles.loadingPlaceholder}>{t.params.loading}</div>
           ) : (
             <ChipSelect chips={chips} value={chipId} onChange={(v) => { setChipId(v); setManualPrice(null); }} id="tco-chip-select" />
           )}
           {chip && chip.tdp > 50000 && (
             <div className={styles.warningBox} role="alert">
               <span>⚠️</span>
-              <span><strong>整机系统</strong>：此芯片 TDP 为 {fmtFull(chip.tdp)}，是整套机柜功耗而非单卡。TCO 计算结果不适用。</span>
+              <span><strong>{t.params.warningSystemTitle}</strong>{t.params.warningSystemBody(fmtFull(chip.tdp))}</span>
             </div>
           )}
           {chip && (!chip.tdp || chip.tdp <= 0) && (
             <div className={styles.warningBox} role="alert">
               <span>⚠️</span>
-              <span><strong>缺少单卡 TDP</strong>：此卡片未提供单卡功耗（如整机超级节点），无法估算电费与冷却成本，TCO 仅含采购与租金。</span>
+              <span><strong>{t.params.warningNoTdpTitle}</strong>{t.params.warningNoTdpBody}</span>
             </div>
           )}
           {chip && (
@@ -936,74 +946,72 @@ export default function TcoCalculator() {
                     <span className={styles.currencyBadge}>CNY → USD ${Math.round(dbPriceUSD).toLocaleString()}</span>
                   )}
                   {chipPriceInfo?.market_price != null && chipPriceInfo?.official_msrp != null && (
-                    <span className={styles.priceMsrp}>指导价 {fmtFull(Math.round(toUSD(chipPriceInfo.official_msrp, chipPriceInfo.currency)))}</span>
+                    <span className={styles.priceMsrp}>{t.params.msrpLabel(fmtFull(Math.round(toUSD(chipPriceInfo.official_msrp, chipPriceInfo.currency))))}</span>
                   )}
                   <span className={styles.priceSource}>{chipPriceInfo?.source}</span>
                   {/* 仅当数据库定价本身是人民币时，这个「原币价 / 统一价」切换才有意义 */}
                   {dbPriceCurrency === 'CNY' && (
                     <button type="button" onClick={() => setCurrencyView(currencyView === 0 ? 1 : 0)}
                       className={styles.pricePreset} style={{ marginLeft: 4 }}
-                      title={displayInCNY
-                        ? '当前显示数据库原始人民币价；点击切换为统一美元价（TCO 始终以美元计价）'
-                        : '当前显示统一美元价；点击切换为数据库原始人民币价（TCO 始终以美元计价）'}>
-                      {displayInCNY ? '显示 $ 统一价' : '显示 ¥ 原币价'}
+                      title={displayInCNY ? t.params.currencyToggleTitleToUSD : t.params.currencyToggleTitleToCNY}>
+                      {displayInCNY ? t.params.showUSD : t.params.showOriginal}
                     </button>
                   )}
                 </>
               ) : (
-                <span className={styles.priceNone}>暂无定价信息 — 请手动输入预估价格</span>
+                <span className={styles.priceNone}>{t.params.noPrice}</span>
               )}
             </div>
           )}
           {/* P0-2 手动输入价格 */}
           {chip && (
             <div className={styles.manualPriceRow}>
-              <span className={styles.manualPriceLabel}>手动价格 ($):</span>
+              <span className={styles.manualPriceLabel}>{t.params.manualLabel}</span>
               <input
                 type="number"
                 className={`${styles.input} ${styles.manualPriceInput}`}
                 min={0}
                 step={100}
-                placeholder="输入预估价格"
+                placeholder={t.params.manualPlaceholder}
                 value={manualPrice ?? ''}
                 onChange={e => setManualPrice(e.target.value === '' ? null : Number(e.target.value))}
-                aria-label="手动输入单卡价格（美元）"
+                aria-label={t.params.manualAria}
               />
               {manualPrice != null && (
                 <button type="button" onClick={() => setManualPrice(null)}
-                  className={styles.pricePreset} title="清除手动价格，恢复数据库价格">
-                  ↺ 恢复
+                  className={styles.pricePreset} title={t.params.resetTitle}>
+                  {t.params.resetBtn}
                 </button>
               )}
             </div>
           )}
           {chip && manualPrice != null && (
-            <div className={styles.manualPriceNote}>✓ 已使用您手动输入的价格（${manualPrice.toLocaleString()}），结果将标注为「用户估算」</div>
+            <div className={styles.manualPriceNote}>{t.params.manualNote(`$${manualPrice.toLocaleString()}`)}</div>
           )}
         </div>
 
         <div className={styles.formRow}>
           <div className={styles.formCol}>
-            <label className={styles.label} htmlFor="tco-qty">数量（张）</label>
+            <label className={styles.label} htmlFor="tco-qty">{t.params.qtyLabel}</label>
             <div className={styles.qtyRow}>
-              <button type="button" onClick={() => setQty(Math.max(1, qty - 1))} className={styles.qtyBtn} aria-label="减少数量">−</button>
-              <input id="tco-qty" type="number" className={`${styles.input} ${styles.qtyInput}`} min={1} value={qty} onChange={e => setQty(Math.max(1, Number(e.target.value)))} aria-label="芯片数量"/>
-              <button type="button" onClick={() => setQty(qty + 1)} className={styles.qtyBtn} aria-label="增加数量">+</button>
+              <button type="button" onClick={() => setQty(Math.max(1, qty - 1))} className={styles.qtyBtn} aria-label={t.params.qtyDecAria}>−</button>
+              <input id="tco-qty" type="number" className={`${styles.input} ${styles.qtyInput}`} min={1} value={qty} onChange={e => setQty(Math.max(1, Number(e.target.value)))} aria-label={t.params.qtyAria}/>
+              <button type="button" onClick={() => setQty(qty + 1)} className={styles.qtyBtn} aria-label={t.params.qtyIncAria}>+</button>
             </div>
             <div className={styles.qtyPresets}>
               {[1, 8, 64, 256].map(v => (
                 <button key={v} type="button" onClick={() => setQty(v)} className={`${styles.qtyPreset} ${qty === v ? styles.qtyPresetActive : ''}`}>
-                  {v === 1 ? '单卡' : v + '卡'}
+                  {v === 1 ? t.params.qtyPresetSingle : t.params.qtyPreset(v)}
                 </button>
               ))}
             </div>
           </div>
           <div className={styles.formCol}>
             <label className={styles.label} htmlFor="tco-usage">
-              数据中心使用率 <span className={styles.labelValue}>{(usage * 100).toFixed(0)}%</span>
+              {t.params.usageLabel} <span className={styles.labelValue}>{(usage * 100).toFixed(0)}%</span>
             </label>
             <input id="tco-usage" type="range" className={styles.range} min={0.1} max={1} step={0.05} value={usage}
-              onChange={e => setUsage(Number(e.target.value))} aria-valuetext={`${(usage * 100).toFixed(0)} 百分比`}/>
+              onChange={e => setUsage(Number(e.target.value))} aria-valuetext={t.params.percentAria(`${(usage * 100).toFixed(0)}%`)}/>
             <div className={styles.rangeScale}><span>10%</span><span>50%</span><span>100%</span></div>
           </div>
         </div>
@@ -1012,35 +1020,35 @@ export default function TcoCalculator() {
         {isCluster && (
           <div className={styles.clusterRow}>
             <div className={styles.formCol}>
-              <label className={styles.label} htmlFor="tco-server">服务器节点价（$/8 卡）</label>
+              <label className={styles.label} htmlFor="tco-server">{t.params.serverLabel}</label>
               <input id="tco-server" type="number" className={styles.input} min={0} step={1000}
                 value={serverCost} onChange={e => setServerCost(Math.max(0, Number(e.target.value)))}/>
-              <div className={styles.rangeScale}><span>CPU / 主板 / 内存 / 存储</span></div>
+              <div className={styles.rangeScale}><span>{t.params.serverHint}</span></div>
             </div>
             <div className={styles.formCol}>
               <label className={styles.label} htmlFor="tco-netr">
-                网络设备占比 <span className={styles.labelValue}>{(networkRatio * 100).toFixed(0)}%</span>
+                {t.params.netrLabel} <span className={styles.labelValue}>{(networkRatio * 100).toFixed(0)}%</span>
               </label>
               <input id="tco-netr" type="range" className={styles.range} min={0.02} max={0.4} step={0.01}
                 value={networkRatio} onChange={e => setNetworkRatio(Number(e.target.value))}
-                aria-valuetext={`${(networkRatio * 100).toFixed(0)} 百分比`}/>
+                aria-valuetext={t.params.percentAria(`${(networkRatio * 100).toFixed(0)}%`)}/>
               <div className={styles.rangeScale}><span>2%</span><span>40%</span></div>
             </div>
             <div className={styles.formCol}>
-              <label className={styles.label} htmlFor="tco-ops">人力 OPEX（$/千卡/年）</label>
+              <label className={styles.label} htmlFor="tco-ops">{t.params.opsLabel}</label>
               <input id="tco-ops" type="number" className={styles.input} min={0} step={10000}
                 value={opsPerK} onChange={e => setOpsPerK(Math.max(0, Number(e.target.value)))}/>
-              <div className={styles.rangeScale}><span>SRE / 机房运维</span></div>
+              <div className={styles.rangeScale}><span>{t.params.opsHint}</span></div>
             </div>
           </div>
         )}
 
         <div className={styles.formRow}>
           <div className={styles.formCol}>
-            <label className={styles.label} htmlFor="tco-price">电价（$/kWh）</label>
+            <label className={styles.label} htmlFor="tco-price">{t.params.elecLabel}</label>
             <input id="tco-price" type="number" className={styles.input} min={0.01} max={5} step={0.01} value={price} onChange={e => setPrice(Number(e.target.value))}/>
             <div className={styles.pricePresets}>
-              {[{ l: '中国 $0.08', v: 0.08 }, { l: '美国 $0.12', v: 0.12 }, { l: '欧洲 $0.20', v: 0.20 }, { l: '中东 $0.04', v: 0.04 }].map(p => (
+              {[{ l: t.params.elecPresets[0], v: 0.08 }, { l: t.params.elecPresets[1], v: 0.12 }, { l: t.params.elecPresets[2], v: 0.20 }, { l: t.params.elecPresets[3], v: 0.04 }].map(p => (
                 <button key={p.l} type="button" onClick={() => setPrice(p.v)}
                   className={`${styles.pricePreset} ${Math.abs(price - p.v) < 0.001 ? styles.pricePresetActive : ''}`}>
                   {p.l}
@@ -1050,27 +1058,27 @@ export default function TcoCalculator() {
           </div>
           <div className={styles.formCol}>
             <label className={styles.label} htmlFor="tco-years">
-              使用年限（年）<span className={styles.labelValue}>{years} 年</span>
+              {t.params.yearsLabel}<span className={styles.labelValue}>{t.params.yearsValue(years)}</span>
             </label>
             <input id="tco-years" type="range" className={styles.range} min={1} max={8} step={1} value={years}
-              onChange={e => setYears(Number(e.target.value))} aria-valuetext={`${years} 年`}/>
-            <div className={styles.rangeScale}><span>1年</span><span>4年</span><span>8年</span></div>
+              onChange={e => setYears(Number(e.target.value))} aria-valuetext={t.params.yearsValue(years)}/>
+            <div className={styles.rangeScale}><span>{t.params.yearsScale[0]}</span><span>{t.params.yearsScale[1]}</span><span>{t.params.yearsScale[2]}</span></div>
           </div>
         </div>
 
         {/* P1-1 / P1-2 / P1-3 高级参数（默认折叠） */}
         <details className={styles.advancedDetails}>
           <summary className={styles.advancedSummary}>
-            ⚙️ 高级参数（空闲功耗 / PUE / 折现）
+            {t.params.advancedTitle}
           </summary>
           <div className={`${styles.formRow} ${styles.advancedBody}`}>
             <div className={styles.formCol}>
               <label className={styles.label} htmlFor="tco-idle">
-                空闲功耗比率 <span className={styles.labelValue}>{(idleRatio * 100).toFixed(0)}%</span>
+                {t.params.idleLabel} <span className={styles.labelValue}>{(idleRatio * 100).toFixed(0)}%</span>
               </label>
               <input id="tco-idle" type="range" className={styles.range} min={0.05} max={0.40} step={0.05} value={idleRatio}
-                onChange={e => setIdleRatio(Number(e.target.value))} aria-valuetext={`${(idleRatio * 100).toFixed(0)} 百分比`}/>
-              <div className={styles.small}>GPU 空闲时约占 TDP 的比例</div>
+                onChange={e => setIdleRatio(Number(e.target.value))} aria-valuetext={t.params.percentAria(`${(idleRatio * 100).toFixed(0)}%`)}/>
+              <div className={styles.small}>{t.params.idleHint}</div>
             </div>
             <div className={styles.formCol}>
               <label className={styles.label} htmlFor="tco-pue">
@@ -1079,7 +1087,7 @@ export default function TcoCalculator() {
               <input id="tco-pue" type="range" className={styles.range} min={1.05} max={1.6} step={0.05} value={pue}
                 onChange={e => setPue(Number(e.target.value))} aria-valuetext={`PUE ${pue.toFixed(2)}`}/>
               <div className={styles.pricePresets}>
-                {[{ l: '极致 1.05', v: 1.05 }, { l: '液冷 1.10', v: 1.10 }, { l: '风冷 1.30', v: 1.30 }, { l: '普通 1.50', v: 1.50 }].map(p => (
+                {[{ l: t.params.puePresets[0], v: 1.05 }, { l: t.params.puePresets[1], v: 1.10 }, { l: t.params.puePresets[2], v: 1.30 }, { l: t.params.puePresets[3], v: 1.50 }].map(p => (
                   <button key={p.l} type="button" onClick={() => setPue(p.v)}
                     className={`${styles.pricePreset} ${Math.abs(pue - p.v) < 0.01 ? styles.pricePresetActive : ''}`}>
                     {p.l}
@@ -1090,17 +1098,17 @@ export default function TcoCalculator() {
           </div>
           <div className={styles.formRow}>
             <div className={styles.formCol}>
-              <label className={styles.label} htmlFor="tco-dc">单卡年租金（$/年）</label>
+              <label className={styles.label} htmlFor="tco-dc">{t.params.dcLabel}</label>
               <input id="tco-dc" type="number" className={styles.input} min={0} max={50000} step={50} value={dcCost} onChange={e => setDcCost(Number(e.target.value))}/>
-              <div className={styles.small}>含机柜/网络/维护</div>
+              <div className={styles.small}>{t.params.dcHint}</div>
             </div>
             <div className={styles.formCol}>
               <label className={styles.label} htmlFor="tco-dr">
-                折现率 <span className={styles.labelValue}>{(discount * 100).toFixed(1)}%</span>
+                {t.params.discountLabel} <span className={styles.labelValue}>{(discount * 100).toFixed(1)}%</span>
               </label>
               <input id="tco-dr" type="range" className={styles.range} min={0} max={0.20} step={0.01} value={discount}
-                onChange={e => setDiscount(Number(e.target.value))} aria-valuetext={`${(discount * 100).toFixed(1)} 百分比`}/>
-              <div className={styles.small}>未来现金流折现到当前（年化）</div>
+                onChange={e => setDiscount(Number(e.target.value))} aria-valuetext={t.params.percentAria(`${(discount * 100).toFixed(1)}%`)}/>
+              <div className={styles.small}>{t.params.discountHint}</div>
             </div>
           </div>
         </details>
@@ -1112,41 +1120,41 @@ export default function TcoCalculator() {
       {/* Results */}
       <div className={styles.card}>
         <div className={styles.cardTitle}>
-          📊 TCO 计算结果
-          {chip && <span className={styles.resultChip}>{zhName(chip.id, chip.name)} × {qty}，{years} 年{discount > 0 ? '（已折现）' : ''}</span>}
+          {t.results.title}
+          {chip && <span className={styles.resultChip}>{t.results.resultChip(displayName(chip.id, chip.name, t), qty, years, discount > 0)}</span>}
         </div>
 
         {!chip ? (
           <div className={styles.tcoEmpty}>
             <div className={styles.tcoEmptyEmoji}>🖥️</div>
-            <p className={styles.tcoEmptyTitle}>请在上方选择一款芯片开始计算</p>
-            <small>支持 {chips.length} 款 AI 算力卡</small>
+            <p className={styles.tcoEmptyTitle}>{t.results.emptySelectTitle}</p>
+            <small>{t.results.emptySelectSub(chips.length)}</small>
           </div>
         ) : !unitPriceUSD ? (
           <div className={styles.tcoEmpty}>
             <div className={styles.tcoEmptyEmoji}>💰</div>
-            <p className={styles.tcoEmptyTitle}>该芯片暂无定价信息</p>
-            <small>请在上方「手动价格」输入框填写预估价格</small>
+            <p className={styles.tcoEmptyTitle}>{t.results.emptyPriceTitle}</p>
+            <small>{t.results.emptyPriceSub}</small>
           </div>
         ) : (
           <>
             <div className={styles.tcoBox}>
               <div className={styles.resultHeader}>
-                {years} 年{isCluster ? '集群' : ''} TCO 总计{discount > 0 ? '（折现）' : ''}
-                {isCluster && <span className={styles.chartHint}>（含服务器 / 网络 / 人力）</span>}
+                {t.results.header(years, isCluster, discount > 0)}
+                {isCluster && <span className={styles.chartHint}>{t.results.headerClusterHint}</span>}
               </div>
               <div className={styles.tcoValue}><AnimatedMoney value={displayTco} animateKey={`${chipId}-${mode}`} /></div>
               <div className={styles.tcoSub}>
-                年均 <AnimatedMoney value={displayTco / years} animateKey={`${chipId}-${mode}`} /> · 每卡年均 <AnimatedMoney value={displayTco / qty / years} animateKey={`${chipId}-${mode}`} />
-                {tcoPerTflops != null && <> · <strong>每 TFLOPS 年均 TCO ${tcoPerTflops.toFixed(2)}</strong></>}
+                {t.results.annual} <AnimatedMoney value={displayTco / years} animateKey={`${chipId}-${mode}`} /> · {t.results.perCardAnnual} <AnimatedMoney value={displayTco / qty / years} animateKey={`${chipId}-${mode}`} />
+                {tcoPerTflops != null && <> · <strong>{t.results.perTflops(`$${tcoPerTflops.toFixed(2)}`)}</strong></>}
               </div>
             </div>
 
             {/* 成本行与饼图 / 柱图 / CSV 共用 activeSegs，条目随模式自动增减且口径一致 */}
             {activeSegs.map(seg => {
               const v = costMap[seg.key] ?? 0;
-              const label = seg.key === 'procurement' && !isCluster ? '采购成本' : seg.label;
-              const suffix = seg.key === 'procurement' ? '' : ONE_TIME_KEYS.includes(seg.key) ? '（一次性）' : '（折现）';
+              const label = seg.key === 'procurement' && !isCluster ? t.results.costRowProcurement : segLabel(t, seg.key);
+              const suffix = seg.key === 'procurement' ? '' : ONE_TIME_KEYS.includes(seg.key) ? t.costSuffix.oneTime : t.costSuffix.discounted;
               const pct = displayTco > 0 ? (v / displayTco) * 100 : 0;
               return (
                 <div key={seg.key} className={styles.costRow}>
@@ -1161,38 +1169,38 @@ export default function TcoCalculator() {
 
             <div className={styles.chartRow}>
               <div className={styles.chartCard}>
-                <div className={styles.chartTitle}>成本构成 <span className={styles.chartHint}>(hover/聚焦查看)</span></div>
+                <div className={styles.chartTitle}>{t.results.chartCostTitle} <span className={styles.chartHint}>{t.results.chartCostHint}</span></div>
                 <Pie data={pieData} hoverIdx={pieHover} setHover={setPieHover} />
               </div>
               <div className={styles.chartCard}>
-                <div className={styles.chartTitle}>TCO 累计随年限 <span className={styles.chartHint}>(累计·已折现)</span></div>
-                <Bars data={barData} segs={activeSegs} hoverYear={barHover} setHover={setBarHover} oneTimeTotal={oneTimeTotal} />
+                <div className={styles.chartTitle}>{t.results.chartBarTitle} <span className={styles.chartHint}>{t.results.chartBarHint}</span></div>
+                <Bars data={barData} segs={activeSegs.map(s => ({ key: s.key, label: segLabel(t, s.key), color: s.color }))} hoverYear={barHover} setHover={setBarHover} oneTimeTotal={oneTimeTotal} />
               </div>
             </div>
 
             <div className={styles.insightBox}>
-              <div className={styles.insightTitle}>💡 关键洞察</div>
+              <div className={styles.insightTitle}>{t.insights.title}</div>
               <div className={styles.insightRow}>
-                <strong>采购 vs 电费：</strong>
-                {proc > elec ? <span className={styles.insightGood}>采购成本占主导，关注性能性价比</span> : <span className={styles.insightBad}>电费超过采购成本！建议选择能效更高的芯片</span>}
+                <strong>{t.insights.procVsElec}</strong>
+                {proc > elec ? <span className={styles.insightGood}>{t.insights.procDominant}</span> : <span className={styles.insightBad}>{t.insights.elecDominant}</span>}
               </div>
               <div className={styles.insightRow}>
-                <strong>每瓦 TCO（全周期）：</strong> {chip.tdp > 0 ? <><AnimatedMoney value={displayTco / qty / chip.tdp} animateKey={`${chipId}-${mode}`} /> / W</> : '—'}
+                <strong>{t.insights.perWatt}</strong> {chip.tdp > 0 ? <><AnimatedMoney value={displayTco / qty / chip.tdp} animateKey={`${chipId}-${mode}`} /> / W</> : '—'}
               </div>
               <div className={styles.insightRow}>
-                <strong>年电费（未折现）：</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} animateKey={chipId} /> / 年（设备电；PUE={pue.toFixed(2)} 下冷却另计）</> : '—'}
+                <strong>{t.insights.annualElec}</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} animateKey={chipId} />{t.insights.annualElecValue('', pue.toFixed(2))}</> : '—'}
               </div>
               {tcoPerTflops != null && (
                 <div className={styles.insightRow}>
-                  <strong>每 TFLOPS 年均 TCO：</strong> ${tcoPerTflops.toFixed(2)} / TFLOPS·年（按 FP16 算力 {chip.fp16Tflops} TFLOPS 归一化）
+                  <strong>{t.insights.perTflops}</strong>{t.insights.perTflopsValue(`$${tcoPerTflops.toFixed(2)}`, chip.fp16Tflops ?? 0)}
                 </div>
               )}
               {breakevenUsage != null && (
                 <div className={styles.insightRow}>
-                  <strong>Build vs Rent：</strong>
+                  <strong>{t.insights.bvr}</strong>
                   {usage >= breakevenUsage
-                    ? <span className={styles.insightGood}>当前利用率 {(usage * 100).toFixed(0)}% 已高于平衡点 {(breakevenUsage * 100).toFixed(0)}%，自建更划算</span>
-                    : <span className={styles.insightBad}>当前利用率 {(usage * 100).toFixed(0)}% 低于平衡点 {(breakevenUsage * 100).toFixed(0)}%，租赁更划算</span>}
+                    ? <span className={styles.insightGood}>{t.insights.bvrGood(`${(usage * 100).toFixed(0)}%`, `${(breakevenUsage * 100).toFixed(0)}%`)}</span>
+                    : <span className={styles.insightBad}>{t.insights.bvrBad(`${(usage * 100).toFixed(0)}%`, `${(breakevenUsage * 100).toFixed(0)}%`)}</span>}
                 </div>
               )}
             </div>
@@ -1200,12 +1208,12 @@ export default function TcoCalculator() {
             <Sensitivity base={displayTco} input={tcoInput} mode={mode} cluster={clusterInput} />
 
             <div className={styles.actionRow}>
-              <button type="button" onClick={addCompare} className={styles.btnAdd}>➕ 加入对比</button>
+              <button type="button" onClick={addCompare} className={styles.btnAdd}>{t.actions.addToCompare}</button>
               <button type="button" onClick={() => chip && exportCSV(
                 chip, qty, years, usage, price, dcCost, idleRatio, pue, discount,
                 unitPriceUSD, dbPriceOriginal, dbPriceCurrency, manualPrice != null,
-                mode, breakdown, displayTco, compare
-              )} className={styles.btnCsv} title="导出当前计算结果为 CSV（含部署模式、汇率与原币种）">📥 导出 CSV</button>
+                mode, breakdown, displayTco, compare, t
+              )} className={styles.btnCsv} title={t.actions.csvTitle}>{t.actions.csvBtn}</button>
             </div>
           </>
         )}
@@ -1214,18 +1222,18 @@ export default function TcoCalculator() {
       {/* Build vs Rent */}
       {chip && (
         <div className={styles.card}>
-          <div className={styles.cardTitle}>⚖️ 自建 vs 云租赁（Build vs Rent）</div>
+          <div className={styles.cardTitle}>{t.bvr.title}</div>
           {!unitPriceUSD ? (
             <div className={styles.tcoEmpty}>
               <div className={styles.tcoEmptyEmoji}>💰</div>
-              <p className={styles.tcoEmptyTitle}>该芯片暂无定价信息</p>
-              <small>请先在上方「手动价格」输入框填写预估价格，再对比自建与云租赁成本</small>
+              <p className={styles.tcoEmptyTitle}>{t.bvr.emptyPriceTitle}</p>
+              <small>{t.bvr.emptyPriceSub}</small>
             </div>
           ) : (
             <>
             <div className={styles.bvrGrid}>
             <div className={styles.bvrCol}>
-              <label className={styles.label} htmlFor="tco-cloud">云 GPU 租赁价（$/GPU/hr）</label>
+              <label className={styles.label} htmlFor="tco-cloud">{t.bvr.cloudLabel}</label>
               <input id="tco-cloud" type="number" className={styles.input} min={0.1} max={50} step={0.1}
                 value={cloudPrice} onChange={e => setCloudPrice(Math.max(0.01, Number(e.target.value)))}/>
               <div className={styles.pricePresets}>
@@ -1237,36 +1245,36 @@ export default function TcoCalculator() {
                 ))}
               </div>
               <p className={styles.bvrNow}>
-                当前 {(usage * 100).toFixed(0)}% 利用率：自建 <strong>${ownPerHourNow.toFixed(2)}</strong>/GPU/hr
-                {' '}vs 云 <strong>${cloudPrice.toFixed(2)}</strong>/GPU/hr
+                {t.bvr.nowPrefix(`${(usage * 100).toFixed(0)}%`)}<strong>${ownPerHourNow.toFixed(2)}</strong>/GPU/hr
+                {t.bvr.vsCloud}<strong>${cloudPrice.toFixed(2)}</strong>/GPU/hr
                 {ownPerHourNow < cloudPrice ? (
-                  <span className={styles.bvrGood}> · 自建每年省 ${Math.round((cloudPrice - ownPerHourNow) * 8760 * qty).toLocaleString()}</span>
+                  <span className={styles.bvrGood}>{t.bvr.saveAnnually(`$${Math.round((cloudPrice - ownPerHourNow) * 8760 * qty).toLocaleString()}`)}</span>
                 ) : (
-                  <span className={styles.bvrBad}> · 自建每年多花 ${Math.round((ownPerHourNow - cloudPrice) * 8760 * qty).toLocaleString()}</span>
+                  <span className={styles.bvrBad}>{t.bvr.wasteAnnually(`$${Math.round((ownPerHourNow - cloudPrice) * 8760 * qty).toLocaleString()}`)}</span>
                 )}
               </p>
             </div>
             <div className={styles.bvrKpi} role="status">
-              <div className={styles.bvrKpiLabel}>盈亏平衡利用率</div>
+              <div className={styles.bvrKpiLabel}>{t.bvr.breakevenLabel}</div>
               <div className={styles.bvrKpiValue}>
                 {breakevenUsage != null ? `${(breakevenUsage * 100).toFixed(0)}%` : '—'}
               </div>
               <div className={styles.bvrKpiHint}>
                 {breakevenUsage != null
-                  ? `利用率持续高于 ${(breakevenUsage * 100).toFixed(0)}% 时，自建比租云更划算`
-                  : `云价 ≤ 自建固定成本下限（$${bvrB.toFixed(2)}/hr），租赁始终更优`}
+                  ? t.bvr.breakevenHint(`${(breakevenUsage * 100).toFixed(0)}%`)
+                  : t.bvr.alwaysRent(`$${bvrB.toFixed(2)}`)}
               </div>
             </div>
           </div>
           <div className={styles.bvrTableWrap}>
             <table className={styles.bvrTable}>
-              <caption className={styles.srOnly}>不同利用率下自建与云租赁的每小时成本对比（{qty} 卡{isCluster ? '集群' : '单节点'}）</caption>
+              <caption className={styles.srOnly}>{t.bvr.caption(qty, isCluster ? t.bvr.modeCluster : t.bvr.modeNode)}</caption>
               <thead>
                 <tr>
-                  <th scope="col">利用率</th>
-                  <th scope="col">自建 $/GPU/hr</th>
-                  <th scope="col">对比云 ${cloudPrice.toFixed(2)}</th>
-                  <th scope="col">年化差额（{qty} 卡）</th>
+                  <th scope="col">{t.bvr.thUsage}</th>
+                  <th scope="col">{t.bvr.thOwn}</th>
+                  <th scope="col">{t.bvr.thCloud(`$${cloudPrice.toFixed(2)}`)}</th>
+                  <th scope="col">{t.bvr.thDelta(qty)}</th>
                 </tr>
               </thead>
               <tbody>
@@ -1275,7 +1283,7 @@ export default function TcoCalculator() {
                     <td>{Math.round(r.u * 100)}%</td>
                     <td>${r.own.toFixed(2)}</td>
                     <td className={r.delta <= 0 ? styles.bvrGood : styles.bvrBad}>
-                      {r.delta <= 0 ? '省 $' : '贵 $'}{Math.abs(r.delta).toFixed(2)}/hr
+                      {r.delta <= 0 ? t.bvr.cheaper : t.bvr.pricier}{Math.abs(r.delta).toFixed(2)}/hr
                     </td>
                     <td className={r.delta <= 0 ? styles.bvrGood : styles.bvrBad}>
                       {r.delta <= 0 ? '−$' : '+$'}{Math.abs(Math.round(r.annual)).toLocaleString()}
@@ -1294,31 +1302,31 @@ export default function TcoCalculator() {
       {compare.length > 0 && (
         <div className={styles.compareSection}>
           <div className={styles.compareHeader}>
-            📊 多芯片 TCO 对比
-            <span className={styles.compareHint}>(最多 4 款{discount > 0 ? '·已折现' : ''})</span>
+            {t.compare.title}
+            <span className={styles.compareHint}>{t.compare.hint(discount > 0)}</span>
             {new Set(compare.map(c => c.mode)).size > 1 && (
-              <span className={styles.compareHint}>⚠️ 含不同部署模式的条目，金额不可直接横向比较</span>
+              <span className={styles.compareHint}>{t.compare.mixedModes}</span>
             )}
-            <button type="button" onClick={clearCompare} className={styles.compareClear}>清空全部</button>
+            <button type="button" onClick={clearCompare} className={styles.compareClear}>{t.compare.clearAll}</button>
           </div>
           <div className={styles.compareGrid}>
             {compare.map(entry => (
               <div key={entry.chip.id} className={styles.compareCard}>
-                <button type="button" onClick={() => removeCompare(entry.chip.id)} title="删除此对比项" className={styles.compareRemove} aria-label="删除对比项">×</button>
-                <div className={styles.compareName}>{zhName(entry.chip.id, entry.chip.name)}</div>
+                <button type="button" onClick={() => removeCompare(entry.chip.id)} title={t.compare.removeTitle} className={styles.compareRemove} aria-label={t.compare.removeAria}>×</button>
+                <div className={styles.compareName}>{displayName(entry.chip.id, entry.chip.name, t)}</div>
                 <div className={styles.compareQty}>
                   × {entry.quantity}
                   {entry.chip.fp16Tflops ? ` · ${entry.chip.fp16Tflops} TFLOPS` : ''}
-                  {' · '}{entry.mode === 'cluster' ? '集群' : '单节点'}
+                  {' · '}{entry.mode === 'cluster' ? t.compare.modeCluster : t.compare.modeNode}
                 </div>
                 <div className={styles.compareTco}>{fmtFull(Math.round(entry.tco))}</div>
                 {entry.tcoPerTflops != null && (
-                  <div className={styles.compareTflops}>${entry.tcoPerTflops.toFixed(2)} / TFLOPS·年</div>
+                  <div className={styles.compareTflops}>{t.compare.perTflops(`$${entry.tcoPerTflops.toFixed(2)}`)}</div>
                 )}
                 {/* 成本构成同样取自 COST_SEGMENTS：集群条目会多出服务器 / 网络 / 人力 */}
                 <div className={styles.compareCosts}>
                   {COST_SEGMENTS.filter(s => (entry[s.key] ?? 0) > 0).map(s => (
-                    <span key={s.key} className={styles.compareCostItem}>{s.short} {fmt(entry[s.key] ?? 0)}</span>
+                    <span key={s.key} className={styles.compareCostItem}>{segShort(t, s.key)} {fmt(entry[s.key] ?? 0)}</span>
                   ))}
                 </div>
               </div>
@@ -1333,7 +1341,7 @@ export default function TcoCalculator() {
 
       {/* Lead capture：下载完整选型报告（位于工具区下方，不再与结果卡争视觉） */}
       <div className={styles.leadSection}>
-        <LeadCapture source="tco" lang="zh" chipCount={chips.length} getExtraSections={getTcoContext} getFocusChipIds={getFocusChipIds} />
+        <LeadCapture source="tco" lang={t.lang} chipCount={chips.length} getExtraSections={getTcoContext} getFocusChipIds={getFocusChipIds} />
       </div>
     </div>
   );

@@ -1,100 +1,100 @@
 ---
 id: kunlun-m100
-title: Kunlun 昆仑芯 M100 (2026)
-sidebar_label: Kunlun M100
-description: "昆仑芯 M100：2025-11 百度世界大会发布，面向大规模 AI 推理（MoE 优化），计划 2026 年初上市。详细规格待公布。"
-keywords: [昆仑芯 M100, Kunlun M100, 百度, AI推理, MoE, 2026, 国产AI芯片]
+title: Kunlunxin M100 (2026)
+sidebar_label: Kunlunxin M100
+description: "Kunlunxin M100: announced at Baidu World 2025-11, targeting large-scale AI inference (MoE-optimized), planned for launch in early 2026. Detailed specs to be announced."
+keywords: [Kunlunxin M100, Kunlun M100, Baidu, AI inference, MoE, 2026, domestic AI chips]
 ---
 
-# Kunlun 昆仑芯 M100 (2026)
+# Kunlunxin M100 (2026)
 
-## 产品概述
+## Product Overview
 
-**昆仑芯 M100** 是昆仑芯科技于 **2025 年 11 月 13 日百度世界大会**上发布的新一代 AI 推理芯片，针对**大规模 AI 推理场景**优化设计，尤其面向 **MoE（Mixture of Experts）架构模型推理**。计划于 **2026 年初上市**，已于 2026 年 1 月进入商业放量期。
+The **Kunlunxin M100** is a new-generation AI inference chip unveiled by Kunlunxin Technology at **Baidu World on November 13, 2025**, designed and optimized for **large-scale AI inference scenarios**, especially **inference on MoE (Mixture of Experts) architecture models**. It is scheduled to launch in **early 2026** and entered its commercial volume phase in January 2026.
 
-> **注**：M100 于发布时未公开详细硬件规格（算力、显存、功耗等），以下信息基于官方发布和行业报道整理。
+> **Note**: M100's detailed hardware specs (compute, memory, power, etc.) were not disclosed at launch; the information below is compiled from official announcements and industry reports.
 
-**M 系列定位**：
-- **昆仑芯 M100**（2026 初）：大规模 AI 推理 — **本页**
-- **昆仑芯 M300**（2027 初）：超大规模多模态大模型训练与推理
-- **昆仑芯 P800**（2024）：训练与推理通用加速卡 — 已有页
-- **昆仑芯 N 系列**（2029）：下一代架构
+**M Series Positioning**:
+- **Kunlunxin M100** (early 2026): large-scale AI inference — **this page**
+- **Kunlunxin M300** (early 2027): ultra-large-scale multimodal LLM training and inference
+- **Kunlunxin P800** (2024): general training + inference accelerator card — existing page
+- **Kunlunxin N Series** (2029): next-generation architecture
 
-## 核心规格
+## Core Specifications
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **定位** | 大规模 AI 推理专用 |
-| **架构** | 自研架构（具体代号未公开） |
-| **制程** | 未公开 |
-| **FP16 / BF16** | 未公开 |
-| **INT8 / INT4** | 未公开 |
-| **显存容量** | 未公开 |
-| **显存类型** | 未公开 |
-| **带宽** | 未公开 |
-| **TDP** | 未公开 |
-| **互联** | 天池超节点生态 |
-| **发布** | 2025 年 11 月 13 日（百度世界大会） |
-| **上市** | 计划 2026 年初 |
-| **量产状态** | 2026 年 1 月起商业放量 |
+| **Positioning** | Dedicated to large-scale AI inference |
+| **Architecture** | In-house architecture (specific codename not disclosed) |
+| **Process** | Not disclosed |
+| **FP16 / BF16** | Not disclosed |
+| **INT8 / INT4** | Not disclosed |
+| **Memory Capacity** | Not disclosed |
+| **Memory Type** | Not disclosed |
+| **Bandwidth** | Not disclosed |
+| **TDP** | Not disclosed |
+| **Interconnect** | Tianchi supernode ecosystem |
+| **Announced** | November 13, 2025 (Baidu World) |
+| **Launch** | Planned for early 2026 |
+| **Production Status** | Commercial volume phase since January 2026 |
 
-## 关键特性
+## Key Features
 
-- **MoE 推理优化**：硬件层面针对 MoE 稀疏激活特性优化，MoE 模型推理性能显著提升
-- **PD 分离推理**：支持 Prefill-Decode 分离部署，单卡性能提升 95%
-- **单实例性能**：结合推理优化，最高提升至 8 倍
-- **天池超节点**：与天池 256/天池 512 超节点协同，构建千卡级推理集群
-- **中国移动中标**：推理型集采 CUDA 生态标段份额第一
+- **MoE inference optimization**: hardware-level optimization for the sparse activation characteristics of MoE, significantly boosting MoE model inference performance
+- **PD-disaggregated inference**: supports Prefill-Decode disaggregated deployment, raising single-card performance by 95%
+- **Single-instance performance**: up to an 8x improvement when combined with inference optimizations
+- **Tianchi supernodes**: works with the Tianchi 256 / Tianchi 512 supernodes to build thousand-card inference clusters
+- **China Mobile win**: first place in share for the CUDA-ecosystem lot of the inference-type centralized procurement
 
-## 厂商信息
+## Vendor Information
 
-| 项目 | 内容 |
+| Parameter | Details |
 |------|------|
-| **公司** | 昆仑芯科技（北京）有限公司 |
-| **母公司** | 百度（持股 57.67%） |
-| **M100 发布** | 2025 年 11 月 13 日百度世界大会 |
-| **IPO 状态** | 2026 年 5 月启动科创板 IPO 辅导 |
-| **部署规模** | 昆仑芯全系列累计数万卡部署 |
-| **核心场景** | 百度智能云推理服务底座 |
+| **Company** | Kunlunxin Technology (Beijing) Co., Ltd. |
+| **Parent Company** | Baidu (57.67% stake) |
+| **M100 Announcement** | Baidu World, November 13, 2025 |
+| **IPO Status** | Started STAR Market IPO tutoring in May 2026 |
+| **Deployment Scale** | Tens of thousands of cards deployed across the Kunlunxin lineup |
+| **Core Scenario** | Inference service foundation of Baidu AI Cloud |
 
-## 适用场景
+## Use Cases
 
-- ✅ **大规模 AI 推理**（LLM 在线服务）
-- ✅ **MoE 模型推理**（稀疏激活硬件优化）
-- ✅ **PD 分离部署**（Prefill + Decode 独立优化）
-- ✅ **百度云推理服务**（千问、文心等模型推理）
-- ✅ **国产化推理集群**
-- ❌ **AI 训练**（定位为推理专用，训练用 P800/M300）
-- ❌ **规格待确认**（详细参数建议关注 2026 年正式产品发布）
+- ✅ **Large-scale AI inference** (LLM online services)
+- ✅ **MoE model inference** (hardware optimization for sparse activation)
+- ✅ **PD-disaggregated deployment** (independent optimization of Prefill + Decode)
+- ✅ **Baidu Cloud inference services** (inference for Qwen, ERNIE, and other models)
+- ✅ **Domestic inference clusters**
+- ❌ **AI training** (positioned as inference-dedicated; use the P800/M300 for training)
+- ❌ **Specs to be confirmed** (watch the official 2026 product launch for detailed parameters)
 
-## 与 P800 定位对比
+## Positioning Comparison with the P800
 
-| 维度 | M100（推理） | P800（训推一体） |
+| Dimension | M100 (Inference) | P800 (Training + Inference) |
 |------|-------------|------------------|
-| **定位** | 推理专用 | 训练 + 推理通用 |
-| **MoE 优化** | 原生优化 | 支持 |
-| **PD 分离** | 支持（+95% 性能） | 基础支持 |
-| **单机部署** | 云端推理服务 | 单机 8 卡 671B |
-| **上市** | 2026 初 | 2024-03 |
-| **超节点** | 天池 256/512 | 天池 256/512 |
-| **规格公开度** | 待公布 | 已公开 |
+| **Positioning** | Inference-dedicated | General training + inference |
+| **MoE Optimization** | Native optimization | Supported |
+| **PD Disaggregation** | Supported (+95% performance) | Basic support |
+| **Single-Server Deployment** | Cloud inference services | 8-card 671B in a single server |
+| **Launch** | Early 2026 | 2024-03 |
+| **Supernode** | Tianchi 256/512 | Tianchi 256/512 |
+| **Spec Disclosure** | To be announced | Published |
 
-## 关键时间线
+## Key Timeline
 
-| 时间 | 事件 |
+| Date | Event |
 |------|------|
-| 2024-03 | P800 上市 |
-| 2025-04 | 天池超节点在百舸 5.0 启用 |
-| **2025-11-13** | **M100/M300 发布**（百度世界大会） |
-| 2026-01 | M100 进入商业放量期 |
-| 2026 上半年 | M100 正式量产交付 |
-| 2027 初 | M300 上市（万亿参数级训练） |
+| 2024-03 | P800 launched |
+| 2025-04 | Tianchi supernodes enabled on Baige 5.0 |
+| **2025-11-13** | **M100/M300 announced** (Baidu World) |
+| 2026-01 | M100 entered its commercial volume phase |
+| H1 2026 | M100 official mass production and delivery |
+| Early 2027 | M300 launch (trillion-parameter-scale training) |
 
-## 相关卡
+## Related Cards
 
-- [Kunlun 昆仑芯 P800](/docs/cards/others/kunlun-p800) — 训推一体前代
-- NVIDIA L20 — 国际推理卡对标（页面待创建）
-- [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) — 国产推理卡
-- [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — 国产 GPGPU
-- [MetaX C600](/docs/cards/others/metax-c600) — 全国产 GPU
-- [Enflame T20](/docs/cards/others/enflame-t20) — 国产 AI 训练卡
+- [Kunlunxin P800](/docs/cards/others/kunlun-p800) — Previous generation, training + inference
+- NVIDIA L20 — International inference card benchmark (page to be created)
+- [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) — Domestic inference card
+- [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — Domestic GPGPU
+- [MetaX C600](/docs/cards/others/metax-c600) — Fully domestic GPU
+- [Enflame T20](/docs/cards/others/enflame-t20) — Domestic AI training card

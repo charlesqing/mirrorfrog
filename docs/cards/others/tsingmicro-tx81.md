@@ -93,5 +93,5 @@ keywords: [清微智能, TX81, Tsingmicro, RPU, 可重构计算, C2C算力网格
 
 - [超3000万颗出货！这家可重构AI芯片公司凭什么能领跑国产替代？](https://news.qq.com/rain/a/20251128A01WF200)
 - [刚刚，这家清华AI芯片企业在深圳重磅发布！](https://www.sohu.com/a/949842332_121124373)
-- [清微智能官网](http://www.tsingmicro.com/)
+- [清微智能官网](https://www.tsingmicro.com/)
 - [TX8系列 - 百度百科](https://baike.baidu.com/item/TX8%E7%B3%BB%E5%88%97/67445703)

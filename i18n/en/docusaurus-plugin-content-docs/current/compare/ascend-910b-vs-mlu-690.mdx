@@ -1,19 +1,19 @@
 ---
-title: Huawei Ascend 910B vs 寒武纪 思元690（国产 AI 训练/推理芯片）
-description: "Huawei Ascend 910B vs 寒武纪 思元690（国产 AI 训练/推理芯片） spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
-keywords: [Huawei Ascend 910B, 寒武纪 思元690（国产 AI 训练/推理芯片）, Huawei Ascend 910B vs 寒武纪 思元690（国产 AI 训练/推理芯片）, AI chip comparison, accelerator comparison, GPU comparison]
-sidebar_label: Huawei Ascend 910B vs 寒武纪 思元690（国产 AI 训练/推理芯片）
+title: Huawei Ascend 910B vs Cambricon MLU690
+description: "Huawei Ascend 910B vs Cambricon MLU690 spec comparison: architecture, FP8/FP16/FP32 compute, memory capacity and bandwidth, TDP power, release timing — with key differences, selection advice, and FAQ."
+keywords: [Huawei Ascend 910B, Cambricon MLU690, Huawei Ascend 910B vs Cambricon MLU690, AI chip comparison, accelerator comparison, GPU comparison]
+sidebar_label: Huawei Ascend 910B vs Cambricon MLU690
 ---
 
 import Link from '@docusaurus/Link';
 
-# Huawei Ascend 910B vs 寒武纪 思元690（国产 AI 训练/推理芯片）: Spec Comparison & Buyer's Guide
+# Huawei Ascend 910B vs Cambricon MLU690: Spec Comparison & Buyer's Guide
 
-In AI infrastructure selection, **Huawei Ascend 910B** and **寒武纪 思元690（国产 AI 训练/推理芯片）** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
+In AI infrastructure selection, **Huawei Ascend 910B** and **Cambricon MLU690** are two accelerators frequently compared. This article contrasts them item by item — architecture, compute, memory, power, and release cadence — to help you quickly judge which fits training or inference workloads.
 
 ## Spec Comparison Table
 
-| Vendor | Huawei Ascend 910B | 寒武纪 思元690（国产 AI 训练/推理芯片） |
+| Vendor | Huawei Ascend 910B | Cambricon MLU690 |
 | --- | --- | --- |
 | Vendor | Huawei | Cambricon |
 | Architecture | Da Vinci | MLUarch |
@@ -30,18 +30,18 @@ In AI infrastructure selection, **Huawei Ascend 910B** and **寒武纪 思元690
 
 ## Key Differences
 
-- **Power**: Huawei Ascend 910B has a TDP of 310 W, lower than 寒武纪 思元690（国产 AI 训练/推理芯片）'s ~500 W, friendlier to datacenter PUE and cooling.
-- **Memory capacity**: 寒武纪 思元690（国产 AI 训练/推理芯片） packs 196 GB HBM3, more than Huawei Ascend 910B's 64 GB HBM2e/ HBM3e, more comfortable for single-card hosting of very large models.
+- **Power**: Huawei Ascend 910B has a TDP of 310 W, lower than Cambricon MLU690's ~500 W, friendlier to datacenter PUE and cooling.
+- **Memory capacity**: Cambricon MLU690 packs 196 GB HBM3, more than Huawei Ascend 910B's 64 GB HBM2e/ HBM3e, more comfortable for single-card hosting of very large models.
 
 ## Selection Advice
 
-- When chasing extreme single-card compute and a mature toolchain, prioritize Huawei Ascend 910B; if budget, power wall, or local support are hard constraints, 寒武纪 思元690（国产 AI 训练/推理芯片） often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
+- When chasing extreme single-card compute and a mature toolchain, prioritize Huawei Ascend 910B; if budget, power wall, or local support are hard constraints, Cambricon MLU690 often fits better. Use this site's [AI Compute Card Comparison Tool](/en/compare) to validate multiple chips side-by-side before deciding.
 
 ## FAQ
 
-### What are the main differences between Huawei Ascend 910B and 寒武纪 思元690（国产 AI 训练/推理芯片）?
+### What are the main differences between Huawei Ascend 910B and Cambricon MLU690?
 
-The core difference is architecture and compute density: Huawei Ascend 910B uses Da Vinci, FP8 ~No public FP8 data, memory 64 GB HBM2e/ HBM3e; 寒武纪 思元690（国产 AI 训练/推理芯片） uses MLUarch, FP8 ~No public FP8 data, memory 196 GB HBM3. See the comparison table above.
+The core difference is architecture and compute density: Huawei Ascend 910B uses Da Vinci, FP8 ~No public FP8 data, memory 64 GB HBM2e/ HBM3e; Cambricon MLU690 uses MLUarch, FP8 ~No public FP8 data, memory 196 GB HBM3. See the comparison table above.
 
 ### What is the TDP (power) of Huawei Ascend 910B?
 
@@ -51,12 +51,12 @@ Huawei Ascend 910B has a TDP of 310 W; actual whole-system power also includes b
 
 Training values memory capacity, bandwidth, and multi-card interconnect; inference values single-card throughput and power efficiency. Combine the "Key Differences" and "Selection Advice" above with your batch size, model size, and SLA.
 
-### How much do Huawei Ascend 910B and 寒武纪 思元690（国产 AI 训练/推理芯片） differ in memory capacity?
+### How much do Huawei Ascend 910B and Cambricon MLU690 differ in memory capacity?
 
-Huawei Ascend 910B is 64 GB HBM2e/ HBM3e, 寒武纪 思元690（国产 AI 训练/推理芯片） is 196 GB HBM3; the gap directly affects loadable model size and context length.
+Huawei Ascend 910B is 64 GB HBM2e/ HBM3e, Cambricon MLU690 is 196 GB HBM3; the gap directly affects loadable model size and context length.
 
 ## Related Pages
 
 - [Huawei Ascend 910B](/en/docs/cards/huawei/ascend-910b)
-- [寒武纪 思元690（国产 AI 训练/推理芯片）](/en/docs/cards/cambricon/mlu-690)
-- [AI 算力卡对比工具](/en/compare) — Compare 2–4 chips side-by-side online
+- [Cambricon MLU690](/en/docs/cards/cambricon/mlu-690)
+- [AI Chip Comparison Tool](/en/compare) — Compare 2–4 chips side-by-side online

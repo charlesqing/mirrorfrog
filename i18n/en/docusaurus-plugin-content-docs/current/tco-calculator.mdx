@@ -1,0 +1,157 @@
+---
+id: tco-calculator
+title: 'AI Compute Card TCO Calculator | Total Cost of Ownership Analysis'
+description: 'Calculate the total cost of ownership (TCO) of AI compute cards, including purchase cost, electricity, data center rent, and cooling. Supports multi-chip comparison to help you make smarter purchasing decisions.'
+keywords: ['TCO calculator', 'AI compute card TCO', 'total cost of ownership', 'procurement decisions', 'electricity cost calculation', 'data center costs']
+sidebar_position: 3
+sidebar_label: 'TCO Calculator'
+---
+
+import TcoCalculator from '@site/src/components/TcoCalculator';
+
+# 💰 AI Compute Card TCO Calculator
+
+> Estimate the **Total Cost of Ownership** of AI compute cards in real time — purchase, electricity, data center, and cooling in one calculator, with multi-chip side-by-side comparison and a "self-build vs rent" decision aid, so your procurement choices are backed by data.
+
+<TcoCalculator />
+
+---
+
+## 📖 Methodology
+
+In **single-node / bare card** mode, TCO consists of four parts:
+
+```
+TCO = Purchase cost + Electricity cost + Data center rent + Cooling cost
+
+1. Purchase cost       = unit price × quantity
+
+2. Electricity cost    = TDP(kW) × quantity × utilization × electricity rate($/kWh) × 8760 hours/year × years of use
+   (actual power is linearly interpolated as idle share + (1 − idle share) × utilization; idle defaults to 15% of TDP)
+
+3. Data center rent    = annual rent per card × quantity × years of use
+
+4. Cooling cost        = electricity cost × (PUE − 1)
+   (PUE defaults to 1.3, i.e. cooling is roughly 30% of equipment electricity; liquid cooling can be as low as 1.1)
+```
+
+Future cash flows are discounted to present value at **8%/year**; the purchase cost is a one-time outlay and is not discounted. All parameters can be adjusted in real time in the tool above.
+
+Switching to **cluster-level** deployment mode adds the following on top of the bare-card costs:
+
+```
+5. Server nodes (one-time)    = unit server price × ⌈quantity ÷ 8⌉      (each node hosts 8 cards)
+
+6. Network equipment (one-time) = GPU purchase cost × network share       (default 12%)
+
+7. Staff OPEX (discounted)    = quantity ÷ 1000 × annual staff cost per 1,000 cards
+```
+
+It also outputs the **break-even utilization** for "self-build vs cloud rental", and the **annualized TCO per TFLOPS** (a compute-normalized cost metric for easier cross-chip comparison).
+
+<details>
+<summary>📊 Historical comparison examples (click to expand; values recomputed with the current model and pricing.json)</summary>
+
+### Example 1: NVIDIA B200 vs AMD MI300X (8-card server, 3 years)
+
+> All computed with default parameters: 8 cards · 90% utilization · $0.10/kWh · $500 annual rent per card · 15% idle power · PUE 1.3 · 8% discount rate · single-node mode.
+
+| Cost Item | NVIDIA B200 | AMD MI300X | Difference |
+|---------|---------------|---------------|---------|
+| **Purchase cost** ($42,000 vs $13,500/card) | $336,000 | $108,000 | B200 costs $228,000 more |
+| **Electricity cost** (discounted) | $16,525 | $12,394 | B200 costs $4,131 more |
+| **Data center rent** (discounted) | $10,308 | $10,308 | Same |
+| **Cooling cost** (discounted) | $4,958 | $3,718 | B200 costs $1,239 more |
+| **Total TCO** | **$367,791** | **$134,420** | **B200 costs $233,371 more** |
+
+**Conclusion**: the B200's TCO is **2.7×** that of the MI300X ($367,791 vs $134,420), but the two target completely different segments — the B200 is a flagship training card (FP4 **20 PFLOPS** sparse, 8 TB/s memory bandwidth), while the MI300X focuses on large-memory inference (192 GB HBM3, 5.3 TB/s bandwidth).
+
+**A fairer angle**: normalized by the FP16 compute field used by the calculator, the B200's "annualized TCO per TFLOPS" is about **$3.06** and the MI300X's about **$4.29** — per unit of compute, the B200 is actually about **29% cheaper**. (The B200 uses 5,000 TFLOPS sparse and the MI300X 1,307 TFLOPS dense; figures across different bases cannot be compared directly as performance — this is for cost normalization only.) So:
+
+- For **per-card throughput / large-scale training**: the B200 has the better per-compute cost;
+- On a tight budget, or for **large-memory inference** (192 GB HBM3): the MI300X has a far lower absolute entry cost.
+
+---
+
+### Example 2: Impact of electricity rates on TCO (NVIDIA B200 × 8, 3 years)
+
+> Other parameters identical to Example 1; only the electricity rate changes.
+
+| Electricity rate ($/kWh) | Electricity cost (discounted) | Total TCO | Electricity as % of purchase cost |
+|----------------|---------|---------|----------------|
+| $0.05 | $8,263 | $357,050 | 2.5% |
+| $0.10 | $16,525 | $367,791 | 4.9% |
+| $0.15 | $24,788 | $378,532 | 7.4% |
+| $0.20 | $33,050 | $389,274 | 9.8% |
+
+**Conclusion**: each doubling of the electricity rate doubles the discounted electricity cost, but **its impact on total TCO is relatively mild** — under the default parameters electricity is only about 4.5% of TCO, and purchase cost remains the dominant share. What the electricity rate really amplifies is **energy-efficiency differences**: the higher the rate, the more pronounced the disadvantage of high-power chips versus low-power ones.
+
+> When does electricity become the leading cost? Push the rate to $0.40/kWh and electricity can reach about **15%** of TCO; extend the service life to 8 years and it can reach about **9%**. Only then do the gains from "choosing efficiency" become substantial.
+
+</details>
+
+---
+
+## 💡 How to Lower TCO?
+
+### 1. Choose more energy-efficient chips
+
+<details>
+<summary>Energy efficiency reference table (click to expand)</summary>
+
+| Chip | TDP (W) | FP8 compute (TFLOPS) | FP8 efficiency (TFLOPS/W) | FP4 compute (TFLOPS) | FP4 efficiency (TFLOPS/W) |
+|-------|---------|---------------------|---------------------|---------------------|---------------------|
+| NVIDIA H200 | 700 | 3,958 (sparse) | 5.7 | — | — |
+| NVIDIA B200 | 1,000 | 10,000 (sparse) | 10.0 | 20,000 (sparse) | 20.0 |
+| AMD MI300X | 750 | 2,614 (dense) | 3.5 | — | — |
+| AMD MI355X | 1,400 | 5,000 (dense) | 3.6 | 10,100 (sparse) | 7.2 |
+| Huawei Ascend 950 | 500 | — | — | 2,000 | 4.0 |
+
+> Note: efficiency = rated compute ÷ TDP. In 2026, new cards' headline metric has shifted from FP8 to **FP4** (4-bit floating point, trading precision for throughput).
+> All figures are vendor-rated; **sparse / dense bases are noted in parentheses** — cross-vendor comparisons must not ignore base differences. Data follows the [chip cards](/docs/intro).
+
+</details>
+
+**The higher the energy efficiency, the lower the long-term TCO.**
+
+### 2. Increase utilization
+
+- Taking the MI300X from Example 1: raising utilization from 50% to 90% only lifts TCO from $128,433 to $134,420 (**+4.7%**), while compute output rises 80%.
+- Use virtualization, multi-tenancy, and similar techniques to raise GPU utilization.
+
+### 3. Choose regions with lower electricity rates
+
+<details>
+<summary>Regional electricity rate reference (click to expand)</summary>
+
+| Region | Industrial rate ($/kWh) | 3-year electricity (B200 × 8, discounted) | vs China |
+|------|---------------------|--------------------------------|----------|
+| Middle East | $0.04 | $6,610 | Saves $6,610 |
+| China | $0.08 | $13,220 | Baseline |
+| US | $0.12 | $19,830 | Costs $6,610 more |
+| Europe | $0.20 | $33,050 | Costs $19,830 more |
+
+</details>
+
+### 4. Use liquid cooling
+
+- Liquid cooling saves **20-30%** of energy versus air cooling
+- The initial investment is higher, but long-term TCO is lower.
+
+---
+
+## ⚠️ Disclaimer
+
+1. The TCO estimates provided by this calculator are **for reference only**; actual costs may vary due to many factors.
+2. Pricing data comes from public information (official guide prices, market averages, etc.); **actual purchase prices may differ significantly**.
+3. Operating costs such as electricity and data center rent vary by region, vendor, negotiating leverage, and other factors.
+4. Factors such as **depreciation, residual value, maintenance costs, and software licensing costs** are not included.
+5. Before any actual purchase, **obtain detailed quotes from vendors**.
+
+---
+
+## 📚 Further Reading
+
+- [Full AI Compute Card Comparison Table](/docs/comparison) - Side-by-side specs for 230+ chips
+- [Future Roadmap](/docs/roadmap) - 2025-2026 new product release timeline
+- [Industry News](/blog) - Latest launches, acquisitions, IPOs, and deep analysis

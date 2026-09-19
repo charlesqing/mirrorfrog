@@ -1,142 +1,142 @@
 ---
 id: enflame-t20
-title: Enflame 燧原 云燧 T20 (2021)
+title: Enflame T20 (2021)
 sidebar_label: Enflame T20
-description: "燧原 云燧 T20 详尽规格：邃思 2.0 芯片，2.5D 封装，TF32 160 TFLOPS，INT8 320 TOPS，64GB HBM2E，1.8 TB/s，GCU-LARE 互联，2021 年发布"
-keywords: [燧原 T20, 云燧T20, 邃思2.0, Enflame, 国产AI训练, TF32 160TFLOPS, 64GB HBM2E, GCU-LARE, 2021]
+description: "Enflame T20 detailed specs: DTU 2.0 chip, 2.5D advanced packaging, 160 TFLOPS TF32, 320 TOPS INT8, 64GB HBM2E, 1.8 TB/s, GCU-LARE interconnect, released in 2021"
+keywords: [Enflame T20, Enflame T20, DTU 2.0, Enflame, domestic AI training, TF32 160TFLOPS, 64GB HBM2E, GCU-LARE, 2021]
 ---
 
-# Enflame 燧原 云燧 T20 (2021)
+# Enflame T20 (2021)
 
-## 产品概述
+## Product Overview
 
-**云燧 T20** 是燧原科技于 **2021 年 7 月 7 日** 在世界人工智能大会（WAIC）上发布的**第二代 AI 训练加速卡**，基于自研 **邃思 2.0（DTU 2.0）芯片**，采用 **2.5D 先进封装**（57.5mm × 57.5mm，整合 9 颗芯片），**TF32 算力 160 TFLOPS**（国内率先支持 TF32）、**INT8 算力 320 TOPS**，配备 **64GB HBM2E 显存**（1.8 TB/s 带宽），GCU-LARE 互联技术支持集群扩展至 8192 卡（1.3 EFLOPS）。
+The **Enflame T20** is the **second-generation AI training accelerator card** released by Enflame Technology on **July 7, 2021** at the World Artificial Intelligence Conference (WAIC). Based on the in-house **DTU 2.0 chip**, it adopts **2.5D advanced packaging** (57.5mm × 57.5mm, integrating 9 chips), delivers **160 TFLOPS of TF32 compute** (the first domestic support for TF32) and **320 TOPS of INT8 compute**, and is equipped with **64GB HBM2E memory** (1.8 TB/s bandwidth). Its GCU-LARE interconnect technology supports scaling clusters to 8192 cards (1.3 EFLOPS).
 
-燧原是"GPU 四小龙"之一，主打国产云端 AI 训练与推理。
+Enflame is one of the "GPU Four Little Dragons", focusing on domestic cloud AI training and inference.
 
-**产品演进**：
-- **邃思 1.0 / 云燧 T10**（2019）：第一代 12nm，FP32 20 TFLOPS
-- **邃思 2.0 / 云燧 T20/T21**（2021）：**2.5D 封装，TF32 160 TFLOPS** — **本页**
-- **邃思 3.0 / 云燧 T30**（规划中）：下一代
+**Product Evolution**:
+- **DTU 1.0 / Enflame T10** (2019): first generation, 12nm, FP32 20 TFLOPS
+- **DTU 2.0 / Enflame T20/T21** (2021): **2.5D packaging, 160 TFLOPS TF32** — **this page**
+- **DTU 3.0 / Enflame T30** (planned): next generation
 
-## 核心规格
+## Core Specifications
 
-### 邃思 2.0 芯片
+### DTU 2.0 Chip
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **架构** | 自研 **GCU-CARA** 全域计算架构 |
-| **制程** | 未公开（行业推测 12nm） |
-| **封装** | **2.5D 先进封装**，整合 9 颗芯片 |
-| **封装尺寸** | **57.5mm × 57.5mm**（发布时中国最大计算芯片） |
+| **Architecture** | In-house **GCU-CARA** full-domain compute architecture |
+| **Process** | Not disclosed (industry estimate: 12nm) |
+| **Packaging** | **2.5D advanced packaging**, integrating 9 chips |
+| **Package Size** | **57.5mm × 57.5mm** (China's largest compute chip at launch) |
 | **FP32** | **40 TFLOPS** |
-| **TF32** | **160 TFLOPS**（国内率先支持） |
-| **FP16 / BF16** | 支持（具体数值未披露） |
+| **TF32** | **160 TFLOPS** (first domestic support) |
+| **FP16 / BF16** | Supported (specific figures not disclosed) |
 | **INT8** | **320 TOPS** |
-| **显存** | **64GB HBM2E**（三星，国内首款支持） |
-| **显存带宽** | **1.8 TB/s**（芯片级） |
-| **互联** | **GCU-LARE®**（燧原智能互联），双向 **300 GB/s** |
+| **Memory** | **64GB HBM2E** (Samsung; first domestic card to support it) |
+| **Memory Bandwidth** | **1.8 TB/s** (chip level) |
+| **Interconnect** | **GCU-LARE®** (Enflame intelligent interconnect), **300 GB/s** bidirectional |
 
-### 云燧 T20 加速卡
+### Enflame T20 Accelerator Card
 
-| 项目 | 参数 |
+| Parameter | Value |
 |------|------|
-| **核心芯片** | 邃思 2.0 |
-| **定位** | 数据中心 AI 训练加速卡 |
-| **形态** | PCIe 训练加速卡 |
-| **多卡互联** | 机内 4 卡全互联 / 增强 8 卡全互联 |
-| **集群** | 支持从单机多卡到千卡级别 |
-| **软件栈** | **驭算 TopsRider 2.0** |
-| **开发接口** | C++ / Python，多层次 API 开放 |
-| **发布** | 2021 年 7 月 7 日（WAIC 2021） |
-| **TDP** | 未公开 |
+| **Core Chip** | DTU 2.0 |
+| **Positioning** | Data center AI training accelerator card |
+| **Form Factor** | PCIe training accelerator card |
+| **Multi-Card Interconnect** | In-server 4-card full interconnect / enhanced 8-card full interconnect |
+| **Cluster** | Supports scaling from single-server multi-card to thousand-card level |
+| **Software Stack** | **TopsRider 2.0** |
+| **Development Interfaces** | C++ / Python, multi-level open APIs |
+| **Release** | July 7, 2021 (WAIC 2021) |
+| **TDP** | Not disclosed |
 
-## GCU-LARE 互联与集群
+## GCU-LARE Interconnect and Clusters
 
-| 规格 | 参数 |
+| Specification | Value |
 |------|------|
-| **互联技术** | GCU-LARE® 全域互联 |
-| **芯片间带宽** | 双向 300 GB/s |
-| **机内互联** | 4 卡全互联 → 增强 8 卡全互联 |
-| **集群方案** | 云燧智算集群 CloudBlazer Matrix 2.0 |
-| **最大集群** | **8192 张** 云燧训练卡 |
-| **集群总算力** | 最高 **1.3 EFLOPS**（FP32） |
-| **散热** | 液冷，PUE < 1.5 |
-| **机柜方案** | 单机柜高密度部署 |
+| **Interconnect Technology** | GCU-LARE® full-domain interconnect |
+| **Inter-Chip Bandwidth** | 300 GB/s bidirectional |
+| **In-Server Interconnect** | 4-card full interconnect → enhanced 8-card full interconnect |
+| **Cluster Solution** | Enflame intelligent computing cluster CloudBlazer Matrix 2.0 |
+| **Maximum Cluster** | **8192** Enflame training cards |
+| **Total Cluster Compute** | Up to **1.3 EFLOPS** (FP32) |
+| **Cooling** | Liquid cooling, PUE < 1.5 |
+| **Rack Solution** | High-density deployment in a single rack |
 
-> **发布时纪录**：燧原 COO 表示"在全世界还没有人能达到在单精度算力上用 8000 张卡实现超过 1E 的算力"。
+> **Record at launch**: Enflame's COO stated: "No one in the world has yet achieved over 1E of single-precision compute using 8,000 cards."
 
-## 软件栈 TopsRider 2.0
+## TopsRider 2.0 Software Stack
 
-| 层级 | 工具 | 说明 |
+| Layer | Tool | Description |
 |------|------|------|
-| **平台** | **驭算 TopsRider 2.0** | 燧原统一编程平台 |
-| **AI 框架** | PyTorch | 原生支持 |
-| | TensorFlow | 支持 |
-| | PaddlePaddle | 百度飞桨 |
-| **开发接口** | C++ / Python | 多层次 API |
-| **算子库** | 自研算子库 | 覆盖主流模型 |
-| **编译器** | GCU-CARA 工具链 | 自动化优化 |
-| **性能** | TF32 精度平均 **2.5 倍于友商次旗舰** | 多类模型与友商旗舰不分伯仲 |
+| **Platform** | **TopsRider 2.0** | Enflame's unified programming platform |
+| **AI Frameworks** | PyTorch | Native support |
+| | TensorFlow | Supported |
+| | PaddlePaddle | Baidu PaddlePaddle |
+| **Development Interfaces** | C++ / Python | Multi-level APIs |
+| **Operator Library** | In-house operator library | Covers mainstream models |
+| **Compiler** | GCU-CARA toolchain | Automated optimization |
+| **Performance** | TF32 precision on average **2.5x that of competitors' sub-flagship cards** | On par with competitors' flagships across many model types |
 
-## 厂商信息
+## Vendor Information
 
-| 项目 | 内容 |
+| Parameter | Details |
 |------|------|
-| **公司** | 上海燧原科技股份有限公司 |
-| **成立** | 2018 年 3 月 |
-| **创始人** | 赵立东（前 AMD 中国区高管）、张亚林（COO） |
-| **T20 发布** | 2021 年 7 月 7 日（WAIC 2021） |
-| **融资** | 累计数十亿元（腾讯、红杉等） |
-| **定位** | 国产云端 AI 训练/推理芯片 |
-| **生态** | "GPU 四小龙"之一（沐曦、壁仞、燧原、摩尔线程） |
-| **合作** | 与友商合作打造云燧智算集群 |
+| **Company** | Shanghai Enflame Technology Co., Ltd. |
+| **Founded** | March 2018 |
+| **Founders** | Zhao Lidong (former AMD China executive), Zhang Yalin (COO) |
+| **T20 Launch** | July 7, 2021 (WAIC 2021) |
+| **Funding** | Several billion RMB in total (Tencent, Sequoia, etc.) |
+| **Positioning** | Domestic cloud AI training/inference chips |
+| **Ecosystem** | One of the "GPU Four Little Dragons" (MetaX, Biren, Enflame, Moore Threads) |
+| **Partnerships** | Collaborates with partners to build the Enflame intelligent computing cluster |
 
-## 适用场景
+## Use Cases
 
-- ✅ **国产 AI 大模型训练**（8192 卡集群 1.3 EFLOPS）
-- ✅ **数据中心训练**（TF32 160 TFLOPS 高效训练）
-- ✅ **千卡级集群部署**（GCU-LARE 互联成熟方案）
-- ✅ **模型种类覆盖广**（多精度、动态特征支持）
-- ✅ **国产化算力刚需**（自主可控）
-- ❌ **单卡推理**（非主要定位，云燧 i20 推理卡更优）
-- ❌ **CUDA 生态**（自研 TopsRider，迁移需适配）
-- ❌ **FP8 训练**（不支持，需关注 T30）
-- ❌ **制程未公开**（行业推测 12nm，落后同期 7nm 竞品）
+- ✅ **Domestic large-model AI training** (8192-card cluster, 1.3 EFLOPS)
+- ✅ **Data center training** (efficient training at 160 TFLOPS TF32)
+- ✅ **Thousand-card cluster deployment** (mature GCU-LARE interconnect solution)
+- ✅ **Broad model coverage** (multi-precision and dynamic feature support)
+- ✅ **Mandatory domestic compute** (independent and controllable)
+- ❌ **Single-card inference** (not the primary positioning; the Enflame i20 inference card is a better fit)
+- ❌ **CUDA ecosystem** (in-house TopsRider; migration requires adaptation)
+- ❌ **FP8 training** (not supported; watch the T30)
+- ❌ **Undisclosed process node** (industry estimate: 12nm, behind contemporaneous 7nm competitors)
 
-## 与同期国产 AI 训练卡对比（2021）
+## Comparison with Contemporary Domestic AI Training Cards (2021)
 
-| 指标 | 燧原 T20 | 寒武纪 MLU 370 | 华为 Ascend 910 | 差异 |
+| Metric | Enflame T20 | Cambricon MLU 370 | Huawei Ascend 910 | Difference |
 |------|----------|-----------------|-----------------|------|
-| **发布** | 2021-07 | 2021-Q4 | 2019 | T20 年中发布 |
-| **封装** | 2.5D 先进封装 | 普通封装 | 普通封装 | T20 先进 |
-| **TF32** | **160 TFLOPS** | 不支持 | 不支持 | T20 独有 |
-| **FP32** | 40 TFLOPS | 24 TFLOPS | 256 TFLOPS | Ascend 910 领先 |
-| **INT8** | 320 TOPS | 96 TOPS | 512 TOPS | Ascend 910 领先 |
-| **显存** | **64GB HBM2E** | 48GB HBM2 | 32GB HBM2 | **T20 最大** |
-| **带宽** | **1.8 TB/s** | 614 GB/s | 1.2 TB/s | **T20 最大** |
-| **互联** | 300 GB/s | 200 GB/s | HCCS | T20 领先 |
-| **集群** | **8192 卡** 1.3 EFLOPS | 千卡 | 4096 卡 | **T20 最大** |
+| **Release** | 2021-07 | 2021-Q4 | 2019 | T20 launched mid-year |
+| **Packaging** | 2.5D advanced packaging | Standard packaging | Standard packaging | T20 is more advanced |
+| **TF32** | **160 TFLOPS** | Not supported | Not supported | Unique to T20 |
+| **FP32** | 40 TFLOPS | 24 TFLOPS | 256 TFLOPS | Ascend 910 leads |
+| **INT8** | 320 TOPS | 96 TOPS | 512 TOPS | Ascend 910 leads |
+| **Memory** | **64GB HBM2E** | 48GB HBM2 | 32GB HBM2 | **T20 is the largest** |
+| **Bandwidth** | **1.8 TB/s** | 614 GB/s | 1.2 TB/s | **T20 is the largest** |
+| **Interconnect** | 300 GB/s | 200 GB/s | HCCS | T20 leads |
+| **Cluster** | **8192 cards**, 1.3 EFLOPS | Thousand cards | 4096 cards | **T20 is the largest** |
 
-> **2021 国产 AI 训练霸主**：T20 显存最大（64GB）、互联最强（300 GB/s）、集群最大（8192 卡 1.3 EFLOPS）。但 FP32 算力（40 TFLOPS）和 INT8（320 TOPS）低于华为 Ascend 910。
+> **2021's dominant domestic AI training card**: the T20 has the largest memory (64GB), the strongest interconnect (300 GB/s), and the largest cluster (8192 cards, 1.3 EFLOPS). However, its FP32 compute (40 TFLOPS) and INT8 (320 TOPS) are lower than the Huawei Ascend 910's.
 
-## 关键时间线
+## Key Timeline
 
-| 时间 | 事件 |
+| Date | Event |
 |------|------|
-| 2018-03 | 燧原科技成立 |
-| 2019-12 | 邃思 1.0 / 云燧 T10 发布（12nm） |
-| **2021-07-07** | **邃思 2.0 / 云燧 T20 发布**（WAIC） |
-| 2021-2023 | T20/T21 大规模部署，云燧智算集群商用 |
-| 规划中 | 邃思 3.0 / 云燧 T30 |
+| 2018-03 | Enflame Technology founded |
+| 2019-12 | DTU 1.0 / Enflame T10 released (12nm) |
+| **2021-07-07** | **DTU 2.0 / Enflame T20 released** (WAIC) |
+| 2021-2023 | T20/T21 deployed at scale; Enflame intelligent computing cluster commercialized |
+| Planned | DTU 3.0 / Enflame T30 |
 
-## 相关卡
+## Related Cards
 
-- [Kunlun 昆仑芯 P800](/docs/cards/others/kunlun-p800) — 国产 AI 算力最强（345 TFLOPS）
-- [MetaX 曦云 C600](/docs/cards/others/metax-c600) — 全国产 GPU（1000 TFLOPS FP8）
-- [Hygon 海光 DCU K100](/docs/cards/others/hygon-dcu-k100) — x86 兼容 GPGPU
-- [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) — 同期国产 AI 训练
-- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — 下一代国产 AI
-- [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) — 国产 AI 训练主力
-- [NVIDIA A100](/docs/cards/nvidia/a100) — 国际训练标杆
-- [NVIDIA H100](/docs/cards/nvidia/h100) — 下一代国际标杆
+- [Kunlunxin P800](/docs/cards/others/kunlun-p800) — Strongest domestic AI compute (345 TFLOPS)
+- [MetaX C600](/docs/cards/others/metax-c600) — Fully domestic GPU (1000 TFLOPS FP8)
+- [Hygon DCU K100](/docs/cards/others/hygon-dcu-k100) — x86-compatible GPGPU
+- [Cambricon MLU 370](/docs/cards/others/cambricon-mlu-370) — Contemporary domestic AI training
+- [Cambricon MLU 590](/docs/cards/others/cambricon-mlu) — Next-generation domestic AI
+- [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) — Mainstream domestic AI training card
+- [NVIDIA A100](/docs/cards/nvidia/a100) — International training benchmark
+- [NVIDIA H100](/docs/cards/nvidia/h100) — Next-generation international benchmark

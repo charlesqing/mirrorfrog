@@ -172,7 +172,7 @@ export default function ComparePage(): ReactNode {
     return (
       <Layout title="Chip Comparison">
         <div className={styles.loading}>
-          {isZh ? '加载中...' : 'Loading...'}
+          {isZh ? '加载中…' : 'Loading…'}
         </div>
       </Layout>
     );

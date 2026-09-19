@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useState, type FormEvent } from 'react';
 import styles from './LeadCapture.module.css';
+import { useTcoT, type TcoT } from './tco-i18n';
 
 /**
  * 「下载选型报告」邮箱留资组件。
@@ -82,14 +83,7 @@ function loadPricing(): Promise<Record<string, PriceInfo>> {
 }
 
 // ===== 报告生成 =====
-
-const SPEC_LABEL_ZH: Record<string, string> = {
-  'architecture': '架构', 'process': '制程', 'memory.type': '显存类型',
-  'memory.capacity': '显存容量', 'memory.bandwidth': '显存带宽',
-  'compute.fp4': 'FP4 算力', 'compute.fp8': 'FP8 算力', 'compute.fp16': 'FP16 算力', 'compute.fp32': 'FP32 算力',
-  'compute.fp64': 'FP64 算力', 'compute.int8': 'INT8 算力', 'tdp': 'TDP 功耗', 'release': '发布时间',
-  'interface': '接口', 'price': '首发价格', 'tdpW': 'TDP（数值 W）',
-};
+// 规格标签 / 报告文案按 locale 取自 tco-i18n 字典（t.lead.specLabels / t.lead.*）
 
 function flattenSpecs(specs: Record<string, unknown>): [string, string][] {
   const out: [string, string][] = [];
@@ -107,24 +101,24 @@ function flattenSpecs(specs: Record<string, unknown>): [string, string][] {
   return out;
 }
 
-function fmtPrice(info: PriceInfo | undefined, zh: boolean): string {
+function fmtPrice(info: PriceInfo | undefined, t: TcoT): string {
   if (!info || (info.market_price == null && info.official_msrp == null)) {
-    return zh ? '未公开' : 'N/A';
+    return t.lead.naPrice;
   }
   const cur = info.currency === 'CNY' ? 'CNY' : 'USD';
   const sym = cur === 'CNY' ? '¥' : '$';
   const n = info.market_price ?? info.official_msrp ?? 0;
-  const base = `${sym}${n.toLocaleString()}（${cur}）`;
+  const base = t.lead.priceWithCurrency(`${sym}${n.toLocaleString()}`, cur);
   if (info.market_price != null && info.official_msrp != null && info.market_price !== info.official_msrp) {
-    return `${base}，MSRP ${sym}${info.official_msrp.toLocaleString()}`;
+    return `${base}${t.lead.msrpSuffix(`${sym}${info.official_msrp.toLocaleString()}`)}`;
   }
   return base;
 }
 
-function chipUrl(c: ChipRecord, zh: boolean): string {
+function chipUrl(c: ChipRecord, en: boolean): string {
   const base = 'https://www.mirrorfrog.com';
   if (!c.slug) return base;
-  return `${base}${zh ? '' : '/en'}${c.slug}`;
+  return `${base}${en ? '/en' : ''}${c.slug}`;
 }
 
 function pickAlternatives(focus: ChipRecord, chips: ChipRecord[]): ChipRecord[] {
@@ -155,37 +149,33 @@ function pickAlternatives(focus: ChipRecord, chips: ChipRecord[]): ChipRecord[] 
   return [];
 }
 
-function chipRow(c: ChipRecord, pricing: Record<string, PriceInfo>, zh: boolean): string {
+function chipRow(c: ChipRecord, pricing: Record<string, PriceInfo>, t: TcoT, en: boolean): string {
   const fp16 = c.fp16Tflops != null ? `${c.fp16Tflops}` : '—';
   const tdp = c.tdpW != null ? `${c.tdpW}` : '—';
-  const price = fmtPrice(pricing[c.id], zh);
-  return `| [${c.title}](${chipUrl(c, zh)}) | ${c.vendor} | ${fp16} | ${tdp} | ${price} |`;
+  const price = fmtPrice(pricing[c.id], t);
+  return `| [${c.title}](${chipUrl(c, en)}) | ${c.vendor} | ${fp16} | ${tdp} | ${price} |`;
 }
 
 function buildReport(
   chips: ChipRecord[],
   pricing: Record<string, PriceInfo>,
-  lang: 'zh' | 'en',
+  t: TcoT,
+  en: boolean,
   source: string,
   extra: string,
   focusIds: string[],
 ): string {
-  const zh = lang === 'zh';
   const date = new Date().toISOString().slice(0, 10);
   const vendorCount = new Set(chips.map(c => c.vendor)).size;
   const lines: string[] = [];
 
-  lines.push(zh ? '# MirrorFrog AI 算力卡选型报告' : '# MirrorFrog AI Accelerator Selection Report');
+  lines.push(t.lead.reportTitle);
   lines.push('');
-  lines.push(
-    zh
-      ? `> 生成日期：${date} · 来源：${source === 'tco' ? 'TCO 计算器' : '芯片对比页'} · 数据：mirrorfrog.com（CC BY 4.0）`
-      : `> Generated: ${date} · Source: ${source === 'tco' ? 'TCO Calculator' : 'Chip Comparison'} · Data: mirrorfrog.com (CC BY 4.0)`,
-  );
+  lines.push(t.lead.reportMeta(date, source === 'tco' ? t.lead.sourceTco : t.lead.sourceCompare));
   lines.push('');
 
   if (extra.trim()) {
-    lines.push(zh ? '## 你的选型方案' : '## Your Selection');
+    lines.push(t.lead.yourSelection);
     lines.push('');
     lines.push(extra.trim());
     lines.push('');
@@ -197,80 +187,48 @@ function buildReport(
 
   if (focusChips.length > 0) {
     // 焦点芯片：完整规格 + 定价
-    lines.push(zh ? '## 焦点芯片规格与定价' : '## Focus Chips: Specs & Pricing');
+    lines.push(t.lead.focusSection);
     for (const c of focusChips) {
       lines.push('');
       lines.push(`### ${c.title}`);
       lines.push('');
-      lines.push(zh ? '| 规格 | 值 |' : '| Spec | Value |');
+      lines.push(t.lead.specHeader);
       lines.push('| --- | --- |');
       if (c.specs) {
         for (const [k, v] of flattenSpecs(c.specs)) {
-          lines.push(`| ${SPEC_LABEL_ZH[k] ?? k} | ${v} |`);
+          lines.push(`| ${t.lead.specLabels[k] ?? k} | ${v} |`);
         }
       }
-      lines.push(
-        zh
-          ? `| 参考定价 | ${fmtPrice(pricing[c.id], zh)} |`
-          : `| Reference Price | ${fmtPrice(pricing[c.id], zh)} |`,
-      );
-      lines.push(
-        zh
-          ? `| 详情页 | ${chipUrl(c, zh)} |`
-          : `| Detail Page | ${chipUrl(c, zh)} |`,
-      );
+      lines.push(t.lead.refPrice(fmtPrice(pricing[c.id], t)));
+      lines.push(t.lead.detailPage(chipUrl(c, en)));
       // 同档替代方案（只为第一个焦点芯片推荐）
       if (c === focusChips[0]) {
         const alts = pickAlternatives(c, chips);
         if (alts.length > 0) {
           lines.push('');
-          lines.push(
-            zh
-              ? `### 同档替代方案（${c.fp16Tflops != null && c.fp16Tflops > 0 ? `FP16 算力最接近 ${ALTERNATIVES_COUNT} 款` : `TDP 功耗最接近 ${ALTERNATIVES_COUNT} 款`}）`
-              : `### Closest Alternatives (top ${ALTERNATIVES_COUNT} by ${c.fp16Tflops != null && c.fp16Tflops > 0 ? 'FP16 TFLOPS' : 'TDP'})`,
-          );
+          lines.push(t.lead.altsTitle(t.lead.altsSubtitle(c.fp16Tflops != null && c.fp16Tflops > 0, ALTERNATIVES_COUNT)));
           lines.push('');
-          lines.push(
-            zh
-              ? '| 型号 | 厂商 | FP16 (TFLOPS) | TDP (W) | 参考定价 |'
-              : '| Model | Vendor | FP16 (TFLOPS) | TDP (W) | Price |',
-          );
+          lines.push(t.lead.altHeader);
           lines.push('| --- | --- | --- | --- | --- |');
-          for (const a of alts) lines.push(chipRow(a, pricing, zh));
+          for (const a of alts) lines.push(chipRow(a, pricing, t, en));
         }
       }
     }
   } else {
     // 无焦点芯片（用户未做筛选）：默认输出全量规格表 —— 有筛选时是焦点报告，
     // 无筛选时用户要的就是全库参考，全量表符合预期（体积 ~12KB 可接受）
-    lines.push(zh ? '## 全量芯片规格摘要' : '## Full Chip Spec Summary');
+    lines.push(t.lead.fullSection);
     lines.push('');
-    lines.push(
-      zh
-        ? '| 型号 | 厂商 | FP16 (TFLOPS) | TDP (W) | 参考定价 |'
-        : '| Model | Vendor | FP16 (TFLOPS) | TDP (W) | Price |',
-    );
+    lines.push(t.lead.altHeader);
     lines.push('| --- | --- | --- | --- | --- |');
-    for (const c of chips) lines.push(chipRow(c, pricing, zh));
+    for (const c of chips) lines.push(chipRow(c, pricing, t, en));
   }
 
   lines.push('');
-  lines.push(
-    zh
-      ? `## 完整数据（${chips.length} 款 · ${vendorCount} 厂商）`
-      : `## Full Database (${chips.length} chips · ${vendorCount} vendors)`,
-  );
+  lines.push(t.lead.dbSection(chips.length, vendorCount));
   lines.push('');
-  lines.push(
-    zh
-      ? `- 在线浏览：https://www.mirrorfrog.com/docs/intro`
-      : `- Browse online: https://www.mirrorfrog.com/en/docs/intro`,
-  );
-  lines.push(
-    zh
-      ? `- 机器可读数据集：https://www.mirrorfrog.com/chips.json（CC BY 4.0，引用请注明来源 MirrorFrog）`
-      : `- Machine-readable dataset: https://www.mirrorfrog.com/chips.json (CC BY 4.0, cite MirrorFrog)`,
-  );
+  lines.push(t.lead.browseOnline);
+  lines.push(t.lead.dataset);
   return lines.join('\n');
 }
 
@@ -288,7 +246,8 @@ function saveLead(email: string, source: string): void {
 }
 
 function LeadCaptureInner({ source, lang = 'zh', chipCount, getExtraSections, getFocusChipIds }: LeadCaptureProps) {
-  const zh = lang === 'zh';
+  const t = useTcoT();
+  const en = lang === 'en';
   const [email, setEmail] = useState('');
   const [state, setState] = useState<'idle' | 'busy' | 'done' | 'error'>('idle');
   const [totalChips, setTotalChips] = useState<number | null>(chipCount ?? null);
@@ -320,7 +279,7 @@ function LeadCaptureInner({ source, lang = 'zh', chipCount, getExtraSections, ge
       const focusIds = getFocusChipIds ? getFocusChipIds() : [];
       Promise.all([loadChips(), loadPricing()])
         .then(([chips, pricing]) => {
-          const md = buildReport(chips, pricing, lang, source, extra, focusIds);
+          const md = buildReport(chips, pricing, t, en, source, extra, focusIds);
           const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
@@ -335,7 +294,7 @@ function LeadCaptureInner({ source, lang = 'zh', chipCount, getExtraSections, ge
         })
         .catch(() => setState('error'));
     },
-    [email, lang, source, getExtraSections, getFocusChipIds],
+    [email, lang, en, t, source, getExtraSections, getFocusChipIds],
   );
 
   if (state === 'done') {
@@ -349,12 +308,10 @@ function LeadCaptureInner({ source, lang = 'zh', chipCount, getExtraSections, ge
           </div>
           <div>
             <p className={styles.doneTitle}>
-              {zh ? '报告已开始下载' : 'Report download started'}
+              {t.lead.doneTitle}
             </p>
             <p className={styles.doneText}>
-              {zh
-                ? '含你的选型方案、焦点芯片完整规格与定价、同档替代方案。报告已在浏览器本地生成，可直接留存。'
-                : 'Includes your selection, focus chip specs & pricing, and closest alternatives. Generated locally in your browser.'}
+              {t.lead.doneText}
             </p>
           </div>
         </div>
@@ -372,16 +329,14 @@ function LeadCaptureInner({ source, lang = 'zh', chipCount, getExtraSections, ge
       </div>
       <div className={styles.body}>
         <h3 className={styles.title}>
-          {zh ? '免费领取你的选型报告' : 'Get your selection report — free'}
+          {t.lead.uiTitle}
         </h3>
         <p className={styles.desc}>
-          {zh
-            ? '留下邮箱，立即下载围绕你当前选型生成的报告（Markdown）：所选芯片完整规格与定价、同档替代方案。报告在浏览器本地生成。'
-            : 'Drop your email to instantly download a Markdown report built around your selection — focus chip specs & pricing, closest alternatives. Generated locally in your browser.'}
+          {t.lead.uiDesc}
         </p>
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           <label className={styles.srLabel} htmlFor={`lc-email-${source}`}>
-            {zh ? '邮箱地址' : 'Email address'}
+            {t.lead.emailLabel}
           </label>
           <input
             id={`lc-email-${source}`}
@@ -398,19 +353,11 @@ function LeadCaptureInner({ source, lang = 'zh', chipCount, getExtraSections, ge
             aria-describedby={`lc-hint-${source}`}
           />
           <button type="submit" className={styles.btn} disabled={state === 'busy'}>
-            {state === 'busy'
-              ? zh ? '生成中…' : 'Generating…'
-              : zh ? '下载报告' : 'Download report'}
+            {state === 'busy' ? t.lead.generating : t.lead.downloadBtn}
           </button>
         </form>
         <p id={`lc-hint-${source}`} className={styles.hint} aria-live="polite">
-          {state === 'error'
-            ? zh
-              ? '邮箱格式有误，或数据加载失败，请重试。'
-              : 'Invalid email or data failed to load — please retry.'
-            : zh
-              ? '无需注册 · 数据 CC BY 4.0 · 报告本地生成'
-              : 'No signup wall · Data under CC BY 4.0 · Report generated locally'}
+          {state === 'error' ? t.lead.errorHint : t.lead.okHint}
         </p>
       </div>
     </aside>

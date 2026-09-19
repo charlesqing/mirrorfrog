@@ -67,6 +67,6 @@ status: "量产"
 - [Lightmatter Envise](/docs/cards/others/lightmatter-envise) — 国际存算/新架构路线对比
 
 ## 参考资料
-- [鲲云科技 CAISA 数据流芯片与星空加速卡（36Kr / 鲲云官方）](http://corerain.com/media-reports/290.html)
+- [鲲云科技 CAISA 数据流芯片与星空加速卡（36Kr / 鲲云官方）](https://corerain.com/media-reports/290.html)
 - [鲲云发布全球首款通用 AI 底层 CAISA 架构（美通社）](https://cnmobile.prnasia.com/lightnews/lightnews-1-77-15075.shtml)
 - [鲲云科技 CAISA 芯片百科（快懂百科）](https://www.baike.com/wikiid/6911851521593267467)

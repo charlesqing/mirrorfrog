@@ -61,7 +61,7 @@ keywords: [Ascend 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, Huawei Cloud, Decode
 
 ### 3. SIMD + SIMT Dual Programming Model
 - **SIMD**: Efficient vector compute (continuing Da Vinci core advantage from 910C)
-- **SIMT**: New model, supports flexible scheduling, better适配 Decode stage's irregular memory access patterns
+- **SIMT**: New model, supporting flexible scheduling with better suited memory access granularity, well suited to Decode stage's irregular memory access patterns
 - Memory access granularity from 512 bytes → **128 bytes**, discrete memory access efficiency improved by **4×**
 
 ### 4. CloudMatrix 384 System Integration

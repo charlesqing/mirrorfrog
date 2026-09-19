@@ -1,0 +1,213 @@
+---
+id: changelog
+title: Changelog
+description: MirrorFrog site changelog, recording all feature updates, data corrections, and content additions since launch.
+sidebar_position: 5
+sidebar_label: 📋 Changelog
+---
+
+# Changelog
+
+## 2026-06-10
+
+### 📰 Added 3 domestic chip feature blog posts
+- **Ascend 910C detailed specs and deployment status**:
+  - Created `blog/2026-06-10-ascend-910c-specs-and-deployment.mdx`
+  - Includes detailed spec parameters, deployment cases, performance comparisons, and deep technical architecture analysis
+  - Covers inference/training performance, energy efficiency, software ecosystem, and use cases
+- **Kunlun P800 performance data**:
+  - Created `blog/2026-06-10-kunlun-p800-performance.mdx`
+  - Includes architectural innovations (Tianchi architecture), performance data, benchmark tests, and use cases
+  - Covers inference/training performance, energy efficiency, and the Tianchi supernode solution
+- **New domestic chip progress in 2026**:
+  - Created `blog/2026-06-10-2026-domestic-chip-progress.mdx`
+  - Summarizes progress on new products such as Huawei Ascend 950/960/970 and Kunlun M100/M300
+  - Analyzes technical breakthroughs, market dynamics, ecosystem building, and future outlook
+
+### 📊 Comprehensive chip data proofreading
+- **Scope**: all 121 chips in `static/chips.json`
+- **Method**: initial proofreading based on the AI knowledge base (as of February 2026)
+- **Results**:
+  - ✅ **Chips with correct data**: 108 (89.3%)
+  - ⚠️ **Chips requiring verification**: 13 (10.7%)
+  - 🔧 **Errors found and corrected**: 3 (already corrected previously)
+- **Previously corrected errors (on record)**:
+  1. **AMD MI355X**: TDP from 750W → 1400W ✅
+  2. **Huawei Ascend 910C**: BF16 TFLOPS from 780 → 800 ✅
+  3. **NVIDIA B300 Ultra**:
+     - TDP from 1400W → 1200W ✅
+     - Memory bandwidth from 8 TB/s → 12 TB/s ✅
+     - FP16 from 3.5 PFLOPS → 4 PFLOPS ✅
+- **Created proofreading report**: `CHIP_DATA_PROOFREADING_REPORT.md`, with detailed results and recommendations
+
+### 🔗 Fixed Broken Links
+- Fixed all broken links (583 → 0)
+- Fixed the `tags.yml` permalink format issue (Docusaurus auto-adds `/blog/tags/` prefix)
+- Removed the broken `nvlink-6` link from the Vera CPU doc
+
+---
+
+## 2026-06-07
+
+### 🏠 Homepage ranking algorithm optimization (combined options A+B+C)
+- **Option A**: weight allocation 60%/40% → 50%/50% (compute weight raised, ranking focuses more on actual performance)
+- **Option B**: Huawei vendor weight 0.85 → 0.9 (on par with AMD, reflecting the rising status of domestic chips)
+- **Option C**: inference category weight 0.8 → 0.9 (reflects the 2026 market trend of inference demand surpassing training)
+- Files modified: `src/pages/index.tsx`, `src/data/home-content.zh.ts`, `src/data/home-content.en.ts`
+
+### 🔧 Fixed Cloudflare Pages build failure
+- **Problem**: `src/pages/home-content.zh.ts` and `home-content.en.ts` were treated by Docusaurus as page components, causing the build to fail (missing default export)
+- **Fix**: moved the data files from `src/pages/` to `src/data/` and updated the import paths in `index.tsx`
+- **Commit**: `6632b88`
+
+### 📝 Fixed blog post build errors
+- **Issue 1**: the `authors: [mirrorfrog]` field on all 4 new blog posts was invalid (the valid author is `aicomputecards`)
+- **Issue 2**: the title of `blog/2026-06-07-ai-hardware-inflection-point-2026.mdx` contained unescaped double quotes, breaking YAML parsing
+- **Fix**: changed all `authors: [mirrorfrog]` to `authors: [aicomputecards]`; wrapped titles in single quotes
+- **Commit**: `7bf64fa`
+
+### 📰 Added industry news blog posts
+- Added 2 Chinese blog posts:
+  - `2026-06-01-global-ai-computing-report-2026.mdx` — Major release: 2026 Global AI Computing Report and the top 10 trends in the computing industry
+  - `2026-06-07-ai-hardware-inflection-point-2026.mdx` — AI hardware enters the "deployment era": 5 major shifts and survival rules for 2026
+- Added 2 English blog posts (mirroring the Chinese versions)
+- Updated `static/news.json` so the homepage "Latest News" shows these 2 new articles
+- **Commit**: `c93aefd`
+
+### 💻 Added NVIDIA Rubin chip docs
+- Created the Chinese doc: `docs/cards/nvidia/rubin.mdx`
+- Created the English doc: `i18n/en/docusaurus-plugin-content-docs/cards/nvidia/rubin.mdx`
+- Specs: 336B transistors, 288GB HBM4, 50 PFLOPS FP16, mass production planned for Q3/Q4 2026
+- **Commit**: `aacc6c7`
+
+### 🔄 Created the interactive chip comparison tool
+- Created `src/pages/compare.tsx` — interactive chip comparison page
+- Created `src/pages/compare.module.css` — comparison tool styles
+- Features:
+  - Supports selecting 2-4 AI chips for side-by-side comparison
+  - Fetches chip data from `/chips.json`
+  - Shows specs: vendor, architecture, process, release date, compute (FP8/FP16/FP32/INT8), memory (type/capacity/bandwidth), power (TDP)
+  - Bilingual support (Chinese/English) via `useDocusaurusContext()`
+- Access at: `/compare` (Chinese), `/en/compare` (English)
+- **Commit**: `6c012d6`
+
+### 🔗 Fixed Broken Links (H20/H800 docs)
+- Created the NVIDIA H20 chip doc:
+  - Chinese: `docs/cards/nvidia/h20.mdx`
+  - English: `i18n/en/docusaurus-plugin-content-docs/current/cards/nvidia/h20.md`
+  - Specs: Hopper-architecture export-compliant version, FP16 148 TFLOPS, 96GB HBM3, 4.0 TB/s, released 2024
+- Created the NVIDIA H800 chip doc:
+  - Chinese: `docs/cards/nvidia/h800.mdx`
+  - English: `i18n/en/docusaurus-plugin-content-docs/current/cards/nvidia/h800.md`
+  - Specs: China-specific H100 variant (2022), FP8 1,979 TFLOPS, 80GB HBM3, 3.35 TB/s, released 2022
+- Corrected links (H200 → H20, the right comparison):
+  - `docs/cards/others/hygon-dcu-k100.md` — related card
+  - `docs/cards/others/kunlun-p800.md` — related card
+  - Same corrections applied to the English versions
+- Updated `docs/gpu/nvidia-cuda.mdx` (Chinese and English) to add the H800 page link
+- **Commits**: `c13db84` (H20), `8167da0` (H800)
+
+### 🏷️ Defined blog tags (tags.yml)
+- **Problem**: several tags used by blogs were missing from `blog/tags.yml`, causing "not defined" build warnings
+- **Fix**:
+  - Added Chinese-language tag keys (`新闻`, `AI芯片`, `国产芯片`, `昇腾`, `推理算力`, `产业报告`, `算力趋势`, `智算驱动`, `AI硬件`, `边缘AI`, `专用芯片`, `能效散热`)
+  - Each key uses a unique permalink (with a `-zh` suffix to avoid conflicts)
+  - Added English tag keys (`selection-guide`, `deep-learning`, `announcement`, `site-update`, `new-feature`, `architecture-comparison`, `inference`, `domestic-chips`, `domestic-substitution`, `ai-chips`, `ai-chip`, `selection`, etc.)
+  - Fixed the casing of an English blog tag key (`AI-chip` → `ai-chip`; YAML keys are case-sensitive)
+  - Removed the duplicate `news` tag from the English blog
+- **Commit**: `7a6b5b2`
+
+### 💻 Added more chip data (Vera CPU & SN50)
+- Created the NVIDIA Vera CPU doc (announced at GTC 2026-03-18):
+  - Chinese: `docs/cards/nvidia/vera-cpu.md`
+  - English: `i18n/en/docusaurus-plugin-content-docs/current/cards/nvidia/vera-cpu.md`
+  - Specs: 88-core Armv9.2 custom architecture, 176 threads, 1.5TB LPDDR5X, 1.2 TB/s, NVLink-C2C 1.8 TB/s, the world's first CPU with native FP8 support
+- Updated the SambaNova SN50 doc (replacing the old version):
+  - Chinese: `docs/cards/others/sn50.md`
+  - English: `i18n/en/docusaurus-plugin-content-docs/current/cards/others/sn50.md`
+  - Specs: fifth-generation RDU, 10T+ parameter models, 10M+ context, 5× inference speed (Llama 3.3 70B: 895 vs B200 184 tokens/s), 3× TCO advantage, strategic partnership with Intel, released 2026-02-24
+- Updated `static/chips.json`:
+  - Added the `vera-cpu` entry (121 chips)
+  - Updated the `sn50` entry with accurate data (from speculation to official figures)
+- **Commit**: `849df78`
+
+---
+
+## 2026-06-06
+
+### 🎉 Full-site English translation completed
+- All 220 pages (197 docs + 23 blogs) translated into English
+- Covers all chip cards, architecture deep-dives, category indexes, and type guides
+- UI localized with bilingual support
+
+### 🔗 Fixed 636 broken links
+- Added the `/docs/` prefix to legacy routes such as `/gpu/`, `/asic/`, `/tpu/`
+- Fixed in both the Chinese and English versions
+
+### 📝 README improvements
+- Added badges, contribution guide, directory structure, and latest updates
+- Added translation quality and formatting notes
+
+### 📋 Changelog page launched
+- This very page
+
+### 🛠️ Automation
+- Added a blog translation automation script
+- Added a scheduled chip data validation job
+
+---
+
+## 2026-06-05
+
+### 🔍 On-site search launched
+- Installed `@easyops-cn/docusaurus-search-local`
+- Supports Chinese tokenization and offline search
+- Invoked with the `/` key on the right side of the navbar
+
+### 🆕 New chip cards
+- **Intel Crescent Island**: Xe3P architecture, 480GB LPDDR5x, 350W inference GPU
+- **Huawei Ascend 950 series**: 950PR/950DT, 1 PFLOPS FP8, self-developed HBM
+
+### 📊 Data updates
+- Added Crescent Island and 950PR/950DT to the comparison table
+- Corrected Trainium 3 FP8 compute, GB200 FP4 sparse, and B300 Ultra comparison table units
+- Fixed GitHub push authentication issues
+
+### ✍️ New blog
+- `2026-06-05-computex-2026-roundup`: Computex 2026 roundup
+- English version of this post translated as well
+
+---
+
+## 2026-06-04
+
+### 🔬 Online data verification
+- **Huawei Ascend 910B**: HBM2e → HBM3 correction
+- **Huawei Ascend 910C**: 780 TFLOPS BF16 confirmed, TDP added
+- **Moore Threads MTT S5000**: compute corrected from 50 TFLOPS → 1000 TFLOPS
+- **NVIDIA H100**: FP32 corrected from 60 → 67 TFLOPS
+- **AMD MI355X**: TDP 750W → 1400W, FP8 4.6 → 5 PFLOPS
+- **AWS Trainium 3**: FP8 362 PFLOPS → 5.7 PFLOPS
+
+### 📝 Roadmap update
+- Reorganized the timeline (2025 Q2 → 2026 H2 → 2027)
+- Added Vera Rubin mass production, RTX Spark launch, and Ascend 950 delivery
+
+### ✍️ New blogs
+- `2026-06-04-huawei-ascend-950-mass-production`: Ascend 950 and the Chinese chip ecosystem
+- `2026-06-01-nvidia-rtx-spark`: NVIDIA RTX Spark launch
+
+---
+
+## 2026-06-03 and earlier
+
+### 🏗️ Site foundation
+- Built on Docusaurus 3.10
+- Initial data for 111 AI compute cards
+- Blog system launched (24 initial posts)
+- Cloudflare Pages deployment
+- Custom domain `mirrorfrog.com`
+- Dark mode support
+- Chinese/English i18n architecture
+- JSON-LD structured data / Sitemap SEO optimization
+- Complete `.gitignore` configuration
