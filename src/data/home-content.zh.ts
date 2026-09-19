@@ -8,7 +8,7 @@ export interface HotChip {
   arch: string;
   mem: string;
   bw: string;
-  fp16: string;   // FP16 算力，如 "989 TFLOPS"
+  fp16: string;   // FP16 显示值（单位 TFLOPS 省略；* 推测；† 未披露）
   tdp: string;    // TDP，如 "700W"
   fp16Tflops: number;
   category: string;
@@ -28,6 +28,7 @@ export interface HomeContent {
   searchEmptyLink: string;
   hotChipsTitle: string;
   hotChipsDesc: string;
+  hotChipsFootnote: string;
   hotChipsHeader: [string, string, string, string, string, string, string, string];
   viewFullComparison: string;
   latestNewsTitle: string;
@@ -63,24 +64,28 @@ export interface HomeContent {
  * ⚠️ 维护规范：
  * - 这里是首页热门表格的"展示数据"，字段精简、面向对比展示；
  * - 权威完整规格以 docs/cards/*.md（生成 static/chips.json）为准；
- * - fp16Tflops 必须为该芯片 FP16/BF16 稠密算力数值（TFLOPS），它决定排序分；
+ * - **数值必须与 chips.json 对齐**（FP16 为含稀疏口径，与对比表一致），
+ *   修改卡片数据后同步检查此列表（2026-09-18 按 chips.json 全量校对）；
+ * - fp16Tflops 决定排序分；未披露时填 0 并在 fp16 写"未披露"（勿估算）；
  * - slug 必须存在于 static/chips.json，修改/删除芯片卡片时同步检查此列表。
  */
 const ZH_HOT_CHIPS: HotChip[] = [
-  { name: 'H100 SXM',      vendor: 'NVIDIA',  arch: 'Hopper',          mem: '80 GB HBM3',      bw: '3.35 TB/s',  fp16: '989 TFLOPS',    tdp: '700W',  fp16Tflops: 989,  category: '训练', bwRatio: 0.42, slug: '/docs/cards/nvidia/h100',         released: '2022-10-01' },
-  { name: 'H200 SXM',      vendor: 'NVIDIA',  arch: 'Hopper',          mem: '141 GB HBM3e',    bw: '4.8 TB/s',   fp16: '989 TFLOPS',    tdp: '700W',  fp16Tflops: 989,  category: '训练', bwRatio: 0.60, slug: '/docs/cards/nvidia/h200',         released: '2024-06-01' },
-  { name: 'B200',          vendor: 'NVIDIA',  arch: 'Blackwell',       mem: '192 GB HBM3e',    bw: '8 TB/s',     fp16: '2,250 TFLOPS',  tdp: '1000W', fp16Tflops: 2250, category: '训练', bwRatio: 1.00, slug: '/docs/cards/nvidia/b200',         released: '2024-10-01' },
-  { name: 'B300 Ultra',    vendor: 'NVIDIA',  arch: 'Blackwell Ultra', mem: '288 GB HBM3e',    bw: '8 TB/s',     fp16: '2,700 TFLOPS',  tdp: '1000W', fp16Tflops: 2700, category: '训练', bwRatio: 1.00, slug: '/docs/cards/nvidia/b300-ultra',  released: '2025-10-01' },
-  { name: 'MI300X',        vendor: 'AMD',     arch: 'CDNA 3',          mem: '192 GB HBM3',     bw: '5.3 TB/s',   fp16: '1,300 TFLOPS',  tdp: '750W',  fp16Tflops: 1300, category: '训练', bwRatio: 0.66, slug: '/docs/cards/amd/mi300x',          released: '2023-12-01' },
-  { name: 'MI355X',        vendor: 'AMD',     arch: 'CDNA 3.5',        mem: '288 GB HBM3e',    bw: '8 TB/s',     fp16: '2,600 TFLOPS',  tdp: '1000W', fp16Tflops: 2600, category: '训练', bwRatio: 1.00, slug: '/docs/cards/amd/mi355x',          released: '2025-10-01' },
-  { name: 'TPU Ironwood',  vendor: 'Google',  arch: 'TPU v7',          mem: '192 GB HBM',      bw: '5 TB/s',     fp16: '2,400 TFLOPS',  tdp: '1000W', fp16Tflops: 2400, category: '训练', bwRatio: 0.63, slug: '/docs/cards/google/tpu-ironwood', released: '2025-11-01' },
-  { name: '昇腾 910C',     vendor: '华为',    arch: 'Da Vinci 3.0',    mem: '128 GB HBM3',     bw: '3.2 TB/s',   fp16: '800 TFLOPS',    tdp: '310W',  fp16Tflops: 800,  category: '训练', bwRatio: 0.40, slug: '/docs/cards/huawei/ascend-910c',  released: '2024-04-01' },
-  { name: '昇腾 920',      vendor: '华为',    arch: 'Da Vinci v4',     mem: '96 GB HBM3',      bw: '4 TB/s',     fp16: '1,800 TFLOPS',  tdp: '400W',  fp16Tflops: 1800, category: '训练', bwRatio: 0.50, slug: '/docs/cards/huawei/ascend-920',   released: '2025-09-01' },
-  { name: '昇腾 950DT',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '144 GB HiZQ 2.0', bw: '4 TB/s',     fp16: '1,000 TFLOPS',  tdp: '400W',  fp16Tflops: 1000, category: '训练', bwRatio: 0.50, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
-  { name: '昇腾 950PR',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '128 GB HiBL 1.0', bw: '3 TB/s',     fp16: '1,000 TFLOPS',  tdp: '300W',  fp16Tflops: 1000, category: '推理', bwRatio: 0.38, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
-  { name: 'WSE-3',         vendor: 'Cerebras', arch: 'WSE-3',          mem: '40 GB SRAM',      bw: '21 PB/s 片上', fp16: '125 TFLOPS',  tdp: '整机系统', fp16Tflops: 125, category: '晶圆', bwRatio: 1.00, slug: '/docs/cards/cerebras/wse-3',  released: '2024-03-01' },
-  { name: 'MLU690',        vendor: '寒武纪',  arch: 'MLUarch 04',      mem: '196 GB HBM3',     bw: '3.35 TB/s',  fp16: '700+ TFLOPS',   tdp: '~500W', fp16Tflops: 700,  category: '训练', bwRatio: 0.42, slug: '/docs/cards/cambricon/mlu-690',   released: '2026-03-01' },
-  { name: 'MTT S5000',     vendor: '摩尔线程', arch: 'MUSA 4.0',       mem: '80 GB GDDR6X',    bw: '1.6 TB/s',   fp16: '1,000 TFLOPS',  tdp: '350W',  fp16Tflops: 1000, category: '训练', bwRatio: 0.20, slug: '/docs/cards/others/moore-threads-mtt-s5000', released: '2025-02-01' },
+  { name: 'Rubin R200',    vendor: 'NVIDIA',  arch: 'Rubin',           mem: '288 GB HBM4',     bw: '22 TB/s',    fp16: '~9,000*', tdp: '1800–2300W', fp16Tflops: 9000, category: '训练', bwRatio: 2.75, slug: '/docs/cards/nvidia/rubin-r200',   released: '2026-03-17' },
+  { name: 'MI455X',        vendor: 'AMD',     arch: 'CDNA 5',          mem: '432 GB HBM4',     bw: '23.3 TB/s',  fp16: '10,100',      tdp: '未公开',     fp16Tflops: 10100, category: '训练', bwRatio: 2.91, slug: '/docs/cards/amd/mi455x',          released: '2026-07-23' },
+  { name: 'B200',          vendor: 'NVIDIA',  arch: 'Blackwell',       mem: '192 GB HBM3e',    bw: '8 TB/s',     fp16: '5,000',       tdp: '1000W',      fp16Tflops: 5000, category: '训练', bwRatio: 1.00, slug: '/docs/cards/nvidia/b200',         released: '2024-10-01' },
+  { name: 'B300 Ultra',    vendor: 'NVIDIA',  arch: 'Blackwell Ultra', mem: '288 GB HBM3e',    bw: '8 TB/s',     fp16: '4,000',       tdp: '1400W',      fp16Tflops: 4000, category: '训练', bwRatio: 1.00, slug: '/docs/cards/nvidia/b300-ultra',  released: '2025-10-01' },
+  { name: 'MI355X',        vendor: 'AMD',     arch: 'CDNA 3.5',        mem: '288 GB HBM3e',    bw: '8 TB/s',     fp16: '2,500',               tdp: '1400W',      fp16Tflops: 2500, category: '训练', bwRatio: 1.00, slug: '/docs/cards/amd/mi355x',          released: '2025-10-01' },
+  { name: 'TPU Ironwood',  vendor: 'Google',  arch: 'TPU v7',          mem: '192 GB HBM',      bw: '7.4 TB/s',   fp16: '2,307',               tdp: '600W',       fp16Tflops: 2307, category: '训练', bwRatio: 0.93, slug: '/docs/cards/google/tpu-ironwood', released: '2025-11-01' },
+  { name: '昇腾 920',      vendor: '华为',    arch: 'Da Vinci v4',     mem: '96 GB HBM3',      bw: '4 TB/s',     fp16: '1,800',               tdp: '400W',       fp16Tflops: 1800, category: '训练', bwRatio: 0.50, slug: '/docs/cards/huawei/ascend-920',   released: '2025-09-01' },
+  { name: 'H200 SXM',      vendor: 'NVIDIA',  arch: 'Hopper',          mem: '141 GB HBM3e',    bw: '4.8 TB/s',   fp16: '1,979',       tdp: '700W',       fp16Tflops: 1979, category: '训练', bwRatio: 0.60, slug: '/docs/cards/nvidia/h200',         released: '2024-06-01' },
+  { name: 'H100 SXM',      vendor: 'NVIDIA',  arch: 'Hopper',          mem: '80 GB HBM3',      bw: '3.35 TB/s',  fp16: '1,979',       tdp: '700W',       fp16Tflops: 1979, category: '训练', bwRatio: 0.42, slug: '/docs/cards/nvidia/h100',         released: '2022-10-01' },
+  { name: 'MI300X',        vendor: 'AMD',     arch: 'CDNA 3',          mem: '192 GB HBM3',     bw: '5.3 TB/s',   fp16: '1,307',               tdp: '750W',       fp16Tflops: 1307, category: '训练', bwRatio: 0.66, slug: '/docs/cards/amd/mi300x',          released: '2023-12-01' },
+  { name: '昇腾 910C',     vendor: '华为',    arch: 'Da Vinci 3.0',    mem: '128 GB HBM',      bw: '3.2 TB/s',   fp16: '800',                 tdp: '600W',       fp16Tflops: 800,  category: '训练', bwRatio: 0.40, slug: '/docs/cards/huawei/ascend-910c',  released: '2024-04-01' },
+  { name: '昇腾 950DT',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '144 GB HiZQ 2.0', bw: '4 TB/s',     fp16: '~500',                tdp: '~500W',      fp16Tflops: 500,  category: '训练', bwRatio: 0.50, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
+  { name: '昇腾 950PR',    vendor: '华为',    arch: 'Da Vinci v5',     mem: '128 GB HiBL 1.0', bw: '1.6 TB/s',   fp16: '~500',                tdp: '~400W',      fp16Tflops: 500,  category: '推理', bwRatio: 0.20, slug: '/docs/cards/huawei/ascend-950',   released: '2026-04-01' },
+  { name: 'MLU690',        vendor: '寒武纪',  arch: 'MLUarch 04',      mem: '196 GB HBM3',     bw: '3.35 TB/s',  fp16: '700+',                tdp: '~500W',      fp16Tflops: 700,  category: '训练', bwRatio: 0.42, slug: '/docs/cards/cambricon/mlu-690',   released: '2026-03-01' },
+  { name: 'MTT S5000',     vendor: '摩尔线程', arch: 'MUSA 4.0',       mem: '80 GB',           bw: '1.6 TB/s',   fp16: '500',                 tdp: '300W',       fp16Tflops: 500,  category: '训练', bwRatio: 0.20, slug: '/docs/cards/others/moore-threads-mtt-s5000', released: '2025-02-01' },
+  { name: '昇腾 960DT',    vendor: '华为',    arch: 'Da Vinci v6',     mem: '288 GB HBM', bw: '9.6 TB/s', fp16: '未披露†',     tdp: '700W',       fp16Tflops: 0,    category: '训练', bwRatio: 1.20, slug: '/docs/cards/huawei/ascend-960',   released: '2027-04-01' },
 ];
 
 export const ZH_CONTENT: HomeContent = {
@@ -93,9 +98,10 @@ export const ZH_CONTENT: HomeContent = {
   searchEmptySuffix: '」相关芯片。',
   searchEmptyLink: '查看完整对比表 →',
   hotChipsTitle: '🔥 热门芯片',
-  hotChipsDesc: '按"重要性 + 时效性 + 算力"综合排序 — 得分越高排名越靠前。',
+  hotChipsDesc: '按"重要性 + 时效性 + 算力"综合排序（FP16 为含稀疏口径，与对比表一致）。',
+  hotChipsFootnote: '注：FP16 单位为 TFLOPS，均含稀疏口径（与对比表一致）；* 推测值；† FP16 未披露（FP4 算力 4 PFLOPS）。',
   hotChipsHeader: ['芯片名称', '厂商', '架构', '显存', '带宽', 'FP16', 'TDP', '分类'],
-  viewFullComparison: '查看完整对比表（222 款）→',
+  viewFullComparison: '查看完整对比表（{n} 款）→',
   latestNewsTitle: '📰 最新动态',
   latestNewsDescPrefix: '行业新闻、产品发布、技术深度、选型指南。',
   latestNewsDescLink: '查看所有文章 →',
@@ -106,7 +112,7 @@ export const ZH_CONTENT: HomeContent = {
   ctaBlog: '行业动态',
   ctaTco: 'TCO 计算器',
   ctaContribute: '提交数据',
-  metaDescription: '全球最全面的 AI 算力卡信息百科：NVIDIA H100/H200/B200、AMD MI300X/MI355X、Google TPU v7、AWS Trainium 3、华为昇腾 910C/920/950 等 100+ 款芯片的详尽规格、对比、动态',
+  metaDescription: '全球最全面的 AI 算力卡信息百科：NVIDIA H100/H200/B200/Rubin、AMD MI300X/MI355X/MI455X、Google TPU v7、华为昇腾 910C/950/960 等 233 款芯片的详尽规格、对比、动态',
   loadingText: '加载中...',
   errorText: '加载失败',
   retryText: '重试',

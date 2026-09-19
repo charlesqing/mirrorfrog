@@ -1,6 +1,6 @@
 # MirrorFrog — AI 算力卡规格库（AI Compute Cards Wiki）
 
-> MirrorFrog 是中文世界覆盖最全的 AI 芯片（GPU / NPU / TPU / ASIC）规格数据库与选型决策工具，收录 222 款 AI 算力卡，覆盖 NVIDIA、AMD、Intel、Google TPU、AWS、华为昇腾、寒武纪、摩尔线程等 14 个厂商分类。提供逐卡规格页、多卡横向对比、TCO 总拥有成本计算器（含集群级与自建 vs 云租赁分析）、行业路线图与开放数据集。所有芯片规格数据以 CC BY 4.0 许可开放下载。
+> MirrorFrog 是中文世界覆盖最全的 AI 芯片（GPU / NPU / TPU / ASIC）规格数据库与选型决策工具，收录 233 款 AI 算力卡，覆盖 NVIDIA、AMD、Intel、Google TPU、AWS、华为昇腾、寒武纪、摩尔线程等 14 个厂商分类。提供逐卡规格页、多卡横向对比、TCO 总拥有成本计算器（含集群级与自建 vs 云租赁分析）、行业路线图与开放数据集。所有芯片规格数据以 CC BY 4.0 许可开放下载。
 
 ## 核心页面
 
@@ -13,7 +13,7 @@
 
 ## 开放数据集
 
-- [chips.json](https://www.mirrorfrog.com/chips.json): 222 款 AI 芯片完整规格（架构、制程、算力 TFLOPS、显存、带宽、TDP、tdpW、fp16Tflops 等结构化字段）
+- [chips.json](https://www.mirrorfrog.com/chips.json): 233 款 AI 芯片完整规格（架构、制程、算力 TFLOPS、显存、带宽、TDP、tdpW、fp16Tflops 等结构化字段）
 - [pricing.json](https://www.mirrorfrog.com/pricing.json): 各芯片参考定价与币种（USD / CNY）
 
 数据以 CC BY 4.0 许可开放，引用时请注明来源 MirrorFrog（mirrorfrog.com）。

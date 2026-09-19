@@ -32,11 +32,14 @@ export function rankScore(c: HotChip, content: HomeContent): number {
   const vw = content.vendorWeight[c.vendor] ?? 0.7;
   const cw = content.categoryWeight[c.category] ?? 0.3;
   const releaseDate = new Date(c.released).getTime();
-  const ref = new Date('2026-01-01').getTime();
+  // 基准日取当前时间：时效分随时间自然衰减，无需每年手动改
+  const ref = Date.now();
   const yearsOld = Math.max(0, (ref - releaseDate) / (1000 * 60 * 60 * 24 * 365.25));
   const recency = Math.max(0.3, Math.pow(0.85, yearsOld));
   const importance = vw * cw * recency;
-  const compute = Math.min(c.fp16Tflops, 5000) / 2000;
+  // 上限 12000：当代旗舰（Rubin R200 9000 / MI455X 10100）不再顶格，
+  // /4000 使区间仍有区分度；未披露（0）给中性分 0.5，不当 0 处理（新品不沉底）
+  const compute = c.fp16Tflops > 0 ? Math.min(c.fp16Tflops, 12000) / 4000 : 0.5;
   return importance * 0.5 + compute * 0.5;
 }
 

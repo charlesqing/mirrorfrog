@@ -1,5 +1,21 @@
 [
   {
+    "title": "昇腾 960 官宣发布：FP4 算力翻倍、全球首个 NPO 超节点，华为确认一年一代",
+    "date": "2026-09-18",
+    "slug": "huawei-ascend-960-official-launch",
+    "url": "/blog/huawei-ascend-960-official-launch",
+    "description": "9 月 17 日华为全联接大会，汪涛正式发布昇腾 960：960DT FP8 2 PFLOPS / FP4 4 PFLOPS（较 950 翻倍）、288GB 自研 HBM、9.6TB/s 带宽，提前三个季度就绪、2027 Q2 上市；昇腾 ",
+    "tags": [
+      "huawei",
+      "ascend",
+      "product-launch",
+      "domestic-chips",
+      "ai-infrastructure",
+      "roadmap",
+      "news"
+    ]
+  },
+  {
     "title": "AI 算力周报（9.1-9.5）：DeepSeek 订 16 万颗昇腾 950DT、英伟达 129 亿美元收购 Hugging Face、Rubin Ultra 显存减配",
     "date": "2026-09-05",
     "slug": "ai-compute-weekly-2026-w36",
@@ -56,19 +72,6 @@
       "cambricon",
       "moore-threads",
       "IPO"
-    ]
-  },
-  {
-    "title": "HBM4 从送样竞速进入量产爬坡竞速：SK 海力士率先交付 Rubin、美光产能翻倍、三星直逼王座",
-    "date": "2026-09-04",
-    "slug": "hbm4-ramp-race-2026",
-    "url": "/blog/hbm4-ramp-race-2026",
-    "description": "SK 海力士向 Vera Rubin 平台量产交付全球首款 12 层 HBM4，三星 2 月抢下全球首发、Q2 份额升至 33%，美光年底 HBM 月产能冲刺 10 万片晶圆。英伟达重启 Rubin CPX 项目并改用 168GB HBM4",
-    "tags": [
-      "news",
-      "hbm4",
-      "ai-chip",
-      "rubin"
     ]
   }
 ]

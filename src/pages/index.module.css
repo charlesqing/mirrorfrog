@@ -289,6 +289,23 @@
 
 .chipLink:hover { background: var(--ifm-color-emphasis-100); }
 
+/* Grid 溢出三件套：单元格必须 min-width:0（默认 auto 会被内容撑破列宽），
+   配合 nowrap + ellipsis 把长文案截断在列内——7ca418e 的「未披露（FP4 4 PFLOPS）」
+   等长字符串曾撑破 8 列布局导致板块错乱（显示值现已短化，此为兜底防御）。 */
+.chipHeader > *,
+.chipLink > * {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chipFootnote {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
 .chipName {
   font-weight: 600;
   color: var(--ifm-heading-color);
