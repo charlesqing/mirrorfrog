@@ -1,0 +1,76 @@
+---
+slug: vera-rubin-nvl72-mlperf-v61-debut
+title: 'Vera Rubin NVL72 MLPerf v6.1 首秀：Qwen3-VL 吞吐 3.7 倍于 GB300，CoreWeave 同日上线多机架集群'
+date: '2026-09-16'
+authors: aicomputecards
+tags: [nvidia, rubin, mlperf, benchmarks, inference, news]
+description: '9 月 16 日 MLCommons 公布 MLPerf Inference v6.1：NVIDIA Vera Rubin NVL72 首秀，Qwen3-VL-235B-A22B 吞吐最高达 GB300 NVL72 的 3.7 倍、DeepSeek-R1 达 2.5 倍；GB300 四机架 288 卡保持 99% 扩展效率。CoreWeave 同日宣布上线多机架 Vera Rubin 集群；AMD 联手 Crusoe 创 512 卡 575 万 tokens/s 历史最高聚合吞吐。'
+---
+
+# Vera Rubin NVL72 MLPerf v6.1 首秀：Qwen3-VL 吞吐 3.7 倍于 GB300，CoreWeave 同日上线多机架集群
+
+> 9 月 16 日，MLCommons 公布 **MLPerf Inference v6.1** Closed Division 结果，NVIDIA **Vera Rubin NVL72** 完成基准首秀。同一天，CoreWeave 宣布在自家云上**上线多机架 Vera Rubin 集群**——"新硬件首发即可租用"的节奏，正在把新一代算力从发布到可计费产出的周期压缩到季度级别。
+
+---
+
+## 1. 首秀成绩：3.7 倍与 2.5 倍
+
+NVIDIA 以预览提交（entries 6.1-0106 / 6.1-0074）给出两代旗舰的同口径对比：
+
+| 基准模型 | **Vera Rubin NVL72** vs GB300 NVL72 | 软件栈 |
+|----------|-------------------------------------|--------|
+| **Qwen3-VL-235B-A22B**（235B 多模态 MoE） | 吞吐最高 **3.7 倍**（离线 / 服务器 / 交互三场景） | vLLM + NVIDIA Dynamo |
+| **DeepSeek-R1-671B**（671B 推理模型） | 吞吐最高 **2.5 倍** | TensorRT-LLM |
+
+支撑数字的三项技术：
+
+- **NVFP4 精度**：压缩模型权重、注意力张量与 KV Cache 的显存占用，等效批尺寸显著提升；
+- **分离式服务（Disaggregated Serving）**：prefill（算力密集）与 decode（带宽密集）拆到不同 GPU 池独立优化；
+- **专家并行**：MoE 专家层跨卡分布式路由，配合第六代 NVLink / NVLink Switch（NVIDIA 宣称包速率较现成以太网高 10 倍、时延低 3 倍）。
+
+## 2. 同场亮点：扩展效率与软件红利
+
+- **GB300 四机架 288 卡 99% 扩展效率**：DeepSeek-R1 离线场景下，从单机架 72 卡扩展到 4 机架 288 卡几乎无折损（entries 6.1-0073 / 6.1-0074）——机架级互联的扩展效率第一次在 288 卡规模上得到验证；
+- **软件仍在释放红利**：同一 GB300 硬件上，v6.1 软件优化较 v6.0 带来最高 **1.6 倍** Qwen3-VL 提升；NVIDIA 还报告了 GPT-OSS-120B 与 DLRMv3 的提交后增益（**未经 MLCommons 验证**）；
+- **19 家合作伙伴提交**，其中 8 家采用多节点 Blackwell NVL72 配置（ASUS、Azure、Cisco、CoreWeave、Crusoe、Dell、Fujitsu、HPE、Lambda、Nebius、OCI、Supermicro 等）；**Nebius 也提交了 Vera Rubin 预览成绩**。
+
+## 3. CoreWeave 同日上线：首发即可租用
+
+CoreWeave 在 MLPerf 结果公布同日宣布其云上**多机架 Vera Rubin NVL72 集群上线**：
+
+- Spectrum-X 网络将数百颗 Rubin GPU 组成单一横向扩展集群，每颗 GPU 配 2 颗 ConnectX-9 SuperNIC（1.6Tb/s 横向扩展带宽）；
+- AI 对象存储 LOTA 将读取时延降低 8 倍；
+- 运维侧：Valvey 软件定义液冷（NVIDIA 规格 45°C 液冷进液）、Racky 机架控制层与 Rack LifeCycle Controller 把整个 NVL72 机架当作单一可编程实体管理；
+- 此前 7 月，CoreWeave 自测 Vera Rubin 对 GB200 NVL72 在 DeepSeek R1 上达到 **10 倍 tokens/s/MW**（公司口径，非 MLCommons 验证）。
+
+## 4. 竞争侧写
+
+- **AMD + Crusoe**：以 512 卡创下 **575 万 tokens/秒**的 MLPerf 历史最高聚合吞吐（AMD 本轮提交覆盖面最广）；
+- **SemiAnalysis AgentX 预览**：Vera Rubin 在 agentic 负载上较 GB300 最高 30 倍（预览口径）；MLPerf **Endpoints** 基准 forthcoming，将把 agentic 推理纳入标准化测量；
+- **待验证项**：Vera Rubin 成绩为预览提交、尚待独立复现；NVFP4"几乎无损"未给出量化质量指标；每 token 成本与功耗的规模化对比数据均未公布。Google TPU v7 与 AMD MI455X UALoE72 的对标提交预计 2026 年内出现。
+
+> 站内规格对照：[Rubin R200](/docs/cards/nvidia/rubin-r200)（288GB / 22TB/s）、[B300 Ultra](/docs/cards/nvidia/b300-ultra)（GB300 核心）。
+
+## 5. 小结
+
+- Vera Rubin NVL72 首秀：Qwen3-VL **3.7 倍**、DeepSeek-R1 **2.5 倍**于 GB300 NVL72（预览口径）；
+- GB300 四机架 288 卡 **99% 扩展效率**，机架级互联进入可用区间；
+- CoreWeave 同日多机架上线——**新一代算力从发布到可计费的周期进入季度级**；
+- **看什么**：独立复现与正式（非预览）提交、TPU v7 / MI455X 对标结果、每 MW 实测 token 产能。
+
+---
+
+## 相关阅读
+
+- [Rubin R200 规格页](/docs/cards/nvidia/rubin-r200) / [B300 Ultra 规格页](/docs/cards/nvidia/b300-ultra)（本站）
+- [NVIDIA Vera Rubin 量产与液冷部署](/blog/vera-rubin-mass-production-liquid-cooling)
+- [Hot Chips 2026 全记录：Rubin、MI455X、Crescent Island 同台](/blog/hot-chips-2026-recap)
+
+## 参考资料
+
+- NVIDIA Blog：Vera Rubin NVL72 首度亮相 MLPerf Inference v6.1（2026-09-16）
+- MLCommons：MLPerf Inference v6.1 Closed Division 结果（entries 6.1-0073 / 6.1-0074 / 6.1-0106）
+- CoreWeave 投资者关系：多机架 Vera Rubin NVL72 上线公告（2026-09-16）
+- AMD Blogs：MLPerf Inference v6.1 提交结果
+
+**本文基于 MLCommons 公开结果与厂商官方口径整理。Vera Rubin 成绩为预览提交，部分增益数据未经 MLCommons 验证，已逐项标注。**

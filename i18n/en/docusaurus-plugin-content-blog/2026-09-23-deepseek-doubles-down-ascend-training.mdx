@@ -1,0 +1,79 @@
+---
+slug: deepseek-doubles-down-ascend-training
+title: 'DeepSeek Confirms Betting on Huawei Chips for LLM Training: From the 160,000-Unit 950DT Rumor to a "Must Succeed" Commitment'
+date: '2026-09-23'
+authors: aicomputecards
+tags: [deepseek, huawei, domestic-chips, training, strategy, news]
+description: 'On September 22, DeepSeek''s CEO confirmed the company is betting heavily on Huawei chips, saying a new batch of chips will be used for large-model AI training and stressing that "this choice must succeed." From the earlier plan to procure 160,000 Ascend 950DT units for inference to an explicit bet on the training side, the leading lab''s attitude toward domestic training compute has fundamentally changed. This article traces the signal chain and Huawei''s ability to deliver on the supply side.'
+---
+
+# DeepSeek Confirms Betting on Huawei Chips for LLM Training: From the 160,000-Unit 950DT Rumor to a "Must Succeed" Commitment
+
+> On September 22, 2026, multiple media outlets reported that DeepSeek's CEO explicitly stated the company is **betting heavily on Huawei chips**, expects to receive a new batch of Huawei chips for **large-model training**, and stressed that "this choice must succeed." Following earlier reports that "DeepSeek planned to procure 160,000 Ascend 950DT units for inference," this is the most significant alignment signal yet in the domestic compute ecosystem — **an upgrade from inference procurement to a training bet**.
+
+---
+
+## 1. The Signal Chain: Four Steps to a "Training Bet"
+
+Piecing together the public information from the past six months, the DeepSeek–Ascend collaboration shows a clear escalation path:
+
+| Time | Signal | Nature |
+|------|------|------|
+| Mid-2026 | DeepSeek V4 completes ecosystem migration from CUDA to CANN | Software adaptation |
+| August 2026 | Report: DeepSeek plans to procure **160,000 Ascend 950DT units** for inference deployment | Inference procurement intent |
+| 2026-09-17 | HC2026: 960DT ready three quarters ahead of schedule, 950DT ramping in Q4 | Supply delivery |
+| **2026-09-22** | **DeepSeek CEO: betting on Huawei chips for LLM training, "must succeed"** | **Training bet** |
+
+The key change is the **workload tier**: inference deployment means "cutting costs with off-the-shelf compute," while a training bet means "staking the existence of next-generation models on domestic chips" — training clusters demand an order of magnitude more in stability, interconnect efficiency, and software-stack maturity.
+
+## 2. Huawei's Ability to Deliver
+
+DeepSeek's willingness to commit rests on a series of verifiable progress points on Huawei's supply side (all official figures):
+
+- **One generation per year, delivered**: the 950PR is in mass production, the 950DT ramps in 2026 Q4, and the 960DT moved **three quarters earlier** than its original 2027 Q4 plan to ready in 2027 Q1 / launch in Q2 — the roadmap's credibility validated twice in a row;
+- **Deployment scale**: Ascend supernodes have been commercially deployed at scale in over **1,000 sets**, covering internet, finance, healthcare, and manufacturing;
+- **Ecosystem maturity**: CANN has entered routine open-source operation, with **external developers exceeding 61% for the first time** and 5,200 monthly active developers; there are over 40 Ascend-native training models, making it the only domestic technology route supporting pretraining;
+- **Training evidence chain**: China Telecom's Xing 4.0-29B-A4B agentic MoE model, open-sourced in September, was announced as **trained end-to-end on Ascend** (company claim) — "Ascend can train large models" is no longer just Huawei's self-attestation.
+
+> See the [Ascend 950DT](/docs/cards/huawei/ascend-950dt) and [Ascend 960](/docs/cards/huawei/ascend-960) spec pages for details; for supernode analysis, see [Ascend 960 Official Launch](/blog/huawei-ascend-960-official-launch).
+
+## 3. Why DeepSeek?
+
+DeepSeek's choice has strong structural drivers:
+
+1. **Supply certainty**: under export-control constraints, NVIDIA's flagship supply to China keeps tightening; domestic compute is the only plannable large-scale training supply;
+2. **Cost structure**: DeepSeek has always been known for extreme engineering efficiency (the V3 training cost set the industry benchmark), and domestic compute plus supernode system efficiency fits its approach;
+3. **Betting on ecosystem dividends**: CANN open-sourcing plus deep binding with leading model vendors means model vendors can participate in shaping the toolchain's direction — something impossible within CUDA's closed system;
+4. **Self-fulfilling demonstration effect**: a leading lab's public commitment pulls back on Huawei's production scheduling and upstream HBM and system investment, making "must succeed" a rational commitment rather than a slogan.
+
+## 4. Risks and Open Questions
+
+Viewed coolly, this route still has three items that need time to verify:
+
+- **Actual training scale**: the **quantity, model type (950DT or 960DT), and delivery schedule** of the new batch of chips are all undisclosed;
+- **MFU methodology**: the MFU / latency gains Huawei cites all come from Markov-lab simulations, with no independent third-party measurements yet; the real effective compute of a training cluster depends on long-term data from large-scale production environments;
+- **Per-card generation gap**: the 960DT's 4 PFLOPS (FP4) versus Rubin R200's 50 PFLOPS (FP4) — the per-card gap objectively exists, and training efficiency depends on whether supernode scale and software optimization can compensate; that is precisely the decisive battleground of "system-level competition."
+
+## 5. Summary
+
+- DeepSeek confirms betting on Huawei chips for **training** large models — the first training-grade commitment from a leading lab in domestic compute;
+- Signal chain: CUDA→CANN migration → 160,000-unit 950DT inference procurement rumor → 960 ready ahead of schedule → training bet;
+- Supporting factors: one-generation-per-year delivery, 1,000+ supernode sets, and 61% external developers in the CANN open-source ecosystem;
+- **What to watch**: actual arrival of the new chips and training-cluster scale, third-party MFU data, and training-compute disclosure in DeepSeek's next release.
+
+---
+
+## Further Reading
+
+- [Ascend 960 spec page](/docs/cards/huawei/ascend-960) / [Ascend 950DT spec page](/docs/cards/huawei/ascend-950dt) (this site)
+- [Ascend 960 Official Launch: FP4 Compute Doubled, World's First NPO Supernode](/blog/huawei-ascend-960-official-launch)
+- [Domestic Top Three in H2 2026: Localization Rate Breaks 40%, Heading Toward 60%](/blog/domestic-ai-chip-triopoly-h2-2026)
+- [Alibaba Zhenwu V900 Unveiled at Apsara Conference](/blog/alibaba-zhenwu-v900-cloud-2026)
+
+## References
+
+- Toutiao Tech Morning Report: DeepSeek confirms betting on Huawei chips for large-model training (2026-09-22)
+- HUAWEI CONNECT 2026 official announcements (2026-09-17)
+- Earlier report: DeepSeek plans to procure 160,000 Ascend 950DT units (2026-08)
+
+**This article is compiled from public reports and vendors' official statements. Details such as chip quantities and training-cluster scale are subject to subsequent disclosures from DeepSeek and Huawei.**

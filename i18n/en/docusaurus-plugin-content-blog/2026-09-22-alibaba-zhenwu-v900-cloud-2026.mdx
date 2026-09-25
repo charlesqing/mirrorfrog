@@ -1,0 +1,89 @@
+---
+slug: alibaba-zhenwu-v900-cloud-2026
+title: 'Alibaba Zhenwu V900 Unveiled at Apsara Conference: 3x M890 Performance, 216GB Memory, 500,000-Card Cluster, Mass Production in 2027 Q1'
+date: '2026-09-22'
+authors: aicomputecards
+tags: [alibaba, product-launch, domestic-chips, ai-infrastructure, news]
+description: 'On September 22 at the Apsara Conference in Hangzhou, T-Head launched its new unified training-and-inference AI chip Zhenwu V900: single-chip performance 3x that of Zhenwu M890, 216GB of memory, 1200GB/s chip-to-chip interconnect, and native FP8/FP4, with mass production in 2027 Q1 and scaled deployment on Alibaba Cloud; with ICN Switch interconnect, a thousand cards collaborate at full bandwidth, the Panjiu supernode scales a single cluster up to 500,000 cards, and Zhenwu J900 is planned for release in 2027 Q3.'
+---
+
+# Alibaba Zhenwu V900 Unveiled at Apsara Conference: 3x M890 Performance, 216GB Memory, 500,000-Card Cluster, Mass Production in 2027 Q1
+
+> Just five days after Huawei officially announced the Ascend 960 at HUAWEI CONNECT on September 17, Alibaba unveiled its new unified training-and-inference AI chip, **Zhenwu V900**, at the Apsara Conference in Hangzhou on September 22 — which Alibaba calls "the most powerful Chinese self-developed AI chip in terms of compute performance to date." This article is compiled from Alibaba's official announcements and reports from Sina Tech, C114, Huanqiu.com, and other sources.
+
+---
+
+## 1. Single Chip: 3x M890, 216GB + 1200GB/s
+
+| Metric | **Zhenwu V900** (this launch) | **Zhenwu M890** (previous generation) |
+|------|--------------------------|------------------------|
+| **Performance** | **3x** Zhenwu M890 (official figure; absolute value undisclosed) | FP16 600 TFLOPS (as catalogued on this site) |
+| **Memory** | **216 GB** | 144 GB (HBM3) |
+| **Chip-to-chip interconnect** | **1200 GB/s** | — |
+| **Precision** | Native FP8 / FP4 (including high-precision training) | — |
+| **Positioning** | Unified training and inference (trillion-parameter-scale training + low-precision inference) | Unified training and inference |
+| **Mass production** | **2027 Q1**, scaled deployment in Alibaba Cloud data centers | Already deployed at scale |
+
+Three takeaways:
+
+- **Memory crosses into the 200GB+ tier**: 216GB puts it in the same capacity class as the Ascend 960DT (288GB self-developed HBM) and NVIDIA Rubin (288GB HBM4), leveling the capacity threshold for long-context and very large MoE models;
+- **1200GB/s chip-to-chip interconnect**: laying the foundation for the supernode's "memory-semantics interconnect" — the chip-level prerequisite that pairs with ICN Switch;
+- **Precision coverage across all scenarios**: officially described as "high-precision training, low-precision and ultra-low-precision inference across all scenarios," with native FP8/FP4 support aligned with the common spec of 2026's new cards.
+
+> The absolute single-chip compute figure has not been officially disclosed; this site records it using the official relative figure of "3x M890." See the [Zhenwu M890 spec page](/docs/cards/others/alibaba-zhenwu-m890) for M890 details.
+
+## 2. System Level: ICN Switch + Panjiu Supernode, a 500,000-Card Single Cluster
+
+V900's real selling point is not the single chip but **system-level collaboration**:
+
+- **ICN Switch self-developed interconnect chip**: once connected, the supernode gains **native memory semantics and unified memory addressing**, with a thousand cards interconnected at full bandwidth — over a thousand V900s can "work together like a single super chip";
+- **Panjiu supernode server**: integrates V900 (compute) + ICN Switch (interconnect) + Panmai intelligent NIC (network) + Zhenyue SSD controller (storage), a fully self-developed compute-storage-network stack;
+- **500,000-card single cluster**: combined with Alibaba Cloud's next-generation intelligent computing center network architecture, a single cluster can scale up to 500,000 cards.
+
+This mirrors Huawei's "11 key chips" approach: **the unit of competition has shifted from the single chip to whole-system delivery capability** — Zhenwu handles compute, Yitian handles general-purpose computing, Panmai handles networking, Zhenyue handles storage, and ICN Switch handles interconnect.
+
+## 3. Business and Roadmap
+
+- **The Zhenwu family has served over 650+ enterprise customers** (as of June 2026), spanning autonomous driving, finance, large models, embodied AI, energy, and manufacturing;
+- Supernodes based on the M890 are **already deployed at scale**, running models with over 2 trillion parameters such as Qwen3.8 and Kimi K3; Alibaba Cloud will add new serving nodes in Q4 to expand supernode supply;
+- **Roadmap**: V900 enters mass production and sales in 2027 Q1; **Zhenwu J900 is planned for release in 2027 Q3**;
+- **CPU synergy**: Yitian 720 / 730 arrive in 2027 (the 730 is the first to adopt T-Head's fully self-developed CPU microarchitecture, with single-core SPECint2017/GHz up to 1.4x that of Yitian 710); the 2029 Yitian 750 will interconnect directly with Zhenwu AI chips via the ICN bus;
+- Alibaba Group CEO Eddie Wu said T-Head's AI chip **annual shipment volume will increase substantially**.
+
+## 4. Competitive Coordinates: Two Swords in One Week
+
+Viewing the two mid-September launches side by side, the landscape of "system-level competition" among domestic AI chips is now clear:
+
+| Dimension | Huawei Ascend 960 (9-17) | Alibaba Zhenwu V900 (9-22) |
+|------|---------------------|----------------------|
+| Launch event | HC2026 | Apsara Conference 2026 |
+| Per-card memory | 288GB (self-developed HBM) | 216GB |
+| Memory bandwidth | 9.6 TB/s | Undisclosed |
+| Interconnect | LinJu UnifiedBus / NPO optical interconnect | ICN Switch memory-semantics interconnect |
+| Supernode | Ascend 960 supernode (4,096 cards, 8 EFLOPS FP8) | Panjiu supernode (500,000-card single cluster) |
+| Availability | 2027 Q2 | 2027 Q1 |
+
+Huawei is taking the "supernode + open-source CANN ecosystem" route, while Alibaba is taking the "full cloud stack + open-source model ecosystem" route; both still trail in per-card specs, but **what they deliver are procurable, operable ultra-large-scale clusters**. The substitution logic against NVIDIA's CUDA ecosystem is shifting from "performance parity" to "supply certainty + system efficiency."
+
+## 5. Summary
+
+- **V900**: 3x M890, 216GB, 1200GB/s chip-to-chip interconnect, native FP8/FP4, mass production in 2027 Q1;
+- **System**: ICN Switch with thousand-card full bandwidth, Panjiu supernode with a fully self-developed compute-storage-network stack, 500,000-card single cluster;
+- **Cadence**: J900 in 2027 Q3, Yitian 730 in 2027, Yitian 750 in 2029 — T-Head's first three-year generational roadmap;
+- **What to watch**: actual mass production and Alibaba Cloud deployment scale in 2027 Q1, disclosure of V900's absolute compute, and the possibility of external supply of ICN Switch.
+
+---
+
+## Further Reading
+
+- [Zhenwu M890 spec page](/docs/cards/others/alibaba-zhenwu-m890) (this site)
+- [Ascend 960 Official Launch: FP4 Compute Doubled, World's First NPO Supernode](/blog/huawei-ascend-960-official-launch)
+- [Domestic Top Three in H2 2026: Localization Rate Breaks 40%, Heading Toward 60%](/blog/domestic-ai-chip-triopoly-h2-2026)
+
+## References
+
+- Huanqiu.com: T-Head launches new unified training-and-inference AI chip Zhenwu V900 (2026-09-22)
+- Sina Tech / TechWeb: Alibaba T-Head launches new AI chip Zhenwu V900, mass production in the first quarter of 2027
+- C114: Alibaba launches new AI chip Zhenwu V900, mass production in 2027 Q1
+
+**This article is compiled from Alibaba's official announcements and public reports. The absolute single-chip compute of V900 has not been officially disclosed; supernode and cluster scale figures are official claims, subject to actual future delivery.**

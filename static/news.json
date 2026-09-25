@@ -1,5 +1,60 @@
 [
   {
+    "title": "GPU 租金又涨了：Nebius 10 月起 H100/B200 随需租金上调约 20%，自建 vs 租用的天平在移动",
+    "date": "2026-09-25",
+    "slug": "gpu-rental-hike-nebius-tco-2026",
+    "url": "/blog/gpu-rental-hike-nebius-tco-2026",
+    "description": "Nebius 宣布 10 月 1 日起 H100/H200/B200 随需租金平均上调约 20%；CoreWeave 已签约电力增至 4.2GW 并继续以更高价格签约新算力。GPU 租赁市场连续涨价背后是 agentic 推理需求爆发与 R",
+    "tags": [
+      "cloud-pricing",
+      "ai-compute",
+      "ai-infrastructure",
+      "news"
+    ]
+  },
+  {
+    "title": "DeepSeek 确认押注华为芯片训练大模型：从 16 万颗 950DT 传闻到\"必须成功\"的站队",
+    "date": "2026-09-23",
+    "slug": "deepseek-doubles-down-ascend-training",
+    "url": "/blog/deepseek-doubles-down-ascend-training",
+    "description": "DeepSeek CEO 9 月 22 日确认正大力押注华为芯片，新一批芯片将用于大模型 AI 训练，并强调\"这一选择必须成功\"。从此前拟采购 16 万颗昇腾 950DT 跑推理，到如今明确押注训练侧，头部实验室对国产训练算力的态度发生了质",
+    "tags": [
+      "deepseek",
+      "huawei",
+      "domestic-chips",
+      "training",
+      "strategy",
+      "news"
+    ]
+  },
+  {
+    "title": "国产算力生态一周三信号：中国电信开源昇腾训练模型、浪潮 128 卡推理一体机、奕行智能融资 20 亿",
+    "date": "2026-09-23",
+    "slug": "domestic-ai-ecosystem-week-xing4-sd200-yixing",
+    "url": "/blog/domestic-ai-ecosystem-week-xing4-sd200-yixing",
+    "description": "9 月下旬国产 AI 算力生态密集落地：中国电信开源 Xing4.0-29B-A4B agentic MoE（宣布在昇腾上端到端训练）；浪潮发布 MetaBrain SD200 Ultra，128 颗国产 AI 芯片跑 Kimi K3 推理",
+    "tags": [
+      "domestic-chips",
+      "inference",
+      "domestic-substitution",
+      "news"
+    ]
+  },
+  {
+    "title": "阿里真武 V900 云栖大会发布：性能 3 倍于 M890、216GB 显存、50 万卡集群，2027 Q1 量产",
+    "date": "2026-09-22",
+    "slug": "alibaba-zhenwu-v900-cloud-2026",
+    "url": "/blog/alibaba-zhenwu-v900-cloud-2026",
+    "description": "9 月 22 日杭州云栖大会，平头哥发布新一代训推一体 AI 芯片真武 V900：单芯片性能为真武 M890 的 3 倍、216GB 大显存、片间互联 1200GB/s、原生 FP8/FP4，2027 年 Q1 量产并规模化部署阿里云；IC",
+    "tags": [
+      "alibaba",
+      "product-launch",
+      "domestic-chips",
+      "ai-infrastructure",
+      "news"
+    ]
+  },
+  {
     "title": "昇腾 960 官宣发布：FP4 算力翻倍、全球首个 NPO 超节点，华为确认一年一代",
     "date": "2026-09-18",
     "slug": "huawei-ascend-960-official-launch",
@@ -13,65 +68,6 @@
       "ai-infrastructure",
       "roadmap",
       "news"
-    ]
-  },
-  {
-    "title": "AI 算力周报（9.1-9.5）：DeepSeek 订 16 万颗昇腾 950DT、英伟达 129 亿美元收购 Hugging Face、Rubin Ultra 显存减配",
-    "date": "2026-09-05",
-    "slug": "ai-compute-weekly-2026-w36",
-    "url": "/blog/ai-compute-weekly-2026-w36",
-    "description": "本周题眼是两条相反方向的成本重构：DeepSeek 拟购 16 万颗昇腾 950DT 标志国产算力从\"不得不国产\"转向\"主动选国产\"；英伟达一边 129.3 亿美元吞下 Hugging Face，一边给 Rubin Ultra 减配显存、把",
-    "tags": [
-      "news",
-      "ascend",
-      "huawei",
-      "nvidia",
-      "rubin",
-      "hbm4",
-      "OpenAI",
-      "deepseek"
-    ]
-  },
-  {
-    "title": "AMD Helios 正式出货：MI455X 机架 525 万美元一台，OpenAI / Meta / 甲骨文 / Anthropic 12GW 订单进入兑现期",
-    "date": "2026-09-04",
-    "slug": "amd-helios-shipping-12gw",
-    "url": "/blog/amd-helios-shipping-12gw",
-    "description": "AMD 确认 Helios 机架已全面量产、Q3 末启动出货，OpenAI、Meta、甲骨文、Anthropic 合计约 12GW 订单开始兑现。MI455X 凭 432GB HBM4 显存反超 Rubin 288GB，但 CoWoS-L ",
-    "tags": [
-      "news",
-      "amd",
-      "mi450",
-      "mi455x",
-      "rubin"
-    ]
-  },
-  {
-    "title": "昇腾 950 超节点 Q4 上市，中兴、新华三、曙光全线跟进：国产超节点从概念走向交付",
-    "date": "2026-09-04",
-    "slug": "china-supernode-race-2026",
-    "url": "/blog/china-supernode-race-2026",
-    "description": "华为 Atlas 950 SuperPoD（1024 卡，1 EFLOPS FP8）计划 2026 年四季度上市；昇腾 384 超节点商用落地已超 750 套。中兴 OEX、新华三 UniPoD、曙光 8000、壁仞 BLink 2.0、沐",
-    "tags": [
-      "news",
-      "domestic-chips",
-      "ascend",
-      "huawei",
-      "ai-infrastructure"
-    ]
-  },
-  {
-    "title": "国产 AI 芯片半年报大检阅：寒武纪净赚 23 亿、壁仞营收暴涨 20 倍、燧原登板，\"抢芯大战\"白热化",
-    "date": "2026-09-04",
-    "slug": "domestic-ai-chip-h1-2026-earnings",
-    "url": "/blog/domestic-ai-chip-h1-2026-earnings",
-    "description": "2026 半年报密集披露：寒武纪营收 59.96 亿（+108%）、摩尔线程 17.36 亿（+147%）、壁仞 12.36 亿（+1998%）、沐曦首次扭亏；燧原 9 月 2 日启动 IPO 申购，国产四家 GPU/加速器厂商全部完成上市",
-    "tags": [
-      "news",
-      "domestic-chips",
-      "cambricon",
-      "moore-threads",
-      "IPO"
     ]
   }
 ]

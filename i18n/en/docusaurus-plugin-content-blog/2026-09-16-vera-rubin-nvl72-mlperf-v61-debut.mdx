@@ -1,0 +1,76 @@
+---
+slug: vera-rubin-nvl72-mlperf-v61-debut
+title: 'Vera Rubin NVL72 MLPerf v6.1 Debut: Qwen3-VL Throughput 3.7x GB300, CoreWeave Brings Multi-Rack Cluster Online Same Day'
+date: '2026-09-16'
+authors: aicomputecards
+tags: [nvidia, rubin, mlperf, benchmarks, inference, news]
+description: 'On September 16 MLCommons released MLPerf Inference v6.1: NVIDIA Vera Rubin NVL72 made its benchmark debut, with Qwen3-VL-235B-A22B throughput up to 3.7x that of GB300 NVL72 and DeepSeek-R1 up to 2.5x; GB300 held 99% scaling efficiency across four racks of 288 chips. CoreWeave announced a multi-rack Vera Rubin cluster online the same day; AMD teamed with Crusoe to set an all-time high aggregate throughput of 5.75M tokens/s on 512 chips.'
+---
+
+# Vera Rubin NVL72 MLPerf v6.1 Debut: Qwen3-VL Throughput 3.7x GB300, CoreWeave Brings Multi-Rack Cluster Online Same Day
+
+> On September 16, MLCommons released the **MLPerf Inference v6.1** Closed Division results, and NVIDIA's **Vera Rubin NVL72** completed its benchmark debut. The same day, CoreWeave announced that a **multi-rack Vera Rubin cluster was live on its cloud** — a "rent the new hardware on launch day" cadence that is compressing the cycle from next-generation compute announcement to billable output down to a quarter.
+
+---
+
+## 1. Debut Results: 3.7x and 2.5x
+
+NVIDIA, via preview submissions (entries 6.1-0106 / 6.1-0074), provided an apples-to-apples comparison of its two flagship generations:
+
+| Benchmark Model | **Vera Rubin NVL72** vs GB300 NVL72 | Software Stack |
+|----------|-------------------------------------|--------|
+| **Qwen3-VL-235B-A22B** (235B multimodal MoE) | Throughput up to **3.7x** (across offline / server / interactive scenarios) | vLLM + NVIDIA Dynamo |
+| **DeepSeek-R1-671B** (671B inference model) | Throughput up to **2.5x** | TensorRT-LLM |
+
+The three technologies behind these numbers:
+
+- **NVFP4 precision**: compresses the memory footprint of model weights, attention tensors, and the KV Cache, enabling significantly larger effective batch sizes;
+- **Disaggregated serving**: prefill (compute-intensive) and decode (bandwidth-intensive) are split across separate GPU pools, each independently optimized;
+- **Expert parallelism**: MoE expert layers route across chips in a distributed fashion, paired with sixth-generation NVLink / NVLink Switch (NVIDIA claims 10x the packet rate of commodity Ethernet at 3x lower latency).
+
+## 2. Same-Session Highlights: Scaling Efficiency and the Software Dividend
+
+- **GB300 four racks, 288 chips, 99% scaling efficiency**: in the DeepSeek-R1 offline scenario, scaling from a single rack of 72 chips to 4 racks of 288 chips shows almost no loss (entries 6.1-0073 / 6.1-0074) — the first time rack-scale interconnect scaling efficiency has been validated at the 288-chip level;
+- **The software dividend is still being paid out**: on the same GB300 hardware, v6.1 software optimizations deliver up to **1.6x** Qwen3-VL gains over v6.0; NVIDIA also reported post-submission gains for GPT-OSS-120B and DLRMv3 (**not verified by MLCommons**);
+- **19 partners submitted**, 8 of them using multi-node Blackwell NVL72 configurations (ASUS, Azure, Cisco, CoreWeave, Crusoe, Dell, Fujitsu, HPE, Lambda, Nebius, OCI, Supermicro, and others); **Nebius also submitted Vera Rubin preview results**.
+
+## 3. CoreWeave Online the Same Day: Rentable at Launch
+
+On the same day the MLPerf results were published, CoreWeave announced that its **multi-rack Vera Rubin NVL72 cluster was live** on its cloud:
+
+- Spectrum-X networking links hundreds of Rubin GPUs into a single scale-out cluster, with each GPU paired with 2 ConnectX-9 SuperNICs (1.6Tb/s scale-out bandwidth);
+- The AI object store LOTA cuts read latency by 8x;
+- On the operations side: Valvey software-defined liquid cooling (NVIDIA spec: 45°C liquid inlet), the Racky rack control layer, and Rack LifeCycle Controller manage an entire NVL72 rack as a single programmable entity;
+- Back in July, CoreWeave's own testing put Vera Rubin at **10x tokens/s/MW** versus GB200 NVL72 on DeepSeek R1 (company figures, not MLCommons-verified).
+
+## 4. The Competitive Picture
+
+- **AMD + Crusoe**: set MLPerf's all-time high aggregate throughput of **5.75M tokens/s** on 512 chips (AMD had the broadest submission coverage this round);
+- **SemiAnalysis AgentX preview**: Vera Rubin up to 30x over GB300 on agentic workloads (preview figures); the MLPerf **Endpoints** benchmark is forthcoming and will bring agentic inference into standardized measurement;
+- **Pending validation**: Vera Rubin results are preview submissions awaiting independent reproduction; no quantified quality metrics were given for NVFP4's "virtually lossless" claim; per-token cost and power-consumption scaling comparisons have not been published. Matching submissions from Google TPU v7 and AMD MI455X UALoE72 are expected within 2026.
+
+> On-site spec comparisons: [Rubin R200](/docs/cards/nvidia/rubin-r200) (288GB / 22TB/s), [B300 Ultra](/docs/cards/nvidia/b300-ultra) (GB300-class core).
+
+## 5. Takeaways
+
+- Vera Rubin NVL72 debut: Qwen3-VL **3.7x**, DeepSeek-R1 **2.5x** over GB300 NVL72 (preview figures);
+- GB300 across four racks of 288 chips at **99% scaling efficiency** — rack-scale interconnects have entered the usable range;
+- CoreWeave brought a multi-rack cluster online the same day — **the cycle from next-gen compute launch to billable output is now measured in quarters**;
+- **What to watch**: independent reproductions and formal (non-preview) submissions, TPU v7 / MI455X comparison results, and measured per-MW token throughput.
+
+---
+
+## Further Reading
+
+- [Rubin R200 Spec Page](/docs/cards/nvidia/rubin-r200) / [B300 Ultra Spec Page](/docs/cards/nvidia/b300-ultra) (this site)
+- [NVIDIA Vera Rubin Mass Production and Liquid Cooling Deployment](/blog/vera-rubin-mass-production-liquid-cooling)
+- [Hot Chips 2026 Full Recap: Rubin, MI455X, Crescent Island on the Same Stage](/blog/hot-chips-2026-recap)
+
+## References
+
+- NVIDIA Blog: Vera Rubin NVL72 Makes Its First Appearance in MLPerf Inference v6.1 (2026-09-16)
+- MLCommons: MLPerf Inference v6.1 Closed Division results (entries 6.1-0073 / 6.1-0074 / 6.1-0106)
+- CoreWeave Investor Relations: multi-rack Vera Rubin NVL72 availability announcement (2026-09-16)
+- AMD Blogs: MLPerf Inference v6.1 submission results
+
+**This article is compiled from public MLCommons results and vendor official statements. Vera Rubin results are preview submissions; some gain figures are not MLCommons-verified and are flagged item by item.**

@@ -1,0 +1,68 @@
+---
+slug: gpu-rental-hike-nebius-tco-2026
+title: 'GPU Rental Rates Climb Again: Nebius Raises H100/B200 On-Demand Prices About 20% From October, and the Build-vs-Rent Balance Is Shifting'
+date: '2026-09-25'
+authors: aicomputecards
+tags: [cloud-pricing, ai-compute, ai-infrastructure, news]
+description: 'Nebius announced an average increase of about 20% in on-demand rates for H100/H200/B200 effective October 1; CoreWeave''s contracted power has grown to 4.2GW and it keeps signing new compute at higher prices. Behind consecutive GPU rental price hikes are exploding agentic inference demand and the supply premium of Rubin''s early days on the market. This article breaks the math down from a TCO perspective: under what conditions building beats renting.'
+---
+
+# GPU Rental Rates Climb Again: Nebius Raises H100/B200 On-Demand Prices About 20% From October, and the Build-vs-Rent Balance Is Shifting
+
+> According to ZhiXun (media) reporting in late September, Nebius announced that **on-demand rates for H100 / H200 / B200 will rise by an average of about 20% starting October 1**. The same month, Cailian Press reported that as of August 11 CoreWeave's contracted power had grown to **4.2 GW** and that it would "keep signing new compute at higher prices". This is the Nth consecutive price increase in the rental market this AI cycle — and for buyers, **the TCO balance between building and renting is shifting**. This article works through the math using the site's TCO calculator methodology.
+
+---
+
+## 1. Three Forces Behind the Price Hikes
+
+- **Exploding agentic inference demand**: from MLPerf v6.1 to SemiAnalysis AgentX, agentic workloads have become the main engine of inference growth — token consumption is orders of magnitude beyond chat scenarios, and inference compute has gone from "enough" to "never enough";
+- **Supply premium on the new platform generation**: Vera Rubin NVL72 has debuted on CoreWeave, and early-ramp pricing on new platforms is naturally elevated — which also raises the anchor for renewal prices on the previous generation (H100/H200/B200);
+- **Power has become a hard constraint**: CoreWeave's 4.2GW of contracted power shows the data center supply bottleneck has shifted from GPUs to **power and racks**; enterprises holding power contracts have no reason to cut prices.
+
+## 2. What a 20% Rent Increase Means for TCO
+
+The site's [TCO calculator](/docs/tco-calculator) splits total cost of ownership into five parts: **purchase + energy + operations + network + discounting**. Rent increases don't enter that model directly, but they change the "rental baseline" — the opportunity cost a build option must beat:
+
+| Scenario | Before 20% Rent Hike | After 20% Hike |
+|------|--------------|-----------|
+| Short-term elastic workloads (under 1 year) | Renting wins | **Renting still wins** (build deployment lead times can't catch up) |
+| Steady inference workloads (2-3 years) | Crossover zone | **Build starts to win** (opportunity cost rises) |
+| Training clusters (3 years+) | Build wins | **Build's advantage widens** |
+
+Rules of thumb:
+
+- For workloads **running 24/7 at full load for 2 years or more**, a 20% rent increase is usually enough for building (even at a 1.5x purchase premium and with a PUE 1.3 energy model) to overtake renting within 30 months;
+- **Tidal workloads** (daytime peaks, idle nights) should still rent — under the assumption that a build pays a continuous 15% idle power draw, building almost never breaks even below roughly 50% utilization;
+- A hybrid strategy (owned baseline + rented peaks) is least sensitive to rent increases and is the robust play in the current interest-rate and power-price environment.
+
+> You can re-derive these conclusions in the [TCO calculator](/docs/tco-calculator): enter the "cloud rental unit price" at +20% and compare scenarios across purchase price, electricity price, and PUE. The default discount rate is 8%; purchase costs are not discounted, and annual electricity is discounted by `1.08^-y`.
+
+## 3. Pricing Implications for Domestic Compute
+
+Rent increases have a layer of impact on domestic AI chip purchasing decisions that is easy to overlook:
+
+- **The rental market for domestic chips is not yet mature**: compute from Ascend / Cambricon / Moore Threads is delivered mostly as appliances, full racks, and intelligent computing center allocations; public on-demand rental prices are scarce — so procurement comparisons naturally lean toward "build / full-system" models;
+- **Relative TCO shift**: a 20% NVIDIA rent increase raises the "relative attractiveness" of every domestic alternative, especially for inference workloads (actual market transaction prices for 910C / 950PR / P800 on the primary market are not public, but the full-system price gap versus dollar-priced cards is widening);
+- **Supply cadence**: DeepSeek betting on Ascend training and rumors of 160,000-unit 950DT purchases — top demand eats capacity first, and queue times for later buyers are lengthening. **Deciding early has value in itself.**
+
+## 4. Takeaways
+
+- Nebius raises H100/H200/B200 on-demand rates **+20%** from October; CoreWeave's contracted power at 4.2GW keeps locking in volume at high prices — rental market supply and demand remain tight;
+- Agentic inference + Rubin supply premium + power constraints: three forces pushing rents up, with no near-term reversal in sight;
+- **Decision framework**: steady workloads 2 years+ → the build window opens; tidal workloads → keep renting; hybrid strategies are most price-hike resistant;
+- **What to watch**: whether other clouds follow with price moves, formal Rubin rental pricing, and whether a public rental market for domestic compute emerges.
+
+---
+
+## Further Reading
+
+- [TCO Calculator](/docs/tco-calculator) (this site's interactive tool, full parameters for purchase / energy / discounting)
+- [Vera Rubin NVL72 MLPerf v6.1 Debut](/blog/vera-rubin-nvl72-mlperf-v61-debut)
+- [DeepSeek Confirms Bet on Huawei Chips for Large-Model Training](/blog/deepseek-doubles-down-ascend-training)
+
+## References
+
+- ZhiXun (media): Nebius raises AI chip rental prices; from October 1, H100/H200/B200 on-demand rates rise about 20% on average (2026-09-21)
+- Cailian Press / East Money: CoreWeave deploys multi-rack Vera Rubin NVL72 cluster, contracted power grows to 4.2 GW (2026-09)
+
+**This article is compiled from public reports; TCO conclusions depend on assumptions such as utilization, electricity price, and discount rate. Please re-compute with your own parameters using the [TCO calculator](/docs/tco-calculator).**

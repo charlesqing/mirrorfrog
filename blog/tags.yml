@@ -469,3 +469,15 @@ roadmap:
   label: Roadmap
   description: Vendor AI chip roadmap updates and forecasts
   permalink: /roadmap
+
+# ========== 新增标签：2026-09-25 行业博客使用 ==========
+
+alibaba:
+  label: Alibaba
+  description: Alibaba and T-Head AI chips (Zhenwu / Yitian / ICN)
+  permalink: /alibaba
+
+mlperf:
+  label: MLPerf
+  description: MLPerf benchmark results and analysis
+  permalink: /mlperf

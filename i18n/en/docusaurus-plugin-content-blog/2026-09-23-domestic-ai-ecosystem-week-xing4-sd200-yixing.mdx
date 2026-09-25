@@ -1,0 +1,91 @@
+---
+slug: domestic-ai-ecosystem-week-xing4-sd200-yixing
+title: 'Three Signals for the Domestic Compute Ecosystem in One Week: China Telecom Open-Sources Ascend-Trained Model, Inspur 128-Chip Inference Appliance, EVAS Raises RMB 2 Billion'
+date: '2026-09-23'
+authors: aicomputecards
+tags: [domestic-chips, inference, domestic-substitution, news]
+description: 'Late September brought a dense run of domestic AI compute milestones: China Telecom open-sourced Xing4.0-29B-A4B, an agentic MoE announced as end-to-end trained on Ascend; Inspur launched the MetaBrain SD200 Ultra, running Kimi K3 inference on 128 domestic AI chips at 2.8T tokens throughput; EVAS (Yixing Intelligence) closed a B+ round of RMB 2 billion (post-money near RMB 15 billion). From chips to systems, open-source models to capital, the domestic compute loop is taking shape faster.'
+---
+
+# Three Signals for the Domestic Compute Ecosystem in One Week: China Telecom Open-Sources Ascend-Trained Model, Inspur 128-Chip Inference Appliance, EVAS Raises RMB 2 Billion
+
+> Beyond the official Ascend 960 unveiling and the Zhenwu V900 launch, late September also delivered three ecosystem signals that headline coverage easily drowned out, yet whose structural significance rivals flagship chips: **a carrier open-sourcing a model trained on Ascend, an OEM delivering a hundred-chip-class domestic inference system, and a cloud-compute chip startup closing a new funding round**. This article breaks down each one.
+
+---
+
+## 1. China Telecom Open-Sources Xing4.0: Carrier-Grade Endorsement for End-to-End Ascend Training
+
+On September 23 (as reported), China Telecom open-sourced **Xing4.0-29B-A4B** — an agentic mixture-of-experts (MoE) model that the company says was **trained end-to-end on Huawei Ascend accelerators**.
+
+Why it matters:
+
+- **Third-party proof that "it can train"**: until now, evidence that "Ascend can train large models" came mainly from Huawei itself (40+ natively trained models); a carrier running training with its own data, engineering teams, and clusters — and open-sourcing it — is the first **scaled training case outside the Huawei ecosystem**;
+- **Agentic positioning**: the 29B-A4B (29B total / 4B active) MoE form factor targets agent workloads directly — aligned with the open-source cadence of DeepSeek and Qwen, rather than a small experimental model;
+- **Open-source spillover**: publishing model weights plus the training recipe means Ascend training engineering know-how can be reused by other institutions — the standard playbook for ecosystem diffusion.
+
+Combined with Huawei's disclosure that "CANN has entered routine open-source operations, with external developers at 61%", the Ascend ecosystem is shifting from "vendor-led" to "community-operated".
+
+## 2. Inspur MetaBrain SD200 Ultra: Measured Throughput Claims for a 128-Chip Domestic Inference System
+
+Inspur launched the **MetaBrain SD200 Ultra** inference system around the same time:
+
+| Metric | Value (company figures) |
+|------|------------------|
+| **Domestic AI chips** | **128 chips** (vendor did not disclose specific models) |
+| **Model served** | Kimi K3 |
+| **Token throughput** | **2.8T tokens** (system throughput figure under that methodology) |
+| **Latency** | **5.85 ms** |
+
+Three readings:
+
+- **Hundred-chip-class system integration**: 128 chips cooperating across a heterogeneous setup to run very large MoE inference is a test of interconnect topology, scheduling, and fault tolerance — OEMs are now demonstrably capable of assembling domestic chips into large systems;
+- **Aimed at top open-source models**: targeting Kimi K3 (already live on AWS Bedrock) as the benchmark workload shows the acceptance standard for domestic inference systems is "runs today's most popular models", not a self-referential demo;
+- **Mind the methodology**: the 2.8T token throughput and 5.85ms latency are both vendor claims; the tested model version, concurrency, and batch size were not disclosed, so procurement evaluations should re-test under real workloads.
+
+## 3. EVAS Closes RMB 2 Billion B+ Round: The Cloud Compute Chip Race Still Attracts Capital
+
+EVAS (Yixing Intelligence) completed a **B+ round of RMB 2 billion**, at a post-money valuation near **RMB 15 billion**, with Oriza Capital following on; earlier in the first half of the year it had closed a RMB 1.5 billion Series B and brought in **China Mobile as a strategic investor**. The company focuses on **next-generation cloud compute chips**.
+
+In 2026, when the flagship chip lineup (Ascend / Cambricon / Moore Threads / Hygon / Zhenwu) looks settled, a cloud compute chip newcomer still raising RMB 2 billion suggests:
+
+- Primary-market conviction in the "second tier of domestic compute": with top vendors' capacity booked into 2027, **overflow demand** gives newcomers a window;
+- The role of carrier strategic investment: China Mobile is both a buyer and an investor — the demand side of domestic compute is using capital to lock in the supply side;
+- Differentiated room remains for cloud inference DSA routes (see the ecosystem positioning of routes like Tsingmicro and Houmo).
+
+## 4. Assembling the Week's Signals: The Loop Is Taking Shape
+
+Put the three signals together with this month's flagship launches, and every segment of the domestic compute loop now has players filling the gaps:
+
+| Segment | This Month's Evidence |
+|------|----------|
+| **Flagship chips** | Ascend 960 early official unveiling (9-17), Zhenwu V900 launch (9-22) |
+| **Training validation** | China Telecom's Xing4.0 end-to-end trained on Ascend and open-sourced, DeepSeek betting on Ascend training |
+| **Inference systems** | Inspur SD200 Ultra running Kimi K3 on 128 chips |
+| **Software ecosystem** | CANN routine open-sourcing, external developers at 61% |
+| **Capital supply** | EVAS B+ round of RMB 2 billion (post-money near RMB 15 billion) |
+| **Demand side** | DeepSeek's alignment, Kimi K3 live on overseas cloud platforms |
+
+Independent players are investing across all four segments — "chips, systems, models, capital" — the biggest difference from the "isolated breakthroughs" of 2024-2025.
+
+## 5. Takeaways
+
+- China Telecom Xing4.0-29B: the first **open-source model end-to-end trained on Ascend** outside the Huawei ecosystem;
+- Inspur SD200 Ultra: a 128-chip domestic inference system at 2.8T token throughput / 5.85ms (company figures, pending re-testing);
+- EVAS RMB 2 billion B+ round: the cloud compute chip second tier is still getting real money;
+- **What to watch**: Xing4.0's training cluster scale and MFU, third-party re-tests of the SD200 Ultra, and EVAS's tape-out cadence.
+
+---
+
+## Further Reading
+
+- [Ascend 960 Spec Page](/docs/cards/huawei/ascend-960) / [Ascend 910C Spec Page](/docs/cards/huawei/ascend-910c) (this site)
+- [DeepSeek Confirms Bet on Huawei Chips for Large-Model Training](/blog/deepseek-doubles-down-ascend-training)
+- [Domestic Top Three in 2026 H2: Localization Rate Breaks 40% and Marches Toward 60%](/blog/domestic-ai-chip-triopoly-h2-2026)
+
+## References
+
+- The GPU Daily (2026-09-24): China Telecom open-sources Xing4.0-29B; Inspur MetaBrain SD200 Ultra
+- Toutiao (2026-09-21): EVAS completes RMB 2 billion B+ round, post-money valuation near RMB 15 billion
+- CSDN AI Daily (2026-09-21): Huawei CANN enters routine open-source operations, OceanStor M900 launched
+
+**This article is compiled from public reports. Xing4.0 training details and SD200 Ultra performance figures are company statements; testing conditions are subject to subsequent disclosures.**
