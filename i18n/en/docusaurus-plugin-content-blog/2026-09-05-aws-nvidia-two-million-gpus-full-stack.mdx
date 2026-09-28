@@ -1,0 +1,74 @@
+---
+slug: aws-nvidia-two-million-gpus-full-stack
+title: 'AWS Adds Another 2 Million NVIDIA GPUs: Vera CPU Debuts on AWS, 100,000 GPUs Reserved for the U.S. Government AI Factory'
+date: '2026-09-05'
+authors: aicomputecards
+tags: [nvidia, ai-infrastructure, ai-factory, roadmap, news]
+description: 'AWS and NVIDIA announced an expanded strategic partnership: deploying 2 million additional Blackwell Ultra / Rubin / Rubin Ultra GPUs in 2027-2028 on top of the existing 1 million GPU plan, Vera CPU infrastructure coming to AWS for the first time, NVLink Fusion to be opened up with NVHBM high-bandwidth memory custom-made by Amazon Annapurna Labs, plus 100,000 GPUs for a U.S. government sovereign AI factory. This article breaks down the six key points of this full-stack expansion and the compute procurement logic behind it.'
+---
+
+# AWS Adds Another 2 Million NVIDIA GPUs: Vera CPU Debuts on AWS, 100,000 GPUs Reserved for the U.S. Government AI Factory
+
+> This article is based on official announcements from AWS and NVIDIA (September 5, 2026) and public statements by executives of both companies.
+
+On September 5, 2026, AWS and NVIDIA announced an expanded strategic partnership: on top of the "1 million additional GPUs starting in 2026" plan announced at GTC 2026, they will deploy **2 million more NVIDIA GPUs**, covering three architecture generations — Blackwell Ultra, Rubin, and Rubin Ultra — with a deployment window of **2027-2028**. Demand growth exceeding all previous forecasts was the direct reason both companies cited.
+
+This is no longer a simple "chip purchase" — it is a full-stack partnership spanning GPUs, CPUs, interconnect, memory, open-source models, and software. We break the key information into six points.
+
+## 1. Composition and Timeline of the 2 Million GPUs
+
+- **Scale**: 2 million GPUs (added on top of the original 1 million GPU plan, tripling the total committed scale)
+- **Architectures**: Blackwell Ultra, Rubin, Rubin Ultra
+- **Timeline**: 2027-2028, deployed across AWS global infrastructure (including newly built AI factories)
+- **Context**: Amazon's 2026 capital expenditure guidance has been raised from $200 billion to **$220 billion**, and CEO Andy Jassy has explicitly said it is still not enough to meet AI compute demand
+
+For reference, the figures Jensen Huang gave at GTC 2026 put cumulative orders and demand for the Blackwell and Rubin platforms through 2027 on track to reach **$1 trillion** (at GTC 2025, the estimate for 2026 was roughly $500 billion). AWS's add-on order is one of the heaviest puzzle pieces in that big picture.
+
+## 2. Vera CPU Comes to AWS for the First Time
+
+This is the most structurally significant change in the partnership: **NVIDIA Vera CPU infrastructure will enter AWS**.
+
+The Vera CPU is the general-purpose processor in the Vera Rubin platform designed for agentic AI, positioned to efficiently turn AI resources into "completed agent tasks." As agentic workloads rise, CPU-side pressure on task orchestration, memory management, and data scheduling rises in step — pure GPU expansion is no longer enough, and AWS needs a matching high-performance CPU layer. This also aligns with AWS's strategy of "offering the broadest compute choices, from in-house chips (Graviton/Trainium) to partner chips": Vera does not replace Trainium, but fills in the CPU compute layer alongside the accelerated infrastructure.
+
+## 3. NVLink Fusion × NVHBM: Open Architecture Goes Deeper
+
+At re:Invent 2025, AWS announced that its next-generation Trainium chip would support NVIDIA NVLink Fusion high-speed interconnect. This time, both companies took the partnership one step further:
+
+- Amazon Annapurna Labs will support NVIDIA's new **custom high-bandwidth memory NVHBM** (developed in collaboration with memory vendors)
+- Trainium thereby gains a faster, more power-efficient memory option
+- Trainium and GPUs can work together within the **same rack-scale architecture**, sharing scale-up interconnect
+
+For the chip industry, this is a signal worth watching closely: NVLink Fusion + NVHBM means NVIDIA's interconnect and memory technologies have started "supplying" competing ASICs. The boundary between the in-house ASIC camp (Trainium, TPU, MTIA) and the NVIDIA GPU camp is shifting from "either/or" to "hybrid deployment."
+
+## 4. 100,000 GPUs: The U.S. Government Sovereign AI Factory
+
+A dedicated public-sector business is carved out of the partnership: AWS and NVIDIA will build AI factories for the U.S. government, deploying **100,000 GPUs** on secure AWS infrastructure to host federal and national security workloads (Impact Level 6 and above), supporting the development of advanced AI models within strict regulatory frameworks.
+
+Sovereign AI turning from a slogan into concrete numbers is a defining feature of this cycle — government customers are becoming first-class buyers of AI compute.
+
+## 5. Software and Physical AI Deepen in Parallel
+
+Beyond hardware, the software layer of the partnership is also strengthening:
+
+- NVIDIA Nemotron open-source models continue to arrive on Amazon Bedrock and SageMaker
+- Amazon EMR data processing and OpenSearch vector indexing are accelerated by cuDF / cuVS
+- **Amazon Robotics officially adopts the NVIDIA physical AI platform** (Jetson, Omniverse, Isaac) for warehouse automation and next-generation robotics
+
+Physical AI (robotics, embodied intelligence) is becoming a new growth pole in cloud providers' compute narratives — the same trend as JD.com, Tesla, and others writing embodied intelligence into their compute procurement logic.
+
+## 6. Implications for Compute Buyers
+
+| Observation | Implication |
+|---|---|
+| Demand "beat all forecasts" | Supply tightness is not a short-term phenomenon; the 2027-2028 compute window must be locked in now |
+| Mixed procurement across three architectures | During the Rubin/Rubin Ultra production ramp-up, Blackwell Ultra remains the delivery mainstay; procurement needs cross-generation planning |
+| CPU layer revalued | agentic AI pushes the bottleneck from GPU to CPU orchestration and memory bandwidth; do not focus only on accelerator cards when selecting |
+| Sovereign AI lands | Government-scale orders enter the market, further tightening the allocatable supply of high-end GPUs |
+
+For decision-makers weighing build versus rent, every massive add-on order from cloud giants reprices the future rental curve. If you are evaluating GPU purchase or rental options, we recommend running a quantitative calculation with the [TCO Calculator](/docs/tco-calculator): enter chip price, power draw, utilization, and rental rates to compare 3-year total cost of ownership.
+
+## Summary
+
+2 million GPUs, Vera CPU in the cloud, NVHBM opening up, 100,000 sovereign compute GPUs — this round of expansion between AWS and NVIDIA pushes the "AI factory" race into the full-stack era. Compute scarcity will most likely only tighten before 2027; whether you are buying, renting, or betting on domestic alternatives, locking in supply and cost curves early is the surest move right now.
+
+(The data in this article comes from official AWS/NVIDIA announcements and public statements by executives of both companies; architecture performance figures are as released by the vendors.)

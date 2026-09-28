@@ -1,0 +1,74 @@
+---
+slug: aws-nvidia-two-million-gpus-full-stack
+title: 'AWS 再加购 200 万颗英伟达 GPU：Vera CPU 首次登陆 AWS，10 万颗专供美国政府 AI 工厂'
+date: '2026-09-05'
+authors: aicomputecards
+tags: [nvidia, ai-infrastructure, ai-factory, roadmap, news]
+description: 'AWS 与英伟达宣布扩大战略合作：2027-2028 年在现有 100 万颗计划之上追加部署 200 万颗 Blackwell Ultra / Rubin / Rubin Ultra GPU，Vera CPU 基础设施首次登陆 AWS，NVLink Fusion 将与亚马逊 Annapurna Labs 定制的 NVHBM 高带宽内存打通，另有 10 万颗 GPU 用于美国政府主权 AI 工厂。本文梳理这轮全栈扩盟的六个关键点与算力采购逻辑。'
+---
+
+# AWS 再加购 200 万颗英伟达 GPU：Vera CPU 首次登陆 AWS，10 万颗专供美国政府 AI 工厂
+
+> 本文基于 AWS 与 NVIDIA 官方公告（2026 年 9 月 5 日）及双方高管公开表态整理。
+
+2026 年 9 月 5 日，AWS 与英伟达宣布扩大战略合作：在 GTC 2026 已宣布的「2026 年起新增 100 万颗 GPU」计划之上，再追加部署 **200 万颗 NVIDIA GPU**，覆盖 Blackwell Ultra、Rubin 与 Rubin Ultra 三代架构，时间窗口为 **2027-2028 年**。需求增长超出此前所有预测，是双方给出的直接理由。
+
+这不再是单纯的「买卡」，而是一次覆盖 GPU、CPU、互联、内存、开源模型与软件的全栈合作。我们把关键信息拆成六点。
+
+## 一、200 万颗 GPU 的构成与节奏
+
+- **规模**：200 万颗（在原有 100 万颗计划之上追加，总承诺规模翻了三倍）
+- **架构**：Blackwell Ultra、Rubin、Rubin Ultra
+- **时间**：2027-2028 年，部署于 AWS 全球基础设施（含新建 AI 工厂）
+- **背景**：亚马逊 2026 年资本支出指引已从 2000 亿美元上调至 **2200 亿美元**，CEO 安迪·贾西明确表示仍不足以满足 AI 算力需求
+
+作为参照，GTC 2026 上黄仁勋给出的口径是：Blackwell 与 Rubin 两大平台至 2027 年的累计订单与需求规模已上看 **1 万亿美元**（GTC 2025 时对 2026 年的判断约为 5000 亿美元）。AWS 的加购是这个大盘子里最重的一块拼图之一。
+
+## 二、Vera CPU 首次登陆 AWS
+
+这是本次合作里最具结构性的变化：**NVIDIA Vera CPU 基础设施将进入 AWS**。
+
+Vera CPU 是 Vera Rubin 平台中面向 agentic AI 设计的通用处理器，定位是把 AI 资源高效转化为「完成的智能体任务」。随着智能体工作负载兴起，CPU 侧的任务编排、内存管理、数据调度压力同步上升——纯 GPU 扩容已经不够，AWS 需要与之配套的高性能 CPU 层。这也与 AWS「从自研芯片（Graviton/Trainium）到合作伙伴芯片提供最广算力选择」的策略一致：Vera 不替代 Trainium，而是补齐加速基础设施旁边的 CPU 算力层。
+
+## 三、NVLink Fusion × NVHBM：开放架构走向纵深
+
+在 re:Invent 2025 上，AWS 宣布下一代 Trainium 芯片支持 NVIDIA NVLink Fusion 高速互联。本次双方把合作再推进一步：
+
+- 亚马逊 Annapurna Labs 将支持英伟达新的**定制高带宽内存 NVHBM**（与内存供应商合作开发）
+- Trainium 由此可以获得更快、更省电的内存选项
+- Trainium 与 GPU 可以在**同一机架级架构**内协同，共享 scale-up 互联
+
+对芯片行业来说，这是一个值得盯紧的信号：NVLink Fusion + NVHBM 意味着英伟达的互联与内存技术开始向竞品 ASIC「供货」。自研 ASIC 阵营（Trainium、TPU、MTIA）与英伟达 GPU 阵营的边界，正在从「二选一」变成「混布」。
+
+## 四、10 万颗 GPU：美国政府主权 AI 工厂
+
+合作中专门划出一块公共部门业务：AWS 与英伟达将为美国政府建造 AI 工厂，在安全 AWS 基础设施上部署 **10 万颗 GPU**，承载联邦与国家安全负载（Impact Level 6 及以上），支持在强监管框架内开发先进 AI 模型。
+
+主权 AI 从口号变成明确数字，是本轮周期的显著特征——政府客户正在成为 AI 算力的一等买家。
+
+## 五、软件与物理 AI 同步深化
+
+硬件之外，软件层合作也在加码：
+
+- NVIDIA Nemotron 开源模型继续登陆 Amazon Bedrock 与 SageMaker
+- Amazon EMR 数据处理与 OpenSearch 向量索引用 cuDF / cuVS 加速
+- **Amazon Robotics 正式采用 NVIDIA 物理 AI 平台**（Jetson、Omniverse、Isaac），用于仓储自动化与下一代机器人
+
+物理 AI（机器人、具身智能）正在成为云厂商算力叙事的新增长极，这与国内京东、特斯拉等把具身智能写进算力采购逻辑是同一趋势。
+
+## 六、对算力买家的启示
+
+| 观察 | 含义 |
+|---|---|
+| 需求「跑赢所有预测」 | 供给紧张不是短期现象，2027-2028 的算力窗口现在就要锁定 |
+| 三代架构混采 | Rubin/Rubin Ultra 量产爬坡期间，Blackwell Ultra 仍是交付主力，采购需要跨代规划 |
+| CPU 层被重估 | agentic AI 把瓶颈从 GPU 推向 CPU 编排与内存带宽，选型时别只盯加速卡 |
+| 主权 AI 落地 | 政府级订单入场，进一步收紧高端 GPU 的可分配供给 |
+
+对自建与租用的决策者而言，云巨头的每一次天量加购都在重定价未来的租金曲线。如果你正在评估 GPU 采购或租用方案，建议用 [TCO 计算器](/docs/tco-calculator) 做一次量化测算：输入芯片价格、功耗、利用率与租用单价，即可对比 3 年持有成本。
+
+## 小结
+
+200 万颗 GPU、Vera CPU 上云、NVHBM 开放、10 万颗主权算力——AWS 与英伟达这轮扩盟把「AI 工厂」竞赛推进到全栈时代。算力的稀缺性在 2027 年之前大概率只紧不松，无论是买卡、租卡还是押注国产替代，尽早锁定供给与成本曲线，都是当前最确定的动作。
+
+（本文数据均来自 AWS/NVIDIA 官方公告与双方高管公开表态；架构性能口径以厂商发布为准。）

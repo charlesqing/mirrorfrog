@@ -1,0 +1,71 @@
+---
+slug: groq-3-lpx-mass-production-vera-rubin
+title: 'Groq 3 LPX 全面量产：三星 4nm 代工、单机架 315 PFLOPS FP8，英伟达把 LPU 变成 Vera Rubin 的第七颗芯片'
+date: '2026-09-26'
+authors: aicomputecards
+tags: [nvidia, inference, product-launch, ai-compute, news]
+description: '英伟达确认 Groq 3 LPX 进入全面量产：三星平泽 4nm 代工，单机架 256 颗 LPU、315 PFLOPS FP8、128GB SRAM、40PB/s 片上带宽、640TB/s scale-up。Gemma 4 31B 在 100K 上下文下实测约 3400 tokens/s 输出。本文拆解 LPU 与 GPU 协同的 AFD 架构、35 倍每兆瓦吞吐的适用边界，以及对推理硬件格局的影响。'
+---
+
+# Groq 3 LPX 全面量产：三星 4nm 代工、单机架 315 PFLOPS FP8，英伟达把 LPU 变成 Vera Rubin 的第七颗芯片
+
+> 本文基于 NVIDIA 官方产品页、2026 年 3 月 GTC 架构博客及第三方基准数据整理；性能口径为厂商架构对比，实际收益需以自测为准。
+
+英伟达确认，**Groq 3 LPX**——Vera Rubin 平台的「第七颗芯片」——已进入全面量产，由三星平泽园区代工。这是继 2025 年 12 月英伟达斥资约 **200 亿美元**获得 Groq 非独占 IP 授权与核心工程团队之后，这笔交易第一次以量产硅的形式落地。
+
+对推理硬件格局而言，这是一次范式级事件：英伟达第一次把「别家定义的专用推理架构」纳入自家旗舰平台，且不是外挂销售，而是深度协同设计。
+
+## 一、Groq 3 LPU 芯片与 LPX 机架：规格速览
+
+**单颗 Groq 3 LPU（4nm，三星代工）：**
+
+| 项目 | 数值 |
+|---|---|
+| 编译器管理的片上 SRAM | 500 MB |
+| SRAM 带宽 | 150 TB/s |
+| 片间 scale-up 带宽 | 2.5 TB/s（96 条 chip-to-chip 链路，每条 112 Gbps） |
+
+**单个 LPX 机架（32 个 1U 液冷托盘，每托盘 8 颗 LPU）：**
+
+| 项目 | 数值 |
+|---|---|
+| LPU 总数 | 256 颗 |
+| FP8 算力 | 315 PFLOPS |
+| 片上 SRAM 总量 | 128 GB |
+| SRAM 聚合带宽 | 40 PB/s |
+| 机架内 scale-up 带宽 | 640 TB/s |
+| DDR5 内存 | 12 TB（承载大模型权重） |
+
+每颗 LPU 500MB 的 SRAM 看起来不大，但乘上 256 颗、再叠加 40PB/s 的聚合带宽，构成了「确定性低延迟解码」的物理基础——LPU 的设计哲学正是用编译器静态调度片上 SRAM，彻底消除推理解码阶段的内存取数停顿，而这恰恰是 GPU 推理最典型的瓶颈。
+
+## 二、AFD：注意力与 FFN 分家，GPU 和 LPU 各干各的
+
+LPX 不是替代 GPU，而是与 Vera Rubin NVL72 组成异构系统，核心是 **AFD（Attention-FFN Disaggregation，注意力-前馈解耦）**：
+
+1. **Rubin GPU 负责 prefill 与 attention**——在大上下文上构建 KV cache、执行注意力层，吃 HBM 容量与高吞吐；
+2. **Groq 3 LPU 负责 FFN / MoE 专家层解码**——延迟敏感、模式可预测，恰好是 SRAM 确定性调度的主场；
+3. **中间激活在两个引擎间逐 token 交换**，由 NVIDIA Dynamo 编排路由，GPU 算每一层注意力，LPU 算每一层前馈，协同完成每个输出 token。
+
+这套分工的逻辑很清晰：智能体应用消耗的 token 量可达传统 AI 应用的 **15 倍**，瓶颈从「能不能算完」变成「能不能以稳定低延迟持续吐 token」。让 HBM 大容器去跑 attention、让 SRAM 确定性引擎去跑 decode，各取所长。
+
+## 三、实测与官方口径
+
+- **第三方实测**（Artificial Analysis）：Gemma 4 31B、100K token 上下文下，LPX 输出约 **3400 tokens/s**——单 token 间隔低于 1 毫秒，长上下文智能体场景的交互感质变
+- **官方架构对比**：与 LPX 组合后，Vera Rubin NVL72 对万亿参数模型的**每兆瓦吞吐最高提升 35 倍**；「高价值 token」场景下每瓦收入机会最高 **10 倍**
+- **首发客户**：Nebius 率先部署 LPX 机架扩展其 token 产能；CoreWeave 已在生产环境用 Spectrum-X Multiplane 连接 Vera Rubin 机架
+
+需要强调：35 倍/10 倍是特定高交互工作点的架构对比数字，不是普适结论。训练、大吞吐批量推理、需要 CUDA 生态灵活性的负载，GPU 仍是正解；LPX 的主场是「单用户交互延迟即产品」的场景——智能体循环、实时编码助手、长上下文对话。
+
+## 四、三个行业信号
+
+**1. 专用推理芯片被收编，而非对抗。** 过去 LPU 是「GPU 挑战者」的叙事，现在变成了 Vera Rubin 的组成部分。推理硬件的终局可能不是一种架构赢，而是「GPU + 专用解码引擎」的异构组合成为标配。对其他推理芯片创业公司（Cerebras、Etched 等），这既是天花板抬高的证明，也是「要么被集成、要么找差异化」的警示。
+
+**2. 三星代工拿到高端 AI 订单。** 在台积电几乎垄断 AI 主芯片的背景下，三星 4nm 承接 LPX 量产意义重大——叠加此前特斯拉 AI6 的 2nm 订单，三星代工有望在 2027 年重回全年盈利。
+
+**3. 推理经济性进入「按 MW 定价」时代。** 当厂商开始用 tokens/MW 和每瓦收入讲故事，算力选型的核心 KPI 已经从峰值算力（TFLOPS）彻底转向单位能耗的 token 产出。这与我们在 [TCO 计算器](/docs/tco-calculator) 里内置的功耗-电费模型逻辑一致：峰值参数好看的芯片，未必是每 token 成本最低的芯片。
+
+## 小结
+
+Groq 3 LPX 量产标志着推理硬件进入「GPU 管吞吐、LPU 管延迟」的异构时代。对于正在选型推理集群的团队，建议把工作负载拆开评估：批量离线推理留在 GPU，交互式长上下文智能体值得单独测算 LPX 类方案的单位成本。拿不准的话，先用 [TCO 计算器](/docs/tco-calculator) 跑一遍两种架构的 3 年持有成本再拍板。
+
+（本文性能数据来自 NVIDIA 官方架构对比与 Artificial Analysis 第三方实测，实际部署请以自测为准。）

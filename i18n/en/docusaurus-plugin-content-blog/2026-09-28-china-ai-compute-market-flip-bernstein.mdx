@@ -1,0 +1,66 @@
+---
+slug: china-ai-compute-market-flip-bernstein
+title: 'NVIDIA''s China Share Crashes to 8% as Ascend Rises to 50%: The Dramatic Reshuffle of China''s AI Compute Market in a September Report'
+date: '2026-09-28'
+authors: aicomputecards
+tags: [nvidia, huawei, ascend, domestic-substitution, deepseek, news]
+description: 'Bernstein''s September 28 report: NVIDIA''s share of China''s AI chip market will fall from about 40% to about 8% by year-end, while Huawei Ascend rises to nearly 50%; the Ascend 950PR (2 PFLOPS FP4, 128GB domestic HBM) is rated by analysts as roughly on par with the H200; Huawei''s AI chip revenue is expected to reach $12 billion this year (+60%). On the model side, DeepSeek has become the top model provider on OpenRouter. This article breaks down the report''s key data and the procurement logic behind it.'
+---
+
+# NVIDIA's China Share Crashes to 8% as Ascend Rises to 50%: The Dramatic Reshuffle of China's AI Compute Market in a September Report
+
+> This article is based on market analysis published by Bloomberg Intelligence and Bernstein in September 2026 and public reporting; market share and revenue figures are analyst estimates, not official disclosures.
+
+On September 28, two Wall Street reports simultaneously painted a dramatic picture: **the balance of market share in China's AI compute market completed an almost total flip within 12 months.**
+
+## 1. The Share Flip: 40% to 8%, Ascend to 50%
+
+Bernstein's latest forecast:
+
+- NVIDIA's share of the China AI chip market will fall from about **40%** to about **8%** by the end of this year
+- Huawei Ascend rises to nearly **50%**
+- The immediate trigger: China's September ban on new H20 orders from NVIDIA, which shut the last channel for NVIDIA's return to the Chinese market
+- ByteDance, Alibaba, and Tencent have all placed large Ascend orders
+
+On the timeline, this was not a sudden shock but the cumulative result of three years of tightening export controls: NVIDIA's share of the China AI chip market once peaked at 95%; as high-end chips were cut off, Chinese hyperscale cloud providers pivoted wholesale to Huawei and domestic alternatives. Even when Washington allowed H200 sales to China in January 2026, the gears of that shift had already meshed — there was no going back.
+
+## 2. Ascend 950PR: The "Chinese H200" in Analysts' Eyes
+
+What underpins this share data is product strength itself:
+
+- The **Ascend 950PR** entered mass production in March this year, with FP4 compute of up to **2 PFLOPS** and **128GB of domestic HBM**
+- Analysts rate it as **roughly on par with the NVIDIA H200**
+- Huawei's AI chip revenue is expected to reach **$12 billion** this year, up **60%** from $7.5 billion in 2025
+
+For the full specifications of the 950 series, see our earlier in-depth articles: [Ascend 950PR/950DT Dual-Configuration Analysis](/docs/cards/huawei/ascend-950pr) and [Ascend 960 Official Launch](/blog/huawei-ascend-960-official-launch) — the 960 was ready three quarters ahead of schedule, confirming a one-generation-per-year cadence.
+
+## 3. The Model Side: Chinese Open Models Take the OpenRouter Token Pie
+
+While chip shares flipped, the model usage data is equally striking (OpenRouter platform statistics):
+
+| Metric | Data |
+|---|---|
+| DeepSeek token share (June) | **16.3%**, surpassing Google, Anthropic, and OpenAI individually to rank first |
+| Combined token share of Chinese open-weight models (May) | About **61%** (DeepSeek, Qwen, MiniMax, Tencent Hunyuan, etc.) |
+| Weekly token consumption of Chinese models | About **18 trillion**, versus about **5.5 trillion** for US models — a gap of more than 3x, with the overtake completed within a year |
+| China-US frontier model performance gap (June) | Narrowed to **6%**, a historic low (9% in May) |
+
+Compute and models form a positive feedback loop: cards that cannot be bought force domestic compute to scale up; scaled-up domestic compute produces cheap tokens; and cheap tokens let Chinese open-source models swallow the bulk of global inference traffic.
+
+## 4. But the Stock Market Isn't Buying It
+
+Bloomberg Intelligence pointed out a contradiction in the same period: the valuation discount of the China Tech 8 relative to the US Magnificent Seven has widened to more than **50%**, the widest of the year, and BI believes only a "true AI breakthrough" can close it. Year-to-date stock performance: Alibaba about -7%, Tencent about -23%, while US AI infrastructure leaders broadly gained more than 15%.
+
+There are two readings of this divergence: either the market is underestimating China's AI fundamentals, or earnings execution (Alibaba's EPS missed expectations by 17.3% last quarter, Baidu's by 36%) has dragged down the delivery of the AI narrative. For industry observers, the notable point is: **the compute-side data (share, revenue, shipments) has moved ahead, while application-side monetization is still on the way.**
+
+## 5. Three Takeaways for Compute Buyers
+
+1. **For deployments in China, the Ascend ecosystem is already the default option.** The cost of migrating from CUDA to CANN is one-time, while supply uncertainty is persistent; after the September ban, there is no compliant path to procuring new NVIDIA cards in the Chinese market.
+2. **Domestic compute "matching the H200" is a watershed.** The implicit assumption of domestic substitution used to be "discounted performance, discounted price"; when single-card performance catches up to the H200 generation, procurement decisions return to pure TCO and supply-security calculations — we recommend using the [TCO Calculator](/docs/tco-calculator) to put electricity, depreciation, and utilization into the same table.
+3. **The token cost curve determines the application landscape.** Chinese models' 61% share of OpenRouter tokens shows that the chain of compute self-sufficiency leading to token price drops leading to application prosperity has completed its first leg; the next question is whether inference costs can keep falling.
+
+## Summary
+
+From 40% to 8% is not a slogan but a market reshuffle driven jointly by the ban, product strength, and the model ecosystem. For the Chinese market, the mass-production cadence of Ascend 950/960 and the maturity of the CANN ecosystem will determine whether this share can be held; for the global market, the combination of China's compute "internal circulation + open-source models going overseas" is rewriting the geographic distribution of inference traffic.
+
+(Market share and revenue forecasts come from Bernstein / Bloomberg Intelligence analyst reports; actual figures are subject to each company's financial reports.)

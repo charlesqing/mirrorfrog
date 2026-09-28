@@ -1,0 +1,71 @@
+---
+slug: groq-3-lpx-mass-production-vera-rubin
+title: 'Groq 3 LPX Enters Full Mass Production: Samsung 4nm Foundry, 315 PFLOPS FP8 per Rack — NVIDIA Turns the LPU into the Seventh Chip of Vera Rubin'
+date: '2026-09-26'
+authors: aicomputecards
+tags: [nvidia, inference, product-launch, ai-compute, news]
+description: 'NVIDIA confirms Groq 3 LPX has entered full mass production: Samsung Pyeongtaek 4nm foundry, 256 LPUs per rack, 315 PFLOPS FP8, 128GB SRAM, 40 PB/s aggregate bandwidth, 640 TB/s scale-up. Gemma 4 31B measured roughly 3400 tokens/s output at 100K context. This article breaks down the AFD architecture for LPU-GPU collaboration, the applicability boundaries of 35x throughput per megawatt, and the impact on the inference hardware landscape.'
+---
+
+# Groq 3 LPX Enters Full Mass Production: Samsung 4nm Foundry, 315 PFLOPS FP8 per Rack — NVIDIA Turns the LPU into the Seventh Chip of Vera Rubin
+
+> This article is based on NVIDIA official product pages, the March 2026 GTC architecture blog, and third-party benchmark data; performance figures are vendor architecture comparisons, and actual gains should be verified with your own tests.
+
+NVIDIA has confirmed that **Groq 3 LPX** — the "seventh chip" of the Vera Rubin platform — has entered full mass production, manufactured at Samsung's Pyeongtaek campus. This is the first time the deal has landed in the form of production silicon since December 2025, when NVIDIA spent roughly **$20 billion** to obtain a non-exclusive IP license to Groq plus its core engineering team.
+
+For the inference hardware landscape, this is a paradigm-level event: for the first time, NVIDIA has incorporated a "specialized inference architecture defined by someone else" into its own flagship platform — and not as an add-on sale, but as deep co-design.
+
+## 1. The Groq 3 LPU Chip and the LPX Rack: Specs at a Glance
+
+**Single Groq 3 LPU (4nm, Samsung foundry):**
+
+| Item | Value |
+|---|---|
+| Compiler-managed on-chip SRAM | 500 MB |
+| SRAM bandwidth | 150 TB/s |
+| Chip-to-chip scale-up bandwidth | 2.5 TB/s (96 chip-to-chip links, 112 Gbps each) |
+
+**A single LPX rack (32 1U liquid-cooled trays, 8 LPUs per tray):**
+
+| Item | Value |
+|---|---|
+| Total LPUs | 256 |
+| FP8 compute | 315 PFLOPS |
+| Total on-chip SRAM | 128 GB |
+| Aggregate SRAM bandwidth | 40 PB/s |
+| In-rack scale-up bandwidth | 640 TB/s |
+| DDR5 memory | 12 TB (hosting large model weights) |
+
+The 500 MB of SRAM per LPU may not look like much, but multiplied by 256 LPUs and stacked with 40 PB/s of aggregate bandwidth, it forms the physical foundation of "deterministic low-latency decoding" — the LPU's design philosophy is precisely to use compiler static scheduling of on-chip SRAM to completely eliminate memory-fetch stalls during the inference decoding phase, which is exactly the most typical bottleneck of GPU inference.
+
+## 2. AFD: Attention and FFN Split Up, GPU and LPU Each Do Their Own Job
+
+LPX does not replace the GPU; instead, it forms a heterogeneous system with Vera Rubin NVL72, centered on **AFD (Attention-FFN Disaggregation)**:
+
+1. **Rubin GPUs handle prefill and attention** — building the KV cache over large contexts and executing attention layers, consuming HBM capacity and high throughput;
+2. **Groq 3 LPUs handle FFN / MoE expert-layer decoding** — latency-sensitive and pattern-predictable, exactly the home turf of deterministic SRAM scheduling;
+3. **Intermediate activations are exchanged between the two engines token by token**, orchestrated and routed by NVIDIA Dynamo: the GPU computes every attention layer, the LPU computes every feed-forward layer, jointly producing each output token.
+
+The logic of this division of labor is clear: agentic AI applications can consume **15x** the tokens of traditional AI applications, and the bottleneck shifts from "can it finish computing" to "can it keep emitting tokens at stable low latency." Let the big HBM container run attention, and let the deterministic SRAM engine run decode — each plays to its strengths.
+
+## 3. Measured Results and Official Figures
+
+- **Third-party benchmarks** (Artificial Analysis): with Gemma 4 31B at a 100K token context, LPX output reaches roughly **3400 tokens/s** — inter-token intervals below 1 millisecond, a qualitative leap in interactivity for long-context agentic scenarios
+- **Official architecture comparisons**: with LPX added, Vera Rubin NVL72 achieves up to **35x** higher throughput per megawatt on trillion-parameter models; up to **10x** more revenue opportunity per watt in "high-value token" scenarios
+- **Launch customers**: Nebius is the first to deploy LPX racks to expand its token capacity; CoreWeave already connects Vera Rubin racks in production with Spectrum-X Multiplane
+
+It must be emphasized: the 35x/10x figures are architecture comparisons at specific high-interaction operating points, not universal conclusions. For training, high-throughput batch inference, and workloads that need CUDA ecosystem flexibility, the GPU remains the right answer; LPX's home turf is scenarios where "single-user interactive latency is the product" — agent loops, real-time coding assistants, long-context conversations.
+
+## 4. Three Industry Signals
+
+**1. Specialized inference chips get absorbed, not opposed.** The old narrative of the LPU as a "GPU challenger" has become part of Vera Rubin. The endgame for inference hardware may not be one architecture winning, but the heterogeneous combination of "GPU + specialized decoding engines" becoming the standard. For other inference chip startups (Cerebras, Etched, etc.), this is both proof that the ceiling has risen and a warning: get integrated or find differentiation.
+
+**2. Samsung foundry lands a high-end AI order.** Against the backdrop of TSMC's near-monopoly on AI main chips, Samsung 4nm taking on LPX mass production is highly significant — combined with Tesla's earlier AI6 2nm order, Samsung foundry has a shot at returning to full-year profitability in 2027.
+
+**3. Inference economics enters the "priced per MW" era.** When vendors start telling their story with tokens/MW and revenue per watt, the core KPI of compute selection has completely shifted from peak compute (TFLOPS) to token output per unit of energy. This is consistent with the power-and-electricity cost model built into our [TCO Calculator](/docs/tco-calculator): the chip with the best-looking peak specs is not necessarily the chip with the lowest cost per token.
+
+## Summary
+
+Groq 3 LPX mass production marks the arrival of a heterogeneous era for inference hardware: "GPUs manage throughput, LPUs manage latency." For teams currently selecting inference clusters, the recommendation is to evaluate workloads separately: keep batch offline inference on GPUs, and separately calculate the unit cost of LPX-class solutions for interactive long-context agents. If in doubt, run the 3-year total cost of ownership of both architectures through the [TCO Calculator](/docs/tco-calculator) before deciding.
+
+(Performance data in this article comes from NVIDIA official architecture comparisons and Artificial Analysis third-party benchmarks; for actual deployments, please rely on your own testing.)

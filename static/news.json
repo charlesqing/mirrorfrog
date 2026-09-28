@@ -1,5 +1,48 @@
 [
   {
+    "title": "英伟达中国份额崩至 8%，昇腾升至 50%：一份 9 月报告里的中国 AI 算力市场剧变",
+    "date": "2026-09-28",
+    "slug": "china-ai-compute-market-flip-bernstein",
+    "url": "/blog/china-ai-compute-market-flip-bernstein",
+    "description": "Bernstein 9 月 28 日报告：英伟达在中国 AI 芯片市场份额将从约 40% 跌至年底约 8%，华为昇腾升至近 50%；昇腾 950PR（FP4 2 PFLOPS、128GB 国产 HBM）被分析师评为大致对标 H200；华为 ",
+    "tags": [
+      "nvidia",
+      "huawei",
+      "ascend",
+      "domestic-substitution",
+      "deepseek",
+      "news"
+    ]
+  },
+  {
+    "title": "智能算力 2030 年冲 9800 EFLOPS：信息通信业「十五五」规划的五个硬指标",
+    "date": "2026-09-26",
+    "slug": "15th-five-year-plan-intelligent-compute-9800eflops",
+    "url": "/blog/15th-five-year-plan-intelligent-compute-9800eflops",
+    "description": "工信部《信息通信行业发展「十五五」规划》：智能算力规模从 1590 EFLOPS 增至 9800 EFLOPS（增长超 5 倍）、信息基础设施累计投资 3.8 万亿元、新建大型算力设施 PUE 降至 1.2 以下、先进存力 1700 EB、",
+    "tags": [
+      "domestic-ai-chip",
+      "ai-infrastructure",
+      "power-cooling",
+      "2026-progress",
+      "news"
+    ]
+  },
+  {
+    "title": "Groq 3 LPX 全面量产：三星 4nm 代工、单机架 315 PFLOPS FP8，英伟达把 LPU 变成 Vera Rubin 的第七颗芯片",
+    "date": "2026-09-26",
+    "slug": "groq-3-lpx-mass-production-vera-rubin",
+    "url": "/blog/groq-3-lpx-mass-production-vera-rubin",
+    "description": "英伟达确认 Groq 3 LPX 进入全面量产：三星平泽 4nm 代工，单机架 256 颗 LPU、315 PFLOPS FP8、128GB SRAM、40PB/s 片上带宽、640TB/s scale-up。Gemma 4 31B 在 1",
+    "tags": [
+      "nvidia",
+      "inference",
+      "product-launch",
+      "ai-compute",
+      "news"
+    ]
+  },
+  {
     "title": "GPU 租金又涨了：Nebius 10 月起 H100/B200 随需租金上调约 20%，自建 vs 租用的天平在移动",
     "date": "2026-09-25",
     "slug": "gpu-rental-hike-nebius-tco-2026",
@@ -24,49 +67,6 @@
       "domestic-chips",
       "training",
       "strategy",
-      "news"
-    ]
-  },
-  {
-    "title": "国产算力生态一周三信号：中国电信开源昇腾训练模型、浪潮 128 卡推理一体机、奕行智能融资 20 亿",
-    "date": "2026-09-23",
-    "slug": "domestic-ai-ecosystem-week-xing4-sd200-yixing",
-    "url": "/blog/domestic-ai-ecosystem-week-xing4-sd200-yixing",
-    "description": "9 月下旬国产 AI 算力生态密集落地：中国电信开源 Xing4.0-29B-A4B agentic MoE（宣布在昇腾上端到端训练）；浪潮发布 MetaBrain SD200 Ultra，128 颗国产 AI 芯片跑 Kimi K3 推理",
-    "tags": [
-      "domestic-chips",
-      "inference",
-      "domestic-substitution",
-      "news"
-    ]
-  },
-  {
-    "title": "阿里真武 V900 云栖大会发布：性能 3 倍于 M890、216GB 显存、50 万卡集群，2027 Q1 量产",
-    "date": "2026-09-22",
-    "slug": "alibaba-zhenwu-v900-cloud-2026",
-    "url": "/blog/alibaba-zhenwu-v900-cloud-2026",
-    "description": "9 月 22 日杭州云栖大会，平头哥发布新一代训推一体 AI 芯片真武 V900：单芯片性能为真武 M890 的 3 倍、216GB 大显存、片间互联 1200GB/s、原生 FP8/FP4，2027 年 Q1 量产并规模化部署阿里云；IC",
-    "tags": [
-      "alibaba",
-      "product-launch",
-      "domestic-chips",
-      "ai-infrastructure",
-      "news"
-    ]
-  },
-  {
-    "title": "昇腾 960 官宣发布：FP4 算力翻倍、全球首个 NPO 超节点，华为确认一年一代",
-    "date": "2026-09-18",
-    "slug": "huawei-ascend-960-official-launch",
-    "url": "/blog/huawei-ascend-960-official-launch",
-    "description": "9 月 17 日华为全联接大会，汪涛正式发布昇腾 960：960DT FP8 2 PFLOPS / FP4 4 PFLOPS（较 950 翻倍）、288GB 自研 HBM、9.6TB/s 带宽，提前三个季度就绪、2027 Q2 上市；昇腾 ",
-    "tags": [
-      "huawei",
-      "ascend",
-      "product-launch",
-      "domestic-chips",
-      "ai-infrastructure",
-      "roadmap",
       "news"
     ]
   }
