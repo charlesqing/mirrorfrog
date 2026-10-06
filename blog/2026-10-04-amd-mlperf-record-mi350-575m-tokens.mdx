@@ -1,0 +1,67 @@
+---
+slug: amd-mlperf-record-mi350-575m-tokens
+title: 'AMD创MLPerf推理纪录：512卡MI350实现575万tokens/秒，NVIDIA垄断首次实质性松动'
+date: '2026-10-04'
+authors: aicomputecards
+tags: [mlperf, benchmarks, amd, instinct, inference]
+description: 'MLPerf Inference v6.1中AMD以512卡MI350创下575万tokens/秒纪录，NVIDIA Vera Rubin NVL72首秀即实现Qwen3-VL吞吐最高3.7倍提升，分析师称NVIDIA在AI推理领域的历史性垄断出现实质性侵蚀。'
+---
+
+# AMD创MLPerf推理纪录：512卡MI350实现575万tokens/秒，NVIDIA垄断首次实质性松动
+
+> 2026年9月16日，MLPerf Inference v6.1结果出炉：AMD以Instinct MI350系列在512卡规模创下575万tokens/秒的MLPerf纪录，而NVIDIA Vera Rubin NVL72也在本轮完成首秀。分析师称，这是NVIDIA在AI训练与推理领域历史性垄断的"实质性侵蚀"。
+
+## MLPerf v6.1：本轮关键结果
+
+MLPerf Inference是业界最具公信力的AI推理基准测试，v6.1这一轮的格局变化堪称历史性：
+
+| 提交方 | 系统 | 关键结果 |
+| --- | --- | --- |
+| AMD | Instinct MI350系列，512卡 | 575万tokens/秒（5.75M tokens/sec）MLPerf纪录 |
+| AMD合作方 | 多家系统厂商 | 结果与AMD平均差距在4%以内 |
+| NVIDIA | Vera Rubin NVL72（首秀） | Qwen3-VL吞吐较GB300 NVL72最高提升3.7倍 |
+| NVIDIA | Vera Rubin NVL72 | DeepSeek-R1吞吐较GB300 NVL72最高提升2.5倍 |
+| NVIDIA | Vera Rubin NVL72，288卡 | 演示99%扩展效率 |
+| Intel | 软件优化 | 以软件优化收获性能增益 |
+
+AMD的512卡提交以575万tokens/秒创下MLPerf纪录，更值得注意的是，合作方的独立提交与AMD官方结果平均差距在4%以内——第三方可复现性意味着这个纪录不是实验室里的孤立数字。
+
+## NVIDIA的回应：Vera Rubin NVL72首秀
+
+NVIDIA并未坐视。Vera Rubin NVL72在本轮MLPerf完成首秀，成绩同样亮眼：Qwen3-VL吞吐较上一代GB300 NVL72最高提升3.7倍，DeepSeek-R1最高提升2.5倍，288卡规模演示了99%的扩展效率。
+
+这里存在一个口径差异需要读者注意：AMD刷新的是tokens/秒的绝对纪录（512卡），NVIDIA展示的是代际提升幅度（相对自家GB300）。两者并不矛盾，但说明竞争已从"单点性能"转向"规模效率与代际节奏"的全方位对垒。此外，Intel虽无新硬件登场，但证明了在成熟硬件上软件优化仍能压榨出可观的性能增益——软件栈的权重在推理竞争中持续上升。
+
+## MLPerf看什么：吞吐、延迟与规模效率
+
+对于习惯只看 headlines 的读者，读MLPerf结果建议关注三个维度：
+
+1. **吞吐（Throughput）**：单位时间token产出，反映系统在大批量服务场景的容量上限。AMD本次575万tokens/秒就是吞吐口径的纪录。
+2. **延迟（Latency）**：单请求响应速度，决定交互式应用的用户体验。吞吐成绩往往在放宽延迟约束时更高，需对照延迟约束看吞吐。
+3. **规模效率（Scaling Efficiency）**：从几十卡扩展到数百卡时性能保留多少。NVIDIA的288卡99%扩展效率正是这个口径——硬件再强，扩展效率低下就无法支撑真实的超大规模部署。
+
+三者组合才能还原一个系统的真实战力：吞吐高说明"能扛量"，延迟低说明"反应快"，规模效率高说明"能放大"。
+
+## AMD的部署进展：纪录之外的商业验证
+
+MLPerf成绩需要落地验证才有意义。AMD在2026年的部署进展已覆盖超算、国家级基础设施与商业训练：
+
+- **LUMI-AI超算（欧洲）**：将由MI430X与第六代EPYC驱动，延续AMD在欧洲超算领域的影响力；
+- **HUMAIN（沙特）与Cisco等大型基础设施项目**：MI355X系统参与其中，进入国家级AI基础设施采购清单；
+- **Zyphra的商业训练**：8月19日，Zyphra用1536张MI300X从零预训练ZAYA1-8B模型，证明AMD平台不仅能推理，也能承担大规模预训练。
+
+从超算到主权AI项目再到独立AI公司的预训练，AMD正在补齐"性能证明→商业信任"的最后一环。
+
+## 机架级竞争下的benchmark口径变化
+
+MLPerf v6.1还有一层容易被忽视的行业信号：benchmark口径正在变化。随着NVL72、Helios等机架级（rack-scale）系统成为竞争主战场，提交单位的颗粒度从"单卡/单机"演进到"整个机架"，互联、内存、网络全部被打包进成绩。
+
+这带来两个影响：其一，比较口径更接近真实部署（用户买的就是整机架），成绩参考价值更高；其二，小玩家更难参与——机架级提交的门槛将绝大多数中小厂商挡在门外。未来MLPerf榜单可能进一步分化为"单节点榜"与"机架级/集群榜"两个层次。
+
+## 国产芯片何时加入MLPerf提交
+
+另一个值得国内读者思考的问题：何时能看到国产AI芯片的MLPerf正式提交？MLPerf的公信力来自开放提交与第三方可复现，国产芯片若要在国际市场建立性能信任，参与MLPerf是绕不开的一步。目前MLPerf v6.1榜单上尚未出现国产芯片的正式提交，国产芯片何时加入、以什么规模加入，将成为观察其国际化进程的重要风向标。
+
+## 小结
+
+MLPerf Inference v6.1是分水岭式的一轮：AMD以512卡MI350创下575万tokens/秒的MLPerf纪录、合作方结果差距在4%以内，Tom's Hardware口径的判断是NVIDIA在AI训练与推理领域的历史性垄断出现"实质性侵蚀"；NVIDIA则以Vera Rubin NVL72首秀回应——Qwen3-VL吞吐最高3.7倍、DeepSeek-R1最高2.5倍、288卡99%扩展效率。加上AMD在LUMI-AI超算、HUMAIN、Cisco与Zyphra等项目的落地，AI推理市场的竞争格局正在被实质性改写。对采购者而言，现在是重新评估"唯NVIDIA论"的时候了；对行业而言，benchmark口径的机架级演化与国产芯片的缺席，同样是下一阶段值得持续跟踪的主线。

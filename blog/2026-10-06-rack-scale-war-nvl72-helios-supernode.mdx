@@ -1,0 +1,79 @@
+---
+slug: rack-scale-war-nvl72-helios-supernode
+title: '机架即计算机：NVL72、Helios、昇腾超节点的系统级战争'
+date: '2026-10-06'
+authors: aicomputecards
+tags: [ai-infrastructure, blackwell, mi455x, cloudmatrix, strategy]
+description: 'NVIDIA Vera Rubin NVL72、AMD Helios与华为昇腾960超节点三方对垒：72卡到4096卡的设计哲学差异，Bain报告指出竞争优势转向系统级整合，每瓦token数成为AI算力新北极星指标。'
+---
+
+# 机架即计算机：NVL72、Helios、昇腾超节点的系统级战争
+
+> 当GPU单卡性能提升越来越难，NVIDIA、AMD与华为不约而同地把战场转向了机架。Bain 2026报告指出，竞争优势正从芯片规格转向系统级整合——compute、memory、networking、power与software的整体协同，才是AI算力下半场的胜负手。
+
+## 三方系统规格对照
+
+先看三家旗舰机架级系统的硬规格：
+
+| 维度 | NVIDIA Vera Rubin NVL72 | AMD Helios | 华为昇腾960超节点 |
+| --- | --- | --- | --- |
+| 计算单元 | Rubin GPU + Vera CPU | 72× MI455X + EPYC "Venice"（Zen 6，最高256核） | 昇腾960 |
+| 互联 | NVLink | UALink over Ethernet | 超节点互联 + Hi-ONE光引擎 |
+| 内存/带宽 | HBM4；AMD官方对比口径单卡288GB HBM4、22TB/s带宽 | 31TB HBM4，每GPU 23.3TB/s | 1PB HBM |
+| 算力 | — | 整机架2.9 EF FP4、1.4 EF FP8 | 8 EFLOPS FP8（FP4为16 EFLOPS） |
+| 规模 | 72卡 | 72卡 | 4096卡，集群可扩至51.2万卡 |
+| 出货时间 | 2026年下半年 | Hot Chips 2026公布规格 | — |
+| 性能提升 | Qwen3-VL吞吐较GB300最高3.7倍；推理token成本降低最高10倍 | scale-out 43TB/s（较竞品多50%以上） | 全球首个NPO超节点 |
+
+注：表中"—"为素材未公开项，不作估算。三家口径与测试条件不同，数值仅供方向性参考。
+
+## NVIDIA NVL72：垂直整合与生态开放并行
+
+NVIDIA Vera Rubin NVL72延续"机架即计算机"的路线：Rubin GPU搭配自研Vera CPU，通过NVLink将72颗GPU熔铸成一个计算整体。MLPerf v6.1中，其Qwen3-VL吞吐较GB300 NVL72最高提升3.7倍，NVIDIA更宣称推理token成本最高降低10倍。
+
+但NVIDIA也在调整姿态：**NVLink Fusion向合作伙伴开放，允许集成自定义CPU与芯片**；同时推进NVHBM定制内存控制器计划（与亚马逊Annapurna Labs合作）。这是垂直整合帝国的"有限开放"——互联与内存标准仍然是NVIDIA掌控的枢纽，但入口已经打开。
+
+## AMD Helios：开放标准路线的全面出击
+
+AMD Helios选择了另一条路：基于OCP开放标准构建，与Meta共同研发ORW（Open Rack Wide）设计。整机构成包括：
+
+- **计算**：72颗MI455X，整机架2.9 EF FP4、1.4 EF FP8；
+- **CPU**：EPYC "Venice"（Zen 6架构，最高256核）；
+- **网络**：Pensando Vulcano 800G AI NIC，UALink over Ethernet互联；
+- **内存**：31TB HBM4，每GPU 23.3TB/s，scale-up总带宽260TB/s，scale-out带宽43TB/s——较竞品多50%以上；
+- **机架**：44OU ORW双宽机架，18个计算托盘加6个交换托盘，液冷快速接头，50V直流母线，整机重超7000磅（Hot Chips 2026口径）。
+
+Helios的意义在于证明：不依赖专有互联协议，开放标准同样能撑起机架级系统。对担心NVIDIA锁定的云厂商与主权AI项目而言，UALink over Ethernet提供了真正的第二选择。
+
+## 华为昇腾960超节点：换道超车的超大规模
+
+华为给出了截然不同的设计哲学——直接跳过"机架"这个尺度，以4096卡的超节点为单位构建系统：
+
+- **全球首个NPO超节点**，算力达8 EFLOPS FP8（FP4精度16 EFLOPS）；
+- **1PB HBM**，内存容量以"PB"计；
+- **5500个Hi-ONE光引擎**（单引擎7.2T）替代4.8万颗800G光模块，节省550kW功耗；
+- **可用度99.8%**；
+- **集群可扩展至51.2万卡，多轨道拓扑支持100万卡**。
+
+4096卡 vs 72卡，不只是数字差异，而是设计哲学的分歧：NVIDIA与AMD把一个机架做成一台"计算机"，华为则把半个数据中心机房做成一个"计算节点"——用光互联（NPO）解决跨机架带宽衰减问题，用超节点内部的高速交换换取更大规模的统一调度域。
+
+## Bain的判断：从芯片规格到系统级整合
+
+Bain 2026报告给出了理解这场战争的钥匙：**竞争优势正从芯片规格转向系统级整合**。compute、memory、networking、power与software五个维度的协同设计能力，取代单卡FLOPS成为竞争的决定性因素。
+
+与之相伴的是评价体系的迁移：**"每瓦token数"（tokens per watt）正在成为新的北极星指标**。当电力成为第一约束，每消耗一瓦电力能产出多少token，直接决定了AI工厂的经济性——这比"峰值算力"诚实得多，因为前者同时反映了芯片效率、互联损耗、内存带宽与软件调度的综合水平。
+
+## 两条路线：开放标准 vs 垂直整合
+
+机架级战争背后是两条路线的对抗：
+
+| 路线 | 代表 | 互联标准 | 优势 | 风险 |
+| --- | --- | --- | --- | --- |
+| 垂直整合 | NVIDIA（NVLink/灵衢UnifiedBus）、华为 | 专有协议 | 端到端协同优化，性能上限高 | 生态锁定，客户议价力弱 |
+| 开放标准 | AMD Helios（UALink/UEC/OCP） | 开放协议 | 供应链多元，无锁定 | 优化深度依赖联盟执行力 |
+
+值得注意的是，NVIDIA的NVLink Fusion开放与华为的灵衢UnifiedBus生态，都在尝试"专有内核+开放外围"的中间态——完全的封闭或完全的开放可能都不是终局，机架级时代的第一性原理是：谁能定义互联标准，谁就掌握议价权。
+
+## 小结
+
+NVL72、Helios与昇腾960超节点的三方对垒，宣告AI算力竞争进入"机架即计算机"的系统级时代：NVIDIA以Rubin GPU+Vera CPU+NVLink延续垂直整合，Qwen3-VL吞吐最高3.7倍、token成本最高降低10倍；AMD Helios以UALink over Ethernet与OCP开放标准证明第二条路可行，2.9 EF FP4、260TB/s scale-up带宽毫不逊色；华为昇腾960则以4096卡NPO超节点、1PB HBM的极端规格换道超车。Bain 2026报告说得透彻——竞争优势已从芯片规格转向系统级整合，"每瓦token数"成为新的北极星指标。72卡与4096卡的设计哲学差异，本质上是开放与整合两条路线对未来AI基础设施形态的不同押注。这场战争没有旁观者，采购方、云厂商与主权AI项目的每一次选择，都在为两条路线投票。

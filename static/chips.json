@@ -2829,6 +2829,35 @@
     }
   },
   {
+    "id": "nvidia-n1x",
+    "title": "NVIDIA N1X（PC 处理器）",
+    "vendor": "nvidia",
+    "slug": "/docs/cards/nvidia/nvidia-n1x",
+    "description": "NVIDIA N1X 是 NVIDIA 首款以自有品牌进军 PC 处理器市场的芯片，与微软合作打造、基于 RTX Spark 平台衍生，面向消费级和 OEM Windows PC，2026 年秋季上市。发布当日 Intel 与 AMD 股价各下跌约 4.2%。",
+    "keywords": [
+      "NVIDIA N1X",
+      "N1X",
+      "PC处理器",
+      "AI PC",
+      "RTX Spark",
+      "微软合作",
+      "Windows PC",
+      "Arm CPU",
+      "联发科"
+    ],
+    "tdpW": null,
+    "fp16Tflops": null,
+    "fp4Tflops": null,
+    "specs": {
+      "architecture": "Arm CPU + Blackwell GPU（RTX Spark 衍生）",
+      "memory": {
+        "capacity": "与 RTX Spark 同源（LPDDR5X 统一内存架构）"
+      },
+      "tdp": "未公开",
+      "release": "2026-10-04（正式公布）"
+    }
+  },
+  {
     "id": "rtx-4090",
     "title": "NVIDIA RTX 4090",
     "vendor": "nvidia",
@@ -3463,6 +3492,41 @@
       },
       "tdp": "未公开",
       "release": "2026 年 5 月 20 日（2026 阿里云峰会）"
+    }
+  },
+  {
+    "id": "alibaba-zhenwu-v900",
+    "title": "阿里平头哥 真武 V900（训推一体 AI 芯片）",
+    "vendor": "others",
+    "slug": "/docs/cards/others/alibaba-zhenwu-v900",
+    "description": "阿里平头哥真武 V900 训推一体 AI 芯片规格：216 GB 大容量显存、1200 GB/s 片间互联、原生 FP8/FP4、性能为真武 M890 的 3 倍，2026 年 9 月 22 日云栖大会发布，2027 年第一季度量产上云，ICN Switch 互联可扩展至 50 万卡集群。",
+    "keywords": [
+      "真武V900",
+      "Zhenwu V900",
+      "平头哥",
+      "T-Head",
+      "阿里",
+      "216GB",
+      "ICN Switch",
+      "磐久AL128",
+      "云栖大会",
+      "国产AI芯片",
+      "万亿参数"
+    ],
+    "tdpW": null,
+    "fp16Tflops": null,
+    "fp4Tflops": null,
+    "specs": {
+      "architecture": "平头哥自研并行计算架构（PPU）",
+      "process": "未公开（业界推测国产 7nm 级）",
+      "memory": {
+        "capacity": "216 GB"
+      },
+      "compute": {
+        "fp16": "未公开"
+      },
+      "tdp": "未公开",
+      "release": "2026 年 9 月 22 日（2026 杭州云栖大会）"
     }
   },
   {

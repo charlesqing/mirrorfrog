@@ -1,73 +1,66 @@
 [
   {
-    "title": "英伟达中国份额崩至 8%，昇腾升至 50%：一份 9 月报告里的中国 AI 算力市场剧变",
-    "date": "2026-09-28",
-    "slug": "china-ai-compute-market-flip-bernstein",
-    "url": "/blog/china-ai-compute-market-flip-bernstein",
-    "description": "Bernstein 9 月 28 日报告：英伟达在中国 AI 芯片市场份额将从约 40% 跌至年底约 8%，华为昇腾升至近 50%；昇腾 950PR（FP4 2 PFLOPS、128GB 国产 HBM）被分析师评为大致对标 H200；华为 ",
+    "title": "AI芯片周报（2026年第41周）：2nm量产竞速、存储新范式与机架级大战",
+    "date": "2026-10-06",
+    "slug": "ai-chip-weekly-2026-w41",
+    "url": "/blog/ai-chip-weekly-2026-w41",
+    "description": "AI芯片周报第41周：NVIDIA N1X发布冲击PC市场，Intel CPU年内第三次涨价10%，AMD Helios进入量产，MLPerf v6.1新纪录，SK海力士存储新范式，华为昇腾950云服务商用倒计时，寒武纪与昇腾涨价20%-5",
     "tags": [
-      "nvidia",
-      "huawei",
-      "ascend",
-      "domestic-substitution",
-      "deepseek",
-      "news"
+      "news",
+      "industry-review",
+      "ai-compute"
     ]
   },
   {
-    "title": "智能算力 2030 年冲 9800 EFLOPS：信息通信业「十五五」规划的五个硬指标",
-    "date": "2026-09-26",
-    "slug": "15th-five-year-plan-intelligent-compute-9800eflops",
-    "url": "/blog/15th-five-year-plan-intelligent-compute-9800eflops",
-    "description": "工信部《信息通信行业发展「十五五」规划》：智能算力规模从 1590 EFLOPS 增至 9800 EFLOPS（增长超 5 倍）、信息基础设施累计投资 3.8 万亿元、新建大型算力设施 PUE 降至 1.2 以下、先进存力 1700 EB、",
+    "title": "AI数据中心成为电网参与者：AEMA联盟成立、NVIDIA DSX实现24%吞吐增益",
+    "date": "2026-10-06",
+    "slug": "ai-grid-energy-management-aema",
+    "url": "/blog/ai-grid-energy-management-aema",
+    "description": "Emerald AI、Google与NVIDIA发起成立AI能源管理联盟AEMA，推动电网响应式AI数据中心。NVIDIA DSX MaxLPS帮助Lambda提升24%集群token吞吐、23%每瓦性能，AI工厂正从被动用电者转型为主动电",
     "tags": [
-      "domestic-ai-chip",
-      "ai-infrastructure",
       "power-cooling",
-      "2026-progress",
-      "news"
-    ]
-  },
-  {
-    "title": "Groq 3 LPX 全面量产：三星 4nm 代工、单机架 315 PFLOPS FP8，英伟达把 LPU 变成 Vera Rubin 的第七颗芯片",
-    "date": "2026-09-26",
-    "slug": "groq-3-lpx-mass-production-vera-rubin",
-    "url": "/blog/groq-3-lpx-mass-production-vera-rubin",
-    "description": "英伟达确认 Groq 3 LPX 进入全面量产：三星平泽 4nm 代工，单机架 256 颗 LPU、315 PFLOPS FP8、128GB SRAM、40PB/s 片上带宽、640TB/s scale-up。Gemma 4 31B 在 1",
-    "tags": [
-      "nvidia",
-      "inference",
-      "product-launch",
-      "ai-compute",
-      "news"
-    ]
-  },
-  {
-    "title": "GPU 租金又涨了：Nebius 10 月起 H100/B200 随需租金上调约 20%，自建 vs 租用的天平在移动",
-    "date": "2026-09-25",
-    "slug": "gpu-rental-hike-nebius-tco-2026",
-    "url": "/blog/gpu-rental-hike-nebius-tco-2026",
-    "description": "Nebius 宣布 10 月 1 日起 H100/H200/B200 随需租金平均上调约 20%；CoreWeave 已签约电力增至 4.2GW 并继续以更高价格签约新算力。GPU 租赁市场连续涨价背后是 agentic 推理需求爆发与 R",
-    "tags": [
-      "cloud-pricing",
-      "ai-compute",
+      "ai-factory",
       "ai-infrastructure",
       "news"
     ]
   },
   {
-    "title": "DeepSeek 确认押注华为芯片训练大模型：从 16 万颗 950DT 传闻到\"必须成功\"的站队",
-    "date": "2026-09-23",
-    "slug": "deepseek-doubles-down-ascend-training",
-    "url": "/blog/deepseek-doubles-down-ascend-training",
-    "description": "DeepSeek CEO 9 月 22 日确认正大力押注华为芯片，新一批芯片将用于大模型 AI 训练，并强调\"这一选择必须成功\"。从此前拟采购 16 万颗昇腾 950DT 跑推理，到如今明确押注训练侧，头部实验室对国产训练算力的态度发生了质",
+    "title": "AMD Helios进入量产：MI455X首批Q3末出货，OpenAI/Meta/Anthropic 12GW承诺兑现中",
+    "date": "2026-10-06",
+    "slug": "amd-mi455x-helios-volume-production",
+    "url": "/blog/amd-mi455x-helios-volume-production",
+    "description": "AMD MI455X与Helios机架系统已进入生产阶段，首批出货目标为2026年第三季度末，OpenAI 6GW、Meta 6GW部署合作及Anthropic战略合作正转化为近期硬件收入。本文解析Helios机架规格、客户版图，以及开放标",
     "tags": [
-      "deepseek",
-      "huawei",
-      "domestic-chips",
-      "training",
-      "strategy",
-      "news"
+      "mi455x",
+      "mi450",
+      "amd",
+      "instinct",
+      "ai-infrastructure"
+    ]
+  },
+  {
+    "title": "Intel年内第三次涨价：CPU上调10%，AI需求下的产能博弈",
+    "date": "2026-10-06",
+    "slug": "intel-cpu-price-hike-10-percent",
+    "url": "/blog/intel-cpu-price-hike-10-percent",
+    "description": "Intel宣布自2026年10月5日起CPU涨价10%，这是2025年以来的第三次涨价，背后是AI需求爆发与产能紧张的持续博弈。本文分析涨价驱动力、半导体短缺的行业判断、Intel AI芯片线布局，以及涨价向整机与云价格传导的路径，并为采购",
+    "tags": [
+      "intel",
+      "news",
+      "ai-hardware"
+    ]
+  },
+  {
+    "title": "NVIDIA N1X进军PC处理器：发布当日Intel、AMD股价各跌4.2%",
+    "date": "2026-10-06",
+    "slug": "nvidia-n1x-pc-chip-intel-amd-slide",
+    "url": "/blog/nvidia-n1x-pc-chip-intel-amd-slide",
+    "description": "NVIDIA于2026年10月4日正式发布N1X PC处理器，基于RTX Spark芯片打造，与微软合作面向消费级和OEM Windows PC市场，发布当日Intel与AMD股价各下跌4.2%。本文解析N1X的硬件规格、x86双寡头格局首",
+    "tags": [
+      "nvidia",
+      "rtx-spark",
+      "news",
+      "strategy"
     ]
   }
 ]

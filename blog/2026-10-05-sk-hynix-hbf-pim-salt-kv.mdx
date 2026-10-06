@@ -1,0 +1,68 @@
+---
+slug: sk-hynix-hbf-pim-salt-kv
+title: 'SK海力士发布AI存储"新频谱"：HBF、PIM、SALT-KV重新定义AI基础设施'
+date: '2026-10-05'
+authors: aicomputecards
+tags: [ai-infrastructure, hbm4, tech-deep-dive, news]
+description: 'SK海力士在AI Infra Summit 2026发布面向AI基础设施的New Spectrum技术组合：HBF高带宽闪存、PIM存内计算、eSSD与SALT-KV，并成立SK hynix Ventures。存储正从部件供应商转型为AI基础设施平台玩家。'
+---
+
+# SK海力士发布AI存储"新频谱"：HBF、PIM、SALT-KV重新定义AI基础设施
+
+> 2026年9月17日，SK海力士在AI Infra Summit 2026上发布面向AI基础设施的"New Spectrum"技术组合。当Agentic AI与长上下文推理把存储推向瓶颈中心，存储厂商正从部件供应商转型为AI基础设施平台玩家。
+
+## New Spectrum：四大技术方向
+
+SK海力士此次发布的"New Spectrum"组合覆盖四个方向，每一项都瞄准AI工作负载中最突出的存储瓶颈：
+
+| 技术方向 | 全称 | 核心定位 |
+| --- | --- | --- |
+| HBF | High Bandwidth Flash（高带宽闪存） | 把闪存带宽提升至内存量级 |
+| PIM | Processing In-Memory（存内计算） | 在存储侧完成计算，减少数据搬运 |
+| eSSD | 企业级固态硬盘 | AI数据湖与训练数据底座 |
+| SALT-KV | — | 面向KV Cache的键值存储方案 |
+
+这四项技术的共同指向非常清晰：AI推理时代的存储不再是"够大就行"，而是要同时满足带宽、容量、成本与数据通路效率的多重约束。
+
+## KV Cache经济性：Agentic AI拉动的存储需求
+
+理解New Spectrum的关键，是理解KV Cache经济性。
+
+大语言模型推理时，每一个token的生成都要读取之前所有上下文的KV Cache。上下文越长，KV Cache越大；Agentic AI的兴起让"长对话、多轮次、多Agent协作"成为常态——一个Agent任务可能持续数十轮调用，每轮都在累积上下文。这意味着：
+
+- **KV Cache容量需求爆炸式增长**：长上下文模型动辄数十万token的窗口，单请求KV Cache可达数十GB量级；
+- **带宽成为隐性成本中心**：每生成一个token都要完整读取KV Cache，内存带宽直接决定了单位token成本；
+- **层级化存储成为必然**：HBM放不下的KV Cache需要更快的次级存储，这正是HBF与SALT-KV的切入点。
+
+同期，华为OceanStor M900已提供PB级KV Cache集群方案，说明"KV Cache基础设施化"已是行业共识。谁能把KV Cache存得更多、读得更快、成本压得更低，谁就掌握了推理经济的新杠杆。
+
+## HBF：把闪存带宽提到内存量级
+
+HBF（High Bandwidth Flash）是New Spectrum中最具想象空间的一项。传统NAND闪存的致命短板是带宽——顺序读尚可，随机读性能与内存相差数个量级，因此长期只能承担"冷数据"角色。
+
+HBF借鉴HBM的设计哲学，通过堆叠与宽接口把闪存带宽提升至接近内存的量级。这带来的可能性是：原本必须驻留HBM的热数据，可以部分下沉到HBF层，在成本几乎不变的情况下大幅扩展"有效内存容量"。对于动辄以TB计的模型权重和KV Cache而言，HBF有望成为HBM与eSSD之间缺失的中间层。
+
+## PIM：推理场景的近数据计算
+
+PIM（存内计算）的定位则是解决另一个痛点：数据搬运。在传统架构中，数据从内存搬运到计算单元的能耗与延迟开销，往往超过计算本身。PIM把计算能力直接嵌入存储介质，让"数据不动、计算过来"。
+
+在推理场景中，PIM尤其适合权重固定的矩阵乘加等访存密集操作，能够在降低功耗的同时提升吞吐。随着每瓦token数成为数据中心的核心KPI，PIM的价值会持续放大。
+
+## 行业同期动作：存储军备竞赛全面展开
+
+SK海力士的动作并非孤立。2026年9月中旬，存储与定制硬件领域密集出招：
+
+| 时间 | 厂商 | 动作 |
+| --- | --- | --- |
+| 9月15日 | 美光 | 发布全球首款超密度服务器内存模组 |
+| 9月17日 | SK海力士 | AI Infra Summit 2026发布New Spectrum技术组合 |
+| 9月18日 | SK海力士 | 在硅谷成立SK hynix Ventures，扩大全球AI生态投资 |
+| 9月同期 | 亚马逊Annapurna Labs × NVIDIA | 合作NVHBM定制HBM |
+
+三个信号值得注意：其一，美光的超密度内存模组直指单机内存容量天花板；其二，亚马逊与NVIDIA的NVHBM合作说明头部应用方已深入定制内存控制器层面；其三，SK hynix Ventures落地硅谷，表明存储巨头不再满足于卖部件，而是要通过投资生态锁定AI基础设施的平台位置。
+
+2026年9月的半导体周报对此有明确判断：**存储正与AI加速器协同设计，存储公司正从部件供应商转型为AI基础设施平台玩家**。HBM4时代的定制化（如NVHBM）正是协同设计趋势的直接体现——内存不再是可以即插即用的标准件，而是与GPU、ASIC深度耦合的系统组件。
+
+## 小结
+
+SK海力士的New Spectrum组合——HBF、PIM、eSSD、SALT-KV——勾勒出AI存储的完整路线图：HBF把闪存带宽提到内存量级、填补HBM之下的层级空白，PIM用近数据计算降低搬运开销，SALT-KV直击KV Cache经济性这一推理时代的核心命题。叠加美光超密度内存、亚马逊与NVIDIA的NVHBM定制HBM等同期动作，2026年的存储行业已经清晰地完成了角色转身：从跟随GPU节奏的部件供应商，变成与AI加速器协同设计、共同定义AI基础设施形态的平台玩家。存储，正在成为AI竞争的下一个主战场。

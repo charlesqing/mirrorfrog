@@ -110,6 +110,7 @@ const sidebars: SidebarsConfig = {
           label: '工作站 / 消费级',
           items: [
             'cards/nvidia/rtx-spark',
+            'cards/nvidia/nvidia-n1x',
             'cards/nvidia/rtx-6000-ada',
             'cards/nvidia/rtx-pro-6000-blackwell',
             'cards/nvidia/rtx-pro-5000-blackwell',
@@ -334,6 +335,7 @@ const sidebars: SidebarsConfig = {
         'cards/others/alibaba-ppu',
         'cards/others/alibaba-zhenwu-810e',
         'cards/others/alibaba-zhenwu-m890',
+        'cards/others/alibaba-zhenwu-v900',
         'cards/others/zhonghao-tpu',
         'cards/others/enrigin-d20',
         'cards/others/tsingmicro-tx81',

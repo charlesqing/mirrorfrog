@@ -1,0 +1,70 @@
+---
+slug: amd-mi455x-helios-volume-production
+title: 'AMD Helios进入量产：MI455X首批Q3末出货，OpenAI/Meta/Anthropic 12GW承诺兑现中'
+date: '2026-10-06'
+authors: aicomputecards
+tags: [mi455x, mi450, amd, instinct, ai-infrastructure]
+description: 'AMD MI455X与Helios机架系统已进入生产阶段，首批出货目标为2026年第三季度末，OpenAI 6GW、Meta 6GW部署合作及Anthropic战略合作正转化为近期硬件收入。本文解析Helios机架规格、客户版图，以及开放标准生态对NVIDIA垂直整合的制衡意义。'
+---
+
+# AMD Helios进入量产：MI455X首批Q3末出货，OpenAI/Meta/Anthropic 12GW承诺兑现中
+
+> 从7月23日"Advancing AI"发布会官宣，到9月18日确认进入量产、首批出货瞄准Q3末——AMD Helios只用约2个月就完成了从PPT到产线的跨越。多吉瓦级的客户承诺，正在变成真金白银的硬件收入。
+
+## 量产落地：约2个月的执行速度
+
+据2026年9月18日报道，AMD MI455X / Helios机架系统已进入生产阶段，首批出货目标为2026年第三季度末。回顾时间线：2026年7月23日Advancing AI大会上正式发布，到9月确认量产，间隔仅约2个月。对于机架级AI系统的量产节奏而言，这是相当激进的执行速度——NVIDIA当年GB200 NVL72的量产爬坡曾因供应链问题拖延数个季度，Helios显然吸取了教训。
+
+## 客户版图：多吉瓦承诺正在兑现
+
+AMD在AI基础设施领域的客户合作已形成一张密集的网络：
+
+| 客户/伙伴 | 合作内容 |
+| --- | --- |
+| OpenAI | 宣布6GW部署合作 |
+| Meta | 扩大合作，再部署6GW |
+| Anthropic | 战略合作 |
+| 微软 | Helios首批客户之一，2026年下半年交付 |
+| Oracle | 扩大合作 |
+| TCS | 将Helios架构带到印度 |
+| HPE | 扩大开放机架合作 |
+| 美国主权AI | 助力超算建设 |
+
+其中最重磅的是OpenAI的6GW与Meta的6GW——合计12GW的多吉瓦承诺，正通过MI455X/Helios的量产转化为近期硬件收入。这意味着AMD的Instinct业务线将从"技术验证"阶段正式进入"规模收入"阶段。
+
+## Helios机架：72卡MI455X的机架级算力
+
+Helios机架系统的核心构成如下：
+
+| 组件 | 规格 |
+| --- | --- |
+| GPU | 72 × MI455X（CDNA 5架构） |
+| 单卡显存 | 432GB HBM4 |
+| 显存带宽 | 23.3TB/s |
+| CPU | EPYC "Venice"（Zen 6，最高256核） |
+| 网络 | Pensando Vulcano NIC |
+| 互联 | UALink |
+| 机架算力 | 2.9 EF FP4 |
+| 机架显存总量 | 31TB HBM4 |
+
+几个关键点值得关注：
+
+- **CDNA 5 + HBM4**：MI455X单卡432GB HBM4、23.3TB/s带宽，在显存容量与带宽两个维度上都给出了激进规格；
+- **EPYC Venice**：Zen 6架构、最高256核的服务器CPU与GPU同机架部署，形成完整的"CPU+GPU+NIC"平台；
+- **UALink互联**：机架内GPU互联采用开放标准UALink，而非封闭私有方案。
+
+此外，MI430X将驱动欧洲LUMI-AI超算，进一步扩展MI400系列在科学计算与AI融合场景的存在感。
+
+## 开放标准生态：对NVIDIA垂直整合的制衡
+
+Helios的战略意义不止于产品本身。AMD正在联合产业伙伴推动UALink、UEC（超以太网联盟）、OCP等开放标准，与NVIDIA的NVLink/InfiniBand垂直整合体系形成制衡：
+
+- **UALink**：开放GPU互联标准，让多家厂商的加速器可以在统一协议下组网；
+- **UEC**：开放网络标准，降低用户被单一厂商网络方案锁定的风险；
+- **OCP开放机架**：与HPE扩大合作，推动机架级设计的开放化。
+
+对超大规模云厂商和AI实验室而言，开放标准意味着议价能力与供应链多元化。OpenAI与Meta同时押注AMD，本身就是对NVIDIA一家独大格局的对冲。
+
+## 小结
+
+Helios进入量产，标志着AMD完成了从"发布即承诺"到"交付即收入"的关键一跃：约2个月的发布到量产周期、12GW的客户承诺、72卡MI455X的2.9 EF FP4机架算力，以及UALink/UEC/OCP开放标准生态的持续推进，共同构成了AMD在2026年AI基础设施竞争中的核心筹码。MI430X驱动LUMI-AI超算的落地，则说明这套体系在学术与主权计算场景同样具备竞争力。
