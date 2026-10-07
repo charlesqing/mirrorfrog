@@ -90,7 +90,7 @@ The **950PR (Prefill inference)** and **950DT (Decode + training)** are Huawei A
 | **Official Website** | https://www.hiascend.com |
 | **CANNN** | https://www.hiascend.com/en/software/cann |
 | **Launch** | **2026 H1 (mass production)** |
-| **Pricing (estimated)** | 950PR ~¥80,000-100,000, 950DT ~¥120,000-150,000 |
+| **Pricing** | Not officially disclosed; see October 2026 market prices below |
 
 ## Use Cases
 
@@ -101,6 +101,23 @@ The **950PR (Prefill inference)** and **950DT (Decode + training)** are Huawei A
 - ✅ **Government and enterprise AI infrastructure** (in-house HBM, supply chain security)
 - ❌ **CUDA ecosystem lock-in** (migration to CANN / MindSpore required)
 - ❌ **FP4 training** (the 950 supports FP4 for inference; training remains primarily FP8/BF16)
+
+## Ecosystem Progress (October 2026 Update)
+
+### DeepSeek × Huawei Open-Source Toolchain
+In early October 2026, **DeepSeek and Huawei jointly released open-source programming tools and libraries for the Ascend 950 accelerator** (including compute and communication libraries), aimed at reducing NVIDIA ecosystem lock-in and accelerating developer migration to the Ascend software stack — a landmark event in domestic AI chip software-stack independence, with a top model vendor directly co-building Ascend tooling.
+
+### AI Cluster Cloud Service Commercialization
+- **September 30**: Ascend 950 AI cluster cloud service commercially launched in China
+- **November 30**: Global commercial availability (announced at Huawei Connect 2026)
+
+### Market Prices (October 2026, Reuters reporting)
+Driven by surging HBM costs and tight supply, Ascend card prices have risen sharply:
+
+| Model | Early-2026 Price | October 2026 Market Price | Increase |
+|-------|-----------------|---------------------------|----------|
+| **Ascend 950PR** | ~¥60,000 | Above **¥80,000** | +30% |
+| **Ascend 950DT** | ~¥120,000-150,000 | Indicative price above **¥250,000** | Up to +50% (within two months) |
 
 ## Related Products
 

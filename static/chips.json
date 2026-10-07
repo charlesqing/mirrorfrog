@@ -518,6 +518,34 @@
     }
   },
   {
+    "id": "ryzen-ai-max-pro-495",
+    "title": "AMD Ryzen AI Max Pro 495 (Strix Halo 192GB UMA)",
+    "vendor": "amd",
+    "slug": "/docs/cards/amd/ryzen-ai-max-pro-495",
+    "description": "AMD Ryzen AI Max Pro 495：Strix Halo 升级版 AI PC 旗舰，2026年10月5日亮相，最高192GB统一内存、16核桌面级Zen 5、RDNA 3.5图形引擎、内存速率8.5GT/s，VGM最多可将160GB分配给GPU，单机离线运行1000亿参数大模型。",
+    "keywords": [
+      "AMD Ryzen AI Max Pro 495",
+      "Strix Halo",
+      "192GB unified memory",
+      "VGM",
+      "AI PC",
+      "Zen 5",
+      "RDNA 3.5",
+      "端侧大模型"
+    ],
+    "tdpW": null,
+    "fp16Tflops": null,
+    "fp4Tflops": null,
+    "specs": {
+      "architecture": "Chiplet 异构（CPU + GPU + I/O die）",
+      "memory": {
+        "capacity": "最高 192 GB LPDDR5X",
+        "bandwidth": "~272 GB/s（按 256-bit @ 8.5 GT/s 推算）"
+      },
+      "tdp": "未公布（可参考 PRO 系列功耗档位）"
+    }
+  },
+  {
     "id": "inferentia",
     "title": "AWS Inferentia (第一代)",
     "vendor": "aws",

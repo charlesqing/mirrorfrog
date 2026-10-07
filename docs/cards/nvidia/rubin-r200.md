@@ -88,6 +88,7 @@ Rubin R200 采用**多芯片模块（MCM）设计**，核心包含：
 
 - **量产时间**：2026 年 6 月进入全面量产（三星、SK 海力士、美光三家 HBM4 多源供货）
 - **已交付客户**：CoreWeave、Google Cloud、Microsoft Azure、Oracle Cloud（Vera Rubin NVL72 机柜已交付并扩大部署）
+- **MLPerf Inference v6.1 首秀**（2026-09-16 出结果）：Qwen3-VL 吞吐较 GB300 NVL72 最高提升 **3.7 倍**、DeepSeek-R1 最高提升 **2.5 倍**，288 卡演示 **99% 扩展效率**
 - **HBM4 供货**：SK 海力士 12 层 HBM4（36GB/堆栈，2.8 TB/s/堆栈，11 Gbps）于 2026 年 7 月启动量产出货
 - **自建机房用户**：2027 年第一季度可采购
 - **合作伙伴产品**：2026 年下半年上市交付

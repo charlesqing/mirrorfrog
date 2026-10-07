@@ -86,6 +86,7 @@ Rubin R200 adopts a **multi-chip module (MCM) design**, with the core comprising
 
 - **Mass Production**: Second half of 2026
 - **First Customers**: AWS, Azure, Google Cloud, Oracle Cloud
+- **MLPerf Inference v6.1 Debut** (results published 2026-09-16): Qwen3-VL throughput up to **3.7x** GB300 NVL72, DeepSeek-R1 up to **2.5x**, with 99% scaling efficiency demonstrated on 288 GPUs
 - **On-Premises Users**: Q1 2027 availability
 - **Partner Products**: Market delivery in second half of 2026
 

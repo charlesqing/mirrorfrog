@@ -152,6 +152,7 @@ const sidebars: SidebarsConfig = {
         'cards/amd/mi455x',
         'cards/amd/mi500',
         'cards/amd/ryzen-ai-max',
+        'cards/amd/ryzen-ai-max-pro-495',
         'cards/amd/radeon-pro-w7900',
         'cards/amd/epyc-venice',
       ],

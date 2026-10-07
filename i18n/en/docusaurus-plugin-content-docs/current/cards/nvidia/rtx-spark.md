@@ -27,15 +27,33 @@ RTX Spark targets both **laptops and compact desktops** and is expected to launc
 | **Gaming Performance** | ~100 FPS @ 1440p (DLSS 4.5) |
 | **Model Capacity** | Runs **120 billion parameter** models |
 | **Context** | Up to **1 million tokens** |
-| **AI Compute (estimated)** | ~1 PFLOPS (unofficial NVIDIA figure) |
+| **AI Compute** | **1 PFLOPS (FP4 sparse, official figure)** |
 | **TDP** | ~100W (estimated) |
-| **Launch OEMs** | Dell, HP, Lenovo, Asus, MSI, Microsoft Surface |
+| **Launch OEMs** | Dell, HP, Lenovo, Asus, Acer, Gigabyte, Microsoft, MSI (8 OEMs) |
 | **Models** | 30+ laptops + ~10 desktops |
 | **Availability** | **Fall 2026** |
 | **Pricing** | Not yet announced |
 | **Announced** | 2025-01-07 (Project DIGITS) |
 
 > ⚠️ **Note**: NVIDIA's Computex 2026 announcement focused on platform positioning and the AI narrative; it did not publish official TFLOPS/PFLOPS figures, TDP, or pricing. Some of the data above is based on industry estimates.
+
+## DGX Spark Desktop System (October 2026 Update)
+
+The first official desktop form factor of the RTX Spark platform, **DGX Spark 64GB**, launched in early October 2026:
+
+| Item | Spec |
+|------|------|
+| **Chip** | GB10 Grace Blackwell superchip (fully integrated) |
+| **Unified memory** | 64 GB (~8 GB reserved for system, ~56 GB available for models) |
+| **Memory bandwidth** | 273 GB/s |
+| **Interconnect** | NVLink-C2C |
+| **Local inference** | Runs 100B-parameter models locally (Qwen3.8 27B, Gemma4 26B, Nemotron 3.5 Lightning verified) |
+| **Dual-node clustering** | Built-in ConnectX-7; two units linked via QSFP pool memory to 128 GB, raising the model limit to ~200B parameters |
+| **Dual-node benchmark** | Qwen3.8 27B cluster performance up to 70% higher than a single 128GB system peak |
+| **Starting price** | **$4,999** |
+| **Availability** | **October 23, 2026** (Acer, ASUS, Dell, Gigabyte, HP, MSI and more) |
+| **128GB Founders Edition** | Price raised to **$6,950** (AI memory shortage driving hardware pricing) |
+| **Software** | Ships with DGX OS + NVIDIA AI stack; native Ollama, vLLM, PyTorch with CUDA support; Sync Cluster Assistant for automated cluster setup |
 
 ## Platform Ecosystem
 

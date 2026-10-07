@@ -123,6 +123,7 @@ keywords: [AMD Ryzen AI Max, Strix Halo, XDNA 2, 50 TOPS, 128GB UMA, 96GB VRAM, 
 
 ## Related Cards
 
+- [AMD Ryzen AI Max Pro 495 (192GB)](/docs/cards/amd/ryzen-ai-max-pro-495) — October 2026 upgrade (192GB unified memory)
 - [AMD MI300X (1.5 TB HBM3 Data Center)](/docs/cards/amd/mi300x) — Data center GPU
 - [AMD MI355X (288GB HBM3E Data Center)](/docs/cards/amd/mi355x) — Data center GPU
 - [AMD MI400 (CDNA Next Helios)](/docs/cards/amd/mi400) — Data center successor

@@ -123,6 +123,7 @@ keywords: [AMD Ryzen AI Max, Strix Halo, XDNA 2, 50 TOPS, 128GB UMA, 96GB VRAM, 
 
 ## 相关卡
 
+- [AMD Ryzen AI Max Pro 495 (192GB)](/docs/cards/amd/ryzen-ai-max-pro-495) — 2026-10 升级版（192GB 统一内存）
 - [AMD MI300X (1.5 TB HBM3 数据中心)](/docs/cards/amd/mi300x) — 数据中心 GPU
 - [AMD MI355X (288GB HBM3E 数据中心)](/docs/cards/amd/mi355x) — 数据中心 GPU
 - [AMD MI400 (CDNA Next Helios)](/docs/cards/amd/mi400) — 数据中心后继

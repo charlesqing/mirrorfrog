@@ -27,15 +27,33 @@ RTX Spark 同时面向 **笔记本和紧凑型桌面**，预计 **2026 年秋季
 | **游戏性能** | ~100 FPS @ 1440p（DLSS 4.5） |
 | **模型容量** | 可运行 **1,200 亿参数** 模型 |
 | **上下文** | 最长 **100 万 tokens** |
-| **AI 算力（推测）** | ~1 PFLOPS（NVIDIA 非官方口径） |
+| **AI 算力** | **1 PFLOPS（FP4 稀疏，官方口径）** |
 | **TDP** | ~100W（推测） |
-| **首发 OEM** | Dell, HP, Lenovo, Asus, MSI, Microsoft Surface |
+| **首发 OEM** | Dell, HP, Lenovo, Asus, Acer, Gigabyte, Microsoft, MSI（8 家） |
 | **机型** | 30+ 款笔记本 + ~10 款桌面 |
 | **上市** | **2026 年秋季** |
 | **定价** | 尚未公布 |
 | **发布** | 2025-01-07（Project DIGITS） |
 
 > ⚠️ **注**：NVIDIA 在 Computex 2026 的发布重点是平台定位和 AI 叙事，未公布具体的 TFLOPS/PFLOPS 官方数据、TDP 和定价。以上部分数据基于行业推测。
+
+## DGX Spark 桌面系统（2026-10 更新）
+
+RTX Spark 平台首个官方整机形态 **DGX Spark 64GB** 于 2026 年 10 月初正式发布：
+
+| 项目 | 参数 |
+|------|------|
+| **芯片** | GB10 Grace Blackwell 超级芯片（完整集成） |
+| **统一内存** | 64 GB（系统预留约 8 GB，实际可用于模型加载约 56 GB） |
+| **内存带宽** | 273 GB/s |
+| **互联** | NVLink-C2C |
+| **本地推理能力** | 单机可流畅运行 1000 亿参数模型（Qwen3.8 27B、Gemma4 26B、Nemotron 3.5 Lightning 等已实测） |
+| **双机协同** | 内置 ConnectX-7，两台 QSFP 直连后内存池化至 128 GB，支持模型上限提升至 2000 亿参数级 |
+| **双机实测** | Qwen3.8 27B 集群性能较单台 128GB 系统峰值最高提升 70% |
+| **起售价** | **$4,999**（约 ¥3.36 万） |
+| **上市** | **2026 年 10 月 23 日**（宏碁、华硕、戴尔、技嘉、惠普、微星等 OEM） |
+| **128GB 创始版** | 价格上调至 **$6,950**（AI 内存紧缺推高定价） |
+| **软件栈** | 预装 DGX OS + NVIDIA AI 软件栈，原生兼容 Ollama、vLLM、PyTorch with CUDA；Sync Cluster Assistant 自动化集群配置 |
 
 ## 平台生态
 
