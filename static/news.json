@@ -1,5 +1,24 @@
 [
   {
+    "title": "国产 AI 芯片 vs 国际 AI 芯片：2026 年终全面对比",
+    "date": "2026-12-20",
+    "slug": "ai-chip-comparison-2026",
+    "url": "/blog/ai-chip-comparison-2026",
+    "description": "2026 年终深度对比：华为昇腾 910C/950/960、寒武纪思元 690、天数智芯天垓 150、燧原云燧 T21、昆仑芯 R200、摩尔线程 MTT S5000、阿里真武 V900，对阵 NVIDIA H100/H200/B200/G",
+    "tags": [
+      "domestic-ai-chip",
+      "selection-guide",
+      "nvidia",
+      "amd",
+      "huawei",
+      "cambricon",
+      "intel",
+      "google",
+      "industry-review",
+      "benchmarks"
+    ]
+  },
+  {
     "title": "AI芯片周报（2026年第41周）：2nm量产竞速、存储新范式与机架级大战",
     "date": "2026-10-06",
     "slug": "ai-chip-weekly-2026-w41",
@@ -48,19 +67,6 @@
       "intel",
       "news",
       "ai-hardware"
-    ]
-  },
-  {
-    "title": "NVIDIA N1X进军PC处理器：发布当日Intel、AMD股价各跌4.2%",
-    "date": "2026-10-06",
-    "slug": "nvidia-n1x-pc-chip-intel-amd-slide",
-    "url": "/blog/nvidia-n1x-pc-chip-intel-amd-slide",
-    "description": "NVIDIA于2026年10月4日正式发布N1X PC处理器，基于RTX Spark芯片打造，与微软合作面向消费级和OEM Windows PC市场，发布当日Intel与AMD股价各下跌4.2%。本文解析N1X的硬件规格、x86双寡头格局首",
-    "tags": [
-      "nvidia",
-      "rtx-spark",
-      "news",
-      "strategy"
     ]
   }
 ]
