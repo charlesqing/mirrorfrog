@@ -19,54 +19,57 @@
     ]
   },
   {
-    "title": "AI芯片周报（2026年第41周）：2nm量产竞速、存储新范式与机架级大战",
-    "date": "2026-10-06",
-    "slug": "ai-chip-weekly-2026-w41",
-    "url": "/blog/ai-chip-weekly-2026-w41",
-    "description": "AI芯片周报第41周：NVIDIA N1X发布冲击PC市场，Intel CPU年内第三次涨价10%，AMD Helios进入量产，MLPerf v6.1新纪录，SK海力士存储新范式，华为昇腾950云服务商用倒计时，寒武纪与昇腾涨价20%-5",
+    "title": "徐直军 HC2026 访谈：昇腾950DT年底规模供货，\"昇腾中国份额已超英伟达\"",
+    "date": "2026-10-09",
+    "slug": "ascend-950dt-xuzhijun-hc2026",
+    "url": "/blog/ascend-950dt-xuzhijun-hc2026",
+    "description": "华为全联接大会 HC2026 期间，轮值董事长徐直军透露：昇腾950PR 已于一季度上市、950DT 训练超节点年底规模供货，并首次表态昇腾在中国市场的份额已超英伟达。本文梳理访谈要点、产能约束、25万元定价背景与国产训练算力的下一步。",
     "tags": [
-      "news",
-      "industry-review",
-      "ai-compute"
-    ]
-  },
-  {
-    "title": "AI数据中心成为电网参与者：AEMA联盟成立、NVIDIA DSX实现24%吞吐增益",
-    "date": "2026-10-06",
-    "slug": "ai-grid-energy-management-aema",
-    "url": "/blog/ai-grid-energy-management-aema",
-    "description": "Emerald AI、Google与NVIDIA发起成立AI能源管理联盟AEMA，推动电网响应式AI数据中心。NVIDIA DSX MaxLPS帮助Lambda提升24%集群token吞吐、23%每瓦性能，AI工厂正从被动用电者转型为主动电",
-    "tags": [
-      "power-cooling",
-      "ai-factory",
-      "ai-infrastructure",
+      "ascend-950",
+      "huawei",
+      "domestic-ai-chip",
+      "ascend",
       "news"
     ]
   },
   {
-    "title": "AMD Helios进入量产：MI455X首批Q3末出货，OpenAI/Meta/Anthropic 12GW承诺兑现中",
-    "date": "2026-10-06",
-    "slug": "amd-mi455x-helios-volume-production",
-    "url": "/blog/amd-mi455x-helios-volume-production",
-    "description": "AMD MI455X与Helios机架系统已进入生产阶段，首批出货目标为2026年第三季度末，OpenAI 6GW、Meta 6GW部署合作及Anthropic战略合作正转化为近期硬件收入。本文解析Helios机架规格、客户版图，以及开放标",
+    "title": "内存超级周期全面爆发：台积电Q3营收创纪录、三星利润暴涨8倍、HBM4E获NVIDIA认证",
+    "date": "2026-10-09",
+    "slug": "memory-boom-tsmc-samsung-record-profits",
+    "url": "/blog/memory-boom-tsmc-samsung-record-profits",
+    "description": "财报季密集报喜：台积电 Q3 营收约新台币 1.49 万亿创新高，三星 Q3 营业利润同比大增近 8 倍，12 层 HBM4E 已通过 NVIDIA 质量验证。本文梳理内存超级周期关键数据、GF 与台积电互供封装动态，以及 HBM 配额对芯",
     "tags": [
-      "mi455x",
-      "mi450",
-      "amd",
-      "instinct",
-      "ai-infrastructure"
+      "hbm4",
+      "ai-hardware",
+      "industry-review",
+      "news"
     ]
   },
   {
-    "title": "Intel年内第三次涨价：CPU上调10%，AI需求下的产能博弈",
-    "date": "2026-10-06",
-    "slug": "intel-cpu-price-hike-10-percent",
-    "url": "/blog/intel-cpu-price-hike-10-percent",
-    "description": "Intel宣布自2026年10月5日起CPU涨价10%，这是2025年以来的第三次涨价，背后是AI需求爆发与产能紧张的持续博弈。本文分析涨价驱动力、半导体短缺的行业判断、Intel AI芯片线布局，以及涨价向整机与云价格传导的路径，并为采购",
+    "title": "NVIDIA 投资竞争对手 d-Matrix、支持多厂商互联 Token Fabric：\"竞合\"成为新打法",
+    "date": "2026-10-09",
+    "slug": "nvidia-invests-d-matrix-token-fabric-coopetition",
+    "url": "/blog/nvidia-invests-d-matrix-token-fabric-coopetition",
+    "description": "The Information 报道 NVIDIA 计划投资推理芯片对手 d-Matrix，同日其参投的 Upscale AI 发布多厂商互联平台 Token Fabric。从收购 Groq 到开放 NVLink Fusion，英伟达正用资",
     "tags": [
-      "intel",
-      "news",
-      "ai-hardware"
+      "nvidia",
+      "inference-chip",
+      "ai-infrastructure",
+      "strategy"
+    ]
+  },
+  {
+    "title": "OpenAI Jalapeño 完整规格披露：700W推理ASIC、9个月流片、单pod 27 EFLOPS",
+    "date": "2026-10-09",
+    "slug": "openai-jalapeno-hotchips-full-specs",
+    "url": "/blog/openai-jalapeno-hotchips-full-specs",
+    "description": "Hot Chips 2026 上，OpenAI 与博通合作的首颗芯片 Jalapeño 完整规格曝光：700W 纯推理 ASIC、216GB HBM4、13.4 PFLOPS MXFP4，约 9 个月流片，单 pod 最高 27 EFLOP",
+    "tags": [
+      "OpenAI",
+      "jalapeno",
+      "broadcom",
+      "ASIC",
+      "inference-chip"
     ]
   }
 ]
