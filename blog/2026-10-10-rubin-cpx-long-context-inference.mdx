@@ -1,0 +1,45 @@
+---
+slug: rubin-cpx-long-context-inference
+title: 'Rubin CPX：专攻长上下文推理的差异化设计，与它跌宕的 2026 年'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [nvidia, rubin, inference, tech-deep-dive]
+description: 'Rubin CPX 是 NVIDIA 首款专为大上下文推理设计的 GPU：128GB GDDR7、30 PFLOPS NVFP4、单 Die 集成视频编解码。本文拆解 prefill 与 decode 分离的架构逻辑，并梳理它在 2026 年的交付波折与传闻中的 HBM4 改版。'
+---
+
+# Rubin CPX：专攻长上下文推理的差异化设计
+
+> LLM 推理从来不是一种负载，而是两种。Rubin CPX 的出现，是 NVIDIA 第一次在芯片层面把这两种负载拆开：prefill 交给一颗便宜的 GDDR7 芯片，decode 交给昂贵的 HBM 芯片。这是自 RTX 以来 NVIDIA 对 GPU 品类最激进的一次扩容。
+
+## 为什么 prefill 值得一颗专用芯片
+
+LLM 推理分两个阶段。上下文阶段（prefill）读入整段提示词并构建 KV Cache，是算力密集型；生成阶段（decode）逐 token 出字，瓶颈在显存带宽。过去两种负载共享同一种 GPU，结果是为了 decode 的带宽为 prefill 买了昂贵的 HBM，而 prefill 本可以跑在便宜得多的存储介质上。
+
+| Rubin CPX 关键规格 | 数值 |
+|------|------|
+| Die 设计 | 单晶片（区别于标准 Rubin 的双 Die 封装） |
+| 算力 | 最高 30 PFLOPS（NVFP4） |
+| 显存 | 128GB GDDR7（约 HBM4 单位成本的五分之一） |
+| 视频引擎 | 4 组 NVENC + 4 组 NVDEC |
+| 注意力性能 | 官方称较 GB300 NVL72 系统快约 3 倍 |
+| 发布时间 | 2025 年 9 月 9 日 |
+
+GDDR7 带宽远低于 HBM，但对瓶颈在算力的 prefill 而言是可接受的取舍，换来的是更低的每 GB 成本和免硅中介层的标准封装。芯片还内置了硬件注意力加速与视频编解码引擎——处理一小时视频可能需要百万 token 量级的上下文，Cursor、Runway、Magic 等公司在发布时即表态探索将其用于代码库级理解与长视频生成。
+
+系统层面，Vera Rubin NVL144 CPX 机柜集成 144 颗 Rubin CPX、144 颗标准 Rubin GPU 与 36 颗 Vera CPU，合计 8 EFLOPS NVFP4、100TB 快速内存、1.7PB/s 内存带宽，官方称 AI 算力较 GB300 NVL72 高 7.5 倍。144 颗 CPX 负责 prefill，144 颗 Rubin 负责 decode，NVIDIA Dynamo 推理平台在两个池之间调度 KV Cache 的传递。
+
+## 2026 年的现实：延期、缺席与 HBM4 传闻
+
+差异化设计的故事在 2026 年出现了转折。按原计划，Rubin CPX 应于 2026 年底出货，但 2026 年 3 月的 GTC 主题演讲上它并未出现——NVIDIA 当场展示的是用于低延迟解码的 Groq 3 LPX 机架，据 Tom's Hardware 报道，NVIDIA 高管在问答中确认 CPX 被调整让路于 LPU 解码路线。
+
+| 时间节点 | 事件 |
+|------|------|
+| 2025 年 9 月 | Rubin CPX 正式发布，宣布 2026 年底上市 |
+| 2026 年 3 月 | GTC 2026 主题演讲未亮相，官方称聚焦 LPU 解码 |
+| 2026 年 9 月 | 据公开报道，分析师郭明錤称 HBM4 改版 CPX 计划 2027 年一季度投产（未经证实） |
+
+对采购者的含义很直接：不要围绕 CPX 做部署规划。但它背后的 disaggregated serving 架构——prefill 池与 decode 池分离、跨池传递 KV Cache——是成熟且已经落地的模式，今天的推理引擎与 GPU 租赁就能实践。CPX 若最终以 HBM4 形态归来，说明市场对"专用 prefill 硅片"的定价尚未收敛；若长期缺席，则证明混合负载仍将由通用 GPU 一肩挑。
+
+## 小结
+
+Rubin CPX 的价值一半在硬件，一半在范式：它把"推理是两种负载"写进了产品线，逼迫整个行业认真核算 prefill 的成本占比。单 Die 加 GDDR7 的设计逻辑——用便宜的介质喂饱算力密集的段——未来大概率以某种形态回归。2026 年底的现在，把它当作路线图上值得追踪的节点，而不是采购清单上的选项。

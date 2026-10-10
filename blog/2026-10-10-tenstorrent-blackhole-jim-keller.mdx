@@ -1,0 +1,43 @@
+---
+slug: tenstorrent-blackhole-jim-keller
+title: 'Tenstorrent Blackhole 与 Jim Keller 的开源 RISC-V 路线'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [ai-chip, tech-deep-dive, ai-hardware]
+description: 'Jim Keller 掌舵的 Tenstorrent 用 Blackhole 证明了另一种可能：140 个 Tensix 核心加 16 个能直接启动 Linux 的 RISC-V 大核，999 美元的开发卡，全开源软件栈，以太网横向扩展。本文解析其架构与商业模式。'
+---
+
+# Tenstorrent Blackhole 与 Jim Keller 的开源 RISC-V 路线
+
+> 当几乎所有 AI 芯片公司都在对标英伟达时，Jim Keller 的态度是："英伟达做什么，我们就反着来。"Blackhole 就是这句话的产物。
+
+## 架构：一颗"独立的 AI 计算机"
+
+Blackhole 是 Tenstorrent 第三代加速器，台积电 6nm 工艺，2024 年 8 月在 Hot Chips 上首次披露，2025 年 4 月的开发者大会上正式开卖。它最特别的地方在于片上集成了三种计算资源：
+
+| 规格项 | Blackhole p100a | Blackhole p150a 与 p150b |
+| --- | --- | --- |
+| Tensix 核心数 | 120（启用） | 140 |
+| 大 RISC-V 核心 | 16 个 SiFive X280 | 16 个 SiFive X280 |
+| 片上 SRAM | 180 MB | 210 MB |
+| 显存 | 28 GB GDDR6 | 32 GB GDDR6 |
+| 内存带宽 | 448 GB/s | 512 GB/s |
+| 以太网扩展 | 无 | 4 个 800G QSFP-DD 接口 |
+| 整卡功耗 | 300W | 300W |
+| 定价 | 999 美元 | 1399 美元 |
+
+每个 Tensix 核心内部又包含 5 个"小 RISC-V"核心、张量引擎、向量引擎与本地 SRAM；算上各处控制器，全片共有 752 个小 RISC-V 核。而那 16 个大核（SiFive X280）强大到可以直接在加速卡上启动 Linux，充当设备内主机——Blackhole 因此不需要独立 x86 主机即可工作。扩展方式同样不走寻常路：不用专有交换机，10 条 400G 以太网链路直接把多颗芯片连成网格。
+
+## 开源：商业模式本身就是技术战略
+
+Tenstorrent 在开发者日当天把整个软件栈推上了 GitHub：底层运行时 TT-Metalium、神经网络库 TT-NN、编译器前端 TT-Forge 全部开源，电路原理图公开，甚至为提交内核代码的开发者设立了 500 至 5 万美元的悬赏。CI 日志与性能看板对所有人可见。
+
+这套打法背后是清晰的商业算盘：其一，AI 集群物料成本已高达数亿美元，专有固件与非披露协议把研究者挡在门外，开源降低了最顶尖人才的试用门槛；其二，Tenstorrent 同时出售 RISC-V CPU IP（面向服务器级市场的 Ascalon 内核已向首批客户授权早期 RTL），硬件与 IP 两条腿走路；其三，据公开报道，公司已累计融资约 10 亿美元，支撑其每年迭代的目标。产品矩阵从 999 美元的开发卡、11999 美元的 QuietBox 工作站（4 颗 Blackhole）到集成 32 颗芯片的 Galaxy 服务器，覆盖了从研究生到主权 AI 的所有层级。
+
+## 风险与观察
+
+Blackhole 用 GDDR6 替代 HBM 是成本与开放性的取舍，带宽密度明显低于同级 GPU；软件栈虽开源，成熟度与 CUDA 仍有差距；数千卡规模的公开演示也还在路线图上。Keller 自己也承认："所有只押一件事的人都会失败"——所以 Tenstorrent 同时卖卡、卖 IP、卖服务器。
+
+## 小结与建议
+
+对开发者与研究者而言，Blackhole 是目前门槛最低的"真 AI 芯片"实验平台：999 美元、无需云配额、代码全部可读可改。对行业而言，它验证了 RISC-V 在 AI 加速领域的可行性，也给"去 CUDA 化"提供了一个开源支点。它未必能撼动 GPU 的份额，但它正在培养一代熟悉开放架构的工程师——这或许是比卖芯片更长线的投资。

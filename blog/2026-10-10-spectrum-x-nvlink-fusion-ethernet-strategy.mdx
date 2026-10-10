@@ -1,0 +1,48 @@
+---
+slug: spectrum-x-nvlink-fusion-ethernet-strategy
+title: 'Spectrum-X 与 NVLink Fusion：英伟达的网络与开放策略读解'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [nvidia, strategy, ai-infrastructure, ai-factory]
+description: 'Spectrum-X 以太网把 AI 工厂的 Scale Out 层收入囊中，NVLink Fusion 则把 Scale Up 域向第三方 ASIC 与 CPU 开放。本文拆解英伟达"开放互联、守住网络"的双层战略，以及 Meta、AWS、d-Matrix 等伙伴的真实动机。'
+---
+
+# Spectrum-X 与 NVLink Fusion：英伟达的网络与开放策略读解
+
+> 当超大规模客户纷纷自研芯片，英伟达的应对不是把门关得更紧，而是把门框卖给所有人。Spectrum-X 与 NVLink Fusion 组成了一套精巧的双层策略：计算可以不是我的，但你的芯片必须接在我的网络上。
+
+## Spectrum-X：把以太网改造成 AI 网络
+
+传统以太网为吞吐优化，AI 集群需要的是无损、低熵的集合通信。Spectrum-X 的组合拳包括自适应路由、基于遥测的拥塞控制、RDMA 与 SuperNIC 端侧包重排序，官方目标是达到至少 95% 的有效带宽——而传统以太网在大规模 AI 负载下往往只能用到一半出头。
+
+| Spectrum-X 家族组件 | 定位与关键能力 |
+|------|------|
+| Spectrum-X 以太网交换机 | Scale Out 主干，800G 端口，自适应路由 |
+| Spectrum-XGS | 跨园区扩展：距离感知的拥塞控制与负载均衡 |
+| Spectrum-X Photonics | 共封装光学（CPO）：激光器数量减少约 4 倍、光网络功耗降低约 5 倍 |
+| ConnectX-9 SuperNIC | 端侧 800G 及以上，配合包重排序 |
+| BlueField-4 DPU | 从网络卸载扩展到 KV Cache 上下文存储（CMX），官方称 token 吞吐最高提升 5 倍 |
+
+采用信号很有说服力：Meta 正在扩展基于 Spectrum-X 的 AI 负载，Oracle 在 OCI 上为大规模 AI 网络标准化选择 Spectrum-X，Cisco 与英伟达共建安全 AI 工厂参考设计。共封装光学已进入量产，用光互联的功耗红利去换取更多可分配给计算的瓦数——在 AI 工厂的电费账本里，这是实打实的 token 收益。
+
+## NVLink Fusion：把 Scale Up 域开放给对手们
+
+NVLink Fusion 于 2025 年 5 月 COMPUTEX 发布，逻辑是：第三方芯片只要集成 NVLink Fusion chiplet 与 NVLink-C2C 接口，就能接入英伟达的纵向扩展域和 MGX 机柜架构，获得最高每 XPU 1.8TB/s（新一代架构达 3TB/s 以上）的全对全带宽，以及 72 加速器的扩展能力。
+
+| 伙伴类型 | 代表厂商 |
+|------|------|
+| 定制 CPU/XPU | 联发科、Marvell、富士通、高通、Intel、SiFive、三星 |
+| 设计服务与 IP | Alchip、GUC、Cadence、Synopsys |
+| 互联与光子 | Astera Labs、Ayar Labs、Lightmatter |
+| 云厂商自研芯片 | AWS（Trainium4）、Meta |
+| 推理芯片新贵 | d-Matrix（Raptor XPU，2026 年 9 月宣布接入） |
+
+这步棋的防御逻辑值得细读：即使超大规模客户的加速层走向异构——AWS 跑 Trainium4、Meta 跑自研推理芯片——英伟达依然通过 NVLink 交换芯片、机柜架构与网络栈捕获价值。反向看，UALink 阵营试图以开放标准做同样的事，NVLink Fusion 则用成熟度和生态深度先发截流。对定制芯片公司而言，好处是现实的：不必重造 scale-up 互联和机柜设计，就能拿到接近英伟达原生的系统级带宽。
+
+## 两层策略合起来看
+
+Spectrum-X 管 Scale Out（机柜之间、数据中心之间），NVLink Fusion 管 Scale Up（机柜之内），BlueField 与 CMX 管存储与上下文，Mission Control 管运维——英伟达正在把"AI 工厂操作系统"的每一层都做成可出售的基座。计算层越开放，网络与软件层的护城河反而越深。
+
+## 小结
+
+对采购者的启示有二：其一，评估英伟达方案时，网络栈（Spectrum-X、BlueField、光学）应当与 GPU 一起核算 TCO，它们已不是配件而是性能变量；其二，自研或采用第三方芯片的团队，NVLink Fusion 提供了一条免建互联的捷径，但要清醒地认识到，接入它的代价是深度绑定英伟达的系统生态。开放是真的，方向也是被设计好的。

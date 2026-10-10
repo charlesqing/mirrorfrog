@@ -1,0 +1,36 @@
+---
+slug: ray-kubernetes-elastic-gpu-scheduling
+title: 'Ray 与 Kubernetes：GPU 集群弹性调度的两条路线'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [ai-infrastructure, tech-deep-dive, training]
+description: 'GPU 集群调度有两条路线：把弹性交给 Ray 自动伸缩器，或用 Kubernetes 原生生态做队列与 Gang 调度。本文对比 KubeRay、Volcano、Kueue、KAI Scheduler 的能力边界与组合方式，给出按场景的架构建议。'
+---
+
+# Ray 与 Kubernetes：GPU 集群弹性调度的两条路线
+
+> 训练和推理抢卡、分布式作业因部分调度而死锁、GPU 利用率常年趴在低位——这些问题的根源往往是调度层设计。Ray 与 Kubernetes 生态各自给出了一套答案，关键是怎么组合。
+
+## 两条路线的心智模型
+
+**路线一：Ray 为中心。** 把 Ray 当作计算编排层，Kubernetes 只负责运行 Ray Pod。KubeRay Operator 管理 RayCluster、RayJob、RayService 三类资源，Ray 自动伸缩器根据任务与 actor 的资源需求增删 worker 组。优点是 Python 世界的体验极好，任务级弹性、异构资源混用（不同代次 GPU 混部）都是内置能力；代价是调度决策发生在集群之外，Kubernetes 只看到结果。
+
+**路线二：Kubernetes 为中心。** 用批调度器直接管理 GPU 作业，代表性组件是 Volcano 与 Kueue。Volcano 提供 Gang 调度、队列公平共享、抢占与网络拓扑感知调度；Kueue 做作业准入控制，排队等资源到位再放行。Ray 作业同样能被纳管：KubeRay 从早期版本就集成 Volcano 解决分布式训练的资源死锁，2025 年发布的 Volcano v1.13 进一步支持直接用原生 Volcano Job 创建和管理 Ray 集群。
+
+## 能力对比
+
+| 能力 | Ray 自动伸缩 | Volcano | Kueue | NVIDIA KAI Scheduler |
+| --- | --- | --- | --- | --- |
+| Gang 调度 | 弱（依赖 minReplicas） | 原生支持 | 原生支持 | 原生支持 |
+| 任务级弹性伸缩 | 强，秒级感知任务需求 | 作业级 | 队列准入级 | 支持工作负载伸缩 |
+| 抢占与优先级 | 部分支持 | 支持 | 配合优先级类 | 高优推理可抢占低优训练 |
+| 网络拓扑感知 | 无 | v1.12 起 IB 拓扑，v1.13 支持 Label 自动发现 | 无 | 无 |
+| 异构 GPU 混部 | 强 | 强 | 强 | 强 |
+
+## 实践中的组合形态
+
+最常见的生产形态是"KubeRay 加批调度器"：RayCluster 的 Pod 标注调度器与队列，Gang 调度保证多机训练作业要么全起要么不起；启用了自动伸缩的集群按 minReplicas 做 Gang 约束，兼顾弹性与死锁防护。大型团队还会叠 NVIDIA KAI Scheduler，让在线推理在算力紧张时抢占离线训练。工程细节上，KubeRay 在大规模集群下要调大 reconcile 并发与客户端 QPS，社区压测显示默认并发配置扩容上万个 Pod 会明显变慢。Volcano 的基于节点标签的 HyperNode 自动发现功能则把"机架到交换机到节点"的拓扑维护简化为打标签，对要求亲和性调度的 IB 集群很实用。
+
+## 实操建议
+
+纯 Python 研发团队、任务粒度碎、需要异构混部的场景，以 Ray 为中心最省心；作业规模大、需要队列治理与多团队配额的平台团队，以 Volcano 或 Kueue 为骨架、Ray 作为负载接入。两条路线不冲突，先想清楚"谁拥有资源审批权"这个组织问题，技术选型自然清晰。

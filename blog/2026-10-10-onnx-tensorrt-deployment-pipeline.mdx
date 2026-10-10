@@ -1,0 +1,35 @@
+---
+slug: onnx-tensorrt-deployment-pipeline
+title: '从 ONNX 到 TensorRT：视觉 AI 的部署流水线拆解'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [inference, tech-deep-dive, GPU]
+description: '视觉模型的部署远不止导出 ONNX 这一步：算子兼容性检查、动态形状配置、FP16 与 INT8 量化校准、引擎构建与精度回归，每一环都有坑。本文完整拆解从训练框架到 TensorRT 引擎上线主流水线。'
+---
+
+# 从 ONNX 到 TensorRT：视觉 AI 的部署流水线拆解
+
+> 在 LLM 推理框架火热之前，视觉 AI 早就打磨出一条成熟度极高的部署流水线：PyTorch 训练、ONNX 交换、TensorRT 编译、推理服务托管。这条链路今天依然是目标检测、分割、OCR 类业务的标准答案。
+
+## 全景流水线与各环节要点
+
+| 环节 | 工具 | 关键动作 | 常见坑 |
+| --- | --- | --- | --- |
+| 模型导出 | torch.onnx.export | 固定或动态维度、opset 选择 | 自定义算子导出失败、动态轴漏标 |
+| 算子兼容检查 | Polygraphy / onnx 工具链 | 逐层对比数值 | 未融合算子回退拖慢速度 |
+| 引擎构建 | trtexec | 精度策略、workspace、形状 profile | 动态形状未配 profile 导致构建失败 |
+| 量化校准 | TensorRT 校准器 | 准备数百张代表性校准图 | 校准集分布偏移导致精度掉点 |
+| 精度回归 | 自建评测脚本 | mAP 等指标与 FP32 基线对比 | 只测时延不测精度 |
+| 服务托管 | Triton | 模型仓库、动态批处理 | instance 数与显存不匹配 |
+
+## trtexec 是流水线的瑞士军刀
+
+引擎构建不必写代码，trtexec 一条命令完成：用 --onnx 指定输入，--fp16 或 --int8 指定精度策略，--saveEngine 输出序列化引擎。做 INT8 时需提供校准数据（通常 100 到 1000 张代表性图像），TensorRT 默认使用熵校准器统计激活值分布，首次构建生成校准缓存可复用。动态输入是视觉业务刚需，必须显式给出 minShapes、optShapes、maxShapes 三档 profile，运行期张量尺寸落在区间内即可免重编译。构建完成后用 --loadEngine 加载压测，配合 --useCudaGraph 能显著降低内核启动开销，嵌入式设备上这一项常带来两位数的吞吐提升。
+
+## 量化策略与精度守护
+
+INT8 能把时延再压一档、显存降三成以上，但不是所有层都能安全量化。工程惯例是让 TensorRT 自动混精度：对量化敏感层保留 FP16 或 FP32 回退，这就是 --fp16 与 --int8 同时开启的原因。精度守护流程必须制度化：固定校准集与评测集，量化后跑完整 mAP 对比，掉点超过业务阈值就启用 QAT（量化感知训练）补救。另外要记住 TensorRT 引擎与 GPU 架构、驱动版本强绑定，换卡必重编，构建耗时和 timing cache 策略要纳入 CI 考量。
+
+## 实操建议
+
+把整条流水线做成 CI 任务：每次模型提交自动导出 ONNX、跑算子兼容检查、构建 FP16 与 INT8 双引擎、输出精度与时延对比报告，人工只审报告。上线用 Triton 托管多版本引擎灰度切换。最后一句经验：先锁 opset 版本再动其他，90% 的导出诡异问题都源于训练侧随手升了 opset 而部署侧解析器没跟上。

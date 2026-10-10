@@ -1,0 +1,50 @@
+---
+slug: dgx-spark-station-desktop-ai-lab
+title: '桌面 AI 实验室：DGX Spark 与 DGX Station 的使用场景拆解'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [nvidia, edge-ai, agentic-ai, ai-compute]
+description: 'DGX Spark 以 GB10 超级芯片提供 1 PFLOP FP4 与 128GB 统一内存，DGX Station 则把 20 PFLOPS 与 784GB 一致性内存放上办公桌。本文拆解两台"桌面 AI 超算"的规格差异、适用场景与真实能力边界。'
+---
+
+# 桌面 AI 实验室：DGX Spark 与 DGX Station 的使用场景拆解
+
+> 英伟达把 Grace Blackwell 塞进了两个机盒：一个小如 Mac mini，一个像立式工作站。DGX Spark 与 DGX Station 的共同卖点是"在桌面上完成原型，再无缝迁往数据中心"，但两者价格差一个数量级，适用人群并不重叠。
+
+## 两台机器，两套定位
+
+DGX Spark 由 GB10 超级芯片驱动：一颗桌面优化的 Grace CPU（20 核 Arm）通过 NVLink-C2C 连接带第五代 Tensor Core 的 Blackwell GPU，128GB CPU 与 GPU 一致性共享的统一内存（LPDDR5X），FP4 算力最高 1 PFLOPS。DGX Station 则搭载 GB300 Desktop 超级芯片：72 核 Grace Neoverse V2 加 Blackwell Ultra GPU，FP4 算力 20 PFLOPS，784GB 一致性内存（288GB HBM3e 加 496GB LPDDR5X），并配 ConnectX-8 800G 网卡支持多机互联。
+
+| 规格 | DGX Spark | DGX Station |
+|------|------|------|
+| 芯片 | GB10（Grace + Blackwell） | GB300 Desktop（Grace + Blackwell Ultra） |
+| CPU | 20 核 Arm Grace | 72 核 Grace Neoverse V2 |
+| 统一内存 | 128GB LPDDR5X | 784GB（288GB HBM3e + 496GB LPDDR5X） |
+| FP4 算力 | 1 PFLOPS | 20 PFLOPS |
+| 互联 | ConnectX（双机串联） | ConnectX-8，800Gb/s |
+| 存储 | 1TB 至 4TB NVMe | 高容量 NVMe |
+| 参考价格 | 据公开报道 2,999 至 3,999 美元 | 未公布（定位高出数倍） |
+
+统一内存是两台机器共同的灵魂：CPU 与 GPU 共享同一块内存池，数据免拷贝。Spark 的 128GB 让 200B 参数模型（4-bit 量化）可以在桌面推理，微调上限约 70B；Station 的 784GB 意味着训练或推理过去需要一整个机架集群才能容纳的模型。另一侧是明确的短板：Spark 内存带宽约 273GB/s（据公开报道），远低于任何数据中心 GPU，decode 速度是它最常被诟病的地方。
+
+## 谁该买 Spark，谁该买 Station
+
+**DGX Spark 适合**：个人研究者与学生——在本地跑通从微调到 Agent 部署的全流程；Agent 开发者——7x24 小时常驻的本地 Agent 运行环境，数据不出门；边缘与机器人开发者——Isaac、Metropolis、Holoscan 框架的原生开发平台；企业 POC 团队——用两台串联跑 405B 量化模型做概念验证，再迁往云端。它的正确预期是"开发与原型"，不是"生产服务"。
+
+**DGX Station 适合**：需要桌面级保密的实验室——医疗、金融、国防场景下模型与数据全程本地；研究组——784GB 内存可在单机完成 70B 级全参数微调或更大模型的推理；Agent 集群测试——多台 Station 通过 800G ConnectX-8 组成小集群，模拟数据中心分布式行为。它填补的是"一台工作站装不下的模型，又不值得为此租机柜"的缝隙。
+
+| 场景 | Spark | Station |
+|------|------|------|
+| 学习 AI 开发、跑开源模型 | 适合 | 过剩 |
+| 200B 量化推理 | 适合（速度受限） | 从容 |
+| 70B 微调 | 上限所在 | 轻松 |
+| 本地常驻 Agent | 适合 | 适合 |
+| 多机分布式实验 | 双机串联上限 | 800G 组网 |
+
+## 软件与迁移路径
+
+两台机器预装 DGX OS 与完整的 NVIDIA AI 软件栈，包括 NIM 微服务与预训练模型。工作流的正确姿势是：本地原型、验证并行策略与量化方案，然后近乎原样迁移到 DGX Cloud 或数据中心集群——因为从 GB10 到 GB300 共享同一套 Grace Blackwell 软件栈，CUDA 代码与容器不需要重写。这套"从桌面到 AI 工厂"的连续性，才是英伟达做桌面产品的真正意图：培养下一代的开发者，让他们从第一行代码起就活在 NVIDIA 的生态里。
+
+## 小结
+
+DGX Spark 是一台"会写代码的 Mac mini"：3,999 美元买到 1 PFLOP 原型机，适合个人与 POC；DGX Station 是"桌面上的小型 AI 工厂"：20 PFLOPS 与 784GB 内存服务保密场景与研究组。共同的前提是想清楚带宽与互联的物理极限——桌面设备的使命是缩短从想法到验证的距离，而不是替代数据中心。

@@ -1,0 +1,53 @@
+---
+slug: amd-mi355x-vs-mi455x-generations
+title: 'MI355X 到 MI455X：AMD CDNA 两代跳跃解析'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [amd, mi455x, instinct, cdna-5]
+description: '从 MI355X 的 288GB HBM3E 到 MI455X 的 432GB HBM4 与 40 PFLOPS FP4，AMD 用一代时间补齐了机柜级互联短板。本文对比两代 CDNA 的架构差异，解读 Helios 机柜与 UALink 战略，并评估对英伟达 Rubin 的真实竞争力。'
+---
+
+# MI355X 到 MI455X：AMD CDNA 两代跳跃解析
+
+> 在 2026 年 7 月的 Advancing AI 大会上，AMD 拿出了迄今最接近英伟达旗舰的一张对比表。MI455X 不是简单加显存：CDNA 5 重构了计算单元、换上 HBM4、把机柜级互联从短板变成卖点。两代之间的跳跃，恰好记录了 AMD 从"做一张好卡"到"做一台好机柜"的战略转身。
+
+## 两张规格表看代际差距
+
+MI355X（CDNA 4，2025 年）的卖点是显存容量与性价比：288GB HBM3E、8TB/s 带宽、10.1 PFLOPS MXFP4，1,400W 功耗。MI455X（CDNA 5，2026 年 7 月 23 日发布）则全面换代：432GB HBM4、23.3TB/s 带宽、40 PFLOPS MXFP4，据公开报道功耗估计超过 2kW（官方未公布 TDP）。
+
+| 规格 | MI355X（CDNA 4） | MI455X（CDNA 5） |
+|------|------|------|
+| 显存 | 288GB HBM3E | 432GB HBM4（12 堆叠） |
+| 显存带宽 | 8TB/s | 23.3TB/s（约 2.9 倍） |
+| MXFP4 | 10.1 PFLOPS | 40.26 PFLOPS（4 倍） |
+| MXFP8 | 5 PFLOPS | 20.13 PFLOPS |
+| FP16/BF16 矩阵 | 2.5 PFLOPS | 5.03 PFLOPS |
+| FP32 向量 | 157.3 TFLOPS | 315 TFLOPS |
+| Scale-Up 互联 | 1.08TB/s | 3.6TB/s（UALoE，72 通道） |
+| Scale-Out | 400Gb/s | 2,400Gb/s（3 组 AI NIC） |
+| 晶体管 | 185B | 320B |
+
+架构层面有两个关键动作。其一，CDNA 5 借用了 RDNA 图形线的组织方式：8 个 XCD 内部分成双 Shader Engine，计算单元总量仍是 256 个——4 倍的低精度吞吐提升并非靠堆单元，而靠数据通路重构与频率。其二，L2 缓存从计算 Die 上移走，下沉到两颗 Fabric and Cache Die，提供 192MB、54TB/s 的缓存层。制造上采用 2nm（8 颗 XCD）加 3nm（I/O 与缓存 Die）的混合工艺，是 CoWoS-L 封装上有史以来最大的芯片之一。
+
+## Helios 机柜：真正的产品是"一柜子"
+
+MI455X 的部署形态基本只有一种：Helios 机柜。每托盘 4 卡，整柜 72 颗 MI455X，配 EPYC Venice CPU、Pensando Vulcano AI NIC 与 Salina DPU。整柜指标：2.9 EFLOPS MXFP4、31TB HBM4、1.67PB/s 内存带宽，机柜内 UALoE 聚合带宽 260TB/s，跨机柜走符合 UEC 规范的以太网，Scale Out 带宽 43TB/s。
+
+| 维度 | AMD Helios | 英伟达 Vera Rubin NVL72 |
+|------|------|------|
+| 单卡显存 | 432GB HBM4 | 288GB HBM4 |
+| 单卡带宽 | 23.3TB/s | 22TB/s |
+| 机柜显存 | 31TB | 约 20.7TB |
+| 机柜 FP4 | 2.9 EFLOPS（MXFP4 口径） | 3.6 EFLOPS（NVFP4 稀疏口径） |
+| 机柜内互联 | UALoE（开放，260TB/s） | NVLink 6（约 260TB/s 级） |
+| 生态标准 | OCP、UALink、UEC | NVLink、InfiniBand、私有 |
+
+注意口径差异：两家 FP4 格式（MXFP4 与 NVFP4）缩放方式不同，峰值对比只能看个大概。AMD 强调的是开放牌——Open Rack Wide 机柜规范、UALink、UEC 以太网，让多家设备商都能实现同等设计，这与英伟达的垂直整合形成对照。OpenAI、Meta、Anthropic、微软、甲骨文均已表态采用 Helios。
+
+## 选型视角
+
+对推理型业务（长上下文、高并发、大 KV Cache），MI455X 的 432GB 显存与 23.3TB/s 带宽是纸面最强组合，显存敏感的模型分片需求可能直接减少所需 GPU 数量。对训练型业务，ROCm 生态的成熟度仍是关键变量——AMD 宣称 PyTorch、vLLM、Triton 首日支持，但大规模部署的调优经验仍需验证。功耗未定稿也意味着机房设计要保留弹性。而对已经跑在 MI350 上的团队，CDNA 5 延续了内存优先哲学，迁移成本相对可控。
+
+## 小结
+
+MI355X 到 MI455X 的跳跃，本质是 AMD 从单卡竞争切换到机柜竞争：显存更多、带宽近 3 倍、互联追平 NVLink，再用开放标准对抗垂直整合。英伟达在机柜算力口径与软件生态上仍领先，但 2026 年的 AI 工厂买家第一次拥有了两个都成立的旗舰选项。

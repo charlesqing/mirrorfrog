@@ -1,0 +1,48 @@
+---
+slug: nvidia-hgx-vs-mgx-platform
+title: 'HGX 与 MGX：英伟达双平台参考设计怎么选'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [nvidia, ai-infrastructure, selection, tech-deep-dive]
+description: 'HGX 是固定的 8 卡 SXM 基板，MGX 是可自由组合的模块化参考架构，GB200 NVL72 与 RTX PRO Server 都属于后者。本文厘清 HGX、MGX 与 DGX 三者的关系、决策边界与采购陷阱。'
+---
+
+# HGX 与 MGX：英伟达双平台参考设计怎么选
+
+> 采购英伟达服务器时，报价单上经常同时出现 HGX 与 MGX 两个词。它们不是新旧两代，而是两类完全不同的东西：一个是一块固定的基板，一套模块化的规则。分清这一点，能避免大部分选型返工。
+
+## HGX：一块不可修改的 8 卡基板
+
+HGX 的本质是英伟达设计、制造的 GPU 基板：4 卡或 8 卡 SXM 形态，NVLink 布线与 NVSwitch 芯片全部由英伟达固定，OEM 拿到后不能改动基板本身。戴尔、HPE、超微、联想等厂商围绕这块基板构建整机——机箱、散热、CPU（Intel Xeon 或 AMD EPYC）、内存、网卡、存储、BMC 都由 OEM 自主选择。
+
+| 归属 | HGX 体系 |
+|------|------|
+| 英伟达固定 | GPU 数量与型号、NVLink 布线、NVSwitch、基板供电 |
+| OEM 决定 | 机箱高度、散热方式（风冷/液冷/混合）、CPU 型号、内存、NIC/DPU、NVMe、固件与服务等级 |
+| 典型整机 | 戴尔 PowerEdge XE9680、超微 SYS-821GE 系列、联想 ThinkSystem SR675 V3 |
+
+关键约束：PCIe 服务器用不了 HGX 基板——SXM 与 PCIe 是两条互斥的路线。据公开报道，8 卡 HGX H100 整机约 20 万至 30 万美元，B200/B300 级别约 25 万至 40 万美元，价差主要来自 OEM 的散热、存储与服务配置。
+
+## MGX：模块化参考架构
+
+MGX（2023 年推出）不是一块板，而是一套模块化规范：OEM 从英伟达给出的组件清单里独立选择机箱、CPU（x86、Grace、Vera 或其他 Arm）、GPU（SXM 或 PCIe，覆盖 Blackwell、Rubin 及老架构）、网络（NVLink、Spectrum-X 以太网、Quantum InfiniBand、BlueField DPU），英伟达称已有超过 100 种组合，覆盖从单卡边缘服务器到 GB200/GB300 NVL72 机柜。
+
+| 维度 | HGX | MGX |
+|------|------|------|
+| 本质 | 固定 8 卡 SXM 基板 | 开放模块化参考架构 |
+| GPU 形态 | 仅 SXM | SXM 或 PCIe |
+| CPU | OEM 选 x86 | x86、Grace、Vera、第三方 Arm |
+| 覆盖范围 | 4 卡与 8 卡训练节点 | 单卡推理盒到 NVL72 机柜 |
+| 典型产品 | HGX H200/B300 整机 | GB200 NVL72、RTX PRO Server、H200 NVL 系统 |
+
+两个常见误解需要澄清。第一，MGX 不是 HGX 的替代品：HGX 面向需要极致互联带宽的 8 卡训练节点，MGX 覆盖推理服务器、CPU 与 GPU 混合节点等固定基板服务不好的长尾，许多机构最终两样都买。第二，2026 年的 Blackwell 旗舰（B200/B300）几乎只以 SXM 形态出现，PCIe 阵营由独立的 RTX PRO Server 产品线（基于 MGX）承接——两条线是被产品策略刻意分开的。
+
+## 决策树与采购陷阱
+
+按四步走。第一步问互联：多节点训练、张量并行、大型 MoE，必须 SXM/HGX；单卡或双卡可解的推理与微调，PCIe 加 MGX 更省钱。第二步问机房：没有液冷且无法改造，NVL72 直接出局，风冷 PCIe 推理服务器往往是暖气候地区最便宜的可用算力。第三步问集成能力：有资深基础设施团队选 HGX 让 OEM 组机，性价比更高；团队薄弱或要快速上线选 DGX 整机（同一块 HGX 基板加英伟达认证的固件、软件栈与单一责任支持），为省心多付约两到三成溢价。第四步问规模：跨多机柜的组网交给 BasePOD/SuperPOD 参考架构，它们是集群蓝图而非服务器选项。
+
+两个高频陷阱：其一，把 RTX PRO 6000 Server Edition 当成"B200 平替"对比互联性能——前者无 NVLink，走 PCIe，分布式训练会掉一个数量级；其二，忽略 MGX 系统的配置自由度带来的测试责任——OEM 组合自由度高，具体配置的验证矩阵要自己确认。
+
+## 小结
+
+一句话记住三者关系：HGX 是英伟达焊死的 8 卡基板，DGX 是英伟达自己在 HGX 上装好的整机，MGX 是让 OEM 自由组装的模块化规则。训练要带宽选 HGX，推理要灵活选 MGX，要省心买 DGX——三条路对应三种团队，没有哪条天然更高级。

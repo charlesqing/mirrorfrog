@@ -1,0 +1,38 @@
+---
+slug: cuda-driver-version-compatibility-pitfalls
+title: 'CUDA 与驱动版本兼容矩阵：部署工程师的避坑手册'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [nvidia, tech-deep-dive, selection-guide]
+description: 'CUDA 运行时版本、驱动版本、nvidia-smi 显示值三者关系混乱是部署事故的高发源头。本文梳理 CUDA 11 至 13 的最低驱动要求、次版本兼容机制与架构支持矩阵，帮你在装机、升级、排障时一次看懂版本对应关系。'
+---
+
+# CUDA 与驱动版本兼容矩阵：部署工程师的避坑手册
+
+> "代码在同事机器上能跑，到我这报 CUDA driver version is insufficient"——这类事故几乎都源于对版本兼容规则的一知半解。搞清三件事：驱动决定上限、工具包要求下限、次版本兼容有例外。
+
+## 先分清三个版本号
+
+很多混乱来自三个"CUDA 版本"的混淆。nvidia-smi 右上角显示的 CUDA Version 是**当前驱动最高支持的 CUDA 版本**；nvcc --version 显示的是**编译工具链的版本**；PyTorch 里 torch.version.cuda 显示的是**该轮子编译时链接的运行时版本**。三者不一致本身不是错误，只有当驱动版本低于运行时所需的最低驱动时才会初始化失败。
+
+## 最低驱动要求矩阵
+
+| CUDA 工具包 | Linux 最低驱动 | 备注 |
+| --- | --- | --- |
+| CUDA 11.x | 450.36.06 以上 | Kepler 之后架构，11.8 新增 Hopper |
+| CUDA 12.x | 525.60.13 以上 | Blackwell 完整支持自 12.8 起 |
+| CUDA 13.x | 580.65.06 以上 | Pascal/Maxwell/Volta 支持止步于 R580 驱动 |
+
+驱动对旧工具包是向后兼容的：新驱动永远能跑旧 CUDA 编译的程序，所以"升级驱动不升级工具包"是安全的，反过来才要小心。同时注意架构生命周期：Blackwell（算力 10.0）从 CUDA 12.0 开始支持并在 12.8 完善到位；而 Pascal、Volta、Maxwell 的支持在 CUDA 12.x 止步，对应 R580 是它们的最后驱动分支。
+
+## 次版本兼容的三个例外
+
+从 CUDA 11 起，同一大版本族内的应用只需满足最低驱动即可运行，这就是次版本兼容（Minor Version Compatibility）：用 CUDA 12.9 编译的程序，可以跑在只装了 CUDA 12.0 最低驱动（525 系列）的机器上。但有三个例外会让它翻车：
+
+1. **用到新驱动才有的特性**：应用会返回 cudaErrorCallRequiresNewerDriver，解决办法只能是升级驱动。
+2. **依赖 PTX 运行时编译**：驱动里不带对应架构的 PTX JIT 支持时程序无法运行，老驱动加新架构尤其危险。
+3. **编译时未显式指定目标架构**：次版本兼容要求给 nvcc 传 -arch=sm_xx 这类显式参数，不能依赖默认值。
+
+## 实操建议
+
+装机的标准动作是先定工具包再定驱动：查清目标框架（PyTorch、TensorRT 等）要求的 CUDA 大版本，再按下表选不低于最低值的驱动，并优先使用框架官方 NGC 容器镜像，把宿主机驱动作为唯一需要管理的版本变量。排障时按顺序自查：nvidia-smi 能否执行（驱动层）、torch.cuda.is_available() 是否为真（运行时层）、报错码是否指向特性缺失（兼容层）。集群里多代显卡混布时，务必以最老那张卡的架构决定编译时的 -arch 参数，只按 H100 编译的轮子在 A10 上大概率直接报 no kernel image available。

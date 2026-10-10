@@ -1,0 +1,41 @@
+---
+slug: deepspeed-fsdp-distributed-training-strategy
+title: 'DeepSpeed、FSDP 到 Megatron：大模型分布式训练框架演进'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [training, deep-learning, tech-deep-dive]
+description: 'DeepSpeed 主打显存扩展，FSDP 主打开箱即用，Megatron 主打极致吞吐，三者定位不同却在生产中常常混用。本文梳理三大框架的核心机制、适用场景与组合方案，给出按模型规模和硬件条件选型的决策参考。'
+---
+
+# DeepSpeed、FSDP 到 Megatron：大模型分布式训练框架演进
+
+> 千亿参数模型的训练没有银弹。显存不够、通信爆炸、扩展效率衰减，每个瓶颈都有对应的框架答案。看清 DeepSpeed、FSDP、Megatron 各自解决的核心矛盾，比背参数更重要。
+
+## 三种哲学，三个框架
+
+三者的架构本质可以概括为一句话：DeepSpeed 是显存扩展优先，Megatron 是计算性能优先，FSDP 是易用性优先。
+
+| 维度 | DeepSpeed | Megatron-LM | PyTorch FSDP |
+| --- | --- | --- | --- |
+| 出品方 | Microsoft | NVIDIA | PyTorch 官方 |
+| 核心技术 | ZeRO 分片 1/2/3、Offload、Infinity | 3D 并行（张量、流水线、数据） | 参数全分片、Bucket 化、通信重叠 |
+| 显存思路 | 优化器状态、梯度、参数逐级切分，可卸载到 CPU/NVMe | 把模型按层切到多卡，换吞吐省显存 | 类似 ZeRO-3 的原生实现 |
+| 硬件耦合 | 广泛，含 CPU、NPU、NVMe | 强依赖 NVIDIA GPU 与 NVLink | 跟随 PyTorch 后端 |
+| 接入成本 | JSON 配置，代码侵入低 | 需按规范重构模型 | 零侵入，包装即用 |
+
+DeepSpeed 的 ZeRO-1/2/3 把优化器状态、梯度和参数逐级切分到各卡，ZeRO-Offload 与 ZeRO-Infinity 进一步把状态卸载到 CPU 内存甚至 NVMe，用带宽换显存，让有限硬件也能起步大模型训练。Megatron-LM 则是张量并行与交错式流水线调度的标杆实现，在 NVLink 互联的 NVIDIA 集群上能榨出最高的 MFU。FSDP 是 PyTorch 对 ZeRO-3 思想的原生化，2.x 时代又引入 DeviceMesh 与 DTensor，把多维并行表达成一等公民概念。
+
+## 怎么选：按规模与硬件定
+
+经验路径大致如下：几十亿参数微调、PyTorch 技术栈、不想改代码，直接 FSDP；显存吃紧、硬件预算有限、或需要在异构环境（含昇腾插件）里跑超大模型，选 DeepSpeed；自建 NVIDIA 大集群、追求 GPT-4 级别吞吐、愿意承担改造成本，上 Megatron。三者并非互斥：Megatron-DeepSpeed 混合方案在 BLOOM、GLM 等经典大模型训练中已被反复验证，用 Megatron 的并行结构叠加 ZeRO 的显存优化；也有团队训练侧用 FSDP、推理侧接 DeepSpeed-Inference 的组合。
+
+## 工程上的常见坑
+
+1. ZeRO-3 与某些自定义算子、参数共享结构不兼容，接入前先跑小规模试训验证收敛。
+2. 流水线并行对 micro-batch 数量敏感，batch 太小会让流水线气泡吞掉理论收益。
+3. FSDP 在千亿级规模的扩展效率弱于 Megatron，别用它的短板打别人的长板。
+4. Offload 到 CPU 会拖慢步速，确定显存确实不够再开，并用 profiling 对比开关前后的单步耗时。
+
+## 实操建议
+
+上线前用目标模型跑一个 48 小时短程实验，记录单步时间、显存水位与 MFU 三项指标，三个框架横向对比再定。配置上先保守后激进：先用 ZeRO-2 或 FSDP 全分片拿基线，确实不够再切 ZeRO-3 加 Offload。国产硬件团队重点关注 DeepSpeed 生态与昇腾插件的兼容进展，它是对非 NVIDIA 硬件最友好的训练框架，没有之一。

@@ -1,0 +1,41 @@
+---
+slug: sglang-high-concurrency-serving
+title: 'SGLang 高并发推理：RadixAttention 与生产环境实践'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [inference, tech-deep-dive, ai-infrastructure]
+description: 'SGLang 凭借 RadixAttention 前缀复用与零开销 CPU 调度器，在高并发、多轮对话与 Agent 场景下吞吐领先，已成为 DeepSeek 官方推荐的推理框架。本文拆解其核心技术原理，并给出生产环境的关键配置与调优实践。'
+---
+
+# SGLang 高并发推理：RadixAttention 与生产环境实践
+
+> 当业务里有大量重复系统提示词、多轮对话历史或 RAG 共享文档时，vLLM 的 PagedAttention 只能做页级缓存，而 SGLang 的 RadixAttention 能把前缀 KV Cache 的复用率推到极高。这正是它被 DeepSeek 官方推荐的原因。
+
+## RadixAttention 到底省在哪
+
+传统推理框架里，每个请求都要为相同的前缀重复计算 KV Cache。SGLang 把已计算的 KV Cache 存进一棵基数树，新请求到来时先做前缀匹配，命中部分直接复用，只计算增量部分。社区实测数据显示：
+
+| 场景 | SGLang 缓存命中率 | 传统无前缀缓存方案 |
+| --- | --- | --- |
+| Few-shot 学习 | 85% 至 95% | 接近 0 |
+| 多轮对话 | 75% 至 90% | 接近 0 |
+| RAG 共享文档 | 显著命中 | 接近 0 |
+
+命中率直接转化为首 token 时延下降与吞吐提升。在重前缀负载的独立评测中，SGLang 相比 vLLM 有 29% 至 50% 的吞吐优势；而在单轮、无前缀共享的自由文本场景，两者差距很小，选型时要先看清自己的流量画像。
+
+## 另外两个性能引擎
+
+**零开销 CPU 调度器**：传统调度是 CPU 准备批次、GPU 计算、再准备下一批的串行流程，GPU 在调度期间空转。SGLang 用流水线方式让 CPU 准备批次与 GPU 计算重叠，持续负载下 GPU 利用率可逼近满载。
+
+**结构化输出**：Agent 应用要求模型严格输出合法 JSON。SGLang 把格式约束编译成有限状态机，每生成一个 token 都限制下一个可选 token 范围，从源头保证格式合法，避免了"生成后校验失败再重试"的浪费，底层通过 xgrammar 实现高速约束。
+
+## 生产环境关键配置
+
+1. **PD 分离**：Prefill 是计算密集型，Decode 是访存密集型，两者资源画像冲突。SGLang 支持 Prefill/Decode 分离部署，通过 RDMA 高速网络连接，能显著降低每 token 平均生成时间并提升整体吞吐。DeepSeek 部署实践曾基于 96 张 H100 的 PD 分离加大规模专家并行，跑出接近官方报告的吞吐水平。
+2. **显存与调度参数**：结合业务上下文长度设置 max-total-tokens，避免 KV Cache 池过小导致频繁淘汰；高并发短输出场景可调大并行批处理窗口。
+3. **硬件覆盖**：SGLang 原生支持 NVIDIA、AMD、Intel Xeon、Google TPU 与昇腾 NPU，截至发稿社区数据显示其已在超过 40 万张 GPU 上运行，每天生成数万亿 token。
+4. **版本管理**：项目于 2025 年 3 月加入 PyTorch 生态，由 LMSYS 托管，迭代速度快、API 变动频繁，建议镜像锁版本，升级前跑回归。
+
+## 实操建议
+
+上线前先统计业务的系统提示词与文档前缀重复度，重复度越高，SGLang 的相对收益越大。开启结构化输出时要给出精简的 JSON Schema，约束越细生成越快。如果团队已经在用 vLLM，可以按模型灰度切换并用同一套压测脚本对比 P99 时延与吞吐，用数据说话而不是跟风选型。

@@ -1,0 +1,40 @@
+---
+slug: triton-server-vs-custom-gateway
+title: 'Triton Inference Server 还是自研网关：推理服务层的选型'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [inference, selection-guide, GPU]
+description: '推理服务层到底用 Triton Inference Server 还是自研网关，是很多 AI 基础设施团队绕不开的决策。本文从动态批处理、模型编排、多租户与运维成本四个维度做对比，并给出按团队规模与业务形态的选型建议。'
+---
+
+# Triton Inference Server 还是自研网关：推理服务层的选型
+
+> LLM 推理引擎已经有了 vLLM 和 SGLang，但它们之上还差一层"服务编排"：批量合并、多模型并发、流水线编排、指标暴露。这一层是直接拿 Triton，还是用 FastAPI 自研？答案取决于团队规模与业务复杂度。
+
+## Triton 提供了什么
+
+Triton Inference Server 是 NVIDIA 开源的推理服务软件，2025 年 3 月起已并入 NVIDIA Dynamo 平台体系（更名为 Dynamo Triton），但社区版仍独立发展。它的核心能力集中在四点：
+
+1. **动态批处理**：在服务端把零散请求合并成大批次，客户端零改动，通过 preferred_batch_size 与 max_queue_delay_microseconds 控制吞吐与时延的平衡。
+2. **多框架后端**：TensorFlow、PyTorch、ONNX、TensorRT、OpenVINO、Python、RAPIDS FIL 乃至自定义 C++ 后端统一在一份配置模型仓库下。
+3. **Ensemble 与 BLS**：Ensemble 用声明式 DAG 编排"检测后接跟踪再接分类"这类固定流水线；Business Logic Scripting 允许写 Python 控制流做条件路由、拆批合并。
+4. **并发与实例管理**：instance_group 控制每张卡上同一模型的副本数，多模型并发执行由调度器托管，天然配合 MIG 与 MPS 做多租户切分。
+
+## 自研网关的真实成本
+
+自研路线的吸引力在于灵活：鉴权、限流、业务路由、AB 实验、成本归因都能按需来，很多团队用 FastAPI 加进程池两天就能跑起来。但走到生产会陆续遇到隐性成本：请求级动态批处理要自己实现并调优；模型加载、健康检查、灰度发布要重新造轮子；Prometheus 指标、XID 错误采集、GPU 利用率导出全部要自己接；分布式追踪与优雅扩缩容更是长期工程。
+
+## 决策对比表
+
+| 维度 | Triton | 自研网关 |
+| --- | --- | --- |
+| 动态批处理 | 内置，微秒级队列延迟可调 | 需自研，质量取决于实现 |
+| 模型格式支持 | 十余种后端统一托管 | 逐个适配 |
+| 业务逻辑灵活度 | 中等，靠 BLS 补齐 | 完全自由 |
+| 可观测性 | Prometheus 指标开箱即用 | 全部自建 |
+| 团队门槛 | 学配置模型仓库与调度参数 | 需要长期维护的服务团队 |
+| 适合规模 | 多模型、CV 类流水线、多租户 | 业务逻辑重、单模型、快速验证 |
+
+## 实操建议
+
+经验法则是：模型种类多、有 CV 类流水线编排需求、追求 GPU 利用率的团队，直接用 Triton，把自研精力留给上层业务网关；业务逻辑极重、模型单一且迭代以周计的小团队，自研网关反而更轻。更常见的最优解是分层——Triton 承担"模型服务与批处理"这层标准化工作，前面再叠一层薄薄的业务网关做鉴权路由，两层各司其职。无论哪条路线，先用真实流量回放压测，对比 P99 时延与单卡吞吐再定，不要凭感觉拍板。
