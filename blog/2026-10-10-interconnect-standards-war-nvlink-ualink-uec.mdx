@@ -1,0 +1,52 @@
+---
+slug: interconnect-standards-war-nvlink-ualink-uec
+title: '互联标准战争：NVLink、UALink、UEC 与灵衢的四方博弈'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [tech-deep-dive, ai-infrastructure, strategy]
+description: '摩尔定律放缓，scale-up 互联成为 AI 算力新战场。本文对比 NVLink 6、UALink over Ethernet、Ultra Ethernet 与华为灵衢的带宽、开放度与生态绑定，解析开放标准与垂直整合两条路线，以及 Token Fabric 的中立性悖论。'
+---
+
+# 互联标准战争：NVLink、UALink、UEC 与灵衢的四方博弈
+
+> 当单芯片晶体管增速放缓，算力的增长叙事就从"更快的芯片"变成"更多的芯片"——而把几百上千颗芯片粘成一台计算机的那根线，正成为 AI 基础设施竞争最激烈的一层。
+
+## 为什么 scale-up 互联成为新战场
+
+大模型训练与推理的本质是大量芯片协同计算，芯片间每次交换数据都要经过互联网络。互联带宽决定了两件事：并行扩展效率（加卡能换来几成算力）和内存池化能力（跨卡显存能否当作一块用）。华为马尔科夫实验室的仿真给过一个直观口径：传统 8 卡服务器组网下，集群内通信占训练时间超过 40%；换成大规模超节点组网后 MFU 可提升 2.75 倍——互联不是配套件，而是算力本身。
+
+于是"机架级计算"成为 2026 年的主流形态：NVIDIA 的 NVL72、AMD 的 Helios 72 卡机架、华为的 4096 卡超节点，都是在互联层下注。四方标准就此正面相遇。
+
+## 四方标准对比表
+
+| 维度 | NVLink 6（NVIDIA） | UALink / UALoE（AMD 阵营） | Ultra Ethernet（UEC） | 灵衢 UnifiedBus（华为） |
+|------|--------------------|---------------------------|----------------------|------------------------|
+| 单卡带宽 | Rubin R200 单 GPU 3.6TB/s | MI455X 单 GPU scale-up 3.6TB/s（UALoE）；横向扩展 600GB/s | 以太网生态扩展，43TB/s 级机架出口 | 昇腾 950/960 单卡 2TB/s |
+| 机架级带宽 | NVL72 总计 260TB/s | Helios 72 卡 scale-up 约 260TB/s、scale-out 43TB/s | 以太网交换机标准演进 | 960 超节点 4096 卡，RTT 2μs |
+| 开放度 | NVLink Fusion 向伙伴开放集成自定义 CPU/芯片 | UALink 开放规范，UALoE 走以太网物理层 | 开放联盟，多厂商互通 | 开放灵衢 2.0 总线生态，自研为主 |
+| 生态绑定 | 深度绑定 CUDA | 绑定 ROCm + OCP 开放标准 | 生态最广、厂商中立 | 绑定 CANN/MindSpore |
+| 代表系统 | Vera Rubin NVL72 | AMD Helios（Open Rack Wide v3） | UEC 联盟成员网络 | Atlas 960 超节点 |
+
+两组数字颇有意味：NVIDIA 与 AMD 的单 GPU scale-up 带宽同为 3.6TB/s，72 卡机架级 scale-up 带宽同样约 260TB/s——在纵向扩展这一层，两条路线的物理指标已经打平，胜负手转向开放度与生态。
+
+## 开放标准与垂直整合的两条路线
+
+NVIDIA 走的是垂直整合加有限开放：NVLink 6 从交换芯片到拓扑全部自研，NVL72 的 260TB/s 全互联带宽是系统级护城河；但 NVLink Fusion 开始向合作伙伴开放，允许第三方把自定义 CPU、加速芯片接入 NVLink 域——既保住标准控制权，又吸纳外部设计。
+
+AMD 走的是彻底的开放标准路线。Helios 机架基于 OCP 的 Open Rack Wide v3 规范（ORW 设计与 Meta 共研），互联组合是 Infinity Fabric + UALink + Ultra Ethernet，配自研 Pensando Vulcano 800G 网卡；MI455X 的 UALoE（UALink over Ethernet）干脆把 scale-up 流量架在以太网物理层上，让客户用标准以太网设备搭建 260TB/s 的纵向扩展域。UEC 则从横向扩展切入，目标是让万卡级集群的跨机网络也走开放以太网。
+
+华为灵衢是第三条路：自研协议、开放生态。灵衢 2.0 总线支撑昇腾 950 的 2TB/s 单卡互联与 1024 卡超节点，昇腾 960 超节点用"灵衢 + Hi-ONE 光引擎"做到单节点 4096 卡、1PB HBM、RTT 2μs，多节点经灵衢网络组网最大 51.2 万卡，叠加多轨道拓扑可达 100 万卡集群——在规模上限上反而是四者中最激进的。
+
+## Token Fabric 的"中立性"悖论
+
+2026 年 10 月 8 日，多厂商互联平台 Upscale AI 发布 Token Fabric，NVIDIA 也出现在投资方名单里。它试图提供一个厂商中立的机架级互联方案，让不同家的加速器共处一个 scale-up 域。
+
+但这里存在一个悖论：真正需要中立方（被 NVLink 锁定的二线芯片厂商）欢迎它，而制定标准的头部厂商（正是 NVLink、UALink、灵衢的持有者）都有动机让它名存实亡。NVIDIA 参投 Token Fabric 更可能是防守性布局——与其被排除在开放阵营外，不如进去施加影响。互联标准的"中立平台"能否存活，取决于超大规模云厂商是否愿意为去锁定支付溢价；从 OCP 阵营的扩张速度看，至少在 AMD Helios 这类系统上，开放路线已经拿到了第一个规模化验证。
+
+## 给采购方的评估维度
+
+面对四方标准，采购方可以用四个维度打分：一是 scale-up 域内的有效带宽与扩展效率（MLPerf 等实测口径，Rubin NVL72 在 288 卡演示中达到 99% 扩展效率）；二是内存池化能力——互联是否支持跨卡统一编址，这直接决定超大模型的部署方式；三是生态绑定成本——CUDA/ROCm/CANN 的迁移代价往往比硬件差价更大；四是供应链弹性——开放标准（UALink/UEC/OCP）意味着多供应商议价权，垂直整合意味着更紧的集成但更少的集成风险。
+
+## 小结
+
+互联标准的四方博弈，本质是三种产业模式的对撞：NVIDIA 的垂直整合加 NVLink Fusion 有限开放，AMD 阵营的 UALink/UEC/OCP 全开放路线，华为的自研灵衢加超节点规模策略。物理指标上单卡 3.6TB/s、机架 260TB/s 已成 2026 年的"对齐线"，下一阶段的差异化将来自光互联（Hi-ONE 的 NPO 路线）和内存语义扩展。对采购方而言，标准之争没有旁观席——今天选的互联，决定了未来五年被谁的生态锁定。

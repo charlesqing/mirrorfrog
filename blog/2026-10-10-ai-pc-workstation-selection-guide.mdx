@@ -1,0 +1,69 @@
+---
+slug: ai-pc-workstation-selection-guide
+title: 'AI PC 与桌面超算选型：RTX Spark、Gorgon Halo、DGX Station、Mac 怎么选'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [selection-guide, edge-ai, selection]
+description: '2026年AI PC怎么选？本文对比NVIDIA RTX Spark 128GB、AMD Gorgon Halo 192GB、DGX Spark 64GB、DGX Station 748GB与Mac的统一内存、带宽、AI算力与价格，讲清内存容量与带宽的真实体验差异、x86与Arm兼容性权衡，并按轻量推理、Agent开发、创作者、桌面训练四类人群给出推荐。'
+---
+
+# AI PC 与桌面超算选型：RTX Spark、Gorgon Halo、DGX Station、Mac 怎么选
+
+> 2026 年，"本地跑大模型"从极客玩具变成了正经生产力工具：128GB 统一内存进入万元级笔记本，192GB 桌面平台宣称能装下 300B 模型，748GB 的 DGX Station 把数据中心级算力搬上了办公桌。
+
+## 一、按需求分档
+
+选型的第一步是诚实评估自己的需求档位：
+
+- **轻量本地推理**：跑 7B–35B 量化模型做日常问答、写作辅助，16–32GB 内存即可，任何 Copilot+ PC 都够用。
+- **严肃 Agent 开发**：本地跑 70B–120B 模型、多 Agent 并行调试、数据不出本机的隐私场景，需要 96GB 以上可分配显存。
+- **创作者**：Stable Diffusion 出图、视频剪辑 + AI 加速、本地语音转写，看重 GPU 性能与软件适配。
+- **桌面训练超算**：微调大模型、跑严肃的 Agent 集群实验，需要 TB 级统一内存与数据中心级带宽。
+
+## 二、核心产品对比表
+
+| 产品 | 芯片 | 统一内存 | 内存带宽 | AI 算力 | 价格 | 形态 |
+|------|------|---------|---------|---------|------|------|
+| NVIDIA RTX Spark | 20 核 Arm + 6,144 CUDA（Blackwell） | 128GB LPDDR5X | 300 GB/s | 1 PFLOPS（FP4 稀疏，官方口径） | 未公布（2026 秋上市） | 笔记本 / 紧凑桌面 |
+| AMD Gorgon Halo 平台（Ryzen AI Max Pro 495） | 16 核 Zen 5 + RDNA 3.5 | 最高 192GB（VGM 可分配 160GB） | 约 272 GB/s | 未公布 | 未公布 | 旗舰 APU，Pro 495/490/485 三 SKU |
+| AMD Ryzen AI Max+ 395 | 16 核 Zen 5 + 40CU + NPU 50 TOPS | 128GB（96GB 可作 VRAM） | 256 GB/s | 合计 126 TOPS | 笔记本 $1,499–2,499 | 笔记本 / 迷你主机 |
+| NVIDIA DGX Spark | GB10 Grace Blackwell | 64GB（可用于模型约 56GB） | 273 GB/s | — | $4,999（2026-10-23 上市） | 桌面 |
+| NVIDIA DGX Station for Windows | GB300 | 748GB（252GB HBM3e + 496GB LPDDR5X） | 7.1 TB/s（GPU） | 20 PFLOPS（FP4） | 未公布（2026 Q4） | 桌面超算 |
+| Apple MacBook Pro（M4 Max） | 16 核 CPU + 40 核 GPU | 128GB | 546 GB/s | — | 随 Mac 配置 | 笔记本 |
+
+## 三、统一内存容量 vs 带宽：真实体验的差异
+
+统一内存架构下，容量和带宽管的是两件完全不同的事：
+
+- **容量决定"能不能跑"**。70B 模型 4bit 量化约需 40GB+，这解释了为什么 96GB 可分配 VRAM 的 Ryzen AI Max+ 395 能完整装下 70B（Q4）而 48GB 的 M4 Pro 要靠 swap、实测只有约 2 tok/s；192GB 的 Gorgon Halo 平台宣称可本地运行 300B 模型，160GB VGM 单机离线跑 1000 亿参数级模型是 Pro 495 的核心卖点。
+- **带宽决定"跑多快"**。Decode 阶段每个 token 都要把权重读一遍，带宽几乎线性决定生成速度。同样是 128GB：M4 Max 的 546 GB/s 对比 Ryzen AI Max+ 395 的 256 GB/s，LLM 生成速度差距可以直接从带宽比例预估——395 跑 70B Q4 实测约 5 tok/s，属于"能用但不快"的水平。
+- ** 两台 DGX Spark 可通过 ConnectX-7 直连把内存池化到 128GB，模型上限提升至 2000 亿参数级，双机跑 Qwen3.8 27B 较单台 128GB 系统峰值最高提升 70%**——这是"容量不够、机器来凑"的官方示范。
+
+一句话经验：容量买"资格"，带宽买"体验"。预算有限先保容量门槛，再在同级里挑带宽。
+
+## 四、x86 vs Arm：兼容性权衡
+
+RTX Spark 与 Gorgon Halo 的对决，本质是 Arm 与 x86 两条路线的对决：
+
+- **RTX Spark（Arm）**：优势在 CUDA——6,144 个 Blackwell CUDA 核心原生兼容整个 NVIDIA 软件栈，本地跑 PyTorch、vLLM、Ollama 零适配成本；代价是 Windows 生态绕不开微软 Prism 模拟层运行部分 x86 应用，功耗损失与兼容性问题依然存在。
+- **Ryzen AI Max Pro 495（x86）**：原生 Windows + Linux 直接运行、无模拟层，这是 AMD 对标 RTX Spark 时反复强调的卖点；GPU 侧走 ROCm / DirectML / ONNX Runtime 路线，AI 软件生态成熟度不及 CUDA，llama.cpp、Vulkan 后端等社区方案补位。
+- **Mac**：原生生态最封闭也最省心，MLX 与 Core ML 体验完整，但 CUDA 专属工具链（多数研究代码、部分训练框架特性）无法使用。
+
+选型建议：深度学习研究者和 CUDA 生态重度用户等 RTX Spark；Windows 企业环境、x86 软件依赖重的选 Gorgon Halo / Pro 495；全苹果生态的创作与轻推理用户留在 Mac。
+
+## 五、价格与供货风险
+
+- **内存涨价正在挤压这一档位**：DGX Spark 128GB 创始版价格上调至 $6,950（官方归因于 AI 内存紧缺），而 64GB 版维持 $4,999。DRAM 价格处于 15 年新高，大内存配额紧张可能让 192GB 级产品首发溢价，刚需建议早锁货。
+- **首发参考价**：微软 Surface Laptop Ultra $2,599 起（官方宣称 AI 任务速度达 Mac 的 2 倍、视频处理 6 倍）；联想 YOGA Pro 15（RTX Spark）80W 功耗、约 1.75kg，天禧 AI 支持 35B 本地模型，参照价 16,999 元档。
+- **DGX Station 等等再看**：748GB 统一内存 + 20 PFLOPS FP4 的桌面超算 2026 Q4 上市，定价未公布——考虑到其 GB300 血统，预计不会便宜，但它可能是唯一能单机微调千亿级模型的桌面方案。
+
+## 六、分人群推荐
+
+- **轻量本地推理 / 学生**：Ryzen AI Max+ 395 笔记本（$1,499 起），96GB VRAM 的容量优势同价位无解。
+- **严肃 Agent 开发**：DGX Spark $4,999 入门，双机池化到 128GB 覆盖 2000 亿参数级实验；CUDA 生态原生。
+- **创作者**：Mac（M4 Max 带宽高、创作软件适配好）或等 RTX Spark（Adobe 全家桶 100% GPU 加速是 NVIDIA 官方合作项）。
+- **桌面训练超算 / 企业工作站**：预算充足等 DGX Station for Windows；预算敏感选 Ryzen AI Max Pro 495（192GB）+ Linux，先把 100B 级推理与 LoRA 微调跑起来。
+
+## 小结
+
+2026 年的 AI PC 市场第一次出现了完整的四档产品线：万元级 128GB 笔记本、$4,999 的 DGX Spark、192GB 的 x86 旗舰平台和 748GB 的桌面超算。选购逻辑可以浓缩为一句话：先用模型规模定容量门槛，再用体验预期挑带宽，然后按软件生态选 x86 / Arm / Mac 路线，最后在 DRAM 涨价周期里尽早锁定配额。各芯片的完整规格请查阅站内对应芯片卡页面与[完整对比表](/docs/comparison)。

@@ -1,0 +1,93 @@
+---
+slug: gb300-b300-ultra-desktop-datacenter
+title: 'GB300 Grace Blackwell Ultra 全解：从 20 PFLOPS 桌面超算到数据中心旗舰'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [blackwell, nvidia, tech-deep-dive, ai-compute]
+description: '全解 NVIDIA GB300 Grace Blackwell Ultra：B300 Ultra GPU 288GB HBM3e、NVLink 5 与 ConnectX-9 1.6T 网络组成 NVL72 旗舰机柜；DGX Station 桌面超算以 20 PFLOPS FP4 和 748GB 一致性内存进驻 Windows 工作站。梳理 B200→GB200→GB300 演进与产品分层。'
+---
+
+# GB300 Grace Blackwell Ultra 全解：从 20 PFLOPS 桌面超算到数据中心旗舰
+
+> 同一颗 GB300 Grace Blackwell Ultra 芯片，既能撑起 350 万美元级的数据中心机柜，也能塞进一台放在办公桌上的 DGX Station。2026 年 10 月微软活动上预览的 DGX Station for Windows，让这个"双面故事"变得更加完整。本文依据站内芯片数据库，梳理 GB300 在 Blackwell 家族中的定位、桌面与数据中心的产品分层，以及 WSL 桥接对 Windows 企业市场的意义。
+
+## GB300 在 Blackwell 家族中的定位
+
+GB300 是 NVIDIA 第三代 Grace Blackwell 超级芯片，2025 H2 发布。其代际演进脉络清晰：
+
+| 指标 | GH200 (2023-Q3) | GB200 (2024-Q4) | GB300 (2025 H2) |
+|------|------------------|------------------|------------------|
+| GPU | H100 | B200 | B300 Ultra |
+| CPU | Grace 72 核 | Grace 72 核 | Grace 72 核 |
+| GPU 内存 | 96GB HBM3 | 192GB HBM3e | 288GB HBM3e |
+| GPU 带宽 | 3.35 TB/s | 8 TB/s | 10 TB/s |
+| NVLink 域内 | 60 TB/s | 130 TB/s | 130 TB/s |
+| 网络 | ConnectX-7 400G | ConnectX-8 800G | ConnectX-9 1.6T |
+| FP4 sparse（单 GPU） | N/A（FP8 2 PF） | 10 PF | 15 PF |
+| TDP（GPU） | 1000W | 1000W | 1400W |
+
+GB300 超级芯片 = 2 颗 B300 Ultra GPU + 1 颗 Arm Grace CPU（72 核 Neoverse V2），通过 900 GB/s 的 NV-HBI 高速接口配对。据站内芯片数据库，单 Superchip FP4 sparse 算力 30 PFLOPS、FP8 dense 7.5 PFLOPS、GPU 侧总显存 576GB HBM3e，Superchip 模块单价约 7-8 万美元。
+
+## B300 Ultra：288GB HBM3e 的推理特化
+
+B300 Ultra（Blackwell Ultra）是 Blackwell 的中期升级版本，2026 年 1 月正式出货。据站内芯片数据库：
+
+- **显存**：288GB HBM3e（12-Hi 堆叠），相比 B200 的 192GB 提升 50%，可单卡加载 FP16 的 70B 模型并保留 100GB+ 给 KV Cache；
+- **算力**：FP4 稀疏 30 PFLOPS、FP8 密集 7 PFLOPS，相比 B200 均提升约 56%；
+- **实测**：DeepSeek-R1 Prefill 吞吐 22,476 TGS，相比 H200 提升 8 倍；短输出场景提升 20 倍。
+
+需要说明的是，站内 b300-ultra 卡按单卡口径记录 FP4 稀疏 30 PFLOPS，而 gb300 卡的代际对比表按单 GPU 口径记 15 PFLOPS（Superchip 两颗合计 30 PFLOPS），两个数据源口径存在差异，读者引用时需注意区分。B300 的制程仍为台积电 4NP，升级重心放在显存容量与 FP4 精度上——这正是"中期升级"的典型特征：架构不动，围绕推理经济性做增量。
+
+## NVL72 机柜：数据中心旗舰形态
+
+36 颗 GB300 组成 NVL72 机柜（72 颗 B300 Ultra + 36 颗 Grace），据站内芯片数据库：
+
+| 项目 | 配置 |
+|------|------|
+| HBM 总量 | 20.7 TB HBM3e |
+| LPDDR5X 总量 | 34.6 TB |
+| NVLink 5 域内 | 130 TB/s 全互联 |
+| ConnectX-9 出口 | 72× 1.6T = 115 Tb/s |
+| FP4 sparse 总算力 | 1.08 EFLOPS |
+| 机柜 TDP | 约 120kW（含冷却） |
+| 价格 | 约 330 万美元/机柜 |
+
+ConnectX-9 是这代机柜的隐性升级：单端口 1.6 Tb/s 相比 ConnectX-8 翻倍，延迟低于 0.5 微秒，支持 NVLink over IB 跨机柜互联。8 个机柜可组成 NVL576 域——576 颗 B300 Ultra 共享 130 TB/s 互联，是业界最大单一 NVLink 域，对万亿参数 LLM 训练至关重要。云端租用方面，行业口径（Nebius）B300 的租用价格约为 9.50 美元/GPU 小时，站内芯片数据库另记录 AWS 8 卡 B300 实例（p6-b200.48xlarge）单 GPU 小时价 11.70 美元，不同供应商价差明显。
+
+在 token 成本维度，站内数据给出了关键洞察：B300 单价虽高，但以 Llama 70B 推理测算，FP4 量化下单 token 成本相比 H100 低约 61%——单价高不等于用得贵。
+
+## DGX Station：20 PFLOPS 的桌面超算
+
+2026 年 10 月的微软活动上，NVIDIA 预览了 DGX Station for Windows，核心配置：
+
+- **芯片**：GB300 Grace Blackwell Ultra Desktop Superchip；
+- **一致性内存**：748GB（252GB HBM3e + 496GB LPDDR5X）；
+- **算力**：最高 20 PFLOPS FP4；
+- **模型能力**：可在本地运行约 1 万亿参数模型；
+- **软件**：Linux 工具链经 WSL（Windows Subsystem for Linux）访问；
+- **上市**：2026 Q4，ASUS、Dell、HP、Lenovo 推出整机。
+
+## 产品分层：1 PFLOPS 与 20 PFLOPS 之间
+
+DGX Station 的出现补全了 NVIDIA 桌面产品线的断层。站内芯片数据库记录的 RTX Spark（RTX DGX Spark）定位约 1 PFLOPS 级 FP4 算力的紧凑桌面开发机，而基于 GB300 Desktop Superchip 的 DGX Station 直接把桌面算力抬到 20 PFLOPS——20 倍的分层差距，对应着完全不同的用户画像：
+
+| 维度 | RTX Spark | DGX Station (GB300) |
+|------|-----------|---------------------|
+| 算力 | 约 1 PFLOPS FP4 | 最高 20 PFLOPS FP4 |
+| 内存 | 统一紧凑内存 | 748GB 一致性内存 |
+| 目标场景 | 个人开发、微调小型模型 | 本地万亿参数推理、企业级开发 |
+| 价格量级 | 消费级/准专业级 | 高端工作站 |
+
+## WSL 桥接：Windows 企业市场的钥匙
+
+DGX Station for Windows 最值得玩味的细节是"Linux 工具链经 WSL 访问"。CUDA 生态的主场在 Linux，此前企业若要在 Windows 环境做本地 AI 开发，往往需要双机或虚拟化方案。WSL 桥接意味着：
+
+1. **企业 IT 无需改变管理习惯**：Windows 域、组策略、合规审计体系原样保留；
+2. **开发者无需迁移工作流**：PyTorch、TensorRT-LLM 等工具链在 WSL 内原生运行；
+3. **数据不出本地**：金融、医疗、政务等对数据合规敏感的行业，获得了一条"本地跑万亿参数模型"的合规路径。
+
+这与 GB300 数据中心侧的统一内存设计一脉相承：Grace 上 480GB LPDDR5X 与 B300 上 288GB HBM3e 统一寻址，CPU 与 GPU 共享一致性内存池。桌面版把同样的架构哲学浓缩进一台工作站——数据搬运越少，推理经济性越好。
+
+## 小结
+
+GB300 家族展示了 NVIDIA 的典型打法：一颗芯片，从数据中心机柜到桌面工作站全栈铺开。数据中心侧，B300 Ultra 用 288GB HBM3e 和 FP4 精度把推理 token 成本压到 H100 的四成以下；桌面侧，DGX Station 用 20 PFLOPS FP4 和 748GB 一致性内存把"本地大模型"从口号变成 Q4 可买的产品。而 Rubin R200 已在 H2 2026 接棒数据中心旗舰，GB300 的价值窗口正在收窄——但它建立的"统一内存 + 桌面到机柜分层"产品范式，将由 Vera Rubin 平台延续下去。

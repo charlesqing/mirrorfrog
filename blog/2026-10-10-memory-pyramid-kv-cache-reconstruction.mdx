@@ -1,0 +1,61 @@
+---
+slug: memory-pyramid-kv-cache-reconstruction
+title: 'HBM-DRAM-NAND 三层重构：KV Cache 如何改变存储金字塔'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [tech-deep-dive, ai-infrastructure, hbm4]
+description: 'Agentic AI 长上下文让 KV Cache 撑爆 HBM，HBM-DRAM-NAND 三层存储金字塔被重新定义。本文拆解 Vera Rubin 平台的 KV 缓存卸载、BlueField-4 上下文内存存储平台、SK海力士 HBF/PIM 与华为 OceanStor M900，看存储如何改写推理 TCO。'
+---
+
+# HBM-DRAM-NAND 三层重构：KV Cache 如何改变存储金字塔
+
+> 过去十年，存储金字塔的分工非常清晰：HBM 伺候计算核心，DRAM 扛系统内存，NAND 做持久化。2026 年，Agentic AI 的 KV Cache 把这条界线搅得七零八落——上下文越来越长，显存越来越装不下，HBM-DRAM-NAND 三层正在被重新定义。
+
+## Agentic AI 的 KV Cache 问题
+
+传统聊天机器人的一次请求，上下文不过几千 token；而 Agent 的工作方式是在一个会话里连续执行几十步任务——浏览网页、读写文件、调用工具、自我反思——每一步都要携带完整的对话历史。上下文从 8K 涨到 100 万 token（NVIDIA RTX Spark 已支持最长 100 万 token 上下文），KV Cache 的体积也随之线性膨胀。
+
+问题在于 KV Cache 必须常驻显存才能避免重复计算。以 Rubin R200 为例，它配备 288GB HBM4、带宽 22TB/s，看似充裕，但在多路并发服务时，模型权重占掉一块，剩余空间很快就会被活跃会话的 KV Cache 吃满。上一代 Blackwell Ultra（B300）之所以把显存从 192GB 提到 288GB HBM3e，官方场景里明确有一条就是"长上下文 KV Cache 288GB 完整保留"——显存的增长节奏，正在被 KV Cache 而不是模型参数牵着走。
+
+当单卡显存装不下时，业界给出的答案是：别把 KV Cache 困在 HBM 里，让它沿着存储金字塔往下走。
+
+## 三层金字塔：角色被重新定义
+
+Vera Rubin 平台是这场重构的最佳样本。它的"七芯片堆栈"包含 Vera CPU、Rubin GPU、NVLink 6 交换机、ConnectX-9 SuperNIC、BlueField-4 DPU、Spectrum-6 以太网交换机和 Groq 3 LPX，其中内存系统呈现清晰的三层结构：
+
+| 层级 | 介质 | 代表硬件 | 容量/带宽 | 新角色 |
+|------|------|----------|-----------|--------|
+| 热数据层 | HBM4 | Rubin R200（8 堆栈） | 288GB / 22TB/s | 活跃 KV Cache、模型权重 |
+| 温热数据层 | LPDDR5X | Vera CPU | 1.5TB / 1.2TB/s | KV 缓存卸载、与 HBM 构成单一一致性内存池 |
+| 冷数据层 | NAND（SSD） | BlueField-4 驱动的推理上下文内存存储平台 | PB 级 | 会话持久化与跨请求复用，token 吞吐最高提升 5 倍 |
+
+关键变化有三点。其一，LPDDR5X 与 HBM4 之间建立了单一一致性内存池——Vera Rubin NVL72 机柜内，72 颗 GPU 共享 20.7TB HBM4，36 颗 Vera CPU 提供 54TB LPDDR5X，KV Cache 可以在不损失一致性语义的前提下在两层间流动。其二，BlueField-4 不再只是安全卸载卡，而是被定位为"推理上下文内存存储平台"，把结束回合的会话上下文写入 NAND，下次请求命中时直接回灌，省去重新 prefill 的算力开销。其三，NAND 从"存储盘"升级为"上下文内存"，这是金字塔底层几十年来第一次获得计算语义。
+
+## HBF、PIM、M900：案例对比表
+
+围绕这条三层链路，整个存储产业在 2026 年密集出招：
+
+| 方案 | 厂商 | 技术要点 | 目标场景 |
+|------|------|----------|----------|
+| HBF（高带宽闪存） | SK海力士（AI Infra Summit 2026 "New Spectrum" 组合） | 给 NAND 加上类 HBM 的超宽接口 | KV Cache 冷层，带宽接近 DRAM 量级 |
+| PIM 存内计算 | SK海力士 | 在 DRAM 附近完成部分计算，减少搬运 | KV Cache 原地更新 |
+| eSSD + SALT-KV | SK海力士 | 面向 KV Cache 语义优化的键值存储栈 | 推理上下文持久化 |
+| OceanStor M900 | 华为 | 上下文内存存储集群，灵衢总线一跳直连 PB 级 KV Cache，SSD 读写寿命延长 16 倍 | 昇腾超节点的 KV 基建 |
+| NVHBM 定制内存 | AWS Annapurna × NVIDIA | 面向 AI 负载的定制 HBM 方案 | 云厂商定制化 |
+| 超密度服务器内存模组 | 美光（2026-09-15） | 单模组容量再上一档 | DRAM 温热层扩容 |
+
+SK海力士还专门设立了 SK hynix Ventures（9 月 18 日落地硅谷），用投资孵化初创公司的方式押注"内存即基础设施"这条新赛道。值得注意的是华为 OceanStor M900：它与昇腾 960 超节点同期发布，通过灵衢总线一跳直连，把 PB 级 KV Cache 集群变成超节点的"外挂记忆体"，并通过磨损均衡等手段把 SSD 读写寿命延长 16 倍——上下文存储的写放大问题，第一次被当成显性的工程指标来攻克。
+
+## 协同设计取代采购
+
+这轮重构背后，是产业关系的转向：存储不再是"按目录价采购的标准件"，而是与加速器协同设计的定制组件。NVIDIA 联合 AWS Annapurna 做 NVHBM，华为为昇腾自研 HBM 并配套 OceanStor M900，SK海力士直接下场定义 KV 存储软件栈。美光甚至在 9 月的口径中预测 NAND 与 DRAM 短缺将持续到 2028 年——在供不应求的市场里，谁能锁定定制内存供给，谁就握住了推理产能。
+
+对芯片厂商而言，算力竞争的上半场比的是 FLOPS，下半场比的将是"每 token 需要搬运多少字节"。带宽金字塔的每一层接口，都成了架构设计的一等公民。
+
+## 对推理 TCO 的影响
+
+这套三层结构对成本模型的影响是直接的。第一，KV Cache 卸载到 DRAM 和 NAND 后，同样规模的 HBM 可以服务更多并发会话，单 token 的 HBM 摊销成本下降。第二，BlueField-4 上下文存储平台宣称 token 吞吐最高提升 5 倍，本质上是把重复 prefill 的 GPU 算力换成了廉价的 NAND 读取——用存储的"宽"换算力的"贵"。第三，内存已占整机 TCO 约 40%（HBM 涨价后的行业口径），存储分层做得越细，整体成本曲线越平缓。
+
+## 小结
+
+KV Cache 正在把存储金字塔从"容量阶梯"改造成"温度阶梯"：HBM 保活跃、DRAM 承接温热会话、NAND 做上下文持久化，三层之间以一致性内存池和专用存储平台（BlueField-4、OceanStor M900）贯通。SK海力士的 HBF/PIM/SALT-KV 与美光的超密度模组说明，存储大厂已经从跟随 AI 转向定义 AI 基础设施。下一阶段推理成本的胜负手，不在 GPU 的 FLOPS 表格上，而在三层存储之间的数据搬运路线上。

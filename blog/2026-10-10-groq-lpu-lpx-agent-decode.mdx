@@ -1,0 +1,87 @@
+---
+slug: groq-lpu-lpx-agent-decode
+title: 'Groq LPU 并入 Rubin 平台：LPX 机架专攻智能体"最后一公里"解码'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [ai-accelerator, nvidia, inference-chip, agentic-ai, tech-deep-dive]
+description: 'NVIDIA 收购 Groq 后，Groq 3 LPX 机架作为 Vera Rubin 平台第七颗芯片登场：256 颗 LPU、128GB 聚合 SRAM、40 PB/s 带宽，每兆瓦吞吐较 Blackwell 高 35 倍，专攻智能体 AI 解码阶段。本文解析 SRAM 与 HBM 的架构取舍、prefill/decode 异构分工新范式与独立 LPU 市场的终结。'
+---
+
+# Groq LPU 并入 Rubin 平台：LPX 机架专攻智能体"最后一公里"解码
+
+> 在 Vera Rubin 平台的"七芯片堆栈"中，第七颗芯片的来路最为特殊——它不是 NVIDIA 自研的 GPU 或 CPU，而是被收购的 Groq 3 LPX。这颗专为智能体解码阶段设计的低延迟推理加速器，以 256 颗 LPU、128GB 聚合 SRAM、40 PB/s 带宽的机架形态，与 Vera Rubin NVL72 并列部署。NVIDIA 宣称其在万亿参数模型场景下每兆瓦吞吐较 Blackwell 高 35 倍。一家以通用 GPU 垄断市场的公司，为何要为"非 GPU"在自家参考架构中留下正式位置？
+
+## 收购时间线：从投资到全资整合
+
+根据站内 NVIDIA Groq 3 LPX 芯片卡，整合过程分四步走：
+
+| 事件 | 时间 | 详情 |
+|------|------|------|
+| 首次投资 | 2025-12 | NVIDIA 向 Groq 投资 2.5 亿美元 |
+| 全资收购 | 2026-Q1 | NVIDIA 全资收购 Groq（约 200 亿美元） |
+| 产品整合 | 2026 H2 | Groq 3 LPU 更名为 NVIDIA Groq 3 LPX |
+| 平台纳入 | 2026 H2 | LPX 机架作为 Rubin GPU 的协同机架（companion rack） |
+
+2026 年 8 月的 Hot Chips 2026 上，NVIDIA 以《Think Fast: LPU Accelerator for Heterogeneous Compute》为题首次将 LPU 纳入自家参考架构的正式叙事。这在 NVIDIA 历史上极为罕见——过去三十年，NVIDIA 的架构故事里从未给"非 GPU"留下过席位。
+
+## LPX 机架规格：SRAM 的极致堆料
+
+站内卡与 Hot Chips 披露的规格汇总如下：
+
+| 项目 | 单 LPU | LPX 机架（256 颗） |
+|------|--------|-------------------|
+| 片上 SRAM | 500 MB | 128 GB 聚合 |
+| SRAM 带宽 | 150 TB/s | 40 PB/s |
+| 机架互联 | GroqSync 1 TB/s | 640 TB/s |
+| 机架算力 | — | 315 PFLOPS |
+| TDP | ~300 W | ~80 kW |
+| 实测（Gemma 4 31B） | — | 单用户 3,431 token/s |
+
+最刺眼的是那组带宽对比：40 PB/s 的片上 SRAM 聚合带宽约为单颗 H100 HBM 带宽（3.35 TB/s）的 5,000 倍。LPU 完全放弃 HBM——模型权重经 Weight Streaming 灌入超大 SRAM，所有解码计算在纳秒级延迟的片上内存中完成。Hot Chips 实测数据显示，Gemma 4 31B 单用户吞吐达 3,431 token/s；运行 DeepSeek V3 级别的万亿参数模型约需 5 个机架。架构层面还有一个工程细节：FPGA 桥接同步域与异步域，投机解码只替换 draft token，保证确定性低延迟不被破坏。
+
+## 为什么智能体负载需要 LPX
+
+Agentic AI 的负载特征与聊天机器人截然不同。一个智能体执行任务时动辄发起上百次模型调用——规划、工具选择、结果校验层层嵌套，且调用之间存在串行依赖，前一步的解码不结束，后一步的请求就不会发出。这意味着：
+
+- **decode 阶段是纯粹 memory-bound**：每生成一个 token 都要完整读取一遍模型权重与 KV Cache，算力大量闲置，瓶颈在内存带宽与延迟；
+- **延迟是体验与成本的双重货币**：单次调用多花 100ms，乘以链式调用的次数就是秒级的体验劣化与集群吞吐的坍缩。
+
+NVIDIA 官方数据给出了量化的答案：LPX 机架 TTFT（首 token 延迟）小于 20ms、TPOT（单 token 延迟）小于 5ms，而 H100 分别约 200ms 与 30ms。对于每秒上千次调用的智能体场景，这不是"更快一点"，而是"可用与不可用"的区别。
+
+## SRAM vs HBM：一场精确的架构取舍
+
+LPX 的 SRAM-only 路线并非全面超越，而是一次方向性取舍：
+
+| 维度 | SRAM（LPX） | HBM（GPU） |
+|------|-------------|------------|
+| 延迟 | 纳秒级 | 微秒级 |
+| 带宽密度 | 极高（40 PB/s/机架） | 高（TB/s 级/芯片） |
+| 容量 | 小（单芯 500MB） | 大（单卡 141-288GB） |
+| 成本/位 | 高 | 相对低 |
+| 适用负载 | decode、低延迟小模型 | prefill、训练、大容量模型 |
+
+SRAM 容量小是硬伤——万亿参数模型必须靠 Weight Streaming 与多机架协同，5 个机架跑一个 DeepSeek V3 级模型的配置成本绝非小客户所能承受。但它换来了 HBM 永远给不了的确定性与带宽密度。这不是孰优孰劣的问题，而是两种负载物理特性驱动的必然分工。
+
+## 异构分工新范式：GPU 管 prefill、LPU 管 decode
+
+LPX 与 Vera Rubin NVL72 并列部署（companion rack）的设计，确立了"训练用 GPU、prefill 用 GPU、decode 用 LPU"的异构分工范式：
+
+1. **训练**：Rubin GPU，吃算力与互联扩展性；
+2. **prefill（首 token 生成前的上下文处理）**：Rubin GPU，并行度极高，吃算力；
+3. **decode（逐 token 生成）**：LPX 机架，串行依赖、memory-bound，吃带宽与延迟。
+
+这就是"每 token 经济学"推导出的结论：prefill 吃算力，decode 吃带宽，用不同架构分别解决，总成本更低。NVIDIA 借此完成了从"一颗 GPU 卖所有场景"到"全场景算力矩阵"的进化——训练、通用推理、极致低延迟推理，一个平台全覆盖。
+
+## 独立 LPU 市场的终结与同源逻辑
+
+NVIDIA 买下 Groq，另一个层面的影响同样深远：独立 LPU 市场事实上终结了。曾经 Groq 是"推理专用芯片挑战 NVIDIA"的旗帜，如今旗帜归入了对方阵营。市场上仍坚持独立路线的推理架构玩家，呈现出耐人寻味的同源逻辑：
+
+- **d-Matrix**：数字 SRAM 推理芯片，接受 NVIDIA 入股；
+- **Cerebras**：晶圆级 SRAM（44GB 片上），与 OpenAI 签署 100 亿美元电力协议；
+- **LPX（Groq）**：SRAM-only LPU，已被 NVIDIA 收编。
+
+三者殊途同归——都判断"内存贴近计算、SRAM 替代 HBM"是推理场景的最优解。区别只在商业化路径：被收购、被投资、硬刚。当架构共识已经形成，竞争的焦点就从"方向对不对"转向"谁能耗到最终局"。
+
+## 小结
+
+Groq 3 LPX 并入 Rubin 平台，标记了智能体推理基础设施的范式转折：decode 阶段被正式承认为一种独立的负载类型，需要独立的架构来解决。LPX 机架用 256 颗 LPU、128GB SRAM、40 PB/s 带宽和 35 倍每兆瓦吞吐，把"最后一公里"的解码延迟压到了毫秒以下；而 companion rack 的部署形态则确立了 GPU 与 LPU 异构分工的新范式。对采购者，评估 AI 集群时需要开始区分 prefill 与 decode 的算力配置；对行业观察者，NVIDIA 吞下 Groq 之后，独立推理芯片阵营的每一步——d-Matrix 的选择、Cerebras 的坚持——都值得放在"SRAM 共识"的框架下重新审视。

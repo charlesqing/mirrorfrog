@@ -1,0 +1,60 @@
+---
+slug: unified-memory-architecture-comparison
+title: '统一内存大乱斗：128GB、192GB、748GB、288GB 谁才是最优解？'
+date: '2026-10-10'
+authors: aicomputecards
+tags: [architecture-comparison, edge-ai, tech-deep-dive]
+description: 'RTX Spark 128GB、锐龙 AI Max Pro 495 192GB、DGX Station 748GB、Rubin R200 288GB HBM4——统一内存之战全面开打。本文拆解四档产品的容量、带宽与分配策略差异，按模型规模给出选型建议。'
+---
+
+# 统一内存大乱斗：128GB、192GB、748GB、288GB 谁才是最优解？
+
+> 2026 年秋天，"统一内存"成了 AI 硬件圈最卷的词。AMD 和 NVIDIA 在 AI PC 上贴身肉搏，桌面端堆出 748GB 的"超算"，数据中心则用 HBM4 把带宽拉到 22TB/s。容量数字一路上涨，但真正决定体验的，是那个藏在参数表角落里的带宽。
+
+## 统一内存要解决什么
+
+传统 PC 架构里，CPU 和 GPU 各管一摊内存：模型文件躺在系统内存里，推理前要先通过 PCIe"搬运"到显存，模型一大，加载时间以分钟计，显存不够还会溢出到磁盘。统一内存的思路是把这堵墙拆掉——CPU 和 GPU 共享同一块物理内存，模型加载变成一次指针映射，权重不用搬，KV Cache 也能被两个处理器同时访问。
+
+AMD 用 VGM（可变显存滑块）实现这一点：Ryzen AI Max+ 395 的 128GB 内存里，最多 96GB 可划给 GPU 当显存；新的 Pro 495 则允许从 192GB 里划出 160GB。NVIDIA 的路线更彻底，RTX Spark 的 GB10 超级芯片通过 NVLink-C2C 让 Arm CPU 与 Blackwell GPU 直接共享 128GB LPDDR5X，地址空间完全一致。
+
+## 四档产品对比表
+
+2026 年 10 月的市场上，统一内存产品已经拉开四个档次：
+
+| 档位 | 产品 | 统一内存 | 可分配给 GPU | 带宽 | 定位 |
+|------|------|----------|--------------|------|------|
+| AI PC 旗舰 | NVIDIA RTX Spark（GB10） | 128GB LPDDR5X | 共享统一内存 | 300GB/s | 笔记本/紧凑桌面，跑 120B 模型 |
+| AI PC 旗舰 | AMD Ryzen AI Max+ 395 | 128GB LPDDR5X | 96GB（VGM） | 256GB/s | 端侧 70B 完整推理 |
+| AI PC 增配 | AMD Ryzen AI Max Pro 495 | 192GB LPDDR5X | 160GB（VGM） | 约 272GB/s | 本地离线跑 100B 级模型 |
+| 桌面超算 | DGX Station for Windows（GB300 Ultra） | 748GB（252GB HBM3e + 496GB LPDDR5X） | 一致性内存 | 7.1TB/s（GPU 侧） | 万亿参数模型桌面开发 |
+| 数据中心 | Rubin R200 | 288GB HBM4 | 全部显存 | 22TB/s | 机架级训练与推理 |
+
+值得注意的是两家新品发布的贴身节奏：AMD 在 10 月 5 日公布 Pro 495，两天后 NVIDIA 就办了 RTX Spark 新品活动。AMD 还准备了后续牌——代号 Gorgon Halo 的 Ryzen AI Max 400 同样最高 192GB，Pro 495 加速到 5.2GHz，并宣称是首款能在本地跑 300B 级模型的 x86 客户端处理器。整机侧，联想 YOGA Pro 15 搭载 RTX Spark，统一内存规格为 9400MT/s、256-bit 位宽。
+
+## 带宽才是隐藏变量
+
+把四档产品的带宽排成一列，差距比容量悬殊得多：256GB/s（395）、约 272GB/s（Pro 495）、273GB/s（DGX Spark 64GB）、300GB/s（RTX Spark 128GB），再到 7.1TB/s 与 22TB/s——AI PC 与数据中心之间差了整整两个数量级以上。
+
+这解释了一个反直觉的现象：容量相同的两台机器，token 生成速度可能差出数倍。大模型推理的 decode 阶段是典型带宽受限负载，每生成一个 token 都要把权重和 KV Cache 扫一遍，带宽直接决定每秒吐出多少字。RTX Spark 靠 300GB/s 在四款 AI PC 里领先；而 DGX Station 的 748GB 之所以值钱，不只因为容量能装下万亿参数，更因为 252GB HBM3e 提供的 7.1TB/s 带宽让模型真的跑得动，而不是"装得下、跑得慢"。
+
+还有一档容易被忽略：DGX Spark 双机通过内置 ConnectX-7 的 QSFP 直连，可把内存池化到 128GB，模型上限提升至 2000 亿参数级，Qwen3.8 27B 实测峰值较单台提升最高 70%——用网络扩展统一内存，是介于单机和工作站之间的第三条路。
+
+## VGM 与 CUDA 统一内存的分配策略差异
+
+同样叫统一内存，AMD 和 NVIDIA 的分配哲学并不相同。AMD 的 VGM 是显式的静态划分：用户拖滑块决定划多少 GB 给 GPU，划出去的部分 CPU 不能再用。优点是行为可预测、显存语义清晰，对 llama.cpp、Stable Diffusion 这类工具友好；代价是弹性差，划多了浪费、划少了要重划。
+
+NVIDIA 的 CUDA 统一内存是动态的：CPU 与 GPU 共享统一地址空间，按需在两者间迁移页面。开发者不用预判"该分多少"，跑什么模型都是同一套逻辑；但页面迁移的粒度和时机由运行时控制，遇到突发访问模式时可能引入抖动。对追求开箱即用的消费用户，CUDA 路线体验更顺滑；对需要稳定显存预算的 Agentic 工作流，VGM 的确定性反而更吃香。
+
+## 选型建议：按模型规模分档
+
+| 需求 | 推荐档位 | 理由 |
+|------|----------|------|
+| 7B-30B 模型、日常 Agent | RTX Spark / 锐龙 AI Max+ 395（128GB） | 容量富余，带宽 256-300GB/s 足够流畅 |
+| 70B-100B 模型、隐私敏感 | 锐龙 AI Max Pro 495（192GB / 160GB VGM） | 本地离线跑 100B 级，数据不出机 |
+| 200B 模型、桌面开发 | 双机 DGX Spark（池化 128GB） | ConnectX-7 直连扩展，成本低于工作站 |
+| 万亿参数、专业工作流 | DGX Station（748GB） | HBM3e 带宽保证可用性 |
+| 生产级服务 | Rubin R200（288GB HBM4 / 22TB/s） | 机架级并发与吞吐 |
+
+## 小结
+
+统一内存之战没有单一最优解：128GB 与 192GB 争夺 AI PC 入场券，748GB 的 DGX Station 把数据中心内存架构搬上桌面，288GB HBM4 则继续守卫机架级吞吐。选型的第一变量不是容量，而是带宽——256GB/s 与 22TB/s 之间隔着三个数量级的体验鸿沟；第二变量是分配策略——VGM 的确定性划分与 CUDA 的动态迁移各有适配场景。先想清楚要跑多大的模型、多少并发，再看参数表，才不会被大数字带偏。
