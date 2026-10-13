@@ -25,10 +25,13 @@
 const fs = require('fs');
 const path = require('path');
 
-// Cloudflare Pages 单文件上限 25 MiB；留足余量，正文裁到 400 字符（实测约 12 MiB）
+// Cloudflare Pages 单文件上限 25 MiB。
+// TARGET 留出余量（22 MiB）：内容继续增长时靠下面的收敛循环继续裁，
+// 不依赖「调参后重新提交」，否则每隔一段时间部署就会再次失败。
 const MAX_BODY = Number(process.env.SEARCH_MAX_BODY || 400);
 const INDEX_FILE = path.join(__dirname, '..', 'build', 'search-index.json');
 const LIMIT_BYTES = 25 * 1024 * 1024;
+const TARGET_BYTES = Number(process.env.SEARCH_TARGET_BYTES || LIMIT_BYTES * 0.88);
 
 function initLunr(lunr, language) {
   require('lunr-languages/lunr.stemmer.support')(lunr);
@@ -47,32 +50,14 @@ function initLunr(lunr, language) {
   return lunr.multiLanguage(...language);
 }
 
-function shrink() {
-  if (!fs.existsSync(INDEX_FILE)) {
-    console.log('[search-index] 未找到 search-index.json，跳过');
-    return;
-  }
-
-  const before = fs.statSync(INDEX_FILE).size;
-  if (before < LIMIT_BYTES * 0.8) {
-    console.log(
-      `[search-index] ${(before / 1048576).toFixed(2)} MiB，低于阈值，无需瘦身`
-    );
-    return;
-  }
-
-  const lunr = require('lunr');
-  const language = ['zh', 'en'];
-  const plugin = initLunr(lunr, language);
-
-  const shards = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
+function buildOnce(shards, plugin, lunr, maxBody) {
   let trimmed = 0;
 
   const out = shards.map((shard) => {
     const documents = (shard.documents || []).map((doc) => {
-      if (typeof doc.t === 'string' && doc.t.length > MAX_BODY) {
+      if (typeof doc.t === 'string' && doc.t.length > maxBody) {
         trimmed += 1;
-        return { ...doc, t: doc.t.slice(0, MAX_BODY) };
+        return { ...doc, t: doc.t.slice(0, maxBody) };
       }
       return doc;
     });
@@ -92,19 +77,59 @@ function shrink() {
     return { documents, index };
   });
 
-  fs.writeFileSync(INDEX_FILE, JSON.stringify(out), 'utf8');
+  return { out, trimmed };
+}
+
+function shrink() {
+  if (!fs.existsSync(INDEX_FILE)) {
+    console.log('[search-index] 未找到 search-index.json，跳过');
+    return;
+  }
+
+  const before = fs.statSync(INDEX_FILE).size;
+  if (before < TARGET_BYTES) {
+    console.log(
+      `[search-index] ${(before / 1048576).toFixed(2)} MiB，低于目标 ${(TARGET_BYTES / 1048576).toFixed(2)} MiB，跳过`
+    );
+    return;
+  }
+
+  const lunr = require('lunr');
+  const plugin = initLunr(lunr, ['zh', 'en']);
+  const shards = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
+
+  // 收敛循环：若裁到 MAX_BODY 仍超标（内容继续增长），逐级下调直到达标。
+  // 每轮都从原始 shards 重建，避免对已裁剪数据二次截断导致索引与文档不一致。
+  let maxBody = MAX_BODY;
+  let result = buildOnce(shards, plugin, lunr, maxBody);
+  let attempts = 0;
+  const MIN_BODY = 60;
+
+  while (JSON.stringify(result.out).length > TARGET_BYTES && maxBody > MIN_BODY) {
+    maxBody = Math.max(MIN_BODY, Math.floor(maxBody / 2));
+    result = buildOnce(shards, plugin, lunr, maxBody);
+    attempts += 1;
+    console.log(`[search-index] 仍超标，正文上限下调至 ${maxBody} 字符后重试`);
+    if (attempts > 6) break;
+  }
+
+  const json = JSON.stringify(result.out);
+  fs.writeFileSync(INDEX_FILE, json, 'utf8');
   const after = fs.statSync(INDEX_FILE).size;
 
-  out.forEach((s, i) => {
-    const mb = JSON.stringify(s).length / 1048576;
-    if (mb > 5) console.log(`[search-index]   分片 ${i}: ${s.documents.length} 条 / ${mb.toFixed(2)} MiB`);
-  });
+  if (after > 5 * 1048576) {
+    result.out.forEach((s, i) => {
+      const mb = JSON.stringify(s).length / 1048576;
+      if (mb > 5) console.log(`[search-index]   分片 ${i}: ${s.documents.length} 条 / ${mb.toFixed(2)} MiB`);
+    });
+  }
   console.log(
     `[search-index] ${(before / 1048576).toFixed(2)} MiB → ${(after / 1048576).toFixed(2)} MiB` +
-      `（裁剪 ${trimmed} 段正文，上限 ${MAX_BODY} 字符）`
+      `（裁剪 ${result.trimmed} 段正文，上限 ${maxBody} 字符${attempts ? `，迭代 ${attempts} 次` : ''}）`
   );
   if (after >= LIMIT_BYTES) {
-    console.warn('[search-index] 警告：仍超过 25 MiB，请调小 SEARCH_MAX_BODY');
+    console.error('[search-index] 错误：仍超过 Cloudflare Pages 25 MiB 限制，部署会失败');
+    process.exitCode = 1;
   }
 }
 
