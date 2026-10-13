@@ -26,7 +26,7 @@ Intel Gaudi 3 于 2024 年 4 月发布（Intel Vision 大会），是 Gaudi 2 �
 | **片上 SRAM** | 96 MB（12.8 TB/s 带宽） |
 | **BF16 Matrix** | **1,835 TFLOPS**（4× Gaudi 2） |
 | **FP8 Matrix** | **1,835 TFLOPS** |
-| **BF16 Vector** | 28.7 TFLOPS |
+| **TPC 向量单元算力** | 28.7 TFLOPS（Intel 官方口径的向量单元值，非矩阵算力） |
 | **TDP** | 900 W |
 | **网络** | **24× 200GbE RoCE**（集成网卡） |
 | **PCIe** | Gen 5 x16 |

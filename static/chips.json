@@ -2216,7 +2216,7 @@
       "性价比 GPU"
     ],
     "tdpW": 900,
-    "fp16Tflops": 29,
+    "fp16Tflops": 1835,
     "fp4Tflops": null,
     "specs": {
       "release": "2024 年 4 月（OEM Q2，PCIe 卡 Q4）",
@@ -2227,7 +2227,7 @@
         "bandwidth": "3.67 TB/s（+50% vs Gaudi 2）"
       },
       "compute": {
-        "fp16": "28.7 TFLOPS"
+        "fp16": "1,835 TFLOPS（4× Gaudi 2）"
       },
       "tdp": "900 W"
     }

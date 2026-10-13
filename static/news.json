@@ -1,10 +1,23 @@
 [
   {
+    "title": "Agent 智能体负载下的推理调度：2026 的新挑战",
+    "date": "2026-10-13",
+    "slug": "agentic-inference-scheduling-2026",
+    "url": "/blog/agentic-inference-scheduling-2026",
+    "description": "智能体负载把 LLM 服务的瓶颈从算力转向了 KV Cache 的驻留与调度决策。本文基于 Bailian 与 PackServe 的生产轨迹数据，解释缓存复用率超过八成之后为什么传统调度器反而失效，并给出准入、路由、驱逐、公平性四个维度的",
+    "tags": [
+      "agentic-ai",
+      "inference",
+      "ai-infrastructure",
+      "inference-chip"
+    ]
+  },
+  {
     "title": "国产 AI 芯片 vs 国际 AI 芯片：2026 年终全面对比",
-    "date": "2026-12-20",
+    "date": "2026-10-13",
     "slug": "ai-chip-comparison-2026",
     "url": "/blog/ai-chip-comparison-2026",
-    "description": "2026 年终深度对比：华为昇腾 910C/950/960、寒武纪思元 690、天数智芯天垓 150、燧原云燧 T21、昆仑芯 R200、摩尔线程 MTT S5000、阿里真武 V900，对阵 NVIDIA H100/H200/B200/G",
+    "description": "2026 年终深度对比：华为昇腾 910C/950/960、寒武纪思元 690、天数智芯天垓 300、燧原云燧 T21、昆仑芯 R200、摩尔线程 MTT S5000、阿里真武 V900，对阵 NVIDIA H100/H200/B200/R",
     "tags": [
       "domestic-ai-chip",
       "selection-guide",
@@ -16,19 +29,6 @@
       "google",
       "industry-review",
       "benchmarks"
-    ]
-  },
-  {
-    "title": "Agent 智能体负载下的推理调度：2026 的新挑战",
-    "date": "2026-10-13",
-    "slug": "agentic-inference-scheduling-2026",
-    "url": "/blog/agentic-inference-scheduling-2026",
-    "description": "智能体负载把 LLM 服务的瓶颈从算力转向了 KV Cache 的驻留与调度决策。本文基于 Bailian 与 PackServe 的生产轨迹数据，解释缓存复用率超过八成之后为什么传统调度器反而失效，并给出准入、路由、驱逐、公平性四个维度的",
-    "tags": [
-      "agentic-ai",
-      "inference",
-      "ai-infrastructure",
-      "inference-chip"
     ]
   },
   {
