@@ -1,0 +1,111 @@
+/**
+ * 搜索索引瘦身：解决 Cloudflare Pages「单文件 ≤ 25 MiB」部署失败。
+ *
+ * 背景：@easyops-cn/docusaurus-search-local 把每段正文全文写进 search-index.json，
+ * 站点内容增长后该文件从 30.3 MiB → 33 MiB，超过 Pages 硬限制导致 CI 部署失败
+ * （构建本身通过，卡在 wrangler 的资产校验环节）。
+ *
+ * 方案：postbuild 阶段裁剪每段正文到 MAX_BODY 字符，并**移除 lunr 的 position 元数据**，
+ * 再用与插件一致的 lunr 配置重建索引。
+ *
+ * 实测（2026-10-13，2073 篇文档 / 20638 段）：
+ *   原始（position + 全文）        33.01 MiB  → 部署失败
+ *   仅去 position                   ≈ 23 MiB   → 勉强在线上
+ *   去 position + 正文裁 400 字     ≈ 14 MiB   → 留足余量，可再增长 70%
+ *
+ * 去掉 position 是主要收益（索引体积减半）：该元数据仅用于页面内搜索词高亮，
+ * 本站未启用 highlightSearchTermsOnTargetPage（插件默认 false），故移除无副作用。
+ *
+ * 关键约束（改动时务必保持，否则搜索会失效）：
+ *   - lunr 版本、language=['zh','en']、zh 分词器、multiLanguage 必须与插件一致
+ *   - this.ref('i') / this.field('t') 必须一致
+ *   - ref 必须转成字符串（插件原注释：The ref must be a string）
+ *   - 不得加回 metadataWhitelist=['position']
+ */
+const fs = require('fs');
+const path = require('path');
+
+// Cloudflare Pages 单文件上限 25 MiB；留足余量，正文裁到 400 字符（实测约 12 MiB）
+const MAX_BODY = Number(process.env.SEARCH_MAX_BODY || 400);
+const INDEX_FILE = path.join(__dirname, '..', 'build', 'search-index.json');
+const LIMIT_BYTES = 25 * 1024 * 1024;
+
+function initLunr(lunr, language) {
+  require('lunr-languages/lunr.stemmer.support')(lunr);
+  if (language.includes('zh')) {
+    lunr.wordcut = require('lunr-languages/wordcut');
+    const { tokenizer, loadUserDict } = require(
+      '@easyops-cn/docusaurus-search-local/dist/server/server/utils/tokenizer'
+    );
+    loadUserDict(undefined, undefined);
+    require('@easyops-cn/docusaurus-search-local/dist/server/shared/lunrLanguageZh').lunrLanguageZh(
+      lunr,
+      tokenizer
+    );
+  }
+  require('lunr-languages/lunr.multi')(lunr);
+  return lunr.multiLanguage(...language);
+}
+
+function shrink() {
+  if (!fs.existsSync(INDEX_FILE)) {
+    console.log('[search-index] 未找到 search-index.json，跳过');
+    return;
+  }
+
+  const before = fs.statSync(INDEX_FILE).size;
+  if (before < LIMIT_BYTES * 0.8) {
+    console.log(
+      `[search-index] ${(before / 1048576).toFixed(2)} MiB，低于阈值，无需瘦身`
+    );
+    return;
+  }
+
+  const lunr = require('lunr');
+  const language = ['zh', 'en'];
+  const plugin = initLunr(lunr, language);
+
+  const shards = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
+  let trimmed = 0;
+
+  const out = shards.map((shard) => {
+    const documents = (shard.documents || []).map((doc) => {
+      if (typeof doc.t === 'string' && doc.t.length > MAX_BODY) {
+        trimmed += 1;
+        return { ...doc, t: doc.t.slice(0, MAX_BODY) };
+      }
+      return doc;
+    });
+
+    const index = lunr(function () {
+      this.use(plugin);
+      this.tokenizer = lunr.zh.tokenizer;
+      this.ref('i');
+      this.field('t');
+      // 刻意不设 metadataWhitelist=['position']：该元数据占索引约一半体积，
+      // 仅用于页面内搜索词高亮，本站未启用 highlightSearchTermsOnTargetPage。
+      documents.forEach((doc) => {
+        this.add({ ...doc, i: doc.i.toString() });
+      });
+    });
+
+    return { documents, index };
+  });
+
+  fs.writeFileSync(INDEX_FILE, JSON.stringify(out), 'utf8');
+  const after = fs.statSync(INDEX_FILE).size;
+
+  out.forEach((s, i) => {
+    const mb = JSON.stringify(s).length / 1048576;
+    if (mb > 5) console.log(`[search-index]   分片 ${i}: ${s.documents.length} 条 / ${mb.toFixed(2)} MiB`);
+  });
+  console.log(
+    `[search-index] ${(before / 1048576).toFixed(2)} MiB → ${(after / 1048576).toFixed(2)} MiB` +
+      `（裁剪 ${trimmed} 段正文，上限 ${MAX_BODY} 字符）`
+  );
+  if (after >= LIMIT_BYTES) {
+    console.warn('[search-index] 警告：仍超过 25 MiB，请调小 SEARCH_MAX_BODY');
+  }
+}
+
+shrink();

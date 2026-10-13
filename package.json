@@ -8,7 +8,7 @@
     "prebuild": "node scripts/generate-data.mjs",
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "postbuild": "node scripts/post-build.js",
+    "postbuild": "node scripts/post-build.js && node scripts/shrink-search-index.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "npx wrangler pages deploy ./build",
     "clear": "docusaurus clear",
