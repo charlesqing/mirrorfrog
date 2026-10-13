@@ -133,4 +133,11 @@ function shrink() {
   }
 }
 
-shrink();
+try {
+  shrink();
+} catch (err) {
+  // 绝不因本脚本异常而中断构建：那会导致「本可部署的版本」被卡住，
+  // 反而比重建索引失败更糟。索引偏大时 wrangler 会给出明确报错。
+  console.error('[search-index] 瘦身失败（不阻断构建）:', err && err.message);
+  console.error('[search-index] 索引仍为原始大小，Cloudflare Pages 可能因超过 25 MiB 拒绝部署。');
+}
