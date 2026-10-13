@@ -2,124 +2,136 @@
 id: jaguar-shores
 title: Intel Jaguar Shores (Rack-Scale System)
 sidebar_label: Intel Jaguar Shores
-description: Intel Jaguar Shores 机柜级 AI 系统：替代取消的 Falcon Shores，2027/2028 推出，整合 Gaudi IP + Xeon 6 + 800G NIC。
-keywords: [Intel Jaguar Shores, Falcon Shores cancelled, rack-scale, 2027, 2028, Gaudi IP, 800G NIC, Intel Foundry]
+description: Intel Jaguar Shores 机架级 AI 系统：接替已取消的 Falcon Shores，沿用 Gaudi 品牌、配 SK hynix HBM4 与硅光互联，2027 年最早推出。Intel 官方确认存在但未公布任何规格。
+keywords: [Intel Jaguar Shores, Falcon Shores cancelled, rack-scale, 2027, Gaudi brand, HBM4, silicon photonics, Intel Foundry]
 ---
 
 # Intel Jaguar Shores (Rack-Scale System)
 
 ## 产品概述
 
-**Intel Jaguar Shores** 是 2026-05 取消 **Falcon Shores** 后 Intel 重启的**机柜级 AI 系统**项目，预计 **2027-2028 年**推出。与 Falcon Shores 的"单 GPU 芯片"策略不同，Jaguar Shores 是**机柜级集成系统**，整合：
+**Intel Jaguar Shores** 是 Intel 在取消 **Falcon Shores** 后重启的**机架级 AI 系统**项目，是 Intel 已官方确认存在的下一款 Gaudi 品牌 AI 加速器。
 
-- **Gaudi 系列 IP 的 AI 加速器**（替代 Gaudi 3）
-- **Xeon 6 / Xeon 7 CPU**（Clearwater Forest / Diamond Rapids）
-- **800G 网络 NIC**
-- **Intel Foundry 18A / 14A 制程**
+Intel 官方披露的确定信息**仅有三项**：
+1. **沿用 Gaudi 品牌**——Intel 在首尔 AI Summit 展示的幻灯片确认 Jaguar Shores 将携带 Gaudi 品牌，这是 Intel 首次确认该命名
+2. **采用 SK hynix HBM4**——Intel 自 Ponte Vecchio 以来首次回归 HBM 内存路线
+3. **机架级设计 + 硅光互联**——时任 Intel 产品主管 Michelle Johnston Holthaus 在财报电话会中称其为「机架级设计」，采用硅光（silicon photonics）互联
 
-Jaguar Shores 是 Intel **"AI 系统厂商"** 战略的旗舰 —— 不再追求单芯片对标 NVIDIA，而是做**整机柜级解决方案**。
+**除以上三项外，Intel 未公布任何 Jaguar Shores 规格**：算力、内存容量、带宽、TDP、机柜配置、每机柜加速器数量全部未披露。此前本站记录的「144GB HBM3e / ~2,500 TFLOPS FP8 / ~10-15TB 机柜内存 / 160-320 PFLOPS 机柜算力」等均为无来源推测，已全部移除。
 
-## 核心规格（推测）
+## 核心规格（未公布）
 
 | 项目 | 参数 |
 |------|------|
-| **形态** | **机柜级系统**（非单芯片） |
-| **每机柜 AI 加速器数** | 64-128 颗（推测） |
-| **每机柜 CPU 数** | 32-64 颗 Xeon |
-| **AI 加速器 IP** | **Gaudi v4 架构**（基于 Gaudi 3 演进） |
-| **制程** | **Intel Foundry 18A**（加速器） + TSMC 3nm（部分 IP） |
-| **HBM 容量（每加速器）** | 144 GB HBM3e |
-| **HBM 带宽（每加速器）** | ~5 TB/s |
-| **FP8 算力（每加速器）** | ~2,500 TFLOPS（推测） |
-| **FP8 算力（机柜）** | ~160-320 PFLOPS |
-| **网络** | **800G 集成 NIC** + 拓扑优化 |
-| **TDP（机柜）** | ~80-120 kW |
-| **首发** | **2027-2028** |
-| **TDP** | Cancelled |
+| **架构** | Gaudi 品牌，机架级系统（非单芯片） |
+| **制程** | 未公布 |
+| **显存** | 未公布 |
+| **显存类型** | **HBM4（SK hynix）** |
+| **显存带宽** | 未公布 |
+| **FP8** | 未公布 |
+| **FP4** | 未公布 |
+| **FP16/FP16 算力** | 未公布 |
+| **FP32** | 未公布 |
+| **INT8** | 未公布 |
+| **TDP** | 未公布 |
+| **互联** | **硅光互联（silicon photonics）** |
+| **发布/量产** | **2027 年最早**（预计） |
 
-> ⚠️ **未官方公布**：以上规格均为推测，**Intel 仅有路线图级别披露**。所有数字以 Intel 后续公布为准。
+> ⚠️ **「未公布」是准确表述**：Intel 对 Jaguar Shores 仅披露品牌、内存类型、互联方式与大致时间窗。TDP、HBM 容量与堆栈数、任何精度的算力均未公开，请勿采信第三方推测数字。
 
-## Falcon Shores 取消事件
+## Falcon Shores 取消事件（时间线更正）
 
 | 事件 | 时间 | 详情 |
 |------|------|------|
-| **Falcon Shores 首次公布** | 2023 | 200 PFLOPS 单芯片对标 B100 |
-| **路线图调整** | 2024-12 | 取消 200 PF 目标，改为 "系统级" |
-| **正式取消** | **2026-05-14** | Intel 财报披露 Falcon Shores 取消 |
-| **转向 Jaguar Shores** | 2026-05 | 确认新机柜级系统项目 |
-| **新方向** | 2027-2028 | 不再对标单芯片 NVIDIA |
+| **Falcon Shores 首次公布** | 2023 | Intel AI 路线图，含 Xe GPU + Gaudi IP |
+| **融合 Gaudi** | 2024 | 宣布 Gaudi 3 并入 Falcon Shores 项目，取消 Habana 独立品牌 |
+| **路线图调整** | 2024-12 | 取消单芯片性能目标，转向系统级 |
+| **正式取消商业发布** | **2025-01-30** | 财报电话会宣布：Falcon Shores 仅作**内部测试芯片**，不推向市场 |
+| **转向 Jaguar Shores** | 2025-01-30 | 同一次电话会确认 Jaguar Shores 仍在路线图 |
+| **Jaguar Shores 细节披露** | 2025 年（首尔 AI Summit） | 确认 Gaudi 品牌 + SK hynix HBM4 |
+| **预计推出** | **2027 年最早** | — |
 
-> **取消原因**：
-> 1. **第三次季度亏损**（2026-Q1）导致研发预算紧张
-> 2. **单芯片 200 PF 不现实**（Rubin R200 = 50 PF 已是极限）
-> 3. **HBM 供应紧张**（Micron / SK Hynix 优先供应 NVIDIA）
-> 4. **市场转向机柜级**（NVIDIA NVL72、AMD Helios 主导）
+> 📌 **时间线更正**：此前本站记「2026-05-14 正式取消 Falcon Shores」，**与事实不符**。实际取消公告发生在 **2025-01-30**（Q4 2024 财报电话会），Holthaus 当场说明 Falcon Shores 将仅作内部测试芯片，同时确认 Jaguar Shores 存在。
+>
+> **取消原因（业界共识）**：
+> 1. Gaudi 系列销量远低于预期（Intel 2024 年曾预期 Gaudi 销售 $500M，实际远未达成）
+> 2. CUDA 生态壁垒过深，软件迁移成本高
+> 3. 单芯片对标 NVIDIA 的路线在训练市场已失去可行性
+> 4. 团队被并入 Falcon Shores 项目后，Habana 创始人 Dahan 与 Halutz 离职创业
 
 ## Jaguar Shores vs Falcon Shores
 
 | 指标 | Falcon Shores（已取消） | **Jaguar Shores** |
 |------|--------------------------|-------------------|
-| 形态 | **单芯片 GPU** | **机柜级系统** |
-| 目标 | 对标 B100 / B200 单芯片 | 对标 NVL72 / Helios 机柜 |
-| 制程 | Intel 18A | **Intel 18A / 14A** |
-| HBM 容量 | 288 GB HBM3e | **机柜级 ~10-15 TB** |
-| FP8 算力 | 200 PFLOPS（取消前目标） | **机柜级 ~160-320 PFLOPS** |
-| 集成 CPU | 独立 | **Xeon 6/7 紧耦合** |
-| 集成 NIC | 无 | **800G 集成** |
-| 发布时间 | 2025（取消） | **2027-2028** |
-| 状态 | ❌ 已取消 | 🟡 路线图阶段 |
+| 形态 | 单芯片 GPU | **机架级系统** |
+| 状态 | ❌ 2025-01-30 取消，仅内部测试 | 🟡 路线图阶段 |
+| 品牌 | Xe 品牌 | **Gaudi 品牌** |
+| 内存 | 未公布 | **SK hynix HBM4** |
+| 互联 | 未公布 | **硅光互联** |
+| 发布时间 | 已取消 | **2027 年最早** |
 
-## Intel AI 战略重组（2026-05）
+## Intel AI 加速器路线图（2026 现状）
+
+| 平台 | 状态 | 目标负载 | 关键规格 |
+|------|------|----------|----------|
+| **Gaudi 3** | **在售** | 训练 + 推理 | 128GB HBM2E，128× 200GbE |
+| **Falcon Shores** | **已取消** | — | 仅内部测试芯片 |
+| **Crescent Island** | **2026 下半年送样** | 推理 | Xe3P，160GB LPDDR5X，气冷 |
+| **Jaguar Shores** | **路线图阶段** | 训练 + 推理 | **Gaudi 品牌 + HBM4 + 硅光** |
+
+> 💡 **重要区分**：**Crescent Island 才是 Intel 2026 年的实际产品**（推理专用、LPDDR5X、气冷）；**Jaguar Shores 面向 2027 及以后的训练 + 推理高带宽路线**。两者定位不同，不可混淆。
+>
+> 此前本站将 Jaguar Shores 描述为「2026-05 财报披露的新项目」并给出大量规格，与事实不符，已更正。
+
+## Intel AI 战略（2025-2026）
 
 | 战略 | 内容 |
 |------|------|
-| **Gaudi 产品线** | 继续推 Gaudi 3 / Gaudi 3E（2026 维持） |
-| **Falcon Shores** | ❌ **已取消** |
-| **Jaguar Shores** | ✅ **重启机柜级 AI 系统** |
-| **代工服务** | Intel Foundry 18A 为 NVIDIA / AMD / AWS 代工 |
-| **x86 主导** | 强化 Xeon 6/7（AI 服务器 CPU 主导） |
-| **Habana 品牌** | 保留，Jaguar Shores 整合 Gaudi IP |
+| **Gaudi 品牌** | 保留并延续给 Jaguar Shores |
+| **Falcon Shores** | ❌ 已取消（2025-01-30） |
+| **Jaguar Shores** | ✅ 机架级 AI 系统，2027 年最早 |
+| **Crescent Island** | ✅ 2026 下半年送样的推理 GPU |
+| **异构混合产品** | x86 CPU + 固定功能加速器 IP + 可编程逻辑 |
+| **软件栈** | 统一异构软件栈（在 Arc Pro B 系列 GPU 上测试） |
 
-> **Intel 不再做 AI GPU 直接对标 NVIDIA**：
-> - 短期：Gaudi 3 维持（性价比对标）
-> - 中期：Jaguar Shores 系统级（机柜级对标）
-> - 长期：Intel Foundry 18A 为 AI 厂商代工（**Intel 做"AI 代工厂"**）
-
-## 部署推荐配置
-
-| 场景 | 推荐配置 |
-|------|----------|
-| **中大规模 LLM 训练** | Jaguar Shores 机柜 + Xeon 6 主机 |
-| **企业级 AI 推理** | Jaguar Shores 单机柜 |
-| **电信/政府国产化** | Intel 生态 + Xeon + Gaudi IP |
-| **x86 生态保留** | 适合既有 Intel 客户 |
+> **Intel 的现实定位**：
+> - **短期**：Crescent Island 抢占推理市场，靠 LPDDR5X + 气冷的成本优势避开 HBM 供应紧张
+> - **中期**：Jaguar Shores 回归 HBM4 + 硅光，争夺训练与大规模推理
+> - **风险**：Tom's Hardware 等媒体普遍指出，Intel 在 AI 加速领域的软件生态成熟度一直是短板，能否在 2027 后追平仍存疑
 
 ## 适用场景
 
 - ✅ **Intel 生态保留**（既有 x86 客户）
 - ✅ **机柜级 AI 系统**（2027+ 时代）
-- ✅ **Intel Foundry 客户**（18A 工艺协同）
-- ❌ 当前主流训练（2026 仍是 NVIDIA 主导）
-- ❌ 超低延迟推理（Groq LPX 更优）
-- ❌ 高密度集群（NVL72 / Helios 2026 已 GA）
+- ✅ **HBM4 + 硅光的大集群扩展**
+- ❌ 2026 年当前部署（应选 Crescent Island 或 Gaudi 3）
+- ❌ 超低延迟推理（Groq LPX 等专用架构更优）
+- ❌ 高密度集群（NVL72 / Helios 已 GA）
 
 ## 厂商信息
 
 | 项目 | 内容 |
 |------|------|
 | **厂商** | Intel Corporation |
-| **首次公布** | 2026-05（财报披露） |
-| **代号** | Jaguar Shores |
-| **形态** | 机柜级系统（**非单芯片**） |
-| **预计发布** | **2027-2028** |
-| **制程** | Intel Foundry 18A / 14A |
-| **关联产品** | Gaudi 3（IP 来源）、Xeon 6/7（CPU 协同） |
+| **首次确认** | 2025-01-30（财报电话会） |
+| **品牌** | **Gaudi 品牌**（Intel AI Summit 确认） |
+| **形态** | 机架级系统（**非单芯片**） |
+| **预计发布** | **2027 年最早** |
+| **内存** | **SK hynix HBM4** |
+| **互联** | 硅光互联 |
 
 ## 相关产品
 
-- [Intel Gaudi 3](/docs/cards/intel/gaudi-3) - 当前 Gaudi IP 来源
-- [Intel Gaudi 2](/docs/cards/intel/gaudi-2) - 上一代
+- [Intel Gaudi 3](/docs/cards/intel/gaudi-3) - 当前在售 Gaudi 旗舰
+- [Intel Gaudi 4](/docs/cards/intel/gaudi-4) - 路线图占位（未发布）
 - [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - 同代 GPU
 - [AMD MI400](/docs/cards/amd/mi400) - 同代 GPU
 - [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) - 上一代 NVIDIA
 - [完整对比表](/docs/comparison)
+
+## 数据来源
+
+- [Tom's Hardware：Intel's roadmaps examined — 14A, Nova Lake, Diamond Rapids & AI accelerator push](https://tomshardware.com/tech-industry/semiconductors/intel-chip-roadmap-2026-2028) — Jaguar Shores「Reported only」状态、Holthaus 机架级 + 硅光表述、2027 年最早
+- [Tom's Hardware：Intel jumps to HBM4 with Jaguar Shores, 2nd Gen MRDIMMs with Diamond Rapids](https://www.tomshardware.com/tech-industry/artificial-intelligence/intel-jumps-to-hbm4-with-jaguar-shores-2nd-gen-mrdimms-with-diamond-rapids-sk-hynix) — 首尔 AI Summit 幻灯片确认 Gaudi 品牌 + SK hynix HBM4
+- [TechCrunch：Intel won't bring its Falcon Shores AI chip to market](https://techcrunch.com/2025/02/01/intel-wont-bring-its-falcon-shores-ai-chip-to-market/) — 2025-01-30 取消商业发布
+- [Tom's Hardware：Intel's roadmap adds mysterious 'hybrid' AI processor](https://www.tomshardware.com/tech-industry/artificial-intelligence/intels-roadmap-adds-mysterious-hybrid-ai-processor-featuring-x86-cpus-dedicated-ai-accelerator-and-programmable-ip-chip-may-capitalize-on-a-market-forgotten-by-nvidia-and-amd) — Crescent Island / Jaguar Shores 定位区分与硅光互联

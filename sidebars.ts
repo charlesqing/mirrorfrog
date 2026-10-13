@@ -149,6 +149,7 @@ const sidebars: SidebarsConfig = {
         'cards/amd/mi400',
         'cards/amd/mi430x',
         'cards/amd/mi440x',
+        'cards/amd/mi450',
         'cards/amd/mi455x',
         'cards/amd/mi500',
         'cards/amd/ryzen-ai-max',
@@ -175,6 +176,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '专业显卡',
           items: [
+            'cards/intel/arc-pro-b70',
             'cards/intel/arc-pro-b60',
             'cards/intel/arc-pro-b50',
             'cards/intel/arc-b580',
@@ -206,6 +208,7 @@ const sidebars: SidebarsConfig = {
         'cards/aws/trainium',
         'cards/aws/trainium-2',
         'cards/aws/trainium-3',
+        'cards/aws/trainium4',
         'cards/aws/inferentia',
         'cards/aws/inferentia-2',
       ],
@@ -216,6 +219,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'cards/microsoft/maia-200',
+        'cards/microsoft/maia-300',
       ],
     },
     {
@@ -224,7 +228,10 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'cards/meta/mtia-v3',
+        'cards/meta/mtia-300',
         'cards/meta/mtia-400',
+        'cards/meta/mtia-450',
+        'cards/meta/mtia-500',
       ],
     },
     {
@@ -242,6 +249,8 @@ const sidebars: SidebarsConfig = {
         'cards/huawei/ascend-950dt',
         'cards/huawei/atlas-650e',
         'cards/huawei/ascend-960',
+        'cards/huawei/ascend-960dt',
+        'cards/huawei/ascend-960pr',
         'cards/huawei/ascend-970',
         'cards/huawei/ascend-310',
         'cards/huawei/ascend-310p',
@@ -311,6 +320,7 @@ const sidebars: SidebarsConfig = {
         'cards/baidu/r200',
         'cards/others/hygon-dcu-k100',
         'cards/others/hygon-bw1000',
+        'cards/others/hygon-dcu-4',
         'cards/others/metax-c600',
         'cards/others/metax-c588',
         'cards/others/metax-c550',
@@ -332,6 +342,7 @@ const sidebars: SidebarsConfig = {
         'cards/others/iluvatar-tg100',
         'cards/others/iluvatar-tg150',
         'cards/iluvatar/bi-v150',
+        'cards/iluvatar/tg300',
         'cards/others/alibaba-hanguang-800',
         'cards/others/alibaba-ppu',
         'cards/others/alibaba-zhenwu-810e',
@@ -377,6 +388,7 @@ const sidebars: SidebarsConfig = {
             'cards/others/innosilicon-fenghua-1',
             'cards/others/innosilicon-fenghua-2',
             'cards/others/tencent-zixiao',
+            'cards/others/tencent-zixiao-2',
           ],
         },
         {

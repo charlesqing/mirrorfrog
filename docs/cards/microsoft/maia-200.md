@@ -19,21 +19,25 @@ keywords: [Maia 200, Microsoft AI chip, Azure, TSMC 3nm, FP4, HBM3e, 推理加�
 | 项目 | 参数 |
 |------|------|
 | **架构** | Maia 200 SoC（Tile-Cluster-SoC 三级分层架构） |
-| **制程** | **TSMC 3nm（N3P）** |
+| **制程** | **TSMC 3nm** |
 | **晶体管数** | **超过 1,400 亿** |
-| **FP4 算力** | **10+ PFLOPS**（原生张量核心） |
-| **FP8 算力** | **5+ PFLOPS**（原生张量核心） |
-| **HBM 类型** | HBM3e |
-| **HBM 容量** | **216 GB** |
-| **HBM 带宽** | **7 TB/s** |
+| **FP4** | **10 PFLOPS**（原生张量核心） |
+| **FP8** | **5 PFLOPS**（原生张量核心） |
+| **显存** | **216 GB** |
+| **显存类型** | **HBM3e** |
+| **显存带宽** | **7 TB/s** |
 | **片上 SRAM** | **272 MB** |
 | **Scale-up 带宽** | **2.8 TB/s**（单加速器双向） |
-| **TDP** | 750 W |
+| **TDP** | **750 W** |
 | **集群规模** | 最多 **6,144** 个加速器 |
-| **网络** | 基于标准以太网的两层 scale-up 网络 |
-| **发布时间** | **2026年1月26日** |
+| **互联** | 基于标准以太网的两层 scale-up 网络 |
+| **发布/量产** | **2026-01-26 发布** |
 | **首发部署** | 美国爱荷华州得梅因附近（US Central） |
 | **后续部署** | 美国亚利桑那州凤凰城附近（US West 3） |
+
+> 📌 **算力口径说明**：官方口径为「**超过 10 petaFLOPS in 4-bit (FP4)**」与「**超过 5 petaFLOPS in 8-bit (FP8)**」，均为**每颗芯片**口径。此前本站正文提到的「FP4 稀疏 20+ PFLOPS」无官方来源，已移除。
+>
+> 📌 **TDP 口径**：750 W 为**整颗 SoC** 的热设计功耗，非板卡或机柜功率。
 
 ## 架构细节
 
@@ -111,9 +115,9 @@ keywords: [Maia 200, Microsoft AI chip, Azure, TSMC 3nm, FP4, HBM3e, 推理加�
 ## 技术亮点
 
 ### 1. 原生 FP4/FP8 张量核心
-- **FP4**：4位浮点，模型显存占用减少 75%（vs FP16），推理吞吐量提升 **4×**
-- **FP8**：8位浮点，精度接近 FP16，算力比 FP16 提升 **2×**
-- **稀疏优化**：支持结构化稀疏，FP4 稀疏模式算力可达 **20+ PFLOPS**
+- **FP4**：4位浮点，模型显存占用较 FP16 大幅下降，微软称窄精度是推理关键
+- **FP8**：8位浮点，精度接近 FP16
+- **官方定位**：Maia 200 是「**为推理而生**」，算力设计围绕窄精度数据类型展开
 
 ### 2. 以太网标准网络
 - **无需专有网络**：基于标准以太网的 scale-up 设计，降低部署成本和复杂性
@@ -153,9 +157,9 @@ keywords: [Maia 200, Microsoft AI chip, Azure, TSMC 3nm, FP4, HBM3e, 推理加�
 
 据公开报道，微软计划**最快下月发布 Maia 300**，正与台积电洽谈**超过 30 万颗**产能，计划 **2027 年交付**，长期目标为**超过 100 万颗**。这标志着微软自研 ASIC 从技术验证阶段迈向规模部署阶段，其角色也从"降本试水"变为**承载旗舰负载**。
 
-## 外部链接
+## 数据来源
 
-- [微软官方博客：Maia 200 发布](https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/)
-- [百度百科：Maia 200](https://baike.baidu.com/item/Maia%20200/67292913)
-- [知乎：微软 Maia 200 技术解析](https://zhuanlan.zhihu.com/p/2002518726923289374)
-- [搜狐：微软全新一代自研 AI 芯片 Maia 200 问世](https://www.sohu.com/a/980576658_129720)
+- [微软官方博客：Maia 200: The AI accelerator built for inference（2026-01-26）](https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/) — TSMC 3nm、1,400 亿晶体管、>10 PFLOPS FP4 / >5 PFLOPS FP8、750W SoC、216GB HBM3e @ 7 TB/s、272MB 片上 SRAM、2.8 TB/s scale-up、6,144 加速器集群、US Central / US West 3 部署
+- [财联社：微软发布新一代高性能 AI 推理芯片 Maia 200](https://www.cls.cn/detail/2270429) — 中文权威媒体交叉验证：3 倍于 Trainium3 的 FP4、FP8 超 TPU v7、每美元性能 +30%
+- [成都市集成电路行业协会：微软发布新一代 AI 推理芯片 Maia 200](http://cdcica.org.cn/newsshow.asp?id=1753) — 国内行业协会转载核对官方参数
+- [Maia SDK 与 Azure 集成（Microsoft Learn / Foundry 文档）](https://learn.microsoft.com/azure/) — PyTorch 集成、Triton 编译器与算子库、NPL 低级语言、模拟器与成本计算器

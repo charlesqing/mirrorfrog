@@ -1,0 +1,53 @@
+---
+slug: nvlink-fusion-ecosystem-2026
+title: 'NVLink Fusion 生态 2026 进展：开放标准能否撼动 NVLink'
+date: '2026-10-13'
+authors: aicomputecards
+tags: [nvidia, ai-infrastructure, architecture-comparison, custom-chip]
+description: '一年半时间，NVLink Fusion 从 Computex 舞台上的概念变成了有 AWS、MediaTek、Marvell 实际投入的量产平台。本文梳理生态名单的扩张路径与附带资本的真相，剖析 NVIDIA 用开放换取锁定权的商业逻辑，并给出对 UALink 与以太网路线的一次诚实对比。'
+---
+
+> 2025 年 5 月 Computex 上发布 NVLink Fusion 时，外界普遍把它当作 NVIDIA 应对定制 ASIC 的一张防守牌。一年半后再看，这张牌打出的规模超过了多数人的预期——包括那些本该是它对手的公司。
+
+## 生态名单是怎么长起来的
+
+2025 年 5 月 18 日首发时，合作方包括联发科、迈威尔、Aldec 旗下的 Alchip、Astera Labs、新思科技、楷登电子、富士通和高通。2025 年 9 月 18 日，Intel 同意为 NVIDIA 制造定制 x86 CPU 通过 NVLink 连入 NVIDIA 基础设施，NVIDIA 同时以每股 23.28 美元投资 Intel 普通股 50 亿美元。10 月 13 日在 OCP 全球峰会上，Intel 与三星代工宣布加入；11 月 Arm 加入，其被授权方可构建原生带 NVLink 端口的 CPU。
+
+到了 2026 年，节奏明显加快：
+
+| 时间 | 事件 | 附带条件 |
+| --- | --- | --- |
+| 2025-12-02 | AWS 在 re:Invent 表示 Trainium4 将对接 NVLink 6 与 MGX 机架 | 同时保留自研 Graviton、EFA、Nitro |
+| 2026-01 | SiFive 加入，RISC-V 进入生态 | — |
+| 2026-03-31 | 迈威尔战略合作，提供定制 XPU 与兼容 NVLink 的 scale-up 网络 | NVIDIA 投资 20 亿美元 |
+| 2026-08-26 | NVLink Fusion 扩展至 NVHBM，Annapurna Labs 成为首家内存协作方 | AWS 子公司 |
+| 2026-08-31 | 联发科将 NVLink Fusion 作为客户 XPU 设计基础 | NVIDIA 投资 35 亿美元可转债 |
+| 2026-09-10 | d-Matrix 将 Raptor XPU 接入 MGX 机架 | 2026 年底前流片，2027 年四季度供货 |
+
+AWS 这一条最关键。Trainium4 与 NVIDIA GPU 共用同一机架占位、同一冷却系统、同一配电系统，用 NVLink 6 交换机和 400G 定制 SerDes 互连，Neuron SDK 层面的 API 表面保持一致。这不是一份采购意向，是一条多代合作的起点。
+
+## NVHBM 为什么是真正的技术变量
+
+与生态扩张同步推进的还有内存方案。NVHBM 是 NVIDIA 与主要内存厂商合作的定制 HBM 基底裸片技术，把内存控制器和协议逻辑从加速器裸片搬进 HBM 基底裸片——这是一个结构性决策：加速器裸片上不再需要为内存控制逻辑付出面积。其公开口径是每堆栈带宽提升约 30%、基线 PHY 面积减少约 67%、每堆栈功耗降低约 15%，从而为计算逻辑多腾出约 30% 的裸片面积，端到端 XPU 性能提升约 30%。功耗下降那 15% 在数据中心尺度上的含义被 NVIDIA 换算成：每吉瓦级设施可多部署约 15000 颗 XPU。
+
+## 开放标准的反击：UALink 与 ESUN
+
+另一侧的阵营属于开放标准。UALink 1.0 规范支持最多 1024 颗 GPU、200 GT/s 带宽，AMD、Intel、Broadcom 是主要推动者。据公开报道，UALink 至今尚未有量产硬件出货，而 NVLink 已经在 Blackwell NVL72 机架上规模部署。
+
+以太网阵营同样在推进 scale-up。OCP 的 ESUN（Ethernet for Scale-Up Networking）工作组于 2025 年 10 月由 AMD、Arista、Arm、Broadcom、Cisco、HPE、迈威尔、Meta、微软、NVIDIA、OpenAI、Oracle 十二家公司发起——NVIDIA 一边卖 NVLink，一边在以太网标准组织里保留席位，是个教科书式的对冲。ESUN 1.0 于 2026 年 2 月定稿、3 月发布，参与公司已超过 175 家，其核心是一个 4 字节的 ESUN Header，替代通常 28 到 48 字节的 IP/UDP 头栈。Broadcom 贡献的 SUE 框架按层拆分后，传输层成为 SUE-T，负责 XPU 端点的可靠投递。
+
+必须诚实标注的一点：SUE 文档中 64 颗 XPU、任意两点间最高 9.6 Tb/s、亚 2 微秒往返时延这些数字，是设计目标而非实测结果，不应被当作任何 SU-144 系统的实测属性来引用。
+
+## 这套打法到底解决了什么
+
+NVLink Fusion 在技术上并不是新互连——它从第一天起就是 NVLink。变化的是商业模式：NVIDIA 从卖完整芯片和完整系统，叠加了一层授权模式。黄仁勋在 d-Matrix 合作时的表述是「NVLink Fusion 让伙伴能把定制硅片与 NVIDIA 在 NVLink、先进封装、机架级系统和网络技术上的深厚生态集成起来」。
+
+对超大规模云厂商来说，这提供了一条中间路径：可以部署定制件，同时买入 NVIDIA 的机架架构、网络和软件栈。机架成为共享平台这件事有实际意义——数据中心的时间线与硅片迭代的时间线完全不同，取电、设计冷却、建造设施动辄数年，而加速器代际跑得飞快。
+
+现实的分界线也很清楚。最支持开放解读的一个数据点是 Broadcom 至今不在 NVLink Fusion 名单里，而它是定制 ASIC 双雄之一，同时是 Google TPU 十余年来跨越六代的设计伙伴，也与 Meta 和 OpenAI 有合作。如果这些客户的自研芯片最终承受不住必须部署在 NVLink 兼容机架的压力，当前的阵营分界可能松动。但至少截至 2026 年 10 月，这件事还没有发生。
+
+## 展望
+
+NVLink Fusion 面对的真正问题不是技术能否工作——AWS 的部署已经回答了这个问题——而是客户会不会在五年后重新评估这个选择。NVIDIA 用资本的介入换取了生态名单的扩张，迈威尔的 20 亿美元、联发科的 35 亿美元、Intel 的 50 亿美元，这些投资的结构化方式让它们很难轻易转向别处。
+
+对采购和架构团队而言，现在值得做的判断只有两个：一是异构机架内的 scale-up 域正在成为规划假设而非未来情景；二是在有明确理由把 NVIDIA 排除在栈之外时，UALink 仍是可信路径。开放标准能否撼动 NVLink，目前还无法断言，但竞争已经从路线之争进入了生态投入之争——而后者比拼的是钱和耐心，不是规格表。

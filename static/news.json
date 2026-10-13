@@ -19,51 +19,58 @@
     ]
   },
   {
-    "title": "2027 AI 芯片前瞻：Rubin Ultra、Helios II、昇腾970 与真武量产元年",
-    "date": "2026-10-10",
-    "slug": "2027-ai-chip-outlook-roadmap",
-    "url": "/blog/2027-ai-chip-outlook-roadmap",
-    "description": "2027年AI芯片路线图前瞻：NVIDIA Rubin Ultra目标2027 H2量产、AMD Helios需求超预期、华为昇腾960DT提前三季就绪并排期970/980、平头哥真武V900量产元年。梳理四大主线时间线、HBM与电力两大供",
-    "tags": [
-      "roadmap",
-      "industry-review",
-      "ai-chip"
-    ]
-  },
-  {
-    "title": "Agentic AI 正在重塑基础设施：从 token 到沙盒的新算力经济学",
-    "date": "2026-10-10",
-    "slug": "agentic-ai-infrastructure-reshape",
-    "url": "/blog/agentic-ai-infrastructure-reshape",
-    "description": "Agent 工作负载带来高并发沙盒、高频短请求与大 KV Cache 三重新要求，算力计量从 FLOPS 转向 token/s 再到沙盒/秒。本文拆解 Vera 10.8 秒上线 1000 沙盒、Groq 3 LPX 专用解码与 PB 级上",
+    "title": "Agent 智能体负载下的推理调度：2026 的新挑战",
+    "date": "2026-10-13",
+    "slug": "agentic-inference-scheduling-2026",
+    "url": "/blog/agentic-inference-scheduling-2026",
+    "description": "智能体负载把 LLM 服务的瓶颈从算力转向了 KV Cache 的驻留与调度决策。本文基于 Bailian 与 PackServe 的生产轨迹数据，解释缓存复用率超过八成之后为什么传统调度器反而失效，并给出准入、路由、驱逐、公平性四个维度的",
     "tags": [
       "agentic-ai",
+      "inference",
       "ai-infrastructure",
-      "tech-deep-dive"
+      "inference-chip"
     ]
   },
   {
-    "title": "AI 芯片周报（2026年第42周）：Gorgon Halo、千亿投资 OpenAI 与算力金融化",
-    "date": "2026-10-10",
-    "slug": "ai-chip-weekly-2026-w42",
-    "url": "/blog/ai-chip-weekly-2026-w42",
-    "description": "AI芯片周报第42周：AMD发布Ryzen AI Max 400 Gorgon Halo 192GB，NVIDIA承诺最高1000亿美元投资OpenAI，微软Surface Laptop Ultra发布，徐直军称950DT年底规模供货，三星",
+    "title": "四季度 AI 芯片供应与 HBM 涨价传导：真正的瓶颈已经不是晶圆",
+    "date": "2026-10-13",
+    "slug": "ai-chip-supply-hbm-price-2026q4",
+    "url": "/blog/ai-chip-supply-hbm-price-2026q4",
+    "description": "截至 2026 年 10 月，AI 芯片供应瓶颈已从晶圆前段转向先进封装与内存。三星 HBM4 报价定为每 Gb 4 至 5 美元，约为 HBM3E 三倍；台积电 CoWoS 月产能年底预计达 12 万至 14 万片，但缺口仅从约两成收窄至",
     "tags": [
       "news",
-      "industry-review",
-      "ai-compute"
+      "hbm4",
+      "ai-hardware",
+      "ai-infrastructure",
+      "power-cooling"
     ]
   },
   {
-    "title": "5000亿美元涌向 AI 财团：这轮融资狂潮与2000年有何不同",
-    "date": "2026-10-10",
-    "slug": "ai-financing-500b-goldman",
-    "url": "/blog/ai-financing-500b-goldman",
-    "description": "高盛统计今年投资者已向 AI 财团提供约5000亿美元融资，博通为 OpenAI 筹资超500亿、SpaceX 拟400亿购 NVIDIA 芯片、NVIDIA 千亿投资 OpenAI。本文图解循环交易结构，对比2000年电信光纤泡沫的异同与",
+    "title": "AI 算力总拥有成本 2026 版：电力、折旧、运维的全口径拆解",
+    "date": "2026-10-13",
+    "slug": "ai-chip-total-cost-ownership-2026",
+    "url": "/blog/ai-chip-total-cost-ownership-2026",
+    "description": "2026 年 AI 算力的成本重心已经明确：一台 8 卡 H100 服务器的三年全口径 TCO 约 71 万至 95 万美元，其中服务器与 GPU 占约六成，电力约一成五，人员成本往往是最大单项。本文拆解电力、液冷、折旧、故障率、人力五大口",
     "tags": [
-      "industry-review",
       "ai-infrastructure",
-      "strategy"
+      "power-cooling",
+      "news",
+      "ai-compute",
+      "ai-hardware"
+    ]
+  },
+  {
+    "title": "2026 年 AI 创业公司的算力策略：从租到自建的时机",
+    "date": "2026-10-13",
+    "slug": "ai-startup-compute-strategy-2026",
+    "url": "/blog/ai-startup-compute-strategy-2026",
+    "description": "2026 年 AI 创业公司的算力策略可以用一条利用率曲线决策：持续利用率低于约 40% 就租，高于约 55% 至 65% 才考虑自建或共置。本文给出五阶段演进路径、利用率分档的选型表、买租交叉点的测算方法，以及 2026 年四季度特有的两",
+    "tags": [
+      "strategy",
+      "news",
+      "cloud-pricing",
+      "ai-compute",
+      "ai-hardware"
     ]
   }
 ]

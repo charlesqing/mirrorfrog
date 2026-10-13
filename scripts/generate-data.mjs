@@ -138,7 +138,9 @@ function parseSpecsTable(markdown) {
 
 // 「未公开 / 待定」标记：出现这些词说明该字段没有可采信数值。
 // 必须挡住「未公开（推测 ~175 TFLOPS）」这类单元格——否则推测值会被当成实测值。
-const UNKNOWN_RE = /未公开|待定|待公布|待确认|不详|未披露|N\/A|TBD|Cancelled/i;
+// 2026-10-13：补「未公布」。全站 224 处未知值写作「未公布」，此前不在正则内，
+// 一旦有人在「未公布」格里写数字（如「未公布（约 700W）」）就会被当真实值采信。
+const UNKNOWN_RE = /未公开|未公布|待定|待公布|待确认|不详|未披露|N\/A|TBD|Cancelled/i;
 
 function parseTdpW(s) {
   if (!s) return null;

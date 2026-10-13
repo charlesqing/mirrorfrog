@@ -21,21 +21,23 @@ keywords: [Ascend 950DT, 昇腾 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为
 | **架构** | Da Vinci v5（第四代昇腾） |
 | **制程** | SMIC N+2（等效 7nm 改良） |
 | **编程模型** | **SIMD + SIMT 双模型** |
-| **HBM 类型** | **HiZQ 2.0**（自研，带宽优先） |
-| **HBM 容量** | **144 GB** |
-| **HBM 带宽** | **4 TB/s** |
-| **互联带宽** | **2 TB/s**（HCCS 协议） |
-| **MXFP4 算力** | **2,007 / 1,784 / 1,561 TFLOPS**（144GB / 128GB / 112GB 配置） |
-| **FP8 / HiF8 / MXFP8 算力** | **1,034 / 919 / 804 TFLOPS** |
-| **INT8 算力** | **1,034 / 919 / 804 TOPS** |
-| **BF16/FP16 算力** | **547 / 486 / 425 TFLOPS** |
-| **TF32 算力** | **273 / 243 / 212 TFLOPS** |
+| **显存类型** | **HiZQ 2.0**（自研，带宽优先） |
+| **显存** | **144 GB** |
+| **显存带宽** | **4 TB/s** |
+| **互联** | **2 TB/s**（HCCS 协议） |
+| **FP4** | **2,007 TFLOPS** |
+| **FP8 / HiF8 / MXFP8** | **1,034 TFLOPS** |
+| **INT8** | **1,034 TOPS** |
+| **FP16 / BF16** | **547 TFLOPS** |
 | **TDP** | 500 W |
 | **PCIe** | Gen 5 ×16 |
 | **发布时间** | **2026年8月**（华为云上线；原计划 Q4，已提前） |
-| **价格** | ~¥12-15 万/卡（推测） |
+| **价格** | **¥250,000 起**（2026-09 渠道指示价） |
+
+> ⚠️ **规格表口径**：上表取白皮书**满配档**（144 GB / HiZQ 2.0 / 4 TB/s）。白皮书另列 128 GB、112 GB 等精简档，对应 FP4 1,784 / 1,561 TFLOPS、BF16 486 / 425 TFLOPS。为避免解析器按区间取最大值污染，此处只登记满配档单一值。
 
 > 📌 **数据订正（2026-08 联网核实，来源《昇腾 950 NPU 架构白皮书》）**：本站此前记载 FP8 1 PFLOPS、FP4 2 PFLOPS、INT8 ~2,000 TOPS。白皮书精确值为：
+
 > - **FP8 1,034 TFLOPS**（宣传口径取整 1 PFLOPS ✅ 无误）
 > - **FP4 2,007 TFLOPS**（宣传口径取整 2 PFLOPS ✅ 无误）
 > - **INT8 1,034 TOPS** — ⚠️ 原记 ~2,000 TOPS **高估近一倍**，INT8 与 FP8 共用 Tensor Core，两者同值
@@ -50,11 +52,11 @@ keywords: [Ascend 950DT, 昇腾 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为
 | **目标场景** | 推理 Prefill（首 Token 生成）、视频推荐、实时交互 | **推理 Decode（逐 Token 生成）、模型训练、高并发推理** |
 | **HBM 类型** | HiBL 1.0（成本优先） | **HiZQ 2.0**（带宽优先） |
 | **HBM 容量** | 128 GB | **144 GB** |
-| **HBM 带宽** | ~3 TB/s | **4 TB/s** |
-| **互联带宽** | HCCS 784 GB/s | **HCCS 2 TB/s** |
+| **HBM 带宽** | 1.6 TB/s | **4 TB/s** |
+| **互联带宽** | 2 TB/s | **2 TB/s** |
 | **支持精度** | FP8、HiF8 | **FP8、MXFP8、MXFP4、HiF8** |
 | **典型应用** | 视频推荐、搜索 | **对话生成、文本续写、SFT 微调** |
-| **定价** | 较低（~¥7 万/卡） | 较高（~¥12-15 万/卡） |
+| **定价（2026-09）** | ¥80,000 起 | **¥250,000 起** |
 
 ## 关键技术突破
 
@@ -153,6 +155,15 @@ keywords: [Ascend 950DT, 昇腾 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为
 
 > ⚠️ 上述报价为**渠道指示价**，实际成交随订单规模、是否捆绑整机/网络/配套采购而变化。
 
+## 数据来源
+
+- [华为全联接大会 2025：昇腾路线图与自研 HBM 规格（新浪财经）](https://finance.sina.com.cn/roll/2025-09-18/doc-infqxfim8868233.shtml) — HiZQ 2.0 = 144GB / 4 TB/s，FP8 1 PFLOPS、MXFP4 2 PFLOPS、互联 2TB/s
+- [证券时报：华为公布昇腾AI芯片三年发展路线图](https://www.stcn.com/article/detail/3345926.html) — 950DT 内存容量与带宽官方口径
+- [Reuters 转述：HBM 缺货推高中国 AI 芯片价格（AI Tech Daily）](https://www.aitechdaily.com/china-ai-chipmakers-hbm-price-hikes) — 950DT 指示价上调至 ¥25 万以上，环比两个月 +20~50%（2026-09-10）
+- [igor'sLAB：Ascend 950DT 报价超 25 万元，涨价明细表](https://www.igorslab.de/en/hbm-shortage-chinas-ai-chips-huawei-ascend-950dt-over-250000-yuan/) — 950PR / 950DT / 910C 三款涨价对照
+- [芯智讯：华为 Ascend 950DT 涨价 20%-50%](https://www.icsmart.cn/141882/) — 国产芯片集体涨价背景
+- [鲲鹏昇腾开发者社区：Ascend950DT 版本速配表](https://hwcomputing.csdn.net/6aa894b28f401d3626604529.html) — 白皮书表 3-1 满配 / 精简档位
+
 ## 外部链接
 
 - [腾讯新闻：昇腾950DT芯片8月上线](https://news.qq.com/rain/a/20260611A01Y8F00)
@@ -161,3 +172,4 @@ keywords: [Ascend 950DT, 昇腾 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为
 - [ZOL AI：昇腾950双版本发布](https://ai.zol.com.cn/1195/11955311.html)
 - [百度百科：昇腾950DT芯片](https://baike.baidu.com/item/%E6%98%87%E8%85%BE950DT%E8%8A%AF%E7%89%87/66772879)
 - [知乎：昇腾950DT芯片8月上线华为云](https://zhuanlan.zhihu.com/p/2047213842783065249)
+
