@@ -29,9 +29,25 @@ const path = require('path');
 // TARGET 留出余量（22 MiB）：内容继续增长时靠下面的收敛循环继续裁，
 // 不依赖「调参后重新提交」，否则每隔一段时间部署就会再次失败。
 const MAX_BODY = Number(process.env.SEARCH_MAX_BODY || 400);
-const INDEX_FILE = path.join(__dirname, '..', 'build', 'search-index.json');
+const BUILD_DIR = path.join(__dirname, '..', 'build');
 const LIMIT_BYTES = 25 * 1024 * 1024;
 const TARGET_BYTES = Number(process.env.SEARCH_TARGET_BYTES || LIMIT_BYTES * 0.88);
+
+/**
+ * 收集所有 locale 的索引文件。
+ * 关键：i18n 站每个 locale 各有一份（build/search-index.json 与
+ * build/en/search-index.json），**必须全部处理**——只处理根目录那份时，
+ * 英文那份仍会超过 25 MiB 导致部署失败（2026-10-13 实锤）。
+ */
+function collectIndexFiles(dir, acc = []) {
+  if (!fs.existsSync(dir)) return acc;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, entry.name);
+    if (entry.isDirectory()) collectIndexFiles(p, acc);
+    else if (/^search-index.*\.json$/.test(entry.name)) acc.push(p);
+  }
+  return acc;
+}
 
 function initLunr(lunr, language) {
   require('lunr-languages/lunr.stemmer.support')(lunr);
@@ -80,23 +96,16 @@ function buildOnce(shards, plugin, lunr, maxBody) {
   return { out, trimmed };
 }
 
-function shrink() {
-  if (!fs.existsSync(INDEX_FILE)) {
-    console.log('[search-index] 未找到 search-index.json，跳过');
-    return;
-  }
-
-  const before = fs.statSync(INDEX_FILE).size;
+function shrinkOne(indexFile, lunr, plugin) {
+  const before = fs.statSync(indexFile).size;
   if (before < TARGET_BYTES) {
     console.log(
-      `[search-index] ${(before / 1048576).toFixed(2)} MiB，低于目标 ${(TARGET_BYTES / 1048576).toFixed(2)} MiB，跳过`
+      `[search-index] ${path.relative(BUILD_DIR, indexFile)}: ${(before / 1048576).toFixed(2)} MiB，低于目标，跳过`
     );
     return;
   }
 
-  const lunr = require('lunr');
-  const plugin = initLunr(lunr, ['zh', 'en']);
-  const shards = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
+  const shards = JSON.parse(fs.readFileSync(indexFile, 'utf8'));
 
   // 收敛循环：若裁到 MAX_BODY 仍超标（内容继续增长），逐级下调直到达标。
   // 每轮都从原始 shards 重建，避免对已裁剪数据二次截断导致索引与文档不一致。
@@ -109,27 +118,45 @@ function shrink() {
     maxBody = Math.max(MIN_BODY, Math.floor(maxBody / 2));
     result = buildOnce(shards, plugin, lunr, maxBody);
     attempts += 1;
-    console.log(`[search-index] 仍超标，正文上限下调至 ${maxBody} 字符后重试`);
+    console.log(`[search-index] ${path.relative(BUILD_DIR, indexFile)}: 仍超标，正文上限下调至 ${maxBody} 字符后重试`);
     if (attempts > 6) break;
   }
 
-  const json = JSON.stringify(result.out);
-  fs.writeFileSync(INDEX_FILE, json, 'utf8');
-  const after = fs.statSync(INDEX_FILE).size;
+  fs.writeFileSync(indexFile, JSON.stringify(result.out), 'utf8');
+  const after = fs.statSync(indexFile).size;
 
-  if (after > 5 * 1048576) {
-    result.out.forEach((s, i) => {
-      const mb = JSON.stringify(s).length / 1048576;
-      if (mb > 5) console.log(`[search-index]   分片 ${i}: ${s.documents.length} 条 / ${mb.toFixed(2)} MiB`);
-    });
-  }
   console.log(
-    `[search-index] ${(before / 1048576).toFixed(2)} MiB → ${(after / 1048576).toFixed(2)} MiB` +
+    `[search-index] ${path.relative(BUILD_DIR, indexFile)}: ${(before / 1048576).toFixed(2)} MiB → ${(after / 1048576).toFixed(2)} MiB` +
       `（裁剪 ${result.trimmed} 段正文，上限 ${maxBody} 字符${attempts ? `，迭代 ${attempts} 次` : ''}）`
   );
   if (after >= LIMIT_BYTES) {
-    console.error('[search-index] 错误：仍超过 Cloudflare Pages 25 MiB 限制，部署会失败');
+    console.error(`[search-index] 错误：${path.relative(BUILD_DIR, indexFile)} 仍超过 25 MiB，部署会失败`);
     process.exitCode = 1;
+  }
+}
+
+function shrink() {
+  const files = collectIndexFiles(BUILD_DIR);
+  if (files.length === 0) {
+    console.log('[search-index] 未找到任何 search-index*.json，跳过');
+    return;
+  }
+
+  const oversize = files.filter((f) => fs.statSync(f).size >= TARGET_BYTES);
+  if (oversize.length === 0) {
+    const summary = files.map((f) => `${path.relative(BUILD_DIR, f)} ${(fs.statSync(f).size / 1048576).toFixed(2)} MiB`);
+    console.log(`[search-index] ${summary.join(' / ')} — 均低于目标，跳过`);
+    return;
+  }
+
+  const lunr = require('lunr');
+  const plugin = initLunr(lunr, ['zh', 'en']);
+  oversize.forEach((f) => shrinkOne(f, lunr, plugin));
+
+  // 最终兜底：扫描整个产物目录，确保没有其他文件超限（部署失败的硬条件）
+  const remaining = collectIndexFiles(BUILD_DIR).filter((f) => fs.statSync(f).size >= LIMIT_BYTES);
+  if (remaining.length) {
+    console.error('[search-index] 警告：以下索引仍超限 →', remaining.join(', '));
   }
 }
 
