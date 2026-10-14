@@ -81,6 +81,33 @@
   }
 }
 
+/* ---------- Sticky table header & first column（宽表横滚时保持定位） ---------- */
+/* 表格不溢出时 sticky 无视觉效果，因此可安全作用于全站 markdown 表格 */
+.markdown table th {
+  position: sticky;
+  top: var(--ifm-navbar-height, 60px);
+  z-index: 2;
+  background: var(--ifm-background-color);
+}
+
+.markdown table td:first-child,
+.markdown table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--ifm-background-color);
+}
+
+.markdown table th:first-child {
+  z-index: 3;
+}
+
+[data-theme='dark'] .markdown table th,
+[data-theme='dark'] .markdown table td:first-child,
+[data-theme='dark'] .markdown table th:first-child {
+  background: #1b1b1d; /* 不透明底色，避免半透明行透出（dark 主题 docs 内容区底色） */
+}
+
 /* ---------- Dark mode: table improvements ---------- */
 [data-theme='dark'] table {
   border-collapse: collapse;

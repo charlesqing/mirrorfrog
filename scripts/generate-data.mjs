@@ -29,6 +29,7 @@ const KEY_MAP = {
   'HBM': 'memory.capacity', 'hbm': 'memory.capacity', 'hbm 容量': 'memory.capacity',
   '显存类型': 'memory.type', '内存类型': 'memory.type', '类型': 'memory.type', 'memory type': 'memory.type',
   '显存带宽': 'memory.bandwidth', '内存带宽': 'memory.bandwidth', '带宽': 'memory.bandwidth',
+  'hbm 带宽': 'memory.bandwidth', 'HBM 带宽': 'memory.bandwidth', 'HBM带宽': 'memory.bandwidth',
   'memory bandwidth': 'memory.bandwidth', 'bandwidth': 'memory.bandwidth',
   '统一内存': 'memory.capacity', 'unified memory': 'memory.capacity',
   '内存容量': 'memory.capacity', 'memory capacity': 'memory.capacity',

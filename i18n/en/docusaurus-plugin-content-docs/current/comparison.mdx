@@ -1,13 +1,17 @@
 ---
 id: comparison
-title: 'AI Compute Card Full Comparison Table | 100+ Specs Side-by-Side'
-description: 'Complete comparison table of 100+ AI compute cards: FP8/FP16/INT8 compute power, memory capacity and bandwidth, power consumption, pricing. Covers NVIDIA H100/H200/B200, AMD MI300X/MI400, Huawei Ascend 910C/920, Google TPU v6e/Ironwood.'
+title: 'AI Compute Card Comparison: Compute · Memory · Power · Price'
+description: 'Side-by-side comparison of 81 featured AI compute cards: FP8/FP16/INT8 compute, memory capacity and bandwidth, power, pricing — synced with the 252-chip database. Covers NVIDIA H100/H200/B200/Rubin, AMD MI300X/MI400, Huawei Ascend 910C/950, Google TPU Ironwood.'
 keywords: [AI compute card comparison, NVIDIA H100 vs H200, AMD MI300X vs MI400, Huawei Ascend 910C, AI training card comparison, GPU spec comparison]
 sidebar_position: 2
 sidebar_label: 'Full Comparison Table'
 ---
 
-# AI Compute Card Full Comparison Table (100+ Models)
+# AI Compute Card Full Comparison Table (81 Featured · 252 in Database)
+
+> **Data as of 2026-10-14.** Specs follow each [chip profile](/docs/intro) (chips.json) and pricing.json as the single source of truth. Legend: ✅ Available · 🔄 Announced/shipping soon · 🔮 Forward-looking (analyst estimates, for reference only).
+>
+> **Want a custom comparison?** Try the [interactive comparison tool](/compare) (pick any chips to compare side-by-side) and the [TCO calculator](/docs/tco-calculator) (5-year total cost of ownership); head-to-head deep dives live in the "🔥 Chip Comparisons" sidebar category.
 
 ## Quick Filter
 
@@ -21,42 +25,42 @@ sidebar_label: 'Full Comparison Table'
 
 ## Datacenter Training GPU
 
-> Compute unified with precision and sparsity/density labels. ✅ Available · 🔄 Upcoming · 🔮 Forward-looking
+> Compute is labeled with precision and sparse/dense convention, consistent with each chip profile.
 
 | Model | FP8/FP4 Compute | FP16 Compute | Memory | Memory Bandwidth | TDP | Release | Status |
-|---|---|---|---|---|---|---|---|
-| [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) | 35 PFLOPS (FP4 training) | ~25 PFLOPS | 288GB HBM4 | 22 TB/s | 1,800-2,300W | 2026 H2 | 🔮 |
-| [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) | 14 PFLOPS (sparse) | ~7 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2026 Q1 | ✅ |
-| [NVIDIA GB300](/docs/cards/nvidia/gb300) | — | — | 288GB HBM3e | 8 TB/s | 1,600W | 2025 H2 | ✅ |
-| [NVIDIA B200](/docs/cards/nvidia/b200) | 9 PFLOPS (sparse) | 4.5 PFLOPS (sparse) | 192GB HBM3e | 8 TB/s | 1,000W | 2025 Q2 | ✅ |
-| [NVIDIA GB200](/docs/cards/nvidia/gb200) | — | — | 192GB HBM3e | 8 TB/s | 1,000W | 2024 Q4 | ✅ |
-| [NVIDIA B100](/docs/cards/nvidia/b100) | 7 PFLOPS (sparse) | 3.5 PFLOPS (sparse) | 192GB HBM3e | 8 TB/s | 700W | 2024 Q4 | ✅ |
+|---|---:|---:|---|---:|---:|---|:---:|
+| [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) | 50,000 TFLOPS (NVFP4) | 4,000 TFLOPS (dense) | 288GB HBM4 | 19.2 TB/s | 1,800W | 2026 H1 | ✅ |
+| [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) | 20,000 TFLOPS (FP4 sparse) | 5,000 TFLOPS (sparse) | 288GB HBM3e | 8 TB/s | 1,400W | 2026 H1 | ✅ |
+| [NVIDIA GB300](/docs/cards/nvidia/gb300) | 40,000 TFLOPS (FP4, Superchip) | 10,000 TFLOPS (Superchip) | 576GB HBM3e (2× B300) | 8 TB/s | 3,000W (Superchip) | 2025 Q1 | ✅ |
+| [NVIDIA B200](/docs/cards/nvidia/b200) | 20,000 TFLOPS (FP4 sparse) | 5,000 TFLOPS (sparse) | 192GB HBM3e | 8 TB/s | 1,000W | 2025 Q2 | ✅ |
+| [NVIDIA GB200](/docs/cards/nvidia/gb200) | 40,000 TFLOPS (FP4, Superchip) | 10,000 TFLOPS (Superchip) | 192GB×2 HBM3e | 8 TB/s | 2,000W (Superchip) | 2024 Q4 | ✅ |
+| [NVIDIA B100](/docs/cards/nvidia/b100) | 14,000 TFLOPS (FP4 sparse) | 3,500 TFLOPS (sparse) | 192GB HBM3e | 8 TB/s | 700W | 2024 Q4 | ✅ |
 | [NVIDIA H200](/docs/cards/nvidia/h200) | 3,958 TFLOPS (sparse) | 1,979 TFLOPS | 141GB HBM3e | 4.8 TB/s | 700W | 2024 Q2 | ✅ |
 | [NVIDIA H100 SXM](/docs/cards/nvidia/h100) | 3,958 TFLOPS (sparse) | 1,979 TFLOPS | 80GB HBM3 | 3.35 TB/s | 700W | 2022 Q3 | ✅ |
 | [NVIDIA H20](/docs/cards/nvidia/h20) | 296 TFLOPS | 148 TFLOPS | 96GB HBM3 | 4.0 TB/s | 400W | 2024 Q1 | ✅ |
 | [NVIDIA A100](/docs/cards/nvidia/a100) | — | 312 TFLOPS | 80GB HBM2e | 2.0 TB/s | 300-400W | 2020 Q3 | ✅ |
-| [AMD MI400 Series](/docs/cards/amd/mi400) | 40 PFLOPS (FP4) | ~10 PFLOPS | 432GB HBM4 | 19.6 TB/s | 1,200-1,500W | 2026 H2 | 🔮 |
-| [AMD MI455X](/docs/cards/amd/mi455x) | 20 PFLOPS | ~10 PFLOPS | 432GB HBM4 | 19.6 TB/s | 1,200-1,500W | 2026 H2 | 🔮 |
-| [AMD MI350X](/docs/cards/amd/mi350) | 10.1 PFLOPS (MXFP6) | ~5 PFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 H2 | 🔄 |
+| [AMD MI400 Series](/docs/cards/amd/mi400) | 40,000 TFLOPS (FP4) | 10,000 TFLOPS | 432GB HBM4 | 19.6 TB/s | 1,200-1,500W | 2026 H2 | 🔮 |
+| [AMD MI455X](/docs/cards/amd/mi455x) | 40,300 TFLOPS (MXFP4) | 10,100 TFLOPS (sparse) | 432GB HBM4 | 23.3 TB/s | Undisclosed | 2026 H2 | 🔄 |
+| [AMD MI350X](/docs/cards/amd/mi350) | 10,100 TFLOPS (MXFP4) | 2,500 TFLOPS | 288GB HBM3e | 8 TB/s | 1,400W | 2025 H2 | ✅ |
 | [AMD MI325X](/docs/cards/amd/mi325x) | 2,614 TFLOPS | 1,307 TFLOPS | 256GB HBM3e | 6.48 TB/s | 750W | 2024 Q4 | ✅ |
 | [AMD MI300X](/docs/cards/amd/mi300x) | 2,614 TFLOPS | 1,307 TFLOPS | 192GB HBM3 | 5.3 TB/s | 750W | 2023 Q4 | ✅ |
-| [Huawei Ascend 950PR](/docs/cards/huawei/ascend-950pr) | 1 PFLOPS (FP8) | ~780 TFLOPS | 128GB HiBL | ~3 TB/s | 600W | 2026 H1 | 🔄 |
-| [Huawei Ascend 950DT](/docs/cards/huawei/ascend-950dt) | 1 PFLOPS (FP8) | ~500 TFLOPS | 144GB HiZQ | 4 TB/s | 500W | 2026 H1 | 🔄 |
-| [Huawei Ascend 920](/docs/cards/huawei/ascend-920) | — | 1,800 TFLOPS | ~96GB HBM3 | ~4 TB/s | 400W | 2025 H2 | ✅ |
-| [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c) | 780 TFLOPS (BF16) | ~390 TFLOPS | 128GB HBM2e (dual-die) | ~1.2 TB/s | 310W | 2025 H1 | ✅ |
+| [Huawei Ascend 950PR](/docs/cards/huawei/ascend-950pr) | 1,784 TFLOPS (MXFP4) | 486 TFLOPS | 128GB HiBL 1.0 | 1.6 TB/s | 600W | 2026 Q1 | ✅ |
+| [Huawei Ascend 950DT](/docs/cards/huawei/ascend-950dt) | 2,007 TFLOPS (MXFP4) | 547 TFLOPS | 144GB HiZQ 2.0 | 4 TB/s | 500W | 2026 Q3 | 🔄 |
+| [Huawei Ascend 920](/docs/cards/huawei/ascend-920) | — | 900 TFLOPS | Undisclosed (HBM3) | 4 TB/s | Undisclosed | 2025 H2 | ✅ |
+| [Huawei Ascend 910C](/docs/cards/huawei/ascend-910c) | — | 800 TFLOPS | 128GB HBM2e (dual-die) | 3.2 TB/s | 600W | 2025 Q1 | ✅ |
 | [Huawei Ascend 910B](/docs/cards/huawei/ascend-910b) | — | 256 TFLOPS | 64GB HBM2e | 1.2 TB/s | 310W | 2023 | ✅ |
 | [Cambricon MLU690](/docs/cards/cambricon/mlu-690) | — | 700+ TFLOPS | 196GB HBM3 | 3.35 TB/s | ~500W | 2025 | ✅ |
-| [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | — | ~63 TFLOPS (FP32) | 80GB GDDR6X | 1.6 TB/s | 300W | 2025 Q1 | ✅ |
-| [MetaX C600](/docs/cards/others/metax-c600) | 1,000 TFLOPS | — | — | 3.6 TB/s | 400W | 2025 Q4 | 🔄 |
-| [Kunlun P800](/docs/cards/others/kunlun-p800) | — | 345 TFLOPS | 96GB HBM3 | — | 400W | 2024 Q1 | ✅ |
-| [Iluvatar BI-V150](/docs/cards/iluvatar/bi-v150) | — | ~192 TFLOPS | 64GB HBM2e | — | 350W | 2023 | ✅ |
+| [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | — | 400 TFLOPS | 80GB | 1.6 TB/s | 500W | 2025 Q1 | ✅ |
+| [MetaX C600](/docs/cards/others/metax-c600) | 1,000 TFLOPS (FP8) | 500 TFLOPS | 144GB HBM3e | 3.6 TB/s | 400W | 2025 Q4 | ✅ |
+| [Kunlun P800](/docs/cards/others/kunlun-p800) | — | 345 TFLOPS | 96GB HBM3 | 2.4 TB/s | 400W | 2024 Q1 | ✅ |
+| [Iluvatar BI-V150](/docs/cards/iluvatar/bi-v150) | — | 192 TFLOPS | 64GB HBM2e | 1.2 TB/s | 350W | 2023 | ✅ |
 
-> **Domestic chip note**: Huawei Ascend, Cambricon MLU, Moore Threads MTT, MetaX, Kunlun, and Iluvatar are Chinese domestic AI chip representatives, primarily targeting the China market due to US export controls. MTT S5000 is priced in CNY (¥55,000).
+> **Domestic chip note**: Huawei Ascend, Cambricon MLU, Moore Threads MTT, MetaX, Kunlun, and Iluvatar are Chinese domestic AI chip representatives, primarily targeting the China market due to US export controls. MTT S5000 is priced in CNY (¥80,000).
 
 ## Datacenter Inference GPU
 
 | Model | FP8 Compute | INT8 Compute | Memory | TDP | Use Case | Status |
-|---|---|---|---|---|---|---|
+|---|---:|---:|---|---:|---|:---:|
 | [NVIDIA L40S](/docs/cards/nvidia/l40s) | 733 TFLOPS (sparse) | 1,466 TOPS | 48GB GDDR6 | 350W | Datacenter inference | ✅ |
 | [NVIDIA RTX 6000 Ada](/docs/cards/nvidia/rtx-6000-ada) | 1,458 TFLOPS (sparse) | 2,905 TOPS | 48GB GDDR6 | 300W | Workstation inference | ✅ |
 | [NVIDIA RTX Pro 6000 Blackwell](/docs/cards/nvidia/rtx-pro-6000-blackwell) | — | — | 96GB GDDR7 ECC | 600W | Workstation inference | ✅ |
@@ -70,44 +74,44 @@ sidebar_label: 'Full Comparison Table'
 ## AI Training ASIC (TPU / Gaudi / Trainium)
 
 | Model | Vendor | Compute (BF16/FP8) | Memory | Interconnect | Release | Status |
-|---|---|---|---|---|---|---|
-| [Google TPU Ironwood (v7)](/docs/cards/google/tpu-ironwood) | Google | ~2,000 TFLOPS | 192GB HBM | ~5 Tb/s | 2026 H1 | 🔄 |
-| [Google TPU v6p](/docs/cards/google/tpu-v6p) | Google | — | 96GB HBM2 | — | 2024 Q4 | ✅ |
-| [Google TPU v6e (Trillium)](/docs/cards/google/tpu-v6e) | Google | 918 TFLOPS | 32GB HBM | 1.6 Tb/s | 2024 Q4 | ✅ |
-| [Google TPU v5p](/docs/cards/google/tpu-v5p) | Google | — | — | — | 2023 Q4 | ✅ |
-| [Google TPU v5e](/docs/cards/google/tpu-v5e) | Google | — | 16GB HBM2 | — | 2023 Q3 | ✅ |
-| [Google TPU v4](/docs/cards/google/tpu-v4) | Google | — | 32GB HBM2 | — | 2020 Q3 | ✅ |
-| [Google TPU 8t (Training)](/docs/cards/google/tpu-8t) | Google | — | — | — | 2026 Q2 | 🔮 |
-| [Google TPU 8i (Inference)](/docs/cards/google/tpu-8i) | Google | ~1,500 TOPS | — | — | 2026 Q2 | 🔮 |
-| [Intel Gaudi 3](/docs/cards/intel/gaudi-3) | Intel | 1,600 TFLOPS | 128GB SRAM | 2.4 Tb/s | 2024 Q2 | ✅ |
-| [Intel Gaudi 2](/docs/cards/intel/gaudi-2) | Intel | 865 TFLOPS (FP8) | 96GB HBM2e | 2.4 Tb/s | 2022 Q2 | ✅ |
-| [Intel Gaudi 4](/docs/cards/intel/gaudi-4) | Intel | — | 192GB HBM3e | — | 2026 Q2 | 🔮 |
+|---|---|---:|---|---:|---|:---:|
+| [Google TPU Ironwood (v7)](/docs/cards/google/tpu-ironwood) | Google | 2,307 TFLOPS (BF16) | 192GB HBM | 7.4 TB/s | 2025 Q4 | ✅ |
+| [Google TPU v6p](/docs/cards/google/tpu-v6p) | Google | 1,350 TFLOPS (BF16) | 96GB HBM2 | 1.6 TB/s | 2024 Q4 | ✅ |
+| [Google TPU v6e (Trillium)](/docs/cards/google/tpu-v6e) | Google | 918 TFLOPS | 32GB HBM | 1.6 TB/s | 2024 Q4 | ✅ |
+| [Google TPU v5p](/docs/cards/google/tpu-v5p) | Google | 459 TFLOPS | 95GB HBM | 2.6 TB/s | 2023 Q4 | ✅ |
+| [Google TPU v5e](/docs/cards/google/tpu-v5e) | Google | 200 TFLOPS | 16GB HBM2 | 400 GB/s | 2023 Q3 | ✅ |
+| [Google TPU v4](/docs/cards/google/tpu-v4) | Google | 275 TFLOPS | 32GB HBM2 | 1.2 TB/s | 2020 Q3 | ✅ |
+| [Google TPU 8t (Training)](/docs/cards/google/tpu-8t) | Google | 12,600 TFLOPS (FP4) | 216GB HBM3e | ~7 TB/s | 2026 Q2 | 🔮 |
+| [Google TPU 8i (Inference)](/docs/cards/google/tpu-8i) | Google | 10,100 TFLOPS (FP4) | 288GB HBM | 8.6 TB/s | 2026 Q2 | 🔮 |
+| [Intel Gaudi 3](/docs/cards/intel/gaudi-3) | Intel | 1,835 TFLOPS (BF16) | 128GB HBM2e | 3.67 TB/s | 2024 Q2 | ✅ |
+| [Intel Gaudi 2](/docs/cards/intel/gaudi-2) | Intel | 865 TFLOPS (FP8) | 96GB HBM2e | 2.46 TB/s | 2022 Q2 | ✅ |
+| [Intel Gaudi 4](/docs/cards/intel/gaudi-4) | Intel | — | Undisclosed | — | 2026 Q2 | 🔮 |
 | [Intel Crescent Island](/docs/cards/intel/crescent-island) | Intel | TBD | 480GB LPDDR5x | TBD | 2026 H2 | 🔄 |
-| [AWS Trainium 3](/docs/cards/aws/trainium-3) | AWS | ~5.7 PFLOPS | ~144GB | ~4.5 Tb/s | 2025 Q4 | 🔄 |
-| [AWS Trainium 2](/docs/cards/aws/trainium-2) | AWS | 1,299 TFLOPS (dense) | 64GB | ~1.6 Tb/s | 2024 Q4 | ✅ |
+| [AWS Trainium 3](/docs/cards/aws/trainium-3) | AWS | 2,520 TFLOPS (FP8 dense) | 144GB HBM3e | 4.9 TB/s | 2025 Q4 | ✅ |
+| [AWS Trainium 2](/docs/cards/aws/trainium-2) | AWS | 1,299 TFLOPS (FP8 dense) | 96GB HBM | 2.9 TB/s | 2024 Q4 | ✅ |
 | [AWS Trainium 1](/docs/cards/aws/trainium) | AWS | 191 TFLOPS (FP8) | 32GB HBM | — | 2020 Q4 | ✅ |
 | [AWS Inferentia 2](/docs/cards/aws/inferentia-2) | AWS | 190 TFLOPS (FP16) | 32GB HBM2e | — | 2022 Q4 | ✅ |
 | [AWS Inferentia 1](/docs/cards/aws/inferentia) | AWS | — | — | — | 2019 Q4 | ✅ |
-| [Microsoft Maia 200](/docs/cards/microsoft/maia-200) | Microsoft | 5+ PFLOPS | — | — | 2026 Q1 | 🔄 |
+| [Microsoft Maia 200](/docs/cards/microsoft/maia-200) | Microsoft | 10,000 TFLOPS (FP4) | 216GB HBM3e | 7 TB/s | 2026 Q1 | 🔄 |
 | [Meta MTIA v3](/docs/cards/meta/mtia-v3) | Meta | — | — | — | 2026 Q3 | 🔮 |
 
 ## Wafer-Scale Training
 
 | Model | Vendor | Transistors | On-Chip Memory | FP8 Compute | Release | Status |
-|---|---|---|---|---|---|---|
-| [Cerebras WSE-4](/docs/cards/cerebras/wse-4) | Cerebras | ~5-6 trillion | 44GB SRAM | ~400 PFLOPS | 2027 | 🔮 |
+|---|---|---:|---|---:|---|:---:|
+| [Cerebras CS-4 (3× WSE-3T rack)](/docs/cards/cerebras/wse-4) | Cerebras | 12 trillion (3×4 trillion) | 44GB×3 SRAM | 750 PFLOPS (FP8) | 2026 Q3 | ✅ |
 | [Cerebras WSE-3](/docs/cards/cerebras/wse-3) | Cerebras | 4 trillion | 40GB SRAM | 125 PFLOPS | 2024 Q1 | ✅ |
 | [Cerebras WSE-2](/docs/cards/cerebras/wse-2) | Cerebras | 2.6 trillion | 40GB SRAM | 85 PFLOPS | 2021 Q3 | ✅ |
 
 ## Edge AI & On-Device NPU
 
 | Model | Vendor | Compute (TOPS) | Power | Use Case | Status |
-|---|---|---|---|---|---|
-| [NVIDIA Jetson Thor](/docs/cards/nvidia/jetson-thor) | NVIDIA | 2,070 TOPS | 130W | Robotics / autonomous driving | ✅ |
+|---|---|---:|---:|---|:---:|
+| [NVIDIA Jetson Thor](/docs/cards/nvidia/jetson-thor) | NVIDIA | 2,070 TOPS | 40-130W | Robotics / autonomous driving | ✅ |
 | [NVIDIA Jetson Orin AGX](/docs/cards/nvidia/jetson-orin) | NVIDIA | 275 TOPS | 60W | Edge inference | ✅ |
-| [Qualcomm AI 100](/docs/cards/others/qualcomm-ai100) | Qualcomm | 70 TOPS | 15W | Datacenter edge inference | ✅ |
-| [Huawei Ascend 310](/docs/cards/huawei/ascend-910b) | Huawei | 22 TOPS | 8W | On-device inference | ✅ |
-| [Hailo-8L](/docs/cards/others/hailo) | Hailo | 13 TOPS | 1.5W | On-device vision AI | ✅ |
+| [Qualcomm AI 100](/docs/cards/others/qualcomm-ai100) | Qualcomm | 400 TOPS | 75W | Datacenter edge inference | ✅ |
+| [Huawei Ascend 310](/docs/cards/huawei/ascend-310) | Huawei | 16 TOPS | 8W | On-device inference | ✅ |
+| [Hailo-8L](/docs/cards/others/hailo) | Hailo | 13 TOPS | 2W | On-device vision AI | ✅ |
 | [Google Edge TPU](/docs/cards/google/edge-tpu) | Google | 4 TOPS | 2W | IoT on-device inference | ✅ |
 
 ## Innovative Architectures
@@ -127,7 +131,7 @@ sidebar_label: 'Full Comparison Table'
 ### NVIDIA
 
 | Model | MSRP (USD) | Market Price (USD) | Notes |
-|---|---|---|---|
+|---|---:|---:|---|
 | [Rubin R200](/docs/cards/nvidia/rubin-r200) | $85,000 | — | Estimated |
 | [GB300](/docs/cards/nvidia/gb300) | $75,000 | $72,000 | |
 | [GB200](/docs/cards/nvidia/gb200) | $65,000 | $62,000 | |
@@ -147,40 +151,40 @@ sidebar_label: 'Full Comparison Table'
 | [T4](/docs/cards/nvidia/t4) | $2,500 | $1,800 | Secondary market |
 | [Jetson Thor](/docs/cards/nvidia/jetson-thor) | $800 | — | Module |
 | [Jetson Orin](/docs/cards/nvidia/jetson-orin) | $400 | $380 | Module |
-| H800 | ¥280,000 | ¥250,000 | CNY, China market |
+| H800 | — | — | CNY ¥280,000 / ¥250,000 (China market, 2023 data) |
 
 ### AMD
 
 | Model | MSRP (USD) | Market Price (USD) | Notes |
-|---|---|---|---|
+|---|---:|---:|---|
 | [MI400](/docs/cards/amd/mi400) | $55,000 | — | Estimated |
 | [MI350X](/docs/cards/amd/mi350) | $40,000 | $37,000 | |
-| [MI355X](/docs/cards/amd/mi455x) | $22,000 | $20,500 | |
+| [MI355X](/docs/cards/amd/mi355x) | $22,000 | $20,500 | |
 | [MI325X](/docs/cards/amd/mi325x) | $18,000 | $16,500 | |
 | [MI300X](/docs/cards/amd/mi300x) | $15,000 | $13,500 | |
-| [MI250](/docs/cards/amd/mi300x) | $12,000 | $10,000 | Secondary market |
-| [MI210](/docs/cards/amd/mi300x) | $9,000 | $8,500 | |
+| [MI250](/docs/cards/amd/mi250) | $12,000 | $10,000 | Secondary market |
+| [MI210](/docs/cards/amd/mi210) | $9,000 | $8,500 | |
 
 ### Intel
 
 | Model | MSRP (USD) | Market Price (USD) | Notes |
-|---|---|---|---|
+|---|---:|---:|---|
 | [Gaudi 4](/docs/cards/intel/gaudi-4) | $25,000 | — | Estimated |
 | [Gaudi 3](/docs/cards/intel/gaudi-3) | $18,000 | $16,500 | |
 | [Gaudi 2](/docs/cards/intel/gaudi-2) | $12,000 | $11,000 | |
-| [Gaudi 1](/docs/cards/intel/gaudi-2) | $8,000 | $7,000 | Discontinued |
-| [Max Series](/docs/cards/intel/gaudi-2) | $4,000 | $3,700 | |
-| [Flex Series](/docs/cards/intel/gaudi-2) | $1,000 | $900 | |
+| [Gaudi 1](/docs/cards/intel/gaudi-1) | $8,000 | $7,000 | Discontinued |
+| [Max Series](/docs/cards/intel/max-series) | $4,000 | $3,700 | |
+| [Flex Series](/docs/cards/intel/flex-series) | $1,000 | $900 | |
 | [Arc Pro B60](/docs/cards/intel/arc-pro-b60) | $500 | $480 | |
 | [Arc Pro B50](/docs/cards/intel/arc-pro-b50) | $350 | $330 | |
 
 ### Huawei Ascend
 
 | Model | MSRP (USD) | Market Price (USD) | Notes |
-|---|---|---|---|
-| [Ascend 950DT](/docs/cards/huawei/ascend-950dt) | $22,000 | — | Estimated |
-| [Ascend 950PR](/docs/cards/huawei/ascend-950pr) | $18,000 | — | Estimated |
-| [Ascend 910D](/docs/cards/huawei/ascend-910c) | $18,000 | $16,000 | |
+|---|---:|---:|---|
+| [Ascend 950DT](/docs/cards/huawei/ascend-950dt) | — | ¥250,000 | CNY channel price (2026-09, +20~50% vs July) |
+| [Ascend 950PR](/docs/cards/huawei/ascend-950pr) | — | ¥80,000 | CNY channel price (2026-09) |
+| [Ascend 910D](/docs/cards/huawei/ascend-910d) | $18,000 | $16,000 | |
 | [Ascend 920](/docs/cards/huawei/ascend-920) | $25,000 | $23,000 | |
 | [Ascend 910C](/docs/cards/huawei/ascend-910c) | $16,000 | $14,500 | |
 | [Ascend 910B](/docs/cards/huawei/ascend-910b) | $12,000 | $10,500 | |
@@ -188,7 +192,7 @@ sidebar_label: 'Full Comparison Table'
 ### Google TPU / AWS / Cloud
 
 | Model | MSRP (USD) | Market Price (USD) | Notes |
-|---|---|---|---|
+|---|---:|---:|---|
 | [TPU Ironwood](/docs/cards/google/tpu-ironwood) | $45,000 | — | Estimated |
 | [TPU v6p](/docs/cards/google/tpu-v6p) | $40,000 | — | |
 | [TPU v5p](/docs/cards/google/tpu-v5p) | $35,000 | — | |
@@ -204,26 +208,26 @@ sidebar_label: 'Full Comparison Table'
 ### Chinese Domestic Chips (CNY Pricing)
 
 | Model | MSRP (CNY) | Market Price (CNY) | USD Equivalent |
-|---|---|---|---|
-| [Cambricon MLU690](/docs/cards/cambricon/mlu-690) | ¥150,000 | ¥140,000 | ~$19,444 |
-| [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | ¥55,000 | ¥50,000 | ~$6,944 |
-| [Iluvatar TG150](/docs/cards/iluvatar/bi-v150) | ¥85,000 | ¥78,000 | ~$10,833 |
+|---|---:|---:|---:|
+| [Cambricon MLU690](/docs/cards/cambricon/mlu-690) | ¥190,000 | ¥175,000 | ~$24,306 |
+| [Moore Threads MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | ¥80,000 | ¥75,000 | ~$10,417 |
+| [Iluvatar Bi-V150](/docs/cards/iluvatar/bi-v150) | ¥85,000 | ¥78,000 | ~$10,833 |
 | [Enflame T21](/docs/cards/enflame/t21) | ¥70,000 | ¥65,000 | ~$9,028 |
-| [MetaX C500](/docs/cards/others/metax-c600) | ¥55,000 | ¥52,000 | ~$7,222 |
-| [Moore Threads S4000](/docs/cards/others/moore-threads-mtt-s5000) | ¥60,000 | ¥55,000 | ~$7,639 |
+| [MetaX C500](/docs/cards/others/metax-c500) | ¥55,000 | ¥52,000 | ~$7,222 |
+| [Moore Threads S4000](/docs/cards/others/moore-threads-mtt-s4000) | ¥60,000 | ¥55,000 | ~$7,639 |
 
 ### Other Vendors
 
 | Model | MSRP (USD) | Market Price (USD) | Notes |
-|---|---|---|---|
-| [Cerebras WSE-4](/docs/cards/cerebras/wse-4) | $8,000,000 | — | Rack system |
+|---|---:|---:|---|
+| [Cerebras CS-4 rack system](/docs/cards/cerebras/wse-4) | $8,000,000 | — | Rack system (3× WSE-3 Turbo) |
 | [Cerebras WSE-3](/docs/cards/cerebras/wse-3) | $5,000,000 | — | Rack system |
 | [Cerebras WSE-2](/docs/cards/cerebras/wse-2) | $3,000,000 | — | Rack system |
-| [SambaNova SN40L](/docs/cards/others/groq-lpu-v2) | $200,000 | — | System |
+| [SambaNova SN40L](/docs/cards/others/sambanova-sn40l) | $200,000 | — | System |
 | [Groq LPU v2](/docs/cards/others/groq-lpu-v2) | $35,000 | — | |
-| [Rubin Ultra](/docs/cards/nvidia/rubin-r200) | $150,000 | — | Estimated |
+| [Rubin Ultra](/docs/cards/nvidia/rubin-ultra) | $150,000 | — | Estimated (announced GTC 2026, specs TBD) |
 | [Graphcore IPU](/docs/cards/others/graphcore-ipu) | $15,000 | — | |
-| [Tenstorrent Blackhole](/docs/cards/others/groq-lpu-v2) | $20,000 | — | |
+| [Tenstorrent Blackhole](/docs/cards/others/tenstorrent-blackhole) | $20,000 | — | |
 | [Qualcomm AI 100](/docs/cards/others/qualcomm-ai100) | $8,000 | $7,000 | |
 | [Hailo-8L](/docs/cards/others/hailo) | $300 | $280 | Module |
 

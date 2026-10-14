@@ -18,7 +18,8 @@
     "typecheck": "tsc",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify:search": "node scripts/verify-search-index.js"
+    "verify:search": "node scripts/verify-search-index.js",
+    "check:comparison": "node scripts/check-comparison.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",

@@ -1048,7 +1048,8 @@
         "fp4": "12.6 PFLOPS（单芯片口径）"
       },
       "memory": {
-        "capacity": "8× HBM3e 12层（单芯片 ~216GB）"
+        "capacity": "8× HBM3e 12层（单芯片 ~216GB）",
+        "bandwidth": "~7 TB/s（推测每芯片）"
       },
       "tdp": "1,300 W"
     }
@@ -1106,7 +1107,8 @@
       "architecture": "TPU v4（4 代）",
       "process": "TSMC 7nm",
       "memory": {
-        "capacity": "32 GB HBM2"
+        "capacity": "32 GB HBM2",
+        "bandwidth": "1.2 TB/s"
       },
       "compute": {
         "fp16": "275 TFLOPS",
@@ -1138,7 +1140,8 @@
       "architecture": "Google TPU v5（与 v5p 同代）",
       "process": "TSMC 5nm",
       "memory": {
-        "capacity": "16GB HBM2（v5p 是 96GB）"
+        "capacity": "16GB HBM2（v5p 是 96GB）",
+        "bandwidth": "400 GB/s（v5p 是 1.4 TB/s）"
       },
       "compute": {
         "fp8": "400 TFLOPS（v5p 是 1.89 PF）",
@@ -1172,7 +1175,8 @@
         "fp16": "459 TFLOPS"
       },
       "memory": {
-        "capacity": "95 GB"
+        "capacity": "95 GB",
+        "bandwidth": "2,575 GB/s"
       },
       "tdp": "300 W"
     }
@@ -1201,7 +1205,8 @@
         "int8": "1,836 TOPS"
       },
       "memory": {
-        "capacity": "32 GB（2× v5e）"
+        "capacity": "32 GB（2× v5e）",
+        "bandwidth": "1,638 GB/s"
       },
       "tdp": "200 W"
     }
@@ -1228,7 +1233,8 @@
       "architecture": "Google TPU v6（与 v6e 同代）",
       "process": "TSMC 5nm（vs v5e 7nm）",
       "memory": {
-        "capacity": "96 GB HBM2（v6e 仅 32GB）"
+        "capacity": "96 GB HBM2（v6e 仅 32GB）",
+        "bandwidth": "1.6 TB/s（v6e 仅 819 GB/s）"
       },
       "compute": {
         "fp8": "2,700 TFLOPS",
@@ -1573,7 +1579,8 @@
       "architecture": "Da Vinci v5（第四代昇腾）",
       "process": "N+2（SMIC 国产化）",
       "memory": {
-        "capacity": "144 GB"
+        "capacity": "144 GB",
+        "bandwidth": "4 TB/s"
       },
       "compute": {
         "fp8": "1 PFLOPS（HiF8 格式）",
@@ -1645,7 +1652,8 @@
       "architecture": "昇腾 950（单片式设计）",
       "process": "中芯国际 SMIC N+3（等效 5nm 级）",
       "memory": {
-        "capacity": "128 GB HiBL 1.0"
+        "capacity": "128 GB HiBL 1.0",
+        "bandwidth": "1.6 TB/s"
       },
       "compute": {
         "fp4": "1,784 TFLOPS",
@@ -5529,7 +5537,8 @@
       "architecture": "Transformer 专用 ASIC（不可编程）",
       "process": "TSMC 4nm（推测）",
       "memory": {
-        "capacity": "144 GB"
+        "capacity": "144 GB",
+        "bandwidth": "~6.03 TB/s（H100 SXM5 的 1.8×）"
       },
       "tdp": "未公开",
       "release": "2024年6月"
@@ -7454,7 +7463,8 @@
       "architecture": "Systolic Array（脉动阵列），围绕投机解码（Speculative Decoding）设计",
       "process": "TSMC 3nm",
       "memory": {
-        "capacity": "216 GB"
+        "capacity": "216 GB",
+        "bandwidth": "15.4 TB/s"
       },
       "tdp": "700 W",
       "release": "2026-06-24"
