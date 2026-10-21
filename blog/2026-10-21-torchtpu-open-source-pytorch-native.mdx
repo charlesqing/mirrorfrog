@@ -1,0 +1,44 @@
+---
+slug: torchtpu-open-source-pytorch-native
+title: 'TorchTPU 开源：PyTorch 原生支持 TPU，迁移成本降到一行代码'
+date: '2026-10-21'
+authors: aicomputecards
+tags: [google, tpu, deep-learning, inference, announcement]
+description: '谷歌在 PyTorch Conference 2026 宣布 TorchTPU 开源：与 Meta PyTorch 团队联合开发的原生后端，支持 vLLM/SGLang/llm-d/Hugging Face 全家桶，兼容 98% 的 HF 模型。本文解析其架构定位与推理成本数据。'
+---
+
+# TorchTPU 开源：PyTorch 原生支持 TPU，迁移成本降到一行代码
+
+> 过去把 PyTorch 工作负载迁上 TPU 的成本是「重写」，2026 年 10 月 20 日之后，这个成本变成了改一个设备字符串：`.to("cuda")` → `.to("tpu")`。
+
+## 一、发布要点
+
+在 PyTorch Conference 2026 上，谷歌宣布 **TorchTPU 开源**（GitHub），这是谷歌与 Meta PyTorch 团队自 2025 年年中起联合开发的原生 PyTorch 后端。与旧的 PyTorch/XLA 方案不同，TorchTPU 是原生 backend：支持 eager 调试、`torch.compile` 生产优化、原生分布式原语，覆盖约 **450 个 ATen 算子**。
+
+兼容性数据（TorchTPU 团队自测口径）：4,917 个 Hugging Face 模型中 **98% 无崩溃运行**，657 个架构代表性模型中 97% 数值与 GPU 结果在阈值内一致。
+
+## 二、生态全家桶同步就位
+
+| 组件 | 合作方 | 用途 |
+|---|---|---|
+| vLLM 原生后端 | Inferact | 高吞吐推理服务 |
+| SGLang 后端 | RadixArk | 结构化智能体执行 |
+| llm-d 1.0 | Red Hat、IBM 等 | TPU/GPU 混合机队路由 |
+| Hugging Face Transformers v5 | HF | `device_map="tpu"` 直接部署 |
+| TorchTitan / Ray / VeRL | 社区 | 训练与强化学习 |
+
+Meta 方面明确表态：TorchTPU 让 Meta「把 PyTorch 工作负载部署到谷歌 TPU 上」，支撑 LLM、广告与推荐系统的生产负载——这与 Meta [租用 TPU 集群](/blog/google-tpu-external-customers-anthropic-meta)的动作互为印证。
+
+## 三、推理成本：2.01 美分/百万 Token
+
+谷歌引用 SemiAnalysis InferenceMAX/InferenceX 基准的数据：TPU v7 配合 vLLM-TorchTPU 栈，在 8K/1K 测试上达到 **2.01 美分/百万 Token**，较 9 月首测的 3.6 美分下降 44%。数据为开发者自报口径，但在「推理单位成本」这场竞争中，这是目前公开可查的最低单价之一。
+
+值得注意的是发布同日，亚马逊的 TorchNeuron（Trainium 原生 PyTorch 后端）也进入公测——两大 ASIC 阵营同时向 PyTorch 开放原生入口，**框架层正在成为 ASIC 阵营争夺的主战场**。
+
+## 四、对算力选型的含义
+
+1. **迁移成本坍塌**：CUDA 生态锁定的一大论据被削弱，多硬件组合（GPU 训练 + ASIC 推理）的工程门槛显著下降
+2. **成本口径可对齐**：企业可以直接用 SemiAnalysis 同款基准横向对比 GPU 与 TPU 的每百万 Token 成本
+3. **对英伟达的威胁在推理侧最先兑现**：训练侧 CUDA 护城河仍在，但推理工作负载的框架中立性更强
+
+延伸阅读：[TPU 8t/8i 卡片](/docs/cards/google/tpu-8i) · [推理接棒训练](/blog/inference-overtakes-training-token-demand-2027) · [TCO 计算器](/docs/tco-calculator)

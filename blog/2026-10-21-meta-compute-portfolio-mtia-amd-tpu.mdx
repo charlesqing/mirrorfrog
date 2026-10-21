@@ -1,0 +1,43 @@
+---
+slug: meta-compute-portfolio-mtia-amd-tpu
+title: 'Meta 的算力组合拳：自研 MTIA + 6GW AMD + 租用 TPU 的三线对冲'
+date: '2026-10-21'
+authors: aicomputecards
+tags: [custom-chip, ai-infrastructure, ASIC, strategy]
+description: 'Meta 公布 MTIA 四款芯片路线图的同时，与 AMD 签下最高 6GW 合作、被曝租用谷歌 TPU、并成为 TorchTPU 联合开发方。本文解析头部模型公司「不押注单一硬件」的算力组合策略。'
+---
+
+# Meta 的算力组合拳：自研 MTIA + 6GW AMD + 租用 TPU 的三线对冲
+
+> 2026 年的 Meta 给出了大型 AI 公司算力策略的标准答案：**自研、采购、租赁三线并行，任何一条线都不足以单独支撑前沿模型的训练与推理**。
+
+## 一、三条线的最新进展
+
+| 线路 | 内容 | 状态 |
+|---|---|---|
+| **自研** | MTIA 公布四款芯片路线图；MTIA v3 已于 9 月量产；MTIA 300/450/500 覆盖 2026-2028 | 发展中，主力仍是辅助推理 |
+| **采购** | 与 AMD 签署最高 **6GW** 合作，MI450/Helios 机架承接 Llama 训练与推理 | 初始系统已运行 |
+| **租赁** | 被曝与谷歌签署数十亿美元合同，租用 TPU 集群 | 已有报道，规模未披露 |
+
+## 二、MTIA 自研线的位置
+
+Meta 的自研节奏相对克制：MTIA v1/v2 定位推理辅助，v3 于 2026 年 9 月量产，但尚未承担主力训练负载。这与谷歌 TPU（已承接 Gemini 全系）和 AWS Trainium（Anthropic 主力算力）的成熟度差距明显——**自研芯片的成熟度取决于自用需求的规模与耐心**，Meta 的广告推荐负载提供了推理侧的练兵场，但训练侧仍高度依赖采购。
+
+有意思的是 Meta 同时成为 [TorchTPU 的联合开发方](/blog/torchtpu-open-source-pytorch-native)——Meta PyTorch 工程团队深度参与让 PyTorch 原生跑上 TPU。给竞争对手的芯片生态添砖加瓦，恰恰说明算力多元化优先于阵营站队。
+
+## 三、为什么「组合」而不是「押注」
+
+1. **议价权**：英伟达、AMD、谷歌三个供应商同时在场，任何一家都无法拿产能卡脖子
+2. **风险对冲**：微软 Maia、Meta MTIA 的自研进度都落后于预期——自研失败的风险用采购和租赁对冲
+3. **负载匹配**：推荐系统推理（自研 ASIC 最优）、前沿模型训练（英伟达/AMD 最优）、弹性推理峰值（租赁最优）各有最经济的供给方式
+4. **人才与生态**：参与多个硬件生态（PyTorch/ROCm/TorchTPU）保持工程团队的硬件中立能力
+
+## 四、对中型公司的启示
+
+Meta 的组合拳是资本规模堆出来的，但方法论可缩放：
+
+- **至少两条供给线**：即使买不起 6GW，「主供应商 + 一家备胎」也应该成为默认配置
+- **按负载分供应商**：把推荐/搜索类固定推理迁到便宜算力（自研或国产芯片），前沿训练留给头部 GPU
+- **软件栈保持中立**：PyTorch + vLLM/SGLang 这类框架中立栈，是更换硬件时唯一的可迁移资产
+
+延伸阅读：[MTIA 300 卡片](/docs/cards/meta/mtia-300) · [GPU/ASIC/CPU 三分天下](/blog/gpu-asic-cpu-triangle-ai-servers) · [交互式对比](/compare)

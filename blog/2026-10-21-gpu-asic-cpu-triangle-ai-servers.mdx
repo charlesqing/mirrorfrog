@@ -1,0 +1,46 @@
+---
+slug: gpu-asic-cpu-triangle-ai-servers
+title: 'GPU、ASIC、CPU 三分天下：AI 服务器的算力版图正在重组'
+date: '2026-10-21'
+authors: aicomputecards
+tags: [ai-infrastructure, ASIC, industry-review, agentic-ai]
+description: 'AI 代理把 CPU 拉回关键路径：Intel CEO 承认 CPU 产能仅能满足一半 AI 相关需求，Meta 部署数千万 Graviton 核心；ASIC 推理份额向 2030 年 80% 爬升。本文解析 AI 算力「三角分工」的新格局。'
+---
+
+# GPU、ASIC、CPU 三分天下：AI 服务器的算力版图正在重组
+
+> 过去三年，AI 算力的叙事几乎是 GPU 的独角戏。2026 下半年，这张图变成了三角形：GPU 负责训练与通用推理，ASIC 接管固定的大规模推理，CPU 则因为 AI 代理的兴起重新回到关键路径上。
+
+## 一、ASIC：从补充到主力
+
+四大云厂商的自研芯片成熟度已经拉开明显梯度：
+
+| 厂商 | 自研芯片 | 状态 |
+|---|---|---|
+| Google | TPU（已至 v8，训练/推理双线） | **最成熟**：单一超节点可串 9,216 颗，外部客户超百万颗 |
+| AWS | Trainium | 高：Anthropic 的 Claude 运行在超过 100 万颗 Trainium2 上 |
+| Meta | MTIA（四款路线图） | 发展中：同时与 AMD 签最高 6GW、租用谷歌 TPU |
+| Microsoft | Maia 300 | 起步中：正式发布、2027 百万颗部署，主力仍是英伟达 |
+
+IDC 预测推理市场 ASIC 份额从 2024 年的 15% 升至 2030 年的 80%。无论这个终局预测是否精确，方向已经清晰：**工作负载固定、规模巨大、在意成本与能效的推理场景，正在系统性流向 ASIC**。
+
+## 二、CPU：AI 代理带来的意外变量
+
+这是 2026 下半年最容易被忽视的新变量。Meta 9 月推出个人 AI 代理 Muse——可以代用户寄信、订行程、填表单，且关掉 App 后长时任务仍在云端持续执行。AI 代理的推理需要 GPU，但**任务编排、API 调用、数据查询与每个用户常驻的虚拟机，主要由 CPU 承担**。用户越多、后台任务越多，CPU 需求越高。
+
+需求信号已经出现：
+
+- Intel CEO 表示其 CPU 产能只能满足约**一半**的 AI 相关需求
+- Meta 计划部署**数千万个** AWS Graviton 核心处理 AI 代理工作负载
+
+## 三、竞争单位从芯片放大到机柜
+
+与三角分工同步发生的，是竞争粒度的变化：NVIDIA Vera Rubin、AMD Helios、华为 Atlas 950 超节点、Meta MTIA 400——竞争以整座机柜为单位展开。瓶颈随之扩散：从运算芯片延伸到内存、封装、互联、电源与散热。这也是 [HBM4 三倍报价](/blog/hbm4-price-triple-generation-pricing)与[先进封装紧缺](/blog/cowos-packaging-bottleneck-hbm4-advanced-nodes)的共同背景。
+
+## 四、对采购决策的影响
+
+1. **不要用单一指标选型**：训练看算力密度与互联，推理看每 Token 成本，代理编排看 CPU 与内存配置
+2. **ASIC 进入采购清单**：2027 年起，非英伟达推理算力的供给盘子里自研 ASIC 将占可观份额，谈判筹码结构改变
+3. **预算要留 CPU 项**：智能体应用的成本模型里，CPU 与常驻虚拟机的开销不再是配角
+
+延伸阅读：[交互式对比工具](/compare) · [TCO 计算器](/docs/tco-calculator) · [超节点选型框架](/blog/supernode-era-selection-guide-2027)

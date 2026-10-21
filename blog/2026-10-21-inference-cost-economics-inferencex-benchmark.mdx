@@ -1,0 +1,48 @@
+---
+slug: inference-cost-economics-inferencex-benchmark
+title: '推理单位成本经济学：从 3.6 美分到 2.01 美分，每百万 Token 的价格战'
+date: '2026-10-21'
+authors: aicomputecards
+tags: [inference, cloud-pricing, ai-compute, benchmarks]
+description: 'SemiAnalysis InferenceX 基准显示 TPU v7 + vLLM-TorchTPU 栈把 8K/1K 推理成本从 3.6 美分/百万 Token 压到 2.01 美分。本文拆解推理成本的结构（算力、内存带宽、存储）与降价引擎。'
+---
+
+# 推理单位成本经济学：从 3.6 美分到 2.01 美分
+
+> 推理时代的核心 KPI 只有一个：**每百万 Token 的总成本**。2026 年 10 月，公开可查的最低纪录是 2.01 美分——TPU v7 配合 vLLM-TorchTPU 栈在 SemiAnalysis InferenceX 8K/1K 测试上交出的成绩，较 9 月的 3.6 美分下降 44%。
+
+## 一、推理成本的三块构成
+
+推理成本不是算力一项，而是三块的和：
+
+| 成本项 | 占比趋势 | 决定因素 |
+|---|---|---|
+| 算力（计算） | 解码阶段占比低 | FP8/FP4 量化效率、批处理调度 |
+| **内存带宽** | **解码阶段主导** | HBM 容量与带宽、KV Cache 管理 |
+| 存储/网络 | 随上下文变长上升 | 企业级 SSD、向量库、机间互联 |
+
+关键认知：自回归解码是**访存受限**而非算力受限的工作负载——Token 生成速度的上限是「把权重和 KV Cache 从内存搬进计算单元的速度」。这解释了为什么 18 TB/s 的 Maia 300、19.2 TB/s 的 Rubin R200 这样的带宽数字，比峰值算力更值得看。
+
+## 二、降价的四个引擎
+
+1. **低精度量化**：FP8 → FP4 每一步都直接砍 KV Cache 与权重搬运量；专用矩阵单元（Maia 300 的 FP4 13.8 PFLOPS）把量化开销压到最低
+2. **软件栈效率**：vLLM 的 continuous batching、SGLang 的 RadixAttention、MLA 类低秩注意力——同一块硬件，软件代差可以拉开 2 倍以上成本差
+3. **ASIC 专用化**：砍掉 FP64 与图形逻辑的推理芯片，把晶圆面积全部留给访存与低精度矩阵——[OpenAI 的第一颗自研芯片](/blog/openai-broadcom-10gw-deployment-h2-2026)就是这么设计的
+4. **规模与利用率**：超节点与机柜化把集群有效利用率从 30-40% 提到 60%+，摊薄固定成本
+
+## 三、基准数字的正确用法
+
+SemiAnalysis InferenceX/InferenceMAX 的价值在于提供了一个**横向可比的口径**，但使用时要注意三点：
+
+- 数字是**开发者自报**的（谷歌引用），跨厂商对比时要确认相同模型、相同精度、相同上下文配置
+- 2.01 美分是 8K/1K 特定配置，长上下文场景成本结构完全不同
+- 单价 ≠ TCO：还要叠加机时利用率、预留容量、故障率
+
+## 四、给选型者的清单
+
+1. 把「每百万 Token 成本」写进采购 RFP，要求厂商按 SemiAnalysis 同款配置报数
+2. 分别测算 Prefill 与 Decode 的成本结构——[昇腾 950 的 PR/DT 双版本](/docs/cards/huawei/ascend-950pr)正是把这两段拆开优化的产物
+3. 关注软件栈路线图：同一硬件半年后降价 44% 的案例说明，**软件是推理时代最大的免费算力**
+4. 用 [TCO 计算器](/docs/tco-calculator)把芯片价、功耗、PUE、利用率折现到统一口径
+
+延伸阅读：[TorchTPU 开源](/blog/torchtpu-open-source-pytorch-native) · [存储超级周期](/blog/memory-supercycle-dram-nand-enterprise-ssd) · [完整对比表](/docs/comparison)

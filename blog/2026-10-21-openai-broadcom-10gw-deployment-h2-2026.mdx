@@ -1,0 +1,46 @@
+---
+slug: openai-broadcom-10gw-deployment-h2-2026
+title: 'OpenAI × Broadcom 10GW 自研芯片进入部署期：推理专用 ASIC 的临界点'
+date: '2026-10-21'
+authors: aicomputecards
+tags: [OpenAI, broadcom, custom-chip, ASIC, inference, ai-infrastructure]
+description: 'OpenAI 与 Broadcom 的 10 吉瓦自研加速器协议于 2026 下半年进入实际部署阶段，2029 年底完成。基于供应链报道梳理其推理专用架构取向（TSMC N3P/N2、CoWoS-L、以太网组网）及三线并行的算力版图。'
+---
+
+# OpenAI × Broadcom 10GW 自研芯片进入部署期：推理专用 ASIC 的临界点
+
+> 2025 年 10 月 13 日，OpenAI 与 Broadcom 宣布共同开发并部署 10 吉瓦（GW）自研 AI 加速器，消息当日 Broadcom 股价涨超 10%。一年后的现在，这份协议进入真正的考验期：**2026 下半年开始实际部署机架，2029 年底前完成全部 10GW**。
+
+## 一、协议要点回顾
+
+| 要素 | 内容 |
+|---|---|
+| 规模 | 10GW（约等于 800 万美国家庭用电，或 5 座胡佛大坝） |
+| 分工 | OpenAI 主导芯片与系统设计，Broadcom 负责共同开发与部署 |
+| 组网 | Broadcom 以太网方案承担 Scale-up 与 Scale-out（非 InfiniBand） |
+| 时间线 | 2026 H2 开始部署 → 2029 年底完成 |
+| 芯片定位 | 以**推理**为主的第一代专用加速器 |
+
+## 二、推理专用：为什么第一颗芯片不做训练
+
+多家供应链报道指向同一个设计取向：OpenAI 第一代 ASIC 砍掉 FP64 流水线与通用图形逻辑，把晶圆面积全部留给推理负载——低秩注意力加速单元（面向 MLA 与低精度 KV Cache 解压）、放大片上 SRAM 以减少 HBM 往返、面向自回归解码的 INT4/FP8/FP4 量化矩阵单元。解码阶段的瓶颈在访存带宽而非算力密度，这一取舍与[推理接棒训练的行业趋势](/blog/inference-overtakes-training-token-demand-2027)互为印证。
+
+工程团队由前谷歌 TPU 架构师 Richard Ho、Thomas Norrie 领衔，据报道已扩张至 40 余名 ASIC 设计人员；代工锁定台积电 N3P（后续 N2），并预留了 CoWoS-L 封装产能——先进封装而非前道制程，才是当前 AI 芯片产能的真瓶颈。
+
+## 三、OpenAI 的三线算力版图
+
+自研芯片只是 OpenAI 算力组合的一根支柱：
+
+- **NVIDIA**：计划投资至多 1000 亿美元，供应至少 10GW 数据中心系统
+- **AMD**：6GW 芯片供应协议，含 OpenAI 认购 AMD 股权的期权
+- **Broadcom**：10GW 自研加速器（本文主角）
+
+三份多吉瓦级协议在数周内接连落地，OpenAI 同时成为英伟达最大客户、AMD 大客户和芯片设计方——这是对「单一供应商锁定」的对冲，也是对自身推理成本结构的长期下注。
+
+## 四、对行业的三个信号
+
+1. **以太网 Scale-up 挑战专有互联**：如果 OpenAI 机架全以太网组网并达到性能预期，将强化开放标准路线的议价能力
+2. **ASIC 从「降本工具」变「战略资产」**：谷歌 TPU 已向 Anthropic 供应百万颗量级，OpenAI 再入场，自研芯片正式成为头部 AI 公司的标配
+3. **资金问题仍未回答**：OpenAI 未披露财务条款，多数分析师认为自研芯片短期内不改变英伟达的市场主导地位，但 2027-2028 年推理侧的份额争夺会真正开始
+
+延伸阅读：[谷歌 TPU 外部客户版图](/blog/google-tpu-external-customers-anthropic-meta) · [微软 Maia 300 发布](/blog/microsoft-maia-300-ocp-2026-launch) · [自研芯片对比](/docs/comparison)
