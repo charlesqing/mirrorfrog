@@ -1,76 +1,72 @@
 [
   {
-    "title": "Agent 智能体负载下的推理调度：2026 的新挑战",
-    "date": "2026-10-13",
-    "slug": "agentic-inference-scheduling-2026",
-    "url": "/blog/agentic-inference-scheduling-2026",
-    "description": "智能体负载把 LLM 服务的瓶颈从算力转向了 KV Cache 的驻留与调度决策。本文基于 Bailian 与 PackServe 的生产轨迹数据，解释缓存复用率超过八成之后为什么传统调度器反而失效，并给出准入、路由、驱逐、公平性四个维度的",
+    "title": "AMD Helios 量产爬坡确认：从 MI455X 规格到 6GW 大单的完整拼图",
+    "date": "2026-10-21",
+    "slug": "amd-helios-mi450-ramp-gigawatt-deals",
+    "url": "/blog/amd-helios-mi450-ramp-gigawatt-deals",
+    "description": "AMD 确认 Helios 机架平台量产爬坡中，OpenAI、Meta、微软、Oracle 站点已有初始系统运行；OpenAI 6GW、Meta 6GW、Anthropic 2GW 协议构成 MI450 系列的需求基本盘。本文梳理规格、客户",
     "tags": [
-      "agentic-ai",
-      "inference",
-      "ai-infrastructure",
-      "inference-chip"
+      "amd",
+      "mi455x",
+      "mi400",
+      "instinct",
+      "hbm4",
+      "news"
     ]
   },
   {
-    "title": "国产 AI 芯片 vs 国际 AI 芯片：2026 年终全面对比",
-    "date": "2026-10-13",
-    "slug": "ai-chip-comparison-2026",
-    "url": "/blog/ai-chip-comparison-2026",
-    "description": "2026 年终深度对比：华为昇腾 910C/950/960、寒武纪思元 690、天数智芯天垓 300、燧原云燧 T21、昆仑芯 R200、摩尔线程 MTT S5000、阿里真武 V900，对阵 NVIDIA H100/H200/B200/R",
+    "title": "徐直军确认：昇腾中国份额已超英伟达，950DT 规模供货推迟至年底或明年初",
+    "date": "2026-10-21",
+    "slug": "ascend-950dt-supply-timeline-hc2026",
+    "url": "/blog/ascend-950dt-supply-timeline-hc2026",
+    "description": "华为全联接 2026 期间徐直军披露：950PR 已 Q1 上市但量不大，950DT 超节点仍在测试、规模供货 2026 年底或 2027 年初；昇腾在中国市场份额已超英伟达，瓶颈从需求转为供给。本文梳理完整时间线与三条供给约束。",
+    "tags": [
+      "huawei-ascend",
+      "ascend-950",
+      "domestic-compute",
+      "domestic-ai-chip",
+      "news"
+    ]
+  },
+  {
+    "title": "壁仞 BR20X 成功点亮：国产 GPU 四小龙进入量产竞速下半场",
+    "date": "2026-10-21",
+    "slug": "biren-br20x-silicon-lightup-hk-fundraising",
+    "url": "/blog/biren-br20x-silicon-lightup-hk-fundraising",
+    "description": "壁仞科技 2026-10-08 披露新一代旗舰 BR20X 成功点亮、进入流片后验证，同步启动 40.4 亿港元配售募资。本文结合工博会最新信息，梳理国产 GPU 四小龙的下一代量产时间表与竞争格局。",
+    "tags": [
+      "domestic-chips",
+      "domestic-compute",
+      "domestic-ai-chip",
+      "strategy",
+      "news"
+    ]
+  },
+  {
+    "title": "寒武纪业绩兑现期：从扭亏 20.59 亿到下一代涨价 20%-30% 的逻辑",
+    "date": "2026-10-21",
+    "slug": "cambricon-2025-earnings-mlu690-ramp-price-hike",
+    "url": "/blog/cambricon-2025-earnings-mlu690-ramp-price-hike",
+    "description": "寒武纪 2025 全年营收 64.97 亿元、归母净利 20.59 亿元实现扭亏，2026Q1 营收 28.85 亿元同比增 159%；MLU690 进入量产出货，下一代暂称思元790 的产品意向报价上调 20%-30%。本文梳理业绩与定价",
+    "tags": [
+      "cambricon",
+      "MLU690",
+      "domestic-chips",
+      "ai-chip",
+      "news"
+    ]
+  },
+  {
+    "title": "工博会国芯展观察：超节点取代单卡，成为国产算力的展示主场",
+    "date": "2026-10-21",
+    "slug": "china-supernode-2026-industrial-expo-roundup",
+    "url": "/blog/china-supernode-2026-industrial-expo-roundup",
+    "description": "上海工博会首设国芯展：天数智芯天垓300 IXL144（单柜 144 GPU）、沐曦曦景 S600（64 卡全互连）、燧原云燧 ESL64-O（与中兴合作正交架构）同台。本文梳理国产超节点方案图谱与 IDC 算力需求数据。",
     "tags": [
       "domestic-ai-chip",
-      "selection-guide",
-      "nvidia",
-      "amd",
-      "huawei",
-      "cambricon",
-      "intel",
-      "google",
-      "industry-review",
-      "benchmarks"
-    ]
-  },
-  {
-    "title": "四季度 AI 芯片供应与 HBM 涨价传导：真正的瓶颈已经不是晶圆",
-    "date": "2026-10-13",
-    "slug": "ai-chip-supply-hbm-price-2026q4",
-    "url": "/blog/ai-chip-supply-hbm-price-2026q4",
-    "description": "截至 2026 年 10 月，AI 芯片供应瓶颈已从晶圆前段转向先进封装与内存。三星 HBM4 报价定为每 Gb 4 至 5 美元，约为 HBM3E 三倍；台积电 CoWoS 月产能年底预计达 12 万至 14 万片，但缺口仅从约两成收窄至",
-    "tags": [
-      "news",
-      "hbm4",
-      "ai-hardware",
-      "ai-infrastructure",
-      "power-cooling"
-    ]
-  },
-  {
-    "title": "AI 算力总拥有成本 2026 版：电力、折旧、运维的全口径拆解",
-    "date": "2026-10-13",
-    "slug": "ai-chip-total-cost-ownership-2026",
-    "url": "/blog/ai-chip-total-cost-ownership-2026",
-    "description": "2026 年 AI 算力的成本重心已经明确：一台 8 卡 H100 服务器的三年全口径 TCO 约 71 万至 95 万美元，其中服务器与 GPU 占约六成，电力约一成五，人员成本往往是最大单项。本文拆解电力、液冷、折旧、故障率、人力五大口",
-    "tags": [
-      "ai-infrastructure",
-      "power-cooling",
-      "news",
-      "ai-compute",
-      "ai-hardware"
-    ]
-  },
-  {
-    "title": "2026 年 AI 创业公司的算力策略：从租到自建的时机",
-    "date": "2026-10-13",
-    "slug": "ai-startup-compute-strategy-2026",
-    "url": "/blog/ai-startup-compute-strategy-2026",
-    "description": "2026 年 AI 创业公司的算力策略可以用一条利用率曲线决策：持续利用率低于约 40% 就租，高于约 55% 至 65% 才考虑自建或共置。本文给出五阶段演进路径、利用率分档的选型表、买租交叉点的测算方法，以及 2026 年四季度特有的两",
-    "tags": [
-      "strategy",
-      "news",
-      "cloud-pricing",
-      "ai-compute",
-      "ai-hardware"
+      "domestic-compute",
+      "2026-progress",
+      "news"
     ]
   }
 ]
