@@ -1,0 +1,53 @@
+---
+slug: amd-helios-mi450-ramp-gigawatt-deals
+title: 'AMD Helios 量产爬坡确认：从 MI455X 规格到 6GW 大单的完整拼图'
+date: '2026-10-21'
+authors: aicomputecards
+tags: [amd, mi455x, mi400, instinct, hbm4, news]
+description: 'AMD 确认 Helios 机架平台量产爬坡中，OpenAI、Meta、微软、Oracle 站点已有初始系统运行；OpenAI 6GW、Meta 6GW、Anthropic 2GW 协议构成 MI450 系列的需求基本盘。本文梳理规格、客户与时间表。'
+---
+
+# AMD Helios 量产爬坡确认：从 MI455X 规格到 6GW 大单的完整拼图
+
+> 10 月上旬，AMD 在 OCP 2026 场边确认：Helios 机架级 AI 平台的量产、交付与验证正在进行，OpenAI、Meta、微软和 Oracle 的站点已有初始系统安装运行。距离 7 月 23 日 MI455X 正式发布不到三个月，AMD 第一次在机架级产品上跑赢了「发布即交付」的节奏。
+
+## MI455X 规格速览（官方口径）
+
+| 项目 | 参数 |
+|------|------|
+| 架构 | CDNA 5，TSMC 2nm 计算芯粒 + 3nm I/O 与缓存芯粒 |
+| 显存 | 432 GB HBM4（12 颗堆栈），带宽最高 23.3 TB/s |
+| FP4 算力 | 40.3 PFLOPS（OCP MXFP4 稠密） |
+| FP8 算力 | 20.1 PFLOPS |
+| 互联 | UALoE scale-up 3.6 TB/s + UALink scale-out 600 GB/s |
+| 量产 | 2026 Q3 末出货，H2 2026 至 2027 爬坡 |
+
+机架级：一台 Helios 装 72 颗 MI455X + 18 颗 EPYC Venice CPU，总显存 31TB HBM4，峰值 FP4 2.9 EFLOPS。AMD 估算同测试条件下 Helios 每美元 Token 产出可比 NVIDIA Vera Rubin NVL72 高约 30%（AMD 建模口径，采用预估价格，非实测）。
+
+## 需求基本盘：三笔吉瓦级协议
+
+| 客户 | 协议规模 | 节奏 |
+|------|---------|------|
+| OpenAI | 6 GW 多代协议（首期 1 GW MI450） | 2026 H2 开始部署，2027 加速；附最高 1.6 亿股认股权证 |
+| Meta | 6 GW、五年期 | 2026 H2 起首批交付 |
+| Anthropic | 最多 2 GW MI450 系列 | 2026-10-06 官宣，已在使用 MI355X |
+| Oracle OCI | 5 万颗 MI450 SuperCluster | 2026 Q3 启动，2027 扩容 |
+| 微软 Azure | ND MI455X v7 虚拟机 | 2026-07 宣布 |
+
+加上 9 月底 HPE 宣布的 **12 亿美元 Vultr Helios 整机订单**，MI450 系列的需求能见度已经排到 2027 年。
+
+## 争议点：量产节奏的两个版本
+
+今年年中曾有一份 SemiAnalysis 报告称 2026 年只有工程样片与小批量、大规模爬坡推迟到 2027 Q2。AMD 高管公开否认，坚持 MI455X 按 H2 2026 交付目标推进；8 月 4 日 Q2 财报（营收 115 亿美元，数据中心 67 亿美元同比 +107%）中 Lisa Su 的表述是「Instinct 部署规模化、Helios 开始爬坡」。
+
+两个口径其实兼容：**首批 Helios 机柜确实在 2026 下半年交付给了发布客户，但企业级可批量采购的量大概率是 2027 年的话题**。计划 2027 年扩容的团队，现在就可以把 Helios 纳入与 Vera Rubin NVL72 并列的评估清单。
+
+## 与 NVIDIA 的真实差距
+
+纸面规格上，MI455X 在显存容量（432GB 对 288GB）与单机架 FP4 上有优势；差距在两点：一是机架级生态的成熟度——NVIDIA 的 NVL72 已规模出货多个季度而 Helios 刚开始爬坡；二是 ROCm 软件栈在大规模生产环境的验证广度。AMD 的策略是用「开放标准（UALink/UALoE）+ 更大显存 + 更低单 Token 成本」在 2027 年的采购决策里换到真实份额。
+
+## 相关阅读
+
+- [AMD MI455X 芯片卡片](/docs/cards/amd/mi455x)
+- [AMD MI355X 芯片卡片](/docs/cards/amd/mi350)
+- [NVIDIA Rubin R200 芯片卡片](/docs/cards/nvidia/rubin-r200)

@@ -1,0 +1,54 @@
+---
+slug: intel-gpu-d-series-d270-crescent-island
+title: 'Intel 正式定名 GPU D 系列（D270）：用 LPDDR5X 打推理成本战'
+date: '2026-10-21'
+authors: aicomputecards
+tags: [intel, inference, agentic-ai, product-launch, news]
+description: 'Intel 在 OCP 2026 将代号 Crescent Island 的推理 GPU 正式定名为 GPU D 系列（D270）：Xe3P 架构、最高 480GB LPDDR5X、1.5 TB/s 带宽、FP8 1.3 PFLOPS、350W 风冷 PCIe。本文分析其规格取舍与市场定位。'
+---
+
+# Intel 正式定名 GPU D 系列（D270）：用 LPDDR5X 打推理成本战
+
+> 2026 年 10 月 13 日，Intel 在 OCP 全球峰会上把代号 Crescent Island 的数据中心推理 GPU 正式定名为 **GPU D 系列**，行业拆解普遍称其型号为 D270。这是 Gaudi 3 之后 Intel 数据中心加速器的「换轨」之作——不再追 HBM 军备竞赛，改打内存容量与每美元 Token 成本。
+
+## 官方规格落地
+
+此前半年，外界只知道 Crescent Island「350W、LPDDR5X、风冷 PCIe」。OCP 2026 与随后的技术说明补齐了关键数字：
+
+| 项目 | 参数 |
+|------|------|
+| 架构 | Xe3P（32 个 Xe 核心 / 256 个 XMX 矩阵引擎） |
+| 内存 | 160 GB LPDDR5X（Intel 参考卡），最高 480 GB（ODM 版本） |
+| 内存带宽 | 1.5 TB/s（官方口径） |
+| FP8 算力 | 1.3 PFLOPS |
+| TDP | 350 W |
+| 形态 | PCIe 标准卡，风冷，可 8 卡扩展 |
+| 状态 | 客户送样中，量产时间未公布 |
+
+Intel 的口径是：480GB 版本单卡可承载约 3,000 亿参数模型，8 卡整机可推理超万亿参数的开源权重模型。
+
+## 规格取舍：刻意避战，不是被动落后
+
+把 D270 放进 2026 年 10 月的坐标系里，取舍一目了然：
+
+- 带宽 **1.5 TB/s** 只有 Gaudi 3（约 3.7 TB/s）的 40%、Rubin R200（19.2 TB/s）的 8%
+- 但 **480GB 容量上限**反超 Rubin R200（288GB）与 MI455X（432GB）
+- **350W 风冷 PCIe** 意味着可以直接插进存量风冷机房，不需要液冷改造
+
+这不是「做不出 HBM 版本」，而是定价选择：D270 卖的不是峰值算力，是**长上下文推理 decode 阶段的每美元 Token 数**。LPDDR5X 的单位容量成本远低于 HBM4，用带宽换容量与成本，恰好匹配智能体 AI 场景中 KV Cache 容量优先的工作负载。
+
+## 口径注意事项
+
+- **制程未官方披露**。「Intel 18A」只是多家媒体基于与 Panther Lake 同源的推测，Intel 未确认
+- **带宽曾有口径分歧**。2026 年 10 月中旬前部分二手拆解给出过约 684 GB/s 的估算值（基于 160GB 参考卡的 640-bit 总线推算），官方口径 1.5 TB/s 对应 480GB 版本，采购评估时应以官方值为准并问清配置
+- **量产时间未定**。客户送样从 2026 下半年开始，「2027 年商用」是媒体推断，不是 Intel 承诺
+
+## 对选型的影响
+
+D270 填补的是「L40S 之后、HBM 加速器之下」的空档：显存受限（48GB 级）的老 PCIe 卡跑不动长上下文，HBM 卡又太贵。对日均 Token 量大、模型在 300B 参数级以下、机房无液冷条件的企业推理场景，D270 的每美元 Token 口径值得等它正式定价后再评估——前提是 Intel 能兑现 2027 年的供货。
+
+## 相关阅读
+
+- [Intel GPU D 系列（Crescent Island）芯片卡片](/docs/cards/intel/crescent-island)
+- [Intel Gaudi 3 芯片卡片](/docs/cards/intel/gaudi-3)
+- [NVIDIA L40S 芯片卡片](/docs/cards/nvidia/l40s)
