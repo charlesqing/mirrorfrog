@@ -1,0 +1,43 @@
+---
+slug: amd-anthropic-2gw-mi450-instinct
+title: 'AMD × Anthropic：最高 2GW MI450 合作落地，开放阵营再下一城'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [amd, mi450, ai-infrastructure, instinct, news]
+description: 'AMD 官宣与 Anthropic 战略合作：部署至多 2GW AMD Instinct MI450 系列 GPU，首批 1GW 于 2027 上半年启动。加上 OpenAI 6GW、Meta 6GW、Oracle 5 万颗，AMD Helios 的客户名单已是全明星。'
+---
+
+# AMD × Anthropic：最高 2GW MI450 合作落地
+
+> AMD 官宣与 Anthropic 达成战略合作：部署**至多 2 吉瓦**的 AMD Instinct MI450 系列 GPU，首批 1GW 于 2027 年上半年启动。这是 Anthropic 继 AWS Trainium（超百万颗跑 Claude）、谷歌 TPU（至多百万颗）之后，第三个超大规模算力支柱。
+
+## 一、AMD 的客户名册
+
+| 客户 | 承诺 |
+|---|---|
+| OpenAI | **6GW** 芯片供应协议（含股权认购期权） |
+| Anthropic | **最高 2GW** MI450（首批 1GW，2027 H1） |
+| Meta | 扩大合作，**6GW** AMD GPU 部署 |
+| Oracle | 50,000 颗 MI450 |
+| 微软 | 下一代 Instinct + EPYC 扩大合作 |
+| HUMAIN/Cisco | 沙特 AI 基础设施（Instinct 系统已上线） |
+
+AMD 自己的说法是：客户需求已超出其对 2027 年的内部预估。Helios 机架（[MI450](/docs/cards/amd/mi450) 为核心）正在同时向五大客户爬坡。
+
+## 二、为什么 Anthropic 需要 AMD
+
+Anthropic 招股书草稿显示其 H1 2026 算力成本已达 ~90 亿美元、基础设施承诺超 6000 亿美元。推理成本是其毛利率的生命线，而 MI450 的定位恰好是**高显存容量（432GB HBM4）+ 高带宽 + 相对英伟达更优的单位成本**——对以 Claude API 为主要收入的厂商，推理侧每 Token 成本每降 10%，利润表的弹性都远超训练侧的峰值算力提升。
+
+「三线供应商」结构（AWS + Google + AMD）也让 Anthropic 在每次续约时都有真实替代选项。
+
+## 三、Helios 爬坡的真实进度
+
+AMD Q2 2026 财报口径：「EPYC 需求加速、Instinct 部署规模化、**Helios 开始爬坡**」。OCP 2026 上 OpenAI/Meta/微软/Oracle 站点的初始系统已运行。与英伟达 Rubin 的 Q4 放量对照，2027 年上半年将是 MI450 与 Rubin 在客户机房里的正面对决期。
+
+## 四、对市场的意义
+
+1. **2GW 级订单成为新常态**：单客户单代 1-6GW 的承诺，把 AMD 从「第二供应商」变成「并列产能选项」
+2. **开放生态溢价**：ROCm + Helios 参考设计 + OCP 开放机架规范，对不想被单一生态绑定的客户吸引力持续累积
+3. **关注交付验证**：GW 是承诺不是出货，2027 H1 的首批 1GW 交付节奏是下一个验证点
+
+延伸阅读：[MI450 卡片](/docs/cards/amd/mi450) · [AMD Helios 爬坡与吉瓦订单](/blog/amd-helios-mi450-ramp-gigawatt-deals) · [完整对比表](/docs/comparison)

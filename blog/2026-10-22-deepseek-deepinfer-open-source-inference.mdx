@@ -1,0 +1,43 @@
+---
+slug: deepseek-deepinfer-open-source-inference
+title: 'DeepSeek 开源 DeepInfer：从「开放权重」到「推理运行时主权」'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [deepseek, inference, domestic-ai-chip, tech-deep-dive]
+description: '10 月 21 日 DeepSeek 将生产推理框架 DeepInfer 全面开源（Apache 2.0）：支撑 V4.1 Flash 高吞吐服务，同时兼容英伟达 SM100 与华为昇腾 950，上线一天破万 Star。本文解析其技术栈与「双底座」战略意义。'
+---
+
+# DeepSeek 开源 DeepInfer：推理主权从权重开放推进到运行时自主
+
+> 10 月 21 日，DeepSeek 把支撑自家生产服务的推理框架 **DeepInfer** 全面开源（Apache 2.0）。权重开放是上一阶段的国产 AI 叙事，这一步把「推理运行时」也交了出去——同一套框架跨英伟达与昇腾部署。
+
+## 一、DeepInfer 技术栈
+
+| 组件 | 内容 |
+|---|---|
+| 目标模型 | DeepSeek-V4.1-Flash（生产同款） |
+| 硬件底座 | **NVIDIA SM100 + 华为昇腾 950 双底座** |
+| 核心内核 | FlashMLA、DeepGEMM、DeepEP、TileKernels |
+| 调度 | 异步零开销批调度、MoE 专家并行、注意力 DP、均衡 CP |
+| 采样 | 批量不变/确定性采样（暂限英伟达） |
+| 特性 | 推测解码、SWA Bounded Replay、结构化输出约束 |
+| 基准 | 4 卡 SM100 Prefill / 64 卡 Decode 复现脚本随包发布 |
+
+上线一天 GitHub Star 破 1.2 万。注意它是**离线推理**框架：KV Cache 系统、Prefill/Decode 分离、副本间负载均衡等压箱底组件未开源——开源的是可复现的生产方法论，不是全部护城河。
+
+## 二、为什么「双底座」比开源本身更重要
+
+DeepInfer 对英伟达 SM100 与昇腾 950 的同时适配，是国产推理栈的一个分水岭：
+
+1. **迁移成本降维**：昇腾侧的适配不再依赖华为单方面推动，头部模型厂商自己的运行时成为「跨硬件抽象层」
+2. **推理侧议价结构改变**：当同一框架可以跑在两种硬件上，「换底座」的工程成本从数月缩到数周——呼应 [TorchTPU/TorchNeuron](/blog/torchneuron-aws-trainium-pytorch-native) 的全球趋势：软件栈中立正在成为所有阵营的共识武器
+3. **国产芯片的生态新路径**：与其等 CUDA 兼容，不如等头部模型框架原生适配——昇腾 950 获得的不是兼容层，而是一线生产验证
+
+## 三、与 DeepInfer 同日的开源生态
+
+- **llm-d 1.0**（谷歌云+Red Hat+IBM）：Kubernetes 推理编排，把多个 vLLM/SGLang 实例池化
+- **TorchNeuron/TorchTPU**：硬件后端原生开放
+
+一个共同方向正在成形：**推理栈的每一层（硬件后端、内核、框架、编排）都在独立开源**，专有锁定只剩硬件本身——而硬件的差异化正快速集中到[成本与能效](/blog/inference-cost-economics-inferencex-benchmark)上。
+
+延伸阅读：[昇腾 950PR 卡片](/docs/cards/huawei/ascend-950pr) · [完整对比表](/docs/comparison)

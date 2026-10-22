@@ -1,0 +1,36 @@
+---
+slug: google-cloud-a5x-rubin-960k-gpu-plans
+title: 'Google Cloud A5X 下月上线：96 万块 Rubin GPU 的云上 AI 工厂'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [google, nvidia, rubin, cloud-pricing, ai-factory]
+description: 'GTC 柏林宣布：Google Cloud 搭载 Vera Rubin NVL72 的 A5X 实例下月 GA，计划最多部署 96 万块 Rubin GPU；伦敦 AI 公司 Ineffable Intelligence 率先用于大规模强化学习。本文解析云厂商的 Rubin 落地节奏。'
+---
+
+# Google Cloud A5X 下月上线：96 万块 Rubin GPU
+
+> 继 10 月 21 日 GTC 柏林宣布 Vera Rubin 全面生产后，落地最快的消息来自谷歌：**Google Cloud 与英伟达联合宣布 Vera Rubin 基础设施进入 GA 节奏**——搭载 Vera Rubin NVL72 的 A5X 实例下月上线。
+
+## 一、关键事实
+
+| 项目 | 内容 |
+|---|---|
+| 实例 | A5X（Vera Rubin NVL72 液冷机柜） |
+| 上线时间 | 2026 年 11 月 GA |
+| 部署计划 | 最多 **96 万块** Rubin GPU |
+| 首批用户 | 伦敦 AI 公司 Ineffable Intelligence（大规模强化学习研究） |
+| 区域扩展 | 后续扩展至欧洲 |
+
+96 万块是什么概念？以 NVL72 机柜计约 1.3 万座机柜，接近一座 1GW 级 AI 工厂的芯片量级——谷歌在自家 TPU 之外，同时在 GPU 侧保持十万级到百万级的采购节奏，「TPU 自研 + GPU 采购」双轨继续加码。
+
+## 二、对云选型的三个信号
+
+1. **Rubin 可用性不再纸面**：GA 实例意味着企业可以在云上按需消费 Rubin 算力，而不必自己锁机柜订单——中小团队吃到最新硬件的时间差缩短到「一个月」
+2. **强化学习负载成为首发场景**：Ineffable Intelligence 用 A5X 做 RL 研究，与推理侧 [ASIC 替代曲线](/blog/gpu-asic-cpu-triangle-ai-servers)形成对照——训练与 RL 仍是 GPU 最深的护城河
+3. **云承诺可抵扣**：已有 Google Cloud 消费承诺的企业可以直接用 A5X 对冲承诺额度（这与 [OpenAI 模型上架 Google Cloud Marketplace](/blog/openai-gpt6-1-google-cloud-model-garden) 的结算逻辑一致）
+
+## 三、与 TPU 的关系：不是替代，是分层
+
+谷歌 2026 年 capex 指导 $1950-2050 亿，TPU（v8 训练/推理双线、2027 年底全面量产）与 Rubin GPU 各自承接不同负载层：固定的大规模推理走 TPU，前沿训练、RL 与需要 CUDA 生态的客户负载走 GPU。对采购方，这意味着在谷歌云一家就能同时拿到两大技术路线——议价时多了一张牌。
+
+延伸阅读：[Rubin R200 卡片](/docs/cards/nvidia/rubin-r200) · [TPU 8t/8i 卡片](/docs/cards/google/tpu-8i) · [TCO 计算器](/docs/tco-calculator)

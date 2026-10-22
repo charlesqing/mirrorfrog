@@ -88,8 +88,10 @@ Rubin GPU 采用**多芯片模块（MCM）设计**，核心包含：
 ## 量产与交付
 
 - **宣布量产**：2026 年 1 月 6 日 CES 2026 宣布六款芯片全部进入全面量产
+- **全面生产确认**：2026 年 10 月 21 日 GTC 柏林主题演讲，黄仁勋宣布 Vera Rubin 平台进入**全面生产（Full Production）**，性能预计两年内较 Blackwell 再提升 30 倍
 - **规模出货**：**2026 年下半年（H2 2026）已向合作伙伴规模交付 Vera Rubin NVL72 系统**，首批包括 CoreWeave、AWS、Google Cloud、Microsoft Azure、Oracle Cloud、Lambda、Nebius、Nscale
 - **放量节奏（2026-10）**：鸿海在 10 月上旬确认 Vera Rubin NVL72 量产机柜已完成组装并出货（首批交付微软），**Q4 起放量出货**、2027 年成为主力产品；马斯克在 10 月 20 日 SpaceX 财报电话会上称 SpaceX 正以**每月约 20 万颗 GB300** 的速度上线英伟达芯片，2027 年转向以 Vera Rubin 为主（并规划 44 万颗 Vera Rubin 训练集群）
+- **Google Cloud A5X**：GTC 柏林（10-21）宣布搭载 Vera Rubin NVL72 的 A5X 实例下月 GA，Google Cloud 计划最多部署 **96 万块 Rubin GPU**
 - **命名说明**：原「Rubin NVL144」按 die 计数命名，现官方统一改称 **Vera Rubin NVL72**（按 72 个 GPU 封装计数）
 - **带宽双口径**：NVIDIA 技术博客/HGX 页给 **22 TB/s**，Vera Rubin NVL72 产品页给 **19.2 TB/s**，官方尚未调和；本卡与全站对比表统一采用产品页口径 19.2 TB/s
 - **HBM4 供货**：SK 海力士、三星、美光三家均已通过 NVIDIA HBM4 认证（2026 年 6 月起）

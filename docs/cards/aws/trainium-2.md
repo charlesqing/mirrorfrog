@@ -61,6 +61,8 @@ AWS Trainium 2 于 **2024 年 12 月 3 日**在 re:Invent 2024 大会上 GA，�
 
 ## 关键特性
 
+> 🆕 **TorchNeuron 开源**（2026-10-19）：AWS 发布面向 Trainium 的**原生 PyTorch 后端**（Apache 2.0 公测），`.to('neuron')` 一行切换，官方称覆盖按下载量计 **99.9%** 的真实使用场景；vLLM/SGLang/Ray/Hugging Face 集成同步就绪，Deepgram 为早期采用者。与谷歌 TorchTPU（10-20）共同标志 PyTorch 生态对非英伟达硬件的原生开放。
+
 - **Logical NeuronCore Configuration (LNC)**：多个物理核合并为逻辑核
 - **NeuronLink 2D Torus**：低延迟高带宽
 - **30-40% 性价比** 优势 vs EC2 P5e/P5en（H100）

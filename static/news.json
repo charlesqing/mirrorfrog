@@ -1,72 +1,69 @@
 [
   {
-    "title": "AMD Helios 量产爬坡确认：从 MI455X 规格到 6GW 大单的完整拼图",
-    "date": "2026-10-21",
-    "slug": "amd-helios-mi450-ramp-gigawatt-deals",
-    "url": "/blog/amd-helios-mi450-ramp-gigawatt-deals",
-    "description": "AMD 确认 Helios 机架平台量产爬坡中，OpenAI、Meta、微软、Oracle 站点已有初始系统运行；OpenAI 6GW、Meta 6GW、Anthropic 2GW 协议构成 MI450 系列的需求基本盘。本文梳理规格、客户",
+    "title": "阿里磐久 AL128 超节点：平头哥真武 M890 撑起的 128 卡统一算力域",
+    "date": "2026-10-22",
+    "slug": "alibaba-panjiu-al128-supernode-m890",
+    "url": "/blog/alibaba-panjiu-al128-supernode-m890",
+    "description": "阿里推出磐久 AL128/AL64/AL144 超节点：基于平头哥真武 M890 芯片与自研 ICN Switch 互联，128 卡单柜统一内存编址。阿里自研算力体系从芯片到整机柜完成闭环。",
+    "tags": [
+      "alibaba",
+      "tianchi-supernode",
+      "domestic-compute",
+      "ai-infrastructure"
+    ]
+  },
+  {
+    "title": "AMD × Anthropic：最高 2GW MI450 合作落地，开放阵营再下一城",
+    "date": "2026-10-22",
+    "slug": "amd-anthropic-2gw-mi450-instinct",
+    "url": "/blog/amd-anthropic-2gw-mi450-instinct",
+    "description": "AMD 官宣与 Anthropic 战略合作：部署至多 2GW AMD Instinct MI450 系列 GPU，首批 1GW 于 2027 上半年启动。加上 OpenAI 6GW、Meta 6GW、Oracle 5 万颗，AMD Hel",
     "tags": [
       "amd",
-      "mi455x",
-      "mi400",
+      "mi450",
+      "ai-infrastructure",
       "instinct",
-      "hbm4",
       "news"
     ]
   },
   {
-    "title": "徐直军确认：昇腾中国份额已超英伟达，950DT 规模供货推迟至年底或明年初",
-    "date": "2026-10-21",
-    "slug": "ascend-950dt-supply-timeline-hc2026",
-    "url": "/blog/ascend-950dt-supply-timeline-hc2026",
-    "description": "华为全联接 2026 期间徐直军披露：950PR 已 Q1 上市但量不大，950DT 超节点仍在测试、规模供货 2026 年底或 2027 年初；昇腾在中国市场份额已超英伟达，瓶颈从需求转为供给。本文梳理完整时间线与三条供给约束。",
+    "title": "AMD 收购 Taalas + 携手 Cerebras：推理市场的两条捷径",
+    "date": "2026-10-22",
+    "slug": "amd-taalas-acquisition-cerebras-inference-race",
+    "url": "/blog/amd-taalas-acquisition-cerebras-inference-race",
+    "description": "AMD 官宣收购推理芯片公司 Taalas，并与 Cerebras 联合发布超低延迟、高吞吐 AI 推理方案。在 MI450 主线之外，AMD 正用「买+合」两条捷径补推理专用化的短板。",
     "tags": [
-      "huawei-ascend",
-      "ascend-950",
-      "domestic-compute",
-      "domestic-ai-chip",
-      "news"
+      "amd",
+      "custom-chip",
+      "inference",
+      "ai-accelerator",
+      "ai-compute"
     ]
   },
   {
-    "title": "壁仞 BR20X 成功点亮：国产 GPU 四小龙进入量产竞速下半场",
-    "date": "2026-10-21",
-    "slug": "biren-br20x-silicon-lightup-hk-fundraising",
-    "url": "/blog/biren-br20x-silicon-lightup-hk-fundraising",
-    "description": "壁仞科技 2026-10-08 披露新一代旗舰 BR20X 成功点亮、进入流片后验证，同步启动 40.4 亿港元配售募资。本文结合工博会最新信息，梳理国产 GPU 四小龙的下一代量产时间表与竞争格局。",
+    "title": "Anthropic 招股书草稿曝光：H1 营收 163 亿美元增 15 倍，净亏 807 亿背后的会计真相",
+    "date": "2026-10-22",
+    "slug": "anthropic-h1-2026-financials-16-3b-revenue-80b-loss",
+    "url": "/blog/anthropic-h1-2026-financials-16-3b-revenue-80b-loss",
+    "description": "WSJ 披露 Anthropic 上市招股书草稿：H1 2026 营收 163 亿美元（同比 15 倍）、净亏损 807 亿美元（其中 720 亿为可转债非现金会计费用）、算力成本半年 90 亿、基础设施承诺超 6000 亿美元。本文拆解数",
     "tags": [
-      "domestic-chips",
-      "domestic-compute",
-      "domestic-ai-chip",
       "strategy",
-      "news"
+      "ai-infrastructure",
+      "industry-review",
+      "ai-compute"
     ]
   },
   {
-    "title": "寒武纪业绩兑现期：从扭亏 20.59 亿到下一代涨价 20%-30% 的逻辑",
-    "date": "2026-10-21",
-    "slug": "cambricon-2025-earnings-mlu690-ramp-price-hike",
-    "url": "/blog/cambricon-2025-earnings-mlu690-ramp-price-hike",
-    "description": "寒武纪 2025 全年营收 64.97 亿元、归母净利 20.59 亿元实现扭亏，2026Q1 营收 28.85 亿元同比增 159%；MLU690 进入量产出货，下一代暂称思元790 的产品意向报价上调 20%-30%。本文梳理业绩与定价",
-    "tags": [
-      "cambricon",
-      "MLU690",
-      "domestic-chips",
-      "ai-chip",
-      "news"
-    ]
-  },
-  {
-    "title": "工博会国芯展观察：超节点取代单卡，成为国产算力的展示主场",
-    "date": "2026-10-21",
-    "slug": "china-supernode-2026-industrial-expo-roundup",
-    "url": "/blog/china-supernode-2026-industrial-expo-roundup",
-    "description": "上海工博会首设国芯展：天数智芯天垓300 IXL144（单柜 144 GPU）、沐曦曦景 S600（64 卡全互连）、燧原云燧 ESL64-O（与中兴合作正交架构）同台。本文梳理国产超节点方案图谱与 IDC 算力需求数据。",
+    "title": "2576.5 EFLOPS：2026 中国智能算力全景与结构缺口",
+    "date": "2026-10-22",
+    "slug": "china-intelligent-compute-2576-eflops",
+    "url": "/blog/china-intelligent-compute-2576-eflops",
+    "description": "IDC 预计 2026 年中国智能算力规模达 2576.5 EFLOPS（同比 +87.9%）；工信部口径 6 月底已达 2185 EFLOPS、上架率 71.4%。本文从规模、结构、缺口三个层面拆解中国算力市场。",
     "tags": [
       "domestic-ai-chip",
-      "domestic-compute",
-      "2026-progress",
-      "news"
+      "ai-compute",
+      "industry-review",
+      "ai-infrastructure"
     ]
   }
 ]

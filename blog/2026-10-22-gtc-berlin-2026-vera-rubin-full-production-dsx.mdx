@@ -1,0 +1,41 @@
+---
+slug: gtc-berlin-2026-vera-rubin-full-production-dsx
+title: 'GTC 柏林 2026：Vera Rubin 宣布全面生产，黄仁勋定调「AI 工厂是下一代基础设施」'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [nvidia, rubin, ai-factory, product-launch, news]
+description: '黄仁勋 10 月 21 日 GTC 柏林主题演讲：Vera Rubin 进入全面生产、性能两年内再提升 30 倍、发布 DSX POD 预制 AI 工厂与 OpenShell 智能体安全架构，欧洲投入近 100 亿美元。本文梳理全部关键发布。'
+---
+
+# GTC 柏林 2026：Vera Rubin 宣布全面生产
+
+> 10 月 21 日，英伟达 GTC 大会在柏林 Tempodrom 开幕，黄仁勋近两小时的主题演讲把「AI 工厂」放到了叙事中心：AI 正推动人类历史上规模最大的基础设施建设，欧洲要从 AI 消费者变成 AI 生产者。
+
+## 一、Vera Rubin：全面生产 + 30 倍性能曲线
+
+- **全面生产（Full Production）**：Vera Rubin 平台正式宣布进入全面生产阶段
+- 全液冷设计，单机架接入 72 颗 GPU 组成超算（[Rubin R200 卡片](/docs/cards/nvidia/rubin-r200)）
+- 性能曲线：Blackwell 较 Hopper 提升 30 倍，**Vera Rubin 预计两年内再提升 30 倍**——超越摩尔定律增长预期
+
+## 二、DSX POD：AI 工厂变成「集装箱交付」
+
+这是本次演讲最具工程意义的发布：把 Vera Rubin 机柜、网络布线、液冷系统**提前在工厂完成集成测试**，再以集装箱形式交付：
+
+| 指标 | 传统方式 | DSX POD |
+|---|---|---|
+| 现场部署时间 | ~6 个月 | **最快 14 天** |
+| 1GW AI 工厂造价 | ~500 亿美元 | 延迟三个月上电 = 数十亿美元收入损失 |
+| 冷却用水 | 蒸发冷却 | 闭环液冷，吉瓦级日节水 5400 万升 |
+
+配套 DSX MaxLPS 软件按负载动态分配电力，同 Token 产出最高省电 30%。联想、戴尔、HPE、施耐德电气等 17 家伙伴计划 2027 年初推出产品。英伟达超大规模副总裁 Ian Buck 补充：数百兆瓦级项目是 DSX POD 近期主战场，并非全面取代传统机房。
+
+## 三、OpenShell 与六款开源模型
+
+- **OpenShell 安全参考架构**：面向智能体的内核级沙箱、最小权限、动态策略控制——黄仁勋称之为「英伟达做过最重要的事之一」
+- **六款开源模型**：Nemotron（语言）、Cosmos 3.5（世界模型）、GR00T（人形机器人）、Alpamayo 2 Edge（自动驾驶）、Ising（量子经典计算）、Earth-2（物理 AI）
+
+## 四、欧洲牌
+
+黄仁勋演讲前走访法英瑞典德：过去一年对欧洲技术生态投入**近 100 亿美元**、联动超 1.2 万家伙伴；英国获 5 年 2.5 亿美元算力捐赠；瑞典联盟共建 Sferical One 超算。据美联社，欧洲目前仅拥有全球约 5% 的 AI 算力——这正是「欧洲造 AI 工厂」叙事的立足点。
+
+延伸阅读：[Google Cloud A5X 与 96 万块 Rubin](/blog/google-cloud-a5x-rubin-960k-gpu-plans) · [Rubin Q4 放量](/blog/nvidia-rubin-q4-volume-spacex-200k-gb300) · [完整对比表](/docs/comparison)

@@ -1,0 +1,42 @@
+---
+slug: nvidia-vera-cpu-modal-arm-datacenter-cpu
+title: 'Vera CPU 拿下 Modal 首单：英伟达的 Arm CPU 开始抢 x86 的活'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [nvidia, vera, ai-infrastructure, news]
+description: 'AI 云初创 Modal 宣布首次采用英伟达 Vera CPU：高并发负载下任务吞吐最高达可比 x86 硬件 2 倍，与现有 x86 并行部署按任务调度。英伟达 CPU 之路从「配角」走向「独立产品」。'
+---
+
+# Vera CPU 拿下 Modal 首单：英伟达的 Arm CPU 开始抢 x86 的活
+
+> 据 10 月 19 日路透社报道，AI 云计算初创 Modal 宣布将首次采用英伟达新一代 **Vera CPU**，为 AI 智能体提供托管服务。这是 Vera CPU 公开的首个独立于 Rubin 平台的客户订单——英伟达的 CPU 第一次被当作「产品」而非「配件」采购。
+
+## 一、订单要点
+
+- **客户**：Modal（AI 沙盒与智能体托管服务，为智能体安全运行生成的代码提供托管容器）
+- **性能口径**：早期测试显示，高并发负载下 Vera 的任务吞吐量最高达可比 x86 硬件的 **2 倍**，同时保持较低的单任务延迟
+- **部署方式**：不弃 x86——Vera 与现有英特尔/AMD 芯片**并行部署**，按任务特点调度
+- **代价**：需要改造部分软件与基础设施以支持 Arm 兼容架构
+
+## 二、Vera CPU 是什么
+
+88 个自研 Olympus 核心（Armv9.2）、176 线程、最高 1.5TB LPDDR5X、1.2 TB/s 内存带宽，通过 NVLink-C2C（1.8 TB/s）与 GPU 一致性互联。单体大芯片设计避免跨 die 延迟，[详见卡片](/docs/cards/nvidia/vera-cpu)。
+
+此前 Vera CPU 的定位是 Vera Rubin 平台的「主机 CPU」——负责数据搬运调度与系统编排。Modal 订单标志着它的独立价值开始显现。
+
+## 三、为什么 AI 代理需要更好的 CPU
+
+这是 2026 下半年最重要的结构性变化之一：智能体工作负载（任务编排、API 调用、数据查询、每用户常驻虚拟机）主要由 CPU 承担。用户越多、后台任务越多，CPU 需求越高：
+
+- Intel CEO 承认其 CPU 产能只能满足约**一半**的 AI 相关需求
+- Meta 计划部署数千万 AWS Graviton 核心处理 AI 代理负载
+
+Modal 的场景（AI 沙盒 = 大量短生命周期容器）恰好是高并发、低单任务延迟的典型 CPU 负载——Vera 的吞吐优势在这里最有说服力。
+
+## 四、数据中心 CPU 格局的连锁反应
+
+1. **Graviton（AWS）、Axion（谷歌）、Vera（英伟达）、磐久（阿里）**：自研 Arm CPU 在云侧全面铺开，x86 双雄在 AI 负载上的份额被从边缘蚕食
+2. **英伟达的「全栈桶」更满了**：GPU + CPU + 网络 + 软件，客户整套机房都可以只找英伟达——议价时其他供应商要拼的不再是一颗芯片而是整个平台
+3. **Arm 生态在数据中心形成正循环**：每多一个 Vera 级客户，软件适配的边际成本就降一分
+
+延伸阅读：[GPU/ASIC/CPU 三分天下](/blog/gpu-asic-cpu-triangle-ai-servers) · [GTC 柏林综述](/blog/gtc-berlin-2026-vera-rubin-full-production-dsx) · [完整对比表](/docs/comparison)

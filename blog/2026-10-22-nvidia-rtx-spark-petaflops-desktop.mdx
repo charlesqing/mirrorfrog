@@ -1,0 +1,36 @@
+---
+slug: nvidia-rtx-spark-petaflops-desktop
+title: 'RTX Spark：1 PFLOPS + 128GB 塞进笔记本，桌面 AI 工厂的价格锚点 $2,399'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [rtx-spark, edge-ai, nvidia, product-launch]
+description: 'GTC 柏林上黄仁勋现场展示上周发布的 RTX Spark 笔记本：1 PFLOPS 算力 + 128GB 内存，起售价 2,399 美元，并与其 2016 年送给 OpenAI 的 DGX-1（同样 1P/128GB）同台对比。桌面 AI 开发的价格曲线十年降了三个量级。'
+---
+
+# RTX Spark：十年前要两个人抬的 AI 计算机，现在单手拎
+
+> GTC 柏林主题演讲的彩蛋环节：黄仁勋把上周发布的 **RTX Spark 笔记本**（1 PFLOPS 算力 + 128GB 内存，$2,399 起）与 2016 年他亲手送给 OpenAI 的 **DGX-1** 同台对比——两台机器同样 1 PFLOPS、128GB 内存，但 DGX-1 需要「两个人抬」，RTX Spark 可以单手拎起。
+
+## 一、产品矩阵：桌面 AI 三件套
+
+| 产品 | 系统 | 定位 |
+|---|---|---|
+| **RTX Spark** | Windows PC | 个人智能体，$2,399 起 |
+| **DGX Spark** | Linux | 开发者构建与扩展应用 |
+| **DGX Station** | 桌面工作站 | 更大内存池的开发验证 |
+
+「Bringing the Spark to Europe」是 GTC 柏林的专门议程——本地智能体（Local Agents）成为个人 AI 的下一个叙事：模型与数据不出本机，隐私与延迟同时解决。
+
+## 二、1 PFLOPS 桌面算力意味着什么
+
+- **能本地跑什么**：70B 级开源模型量化推理、中小模型微调（QLoRA）、智能体仿真训练。黄仁勋现场演示了四只「Microduck」机器人鸭——在 RTX Spark 上创建、云端训练、仿真中学习技能
+- **对比 2016**：DGX-1 当年售价约 $129,000。同算力下，桌面价格曲线十年下降约 50 倍，这正是 [Jetson Thor](/docs/cards/nvidia/jetson-thor) 等边缘产品的逻辑在桌面端的延伸
+- **对云的边界**：本地推理解决隐私与离线场景，但训练与超长上下文仍属云端——「桌面 + 云」混合工作流将成个人开发者默认形态
+
+## 三、对开发者的实际影响
+
+1. **智能体开发的「本地沙箱」**：结合 OpenShell 安全架构的思路，本地硬件跑智能体 + 本地沙箱，是成本最低的安全实验环境
+2. **国产对标注意**：桌面 AI 工作站赛道（128GB 统一内存 + P 级算力）目前国产阵营尚无同价位对标产品，这是一个尚未被国产厂商认真覆盖的细分
+3. **软件栈红利**：RTX Spark 与 DGX Spark 共享 CUDA 生态——开发者在桌面写的代码可直接扩展到数据中心 GPU，这正是英伟达「全栈桶」的黏性所在
+
+延伸阅读：[GTC 柏林综述](/blog/gtc-berlin-2026-vera-rubin-full-production-dsx) · [Jetson Thor 卡片](/docs/cards/nvidia/jetson-thor) · [完整对比表](/docs/comparison)

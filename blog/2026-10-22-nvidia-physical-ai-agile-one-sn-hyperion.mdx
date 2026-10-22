@@ -1,0 +1,44 @@
+---
+slug: nvidia-physical-ai-agile-one-sn-hyperion
+title: 'GTC 柏林的物理 AI 棋局：Agile ONE SN 人形机器人与 Hyperion 自动驾驶平台'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [nvidia, edge-ai, roadmap, ai-infrastructure]
+description: '英伟达在 GTC 柏林同时推进物理 AI 双线：与 Agile Robots 共建的 Agile ONE SN 人形参考机（31 自由度，2027 Q1 上市）与 Hyperion 自动驾驶平台（Volvo/大众/JLR/奔驰下一代车型采用）。物理 AI 正在成为算力的下一个大单。'
+---
+
+# GTC 柏林的物理 AI 棋局：人形机器人与自动驾驶双线提速
+
+> 大语言模型的算力叙事渐入「推理经济学」阶段，黄仁勋在 GTC 柏林把下一个故事讲得非常具体：**物理 AI**——让模型走进机器人身体和汽车里。这次不是概念，是参考机型与定点车型。
+
+## 一、Agile ONE SN：人形机器人参考机
+
+- **合作方**：英伟达 × Agile Robots（思灵机器人）
+- **规格**：31 个自由度，搭载英伟达计算平台与全套软件
+- **节奏**：**2027 年第一季度上市**
+- **配套**：Isaac 平台大扩展——新增参考人形机器人、数据集、运行时与机器人学习框架更新
+
+「参考机」策略与当年 DGX 对 AI 的意义同构：给硬件生态一个标准靶子，让传感器、执行器、模型开发者在同一平台上收敛。GR00T（人形机器人基座模型）+ Isaac 仿真 + 参考硬件 = 机器人版的「模型-框架-算力」三件套。
+
+## 二、Hyperion：自动驾驶平台拿下德系定点
+
+| 要素 | 配置 |
+|---|---|
+| 传感器 | 14 摄像头 + 9 雷达 + 3 激光雷达 |
+| 计算 | 双 GPU（Orin/Thor 代际） |
+| 定点 | **Volvo、大众、JLR、奔驰**下一代车型 |
+| Robotaxi | Bolt（与 Lucid）、Einride 等展示自动驾驶运营用例 |
+
+德系全线定点是关键信号——自动驾驶平台的市场格局此前由英伟达/高通/Mobileye 三分，奔驰与大众商用车的加入意味着英伟达在高端智驾域控的份额继续固化。
+
+## 三、物理 AI 的算力经济学
+
+1. **训练在云、推理在端**：世界模型（Cosmos 3.5）与机器人策略训练吃数据中心算力，车载/机载推理吃 Thor 级边缘芯片——「云-边-端」的算力分层在物理 AI 上最完整
+2. **仿真即训练场**：Isaac/Omniverse 仿真管线的算力消耗常被低估——合成数据生成是介于训练与推理之间的第三种负载
+3. **单机价值量**：一个人形机器人 ≈ 一台高性能边缘服务器的芯片价值量（计算 + 传感处理 + 互联），百万台级出货就是新的 GB 市场
+
+## 四、国产对照
+
+国内人形机器人芯片（地平线、寒武纪行歌等）与车载智驾芯片（华为 MDC、地平线 J6）在单点算力上已可对标，但「参考机 + 仿真平台 + 基座模型」的三件套完整度仍是英伟达的结构性优势——这也是[昇腾](/docs/cards/huawei/ascend-910c)等玩家在机器人侧的下一个投入方向。
+
+延伸阅读：[GTC 柏林综述](/blog/gtc-berlin-2026-vera-rubin-full-production-dsx) · [Jetson Thor 卡片](/docs/cards/nvidia/jetson-thor) · [GPU/ASIC/CPU 三分天下](/blog/gpu-asic-cpu-triangle-ai-servers)

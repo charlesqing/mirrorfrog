@@ -1,0 +1,44 @@
+---
+slug: kimi-k3-2-8t-params-linear-attention
+title: 'Kimi K3 与 2.8 万亿参数：模型规模卷土重来，超节点是它的算力答案'
+date: '2026-10-22'
+authors: aicomputecards
+tags: [deepseek, strategy, tech-deep-dive, ai-infrastructure]
+description: '壁仞科技 AI 框架架构副总裁在国芯展披露：Kimi K3 达 2.8 万亿参数，明年大模型参数或将迈入 5 万亿级；代码与 Agent 场景驱动 1M 级超长上下文需求。模型规模的下一跳，算力结构如何接住。'
+---
+
+# Kimi K3 与 2.8 万亿参数：模型规模的下一跳
+
+> 「大模型参数已经到头了」的说法可以收回——壁仞科技 AI 框架架构副总裁丁云帆在工博会国芯展分论坛给出的数字是：**Kimi K3 已达 2.8 万亿参数，明年大模型参数或将迈入 5 万亿级别**。同时，代码与 Agent 场景正驱动 1M 级超长上下文成为刚需。
+
+## 一、两个数字的分量
+
+- **2.8T → 5T**：参数规模一年内再翻近一倍。训练算力需求按近似比例膨胀——这不是「效率提升可以抵消」的量级
+- **1M 上下文**：长上下文对 KV Cache 显存的要求超线性增长，推理成本结构中显存容量的权重骤增
+
+## 二、模型结构的演进方向
+
+丁云帆同时指出结构层面的迁移：业界正从 **Full Attention 走向线性/混合 Attention**。这条路线的逻辑链是：
+
+```
+Full Attention：KV Cache 随上下文线性爆炸 → 1M 上下文不可承受
+线性/混合 Attention：KV Cache 压缩到近常数级 → 长上下文成本可控
+```
+
+DeepInfer 开源栈里的 SWA Bounded Replay、MLA 低秩注意力，都是同一路线的工程实现。**模型结构的每一次瘦身，都是为更大参数量腾出算力预算**——总算力需求不减反增。
+
+## 三、5 万亿参数需要什么算力
+
+粗算账：2.8T 参数训练按 20T token 量级、MFU 40% 计，需要的 GPU 时已属「超节点专属」；5T 参数意味着：
+
+- **单柜算力密度不足**：传统八卡服务器的跨节点通信在 MoE 训练中是灾难，[超节点](/blog/supernode-year-one-2026-csc-research)成为必然工程解
+- **柜间扩展**：华为 Atlas 950（8192 卡）级集群、NVL288/NVL576 演进路线的目标场景正在这里
+- **显存墙**：2.8T 参数的 MoE 权重即使 FP8 也远超单柜显存——统一内存编址（超节点核心特征）不是优化项而是必需品
+
+## 四、对算力供应商的含义
+
+1. **「5 万亿参数」是超节点最强的需求叙事**：2027 年超节点渗透率的最大变量是头部模型厂商的实际训练计划
+2. **推理侧同步受益**：1M 上下文的 Agent 应用把大显存推理卡（MI450 432GB、Rubin 288GB、C600 144GB）的需求拉到新高度
+3. **国产模型的国产算力匹配**：Kimi K3 若以国产超节点集群训练，将是国产算力「训得动前沿模型」的标志性验证
+
+延伸阅读：[DeepSeek DeepInfer 开源](/blog/deepseek-deepinfer-open-source-inference) · [机柜即产品](/blog/rack-as-product-competition-unit-shift) · [完整对比表](/docs/comparison)
