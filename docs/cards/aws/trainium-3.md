@@ -154,6 +154,8 @@ Trainium 3 是 AWS **"AI 工厂"战略**的核心 —— Amazon 内部 Bedrock�
 
 > **关键洞察**：Trainium3 是云自研 ASIC 从"内部降本工具"变为"对外产品线"的标志性产品。它的验证点有两个——Anthropic 的 5 GW 与 OpenAI 的 2 GW 承诺能否按期兑现，以及性能能否扛住 NVIDIA Rubin 的正面冲击。软件侧，从 CUDA 迁移到 Neuron 栈仍需可观工程投入，这是低价之外的摩擦成本。
 
+> **第三方基准（2026-10，SemiAnalysis）**：Trainium3 TorchTitan 训练 Qwen3-32B 实测 **MFU 30.47%**（编译模式）；FlexAttention 96 项测试 89 项通过（**93%**）；TorchNeuron 已支持 PyTorch 原生 eager 模式、torch.compile 与标准分布式 API；AWS 投入 8 万物理 CI 核做自动化质量保障，为硬件厂商 CI 投入新高。SemiAnalysis 同时指出：中尺寸 MatMul 形状上 Trainium3 表现优于 GB300；其 Neuron Explorer 分析器被评为优于 AMD 的分析工具。
+
 ## 相关产品
 
 - [AWS Trainium 2](/docs/cards/aws/trainium-2) - 前代芯片

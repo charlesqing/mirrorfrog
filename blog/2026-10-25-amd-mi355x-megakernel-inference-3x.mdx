@@ -1,0 +1,56 @@
+---
+slug: amd-mi355x-megakernel-inference-3x
+title: 'AMD MI355X megakernel 实战：投机解码 + MXFP4 把单请求解码提速 3.3 倍'
+date: '2026-10-25'
+authors: aicomputecards
+tags: [amd, instinct, inference-chip, benchmarks]
+description: 'AMD ROCm 技术博客：megakernel（持久内核覆盖整个前向）+ 投机解码 + MXFP4，在 MI355X 上实现单请求 LLM 解码 1.9–3.3 倍提升；Qwen3.8-27B 达 1100 tokens/s，GPT-OSS-120B 达 1470 tokens/s。双 die 数据放置本身贡献 7.5–8%。'
+---
+
+# MI355X megakernel：ROCm 推理栈的正面回答
+
+> 「ROCm 推理不如 CUDA」是过去两年的默认叙事。AMD 这篇技术博客不打算辩解，直接甩出了三个数字：1100、1470、3.3 倍。
+
+## 三项技术的组合拳
+
+针对**单请求解码**（延迟敏感、吞吐不重要的高交互场景），AMD 在 Instinct MI355X 上组合了三项优化：
+
+**1. Megakernel（持久内核）**
+
+- 单个持久内核覆盖**整个前向传播**（Qwen3.8-27B、GPT-OSS-120B 验证），消除逐算子 launch 开销
+- 用 **FlyDSL**（Python DSL，编译到 AMD GPU 代码）与 HIP C++ 编写——注意 FlyDSL 与 DeepSeek 昇腾版 TileLang 的路线同构，社区 DSL 正在成为非 CUDA 平台的共同选择
+
+**2. 投机解码（Speculative Decoding）**
+
+- Qwen3.8-27B 搭配 EAGLE3/DFlash2 起草模型，batch 1、GSM8K 实测**约 1,100 tokens/s**
+- GPU graph capture 消除 CPU round-trip
+
+**3. MXFP4 量化**
+
+- Qwen3.8-Flash-Next + **完整 262K token KV cache** 装进单颗 die，较基线**约 3.3 倍加速**
+
+## 双 die 架构红利：数据放置即性能
+
+MI355X 的两颗 die（DPX+NPS2 拓扑）本身就是优化空间：
+
+- GPT-OSS-120B 实测 **约 1,470 tokens/s**
+- 仅靠数据放置优化（data locality）就拿到 **7.5–8%** 的解码提升
+- 分阶段 profiling：Q/K/V 交接快 **25%**、专家路由快 **17%**
+
+这类「拓扑感知放置」的收益在双 die GPU（MI355X、Rubin）上会越来越重要——芯片拓扑从实现细节变成了编译器与调度层的优化输入。
+
+## 与竞品的横向定位
+
+- 场景限定：**1.9–3.3 倍是单请求 decode** 提速——高交互智能体、实时对话等 batch 1 场景；大 batch 吞吐场景另算
+- 参照系：此前 SemiAnalysis AgentX 测试中，GB300 NVL72 在低交互区间仍保持领先（[详见 CUDA 护城河一文](/blog/huang-cuda-moat-25-years-torch-tpu-challenge)）；AMD 的强项在高交互区间的性价比
+- 生态接入：成果已可通过 **ATOM、SGLang、vLLM** 使用（GPT-OSS-120B 为 vLLM 预览）
+
+## 结论
+
+这篇博客的真正信号不是某个倍数，而是**方法论的收敛**：megakernel、投机解码、社区 DSL、拓扑感知放置——AMD 的优化清单与华为 TileLang、谷歌 TorchTPU 高度趋同。非 CUDA 阵营已经形成了一套可复制的「推理栈追赶剧本」，剩下的变量只是执行深度。对买家，MI355X 在高交互推理场景已值得进入选型池；对开发者，FlyDSL/TileLang 这类 Python DSL 的学习投入开始有了跨平台的复利。
+
+## 数据来源与口径说明
+
+- 全部性能数字：AMD ROCm 官方技术博客（2026-10-20 至 23 发布周期），AMD News Daily 摘要转述
+- 1100/1470 tokens/s 为 batch 1 特定模型配置，不外推至其他负载
+- FlyDSL 为 AMD 的 Python DSL 工具，与 TileLang 的类比来自 SemiAnalysis 对两者的并列表述

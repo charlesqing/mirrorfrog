@@ -1,0 +1,51 @@
+---
+slug: nvidia-gtc-neocloud-amd-tpu-exclusion-report
+title: 'SemiAnalysis 爆料：采用 AMD GPU 与 TPU 的 Neocloud 被 GTC 柏林拒之门外'
+date: '2026-10-23'
+authors: aicomputecards
+tags: [nvidia, amd, tpu, strategy, news]
+description: '分析机构 SemiAnalysis 称，多家因部署 AMD GPU、Google TPU 等竞品硬件的 Neocloud 云服务商被禁止参加 GTC 柏林大会，并称英伟达此前还以早期配额惩罚多芯片采购者。本文梳理指控细节、各方反应与「供应即话语权」的行业逻辑。'
+---
+
+# 采用 AMD GPU 和 TPU 的 Neocloud，进不了 GTC 的大门
+
+> GTC 是英伟达主办的盛会，邀请谁、不邀请谁，法律上无可指摘。但当「入场资格」与「是否采购竞品芯片」挂钩时，它就成了观察 GPU 生态权力结构的最佳样本。
+
+## 指控内容
+
+据 SemiAnalysis 10 月下旬披露（cnBeta、网易科技等转述）：
+
+- **多家 Neocloud 被禁止参加 GTC 柏林大会**（2026-10-21 开幕），理由是这些企业在产品组合中引入了 AMD GPU、Google TPU 及其他非英伟达芯片
+- 部分云服务商**被迫低调部署 AMD 产品**，不愿公开宣传相关合作，以避免进一步压力
+- 这并非孤例：SemiAnalysis 今年早些时候曾报道，英伟达会通过**限制新产品早期配额**的方式，惩罚采用竞争对手技术的云服务商；相关企业在 IPO、融资以及获得英伟达资金支持时也可能面临不利
+
+## 权力不对称的结构性原因
+
+为什么英伟达的「惩罚」对 Neocloud 有效，对超大规模云厂商却无效？
+
+| 维度 | Neocloud | 超大规模云厂商 |
+|---|---|---|
+| 采购规模 | 数万至数十万颗 | 百万颗级、多年期框架 |
+| 议价能力 | 弱，依赖配额 | 强，且自研芯片（TPU/Trainium/Maia）做后手 |
+| 替代出路 | 少，客户跟着 CUDA 生态走 | 自建生态 + 多供应商组合 |
+| 英伟达反制手段 | 断供/限配额近乎致命 | 商务摩擦，难伤筋骨 |
+
+Neocloud（如 CoreWeave、Iren、Nebius 这类 GPU 租赁商）本质上是用英伟达的芯片做转租生意，供应命脉握在卖方手里。而 AWS、微软、谷歌的采购规模大到英伟达不敢轻易施压——黄仁勋本人在 GTC 期间对 CNBC 也承认，Neocloud 的需求「off the charts」，缺的是营运资本而非客户。
+
+## 业界的两种读法
+
+**支持方**：GTC 由英伟达出资主办，邀请名单本就是商业决策；英伟达过去还直接投资过部分 Neocloud，这更像合作伙伴关系管理，而非市场打压。
+
+**批评方**：当「拿不到早期配额」「上不了 IPO 加持名单」与「是否采购 AMD/TPU」系统性相关时，问题就不止于一张门票。有 Neocloud 连公开宣传 AMD 合作都要掂量——这说明压制已经影响了市场的信息透明度。值得注意的是，AMD 近期接连拿下 Meta、OpenAI、Anthropic 的吉瓦级订单（[此前报道](/blog/amd-helios-mi450-ramp-gigawatt-deals)），多芯片采购在大客户侧已成事实，压力正在向中小租赁商传导。
+
+## 对买家的启示
+
+- **合同条款比公开姿态重要**：与英伟达洽谈配额时，竞品采购披露义务、最低承诺比例等隐性条款值得逐字审阅
+- **多芯片策略要预留缓冲**：中小算力商引入 AMD/TPU 前应评估供应链风险敞口，必要时分主体运营
+- **对英伟达而言这同样有代价**：被拒之门外的 Neocloud 恰恰是最需要 GPU 的增量买家，把推动竞品替代的动机留给了对手
+
+## 数据来源与口径说明
+
+- SemiAnalysis 指控细节：SemiAnalysis 分析报告（2026 年 10 月），cnBeta/网易科技转述（2026-10-22）
+- 黄仁勋 Neocloud 需求表态：GTC 柏林期间 CNBC 采访，Yahoo Finance 转述
+- 英伟达未就本指控公开回应；「惩罚机制」为 SemiAnalysis 单方信源，涉事公司未逐一置评

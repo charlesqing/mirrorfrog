@@ -1,0 +1,52 @@
+---
+slug: linux-7-4-gpu-driver-battle-amd-hdmi-ualink-nova
+title: 'Linux 7.4 驱动大战：AMD 默认解锁 HDMI 2.1 附赠 AI 性能，三家开源栈同场竞技'
+date: '2026-10-25'
+authors: aicomputecards
+tags: [GPU, tech-deep-dive, amd, news]
+description: 'Linux 7.4 DRM 更新合入：AMDGPU 默认启用 HDMI 2.1 FRL/VRR/FreeSync，PerfOpt 让 iGPU 本地 AI 性能提升 18-23%，UALink over Ethernet 进上游；Intel Xe 新增 ULLS 与 vRAM 健康检查；英伟达 Rust 版 Nova 驱动持续膨胀。开源驱动栈成为 AI 基础设施的隐形战场。'
+---
+
+# Linux 7.4 驱动大战：三个阵营，三种路线
+
+> 数据中心 GPU 的竞争看规格表，但真正的胜负手有一半藏在内核驱动里。Linux 7.4 的 DRM 更新合入，三家厂商的开源策略差异一次看全。
+
+## AMD：消费级补课 + 数据中心加码
+
+**HDMI 2.1 FRL 默认开启**——一场持续多年的拉锯战收官：
+
+- 此前 HDMI Forum 封锁开源 HDMI 2.1 实现，Linux 用户无法输出 4K 高刷/8K 信号
+- 解禁后 AMD 5 月开始提交补丁，7.2 首次合入但默认关闭；7.4 补齐 VRR、FreeSync、ALLM 后**默认启用**
+- 意义：A 卡 Linux 游戏与专业显示的体验短板被补平
+
+**PerfOpt IOMMU 默认启用**——AI 侧的「免费升级」：
+
+- iGPU 绕过大部分 IOMMU 地址转换开销直接访问系统内存，同时保留基本读写权限
+- Phoronix 在预发布内核实测：**Ryzen AI APU 本地 AI/LLM 性能提升 18–23%**，上代 APU 同样受益
+- 权衡：以部分 DMA 隔离换更低 DMA 延迟，保守用户可用 amdgpu.iommu_perfopt=0 关闭
+
+**数据中心两项**：**UALink over Ethernet（UALoE）**合入 AMDGPU 上游——开放标准互联对超大规模 HPC/AI 客户的意义在于降低集群集成摩擦；**Ryzen AI Max 400（Gorgon Halo）NPU** 获内核支持，AI PC 的 Linux 开发者生态提速。
+
+## Intel：为 D 系列铺路
+
+Xe 内核驱动在 7.4 的更新偏「基础设施」：
+
+- 迁移队列新增 **CPU 绑定与 ULLS 低延迟提交机制**——图形性能直接受益
+- **vRAM 健康检查与劣化显存处理**——显存老化/异常有了底层方案，这对长生命周期推理卡（正是 Intel GPU D 系列的定位）是必要能力
+- 开发重心已明显转向即将到来的 **GPU D 系列（Crescent Island）** 加速器——此前 OCP 2026 正式发布，160GB（最高 480GB）LPDDR5X、1.3 PFLOPS FP8
+
+## NVIDIA：Rust 重写进行时
+
+- **Nova 驱动**：大量 Rust 代码持续涌入，目标是长期替代 Open RM 内核模块
+- **Nouveau**：继续收到稳定性修复，但战略地位已被 Nova 取代
+- 观点：英伟达开源驱动的补课速度明显加快，历史上「AMDGPU 开源体验碾压」的格局正在被侵蚀
+
+## 结论
+
+开源驱动栈的竞争逻辑正在变化：**当 AI 基础设施的采购把「开源生态成熟度」纳入评估，内核上游的提交量就成了可量化的军备指标**。AMD 用 UALoE 押注开放互联，Intel 为推理卡打长寿基础，NVIDIA 用 Rust 补历史欠账——三条路线的共同点是，谁都买不起「驱动不是短板」这句话的代价了。
+
+## 数据来源与口径说明
+
+- Linux 7.4 DRM 合入内容、PerfOpt 18-23%（Phoronix 实测）、amdgpu 内核参数：Phoronix（2026-10-24），PBX Science 转述
+- 改装厂/停产为 Tom's Hardware 口径（与本篇无关，见另文）
+- Intel D 系列定位：Intel OCP 2026 官方发布口径

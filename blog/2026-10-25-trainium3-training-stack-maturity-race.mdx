@@ -1,0 +1,59 @@
+---
+slug: trainium3-training-stack-maturity-race
+title: '训练栈成熟度之战：Trainium3 拿 30.47% MFU 叫板，AMD 用 93% CI 通过率追赶'
+date: '2026-10-25'
+authors: aicomputecards
+tags: [ASIC, training, benchmarks, news]
+description: 'SemiAnalysis 双报告揭示训练栈竞赛新格局：Trainium3 TorchTitan 实测 Qwen3-32B MFU 30.47%、FlexAttention 通过率 93%、8 万 CI 核做质量保障；AMD 经 9 个月缠斗在 vLLM 测试组拿到 93% parity。训练栈的竞争已从「能跑」进入「generality 问题」。'
+---
+
+# 训练栈成熟度之战
+
+> 推理侧的性价比之争已经打了两年，现在战场挪到了训练侧——这里检验的不是单点峰值，而是「任意模型、任意形状、任意分布式策略都能稳定跑」的 generality。两份 SemiAnalysis 报告给出了最新的记分牌。
+
+## Trainium3 的记分牌
+
+SemiAnalysis《Amazon's Trainium Takes a Strike at the Training King》给出实测：
+
+- **TorchTitan 训练 Qwen3-32B：MFU 30.47%**（编译模式）——模型算力利用率是训练效率的硬指标，30%+ 属于可用区间
+- **FlexAttention 96 项测试通过 89 项（93%）**——PyTorch 新特性在非 CUDA 平台的适配覆盖率
+- **TorchNeuron 支持原生 PyTorch eager 模式、torch.compile 与标准分布式 API**——与 CUDA/ROCm 的人体工学差距基本抹平
+- **8 万物理 CI 核**用于自动化质量保障——硬件厂商 CI 投入的新高，SemiAnalysis 直接以此为行业标准定锚
+- 中尺寸 MatMul 形状上 **Trainium3 表现优于 GB300**
+- 分析工具 Neuron Explorer 被评为**优于 AMD 的 profiler**
+
+## AMD 的记分牌
+
+同系列报告披露了 AMD 的追赶代价与成果：
+
+- **vLLM gating 测试组达到 93% parity**——SemiAnalysis 明确指出，这是与 AMD 高层**缠斗 9 个月**的产物，说明这个数字不是自然演进而是倒逼结果
+- ROCm 的 profiler 被 trainium 对比评为落后——AMD 工具链投资需求被点名
+- 单请求推理侧的优化见我们的[MI355X megakernel 专文](/blog/amd-mi355x-megakernel-inference-3x)
+
+## 为什么 generality 是新战场
+
+训练栈的竞争分三个阶段：
+
+| 阶段 | 标准 | 现状 |
+|---|---|---|
+| 能跑 | 单模型单配置跑通 | 2024 年已解决 |
+| 跑得快 | 峰值 MFU、特定模型调优 | 2025–2026 主战场 |
+| 什么都能跑 | **任意模型的 generality** | 2026–2027 的胜负手 |
+
+FlexAttention 93% vs 96 项测试的差距，正是 generality 问题的缩影：非 CUDA 平台面对 PyTorch 的快速演进，每个新特性都是一次全量适配工程。AWS 的应对是砸 CI——8 万核的自动化回归测试把「新 PyTorch 版本发布到 Trainium 可用」的周期压到行业最快。
+
+## 对采购方的含义
+
+- **训练负载选型看 MFU 而非峰值算力**：Trainium3 的 2.52 PFLOPS FP8 与 GB300 的纸面差距，在 30.47% MFU 的实际利用率下要重新折算
+- **CI 覆盖率是新的尽调指标**：问供应商两个问题——FlexAttention/最新 PyTorch 特性的测试通过率是多少？新框架版本到平台可用的滞后是多少天？
+- **Neuron 栈的人体工学已不是障碍**：eager 模式 + torch.compile 原生支持意味着迁移成本集中在数据并行策略与超参重调，而非代码重写
+
+## 结论
+
+训练栈之战的有趣之处在于：**AWS 用 CI 军备证明了「平台质量」可以被工程投入买出来**，而 AMD 的 93% parity 证明了「生态差距」可以被组织压力追平。剩下的问题是代价——8 万核 CI 与 9 个月缠斗都是真金白银，这笔投入的回报取决于 2027 年 Trainium3 的 5GW 级订单能否兑现。
+
+## 数据来源与口径说明
+
+- MFU 30.47%、FlexAttention 93%、8 万 CI 核、中尺寸 MatMul 优于 GB300、Neuron Explorer 评价：SemiAnalysis 报告，AMD News Daily 摘要转述（2026-10-24）
+- AMD 9 个月缠斗与 93% parity：SemiAnalysis 口径
+- MFU 数据为特定模型（Qwen3-32B）特定配置结果，不可外推至所有负载

@@ -1,69 +1,67 @@
 [
   {
-    "title": "阿里磐久 AL128 超节点：平头哥真武 M890 撑起的 128 卡统一算力域",
-    "date": "2026-10-22",
-    "slug": "alibaba-panjiu-al128-supernode-m890",
-    "url": "/blog/alibaba-panjiu-al128-supernode-m890",
-    "description": "阿里推出磐久 AL128/AL64/AL144 超节点：基于平头哥真武 M890 芯片与自研 ICN Switch 互联，128 卡单柜统一内存编址。阿里自研算力体系从芯片到整机柜完成闭环。",
+    "title": "AI 基建的钱荒：黄仁勋承认买家快买不起了，存储 2029 年前无过剩",
+    "date": "2026-10-25",
+    "slug": "ai-infra-financing-gap-huang-memory-no-glut",
+    "url": "/blog/ai-infra-financing-gap-huang-memory-no-glut",
+    "description": "黄仁勋罕见承认：AI 需求爆炸但融资跟不上订单，Neocloud 缺的是营运资本；CoreWeave 财务承压给 5000 亿美元 vendor financing 蒙上阴影；同时预测存储芯片 2029 年前无过剩。Epoch.ai 统计 ",
     "tags": [
-      "alibaba",
-      "tianchi-supernode",
-      "domestic-compute",
-      "ai-infrastructure"
-    ]
-  },
-  {
-    "title": "AMD × Anthropic：最高 2GW MI450 合作落地，开放阵营再下一城",
-    "date": "2026-10-22",
-    "slug": "amd-anthropic-2gw-mi450-instinct",
-    "url": "/blog/amd-anthropic-2gw-mi450-instinct",
-    "description": "AMD 官宣与 Anthropic 战略合作：部署至多 2GW AMD Instinct MI450 系列 GPU，首批 1GW 于 2027 上半年启动。加上 OpenAI 6GW、Meta 6GW、Oracle 5 万颗，AMD Hel",
-    "tags": [
-      "amd",
-      "mi450",
       "ai-infrastructure",
-      "instinct",
+      "nvidia",
+      "strategy",
       "news"
     ]
   },
   {
-    "title": "AMD 收购 Taalas + 携手 Cerebras：推理市场的两条捷径",
-    "date": "2026-10-22",
-    "slug": "amd-taalas-acquisition-cerebras-inference-race",
-    "url": "/blog/amd-taalas-acquisition-cerebras-inference-race",
-    "description": "AMD 官宣收购推理芯片公司 Taalas，并与 Cerebras 联合发布超低延迟、高吞吐 AI 推理方案。在 MI450 主线之外，AMD 正用「买+合」两条捷径补推理专用化的短板。",
+    "title": "AMD MI355X megakernel 实战：投机解码 + MXFP4 把单请求解码提速 3.3 倍",
+    "date": "2026-10-25",
+    "slug": "amd-mi355x-megakernel-inference-3x",
+    "url": "/blog/amd-mi355x-megakernel-inference-3x",
+    "description": "AMD ROCm 技术博客：megakernel（持久内核覆盖整个前向）+ 投机解码 + MXFP4，在 MI355X 上实现单请求 LLM 解码 1.9–3.3 倍提升；Qwen3.8-27B 达 1100 tokens/s，GPT-OS",
     "tags": [
       "amd",
-      "custom-chip",
-      "inference",
-      "ai-accelerator",
-      "ai-compute"
+      "instinct",
+      "inference-chip",
+      "benchmarks"
     ]
   },
   {
-    "title": "Anthropic 招股书草稿曝光：H1 营收 163 亿美元增 15 倍，净亏 807 亿背后的会计真相",
-    "date": "2026-10-22",
-    "slug": "anthropic-h1-2026-financials-16-3b-revenue-80b-loss",
-    "url": "/blog/anthropic-h1-2026-financials-16-3b-revenue-80b-loss",
-    "description": "WSJ 披露 Anthropic 上市招股书草稿：H1 2026 营收 163 亿美元（同比 15 倍）、净亏损 807 亿美元（其中 720 亿为可转债非现金会计费用）、算力成本半年 90 亿、基础设施承诺超 6000 亿美元。本文拆解数",
+    "title": "Anthropic 锁定 Google Cloud 最高 100 万颗 TPU：数百亿美元协议、2026 年超 1GW 上线",
+    "date": "2026-10-25",
+    "slug": "anthropic-google-cloud-million-tpu-2026",
+    "url": "/blog/anthropic-google-cloud-million-tpu-2026",
+    "description": "Anthropic 周四宣布与 Google Cloud 达成数十亿美元级协议，最高采购 100 万颗 TPU、2026 年上线超 1GW 算力——公司史上最大算力扩张。本文拆解协议规模、Ironwood 的价格性能逻辑，以及 Anthro",
     "tags": [
-      "strategy",
+      "google",
+      "tpu",
       "ai-infrastructure",
-      "industry-review",
-      "ai-compute"
+      "strategy",
+      "news"
     ]
   },
   {
-    "title": "2576.5 EFLOPS：2026 中国智能算力全景与结构缺口",
-    "date": "2026-10-22",
-    "slug": "china-intelligent-compute-2576-eflops",
-    "url": "/blog/china-intelligent-compute-2576-eflops",
-    "description": "IDC 预计 2026 年中国智能算力规模达 2576.5 EFLOPS（同比 +87.9%）；工信部口径 6 月底已达 2185 EFLOPS、上架率 71.4%。本文从规模、结构、缺口三个层面拆解中国算力市场。",
+    "title": "算力自举：智谱用 GLM-5.3 驱动的 Infra Agent，两周把 10 万卡国产集群吞吐提升 3 倍",
+    "date": "2026-10-25",
+    "slug": "glm-infra-agent-compute-bootstrap-3x",
+    "url": "/blog/glm-infra-agent-compute-bootstrap-3x",
+    "description": "智谱 9 月披露：GLM-5.3 驱动的 Infra Agent 参与建设与优化 GLM-5.3-Flash 推理基础设施，运行在超 10 万张国产 AI 加速卡集群上，不到两周把端到端吞吐提升至初始基线约 3 倍。当芯片供给受限，用 AI",
     "tags": [
-      "domestic-ai-chip",
+      "domestic-chips",
       "ai-compute",
-      "industry-review",
-      "ai-infrastructure"
+      "tech-deep-dive"
+    ]
+  },
+  {
+    "title": "CUDA 护城河攻防战：黄仁勋说 25 年功力挡不住，谷歌和 AWS 正用一行代码撬墙角",
+    "date": "2026-10-25",
+    "slug": "huang-cuda-moat-25-years-torch-tpu-challenge",
+    "url": "/blog/huang-cuda-moat-25-years-torch-tpu-challenge",
+    "description": "黄仁勋在 GTC 柏林为 CUDA 25 年护城河辩护：单芯片无法复制软件飞轮。但同期 TorchTPU 与 TorchNeuron 把 PyTorch 迁移门槛压到一行 model.to()——98% 模型免改跑 TPU，16 颗 Iro",
+    "tags": [
+      "nvidia",
+      "google",
+      "strategy",
+      "tech-deep-dive"
     ]
   }
 ]

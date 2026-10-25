@@ -122,6 +122,8 @@ keywords: [华为昇腾 950PR, Ascend 950PR, 昇腾950, HiBL HBM, 中芯国际 N
 
 > **2026 最新进展**：950PR 已于 **2026 年 4 月量产**，全年产能规划 **~75 万颗**，已获字节跳动、阿里、腾讯等头部云厂大额订单；华为计划 **2026 Q4** 携 950PR/950DT 及 Atlas 950 SuperPod 进入韩国市场。
 
+> **第三方基准验证（2026-10，SemiAnalysis）**：SemiAnalysis 在《The Huawei-DeepSeek Symbiosis》报告中给出 950PR 独立评估——华为自研内核下 **GEMM 利用率达 99.7%**，绝对 GEMM 性能「介于 A100 与 MI300X 之间」，小消息规格下 HBM 带宽与 H100 具竞争力；DeepSeek 已发布 TileLang、DeepGEMM、DeepEP、FlashMLA、DeepSelect 的昇腾支持，其中 TileLang（昇腾原生内核 DSL）在部分形状上可匹敌/超越 CANN。该报告为华为软件栈成熟度的首个系统性第三方背书。
+
 ## 昇腾路线图（2026–2028）
 
 | 产品 | 发布时间 | 定位 |
