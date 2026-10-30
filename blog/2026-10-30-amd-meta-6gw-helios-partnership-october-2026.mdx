@@ -1,0 +1,34 @@
+---
+slug: amd-meta-6gw-helios-partnership-october-2026
+title: AMD×Meta 6GW 官宣：Helios 已装进 Meta 机房，MI450 拿下第五家吉瓦级客户
+description: AMD 10-27 官宣与 Meta 扩大战略合作：Helios 机架已安装测试、定制版 MI450 将部署、EPYC 驱动 Muse 智能体，AMD 同时向 Meta 股权投资 10 亿美元。
+date: 2026-10-30
+authors: aicomputecards
+tags: [amd, mi450, instinct, announcement]
+---
+
+## 官宣要点（2026-10-27）
+
+AMD 与 Meta 联合宣布扩大多年期 AI 基础设施合作，关键信息五条：
+
+1. **6 GW 合作规模**：Meta 计划部署最多 6 吉瓦 AMD Instinct GPU 算力，首批 1 GW 系统 2026 下半年开始交付
+2. **Helios 已落地**：首批 Helios 机架级系统已安装并在 Meta 测试，近期将扩大部署——不是意向，是已进机房
+3. **定制 MI450**：Meta 是 MI450 架构的早期定义客户，将部署针对自身负载优化的定制版 Instinct GPU
+4. **CPU 双线**：EPYC 已部署数百万颗支撑 Muse 个人 AI 智能体；Meta 是第六代 EPYC「Venice」的领先客户，并参与下一代「Verano」路线协作
+5. **10 亿美元股权投资**：AMD 将参与 Meta 股权增发——供应商入股客户，深度绑定可见一斑
+
+## 从 MI300X 到 MI450：四年三级跳
+
+Meta 与 AMD 的合作沿 GPU 代际持续加码：MI300X 用于生产环境训练与排序、MI350X 承接大规模推荐模型优化（双方共同向 PyTorch、Triton、ROCm 上游贡献改进）、MI450 进入定制化联合设计。AMD 同时为 Meta 的 Muse Spark Open 模型提供 Day-0 支持。
+
+ROCm 走 PyTorch 路线是这套组合的关键：保证开发者「开箱即用」，绕开 CUDA 生态迁移成本这一 MI 系列最大的历史短板。
+
+## 市场格局：MI450 客户名单
+
+至此，MI450 已公开的吉瓦级客户名单覆盖：OpenAI（6 GW）、Anthropic（最高 2 GW，首批 1 GW 2027 H1）、Oracle（50,000 颗）、Meta（最高 6 GW）。AMD 明确表示客户需求已超出其对 2027 年的内部预估，双方还在共同定义下一代 MI500 系列与配套机架系统。
+
+值得注意的口径：6 GW 是「计划部署上限」，实际节奏取决于 HBM4 供给与 Helios 整机交付能力。参考本站 [MI450 卡片](/docs/cards/amd/mi450)：单 GPU 3.6 TB/s scale-up 双向带宽、72 GPU 机架 260 TB/s 聚合互联，对标 NVIDIA NVL72。
+
+## 结语
+
+6 GW 相当于 2025 年全球 AI 加速器出货的相当比例集中到一家开放生态厂商身上。对行业而言，MI450 的意义不在单卡跑分，而在证明了「非 CUDA 全栈」（GPU + CPU + Pensando 网络 + ROCm）可以支撑超级智能级别的训练负载。竞争单位的颗粒度已经从单卡变成机柜与吉瓦——这正是 Helios 存在的理由。

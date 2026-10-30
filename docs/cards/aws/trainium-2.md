@@ -61,6 +61,9 @@ AWS Trainium 2 于 **2024 年 12 月 3 日**在 re:Invent 2024 大会上 GA，�
 
 ## 关键特性
 
+- **生态兼容工具（2026-10-25）**：亚马逊发布新软件工具让 Trainium **无需修改即可运行主流 AI 框架代码**，直接对标 CUDA 生态迁移成本
+- **走出 AWS（2026-10-29 财报电话会）**：CEO 贾西宣布 Trainium 将于 **2027 年底前向 AWS 之外客户销售**，成为继谷歌 TPU（Oracle/OptiCloud、拟售 OpenAI）之后第二个走出自有云的云厂商自研 AI 芯片；芯片业务年化营收约 **250 亿美元**，累计未来收入承诺超 **2,250 亿美元**（含 Anthropic、OpenAI 协议）
+
 > 🆕 **TorchNeuron 开源**（2026-10-19）：AWS 发布面向 Trainium 的**原生 PyTorch 后端**（Apache 2.0 公测），`.to('neuron')` 一行切换，官方称覆盖按下载量计 **99.9%** 的真实使用场景；vLLM/SGLang/Ray/Hugging Face 集成同步就绪，Deepgram 为早期采用者。与谷歌 TorchTPU（10-20）共同标志 PyTorch 生态对非英伟达硬件的原生开放。
 
 - **Logical NeuronCore Configuration (LNC)**：多个物理核合并为逻辑核

@@ -93,7 +93,7 @@ Rubin GPU 采用**多芯片模块（MCM）设计**，核心包含：
 - **放量节奏（2026-10）**：鸿海在 10 月上旬确认 Vera Rubin NVL72 量产机柜已完成组装并出货（首批交付微软），**Q4 起放量出货**、2027 年成为主力产品；马斯克在 10 月 20 日 SpaceX 财报电话会上称 SpaceX 正以**每月约 20 万颗 GB300** 的速度上线英伟达芯片，2027 年转向以 Vera Rubin 为主（并规划 44 万颗 Vera Rubin 训练集群）
 - **Google Cloud A5X**：GTC 柏林（10-21）宣布搭载 Vera Rubin NVL72 的 A5X 实例下月 GA，Google Cloud 计划最多部署 **96 万块 Rubin GPU**
 - **命名说明**：原「Rubin NVL144」按 die 计数命名，现官方统一改称 **Vera Rubin NVL72**（按 72 个 GPU 封装计数）
-- **带宽双口径**：NVIDIA 技术博客/HGX 页给 **22 TB/s**，Vera Rubin NVL72 产品页给 **19.2 TB/s**，官方尚未调和；本卡与全站对比表统一采用产品页口径 19.2 TB/s
+- **规格双口径已定论（2026-10-29）**：研发期公布的 22 TB/s / NVLink 3.6 TB/s 属初步架构目标；官方最新数据手册确认为**量产规格 HBM4 19.2 TB/s / NVLink 6 3 TB/s**（NVL72 机架合计 HBM4 1400 TB/s、NVLink 216 TB/s，网络带宽反而从 28.8 上调至 32.4 TB/s），并称已发布的第三方跑分本就按量产规格测得；本卡与全站对比表采用 19.2 TB/s 口径
 - **HBM4 供货**：SK 海力士、三星、美光三家均已通过 NVIDIA HBM4 认证（2026 年 6 月起）
 - **MLPerf Inference v6.1 首秀**（2026-09-16 出结果）：Qwen3-VL 吞吐较 GB300 NVL72 最高提升 **3.7 倍**、DeepSeek-R1 最高提升 **2.5 倍**
 - **Rubin Ultra**：原规划 4 die 版已调整为 2 die 版，2027 年下半年推出
