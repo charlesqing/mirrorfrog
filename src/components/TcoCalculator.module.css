@@ -389,6 +389,16 @@
   font-family: monospace;
   letter-spacing: -0.01em;
 }
+/* 行内金额（AnimatedMoney variant="inline"）：字号/颜色继承上下文，
+   只保留等宽与表格数字对齐——避免 hero 大数字样式泄漏到成本行/副行/洞察区 */
+.tcoValueInline {
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  font-variant-numeric: tabular-nums;
+  font-family: monospace;
+  letter-spacing: -0.01em;
+}
 .tcoSub {
   font-size: 0.78rem;
   color: var(--ifm-color-emphasis-600);

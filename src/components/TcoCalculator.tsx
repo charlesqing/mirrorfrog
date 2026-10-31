@@ -232,9 +232,13 @@ function useCountUp(target: number, animateKey: string | number = ''): number {
   }, [target, animateKey]);
   return val;
 }
-function AnimatedMoney({ value, animateKey = '' }: { value: number; animateKey?: string | number }) {
+function AnimatedMoney({ value, animateKey = '', variant = 'hero' }: {
+  value: number; animateKey?: string | number;
+  /** hero=TCO 总计大数字；inline=行内金额（成本行/副行/洞察），字号继承上下文 */
+  variant?: 'hero' | 'inline';
+}) {
   const v = useCountUp(value, animateKey);
-  return <span className={styles.tcoValue}>{fmtFull(Math.round(v))}</span>;
+  return <span className={variant === 'hero' ? styles.tcoValue : styles.tcoValueInline}>{fmtFull(Math.round(v))}</span>;
 }
 
 // ===== 自定义下拉框（搜索+分组 + P4-1 ARIA + 键盘导航）=====
@@ -403,7 +407,6 @@ const Pie = React.memo(function Pie({ data, hoverIdx, setHover, totalLabel }: {
             <path key={i} d={`M${cx},${cy} L${pol(d.s)} A${r},${r} 0 ${large},1 ${pol(d.e)} Z`}
               fill={d.color} opacity={hoverIdx === null || isHover ? 1 : 0.35}
               onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
-              onFocus={() => setHover(i)} onBlur={() => setHover(null)} tabIndex={-1}
               style={{ cursor: 'pointer', transition: 'opacity 0.2s', transform: isHover ? 'scale(1.04)' : 'scale(1)', transformOrigin: `${cx}px ${cy}px` }}
             >
               <title>{d.label}: {fmtFull(Math.round(d.value))} ({((d.value / total) * 100).toFixed(1)}%)</title>
@@ -471,7 +474,6 @@ const Bars = React.memo(function Bars({ data, segs, hoverYear, setHover, oneTime
           return (
             <div key={d.year} className={styles.barCol}
               onMouseEnter={() => setHover(d.year)} onMouseLeave={() => setHover(null)}
-              onFocus={() => setHover(d.year)} onBlur={() => setHover(null)} tabIndex={-1}
             >
               <div className={`${styles.barTopLabel} ${isHover ? styles.barTopLabelHover : ''}`}>{fmt(t)}</div>
               <div className={styles.barSlot}>
@@ -1143,9 +1145,9 @@ export default function TcoCalculator() {
                 {t.results.header(years, isCluster, discount > 0)}
                 {isCluster && <span className={styles.chartHint}>{t.results.headerClusterHint}</span>}
               </div>
-              <div className={styles.tcoValue}><AnimatedMoney value={displayTco} animateKey={`${chipId}-${mode}`} /></div>
+              <div><AnimatedMoney value={displayTco} animateKey={`${chipId}-${mode}`} variant="hero" /></div>
               <div className={styles.tcoSub}>
-                {t.results.annual} <AnimatedMoney value={displayTco / years} animateKey={`${chipId}-${mode}`} /> · {t.results.perCardAnnual} <AnimatedMoney value={displayTco / qty / years} animateKey={`${chipId}-${mode}`} />
+                {t.results.annual} <AnimatedMoney value={displayTco / years} animateKey={`${chipId}-${mode}`} variant="inline" /> · {t.results.perCardAnnual} <AnimatedMoney value={displayTco / qty / years} animateKey={`${chipId}-${mode}`} variant="inline" />
                 {tcoPerTflops != null && <> · <strong>{t.results.perTflops(`$${tcoPerTflops.toFixed(2)}`)}</strong></>}
               </div>
             </div>
@@ -1161,7 +1163,7 @@ export default function TcoCalculator() {
                   <div className={styles.costRowBar} style={{ width: `${pct}%`, background: seg.color }} />
                   <span className={styles.costDot} style={{ background: seg.color }} aria-hidden="true" />
                   <span className={styles.costName}>{label}{suffix}</span>
-                  <span className={styles.costValue}><AnimatedMoney value={v} animateKey={chipId} /></span>
+                  <span className={styles.costValue}><AnimatedMoney value={v} animateKey={chipId} variant="inline" /></span>
                   <span className={styles.costPct}>{pct.toFixed(1)}%</span>
                 </div>
               );
@@ -1185,10 +1187,10 @@ export default function TcoCalculator() {
                 {proc > elec ? <span className={styles.insightGood}>{t.insights.procDominant}</span> : <span className={styles.insightBad}>{t.insights.elecDominant}</span>}
               </div>
               <div className={styles.insightRow}>
-                <strong>{t.insights.perWatt}</strong> {chip.tdp > 0 ? <><AnimatedMoney value={displayTco / qty / chip.tdp} animateKey={`${chipId}-${mode}`} /> / W</> : '—'}
+                <strong>{t.insights.perWatt}</strong> {chip.tdp > 0 ? <><AnimatedMoney value={displayTco / qty / chip.tdp} animateKey={`${chipId}-${mode}`} variant="inline" /> / W</> : '—'}
               </div>
               <div className={styles.insightRow}>
-                <strong>{t.insights.annualElec}</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} animateKey={chipId} />{t.insights.annualElecValue('', pue.toFixed(2))}</> : '—'}
+                <strong>{t.insights.annualElec}</strong> {tdpKW > 0 ? <><AnimatedMoney value={annualDeviceElec} animateKey={chipId} variant="inline" />{t.insights.annualElecValue('', pue.toFixed(2))}</> : '—'}
               </div>
               {tcoPerTflops != null && (
                 <div className={styles.insightRow}>
