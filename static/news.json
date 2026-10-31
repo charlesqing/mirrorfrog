@@ -1,5 +1,42 @@
 [
   {
+    "title": "寒武纪 MLU590 正式发布后怎么用：规格解读与三个适用场景",
+    "date": "2026-10-31",
+    "slug": "cambricon-mlu590-spec-scenario-guide",
+    "url": "/blog/cambricon-mlu590-spec-scenario-guide",
+    "description": "MLU590（思元590）2026-07-01 正式发布：7nm + Chiplet、FP16 256 TFLOPS、INT8 512 TOPS、96GB HBM2e、350W。本文解读规格口径，并给出推理、训推一体、国产化替代三个场景的适",
+    "tags": [
+      "cambricon",
+      "domestic-chips",
+      "selection"
+    ]
+  },
+  {
+    "title": "H20 vs 昇腾 910B：中国市场合规算力卡怎么选",
+    "date": "2026-10-31",
+    "slug": "h20-vs-ascend-910b-china-market",
+    "url": "/blog/h20-vs-ascend-910b-china-market",
+    "description": "NVIDIA H20 与华为昇腾 910B 是中国数据中心最常被放在一起对比的两张卡：FP16 148 vs 320 TFLOPS、96GB vs 64GB 显存、CUDA vs CANN。一文按算力、显存、互联、生态、价格五个维度拆开看。",
+    "tags": [
+      "nvidia",
+      "huawei",
+      "domestic-chips",
+      "selection"
+    ]
+  },
+  {
+    "title": "摩尔线程 MTT S5000：国产全功能 GPU 往训练主战场迈出的关键一步",
+    "date": "2026-10-31",
+    "slug": "mtt-s5000-domestic-training-gpu",
+    "url": "/blog/mtt-s5000-domestic-training-gpu",
+    "description": "MTT S5000 采用第四代 MUSA 平湖架构与 PH100 芯片：FP8 稠密 1000 TFLOPS、BF16 400 TFLOPS、80GB 显存、1.6 TB/s 带宽。本文解读规格、看它和上一代的差距，以及训练场景的适配判断。",
+    "tags": [
+      "moore-threads",
+      "MTT-S5000",
+      "domestic-chips"
+    ]
+  },
+  {
     "title": "AMD×Meta 6GW 官宣：Helios 已装进 Meta 机房，MI450 拿下第五家吉瓦级客户",
     "date": "2026-10-30",
     "slug": "amd-meta-6gw-helios-partnership-october-2026",
@@ -23,45 +60,6 @@
       "cambricon",
       "industry-review",
       "domestic-substitution"
-    ]
-  },
-  {
-    "title": "算力金融化：630 亿美元 SPV、英伟达信用担保与微软 250 亿发债",
-    "date": "2026-10-30",
-    "slug": "compute-financing-spv-broadcom-63bn-nvidia-guarantee",
-    "url": "/blog/compute-financing-spv-broadcom-63bn-nvidia-guarantee",
-    "description": "博通联合黑石组建 630 亿美元 SPV 为 Anthropic 租 TPU；英伟达洽谈为 Anthropic Nscale 数据中心提供信用担保；微软发债 250 亿美元——AI 算力采购全面金融化。",
-    "tags": [
-      "broadcom",
-      "OpenAI",
-      "ai-infrastructure",
-      "strategy"
-    ]
-  },
-  {
-    "title": "长鑫 HBM3 时间线与 160 万颗缺口：国产 AI 芯片的最短板是 HBM",
-    "date": "2026-10-30",
-    "slug": "cxmt-hbm3-timeline-1-6m-chip-gap-hbm-bottleneck",
-    "url": "/blog/cxmt-hbm3-timeline-1-6m-chip-gap-hbm-bottleneck",
-    "description": "长鑫 2026-09 试产 HBM3、年底小批量量产、HBM4 仍在预研；彭博估算 2026 年国产 AI 芯片需求 420 万颗、供给 260 万颗，缺口主要卡在 HBM 配给。",
-    "tags": [
-      "hbm4",
-      "domestic-chips",
-      "domestic-compute",
-      "industry-review"
-    ]
-  },
-  {
-    "title": "Kimi K3.1 Pro：3 万亿参数开源模型背后，是推理算力的军备竞赛",
-    "date": "2026-10-30",
-    "slug": "kimi-k3-1-pro-3t-open-weights-model-compute",
-    "url": "/blog/kimi-k3-1-pro-3t-open-weights-model-compute",
-    "description": "月之暗面 10-24 发布 K3.1 Pro，3 万亿参数、百万上下文，蝉联全球最大开源模型；后训练算力大幅加码，权重 11-04 前发布，价格为 GPT-6 Astra 的五分之一。",
-    "tags": [
-      "breakthrough",
-      "training",
-      "domestic-ai-chip",
-      "agentic-ai"
     ]
   }
 ]

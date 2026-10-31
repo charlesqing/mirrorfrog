@@ -2,8 +2,8 @@
 id: ascend-950dt
 title: Huawei Ascend 950DT (昇腾 950DT)
 sidebar_label: 昇腾 950DT
-description: Huawei Ascend 950DT 详尽规格：Da Vinci v5 架构、144GB HiZQ 2.0 HBM、4TB/s 带宽、2TB/s 互联、FP8 1 PFLOPS、2026年8月上线华为云。
-keywords: [Ascend 950DT, 昇腾 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为云, Decode 推理]
+description: Huawei（华为）Ascend 950DT 详尽规格：Da Vinci v5 架构、144GB HiZQ 2.0 HBM、4TB/s 带宽、2TB/s 互联、FP8 1 PFLOPS、2026年8月上线华为云。含报价行情与 TCO 测算。
+keywords: [Ascend 950DT, 华为昇腾 950DT, 昇腾 950DT, 950DT 报价, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为云, Decode 推理]
 ---
 
 # Huawei Ascend 950DT (昇腾 950DT)
@@ -175,4 +175,8 @@ keywords: [Ascend 950DT, 昇腾 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, 华为
 - [ZOL AI：昇腾950双版本发布](https://ai.zol.com.cn/1195/11955311.html)
 - [百度百科：昇腾950DT芯片](https://baike.baidu.com/item/%E6%98%87%E8%85%BE950DT%E8%8A%AF%E7%89%87/66772879)
 - [知乎：昇腾950DT芯片8月上线华为云](https://zhuanlan.zhihu.com/p/2047213842783065249)
+
+## 价格与 TCO
+
+据媒体报道，950DT 单卡报价一度超过 25 万元，并随 HBM 供给涨价 20%-50%。建议用 **[TCO 计算器](/docs/tco-calculator)** 按实际功耗、电价与利用率测算 3 年总拥有成本，并在 **[全库对比表](/docs/comparison)** 中与 B300 Ultra、MI355X 等同代竞品比较。
 

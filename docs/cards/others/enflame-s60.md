@@ -9,6 +9,7 @@ release_date: "2024-03-01"
 launch_price: "未公开"
 status: "量产"
 description: "燧原科技 云燧 S60 官方规格：GCU320（邃思320）、48GB GDDR6、672 GB/s、PCIe Gen5 x16、最大功耗 300W，支持 FP32/FP16/BF16/INT8，官方未公布各精度峰值算力。TechInsights 拆解确认台积电 N6 工艺。"
+keywords: [燧原科技, 云燧 S60, Enflame S60, GCU320, 邃思320, 推理加速卡, 国产 AI 芯片]
 ---
 
 # 燧原科技 云燧 S60

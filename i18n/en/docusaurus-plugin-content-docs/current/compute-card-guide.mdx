@@ -1,0 +1,62 @@
+---
+title: What Is an AI Compute Card? From Terminology to Selection (2026 Guide)
+sidebar_label: Compute Card Guide
+description: What an AI compute card is, how it relates to GPU/NPU/TPU terminology, six selection dimensions for training, inference and edge cards, plus access to our 252-card comparison database.
+keywords: [AI compute card, accelerator card, GPU card, inference card, training card, selection guide]
+---
+
+# What Is an AI Compute Card? From Terminology to Selection (2026 Guide)
+
+## What Is an AI Compute Card
+
+A **compute card** (also called an accelerator card or AI card) is a board-level product that delivers AI training and inference compute: an AI accelerator chip (GPU / NPU / TPU / ASIC) packaged with memory, power delivery and cooling into a standardized card that plugs into servers or workstations. Common form factors include PCIe cards, SXM/OAM modules, and rack-scale supernodes.
+
+Compared with consumer "graphics cards", compute cards have no display outputs, emphasize memory capacity and compute density, and target data center features such as ECC memory, virtualization, and multi-card interconnect.
+
+## Compute Cards vs GPU / NPU / TPU
+
+These terms are easy to confuse: **GPU / NPU / TPU / ASIC describe chip architecture types, while compute card describes the product form factor**. The same board can be called both a GPU card and an AI accelerator card.
+
+| Term | Common meaning | Deep dive |
+|------|---------------|-----------|
+| GPU | General parallel acceleration, richest ecosystem | [GPU architecture](/docs/architectures/arch-gpu) |
+| TPU | Tensor processing (originated by Google) | [TPU architecture](/docs/architectures/arch-tpu) |
+| NPU | Neural-network specific, common at the edge | [NPU architecture](/docs/architectures/arch-npu) |
+| ASIC | Custom silicon (Trainium, Dojo, etc.) | [ASIC architecture](/docs/architectures/arch-asic) |
+| Compute card | The board-level umbrella term | This page + [comparison table](/docs/comparison) |
+
+## Six Selection Dimensions
+
+1. **Compute and precision**: every card has FP16 / FP8 / FP4 numbers, split into sparse vs dense (sparse is roughly 2x dense). Always compare at the same precision and sparsity convention — every card on this site states its convention.
+2. **Memory capacity and bandwidth**: determines model size. Training cares about capacity (HBM3e/HBM4); inference throughput is bandwidth-driven.
+3. **Interconnect**: NVLink / NVLink 6, Huawei MTLink, Cambricon MLU-Link, UALink, etc. determine multi-card scaling; without a fast interconnect you are limited to single-card inference.
+4. **Power and cooling**: TDP ranges from tens of watts (edge cards) to 1,400W (B300 Ultra), driving rack power and cooling design.
+5. **Software ecosystem**: CUDA remains the de facto standard; domestic cards map to CANN (Ascend), DTK (Hygon), MUSA (Moore Threads) — factor migration cost into the decision.
+6. **Price and TCO**: sticker price aside, electricity, utilization and depreciation define real cost — run your numbers in the [TCO calculator](/docs/tco-calculator).
+
+## What to Pick by Scenario
+
+| Scenario | Representative cards | What matters |
+|----------|---------------------|--------------|
+| LLM training | [H100](/docs/cards/nvidia/h100) / [H200](/docs/cards/nvidia/h200) / [B200](/docs/cards/nvidia/b200) / [Ascend 910C](/docs/cards/huawei/ascend-910c) / [MLU690](/docs/cards/cambricon/mlu-690) | FP16/FP8 compute + fast interconnect + cluster solutions |
+| LLM inference | [H20](/docs/cards/nvidia/h20) / [L40S](/docs/cards/nvidia/l40s) / [Kunlunchip P800](/docs/cards/others/kunlun-p800) / [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | Memory bandwidth and cost per token |
+| Edge and low power | [L4](/docs/cards/nvidia/l4) / [L2](/docs/cards/nvidia/l2) / [T4](/docs/cards/nvidia/t4) / [RK3588](/docs/cards/others/rockchip-rk3588) | Power, form factor, price-performance |
+
+More category entry points: [Data center AI training](/docs/types/training-gpu) · [Data center AI inference](/docs/types/inference-gpu) · [Edge AI](/docs/types/edge)
+
+## Quick Data Access
+
+- [Full comparison table](/docs/comparison): 81 featured + all 252 cards — FP8/INT8 compute, memory, TDP in one table
+- [TCO calculator](/docs/tco-calculator): model multi-year total cost of ownership and cost per token
+- [Launch timeline](/docs/timeline): release cadence across generations
+
+## FAQ
+
+**Compute card vs graphics card?**
+Compute cards target data centers: no display outputs, ECC memory and multi-card interconnect as standard; consumer GPUs target graphics and gaming. Precision conventions also differ — data center cards are read at FP16/FP8/FP4.
+
+**Which compute number should I compare?**
+Align precision first (FP16/FP8/FP4), then sparse vs dense, and always read it together with memory bandwidth — inference throughput is usually bandwidth-bound rather than compute-bound.
+
+**Representative domestic (Chinese) compute cards?**
+Training: Ascend 910C, Cambricon MLU690, Moore Threads MTT S5000. Inference: Kunlunchip P800, Hygon DCU, Enflame Yunsui series. See the [comparison table](/docs/comparison).

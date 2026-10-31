@@ -2,8 +2,8 @@
 id: ascend-910
 title: Huawei Ascend 910
 sidebar_label: Huawei Ascend 910
-description: Huawei Ascend 910 详尽规格：2019 初代云端训练芯片、台积电 7nm+ EUV、256 TFLOPS FP16、512 TOPS INT8、310W TDP、32GB HBM2，昇腾 910 家族基石。
-keywords: [Huawei Ascend 910, 昇腾 910, 达芬奇 Max 架构, 云端训练, 256 TFLOPS, 国产 AI 芯片]
+description: Huawei（华为）Ascend 910 详尽规格：2019 初代云端训练芯片、台积电 7nm+ EUV、256 TFLOPS FP16、512 TOPS INT8、310W TDP、32GB HBM2，昇腾 910 家族基石。
+keywords: [Huawei Ascend 910, 华为昇腾 910, 昇腾 910, 达芬奇 Max 架构, 云端训练, 256 TFLOPS, 国产 AI 芯片]
 ---
 
 # Huawei Ascend 910

@@ -4,6 +4,7 @@ const sidebars: SidebarsConfig = {
   aiCardsSidebar: [
     'intro',
     'comparison',
+    'compute-card-guide',
     {
       type: 'category',
       label: '🔥 芯片对比',

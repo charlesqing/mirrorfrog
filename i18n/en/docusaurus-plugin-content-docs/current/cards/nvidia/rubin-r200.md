@@ -9,6 +9,8 @@ category: "Data Center GPU"
 
 # NVIDIA Rubin R200
 
+> **Disambiguation**: searching "R200" may match two entirely different chips — this page is the **NVIDIA Rubin GPU (commonly R200)**. Baidu also has a **[Kunlunchip R200](/docs/cards/baidu/r200)** (XPU-R inference accelerator, 7nm, 256 TOPS INT8). See its card page if that is what you are looking for.
+
 NVIDIA Rubin R200 is NVIDIA's next-generation AI GPU announced at GTC 2026, built on TSMC 3nm process with 336 billion transistors, equipped with 288GB HBM4 memory, delivering 50 PFLOPS FP4 inference compute, succeeding the Blackwell architecture.
 
 ## Key Specifications

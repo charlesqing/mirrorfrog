@@ -2,8 +2,8 @@
 id: trainium4
 title: AWS Trainium 4
 sidebar_label: AWS Trainium 4
-description: AWS Trainium 4 预告规格：2025-12-02 re:Invent 首次披露，FP4 性能为 Trainium 3 的 6 倍、FP8 为 3 倍、内存带宽 4 倍、HBM 容量 2 倍，支持 NVIDIA NVLink Fusion，预计 2027 年交付。制程、显存容量与 TDP 官方均未公布。
-keywords: [AWS Trainium 4, Trainium4, NVLink Fusion, re:Invent 2025, FP4, 6倍性能, 2027年交付, AWS自研芯片]
+description: AWS（亚马逊）Trainium 4 预告规格：2025-12-02 re:Invent 首次披露，FP4 性能为 Trainium 3 的 6 倍、FP8 为 3 倍、内存带宽 4 倍、HBM 容量 2 倍，支持 NVIDIA NVLink Fusion，预计 2027 年交付。制程、显存容量与 TDP 官方均未公布。
+keywords: [AWS Trainium 4, 亚马逊 Trainium 4, Trainium4, NVLink Fusion, re:Invent 2025, FP4, 6倍性能, 2027年交付, AWS自研芯片]
 ---
 
 # AWS Trainium 4

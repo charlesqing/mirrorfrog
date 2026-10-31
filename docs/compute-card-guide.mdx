@@ -1,0 +1,62 @@
+---
+title: AI 算力卡是什么？从术语到选购（2026 指南）
+sidebar_label: 算力卡指南
+description: 一文讲清算力卡是什么、与 GPU/NPU/TPU 术语的关系，以及训练卡、推理卡、边缘卡的六大选购维度，附全库 252 款算力卡对比入口。
+keywords: [算力卡, AI 算力卡, 计算卡, AI 加速卡, GPU 卡, 推理卡, 训练卡, 选购指南]
+---
+
+# AI 算力卡是什么？从术语到选购（2026 指南）
+
+## 什么是算力卡
+
+**算力卡**（也叫计算卡、AI 加速卡）是为 AI 训练与推理提供加速算力的板卡产品：把 AI 加速芯片（GPU / NPU / TPU / ASIC）装上显存、供电与散热，做成可以插进服务器或工作站的标准化板卡。常见形态包括 PCIe 卡、SXM/OAM 模组以及整机柜超节点。
+
+和消费级"显卡"的区别：算力卡通常没有视频输出接口、重点在显存容量与算力密度、驱动面向数据中心场景（如 ECC 显存、虚拟化、多卡互联）。
+
+## 算力卡、GPU、NPU、TPU 是什么关系
+
+这是最容易混淆的一组词：**GPU / NPU / TPU / ASIC 说的是芯片架构类型，算力卡说的是产品形态**。同一张"算力卡"，既可以说是 GPU 卡，也可以说是 AI 加速卡。
+
+| 术语 | 常见所指 | 深入阅读 |
+|------|---------|---------|
+| GPU | 通用并行加速，生态最成熟 | [GPU 架构详解](/docs/architectures/arch-gpu) |
+| TPU | 张量处理专用（Google 起源） | [TPU 架构详解](/docs/architectures/arch-tpu) |
+| NPU | 神经网络专用，多见于边缘 | [NPU 架构详解](/docs/architectures/arch-npu) |
+| ASIC | 定制专用芯片（Trainium、Dojo 等） | [ASIC 架构详解](/docs/architectures/arch-asic) |
+| 算力卡 / 计算卡 | 上述芯片做成板卡后的统称 | 本页 + [全库对比表](/docs/comparison) |
+
+## 选购六大维度
+
+1. **算力与精度口径**：同一张卡有 FP16 / FP8 / FP4 多个数字，且分稀疏与密集（稀疏约为密集的 2 倍）。对比时务必同精度同口径，本站卡片均标注口径。
+2. **显存容量与带宽**：决定能装下多大的模型。训练看容量（HBM3e/HBM4），推理吞吐更看带宽。
+3. **互联带宽**：NVLink / NVLink 6、华为 MTLink、寒武纪 MLU-Link、UALink 等，决定多卡扩展效率；没有高速互联基本只能单卡推理。
+4. **功耗与散热**：TDP 从几十瓦（边缘卡）到 1,400 瓦（B300 Ultra），直接决定机柜供电与散热方案。
+5. **软件生态**：CUDA 仍是事实标准；国产卡对应 CANN（昇腾）、DTK（海光）、MUSA（摩尔线程）等，迁移成本要计入选型。
+6. **价格与 TCO**：标价之外，电费、利用率、折旧共同决定真实成本，建议用 [TCO 计算器](/docs/tco-calculator) 测算 3 年总拥有成本。
+
+## 按场景怎么选
+
+| 场景 | 代表算力卡 | 说明 |
+|------|-----------|------|
+| 大模型训练 | [H100](/docs/cards/nvidia/h100) / [H200](/docs/cards/nvidia/h200) / [B200](/docs/cards/nvidia/b200) / [昇腾 910C](/docs/cards/huawei/ascend-910c) / [MLU690](/docs/cards/cambricon/mlu-690) | 看重 FP16/FP8 算力 + 高速互联 + 集群方案 |
+| 大模型推理 | [H20](/docs/cards/nvidia/h20) / [L40S](/docs/cards/nvidia/l40s) / [昆仑芯 P800](/docs/cards/others/kunlun-p800) / [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | 看重显存带宽与每 token 成本 |
+| 边缘与低功耗 | [L4](/docs/cards/nvidia/l4) / [L2](/docs/cards/nvidia/l2) / [T4](/docs/cards/nvidia/t4) / [RK3588](/docs/cards/others/rockchip-rk3588) | 看重功耗、形态与性价比 |
+
+更多分类入口：[数据中心 AI 训练](/docs/types/training-gpu) · [数据中心 AI 推理](/docs/types/inference-gpu) · [边缘 AI](/docs/types/edge)
+
+## 数据速查
+
+- [AI 算力卡完整对比表](/docs/comparison)：精选 81 款 + 全库 252 款，FP8/INT8 算力、显存、TDP 一张表看完
+- [TCO 计算器](/docs/tco-calculator)：输入功耗、算力与电价，测算多年总拥有成本与每 token 成本
+- [发布时间线](/docs/timeline)：历代算力卡发布节奏
+
+## 常见问题
+
+**算力卡和显卡有什么区别？**
+算力卡面向数据中心，无显示输出、普遍配备 ECC 显存与多卡互联；消费级显卡面向图形与游戏。规格口径也不同，算力卡看数据中心精度（FP16/FP8/FP4）。
+
+**对比算力卡时该看哪个算力数字？**
+先对齐精度（FP16/FP8/FP4），再对齐稀疏/密集口径，最后结合显存带宽一起看——推理吞吐往往受带宽限制而非纯算力。
+
+**国产算力卡有哪些代表？**
+训练向：昇腾 910C、寒武纪 MLU690、摩尔线程 MTT S5000；推理向：昆仑芯 P800、海光 DCU、燧原云燧系列。全库对比见 [对比表](/docs/comparison)。

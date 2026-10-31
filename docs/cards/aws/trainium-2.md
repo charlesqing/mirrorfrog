@@ -2,8 +2,8 @@
 id: trainium-2
 title: AWS Trainium 2 (Trn2)
 sidebar_label: AWS Trainium 2
-description: AWS Trainium 2 详尽规格：96GB HBM、1,299 FP8 TFLOPS、8× NeuronCore-v3、2.9 TB/s 带宽，2024 年 12 月 GA。
-keywords: [AWS Trainium 2, Trainium2, NeuronCore-v3, Trn2 实例, Trn2 UltraServer]
+description: AWS（亚马逊）Trainium 2 详尽规格：96GB HBM、1,299 FP8 TFLOPS、8× NeuronCore-v3、2.9 TB/s 带宽，2024 年 12 月 GA。
+keywords: [AWS Trainium 2, 亚马逊 Trainium 2, Trainium2, NeuronCore-v3, Trn2 实例, Trn2 UltraServer]
 ---
 
 # AWS Trainium 2 (Trn2)

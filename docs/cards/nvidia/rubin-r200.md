@@ -1,6 +1,7 @@
 ---
 title: "NVIDIA Rubin GPU（业界通称 R200）"
 description: "NVIDIA Rubin GPU（业界通称 R200）：台积电 3nm 制程、3360 亿晶体管、288GB HBM4 显存、19.2 TB/s 带宽、NVFP4 推理 50 PFLOPS（稀疏），2026 年下半年已规模出货的 Vera Rubin NVL72 核心加速器"
+keywords: [NVIDIA Rubin R200, 英伟达 Rubin, Rubin R200, R200 GPU, Vera Rubin NVL72, HBM4, NVLink 6, NVFP4]
 id: rubin-r200
 date: "2026-03-17"
 vendor: "nvidia"
@@ -8,6 +9,8 @@ category: "数据中心GPU"
 ---
 
 # NVIDIA Rubin GPU（业界通称 R200）
+
+> **注意区分**：搜索 "R200" 时可能命中两款完全不同的芯片——本页是 **NVIDIA Rubin GPU（业界通称 R200）**；百度也有一款 **[昆仑芯 R200](/docs/cards/baidu/r200)**（XPU-R 架构、7nm、256 TOPS INT8 的推理加速卡）。若你要找的是后者，请移步其卡片页。
 
 **NVIDIA Rubin GPU**（NVIDIA 官方产品名；业界与供应链通称 **R200 / VR200**，无官方数字型号）是 NVIDIA 在 2026 年发布的新一代 AI GPU，采用台积电 3nm 制程，集成 3360亿晶体管，配备 **288GB HBM4** 显存、**19.2 TB/s** 带宽，NVFP4 推理算力达 **50 PFLOPS（稀疏）**，全面接替 Blackwell 架构。
 

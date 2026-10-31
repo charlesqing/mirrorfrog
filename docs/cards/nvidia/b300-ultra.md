@@ -2,8 +2,8 @@
 id: b300-ultra
 title: NVIDIA B300 Ultra (Blackwell Ultra)
 sidebar_label: NVIDIA B300 Ultra
-description: NVIDIA Blackwell Ultra B300 详尽规格：288GB HBM3e、8 TB/s、FP4 稀疏 20 PFLOPS（密集 15 PFLOPS）、FP8 稀疏 10 PFLOPS、TDP 1,400W。
-keywords: [NVIDIA B300, Blackwell Ultra, GB300, 288GB HBM3e, NVFP4, 密集 FP4 15 PFLOPS, 1,400W]
+description: NVIDIA（英伟达）Blackwell Ultra B300 详尽规格：288GB HBM3e、8 TB/s、FP4 稀疏 20 PFLOPS（密集 15 PFLOPS）、FP8 稀疏 10 PFLOPS、TDP 1,400W。B300 显卡是 GB300 机柜的核心 GPU。
+keywords: [NVIDIA B300, 英伟达 B300, B300 显卡, Blackwell Ultra, GB300, 288GB HBM3e, NVFP4, 密集 FP4 15 PFLOPS, 1,400W]
 ---
 
 # NVIDIA B300 Ultra (Blackwell Ultra)

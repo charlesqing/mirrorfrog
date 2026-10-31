@@ -2,8 +2,8 @@
 id: ascend-910c
 title: Huawei Ascend 910C
 sidebar_label: Huawei Ascend 910C
-description: Huawei Ascend 910C 详尽规格：双小芯片设计、780 BF16 TFLOPS、CloudMatrix 384 系统、国产最强 AI 芯片。
-keywords: [Huawei Ascend 910C, 昇腾 910C, CloudMatrix 384, 国产 AI 芯片, 双小芯片]
+description: Huawei（华为）Ascend 910C 详尽规格：双小芯片设计、780 BF16 TFLOPS、CloudMatrix 384 系统、国产最强 AI 芯片。
+keywords: [Huawei Ascend 910C, 华为昇腾 910C, 昇腾 910C, CloudMatrix 384, 国产 AI 芯片, 双小芯片]
 ---
 
 # Huawei Ascend 910C

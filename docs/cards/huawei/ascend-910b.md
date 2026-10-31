@@ -2,8 +2,8 @@
 id: ascend-910b
 title: Huawei Ascend 910B
 sidebar_label: Huawei Ascend 910B
-description: Huawei Ascend 910B 详尽规格：64GB HBM2e、320 TFLOPS FP16、640 TOPS INT8、310W TDP，国产 AI 训练 GPU。
-keywords: [Huawei Ascend 910B, 昇腾 910B, 国产 AI 芯片, Da Vinci, CANN]
+description: Huawei（华为）Ascend 910B 详尽规格：64GB HBM2e、320 TFLOPS FP16、640 TOPS INT8、310W TDP，国产 AI 训练 GPU。
+keywords: [Huawei Ascend 910B, 华为昇腾 910B, 昇腾 910B, 国产 AI 芯片, Da Vinci, CANN]
 ---
 
 # Huawei Ascend 910B

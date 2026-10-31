@@ -2,8 +2,8 @@
 id: ascend-950
 title: Huawei Ascend 950 (昇腾 950PR / 950DT)
 sidebar_label: Huawei Ascend 950
-description: Huawei Ascend 950 系列 (950PR/950DT) 详尽规格：1 PFLOPS FP8、自研 HBM、SIMT 双编程模型、HiF8 低精度高保真格式，2026 H1 量产。
-keywords: [Huawei Ascend 950, 昇腾 950, 950PR, 950DT, HiF8, 自研 HBM, FP8, FP4, CloudMatrix 384]
+description: Huawei（华为）Ascend 950 系列 (950PR/950DT) 详尽规格：1 PFLOPS FP8、自研 HBM、SIMT 双编程模型、HiF8 低精度高保真格式，2026 H1 量产。含价格行情与 TCO 测算入口。
+keywords: [Huawei Ascend 950, 华为昇腾 950, 华为昇腾950, 昇腾950 价格, 950PR, 950DT, HiF8, 自研 HBM, FP8, FP4, CloudMatrix 384]
 ---
 
 # Huawei Ascend 950 (昇腾 950PR / 950DT)
@@ -126,3 +126,7 @@ keywords: [Huawei Ascend 950, 昇腾 950, 950PR, 950DT, HiF8, 自研 HBM, FP8, F
 - [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) - 同代竞品
 - [AMD MI355X](/docs/cards/amd/mi355x) - 同代对比
 - [Cambricon MLU690](/docs/cards/cambricon/mlu-690) - 国产竞品
+
+## 价格与 TCO
+
+昇腾 950 系列采购价格随 HBM 供给波动，据媒体报道 950DT 单卡报价一度超过 25 万元、涨价 20%-50%。与其只看标价，建议用 **[TCO 计算器](/docs/tco-calculator)** 输入功耗、算力与电价，测算 3 年总拥有成本与每 token 成本，并在 **[全库对比表](/docs/comparison)** 中与 B300 Ultra、MI355X、MLU690 等同代竞品横向比较。
