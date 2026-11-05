@@ -1,0 +1,37 @@
+---
+slug: rubin-nvl8-shipping-spec-seven-hbm4-stacks
+title: Rubin NVL8 少了一个 HBM4 堆栈：出货规格里最容易被漏掉的一行
+description: 11 月初披露的 Rubin 出货规格显示，HGX Rubin NVL8 每卡只启用 7 个 HBM4 堆栈，系统显存从 2.3TB 降到 2.0TB、聚合带宽降 26%。单卡口径没变，但按系统采购的人得重新算账。
+date: 2026-11-05
+authors: aicomputecards
+tags: [rubin, nvidia, hbm4, tech-deep-dive]
+---
+
+10 月 29 日那波讨论围绕单卡口径：Rubin 的 HBM4 带宽到底是 22 TB/s 还是 19.2 TB/s，NVLink 是 3.6 还是 3.0 TB/s。结论已经落在量产规格上，本站也按 19.2 TB/s 更新了卡片（见 [规格修订一事](/blog/vera-rubin-spec-revision-19-2tbs-nvidia-response)）。
+
+11 月 1 日冒出来的细节是另一回事。据 ServeTheHome 对 NVIDIA 官网与架构数据手册 9 月更新的梳理，改动最大的不是单卡，而是 **HGX Rubin NVL8** 这套八卡系统。
+
+| 项目 | 早期宣传 | 出货规格 |
+|------|---------|---------|
+| 系统显存 | 2.3 TB | 2.0 TB |
+| 单卡可用显存 | 288 GB | 约 250–252 GB |
+| 聚合显存带宽 | 176 TB/s | 130 TB/s |
+| NVLink 带宽 | 28.8 TB/s | 24 TB/s |
+| 网络带宽 | 1.6 TB/s | 1.8 TB/s |
+| FP4 训练 | 280 PFLOPS | 270 PFLOPS |
+| FP8 训练 | 140 PFLOPS | 130 PFLOPS |
+| FP4 推理 | 400 PFLOPS | 400 PFLOPS |
+
+每卡仍然焊着 8 个 HBM4 堆栈，只启用 7 个，可用容量因此从 288GB 掉到 250GB 出头。聚合带宽 26% 的降幅比容量 13% 的降幅更扎眼，因为带宽是 Prefill 和长上下文推理的直接约束。推理算力没动，训练算力小幅下调，说明这不是重新设计计算单元，而是在内存子系统上收紧了。
+
+NVL72 那边反倒平静：20.7 TB 总显存不变，聚合显存带宽 1400 TB/s、NVLink 216 TB/s、网络 32.4 TB/s。同一个 GPU，装进不同系统，拿到的内存配置不一样。这件事以前在发布会材料里是看不出来的。
+
+NVIDIA 没有解释原因。可以确认的一组数字是，HBM4 每引脚速率从原计划的 10.75 Gbps 落到 9.375 Gbps，仍高于 HBM4 规范的 8 Gbps，也高于 AMD MI455X 报道中的 7.6 Gbps。也就是说降档之后依然激进，只是不再超规格那么多。研报里有一种解释：少用一层堆栈、降低速率要求，能提高能跑通的 GPU 数量，在 HBM 供货紧张的时候把整机产出拉上去（见 [HBM4 供货到 2029 那笔账](/blog/hbm4-shortage-2029-lta-rubin-bandwidth-tradeoff)）。这属于推测，NVIDIA 没认。
+
+对采购方的影响很实在。按 288GB × 8 规划 KV Cache 和模型分片的，到了 NVL8 上会少 300GB 左右；按 176 TB/s 估算带宽瓶颈的，得把 130 TB/s 代进去重算。机架级 NVL72 不受这条影响，但两者本来就不是同一个采购单元，混用一份规格表是这次最容易犯的错。
+
+还有个操作层面的建议：签合同前拿最终的系统级规格表，别拿发布会上那张 GPU 规格页。NVIDIA 在早期资料里已经注明参数属初步数据、可能变更，这次改动正是照着那句免责走的。
+
+[Rubin GPU 卡片](/docs/cards/nvidia/rubin-r200) 已补上这批系统级数字。
+
+留下的问题只有一个：NVL8 的 7 堆栈是硬件配置锁定，还是后续批次会放开？两种情况的残值和升级路径完全不同，目前没有答案。

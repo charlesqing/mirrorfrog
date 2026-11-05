@@ -91,6 +91,7 @@ Rubin R200 adopts a **multi-chip module (MCM) design**, with the core comprising
 - **MLPerf Inference v6.1 Debut** (results published 2026-09-16): Qwen3-VL throughput up to **3.7x** GB300 NVL72, DeepSeek-R1 up to **2.5x**, with 99% scaling efficiency demonstrated on 288 GPUs
 - **On-Premises Users**: Q1 2027 availability
 - **Partner Products**: Market delivery in second half of 2026
+- **Shipping spec locked (reported 2026-11-01)**: NVIDIA finalized HBM4 bandwidth at 19.2 TB/s per GPU (down from the preliminary 22 TB/s), NVLink scale-up at 3.0 TB/s (down from 3.6 TB/s), and raised scale-out networking to 450 GB/s. Compute and 288GB capacity are unchanged. According to ServeTheHome's review of NVIDIA's September data-sheet update, the **HGX Rubin NVL8** changed more: seven of eight HBM4 stacks are enabled per GPU, cutting usable memory to about 250-252GB, system memory from 2.3 TB to 2.0 TB, and aggregate memory bandwidth from 176 TB/s to 130 TB/s. NVIDIA has not explained the revisions; buyers should size clusters from the final system-level spec sheet.
 
 ## Application Scenarios
 

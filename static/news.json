@@ -1,65 +1,65 @@
 [
   {
-    "title": "寒武纪 MLU590 正式发布后怎么用：规格解读与三个适用场景",
-    "date": "2026-10-31",
-    "slug": "cambricon-mlu590-spec-scenario-guide",
-    "url": "/blog/cambricon-mlu590-spec-scenario-guide",
-    "description": "MLU590（思元590）2026-07-01 正式发布：7nm + Chiplet、FP16 256 TFLOPS、INT8 512 TOPS、96GB HBM2e、350W。本文解读规格口径，并给出推理、训推一体、国产化替代三个场景的适",
-    "tags": [
-      "cambricon",
-      "domestic-chips",
-      "selection"
-    ]
-  },
-  {
-    "title": "H20 vs 昇腾 910B：中国市场合规算力卡怎么选",
-    "date": "2026-10-31",
-    "slug": "h20-vs-ascend-910b-china-market",
-    "url": "/blog/h20-vs-ascend-910b-china-market",
-    "description": "NVIDIA H20 与华为昇腾 910B 是中国数据中心最常被放在一起对比的两张卡：FP16 148 vs 320 TFLOPS、96GB vs 64GB 显存、CUDA vs CANN。一文按算力、显存、互联、生态、价格五个维度拆开看。",
-    "tags": [
-      "nvidia",
-      "huawei",
-      "domestic-chips",
-      "selection"
-    ]
-  },
-  {
-    "title": "摩尔线程 MTT S5000：国产全功能 GPU 往训练主战场迈出的关键一步",
-    "date": "2026-10-31",
-    "slug": "mtt-s5000-domestic-training-gpu",
-    "url": "/blog/mtt-s5000-domestic-training-gpu",
-    "description": "MTT S5000 采用第四代 MUSA 平湖架构与 PH100 芯片：FP8 稠密 1000 TFLOPS、BF16 400 TFLOPS、80GB 显存、1.6 TB/s 带宽。本文解读规格、看它和上一代的差距，以及训练场景的适配判断。",
-    "tags": [
-      "moore-threads",
-      "MTT-S5000",
-      "domestic-chips"
-    ]
-  },
-  {
-    "title": "AMD×Meta 6GW 官宣：Helios 已装进 Meta 机房，MI450 拿下第五家吉瓦级客户",
-    "date": "2026-10-30",
-    "slug": "amd-meta-6gw-helios-partnership-october-2026",
-    "url": "/blog/amd-meta-6gw-helios-partnership-october-2026",
-    "description": "AMD 10-27 官宣与 Meta 扩大战略合作：Helios 机架已安装测试、定制版 MI450 将部署、EPYC 驱动 Muse 智能体，AMD 同时向 Meta 股权投资 10 亿美元。",
+    "title": "AMD 三季度数据中心涨了 97%，钱是 MI450 和 EPYC 一起挣的",
+    "date": "2026-11-05",
+    "slug": "amd-q3-2026-data-center-97-percent-helios-ramp",
+    "url": "/blog/amd-q3-2026-data-center-97-percent-helios-ramp",
+    "description": "AMD 11 月 3 日财报：营收 133.77 亿美元、数据中心 85.46 亿同比增 97%，Helios 机柜已在五家客户跑起来。公司给的 Q4 指引是数据中心再环比增约 50%。",
     "tags": [
       "amd",
       "mi450",
       "instinct",
-      "announcement"
+      "industry-review"
     ]
   },
   {
-    "title": "国产 AI 芯片 Q3 财报季：寒武纪 37 亿利润领跑，扭亏阵营扩容至四家",
-    "date": "2026-10-30",
-    "slug": "china-ai-chip-q3-2026-earnings-season-roundup",
-    "url": "/blog/china-ai-chip-q3-2026-earnings-season-roundup",
-    "description": "寒武纪前三季营收 95.26 亿、海光 149.55 亿、沐曦 28.24 亿、摩尔线程单季扣非转正；IDC 数据显示非 GPU 加速器出货首次超过 GPU。",
+    "title": "DeepSeek V5 传要用昇腾做预训练，卡在哪儿",
+    "date": "2026-11-05",
+    "slug": "deepseek-v5-ascend-950-pretraining-plan",
+    "url": "/blog/deepseek-v5-ascend-950-pretraining-plan",
+    "description": "11 月 3 日消息称 DeepSeek V5 计划基于昇腾 950 预训练。真正的铺垫是 9 月底开源的 TileLang 与通信库，训练迁移的难点也恰恰在这里。",
+    "tags": [
+      "deepseek",
+      "huawei-ascend",
+      "ascend-950",
+      "training"
+    ]
+  },
+  {
+    "title": "HBM 排产排到 2029，Rubin 降带宽可能不是性能问题",
+    "date": "2026-11-05",
+    "slug": "hbm4-shortage-2029-lta-rubin-bandwidth-tradeoff",
+    "url": "/blog/hbm4-shortage-2029-lta-rubin-bandwidth-tradeoff",
+    "description": "SK 海力士三季度营业利润率接近 80%、14 家客户长协覆盖 2027 与 2028 过半产能。存储这么紧的时候，NVIDIA 把 Rubin 的 HBM4 速率从 10.75 降到 9.375 Gbps，更像是在换产出。",
+    "tags": [
+      "hbm4",
+      "ai-infrastructure",
+      "tech-deep-dive"
+    ]
+  },
+  {
+    "title": "天数智芯开放日：1.05 倍吞吐、每百万 Token 降 40%，哪些能信",
+    "date": "2026-11-05",
+    "slug": "iluvatar-tg300-open-day-1-05x-h200-ixl144",
+    "url": "/blog/iluvatar-tg300-open-day-1-05x-h200-ixl144",
+    "description": "天垓300 首次真机实测，第三方口径称端到端吞吐达某国际顶尖 GPU 的 1.05 倍；IXL144 报出每百万有效 Token 成本降约 40%。厂商口径和第三方实测得分开看。",
     "tags": [
       "domestic-chips",
-      "cambricon",
-      "industry-review",
-      "domestic-substitution"
+      "benchmarks",
+      "inference"
+    ]
+  },
+  {
+    "title": "Rubin NVL8 少了一个 HBM4 堆栈：出货规格里最容易被漏掉的一行",
+    "date": "2026-11-05",
+    "slug": "rubin-nvl8-shipping-spec-seven-hbm4-stacks",
+    "url": "/blog/rubin-nvl8-shipping-spec-seven-hbm4-stacks",
+    "description": "11 月初披露的 Rubin 出货规格显示，HGX Rubin NVL8 每卡只启用 7 个 HBM4 堆栈，系统显存从 2.3TB 降到 2.0TB、聚合带宽降 26%。单卡口径没变，但按系统采购的人得重新算账。",
+    "tags": [
+      "rubin",
+      "nvidia",
+      "hbm4",
+      "tech-deep-dive"
     ]
   }
 ]
