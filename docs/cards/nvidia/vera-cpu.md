@@ -5,6 +5,7 @@ id: vera-cpu
 date: "2026-03-17"
 vendor: "nvidia"
 category: "数据中心CPU"
+keywords: [NVIDIA Vera CPU, Vera, 88 核, LPDDR5X, NVL72, 英伟达]
 ---
 
 # NVIDIA Vera CPU

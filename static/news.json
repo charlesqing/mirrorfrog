@@ -1,5 +1,19 @@
 [
   {
+    "title": "Broadcom 一个季度交出近 200 万块 H100 等效：TPU 供给第一次有了可比的刻度",
+    "date": "2026-11-07",
+    "slug": "broadcom-tpu-compute-doubled-2m-h100-equivalents",
+    "url": "/blog/broadcom-tpu-compute-doubled-2m-h100-equivalents",
+    "description": "Epoch AI 估算 Broadcom 的 TPU 计算出货量从 FY2026 Q2 到 Q3 约翻倍至近 200 万块 H100 等效，物理芯片约 80 万颗、环比增约 65%。本文拆解计算量与颗数的差额、v7 与 8i 的代际乘法，以",
+    "tags": [
+      "tpu",
+      "broadcom",
+      "custom-chip",
+      "industry-review",
+      "ai-hardware"
+    ]
+  },
+  {
     "title": "AMD 三季度数据中心涨了 97%，钱是 MI450 和 EPYC 一起挣的",
     "date": "2026-11-05",
     "slug": "amd-q3-2026-data-center-97-percent-helios-ramp",
@@ -47,19 +61,6 @@
       "domestic-chips",
       "benchmarks",
       "inference"
-    ]
-  },
-  {
-    "title": "Rubin NVL8 少了一个 HBM4 堆栈：出货规格里最容易被漏掉的一行",
-    "date": "2026-11-05",
-    "slug": "rubin-nvl8-shipping-spec-seven-hbm4-stacks",
-    "url": "/blog/rubin-nvl8-shipping-spec-seven-hbm4-stacks",
-    "description": "11 月初披露的 Rubin 出货规格显示，HGX Rubin NVL8 每卡只启用 7 个 HBM4 堆栈，系统显存从 2.3TB 降到 2.0TB、聚合带宽降 26%。单卡口径没变，但按系统采购的人得重新算账。",
-    "tags": [
-      "rubin",
-      "nvidia",
-      "hbm4",
-      "tech-deep-dive"
     ]
   }
 ]

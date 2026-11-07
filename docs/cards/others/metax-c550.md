@@ -8,6 +8,7 @@ chip_id: "metax-c550"
 release_date: "2024-06-01"
 launch_price: "未公开"
 status: "量产"
+keywords: [沐曦 曦云 C550, MetaX C550, 国产 GPU, MXMACA]
 ---
 
 # 沐曦 曦云 C550

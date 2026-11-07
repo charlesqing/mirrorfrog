@@ -128,6 +128,12 @@ TPU 8i 是 Google **AI 推理规模化**的核心 —— Gemini API、Vertex AI 
 | **云端上线** | **2026 年下半年** |
 | **硅设计伙伴** | MediaTek（据行业报道，Google 未官方确认） |
 
+## 2026-11 补充：早期量产与供给量化估算
+
+Epoch AI 11 月 4 日发布的估算（11-06 经多家媒体转述）给了一个此前没有的量化视角：Broadcom 的 TPU 计算出货量从 FY2026 Q2 到 Q3 约翻倍，达到近 200 万块 H100 等效；物理芯片出货约 80 万颗、环比增长约 65%，差额来自产品结构向高性能型号迁移 —— TPU v7 已占出货多数（单颗性能约为 v6e 的 2.5 倍），而 **TPU 8i 已进入早期生产**，单颗性能约为 v7 的 2.2 倍。同期 Broadcom XPU 出货同比增长超过 3.5 倍，XPU 占其 AI 营收 73%，AI 半导体营收超过 167 亿美元，集中在六家客户。
+
+以上全部是 Epoch AI 的第三方估算，不是 Google 或 Broadcom 官方披露；「H100 等效」是换算单位，不等于实际出货颗数，也不能当作 TCO 或算力对比的直接输入。本站 TPU 8i 规格表仍以已公布的产品口径为准。
+
 ## 数据来源
 
 - [Google Cloud Next 2026：TPU 8t 与 TPU 8i 发布](https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-next-2026) — 第八代 TPU 拆分训练/推理双线

@@ -8,6 +8,7 @@ chip_id: "moore-threads-mtt-s2000"
 release_date: "2022-07-05"
 launch_price: "未公开"
 status: "量产"
+keywords: [摩尔线程 MTT S2000, MTT S2000, 国产 GPU, MUSA]
 ---
 
 # 摩尔线程 MTT S2000

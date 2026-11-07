@@ -8,6 +8,7 @@ chip_id: "enflame-l600"
 release_date: "2025-07-27"
 launch_price: "未公开"
 status: "发布"
+keywords: [燧原 L600, Enflame L600, 国产 GPU, 训练卡]
 ---
 
 # 燧原科技 燧原 L600

@@ -8,6 +8,7 @@ chip_id: "metax-c588"
 release_date: "2024-09-01"
 launch_price: "未公开"
 status: "量产"
+keywords: [沐曦 曦云 C588, MetaX C588, 国产 GPU, MXMACA]
 ---
 
 # 沐曦 曦云 C588

@@ -8,6 +8,7 @@ chip_id: "enflame-t10"
 release_date: "2019-12-11"
 launch_price: "$6000（预估）"
 status: "量产"
+keywords: [燧原 云燧 T10, Enflame T10, 训练卡, 国产 AI 芯片]
 ---
 
 # 燧原科技 云燧 T10

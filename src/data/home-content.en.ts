@@ -47,7 +47,7 @@ export const EN_CONTENT: HomeContent = {
   ctaBlog: 'Industry News',
   ctaTco: 'TCO Calculator',
   ctaContribute: 'Contribute Data',
-  metaDescription: "The world's most comprehensive AI compute chip encyclopedia: NVIDIA H100/H200/B200/Rubin, AMD MI300X/MI355X/MI455X, Google TPU v7, Huawei Ascend 910C/950/960, and 233 chips with detailed specs, comparisons, and news.",
+  metaDescription: "The world's most comprehensive AI compute chip encyclopedia: NVIDIA H100/H200/B200/Rubin, AMD MI300X/MI355X/MI455X, Google TPU v7, Huawei Ascend 910C/950/960, and 252 chips with detailed specs, comparisons, and news.",
   loadingText: 'Loading...',
   errorText: 'Failed to load data',
   retryText: 'Retry',

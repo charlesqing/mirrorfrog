@@ -5,6 +5,7 @@ id: rubin-ultra
 date: "2026-03-17"
 vendor: "nvidia"
 category: "数据中心GPU"
+keywords: [NVIDIA Rubin Ultra, V300, Rubin Ultra, NVL576, HBM4e, 英伟达]
 ---
 
 # NVIDIA Rubin Ultra (V300)

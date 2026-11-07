@@ -8,6 +8,7 @@ chip_id: "moore-threads-mtt-s80"
 release_date: "2023-11-11"
 launch_price: "¥2,999"
 status: "量产"
+keywords: [摩尔线程 MTT S80, MTT S80, 国产显卡, MUSA]
 ---
 
 # 摩尔线程 MTT S80

@@ -112,7 +112,7 @@ export const ZH_CONTENT: HomeContent = {
   ctaBlog: '行业动态',
   ctaTco: 'TCO 计算器',
   ctaContribute: '提交数据',
-  metaDescription: '全球最全面的 AI 算力卡信息百科：NVIDIA H100/H200/B200/Rubin、AMD MI300X/MI355X/MI455X、Google TPU v7、华为昇腾 910C/950/960 等 233 款芯片的详尽规格、对比、动态',
+  metaDescription: '全球最全面的 AI 算力卡信息百科：NVIDIA H100/H200/B200/Rubin、AMD MI300X/MI355X/MI455X、Google TPU v7、华为昇腾 910C/950/960 等 252 款芯片的详尽规格、对比、动态',
   loadingText: '加载中...',
   errorText: '加载失败',
   retryText: '重试',

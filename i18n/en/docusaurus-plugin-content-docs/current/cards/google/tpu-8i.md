@@ -120,6 +120,12 @@ TPU 8i is the core of Google's **"AI Inference Era" strategy** — Gemini API, V
 | **Cloud Deployment** | Google Cloud only (Vertex AI / Gemini API) |
 | **Codename** | Trillium 2 (Inference Edition) |
 
+## November 2026 Update: Early Production Estimate
+
+An Epoch AI estimate published on 4 November 2026 (relayed by several outlets on 6 November) puts Broadcom's TPU compute shipments at nearly 2 million H100 equivalents in FY2026 Q3, roughly double the previous quarter, while physical chip shipments rose about 65% to roughly 800,000 units. The gap is attributed to a mix shift: TPU v7 now accounts for the majority of shipments at about 2.5x the performance of v6e, and **TPU 8i has entered early production** at about 2.2x the performance of v7. Over the same period Broadcom's XPU shipments grew more than 3.5x year on year and XPUs represented 73% of its AI revenue.
+
+All of these are third-party estimates, not disclosures from Google or Broadcom. "H100 equivalent" is a conversion unit for compute, not a unit count, and should not be used as an input for TCO or per-token cost calculations. The specification table above remains based on published product data.
+
 ## Related Products
 
 - [Google TPU 8t](/docs/cards/google/tpu-8t) - **Simultaneous training-dedicated TPU**

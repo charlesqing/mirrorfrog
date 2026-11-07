@@ -8,6 +8,7 @@ chip_id: "moore-threads-mtt-s70"
 release_date: "2024-05-01"
 launch_price: "未公开"
 status: "量产"
+keywords: [摩尔线程 MTT S70, MTT S70, 国产显卡, MUSA]
 ---
 
 # 摩尔线程 MTT S70

@@ -8,6 +8,7 @@ chip_id: "enflame-i10"
 release_date: "2020-12-21"
 launch_price: "未公开"
 status: "量产"
+keywords: [燧原 云燧 i10, Enflame i10, 推理卡, 国产 AI 芯片]
 ---
 
 # 燧原科技 云燧 i10

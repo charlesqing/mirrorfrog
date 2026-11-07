@@ -8,6 +8,8 @@ keywords: [SEO, 搜索引擎优化, 关键词, 百度 SEO, Google SEO, Bing SEO,
 
 # MirrorFrog AI Compute Cards Wiki - SEO 策略
 
+> **数据快照说明**：本文是站点早期的 SEO 策略记录，文中的「109 款卡片 / 15 篇博客 / 11 篇架构」均为撰写时口径，不代表当前规模。全库现有 252 款算力卡，实时数量以 [完整对比表](/docs/comparison) 与 [chips.json](/chips.json) 为准。
+
 本文档详细介绍 **mirrorfrog.com** 的 SEO 策略，涵盖 **关键词研究、技术 SEO、内容 SEO、外链策略、站长平台提交** 四大方面。基于 2026-05-2026-06 的 Google Trends、百度指数、DailySearchVolume、SemiAnalysis、IDC 等公开数据。
 
 ## 1. 关键词研究

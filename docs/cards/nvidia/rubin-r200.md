@@ -113,6 +113,12 @@ Rubin GPU 面向**数据中心与超算场景**，适用于：
 - 强化学习（RL）与代理式 AI
 - 科学计算与 AI 工厂
 
+## 2026-11 补充：AI 工厂交付与云端可用
+
+NVIDIA 官网新闻页在 11 月初集中列出几项 Rubin 平台的交付进展：Vera Rubin DSX AI 工厂参考设计与 DSX POD（模块化集装箱整机，官方称现场公用设施就绪后部署周期可从约六个月缩短至 14 天，冷却用水最多减少 100%、同等 AI 产出功耗最多降低 30%）；Vera Rubin NVL72 与 Vera CPU 上线 CoreWeave，Cognition 是首个在其上跑生产级 agentic AI 负载的客户；OCP Global Summit 上宣布向生态开放 Vera Rubin 平台。以上均为 NVIDIA 官方口径，尚未见第三方实测验证，各项百分比不可直接代入 [TCO 计算器](/docs/tco-calculator) 的采购模型。
+
+另据 Dell / HPE 的 NVL72 预售页（11-05 更新）：每机架 72 块 Rubin GPU 加 36 颗 Vera CPU、单卡 288GB HBM4、机架合计约 20.7TB，均为液冷且无风冷选项；HPE 标注 2026 年 12 月可用，Dell 标注 2026 年下半年。这与本站 10-29 定论的单卡 19.2 TB/s、288GB 口径一致。
+
 ## 数据来源
 
 - [NVIDIA Vera Rubin NVL72 官方规格页](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/) — 单 GPU：NVFP4 推理 50 PFLOPS（稀疏）、训练 35 PFLOPS（密集）、FP8 17.5 PFLOPS（密集）、FP16 4 PFLOPS、FP32 130 TFLOPS、288GB HBM4 | 19.2 TB/s、NVLink 6 3 TB/s

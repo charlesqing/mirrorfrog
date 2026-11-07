@@ -5,7 +5,14 @@
     "vendor": "amd",
     "slug": "/docs/cards/amd/epyc-venice",
     "description": "AMD EPYC Venice (Zen 6)，全球首款2nm数据中心CPU，最多256个Zen 6C核心，1GB L3缓存，1.6TB/s带宽，2026年CES发布",
-    "keywords": [],
+    "keywords": [
+      "AMD EPYC Venice",
+      "EPYC 9006",
+      "Zen 6",
+      "第六代 EPYC",
+      "服务器 CPU",
+      "Helios"
+    ],
     "tdpW": null,
     "fp16Tflops": null,
     "fp4Tflops": null,
@@ -439,7 +446,14 @@
     "vendor": "amd",
     "slug": "/docs/cards/amd/mi455x",
     "description": "AMD Instinct MI455X GPU，基于CDNA 5架构，TSMC N2+N3混合制程，432GB HBM4显存，MXFP4算力40.3 PFLOPS，2026年7月23日 Advancing AI 2026发布的AI训练与推理GPU",
-    "keywords": [],
+    "keywords": [
+      "AMD MI455X",
+      "Instinct MI455X",
+      "MI450 系列",
+      "Helios",
+      "HBM4",
+      "AI GPU"
+    ],
     "tdpW": null,
     "fp16Tflops": 10100,
     "fp4Tflops": 40300,
@@ -3702,7 +3716,14 @@
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/rubin",
     "description": "NVIDIA Rubin GPU 在 CES 2026 正式发布，采用 TSMC 3nm 工艺，双计算 die + 双 I/O die MCM 设计，288GB HBM4，FP4 算力 50 PFLOPS，单卡功耗 1800W-2300W。",
-    "keywords": [],
+    "keywords": [
+      "NVIDIA Rubin",
+      "Rubin GPU",
+      "Vera Rubin",
+      "HBM4",
+      "NVLink 6",
+      "英伟达 Rubin"
+    ],
     "tdpW": 2300,
     "fp16Tflops": null,
     "fp4Tflops": 50000,
@@ -3796,7 +3817,14 @@
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/rubin-ultra",
     "description": "NVIDIA Rubin Ultra (V300) 预览：Rubin 架构旗舰增强版，原版 4 芯片设计、576GB HBM4e、NVL144 机柜。⚠️ 架构修订中：4 芯片设计取消，2026-09 报道称显存拟降至 192GB HBM4。规格待官方最终确认。",
-    "keywords": [],
+    "keywords": [
+      "NVIDIA Rubin Ultra",
+      "V300",
+      "Rubin Ultra",
+      "NVL576",
+      "HBM4e",
+      "英伟达"
+    ],
     "tdpW": 3000,
     "fp16Tflops": null,
     "fp4Tflops": null,
@@ -3848,7 +3876,14 @@
     "vendor": "nvidia",
     "slug": "/docs/cards/nvidia/vera-cpu",
     "description": "NVIDIA Vera CPU，88个自研Olympus核心，支持Armv9.2指令集，1.5TB LPDDR5X内存，1.2TB/s带宽，2026年GTC发布的AI专用CPU",
-    "keywords": [],
+    "keywords": [
+      "NVIDIA Vera CPU",
+      "Vera",
+      "88 核",
+      "LPDDR5X",
+      "NVL72",
+      "英伟达"
+    ],
     "tdpW": null,
     "fp16Tflops": null,
     "fp4Tflops": null,
@@ -5265,7 +5300,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/enflame-i10",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "燧原 云燧 i10",
+      "Enflame i10",
+      "推理卡",
+      "国产 AI 芯片"
+    ],
     "tdpW": 150,
     "fp16Tflops": 70,
     "fp4Tflops": null,
@@ -5325,7 +5365,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/enflame-l600",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "燧原 L600",
+      "Enflame L600",
+      "国产 GPU",
+      "训练卡"
+    ],
     "tdpW": 400,
     "fp16Tflops": null,
     "fp4Tflops": null,
@@ -5389,7 +5434,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/enflame-t10",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "燧原 云燧 T10",
+      "Enflame T10",
+      "训练卡",
+      "国产 AI 芯片"
+    ],
     "tdpW": 225,
     "fp16Tflops": 80,
     "fp4Tflops": null,
@@ -6983,7 +7033,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/metax-c550",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "沐曦 曦云 C550",
+      "MetaX C550",
+      "国产 GPU",
+      "MXMACA"
+    ],
     "tdpW": 450,
     "fp16Tflops": 280,
     "fp4Tflops": null,
@@ -7009,7 +7064,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/metax-c588",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "沐曦 曦云 C588",
+      "MetaX C588",
+      "国产 GPU",
+      "MXMACA"
+    ],
     "tdpW": 350,
     "fp16Tflops": 35,
     "fp4Tflops": null,
@@ -7112,7 +7172,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/metax-g100",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "沐曦 曦彩 G100",
+      "MetaX G100",
+      "国产 GPU",
+      "图形渲染"
+    ],
     "tdpW": 150,
     "fp16Tflops": null,
     "fp4Tflops": null,
@@ -7136,7 +7201,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/metax-n100",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "沐曦 曦思 N100",
+      "MetaX N100",
+      "推理卡",
+      "国产芯片"
+    ],
     "tdpW": 75,
     "fp16Tflops": 80,
     "fp4Tflops": null,
@@ -7263,7 +7333,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/moore-threads-mtt-s2000",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "摩尔线程 MTT S2000",
+      "MTT S2000",
+      "国产 GPU",
+      "MUSA"
+    ],
     "tdpW": 200,
     "fp16Tflops": 48,
     "fp4Tflops": null,
@@ -7394,7 +7469,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/moore-threads-mtt-s70",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "摩尔线程 MTT S70",
+      "MTT S70",
+      "国产显卡",
+      "MUSA"
+    ],
     "tdpW": 200,
     "fp16Tflops": 46,
     "fp4Tflops": null,
@@ -7420,7 +7500,12 @@
     "vendor": "others",
     "slug": "/docs/cards/others/moore-threads-mtt-s80",
     "description": "",
-    "keywords": [],
+    "keywords": [
+      "摩尔线程 MTT S80",
+      "MTT S80",
+      "国产显卡",
+      "MUSA"
+    ],
     "tdpW": 255,
     "fp16Tflops": 58,
     "fp4Tflops": null,

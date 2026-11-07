@@ -5,6 +5,7 @@ id: epyc-venice
 date: "2026-01-06"
 vendor: "amd"
 category: "数据中心CPU"
+keywords: [AMD EPYC Venice, EPYC 9006, Zen 6, 第六代 EPYC, 服务器 CPU, Helios]
 ---
 
 # AMD EPYC Venice

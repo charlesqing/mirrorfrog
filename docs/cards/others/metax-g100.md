@@ -8,6 +8,7 @@ chip_id: "metax-g100"
 release_date: "2025-12-01"
 launch_price: "未公开"
 status: "研发中"
+keywords: [沐曦 曦彩 G100, MetaX G100, 国产 GPU, 图形渲染]
 ---
 
 # 沐曦 曦彩 G100

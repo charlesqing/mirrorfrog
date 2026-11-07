@@ -8,6 +8,8 @@ keywords: [SEO, search engine optimization, keywords, Baidu SEO, Google SEO, Bin
 
 # MirrorFrog AI Compute Cards Wiki - SEO Strategy
 
+> **Historical snapshot**: this document records the site's early SEO strategy; figures such as "109 cards / 15 blogs / 11 architectures" describe the state at the time of writing, not the current size. The library now holds 252 compute cards — see the [full comparison table](/docs/comparison) and [chips.json](/chips.json) for live counts.
+
 This document details the SEO strategy for **mirrorfrog.com**, covering **keyword research, technical SEO, content SEO, backlink strategy, and webmaster platform submission** in four major areas. Based on public data from Google Trends, Baidu Index, DailySearchVolume, SemiAnalysis, IDC, etc. for 2026-05 through 2026-06.
 
 ## 1. Keyword Research

@@ -8,6 +8,7 @@ chip_id: "metax-n100"
 release_date: "2023-06-07"
 launch_price: "未公开"
 status: "量产"
+keywords: [沐曦 曦思 N100, MetaX N100, 推理卡, 国产芯片]
 ---
 
 # 沐曦 曦思 N100
