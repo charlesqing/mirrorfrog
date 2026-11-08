@@ -119,6 +119,16 @@ Driven by surging HBM costs and tight supply, Ascend card prices have risen shar
 | **Ascend 950PR** | ~¥60,000 | Above **¥80,000** | +30% |
 | **Ascend 950DT** | ~¥120,000-150,000 | Indicative price above **¥250,000** | Up to +50% (within two months) |
 
+## November 2026 Update: Ecosystem and Kimi K3.1 Pro Fine-Tuning
+
+Media reports dated November 3 say the next DeepSeek model V5 is planned to pre-train on Ascend hardware, with Ascend 950 as the main training target and a 2027 timeline. Neither DeepSeek nor Huawei has confirmed it. The groundwork is public: DeepSeek open-sourced Ascend-oriented infrastructure components in late September (TileLang compiler tooling, compute and distributed communication libraries) and said every TileLang operator used in training has an Ascend counterpart. Earlier in October the two companies jointly released open-source programming tools and libraries for Ascend 950.
+
+Chinese technical write-ups of November 6-7, as reported by Pandaily, describe Huawei validating LoRA fine-tuning of Kimi K3.1 Pro (about 2.8 trillion total parameters, up to one million tokens of context) on a 128-card Atlas 950 SuperPoD. The setup combines FSDP2 sharding with EP64 expert parallelism, chunked loss over sequence and vocabulary dimensions, fused forward and backward kernels for KDA attention, and a tiered HBM/DDR cache called Swap Core that the vendor says lifted average training performance by 15%. No absolute throughput was published, the gain is not independently reproduced, and the reported loss curves show convergence rather than downstream task quality. This is a training result, distinct from the day-zero inference support announced after the model weights were released on November 4.
+
+## Pricing and TCO
+
+Reported channel quotes for Ascend 950DT have exceeded 250,000 yuan per card with 20-50% increases tied to HBM supply. Rather than comparing sticker prices alone, use the [TCO calculator](/docs/tco-calculator) with real power, utilization and electricity rates, and compare against B300 Ultra, MI355X and MLU690 in the [full comparison table](/docs/comparison).
+
 ## Related Products
 
 - [Huawei Ascend 920](/docs/cards/huawei/ascend-920) - Previous-generation roadmap

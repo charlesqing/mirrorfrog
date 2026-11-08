@@ -122,6 +122,12 @@ Trainium 3 is the centerpiece of AWS's **"AI Factory" strategy** — Amazon's in
 | **SDK** | https://github.com/aws-neuron |
 | **Partners** | Anthropic / Meta / Mistral / HuggingFace |
 
+## September 2026 Update: System-Level Specifications and Commercialization
+
+AWS disclosed rack-level figures beyond the per-chip specification: a Trainium3 UltraServer holds up to 144 chips, 362 PFLOPS MXFP8, 20.7TB HBM3e and 706 TB/s aggregate bandwidth, with up to 28.8 Tbps scale-out via Elastic Fabric Adapter and an all-to-all NeuronSwitch fabric doubling chip-to-chip bandwidth over the Trainium2 UltraServer. UltraClusters 3.0 scales to hundreds of thousands of chips. These 362 PFLOPS / 20.7TB / 706 TB/s numbers are for the whole 144-chip UltraServer, not a single chip — single-chip FP8 dense compute is 2.52 PFLOPS.
+
+Commercialization: Trainium plus Graviton passed a 25 billion USD annualized revenue run-rate, with the CEO suggesting the chip business could approach 50 billion USD standalone; Trainium2 is essentially sold out and Trainium3 nearly fully allocated at launch; Anthropic committed up to 5 GW and OpenAI about 2 GW from 2027, while Uber has trained ride-hailing models on Trainium3. AWS is also in talks to sell Trainium chips directly outside its cloud instances, and announced a multi-generation collaboration with Qualcomm on September 8 focused initially on inference, with potential commitments up to 60 billion USD over ten years — a ceiling, not guaranteed revenue. Trainium4 will use NVIDIA NVLink Fusion. SemiAnalysis reported in October 30.47% MFU on Qwen3-32B training with TorchTitan, 89 of 96 FlexAttention tests passing, and native PyTorch eager mode support in TorchNeuron. Company claims and guidance are not third-party benchmarks.
+
 ## Related Products
 
 - [AWS Trainium 2](/docs/cards/aws/trainium-2) - Previous generation chip

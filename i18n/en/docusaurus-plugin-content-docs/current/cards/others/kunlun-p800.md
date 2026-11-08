@@ -88,6 +88,10 @@ The **Kunlunxin P800** is the **third-generation AI accelerator card** from Kunl
 | 2025 | Large-scale delivery of 10,000-card clusters |
 | 2026-05 | Started STAR Market IPO |
 
+## November 2026 Update: China Mobile and OISA 2.0
+
+According to a Kunlunxin release carried by industry press on November 7, Kunlunxin presented an OISA (omni-directional intelligent interconnect) supernode server with China Mobile and partners at the 2026 Mobile Network Conference. Built on the P800 series, it provides high-speed multi-card interconnect inside one rack. Kunlunxin also joined the China Mobile OISA ecosystem work, co-released the OISA 2.0 protocol, and is participating in its cloud AI compute centers and ten-thousand-card clusters. These are vendor and operator announcements: rack card count, interconnect bandwidth and measured throughput were not disclosed and are not added to the specification table. The relevant shift is that P800 deployment now extends from individual cards into an operator-side interconnect standard.
+
 ## Related Cards
 
 - [Kunlunxin M100](/docs/cards/others/kunlun-m100) — Next-generation inference-dedicated

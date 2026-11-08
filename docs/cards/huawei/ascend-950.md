@@ -135,6 +135,12 @@ keywords: [Huawei Ascend 950, 华为昇腾 950, 华为昇腾950, 昇腾950 价�
 - [AMD MI355X](/docs/cards/amd/mi355x) - 同代对比
 - [Cambricon MLU690](/docs/cards/cambricon/mlu-690) - 国产竞品
 
+## 2026-11 补充：Kimi K3.1 Pro 在 Atlas 950 上的微调验证
+
+据 11 月 6–7 日中文技术文与 Pandaily 转述，华为昇腾团队宣布完成 Kimi K3.1 Pro（约 2.8 万亿总参数、最长 100 万上下文）的 LoRA 微调适配，并在 128 卡 Atlas 950 SuperPoD 上跑通训练验证。技术路径是 FSDP2 切分参数、梯度与优化器状态叠加专家并行（EP64）、按序列与词表分块计算 loss，并为 KDA 线性注意力写了大粒度融合前后向算子；名为 Swap Core 的选择性缓存把部分矩阵乘结果放在 HBM 与 DDR 组成的分层存储里，公司称平均训练性能提升 15%。
+
+> 口径说明：15% 与「算子性能较小算子方案提升一倍以上」都是厂商口径，未公布绝对吞吐、未经独立复现；公布的是 loss 曲线收敛，不是下游任务评测。这条与 11 月 4 日模型权重开源后的 Day-0 推理支持是两件事，本卡此前「昇腾在头部模型里主要承担推理」的判断需要按此更新：微调链路已跑通，预训练级别的集群稳定性仍无公开数据。相关背景见 [DeepSeek V5 预训练计划](/blog/deepseek-v5-ascend-950-pretraining-plan) 与 [Kimi K3.1 Pro 开源](/blog/kimi-k3-1-pro-3t-open-weights-model-compute)。
+
 ## 价格与 TCO
 
 昇腾 950 系列采购价格随 HBM 供给波动，据媒体报道 950DT 单卡报价一度超过 25 万元、涨价 20%-50%。与其只看标价，建议用 **[TCO 计算器](/docs/tco-calculator)** 输入功耗、算力与电价，测算 3 年总拥有成本与每 token 成本，并在 **[全库对比表](/docs/comparison)** 中与 B300 Ultra、MI355X、MLU690 等同代竞品横向比较。

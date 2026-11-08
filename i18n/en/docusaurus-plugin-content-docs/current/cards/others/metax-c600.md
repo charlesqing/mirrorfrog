@@ -135,6 +135,12 @@ The MetaX C600 is the first general-purpose GPU that is **domestic across the en
 
 > 📌 **Procurement positioning**: the C600 is MetaX's **currently purchasable flagship on sale**. Until the next-generation C700 enters production in the second half of 2027, the C600 serves as the transitional supply of high-end domestic GPUs — for domestic compute projects that need to **land right now**, it is one of the options worth evaluating.
 
+## November 2026 Update: Q3 Results and CIIE System Disclosure
+
+Press compilations of Q3 filings put MetaX first-three-quarter 2026 revenue at 2.824 billion yuan (+128.45% YoY) with a return to profit. At the ninth China International Import Expo (Shanghai, November 5-10), MetaX was the only domestic GPU vendor selected for the China Pavilion, showing the Xijing S600 supernode and a joint dual-engine rack with Dongfang Suanxin. The company restated C600 parameters consistent with this page: XCORE 1.5 architecture, domestic 7nm process, 144GB HBM3e, about 3.35 TB/s bandwidth, roughly 1000 TFLOPS FP8 and 2000 TOPS INT8, with native FP8/FP16/FP32/FP64 mixed precision.
+
+The S600 uses an OEX orthogonal architecture with 128-card full-switch, non-blocking interconnect in one rack, scale-out to ten-thousand-card clusters, MXMACA software and MetaXLink. The rack "three zeros" design removes cables from compute nodes, switch nodes and between them, moving cabling and tuning into the factory so customer data centers need no major retrofit. The dual-engine rack splits MoE inference by workload: C600 handles attention and other compute-heavy work while the Dongfang Suanxin DF1000 handles sparse activation and memory-bound work; in speculative decoding the DF1000 generates draft candidates and C600 verifies them in batches. These are system-level vendor disclosures, not C600 single-card specifications, and no third-party end-to-end benchmark has been published. A November 8 on-site report framed the cable-free rack as evidence that competition has shifted from single-card peak specifications toward engineering delivery efficiency; deployment time and retrofit cost remain unmeasured.
+
 ## Related Cards
 
 - [Kunlunxin P800](/docs/cards/others/kunlun-p800) — Strongest domestic AI compute

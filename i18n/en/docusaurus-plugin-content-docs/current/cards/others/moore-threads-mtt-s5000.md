@@ -165,6 +165,12 @@ keywords: [Moore Threads, MTT S5000, MUSA, domestic GPU, domestic AI chip]
 - [NVIDIA A100](/en/docs/cards/nvidia/a100) - Data center classic
 - [NVIDIA RTX 4090](/en/docs/cards/nvidia/rtx-4090) - Consumer-grade
 
+## November 2026 Update: Token Factory, Day-0 Adaptation and Q3 Results
+
+Moore Threads, together with Zhipu AI and a domestic inference-infrastructure partner, announced a heterogeneous inference "AI Token Factory" built on MTT S5000. A November 8 report says the solution has entered production deployment with vendor-reported figures of over 50 TPS, KV-cache hit rate above 90% and 99.9% stability; China Mobile simultaneously launched its MoMA open program with Token-cost subsidies and an industry service platform. The setup uses PD disaggregation: S5000 handles compute-heavy Prefill, higher-bandwidth accelerators handle Decode, and KV cache moves across devices. These are release figures without model, concurrency, sequence-length or cluster-size details, so they cannot be compared with other throughput numbers on this site.
+
+On November 6, Chinese business press reported day-zero support for Kimi K3.1 Pro on MTT S5000 and MUSA — model loading, service startup and basic text and image inference. That is an inference-chain availability claim, not training validation or a performance benchmark. The same reports put first-three-quarter revenue at 3.289 billion yuan (+319.15% YoY) and a return to profit; Cambricon at 9.526 billion yuan and Hygon at 14.955 billion yuan. These are press compilations of quarterly filings and do not change the specification table.
+
 ## References
 
 - [Moore Threads Official Website](https://www.mthreads.com)

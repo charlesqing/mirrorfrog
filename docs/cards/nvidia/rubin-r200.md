@@ -119,6 +119,14 @@ NVIDIA 官网新闻页在 11 月初集中列出几项 Rubin 平台的交付进�
 
 另据 Dell / HPE 的 NVL72 预售页（11-05 更新）：每机架 72 块 Rubin GPU 加 36 颗 Vera CPU、单卡 288GB HBM4、机架合计约 20.7TB，均为液冷且无风冷选项；HPE 标注 2026 年 12 月可用，Dell 标注 2026 年下半年。这与本站 10-29 定论的单卡 19.2 TB/s、288GB 口径一致。
 
+## 2026-11-08 补充：机架级内存调度与推理吞吐口径
+
+NVIDIA 本周在官方博客给出 Vera Rubin NVL72 的内存策略：每 GPU 的 HBM 容量相比 GB300 只增加约 3%，增益来自系统级设计——权重与 KV Cache 压到 NVFP4、模型权重摊到全部 72 块 GPU 以释放本地 HBM、Vera CPU 的大容量内存作为缓冲层、Dynamo 负责上下文迁移、RAG 索引与非活跃上下文下沉到更便宜的存储层。公司宣称相对 GB300 NVL72 可获得最高 30 倍的成本调整后 agentic 推理吞吐。
+
+> 口径说明：30 倍是「最高可达」的厂商口径，尚无独立基准验证，也不能直接代入 [TCO 计算器](/docs/tco-calculator)。可确认的方向是：内存从单卡固定上限变成机架级可调度的共享资源，长上下文与多轮 agent 负载的成本将由压缩、调度与软件栈决定，而不只由堆 HBM 决定。
+
+另据 NAVER 11 月 6 日监管文件，NVIDIA 对这家韩国互联网公司的 10 亿美元投资已完成缴款，持股 4.13%，资金将用于世宗数据中心的 GPU 基础设施与 GPUaaS 业务。这是资本层面动作，不改变本卡规格。
+
 ## 数据来源
 
 - [NVIDIA Vera Rubin NVL72 官方规格页](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/) — 单 GPU：NVFP4 推理 50 PFLOPS（稀疏）、训练 35 PFLOPS（密集）、FP8 17.5 PFLOPS（密集）、FP16 4 PFLOPS、FP32 130 TFLOPS、288GB HBM4 | 19.2 TB/s、NVLink 6 3 TB/s

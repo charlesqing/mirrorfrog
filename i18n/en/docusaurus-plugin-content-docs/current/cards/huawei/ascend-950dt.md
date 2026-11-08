@@ -102,6 +102,16 @@ keywords: [Ascend 950DT, HiZQ 2.0, Da Vinci v5, FP8, MXFP4, Huawei Cloud, Decode
 - **Availability**: Huawei Cloud compute rental (hourly/monthly billing), not available for individual purchase
 - **Physical Card Release**: Expected Q4 2026 through partners (e.g., Inspur, Sugon)
 
+## September 2026 Update: HBM-Driven Price Increases
+
+Reuters and Bloomberg reported on September 10, 2026 that rising HBM costs were pushing up domestic accelerator quotes: Ascend 950DT above 250,000 yuan per card (+20-50% in two months), 950PR from about 60,000 to above 80,000 yuan (+30%), and 910C from 90,000 to above 110,000 yuan (+22%), with Cambricon 690, MetaX and Iluvatar CoreX also raising 20-30%. These are indicative channel quotes, not transaction prices; actual deals vary with order size and whether racks, networking and support are bundled.
+
+The reported bottleneck is HBM capacity rather than logic dies: domestic HBM output is described as sufficient for only about 250,000-300,000 finished accelerators against a much larger logic-die capacity. The 950 series uses Huawei in-house memory — HiBL 1.0 on 950PR and HiZQ 2.0 on 950DT — with no disclosed manufacturer. Huawei public timeline still points to a Q4 2026 launch. Pricing above 250,000 yuan puts the domestic flagship near NVIDIA B200 territory, shifting the pricing logic from a discount alternative to a scarcity premium.
+
+## Pricing and TCO
+
+Reported 950DT quotes have exceeded 250,000 yuan with 20-50% increases tied to HBM supply. Use the [TCO calculator](/docs/tco-calculator) with actual power draw, utilization and electricity rates, and compare against B300 Ultra and MI355X in the [full comparison table](/docs/comparison).
+
 ## External Links
 
 - [Tencent News: Ascend 950DT chip launches in August](https://news.qq.com/rain/a/20260611A01Y8F00)

@@ -97,7 +97,7 @@ Absent from the 2nd 2026 "Safe and Reliable Evaluation Results Announcement"; th
 
 #### Technical Route
 
-TSINGMICRO adopts a reconfigurable dataflow architecture同源 with **Groq LPU**, finding a balance between GPU generality and ASIC extreme efficiency.
+TSINGMICRO adopts a reconfigurable dataflow architecture sharing a common lineage with **Groq LPU**, finding a balance between GPU generality and ASIC extreme efficiency.
 
 | Metric | TSINGMICRO TX81 | Traditional GPU | Advantage |
 |------|----------------|-----------------|------|
@@ -157,7 +157,7 @@ On February 20, 2026, Canadian AI chip startup **Taalas** launched inference chi
 #### Technical Principle
 
 Taalas HC1 uses an aggressive **Computing-in-Memory (CIM)** implementation:
-- Model weights directly固化 in **Mask ROM** (fully hardware-defined)
+- Model weights hardwired directly into **Mask ROM** (fully hardware-defined)
 - On-chip **SRAM** handles dynamic data (KV cache and LoRA fine-tuning weights)
 - Only **2 mask layers** need modification to produce a dedicated chip for another AI model; turning an AI model into a physical chip takes only **2 months**
 

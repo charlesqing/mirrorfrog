@@ -101,6 +101,14 @@ Rubin R200 targets **data center and supercomputing scenarios**, suitable for:
 - Reinforcement learning (RL) and agentic AI
 - Scientific computing and AI factories
 
+## November 2026 Update: AI Factory Delivery and Rack-Level Memory
+
+NVIDIA's November newsroom updates list several Rubin delivery milestones: the Vera Rubin DSX AI factory reference design and DSX POD (a modular containerized system the vendor says can cut on-site deployment from about six months to 14 days once utilities are ready), Vera Rubin NVL72 and the Vera CPU becoming available on CoreWeave with Cognition as the first production agentic-AI customer, and the platform opening to the OCP ecosystem. Dell and HPE NVL72 pre-order pages updated November 5 list 72 Rubin GPUs plus 36 Vera CPUs per rack, 288GB HBM4 per GPU and about 20.7TB per rack, liquid cooling only; HPE marks December 2026 availability and Dell the second half of 2026. All figures are vendor-reported and not independently benchmarked.
+
+This week NVIDIA also detailed the NVL72 memory strategy: per-GPU HBM capacity rises only about 3% versus GB300, with gains coming from system design — NVFP4 compression of weights and KV cache, sharding weights across all 72 GPUs, using the Vera CPU large memory as a buffer tier, Dynamo for context migration, and pushing RAG indexes and inactive context to cheaper storage. The company claims up to 30x cost-adjusted agentic inference throughput over GB300 NVL72. That "up to" number is a vendor claim without independent verification and should not be entered into the [TCO calculator](/docs/tco-calculator). The durable point is that memory becomes a rack-wide schedulable pool rather than a fixed per-chip ceiling.
+
+A NAVER regulatory filing dated November 6 says the $1 billion NVIDIA investment has completed payment, leaving NVIDIA with a 4.13% stake earmarked for GPU infrastructure at the Sejong data center and a GPU-as-a-Service business. This is a capital move and changes no specification on this page.
+
 ## References
 
 - [NVIDIA Official News](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx)
