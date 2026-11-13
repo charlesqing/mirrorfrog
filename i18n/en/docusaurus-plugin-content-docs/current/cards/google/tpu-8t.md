@@ -115,3 +115,12 @@ TPU 8t is the core training chip for **Google Gemini 3 / Gemini 4 frontier model
 - [AWS Trainium 3](/docs/cards/aws/trainium-3) - Same-generation training ASIC
 - [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - Same-generation GPU
 - [Full Comparison Table](/docs/comparison)
+
+## 2026-11-13 update: 8tx shares the 8t die
+
+Google's November 9 TPU 8tx uses the same silicon as 8t, paired with 5th Gen AMD EPYC hosts and hardware-level memory encryption that keeps model weights and sensitive data isolated during active computation. It adopts the Boardfly low-latency network from 8i; Google claims up to 2x lower latency than 8t with a near-zero performance penalty. The target is regulated enterprises and governments running private fine-tuning, distillation and reinforcement learning on sensitive data, with small-scale training and confidential inference on one system.
+
+The same announcement introduced 8i Max, recorded on the [TPU 8i page](/docs/cards/google/tpu-8i). Google describes both as new systems rather than new chips, and four TPU systems in one year as a first. The spec table here is unchanged: no standalone 8tx chip specification was published.
+
+> Sourcing note: Google official blog (2026-11-09). Vendor statements, no independent measurements or standalone specifications.
+

@@ -134,3 +134,14 @@ All of these are third-party estimates, not disclosures from Google or Broadcom.
 - [AWS Inferentia 2](/docs/cards/aws/inferentia-2) - Inference ASIC comparison
 - [Groq LPU](/docs/cards/others/groq-lpu) - Inference latency comparison
 - [Full Comparison Table](/docs/comparison)
+
+## 2026-11-13 update: 8i Max and 8tx, four TPU systems in one year
+
+Google's November 9 blog added two eighth-generation TPU systems. TPU 8i Max puts two 8i chips on a single package, doubling compute, SRAM and HBM bandwidth over a single 8i while keeping the same rack footprint; it targets million-token context windows and the highest compute density per rack. TPU 8tx uses the same silicon as 8t, pairs it with 5th Gen AMD EPYC hosts, and moves memory encryption into the hardware layer. It reuses the Boardfly low-latency network from 8i, with Google claiming up to 2x lower latency than 8t at near-zero performance penalty, for confidential inference and small-scale training in regulated industries and government.
+
+The post draws a clear line between a new chip and a new system: neither addition required a new tape-out. Packaging, high-speed memory, host CPUs and optical networking can be recombined in months instead of waiting on a multi-year fabrication cycle. Together with 8t and 8i from Cloud Next in April, this is the first time Google has shipped four TPU systems in a single year. Google says the TPU business now has nearly 100 customers, including frontier labs, trading firms, retailers and universities.
+
+No new card is created here: these are system configurations, not new silicon, and no standalone chip specifications were published. The spec table on this page is unchanged. The 8tx shared-die detail is also recorded on the [TPU 8t page](/docs/cards/google/tpu-8t).
+
+> Sourcing note: Google official blog (2026-11-09) plus press coverage. The 2x figures, latency claim and customer count are vendor statements without independent measurements; no standalone specs or shipment volumes were disclosed.
+

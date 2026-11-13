@@ -108,6 +108,24 @@ NVIDIA's November newsroom updates list several Rubin delivery milestones: the V
 This week NVIDIA also detailed the NVL72 memory strategy: per-GPU HBM capacity rises only about 3% versus GB300, with gains coming from system design — NVFP4 compression of weights and KV cache, sharding weights across all 72 GPUs, using the Vera CPU large memory as a buffer tier, Dynamo for context migration, and pushing RAG indexes and inactive context to cheaper storage. The company claims up to 30x cost-adjusted agentic inference throughput over GB300 NVL72. That "up to" number is a vendor claim without independent verification and should not be entered into the [TCO calculator](/docs/tco-calculator). The durable point is that memory becomes a rack-wide schedulable pool rather than a fixed per-chip ceiling.
 
 A NAVER regulatory filing dated November 6 says the $1 billion NVIDIA investment has completed payment, leaving NVIDIA with a 4.13% stake earmarked for GPU infrastructure at the Sejong data center and a GPU-as-a-Service business. This is a capital move and changes no specification on this page.
+> The same filing, reported by Yonhap and the Korea Times on November 6, adds the mechanics: NAVER issued 6,558,435 new common shares for about 1.3 trillion won, making NVIDIA its third-largest shareholder. The first site is the Gak Sejong data center, operated by Naver Cloud, with a plan to bring 55MW online in the first half of 2027, expand to 200MW in 2028 and a longer-term 1GW concept. Brookfield has a compute-infrastructure agreement with NAVER worth up to $9 billion. This is sovereign-AI capital and data-center capacity, not a Rubin rack order or a delivery schedule.
+
+
+## November 8, 2026 Update: Two Competing Views on Delivery Pace
+
+A supply-chain account circulating on Taiwanese investment forums on November 8 claims Rubin rack delivery guidance for late 2026 was cut from at least 7,000-8,000 racks (optimistic case 11,000-12,000) to a more realistic 4,000-5,000, citing HBM4 yield variability, system stability under sustained stress testing, interconnect and software validation workload, and unresolved liquid-cooling and power issues. It suggests volume ramp may slip to the second half of Q1 2027 and that second-tier server vendors and some neoclouds face larger cuts than top-tier ODMs.
+
+> Sourcing note: this is an unnamed supply-chain claim relayed on investment forums, unconfirmed by NVIDIA or any vendor, and not an official guideline or independently verified reporting. It does not necessarily contradict the "full production" status and CoreWeave NVL72 availability recorded above — production status, shipment batches and customer racking are three different things. No specification or status on this page changes. Buyers should watch verifiable delivery evidence (vendor availability dates, cloud instance GA, rack revenue recognition in quarterly filings) rather than forum rack counts. The same source's claims about Google TPU timing and external compute rental are likewise unverified and are not recorded here.
+
+## 2026-11-13 update: public MLPerf v6.1 entries and vendor multiples
+
+NVIDIA's developer page now lists the MLPerf Inference v6.1 Closed Division entries for Vera Rubin NVL72: 1,183,327 tokens/sec on DeepSeek-R1 Offline with 72 VR200 GPUs, and 2,393 samples/sec on Qwen3-VL 235B (GB300 NVL72 is listed at 1,305 samples/sec on the same page). These are public submissions, not preview figures.
+
+In its v6.1 preview material NVIDIA separately claimed up to 3.7 times the throughput of GB300 NVL72 on cited Qwen3 VL workloads, with a note that post-submission results had not yet been verified by MLCommons. The same material quotes up to 10 times throughput per dollar on an AgentX workload and up to 35 times token throughput per megawatt on long-context models. Those figures use different workloads and denominators; they do not validate one another and cannot be converted directly into customer savings.
+
+On November 12 AMD compared its own 21,333 tokens/s/GPU result against the public DeepSeek-R1 entry above and claimed up to 30 percent higher throughput. The two sides did not run the same test: AMD ran an internal MLPerf configuration while NVIDIA submitted a public result. The [MI455X page](/docs/cards/amd/mi455x) records the other side of that comparison.
+
+> Sourcing note: public benchmark entries plus vendor marketing material. The 3.7x, 10x and 35x figures are vendor claims on different workloads. The spec table is unchanged; throughput multiples are not compute specifications.
 
 ## References
 

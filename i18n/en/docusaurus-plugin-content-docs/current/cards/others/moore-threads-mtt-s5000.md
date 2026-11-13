@@ -171,6 +171,22 @@ Moore Threads, together with Zhipu AI and a domestic inference-infrastructure pa
 
 On November 6, Chinese business press reported day-zero support for Kimi K3.1 Pro on MTT S5000 and MUSA — model loading, service startup and basic text and image inference. That is an inference-chain availability claim, not training validation or a performance benchmark. The same reports put first-three-quarter revenue at 3.289 billion yuan (+319.15% YoY) and a return to profit; Cambricon at 9.526 billion yuan and Hygon at 14.955 billion yuan. These are press compilations of quarterly filings and do not change the specification table.
 
+## November 8, 2026 Update: Three Techniques Behind the Heterogeneous Token Factory
+
+At MobileLink 2026 (Guangzhou, November 5-7), Moore Threads exhibited both the KUAE 10,000-card, trillion-parameter training platform and a heterogeneous inference "AI Token Factory" solution. The public technical breakdown names three techniques: Prefill-Decode disaggregation (S5000 handling compute-heavy Prefill, higher-bandwidth accelerators handling Decode), high-performance heterogeneous KV-cache conversion, and heterogeneous compute fusion, layered with full-stack optimization across model adaptation, inference execution, KV-cache management, resource scheduling and service operations to raise effective Token output per unit of hardware.
+
+> Sourcing note: this is a vendor trade-show description with no published concurrency, model, sequence length or cluster size, and no independent measurements. It cannot be added to or converted from the 50 TPS release figure above. The architectural point matters for procurement: heterogeneous Token factories gain from placing different pipeline stages on different chips rather than from single-card peaks, so evaluation must use full-stack throughput and cost per Token. The single-card figures in the [comparison table](/docs/comparison) are not sufficient for that decision.
+
+## 2026-11-13 update: PD disaggregation in production
+
+Chinese press reported on November 4 and 6 that at the 2026 GAI+C conference Moore Threads, together with an inference-system partner and model company Zhipu, launched a heterogeneous "AI Token factory" solution. S5000 handles the compute-heavy Prefill stage with its dense compute and native FP8 support; hardware with larger memory bandwidth handles Decode; the partner's PD disaggregation system moves KVCache across devices, turning Prefill into a resource pool that can be supplied, billed and optimized independently.
+
+The published production figures are average generation speed above 50 TPS, KV Cache hit rate above 90 percent and 99.9 percent stability. A Prefill pool of three to four S5000 units is claimed to beat international compute solutions on input-token cost efficiency under equivalent service standards. The vendors say the solution is in full production use, carrying large-parameter models and concurrent traffic for a leading model company.
+
+None of these convert into single-card throughput. No concurrency, model, sequence length or cluster size was given, and the cost-efficiency claim has no named comparison system or cost-per-token denominator. The 50 TPS, 90 percent and 99.9 percent figures describe the whole solution under live traffic, not this card.
+
+> Sourcing note: vendor announcement relayed by Chinese media, solution-level metrics without third-party measurement or single-card equivalents. The spec table is unchanged. Evaluate this kind of system on full-stack throughput and cost per Token at a stated concurrency and sequence length; the [TCO calculator](/docs/tco-calculator) framing fits better than single-card peaks.
+
 ## References
 
 - [Moore Threads Official Website](https://www.mthreads.com)

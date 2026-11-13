@@ -126,3 +126,12 @@ TPU 8t 专为 **Google Gemini 3 / Gemini 4 等 frontier 模型训练**设计，�
 - [AWS Trainium 3](/docs/cards/aws/trainium-3) - 同代训练 ASIC
 - [NVIDIA Rubin R200](/docs/cards/nvidia/rubin-r200) - 同代 GPU
 - [完整对比表](/docs/comparison)
+
+## 2026-11-13 补充：同源硅片的 8tx
+
+Google 11 月 9 日发布的 TPU 8tx 用的是与 8t 相同的硅片，配第 5 代 AMD EPYC 主机，在硬件层做内存加密，让模型权重和敏感数据在实际计算过程中也保持隔离。它沿用 8i 的 Boardfly 低时延网络，官方称相对 8t 延迟最高降一半、性能损失接近零。定位是受监管企业与政府拿私有数据做微调、蒸馏、强化学习训练，以及小规模训练与机密推理放在同一套系统里。
+
+同批的 8i Max 把两颗 8i 封进同一封装，细节记在 [TPU 8i 卡片](/docs/cards/google/tpu-8i)。Google 明确说这两款是新系统不是新芯片，一年内四款 TPU 系统为首次。本页规格表不变：8tx 没有公布独立芯片规格。
+
+> 口径说明：Google 官方博客（2026-11-09），厂商表述，无第三方实测与独立规格披露。
+

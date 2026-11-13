@@ -1,5 +1,48 @@
 [
   {
+    "title": "AMD 说快 30%，英伟达说快 3.7 倍，两边都在说自己赢",
+    "date": "2026-11-13",
+    "slug": "amd-30-percent-nvidia-3-7x-inference-benchmarks",
+    "url": "/blog/amd-30-percent-nvidia-3-7x-inference-benchmarks",
+    "description": "11 月 12 日 AMD 拿 21,333 tokens/s/GPU 对比英伟达公开 MLPerf 结果，说最高快 30%；英伟达 v6.1 预览里写的是最高 3.7 倍。数字不打架，比的东西不一样。",
+    "tags": [
+      "amd",
+      "nvidia",
+      "benchmarks",
+      "mlperf",
+      "inference"
+    ]
+  },
+  {
+    "title": "谷歌一年发了四款 TPU，其实没做新芯片",
+    "date": "2026-11-13",
+    "slug": "google-four-tpu-systems-no-new-chip",
+    "url": "/blog/google-four-tpu-systems-no-new-chip",
+    "description": "11 月 9 日 TPU 8tx 与 8i Max 发布。谷歌说清了一件事：新系统和新芯片是两回事，靠封装、内存和主机 CPU 重组，几个月就能出货。",
+    "tags": [
+      "google",
+      "tpu",
+      "tpu-8i",
+      "tpu-8t",
+      "agentic-ai",
+      "inference"
+    ]
+  },
+  {
+    "title": "把 Prefill 单独拆出来卖，摩尔线程这次给的是生产数据",
+    "date": "2026-11-13",
+    "slug": "prefill-disaggregation-mtt-s5000-token-factory",
+    "url": "/blog/prefill-disaggregation-mtt-s5000-token-factory",
+    "description": "2026 人工智能+大会上，摩尔线程、趋境科技和智谱把推理拆成 Prefill 与 Decode 两段，S5000 只管前一段。方案给了 50 TPS、90% 命中率、99.9% 稳定性，也留了几个没说清的分母。",
+    "tags": [
+      "moore-threads",
+      "MTT-S5000",
+      "inference",
+      "domestic-chips",
+      "ai-compute"
+    ]
+  },
+  {
     "title": "60 万块 H200 停在中国香港：许可、灰市价格与国产替代的窗口",
     "date": "2026-11-08",
     "slug": "h200-import-stall-600k-units-hong-kong",
@@ -25,44 +68,6 @@
       "custom-chip",
       "industry-review",
       "ai-hardware"
-    ]
-  },
-  {
-    "title": "AMD 三季度数据中心涨了 97%，钱是 MI450 和 EPYC 一起挣的",
-    "date": "2026-11-05",
-    "slug": "amd-q3-2026-data-center-97-percent-helios-ramp",
-    "url": "/blog/amd-q3-2026-data-center-97-percent-helios-ramp",
-    "description": "AMD 11 月 3 日财报：营收 133.77 亿美元、数据中心 85.46 亿同比增 97%，Helios 机柜已在五家客户跑起来。公司给的 Q4 指引是数据中心再环比增约 50%。",
-    "tags": [
-      "amd",
-      "mi450",
-      "instinct",
-      "industry-review"
-    ]
-  },
-  {
-    "title": "DeepSeek V5 传要用昇腾做预训练，卡在哪儿",
-    "date": "2026-11-05",
-    "slug": "deepseek-v5-ascend-950-pretraining-plan",
-    "url": "/blog/deepseek-v5-ascend-950-pretraining-plan",
-    "description": "11 月 3 日消息称 DeepSeek V5 计划基于昇腾 950 预训练。真正的铺垫是 9 月底开源的 TileLang 与通信库，训练迁移的难点也恰恰在这里。",
-    "tags": [
-      "deepseek",
-      "huawei-ascend",
-      "ascend-950",
-      "training"
-    ]
-  },
-  {
-    "title": "HBM 排产排到 2029，Rubin 降带宽可能不是性能问题",
-    "date": "2026-11-05",
-    "slug": "hbm4-shortage-2029-lta-rubin-bandwidth-tradeoff",
-    "url": "/blog/hbm4-shortage-2029-lta-rubin-bandwidth-tradeoff",
-    "description": "SK 海力士三季度营业利润率接近 80%、14 家客户长协覆盖 2027 与 2028 过半产能。存储这么紧的时候，NVIDIA 把 Rubin 的 HBM4 速率从 10.75 降到 9.375 Gbps，更像是在换产出。",
-    "tags": [
-      "hbm4",
-      "ai-infrastructure",
-      "tech-deep-dive"
     ]
   }
 ]

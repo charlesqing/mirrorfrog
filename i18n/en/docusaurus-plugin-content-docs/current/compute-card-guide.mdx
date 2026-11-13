@@ -24,6 +24,7 @@ These terms are easy to confuse: **GPU / NPU / TPU / ASIC describe chip architec
 | NPU | Neural-network specific, common at the edge | [NPU architecture](/docs/architectures/arch-npu) |
 | ASIC | Custom silicon (Trainium, Dojo, etc.) | [ASIC architecture](/docs/architectures/arch-asic) |
 | Compute card | The board-level umbrella term | This page + [comparison table](/docs/comparison) |
+| Compute-in-memory / CIM | Multiply-accumulate inside memory arrays to cut data movement; common in low-power edge inference | [Edge AI chip landscape](/blog/edge-ai-chip-landscape-2026) |
 
 ## Six Selection Dimensions
 
@@ -40,6 +41,7 @@ These terms are easy to confuse: **GPU / NPU / TPU / ASIC describe chip architec
 |----------|---------------------|--------------|
 | LLM training | [H100](/docs/cards/nvidia/h100) / [H200](/docs/cards/nvidia/h200) / [B200](/docs/cards/nvidia/b200) / [Ascend 910C](/docs/cards/huawei/ascend-910c) / [MLU690](/docs/cards/cambricon/mlu-690) | FP16/FP8 compute + fast interconnect + cluster solutions |
 | LLM inference | [H20](/docs/cards/nvidia/h20) / [L40S](/docs/cards/nvidia/l40s) / [Kunlunchip P800](/docs/cards/others/kunlun-p800) / [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | Memory bandwidth and cost per token |
+| On-device large models | Compute-in-memory parts (e.g. Houmo M50, 160 TOPS INT8 / 10W), phone and PC NPUs | Energy efficiency, largest model that runs locally, and data staying on device — not FP16 peaks |
 | Edge and low power | [L4](/docs/cards/nvidia/l4) / [L2](/docs/cards/nvidia/l2) / [T4](/docs/cards/nvidia/t4) / [RK3588](/docs/cards/others/rockchip-rk3588) | Power, form factor, price-performance |
 
 More category entry points: [Data center AI training](/docs/types/training-gpu) · [Data center AI inference](/docs/types/inference-gpu) · [Edge AI](/docs/types/edge)
@@ -57,6 +59,9 @@ Compute cards target data centers: no display outputs, ECC memory and multi-card
 
 **Which compute number should I compare?**
 Align precision first (FP16/FP8/FP4), then sparse vs dense, and always read it together with memory bandwidth — inference throughput is usually bandwidth-bound rather than compute-bound.
+
+**Does a compute-in-memory chip count as a compute card?**
+Yes, but on a different measurement basis. Compute-in-memory (CIM) performs multiply-accumulate inside SRAM or similar arrays, so the main saving is the energy otherwise spent moving weights. Vendors therefore quote INT8 TOPS and TOPS/W rather than FP16/FP4 TFLOPS. These parts target local inference on devices and at the edge, and their numbers are not directly comparable with the HBM bandwidth and interconnect figures of data-center training cards. At MobileLink 2026, vendors presented such chips as "on-device Token factories" complementing cloud supernodes. Decide where the workload runs first, then choose the measurement convention.
 
 **Representative domestic (Chinese) compute cards?**
 Training: Ascend 910C, Cambricon MLU690, Moore Threads MTT S5000. Inference: Kunlunchip P800, Hygon DCU, Enflame Yunsui series. See the [comparison table](/docs/comparison).

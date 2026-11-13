@@ -125,6 +125,12 @@ Media reports dated November 3 say the next DeepSeek model V5 is planned to pre-
 
 Chinese technical write-ups of November 6-7, as reported by Pandaily, describe Huawei validating LoRA fine-tuning of Kimi K3.1 Pro (about 2.8 trillion total parameters, up to one million tokens of context) on a 128-card Atlas 950 SuperPoD. The setup combines FSDP2 sharding with EP64 expert parallelism, chunked loss over sequence and vocabulary dimensions, fused forward and backward kernels for KDA attention, and a tiered HBM/DDR cache called Swap Core that the vendor says lifted average training performance by 15%. No absolute throughput was published, the gain is not independently reproduced, and the reported loss curves show convergence rather than downstream task quality. This is a training result, distinct from the day-zero inference support announced after the model weights were released on November 4.
 
+## November 8, 2026 Update: Token Factories as the Commercial Outlet for Supernodes
+
+At MobileLink 2026 in Guangzhou (November 5-7), several vendors presented supernodes and "Token factories" as one offering. Huawei showed an Ascend 950 supernode with 256TB of unified memory addressing, 1,024 Ascend 950 chips and 3us RTT, explicitly supporting internal use, compute-card rental and Token services. H3C showed the UniPoD S80000 with 32 or 64 accelerators per rack, scaling from 32 to 1,024 cards and up to 16,384 cards. Moore Threads showed its KUAE 10,000-card training platform alongside a heterogeneous inference Token factory built on PD disaggregation, heterogeneous KV-cache conversion and heterogeneous compute fusion.
+
+> Sourcing note: these are trade-show demonstrations and vendor solution descriptions. The 1,024-card / 256TB / 3us figures are system-level configurations, not single-chip specifications for this card, and no third-party throughput or cost-per-Token measurements were published. The durable change is commercial: supernodes are shifting from training-cluster specifications toward inference capacity billed per Token, which connects directly to the cost-per-Token metric in the [TCO calculator](/docs/tco-calculator). Ask vendors for measured throughput under stated concurrency, sequence length and cache-hit conditions rather than comparing unified-memory capacity alone.
+
 ## Pricing and TCO
 
 Reported channel quotes for Ascend 950DT have exceeded 250,000 yuan per card with 20-50% increases tied to HBM supply. Rather than comparing sticker prices alone, use the [TCO calculator](/docs/tco-calculator) with real power, utilization and electricity rates, and compare against B300 Ultra, MI355X and MLU690 in the [full comparison table](/docs/comparison).
@@ -136,3 +142,12 @@ Reported channel quotes for Ascend 950DT have exceeded 250,000 yuan per card wit
 - [NVIDIA B300 Ultra](/docs/cards/nvidia/b300-ultra) - Contemporary competitor
 - [AMD MI355X](/docs/cards/amd/mi355x) - Contemporary comparison
 - [Cambricon MLU690](/docs/cards/cambricon/mlu-690) - Domestic competitor
+
+## 2026-11-13 update: award and 1,000-plus supernode deployments
+
+On November 2 the Ascend 950 SuperNode won a Leading Science and Technology Award at the 2026 World Internet Conference in Wuzhen (Guangming Daily, CCTV live transcript). Zhang Dixuan, president of Huawei's Ascend computing product line, described a single node with 1,024 NPUs, over 1,300 Lingqu interconnect chips and over 4,000 optical modules under unified memory addressing. He said the 1,024-card supernode reaches 45 percent training compute utilization, described as 1.8 times the industry level, with inference latency down to 5 ms, and that more than 40 large models have completed native pre-training on Ascend. Huawei says over 1,000 Ascend supernodes have been deployed across internet, telecom, finance, education and energy customers. The roadmap is "supernode plus supercluster".
+
+These are system-level figures and vendor statements, not single-chip specifications; the spec table on this page is unchanged. The earlier note about the Guangzhou Mobile Network Conference (256 TB unified memory addressing, 3 microsecond RTT) describes the same system family at a trade show and can be read alongside this, but neither is a per-card parameter.
+
+> Sourcing note: award ceremony remarks and official media coverage. The 45 percent, 5 ms, 1,000-plus and 1.8 times figures are Huawei's own claims, with no third-party measurements or per-industry deployment breakdown.
+

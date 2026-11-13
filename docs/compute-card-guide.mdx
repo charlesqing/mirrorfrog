@@ -24,6 +24,7 @@ keywords: [算力卡, AI 算力卡, 计算卡, AI 加速卡, GPU 卡, 推理卡,
 | NPU | 神经网络专用，多见于边缘 | [NPU 架构详解](/docs/architectures/arch-npu) |
 | ASIC | 定制专用芯片（Trainium、Dojo 等） | [ASIC 架构详解](/docs/architectures/arch-asic) |
 | 算力卡 / 计算卡 | 上述芯片做成板卡后的统称 | 本页 + [全库对比表](/docs/comparison) |
+| 存算一体 / CIM | 在存储单元内完成乘加，减少数据搬运，多见于端侧低功耗推理 | [边缘 AI 芯片全景](/blog/edge-ai-chip-landscape-2026) |
 
 ## 选购六大维度
 
@@ -40,6 +41,7 @@ keywords: [算力卡, AI 算力卡, 计算卡, AI 加速卡, GPU 卡, 推理卡,
 |------|-----------|------|
 | 大模型训练 | [H100](/docs/cards/nvidia/h100) / [H200](/docs/cards/nvidia/h200) / [B200](/docs/cards/nvidia/b200) / [昇腾 910C](/docs/cards/huawei/ascend-910c) / [MLU690](/docs/cards/cambricon/mlu-690) | 看重 FP16/FP8 算力 + 高速互联 + 集群方案 |
 | 大模型推理 | [H20](/docs/cards/nvidia/h20) / [L40S](/docs/cards/nvidia/l40s) / [昆仑芯 P800](/docs/cards/others/kunlun-p800) / [MTT S5000](/docs/cards/others/moore-threads-mtt-s5000) | 看重显存带宽与每 token 成本 |
+| 端侧本地大模型 | 存算一体芯片（如后摩智能 M50，160 TOPS INT8 / 10W）、手机与 PC NPU | 看能效比、本地可跑参数量与「数据不出域」，而非 FP16 峰值 |
 | 边缘与低功耗 | [L4](/docs/cards/nvidia/l4) / [L2](/docs/cards/nvidia/l2) / [T4](/docs/cards/nvidia/t4) / [RK3588](/docs/cards/others/rockchip-rk3588) | 看重功耗、形态与性价比 |
 
 更多分类入口：[数据中心 AI 训练](/docs/types/training-gpu) · [数据中心 AI 推理](/docs/types/inference-gpu) · [边缘 AI](/docs/types/edge)
@@ -57,6 +59,9 @@ keywords: [算力卡, AI 算力卡, 计算卡, AI 加速卡, GPU 卡, 推理卡,
 
 **对比算力卡时该看哪个算力数字？**
 先对齐精度（FP16/FP8/FP4），再对齐稀疏/密集口径，最后结合显存带宽一起看——推理吞吐往往受带宽限制而非纯算力。
+
+**存算一体芯片算不算算力卡？**
+算，但口径不同。存算一体（CIM）把乘加运算放进 SRAM 等存储阵列里做，主要收益是省掉权重搬运的能耗，因此厂商通常标 INT8 TOPS 与 TOPS/W，而不是 FP16/FP4 TFLOPS。它面向端侧与边缘的本地推理，和数据中心训练卡的 HBM 带宽、互联指标不可直接比较。2026 年移动网络大会上已有厂商把这类芯片做成「端侧 Token 工厂」，与云侧超节点形成分层；选型时先确定部署位置，再选口径。
 
 **国产算力卡有哪些代表？**
 训练向：昇腾 910C、寒武纪 MLU690、摩尔线程 MTT S5000；推理向：昆仑芯 P800、海光 DCU、燧原云燧系列。全库对比见 [对比表](/docs/comparison)。
