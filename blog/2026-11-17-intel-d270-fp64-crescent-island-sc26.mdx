@@ -1,0 +1,23 @@
+---
+slug: intel-d270-fp64-crescent-island-sc26
+title: 350W 打 600W，Intel 用 D270 把 FP64 重新摆上桌面
+description: SC26 上 Intel 给出 Crescent Island D270 首批 FP64 基准：金融负载最高 5.9 倍于 RTX PRO 6000，功耗只有一半。对手选择和预量产身份，决定了这组数字能说明什么。
+date: 2026-11-17
+authors: aicomputecards
+tags: [intel, GPU, benchmarks, ai-infrastructure, news]
+---
+# 350W 打 600W，Intel 用 D270 把 FP64 重新摆上桌面
+
+> Intel 在 SC26 第一次给出 D270（Crescent Island）的性能数字。四项金融负载对英伟达 RTX PRO 6000 最高 5.9 倍，平均 4.5 倍。数字挺漂亮，但对手选的是一张 FP64 本来就不强的卡。
+
+D270 的架构底子此前已经披露：32 个 Xe3P 核心、256 个 XMX 引擎、每核 64 个 FP64 FMA，内存走 LPDDR5X，最高 480GB，风冷版本 350W。这次 Intel 补的是它跑起来什么样。欧洲蒙特卡洛 5.9 倍，Black-Scholes 欧式 5.6 倍，二叉树 4.6 倍，Black-Scholes 美式 1.92 倍。平均 4.5 倍这个说法成立，但四项的离散度不小，美式期权那一项只有 1.92 倍，说明加速幅度跟算法结构强相关，不能拿最高值当常态。
+
+功耗是另一半故事。RTX PRO 6000 服务器版标 600W，D270 是 350W，接近一半的功耗换 4.5 倍平均吞吐，这个对比方式很聪明。它是工作站级推理卡，不是数据中心训练卡；Intel 没有拿 H100 或 MI430X 来比，也没有公布 FP64 峰值。缺席的这些数据，比给出的更难忽视。
+
+AI 侧还有两条：Drex 2.0 决策模型延迟低 29%，Qwen3-30B-A3B 吞吐 1.12 倍。跟 FP64 那组一样，都是 Intel 自测，都是预量产硅片，测试条件没有完整公开。我更愿意把这几条读成「能跑通」的证明——LPDDR5X 容量够大、FP64 不做阉割、350W 能塞进现有机房——而不是性能排名的证据。
+
+放在这一周的背景里看更清楚。英伟达刚发布 Rubin HPC，5 万多个 CUDA 核心但一个 FP64 数字都不给，2028 年才上市；AMD 的 MI430X 给了 288 TFLOPS 目标，2027 年才交付。Intel 是三家里唯一拿出现场跑分数据的，代价是芯片还在预量产，对手也不是最强的那张。三种成熟度摆在同一个展馆里，谁都没有完整答案。
+
+真要评估 D270，该问的是另外几个问题：480GB 是 ODM 上限还是能买到的配置，风冷 350W 在满载时能否维持，Xe3P 的 FP64 编译栈在自家代码库里要改多少。等它正式出货、有第三方的同功耗对照，这些问题才有答案。现在这组数字，看看就好。
+
+延伸阅读：[Crescent Island 卡片](/docs/cards/intel/crescent-island) · [MI430X 卡片](/docs/cards/amd/mi430x) · [TCO 计算器](/docs/tco-calculator)

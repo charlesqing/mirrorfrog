@@ -71,6 +71,16 @@ Crescent Island 定位为 **智能体 AI（Agentic AI）推理** 的高性价比
 - ❌ **大规模训练**（非设计目标，Intel 另有 Gaudi 系列）
 - ❌ **低延迟高吞吐推理**（HBM 方案更适合）
 
+## 2026-11-17 补充：SC26 放出首批 FP64 基准，对手是 RTX PRO 6000
+
+Intel 在 SC26 给出 D270（Crescent Island）第一批性能数字。四项金融负载对比 NVIDIA RTX PRO 6000 Blackwell 服务器版：欧洲蒙特卡洛 5.9 倍、Black-Scholes 欧式 5.6 倍、二叉树 4.6 倍、Black-Scholes 美式 1.92 倍，平均约 4.5 倍；D270 标 350W，对手 600W。架构基础是 32 个 Xe3P 核心、每核 64 个 FP64 FMA、256 个 XMX 引擎，LPDDR5X 最高 480GB。
+
+AI 侧另给两条：Drex 2.0 决策模型延迟比对手低 29%，Qwen3-30B-A3B 吞吐 1.12 倍。这两条也是 Intel 自测，芯片是预量产硅片。
+
+读这组数要盯住对手是谁。RTX PRO 6000 是工作站与服务器推理卡，FP64 本来就弱，赢它 5.9 倍不等于赢 H100 或 MI430X。本页规格表也没有 FP64 峰值，只有此前记录的 FP8 1.3 PFLOPS 口径。这更像 Intel 在证明「LPDDR5X 加全速 FP64」这条路走得通，不是宣布登顶。
+
+> 口径说明：Intel 自测、预量产硅片、双方功耗不同且测试条件未完整公开。不写入规格表，也不换算成每瓦性能结论。
+
 ## 数据来源
 
 - [Intel OCP 2026 官方发布（2026-10-13）](https://www.intel.com) — GPU D 系列正式定名、Xe3P 架构、480GB LPDDR5X、350W 风冷 PCIe、客户送样中

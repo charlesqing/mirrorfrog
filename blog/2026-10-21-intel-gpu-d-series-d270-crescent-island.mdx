@@ -52,3 +52,9 @@ D270 填补的是「L40S 之后、HBM 加速器之下」的空档：显存受限
 - [Intel GPU D 系列（Crescent Island）芯片卡片](/docs/cards/intel/crescent-island)
 - [Intel Gaudi 3 芯片卡片](/docs/cards/intel/gaudi-3)
 - [NVIDIA L40S 芯片卡片](/docs/cards/nvidia/l40s)
+
+## 2026-11-17 更新：SC26 补上了 FP64 这一面
+
+上面这篇讲的是成本与容量，没提双精度。Intel 在 SC26 放出 D270 第一批 FP64 数据：四项金融负载对 RTX PRO 6000 Blackwell 服务器版最高 5.9 倍、平均 4.5 倍，D270 是 350W，对手 600W；AI 侧 Drex 2.0 延迟低 29%，Qwen3-30B-A3B 吞吐 1.12 倍。架构说明补了每核 64 个 FP64 FMA、256 个 XMX 引擎，芯片仍是预量产硅片。
+
+这跟原文定位不冲突，反而补了一块：D270 不只是便宜的大内存推理卡，Intel 还想让它接一部分传统 HPC 负载。但对手是 FP64 本来就弱的 RTX PRO 6000，不是 H100 或 MI430X，最高 5.9 倍不能当排名用。拆解见 [D270 的 SC26 基准](/blog/intel-d270-fp64-crescent-island-sc26)。

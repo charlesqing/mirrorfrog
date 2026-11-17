@@ -76,3 +76,13 @@ Crescent Island is positioned as a cost-effective solution for **Agentic AI infe
 - [NVIDIA L40S](/docs/cards/nvidia/l40s) - Comparable inference GPU
 - [NVIDIA H200](/docs/cards/nvidia/h200) - High-end training + inference
 - [Full Comparison Table](/docs/comparison)
+
+## 2026-11-17 update: first FP64 benchmarks at SC26, measured against RTX PRO 6000
+
+Intel published the first D270 (Crescent Island) results at SC26. Four financial workloads against the NVIDIA RTX PRO 6000 Blackwell Server Edition: European Monte Carlo 5.9x, European Black-Scholes 5.6x, binomial 4.6x, American Black-Scholes 1.92x, averaging about 4.5x. D270 is specified at 350W; the competitor card at 600W. The design has 32 Xe3P cores, 64 FP64 FMAs per core and 256 XMX engines, with up to 480 GB of LPDDR5X.
+
+Two AI results came with it: 29% lower latency on Drex 2.0 decision models and 1.12x throughput on Qwen3-30B-A3B. Both are Intel tests on pre-production silicon.
+
+Watch which card is being compared. RTX PRO 6000 is a workstation and server inference part with weak FP64 throughput. Beating it by 5.9x is not the same as beating H100 or MI430X. This page also has no FP64 peak in its spec table, only the previously recorded 1.3 PFLOPS FP8 figure. The result looks like proof that "LPDDR5X plus full-rate FP64" works, not a claim to the top of the ranking.
+
+> Sourcing note: Intel tests, pre-production silicon, different board power and incomplete test conditions. Nothing here is added to the spec table, and the numbers are not converted into a perf-per-watt conclusion.

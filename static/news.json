@@ -1,5 +1,33 @@
 [
   {
+    "title": "350W 打 600W，Intel 用 D270 把 FP64 重新摆上桌面",
+    "date": "2026-11-17",
+    "slug": "intel-d270-fp64-crescent-island-sc26",
+    "url": "/blog/intel-d270-fp64-crescent-island-sc26",
+    "description": "SC26 上 Intel 给出 Crescent Island D270 首批 FP64 基准：金融负载最高 5.9 倍于 RTX PRO 6000，功耗只有一半。对手选择和预量产身份，决定了这组数字能说明什么。",
+    "tags": [
+      "intel",
+      "GPU",
+      "benchmarks",
+      "ai-infrastructure",
+      "news"
+    ]
+  },
+  {
+    "title": "英伟达在 SC26 发了 5 万核心的卡，却没给一个能算的数字",
+    "date": "2026-11-17",
+    "slug": "rubin-hpc-sc26-specs-missing",
+    "url": "/blog/rubin-hpc-sc26-specs-missing",
+    "description": "Rubin HPC 官方只确认超过 5 万个 CUDA 核心、第七代 NVLink 和 2028 年上市；显存、带宽、功耗、FP64 吞吐全部空缺。媒体流传的 33 TFLOPS 不是官方数。",
+    "tags": [
+      "nvidia",
+      "rubin",
+      "GPU",
+      "news",
+      "ai-infrastructure"
+    ]
+  },
+  {
     "title": "AMD 说快 30%，英伟达说快 3.7 倍，两边都在说自己赢",
     "date": "2026-11-13",
     "slug": "amd-30-percent-nvidia-3-7x-inference-benchmarks",
@@ -40,34 +68,6 @@
       "inference",
       "domestic-chips",
       "ai-compute"
-    ]
-  },
-  {
-    "title": "60 万块 H200 停在中国香港：许可、灰市价格与国产替代的窗口",
-    "date": "2026-11-08",
-    "slug": "h200-import-stall-600k-units-hong-kong",
-    "url": "/blog/h200-import-stall-600k-units-hong-kong",
-    "description": "路透 11 月 5 日报道约 60 万块 H200 积压在中国香港、未获内地大批量进口许可；阿里、字节、腾讯各获约 1 万块限训练用途额度，8 卡服务器二级市场报价超 600 万元。本文拆开许可、报价与采购口径。",
-    "tags": [
-      "nvidia",
-      "H100",
-      "news",
-      "ai-hardware",
-      "domestic-chips"
-    ]
-  },
-  {
-    "title": "Broadcom 一个季度交出近 200 万块 H100 等效：TPU 供给第一次有了可比的刻度",
-    "date": "2026-11-07",
-    "slug": "broadcom-tpu-compute-doubled-2m-h100-equivalents",
-    "url": "/blog/broadcom-tpu-compute-doubled-2m-h100-equivalents",
-    "description": "Epoch AI 估算 Broadcom 的 TPU 计算出货量从 FY2026 Q2 到 Q3 约翻倍至近 200 万块 H100 等效，物理芯片约 80 万颗、环比增约 65%。本文拆解计算量与颗数的差额、v7 与 8i 的代际乘法，以",
-    "tags": [
-      "tpu",
-      "broadcom",
-      "custom-chip",
-      "industry-review",
-      "ai-hardware"
     ]
   }
 ]

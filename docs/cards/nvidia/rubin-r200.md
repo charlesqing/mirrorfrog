@@ -145,6 +145,16 @@ NVIDIA 在 v6.1 预览材料里另称，指定 Qwen3 VL 负载下 Vera Rubin NVL
 
 > 口径说明：以上为 NVIDIA 公开基准条目与厂商宣传材料，3.7 倍、10 倍、35 倍均为厂商口径且负载不同；本页规格表不改，不把吞吐倍数当作算力规格。
 
+## 2026-11-17 补充：SC26 发布 Rubin HPC，规格只给了一半
+
+11 月 16 日芝加哥 SC26，英伟达在 Vera Rubin 平台下又挂了一颗 GPU：Rubin HPC。官方说它面向科学、工程与分析的仿真，单 GPU 超过 5 万个 CUDA 核心，是自家纪录；配稀疏数据加速，让核心在散乱取数时别空等；互联用第七代 NVLink，比现售 Rubin 的第六代再往前一代。Ian Buck 在主题演讲里说它覆盖 FP64 到 FP4，预计 2028 年上市。
+
+新闻稿和现场幻灯片都没有给显存容量、带宽、功耗、FP64 吞吐、价格和系统配置。幻灯片上写着「3 倍仿真与分析性能」，但没标基线；媒体随后流传的 33 TFLOPS FP64、8 个 HBM 位是记者看发布会图片猜的，或二手转述，不是官方规格。这类数字不能搬进采购测算当参数用。
+
+这颗卡和本页的 Rubin R200 不是一回事。R200 是 2026 年在售的 AI 训练与推理卡，Rubin HPC 是 2028 年的 HPC 变体，核心数翻倍来自把更多硅片让给通用 CUDA 核，AI 专用单元的比例随之变化。官方没给 FP4 或 FP8 算力，拿 R200 的 50 PFLOPS NVFP4 去套它，同样不对。
+
+> 口径说明：只取 NVIDIA 官方博客与 SC26 现场演讲能确认的内容。媒体推算、未注明基线的倍数、以及未经官方说明的 Rubin CPX 取消传闻都不写入规格表。2028 是「预计」，不是交付承诺。
+
 ## 数据来源
 
 - [NVIDIA Vera Rubin NVL72 官方规格页](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/) — 单 GPU：NVFP4 推理 50 PFLOPS（稀疏）、训练 35 PFLOPS（密集）、FP8 17.5 PFLOPS（密集）、FP16 4 PFLOPS、FP32 130 TFLOPS、288GB HBM4 | 19.2 TB/s、NVLink 6 3 TB/s

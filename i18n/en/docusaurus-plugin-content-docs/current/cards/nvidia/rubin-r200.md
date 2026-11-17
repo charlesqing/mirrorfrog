@@ -127,6 +127,16 @@ On November 12 AMD compared its own 21,333 tokens/s/GPU result against the publi
 
 > Sourcing note: public benchmark entries plus vendor marketing material. The 3.7x, 10x and 35x figures are vendor claims on different workloads. The spec table is unchanged; throughput multiples are not compute specifications.
 
+## 2026-11-17 update: Rubin HPC announced at SC26, half the specs are missing
+
+At SC26 in Chicago on November 16, NVIDIA added another GPU to the Vera Rubin platform: Rubin HPC. The company says it targets simulation for science, engineering and analytics, packs more than 50,000 CUDA cores on one GPU (a company record), adds sparse data acceleration to keep those cores fed, and moves to seventh-generation NVLink, one generation ahead of the sixth-gen link listed for the Rubin GPUs on sale today. Ian Buck said in the keynote that it spans FP64 down to FP4, with availability expected in 2028.
+
+The press post and the stage slide gave no HBM capacity, bandwidth, power, FP64 throughput, price or system configuration. A slide claimed "3x" simulation and analytics performance without naming a baseline. Later reports quoted 33 TFLOPS FP64 and eight HBM sites; those came from reading a product image or second-hand retelling, not from an official specification. They should not be copied into a procurement model.
+
+Rubin HPC is not the Rubin R200 on this page. R200 is an AI training and inference GPU shipping in 2026; Rubin HPC is a 2028 HPC variant that trades more of the die toward general-purpose CUDA cores and away from AI-specific units. With no FP4 or FP8 figure published, carrying over R200's 50 PFLOPS NVFP4 would be wrong too.
+
+> Sourcing note: only claims confirmed by NVIDIA's blog and the SC26 keynote are recorded here. Press estimates, unsourced multiples and an unconfirmed report about Rubin CPX being cancelled are not written into the spec table. "2028" is an expectation, not a shipping commitment.
+
 ## References
 
 - [NVIDIA Official News](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx)

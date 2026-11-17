@@ -46,7 +46,7 @@ NPU:
 TPU:
   label: TPU
   description: Google TPU related articles
-  permalink: /TPU
+  permalink: /tpu-accelerators
 
 ASIC:
   label: ASIC
