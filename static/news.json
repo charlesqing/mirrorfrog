@@ -1,5 +1,19 @@
 [
   {
+    "title": "Token 降价 60%，GPU 租金却在涨：这份财报最反直觉的一组数",
+    "date": "2026-11-19",
+    "slug": "nvidia-q3-fy2027-token-price-down-gpu-rent-up",
+    "url": "/blog/nvidia-q3-fy2027-token-price-down-gpu-rent-up",
+    "description": "11 月 18 日英伟达单季营收 1158 亿美元，Rubin 首季近 200 亿；电话会同时说 token 价格跌近 60%、Hopper 重签最高翻倍、B300 涨超 60%。便宜的是调用，紧的是算力。",
+    "tags": [
+      "nvidia",
+      "rubin",
+      "ai-compute",
+      "strategy",
+      "news"
+    ]
+  },
+  {
     "title": "350W 打 600W，Intel 用 D270 把 FP64 重新摆上桌面",
     "date": "2026-11-17",
     "slug": "intel-d270-fp64-crescent-island-sc26",
@@ -54,20 +68,6 @@
       "tpu-8t",
       "agentic-ai",
       "inference"
-    ]
-  },
-  {
-    "title": "把 Prefill 单独拆出来卖，摩尔线程这次给的是生产数据",
-    "date": "2026-11-13",
-    "slug": "prefill-disaggregation-mtt-s5000-token-factory",
-    "url": "/blog/prefill-disaggregation-mtt-s5000-token-factory",
-    "description": "2026 人工智能+大会上，摩尔线程、趋境科技和智谱把推理拆成 Prefill 与 Decode 两段，S5000 只管前一段。方案给了 50 TPS、90% 命中率、99.9% 稳定性，也留了几个没说清的分母。",
-    "tags": [
-      "moore-threads",
-      "MTT-S5000",
-      "inference",
-      "domestic-chips",
-      "ai-compute"
     ]
   }
 ]

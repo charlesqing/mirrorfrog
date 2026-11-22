@@ -137,6 +137,16 @@ Rubin HPC is not the Rubin R200 on this page. R200 is an AI training and inferen
 
 > Sourcing note: only claims confirmed by NVIDIA's blog and the SC26 keynote are recorded here. Press estimates, unsourced multiples and an unconfirmed report about Rubin CPX being cancelled are not written into the spec table. "2028" is an expectation, not a shipping commitment.
 
+## 2026-11-19 update: nearly $20B in the first quarter, and the other side of the fastest ramp
+
+The FY2027 Q3 results published on November 18 (quarter ended October 25) finally broke out Vera Rubin revenue. Total revenue was $115.8B, up 103% year over year; data center revenue was $107.6B, up 110%. The Rubin platform contributed nearly $20B in its first quarter of production shipments, about 18% of data center revenue, which the company calls its fastest product ramp ever. Racks are running at CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud and Nebius; Google Cloud's A5X instances and OCI's NVL72 systems are generally available.
+
+The earnings call added two numbers that matter more to buyers. Token prices have fallen nearly 60% since May, while GPU rental rates across generations are rising: Hopper GPUs have recontracted at up to twice their original price under multi-year agreements, and B300 rates are up more than 60% since introduction. Utilization remains full. Cheaper calls and tighter supply are not contradictions; the first comes from model efficiency and competition, the second from physical constraints.
+
+Q4 guidance is $130B plus or minus 3%, with no data center compute revenue from China assumed. Licensed Hopper products sold into China brought in $2.4B this quarter. The FY2028 growth outlook rose from 70% to 75%. Cloud industry backlog grew from $2T three months ago to $2.5T. That is the customers' cloud order pool, not NVIDIA's own undelivered orders.
+
+> Sourcing note: company results and management call commentary, not third-party audited product-level splits. The nearly $20B figure covers the Rubin platform, not a single SKU. Vera Rubin Ultra next year and Feynman in 2028 are roadmap statements. The spec table is unchanged.
+
 ## References
 
 - [NVIDIA Official News](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx)

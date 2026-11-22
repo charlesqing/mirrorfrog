@@ -111,6 +111,14 @@ Vera CPU 专为**AI 时代**设计，适用于：
 - 数据分析与存储
 - 企业业务与 HPC
 
+## 2026-11-19 补充：Vera CPU 机架给出 2027 年初的时间点
+
+SC26 同场公布的 Vera CPU 机架有了配置和时间：液冷，192 颗 Vera CPU，约 300TB 内存、1PB 存储，聚合峰值内存带宽超过 200 TB/s；Dell、HPE、Lenovo 和 Supermicro 计划 2027 年初供货。这比 Rubin HPC 的 2028 年早一年多，是英伟达在 HPC 侧先能交货的部分。
+
+厂商给了一个 OpenFOAM 对照：相对 x86 系统性能 1.9 倍、每瓦性能 2.4 倍。这是 NVIDIA 自测的单一应用，OpenFOAM 只是流体仿真的一类负载，推不到全部 HPC。财报同时披露，CoreWeave、Meta、Nebius、Nscale、OpenAI 和 Verda 正在用 Vera CPU，加上此前的 AWS、OCI 与 SpaceXSI。
+
+> 口径说明：机架配置与时间为厂商发布口径，OpenFOAM 倍数为 NVIDIA 自测且未给完整测试配置，均不写入本卡规格表。
+
 ## 参考资料
 
 - [NVIDIA 官方 Vera CPU 页面](https://www.nvidia.cn/data-center/vera-cpu/)

@@ -1098,7 +1098,56 @@
   background: var(--ifm-color-emphasis-100);
 }
 
+/* ===== 隔离全局 sticky 表头规则（custom.css .markdown table） ===== */
+/* TCO 页在 .markdown 容器内，全局规则会穿透到本表：表头变 sticky、
+   首列被不透明白底盖掉 bvrRowActive 行高亮与行底色。用 :global(.markdown)
+   提升特异性显式还原组件自身样式（static + 透明首列）。
+   注意必须同时覆盖 th:first-child——custom.css 的 th:first-child 规则是 (0,2,2)，
+   会压过仅 .bvrTable th 的 (0,2,1) 还原。 */
+:global(.markdown) .bvrTable th,
+:global(.markdown) .bvrTable th:first-child {
+  position: static;
+  background: var(--ifm-color-emphasis-100);
+}
+
+:global(.markdown) .bvrTable td:first-child {
+  position: static;
+  background: transparent;
+}
+
+/* 斑马纹首列配色规则（custom.css）特异性更高，同样要压回去，
+   否则偶数行的 active 高亮首格会被 #f7f7f8 / #202021 盖掉 */
+:global(.markdown) .bvrTable tr:nth-child(2n) td:first-child {
+  background: transparent;
+}
+
+[data-theme='dark'] :global(.markdown) .bvrTable th,
+[data-theme='dark'] :global(.markdown) .bvrTable th:first-child {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* 暗色奇数行首列：custom.css 的 (0,3,2) 规则会压过上面的 (0,3,1) 还原，
+   必须显式加 [data-theme='dark'] 提到 (0,4,1) */
+[data-theme='dark'] :global(.markdown) .bvrTable td:first-child {
+  background: transparent;
+}
+
+[data-theme='dark'] :global(.markdown) .bvrTable tr:nth-child(2n) td:first-child {
+  background: transparent;
+}
+
 .bvrRowActive {
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+/* 暗色下 custom.css 的 [data-theme=dark] table tr:nth-child(2n) 斑马纹是 (0,2,2)
+   （:nth-child 也占 class 位），会压过 .bvrRowActive 的 (0,1,0)，active 行高亮
+   在暗色偶数行消失；加 [data-theme='dark'] 提到 (0,3,0) */
+.bvrTable .bvrRowActive {
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+[data-theme='dark'] .bvrTable .bvrRowActive {
   background: rgba(var(--ifm-color-primary-rgb), 0.1);
 }
 

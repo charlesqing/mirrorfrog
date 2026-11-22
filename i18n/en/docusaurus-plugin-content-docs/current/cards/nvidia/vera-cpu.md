@@ -108,6 +108,14 @@ Vera CPU is designed for the **AI era**, suitable for:
 - Data analytics and storage
 - Enterprise workloads and HPC
 
+## 2026-11-19 update: Vera CPU rack gets an early-2027 date
+
+The Vera CPU rack shown at SC26 now has a configuration and a date: liquid-cooled, 192 Vera CPUs, about 300 TB of memory, 1 PB of storage and over 200 TB/s of aggregate peak memory bandwidth. Dell, HPE, Lenovo and Supermicro plan availability in early 2027. That is more than a year ahead of Rubin HPC, making it the part NVIDIA can actually deliver to HPC buyers first.
+
+The vendor showed one OpenFOAM comparison: 1.9x the performance of x86 systems and 2.4x the performance per watt. That is an NVIDIA test of a single application, and OpenFOAM covers only one class of fluid simulation, so it does not generalize. The earnings call also named CoreWeave, Meta, Nebius, Nscale, OpenAI and Verda as Vera CPU users, alongside AWS, OCI and SpaceXSI.
+
+> Sourcing note: configurations and timing are vendor announcements; the OpenFOAM multiples are NVIDIA tests without full published conditions. None of this is added to the spec table.
+
 ## References
 
 - [NVIDIA Official Vera CPU Page](https://www.nvidia.cn/data-center/vera-cpu/)

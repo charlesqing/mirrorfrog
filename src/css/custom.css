@@ -83,11 +83,13 @@
 
 /* ---------- Sticky table header & first column（宽表横滚时保持定位） ---------- */
 /* 表格不溢出时 sticky 无视觉效果，因此可安全作用于全站 markdown 表格 */
+/* 注意：Infima 浅色主题的 --ifm-background-color 是 transparent，sticky 单元格
+   必须给不透明底色，否则滚动行会透过钉住的表头显示（2026-11-21 用户截图实锤） */
 .markdown table th {
   position: sticky;
   top: var(--ifm-navbar-height, 60px);
   z-index: 2;
-  background: var(--ifm-background-color);
+  background: #fff;
 }
 
 .markdown table td:first-child,
@@ -95,7 +97,17 @@
   position: sticky;
   left: 0;
   z-index: 1;
-  background: var(--ifm-background-color);
+  background: #fff;
+}
+
+/* 斑马纹偶数行（rgba(0,0,0,.03) 叠白底 = #f7f7f8）的首列同步配色，
+   否则 sticky 首列的白底会盖掉行条纹；dark 主题同理（rgba(255,255,255,.02) 叠 #1b1b1d = #202021） */
+.markdown table tr:nth-child(2n) td:first-child {
+  background: #f7f7f8;
+}
+
+[data-theme='dark'] .markdown table tr:nth-child(2n) td:first-child {
+  background: #202021;
 }
 
 .markdown table th:first-child {
