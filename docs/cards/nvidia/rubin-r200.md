@@ -157,7 +157,7 @@ NVIDIA 在 v6.1 预览材料里另称，指定 Qwen3 VL 负载下 Vera Rubin NVL
 
 ## 2026-11-19 补充：首季近 200 亿美元，和「最快爬坡」的另一面
 
-11 月 18 日发布的 FY2027 Q3 财报（截至 10 月 25 日）第一次把 Vera Rubin 的收入摊开：公司总营收 1158 亿美元、同比增 103%，数据中心 1076 亿美元、同比增 110%；其中 Rubin 平台在量产出货的首个季度贡献近 200 亿美元，约占数据中心收入的 18%。官方称这是公司历史上最快的产品爬坡。机柜已在 CoreWeave、Google Cloud、Microsoft Azure、Oracle Cloud 和 Nebius 运行，Google Cloud 的 A5X 实例与 OCI 的 NVL72 系统均已 GA。
+11 月 17 日发布的 FY2027 Q3 财报（截至 10 月 25 日）第一次把 Vera Rubin 的收入摊开：公司总营收 1158 亿美元、同比增 103%，数据中心 1076 亿美元、同比增 110%；其中 Rubin 平台在量产出货的首个季度贡献近 200 亿美元，约占数据中心收入的 18%。官方称这是公司历史上最快的产品爬坡。机柜已在 CoreWeave、Google Cloud、Microsoft Azure、Oracle Cloud 和 Nebius 运行，Google Cloud 的 A5X 实例与 OCI 的 NVL72 系统均已 GA。
 
 电话会补了两条和采购更相关的数：Token 价格自 5 月以来跌了近 60%，但跨代 GPU 租金在涨——Hopper 在多年协议里重签到最高原价的两倍，B300 的租金自推出以来涨超 60%，GPU 利用率仍是满的。调用单价下降和算力变紧并不矛盾，前者是模型效率与竞争的结果，后者是供给约束。
 

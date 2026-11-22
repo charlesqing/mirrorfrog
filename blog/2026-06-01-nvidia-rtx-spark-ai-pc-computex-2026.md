@@ -9,7 +9,7 @@ description: NVIDIA 在 Computex 2026 正式发布 RTX Spark，20 核 Grace CPU 
 
 # NVIDIA 发布 RTX Spark：AI 算力进入个人电脑时代
 
-**2026 年 6 月 1 日，中国台北** —— 在 Computex 2026 开幕主题演讲中，NVIDIA CEO 黄仁勋正式发布了 **RTX Spark** 超级芯片，标志着 NVIDIA 正式进入由 Intel、AMD、Qualcomm 和 Apple 主导的个人电脑处理器市场。
+**2026 年 6 月 1 日，中国台北** —— 在 Computex 2026 开幕主题演讲中，NVIDIA CEO 黄仁勋正式发布了 **RTX Spark** 超级芯片，NVIDIA 由此正式进入由 Intel、AMD、Qualcomm 和 Apple 主导的个人电脑处理器市场。
 
 ## RTX Spark：个人 AI 计算机的"心脏"
 

@@ -139,7 +139,7 @@ Rubin HPC is not the Rubin R200 on this page. R200 is an AI training and inferen
 
 ## 2026-11-19 update: nearly $20B in the first quarter, and the other side of the fastest ramp
 
-The FY2027 Q3 results published on November 18 (quarter ended October 25) finally broke out Vera Rubin revenue. Total revenue was $115.8B, up 103% year over year; data center revenue was $107.6B, up 110%. The Rubin platform contributed nearly $20B in its first quarter of production shipments, about 18% of data center revenue, which the company calls its fastest product ramp ever. Racks are running at CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud and Nebius; Google Cloud's A5X instances and OCI's NVL72 systems are generally available.
+The FY2027 Q3 results published on November 17 (quarter ended October 25) finally broke out Vera Rubin revenue. Total revenue was $115.8B, up 103% year over year; data center revenue was $107.6B, up 110%. The Rubin platform contributed nearly $20B in its first quarter of production shipments, about 18% of data center revenue, which the company calls its fastest product ramp ever. Racks are running at CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud and Nebius; Google Cloud's A5X instances and OCI's NVL72 systems are generally available.
 
 The earnings call added two numbers that matter more to buyers. Token prices have fallen nearly 60% since May, while GPU rental rates across generations are rising: Hopper GPUs have recontracted at up to twice their original price under multi-year agreements, and B300 rates are up more than 60% since introduction. Utilization remains full. Cheaper calls and tighter supply are not contradictions; the first comes from model efficiency and competition, the second from physical constraints.
 

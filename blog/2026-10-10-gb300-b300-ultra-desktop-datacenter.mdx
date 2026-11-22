@@ -52,7 +52,7 @@ B300 Ultra（Blackwell Ultra）是 Blackwell 的中期升级版本，2026 年 1 
 | 机柜 TDP | 约 120kW（含冷却） |
 | 价格 | 约 330 万美元/机柜 |
 
-ConnectX-9 是这代机柜的隐性升级：单端口 1.6 Tb/s 相比 ConnectX-8 翻倍，延迟低于 0.5 微秒，支持 NVLink over IB 跨机柜互联。8 个机柜可组成 NVL576 域——576 颗 B300 Ultra 共享 130 TB/s 互联，是业界最大单一 NVLink 域，对万亿参数 LLM 训练至关重要。云端租用方面，行业口径（Nebius）B300 的租用价格约为 9.50 美元/GPU 小时，站内芯片数据库另记录 AWS 8 卡 B300 实例（p6-b200.48xlarge）单 GPU 小时价 11.70 美元，不同供应商价差明显。
+ConnectX-9 是这代机柜的隐性升级：单端口 1.6 Tb/s 相比 ConnectX-8 翻倍，延迟低于 0.5 微秒，支持 NVLink over IB 跨机柜互联。8 个机柜可组成 NVL576 域——576 颗 B300 Ultra 共享 130 TB/s 互联，是业界最大单一 NVLink 域，对万亿参数 LLM 训练是刚需。云端租用方面，行业口径（Nebius）B300 的租用价格约为 9.50 美元/GPU 小时，站内芯片数据库另记录 AWS 8 卡 B300 实例（p6-b200.48xlarge）单 GPU 小时价 11.70 美元，不同供应商价差明显。
 
 在 token 成本维度，站内数据给出了关键洞察：B300 单价虽高，但以 Llama 70B 推理测算，FP4 量化下单 token 成本相比 H100 低约 61%——单价高不等于用得贵。
 
