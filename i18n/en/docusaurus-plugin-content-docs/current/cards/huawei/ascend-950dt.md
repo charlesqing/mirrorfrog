@@ -108,6 +108,24 @@ Reuters and Bloomberg reported on September 10, 2026 that rising HBM costs were 
 
 The reported bottleneck is HBM capacity rather than logic dies: domestic HBM output is described as sufficient for only about 250,000-300,000 finished accelerators against a much larger logic-die capacity. The 950 series uses Huawei in-house memory — HiBL 1.0 on 950PR and HiZQ 2.0 on 950DT — with no disclosed manufacturer. Huawei public timeline still points to a Q4 2026 launch. Pricing above 250,000 yuan puts the domestic flagship near NVIDIA B200 territory, shifting the pricing logic from a discount alternative to a scarcity premium.
 
+## November 2026 Update: First Commercial Deployment in Shantou
+
+On November 13, China's first Ascend 950DT "token export" compute cluster went live in Shantou: China Telecom's Shantou branch provides the submarine-cable landing station and facility base, Huawei supplies the equipment, and Tianyima (301178) invests, builds and operates. Compute is generated in Shantou and sold overseas as token services via the cable landing point, targeting Southeast Asian markets — the product is tokens, not servers.
+
+Actual delivery timeline:
+
+| Date | Milestone |
+|------|------|
+| Sep 24 | Huawei and Tianyima sign the agreement |
+| Oct 19 | First Atlas 650E servers (8× 950DT each) racked and powered, ~25 days after signing |
+| Oct 29 | Briefing: first batch of 16 chips still in debugging, networking and model deployment; market launch planned for end of November |
+| Nov 13 | Lighting ceremony — China's first 950DT token-export cluster |
+| Nov 17 | Tianyima's official WeChat: the 950 room enters "large-scale commercial use" |
+
+The actual current scale is a **first batch of 16 chips** in small-volume real-load validation. Tianyima's No.1 token factory has a first-phase plan of 2000P (targeted within the year) and a No.2 factory is signed — plan figures and installed capacity should not be conflated. Official accounts put Shantou's daily token calls at 100 million in April rising to 100 billion, with registered overseas demand of about 3 trillion tokens per day — registered demand is not paid usage.
+
+This is the first time 950DT serves real cross-border inference workloads: the specs (FP8 1P / FP4 2P, 144GB, 4 TB/s, Prefill/Decode separation) must now prove themselves under paying-customer SLAs — the test is the software stack, operator library and cross-border compliance, not benchmarks.
+
 ## Pricing and TCO
 
 Reported 950DT quotes have exceeded 250,000 yuan with 20-50% increases tied to HBM supply. Use the [TCO calculator](/docs/tco-calculator) with actual power draw, utilization and electricity rates, and compare against B300 Ultra and MI355X in the [full comparison table](/docs/comparison).

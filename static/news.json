@@ -1,5 +1,50 @@
 [
   {
+    "title": "两张超节点集采单，和 950DT 的第一次真实商用",
+    "date": "2026-11-25",
+    "slug": "carrier-supernode-tenders-950dt-shantou",
+    "url": "/blog/carrier-supernode-tenders-950dt-shantou",
+    "description": "中国移动两批超节点集采累计 7.26 万卡、中国电信 N 系列限价 257.88 亿元；同期全国首个昇腾 950DT 词元出海集群在汕头点亮。运营商在按卡买和按台买之间选了不同的风控逻辑，950DT 的首批规模则是 16 张卡。",
+    "tags": [
+      "news",
+      "ascend",
+      "huawei",
+      "domestic-chips",
+      "ai-infrastructure",
+      "procurement",
+      "domestic-compute"
+    ]
+  },
+  {
+    "title": "黄仁勋 11 天去而复返：买算力的人该看什么",
+    "date": "2026-11-25",
+    "slug": "huang-return-11-days-buyers-watchlist",
+    "url": "/blog/huang-return-11-days-buyers-watchlist",
+    "description": "11 月 12 日辞职、11 月 23 日全票复职，英伟达股价单日 +31.48%。复职解决了路线图连续性问题，但独立调查、SEC 会计问询、12 月 3 日国会听证都还在。采购方真正要盯的是三件事：融资口径、出口管制、Rubin 交付。",
+    "tags": [
+      "nvidia",
+      "news",
+      "strategy",
+      "ai-infrastructure",
+      "ai-compute"
+    ]
+  },
+  {
+    "title": "Rubin 放量推迟传闻：HBM4 还是 Rosalind",
+    "date": "2026-11-25",
+    "slug": "rubin-ramp-delay-hbm4-vs-rosalind",
+    "url": "/blog/rubin-ramp-delay-hbm4-vs-rosalind",
+    "description": "11 月 16 日台湾供应链传出 Vera Rubin 放量推迟至 2027 年上半年。两个候选瓶颈里，HBM4 产线满负荷按计划运行，Rosalind 交换板的 CCL 材料良率却是 10% 不到与 70-80% 之间的阶跃。英伟达未正式",
+    "tags": [
+      "nvidia",
+      "rubin",
+      "vera",
+      "hbm4",
+      "news",
+      "ai-infrastructure"
+    ]
+  },
+  {
     "title": "Token 降价 60%，GPU 租金却在涨：这份财报最反直觉的一组数",
     "date": "2026-11-19",
     "slug": "nvidia-q3-fy2027-token-price-down-gpu-rent-up",
@@ -25,49 +70,6 @@
       "benchmarks",
       "ai-infrastructure",
       "news"
-    ]
-  },
-  {
-    "title": "英伟达在 SC26 发了 5 万核心的卡，却没给一个能算的数字",
-    "date": "2026-11-17",
-    "slug": "rubin-hpc-sc26-specs-missing",
-    "url": "/blog/rubin-hpc-sc26-specs-missing",
-    "description": "Rubin HPC 官方只确认超过 5 万个 CUDA 核心、第七代 NVLink 和 2028 年上市；显存、带宽、功耗、FP64 吞吐全部空缺。媒体流传的 33 TFLOPS 不是官方数。",
-    "tags": [
-      "nvidia",
-      "rubin",
-      "GPU",
-      "news",
-      "ai-infrastructure"
-    ]
-  },
-  {
-    "title": "AMD 说快 30%，英伟达说快 3.7 倍，两边都在说自己赢",
-    "date": "2026-11-13",
-    "slug": "amd-30-percent-nvidia-3-7x-inference-benchmarks",
-    "url": "/blog/amd-30-percent-nvidia-3-7x-inference-benchmarks",
-    "description": "11 月 12 日 AMD 拿 21,333 tokens/s/GPU 对比英伟达公开 MLPerf 结果，说最高快 30%；英伟达 v6.1 预览里写的是最高 3.7 倍。数字不打架，比的东西不一样。",
-    "tags": [
-      "amd",
-      "nvidia",
-      "benchmarks",
-      "mlperf",
-      "inference"
-    ]
-  },
-  {
-    "title": "谷歌一年发了四款 TPU，其实没做新芯片",
-    "date": "2026-11-13",
-    "slug": "google-four-tpu-systems-no-new-chip",
-    "url": "/blog/google-four-tpu-systems-no-new-chip",
-    "description": "11 月 9 日 TPU 8tx 与 8i Max 发布。谷歌说清了一件事：新系统和新芯片是两回事，靠封装、内存和主机 CPU 重组，几个月就能出货。",
-    "tags": [
-      "google",
-      "tpu",
-      "tpu-8i",
-      "tpu-8t",
-      "agentic-ai",
-      "inference"
     ]
   }
 ]

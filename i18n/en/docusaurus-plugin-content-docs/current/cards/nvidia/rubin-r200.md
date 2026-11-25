@@ -147,6 +147,19 @@ Q4 guidance is $130B plus or minus 3%, with no data center compute revenue from 
 
 > Sourcing note: company results and management call commentary, not third-party audited product-level splits. The nearly $20B figure covers the Rubin platform, not a single SKU. Vera Rubin Ultra next year and Feynman in 2028 are roadmap statements. The spec table is unchanged.
 
+## 2026-11-25 update: ramp-delay rumors — HBM4 is saturated, Rosalind yield is the variable
+
+On November 16, Taiwan's supply chain reported that Vera Rubin's volume ramp (large-scale delivery) could slip from late 2026 to the first half of 2027, with GB300 filling the gap; NVIDIA has not confirmed. Distinguish this from the production start: volume production was announced in May, shipping disclosed in August, and the Q3 call confirmed NVL72 deliveries have begun.
+
+The two candidate bottlenecks point in different directions:
+
+- **HBM4: an absolute capacity ceiling, not a failure.** Both memory makers' HBM4 lines are running at 100% utilization (disclosed November 16), 12-Hi stacks ship on schedule, and Samsung's HBM4 revenue grew more than 3x quarter-over-quarter; some supply-chain voices say the HBM issue was resolved in October. NVL72 rack bandwidth had already been lowered from 1580 TB/s to 1400 TB/s (22 → 19.2 TB/s per GPU) — a design move to widen the qualified-supplier pool, not a defect.
+- **Rosalind NVLink switch board: a yield step function that can move dates.** Per media reports of SemiAnalysis research, one of Rosalind's CCL suppliers uses the S9GN2 material with under 10% yield in volume PCB processing, versus roughly 70%-80% for TUC's EM-892K2. The substrate went from 22 to 32 layers (+45.5%) in one generation, and a material switch can swing output several-fold to over tenfold. About 50% of Doosan's related capacity investment lands in 2027.
+
+Order-cut rumors circulated in parallel (up to 30% per Taiwan supply-chain chatter, tied to tighter export reviews and the Hong Kong H200 stockpile; unconfirmed by NVIDIA), with some claims that reduced 2026 Rubin orders are offset by incremental Blackwell shipments. Procurement implication: the delay mainly affects the 1H2027 ramp slope; GB300 rental windows lengthen, raising the value of long-term price locks.
+
+> Sourcing note: ramp delay and order cuts are supply-chain rumors, unconfirmed by the company; the S9GN2 yield figure is a media-transcribed SemiAnalysis estimate, with actual yield undisclosed. The spec table is unchanged.
+
 ## References
 
 - [NVIDIA Official News](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx)
